@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "student_id": "stu_009",
+    "student_hash": "hash_d5a58a6e110a6ba5",
+    "grade_level": "Grade 8",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.485405+00:00"
+  },
+  "history": {
+    "student_hash": "hash_d5a58a6e110a6ba5",
+    "task_id": "task_0009",
+    "knowledge_point": "quadratic vertex form",
+    "total_attempts": 17,
+    "correct_count": 5,
+    "accuracy": 0.294,
+    "average_response_time": 71.49,
+    "common_error_types": [
+      "confuses horizontal shift direction",
+      "reads vertex coordinates in reverse order"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_quadratic_vertex_form_1",
+        "question_text": "For y=(x-2)^2-3, find the vertex and axis of symmetry.",
+        "wrong_error_type": "forgets axis of symmetry"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0009.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "student_hash": "hash_37265dbb490f429a",
+  "task_id": "task_0021",
+  "knowledge_point": "proportional relationship",
+  "wrong_answer_image_path": "data\\raw\\images\\task_0021.png",
+  "audio_feature_path": "data\\raw\\audio_features\\task_0021.json",
+  "emotion_signal_path": "data\\raw\\emotion_signals\\task_0021.json",
+  "handwriting_trace_path": "data\\raw\\handwriting_traces\\task_0021.json",
+  "feature_summary": {
+    "accuracy": 1.0,
+    "pause_count": 0,
+    "hesitation_score": 0.397,
+    "emotion_state": "confident",
+    "attention_level": 0.821,
+    "erase_count": 1,
+    "hesitation_segment_count": 0
+  }
+}

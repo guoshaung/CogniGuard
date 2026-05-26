@@ -1,0 +1,18 @@
+{
+  "student_hash": "hash_d5a58a6e110a6ba5",
+  "task_id": "task_0009",
+  "knowledge_point": "quadratic vertex form",
+  "wrong_answer_image_path": "data\\raw\\images\\task_0009.png",
+  "audio_feature_path": "data\\raw\\audio_features\\task_0009.json",
+  "emotion_signal_path": "data\\raw\\emotion_signals\\task_0009.json",
+  "handwriting_trace_path": "data\\raw\\handwriting_traces\\task_0009.json",
+  "feature_summary": {
+    "accuracy": 0.294,
+    "pause_count": 5,
+    "hesitation_score": 0.488,
+    "emotion_state": "anxious",
+    "attention_level": 0.494,
+    "erase_count": 2,
+    "hesitation_segment_count": 3
+  }
+}

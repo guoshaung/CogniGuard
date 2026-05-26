@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_92d4f73a795f7165",
+  "task_id": "task_0006",
+  "knowledge_point": "linear equation solving",
+  "current_error_type": "sign error when moving terms",
+  "learning_signal": "high_hesitation_with_conceptual_error",
+  "possible_cause": "symbol_direction_confusion",
+  "suggested_teaching_strategy": "micro_step_scaffold_with_error_contrast",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "linear equation solving",
+    "evidence": "high_hesitation_with_conceptual_error",
+    "requires_tpcs_approval": true
+  }
+}

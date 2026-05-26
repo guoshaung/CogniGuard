@@ -1,0 +1,219 @@
+{
+  "student_count": 30,
+  "privacy_rule": "Raw multimodal data remains under data/raw. Agents may only receive data from data/processed/profile_cards.",
+  "raw_root": "data\\raw",
+  "processed_root": "data\\processed",
+  "profile_cards_jsonl": "data\\processed\\profile_cards\\profile_cards.jsonl",
+  "rows": [
+    {
+      "student_hash": "hash_2cca0b7ffbe20198",
+      "task_id": "task_0001",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0001.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0001.json"
+    },
+    {
+      "student_hash": "hash_4eb0782b1a3cf509",
+      "task_id": "task_0002",
+      "knowledge_point": "proportional relationship",
+      "raw_history_path": "data\\raw\\history\\task_0002.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0002.json"
+    },
+    {
+      "student_hash": "hash_eefa16a0f67216c3",
+      "task_id": "task_0003",
+      "knowledge_point": "function graph interpretation",
+      "raw_history_path": "data\\raw\\history\\task_0003.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0003.json"
+    },
+    {
+      "student_hash": "hash_ef2767395cf5860f",
+      "task_id": "task_0004",
+      "knowledge_point": "fraction simplification",
+      "raw_history_path": "data\\raw\\history\\task_0004.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0004.json"
+    },
+    {
+      "student_hash": "hash_3273a6d21acf3018",
+      "task_id": "task_0005",
+      "knowledge_point": "fraction simplification",
+      "raw_history_path": "data\\raw\\history\\task_0005.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0005.json"
+    },
+    {
+      "student_hash": "hash_92d4f73a795f7165",
+      "task_id": "task_0006",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0006.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0006.json"
+    },
+    {
+      "student_hash": "hash_ec2ce206de88c9f7",
+      "task_id": "task_0007",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0007.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0007.json"
+    },
+    {
+      "student_hash": "hash_0d888b6498b39cf5",
+      "task_id": "task_0008",
+      "knowledge_point": "fraction simplification",
+      "raw_history_path": "data\\raw\\history\\task_0008.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0008.json"
+    },
+    {
+      "student_hash": "hash_d5a58a6e110a6ba5",
+      "task_id": "task_0009",
+      "knowledge_point": "quadratic vertex form",
+      "raw_history_path": "data\\raw\\history\\task_0009.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0009.json"
+    },
+    {
+      "student_hash": "hash_f8a1b53bff6e0f55",
+      "task_id": "task_0010",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0010.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0010.json"
+    },
+    {
+      "student_hash": "hash_5ab1be951cf9e59e",
+      "task_id": "task_0011",
+      "knowledge_point": "quadratic vertex form",
+      "raw_history_path": "data\\raw\\history\\task_0011.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0011.json"
+    },
+    {
+      "student_hash": "hash_d1026ceddb26dd14",
+      "task_id": "task_0012",
+      "knowledge_point": "fraction simplification",
+      "raw_history_path": "data\\raw\\history\\task_0012.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0012.json"
+    },
+    {
+      "student_hash": "hash_317055e5213f17b5",
+      "task_id": "task_0013",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0013.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0013.json"
+    },
+    {
+      "student_hash": "hash_50ef95bb05f1d40d",
+      "task_id": "task_0014",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0014.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0014.json"
+    },
+    {
+      "student_hash": "hash_4bfdd9fbda4185f9",
+      "task_id": "task_0015",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0015.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0015.json"
+    },
+    {
+      "student_hash": "hash_c98a43e7486682f1",
+      "task_id": "task_0016",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0016.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0016.json"
+    },
+    {
+      "student_hash": "hash_d893b93952cc309b",
+      "task_id": "task_0017",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0017.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0017.json"
+    },
+    {
+      "student_hash": "hash_9f2760fc38c82c38",
+      "task_id": "task_0018",
+      "knowledge_point": "function graph interpretation",
+      "raw_history_path": "data\\raw\\history\\task_0018.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0018.json"
+    },
+    {
+      "student_hash": "hash_f99c61fe78b7a15d",
+      "task_id": "task_0019",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0019.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0019.json"
+    },
+    {
+      "student_hash": "hash_842075e51e6bf934",
+      "task_id": "task_0020",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0020.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0020.json"
+    },
+    {
+      "student_hash": "hash_37265dbb490f429a",
+      "task_id": "task_0021",
+      "knowledge_point": "proportional relationship",
+      "raw_history_path": "data\\raw\\history\\task_0021.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0021.json"
+    },
+    {
+      "student_hash": "hash_deab0c5060511067",
+      "task_id": "task_0022",
+      "knowledge_point": "proportional relationship",
+      "raw_history_path": "data\\raw\\history\\task_0022.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0022.json"
+    },
+    {
+      "student_hash": "hash_9a035b9d2ccd41d1",
+      "task_id": "task_0023",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0023.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0023.json"
+    },
+    {
+      "student_hash": "hash_d82e7aa1c4141ea4",
+      "task_id": "task_0024",
+      "knowledge_point": "quadratic vertex form",
+      "raw_history_path": "data\\raw\\history\\task_0024.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0024.json"
+    },
+    {
+      "student_hash": "hash_3eb8a9dcf60f4cb2",
+      "task_id": "task_0025",
+      "knowledge_point": "fraction simplification",
+      "raw_history_path": "data\\raw\\history\\task_0025.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0025.json"
+    },
+    {
+      "student_hash": "hash_1beeb5aefed6f312",
+      "task_id": "task_0026",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0026.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0026.json"
+    },
+    {
+      "student_hash": "hash_a9ac4825e4474ce0",
+      "task_id": "task_0027",
+      "knowledge_point": "proportional relationship",
+      "raw_history_path": "data\\raw\\history\\task_0027.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0027.json"
+    },
+    {
+      "student_hash": "hash_413a2c22c6244e48",
+      "task_id": "task_0028",
+      "knowledge_point": "arithmetic sequence",
+      "raw_history_path": "data\\raw\\history\\task_0028.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0028.json"
+    },
+    {
+      "student_hash": "hash_fbd4d1b2f6e55038",
+      "task_id": "task_0029",
+      "knowledge_point": "linear equation solving",
+      "raw_history_path": "data\\raw\\history\\task_0029.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0029.json"
+    },
+    {
+      "student_hash": "hash_5e0d54e92dfd2480",
+      "task_id": "task_0030",
+      "knowledge_point": "function graph interpretation",
+      "raw_history_path": "data\\raw\\history\\task_0030.json",
+      "profile_card_path": "data\\processed\\profile_cards\\task_0030.json"
+    }
+  ]
+}

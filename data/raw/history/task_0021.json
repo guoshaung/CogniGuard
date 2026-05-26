@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "student_id": "stu_021",
+    "student_hash": "hash_37265dbb490f429a",
+    "grade_level": "Grade 7",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.656220+00:00"
+  },
+  "history": {
+    "student_hash": "hash_37265dbb490f429a",
+    "task_id": "task_0021",
+    "knowledge_point": "proportional relationship",
+    "total_attempts": 6,
+    "correct_count": 6,
+    "accuracy": 1.0,
+    "average_response_time": 109.35,
+    "common_error_types": [
+      "forgets unit consistency",
+      "confuses ratio with difference"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_proportional_relationship_1",
+        "question_text": "If 4 notebooks cost 12 yuan, how much do 7 notebooks cost?",
+        "wrong_error_type": "forgets unit consistency"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0021.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

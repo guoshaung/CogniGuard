@@ -1,0 +1,18 @@
+{
+  "student_hash": "hash_ef2767395cf5860f",
+  "task_id": "task_0004",
+  "knowledge_point": "fraction simplification",
+  "wrong_answer_image_path": "data\\raw\\images\\task_0004.png",
+  "audio_feature_path": "data\\raw\\audio_features\\task_0004.json",
+  "emotion_signal_path": "data\\raw\\emotion_signals\\task_0004.json",
+  "handwriting_trace_path": "data\\raw\\handwriting_traces\\task_0004.json",
+  "feature_summary": {
+    "accuracy": 0.286,
+    "pause_count": 5,
+    "hesitation_score": 0.592,
+    "emotion_state": "anxious",
+    "attention_level": 0.51,
+    "erase_count": 2,
+    "hesitation_segment_count": 4
+  }
+}

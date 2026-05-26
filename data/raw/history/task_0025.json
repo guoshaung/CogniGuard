@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "student_id": "stu_025",
+    "student_hash": "hash_3eb8a9dcf60f4cb2",
+    "grade_level": "Grade 7",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.715740+00:00"
+  },
+  "history": {
+    "student_hash": "hash_3eb8a9dcf60f4cb2",
+    "task_id": "task_0025",
+    "knowledge_point": "fraction simplification",
+    "total_attempts": 22,
+    "correct_count": 19,
+    "accuracy": 0.864,
+    "average_response_time": 23.92,
+    "common_error_types": [
+      "adds denominators directly",
+      "misses common factor"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_fraction_simplification_1",
+        "question_text": "Simplify 6/8 and explain why the value stays equivalent.",
+        "wrong_error_type": "reduces only numerator"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0025.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

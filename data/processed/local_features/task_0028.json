@@ -1,0 +1,18 @@
+{
+  "student_hash": "hash_413a2c22c6244e48",
+  "task_id": "task_0028",
+  "knowledge_point": "arithmetic sequence",
+  "wrong_answer_image_path": "data\\raw\\images\\task_0028.png",
+  "audio_feature_path": "data\\raw\\audio_features\\task_0028.json",
+  "emotion_signal_path": "data\\raw\\emotion_signals\\task_0028.json",
+  "handwriting_trace_path": "data\\raw\\handwriting_traces\\task_0028.json",
+  "feature_summary": {
+    "accuracy": 0.417,
+    "pause_count": 4,
+    "hesitation_score": 0.348,
+    "emotion_state": "confused",
+    "attention_level": 0.587,
+    "erase_count": 2,
+    "hesitation_segment_count": 4
+  }
+}

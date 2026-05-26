@@ -1,0 +1,18 @@
+{
+  "student_hash": "hash_fbd4d1b2f6e55038",
+  "task_id": "task_0029",
+  "knowledge_point": "linear equation solving",
+  "wrong_answer_image_path": "data\\raw\\images\\task_0029.png",
+  "audio_feature_path": "data\\raw\\audio_features\\task_0029.json",
+  "emotion_signal_path": "data\\raw\\emotion_signals\\task_0029.json",
+  "handwriting_trace_path": "data\\raw\\handwriting_traces\\task_0029.json",
+  "feature_summary": {
+    "accuracy": 0.095,
+    "pause_count": 7,
+    "hesitation_score": 0.671,
+    "emotion_state": "anxious",
+    "attention_level": 0.594,
+    "erase_count": 3,
+    "hesitation_segment_count": 3
+  }
+}

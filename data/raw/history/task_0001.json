@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "student_id": "stu_001",
+    "student_hash": "hash_2cca0b7ffbe20198",
+    "grade_level": "Grade 8",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.353365+00:00"
+  },
+  "history": {
+    "student_hash": "hash_2cca0b7ffbe20198",
+    "task_id": "task_0001",
+    "knowledge_point": "arithmetic sequence",
+    "total_attempts": 14,
+    "correct_count": 14,
+    "accuracy": 1.0,
+    "average_response_time": 79.07,
+    "common_error_types": [
+      "confuses common difference and first term"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_arithmetic_sequence_1",
+        "question_text": "For a1=3 and d=2, find a10.",
+        "wrong_error_type": "uses n instead of n minus one"
+      },
+      {
+        "question_id": "q_arithmetic_sequence_2",
+        "question_text": "For a1=3 and d=2, find a10.",
+        "wrong_error_type": "uses n instead of n minus one"
+      },
+      {
+        "question_id": "q_arithmetic_sequence_3",
+        "question_text": "For a1=3 and d=2, find a10.",
+        "wrong_error_type": "uses n instead of n minus one"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0001.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

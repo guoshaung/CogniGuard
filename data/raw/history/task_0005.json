@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "student_id": "stu_005",
+    "student_hash": "hash_3273a6d21acf3018",
+    "grade_level": "Grade 8",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.424270+00:00"
+  },
+  "history": {
+    "student_hash": "hash_3273a6d21acf3018",
+    "task_id": "task_0005",
+    "knowledge_point": "fraction simplification",
+    "total_attempts": 12,
+    "correct_count": 11,
+    "accuracy": 0.917,
+    "average_response_time": 122.22,
+    "common_error_types": [
+      "misses common factor"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_fraction_simplification_1",
+        "question_text": "Simplify 6/8 and explain why the value stays equivalent.",
+        "wrong_error_type": "adds denominators directly"
+      },
+      {
+        "question_id": "q_fraction_simplification_2",
+        "question_text": "Simplify 6/8 and explain why the value stays equivalent.",
+        "wrong_error_type": "adds denominators directly"
+      },
+      {
+        "question_id": "q_fraction_simplification_3",
+        "question_text": "Simplify 6/8 and explain why the value stays equivalent.",
+        "wrong_error_type": "reduces only numerator"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0005.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

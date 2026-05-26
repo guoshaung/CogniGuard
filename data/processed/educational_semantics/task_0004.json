@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_ef2767395cf5860f",
+  "task_id": "task_0004",
+  "knowledge_point": "fraction simplification",
+  "current_error_type": "misses common factor",
+  "learning_signal": "high_hesitation_with_conceptual_error",
+  "possible_cause": "working_memory_load_and_rule_selection_difficulty",
+  "suggested_teaching_strategy": "micro_step_scaffold_with_error_contrast",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "fraction simplification",
+    "evidence": "high_hesitation_with_conceptual_error",
+    "requires_tpcs_approval": true
+  }
+}

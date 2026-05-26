@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_37265dbb490f429a",
+  "task_id": "task_0021",
+  "knowledge_point": "proportional relationship",
+  "current_error_type": "forgets unit consistency",
+  "learning_signal": "stable_mastery_signal",
+  "possible_cause": "incomplete_transfer_to_new_problem",
+  "suggested_teaching_strategy": "brief_confirmation_then_extension_question",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "proportional relationship",
+    "evidence": "stable_mastery_signal",
+    "requires_tpcs_approval": true
+  }
+}

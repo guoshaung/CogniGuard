@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_ec2ce206de88c9f7",
+  "task_id": "task_0007",
+  "knowledge_point": "linear equation solving",
+  "current_error_type": "sign error when moving terms",
+  "learning_signal": "partial_understanding_needs_scaffold",
+  "possible_cause": "symbol_direction_confusion",
+  "suggested_teaching_strategy": "guided_practice_with_targeted_hint",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "linear equation solving",
+    "evidence": "partial_understanding_needs_scaffold",
+    "requires_tpcs_approval": true
+  }
+}

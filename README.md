@@ -10,11 +10,40 @@ CogniGuard is a minimum runnable demo for a multi-agent personalized education p
 
 ## Project Layout
 
+- `backend/app/agents/`: protected LLM tutoring agent layer with TPCS-mediated communication.
 - `fopd_c2rag_mvp/`: minimum demo for profile minimization, copyright-aware retrieval, multi-agent orchestration, metrics, and tests.
 - `hsw_st_minimal/`: minimum implementation of hybrid semantic-aware watermarking and source tracing.
 - `requirements.txt`: root convenience requirements file that points to the HSW-ST dependencies.
 
+## LLM Agent Configuration
+
+The backend agent layer can use MiniMax through its OpenAI-compatible chat API. Keep real keys out of git and configure them through environment variables or a local `.env` file:
+
+```bash
+MINIMAX_API_KEY=your_minimax_api_key_here
+MINIMAX_BASE_URL=https://api.minimaxi.com/v1
+MINIMAX_MODEL=MiniMax-M2.7
+```
+
+If no `MINIMAX_API_KEY` is present, the agents run with deterministic fallback outputs for local demos and tests.
+
 ## Quick Start
+
+Generate synthetic multimodal student data:
+
+```bash
+python scripts/generate_synthetic_multimodal_data.py --student-count 30
+```
+
+The generator writes raw multimodal artifacts to `data/raw/` and MM-FOPD-safe context cards to `data/processed/profile_cards/`. Agent code should only consume the profile cards.
+
+Run the protected tutoring pipeline demo:
+
+```bash
+python -m backend.app.demo.run_demo --case-index 0
+```
+
+The demo keeps the top-level architecture as three protection layers plus horizontal TPCS governance; the four LLM agents run only as controlled tutoring nodes.
 
 Run the FOPD + C2-RAG demo:
 

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "student_id": "stu_029",
+    "student_hash": "hash_fbd4d1b2f6e55038",
+    "grade_level": "Grade 7",
+    "subject": "mathematics",
+    "created_time": "2026-05-26T11:11:52.775685+00:00"
+  },
+  "history": {
+    "student_hash": "hash_fbd4d1b2f6e55038",
+    "task_id": "task_0029",
+    "knowledge_point": "linear equation solving",
+    "total_attempts": 21,
+    "correct_count": 2,
+    "accuracy": 0.095,
+    "average_response_time": 56.46,
+    "common_error_types": [
+      "divides by coefficient too early",
+      "sign error when moving terms"
+    ],
+    "recent_wrong_questions": [
+      {
+        "question_id": "q_linear_equation_solving_1",
+        "question_text": "Solve 3x+5=20 and explain each step.",
+        "wrong_error_type": "does not preserve equation balance"
+      }
+    ]
+  },
+  "wrong_answer_image": {
+    "image_path": "data\\raw\\images\\task_0029.png",
+    "exposure_rule": "raw_image_path_only; agents must not receive image bytes"
+  }
+}

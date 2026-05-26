@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_f8a1b53bff6e0f55",
+  "task_id": "task_0010",
+  "knowledge_point": "arithmetic sequence",
+  "current_error_type": "arithmetic slip in substitution",
+  "learning_signal": "partial_understanding_needs_scaffold",
+  "possible_cause": "incomplete_transfer_to_new_problem",
+  "suggested_teaching_strategy": "guided_practice_with_targeted_hint",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "arithmetic sequence",
+    "evidence": "partial_understanding_needs_scaffold",
+    "requires_tpcs_approval": true
+  }
+}

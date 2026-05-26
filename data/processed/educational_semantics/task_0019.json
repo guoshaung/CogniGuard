@@ -1,0 +1,15 @@
+{
+  "student_hash": "hash_f99c61fe78b7a15d",
+  "task_id": "task_0019",
+  "knowledge_point": "linear equation solving",
+  "current_error_type": "does not preserve equation balance",
+  "learning_signal": "high_hesitation_with_conceptual_error",
+  "possible_cause": "procedure_rule_not_internalized",
+  "suggested_teaching_strategy": "micro_step_scaffold_with_error_contrast",
+  "profile_update_candidate": {
+    "candidate_type": "short_term_learning_evidence",
+    "knowledge_point": "linear equation solving",
+    "evidence": "high_hesitation_with_conceptual_error",
+    "requires_tpcs_approval": true
+  }
+}
