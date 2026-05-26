@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and local agent state
+.idea/
+.vscode/
+.sixth/
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+
+# Generated experiment artifacts
+outputs/
+**/outputs/
+
+# Model and dataset caches
+.cache/
+models/
+checkpoints/
+*.pt
+*.pth
+*.safetensors
+
+# OS files
+.DS_Store
+Thumbs.db

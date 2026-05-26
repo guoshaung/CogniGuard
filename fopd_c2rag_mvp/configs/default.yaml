@@ -1,0 +1,52 @@
+fopd:
+  top_k_profile_records: 3
+  relevance_threshold: 0.15
+  sensitivity_threshold: 0.70
+  weights:
+    rel: 0.50
+    tag: 0.25
+    confidence: 0.15
+    recency: 0.10
+    sens_gate: 0.20
+
+c2rag:
+  top_k_resources: 3
+  exposure_decay: 1.0
+  high_copyright_threshold: 0.70
+  quote_copyright_threshold: 0.35
+  recent_window: 5
+  thresholds:
+    quote: 0.15
+    summary: 0.30
+    outline: 0.45
+    variant: 0.60
+  score_weights:
+    rel: 0.45
+    fit: 0.20
+    pedfit: 0.10
+    copyright: 0.15
+    exposure: 0.20
+    focus: 0.10
+  exposure_weights:
+    lcs: 0.35
+    ngram: 0.25
+    sem: 0.30
+    focus: 0.10
+
+variant:
+  max_lcs_ratio: 0.45
+  max_surface_sim: 0.65
+  numeric_shift_min: 1
+  numeric_shift_max: 5
+
+paths:
+  output_dir: outputs
+
+llm:
+  enabled: true
+  provider: ollama
+  model: qwen2.5:7b
+  base_url: http://127.0.0.1:11434
+  timeout_seconds: 120
+  temperature: 0.2
+  num_predict: 256

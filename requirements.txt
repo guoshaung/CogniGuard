@@ -1,0 +1,2 @@
+# Run from the CogniGuard root with: pip install -r requirements.txt
+-r hsw_st_minimal/requirements.txt

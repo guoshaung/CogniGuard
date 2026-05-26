@@ -1,0 +1,51 @@
+model:
+  provider: "huggingface"
+  local_model_name: "unsloth/Qwen3-14B-unsloth-bnb-4bit"
+  device: "cuda"
+  dtype: "float16"
+  max_new_tokens: 192
+  rewrite_max_new_tokens: 140
+  temperature: 0.7
+  rewrite_temperature: 0.26
+  repetition_penalty: 1.06
+  top_p: 0.9
+  openai_base_url: "https://api.deepseek.com"
+  openai_api_key: ""
+  openai_model: "deepseek-chat"
+
+watermark:
+  key: "demo_secret_key"
+  key_id: "key_default"
+  gamma: 0.25
+  delta: 1.75
+  window_size: 4
+  z_threshold: 2.85
+  local_window_tokens: 80
+  local_window_stride: 20
+
+data:
+  dataset_path: "data/sample_edu_dataset.jsonl"
+  teacher_resources_path: "data/teacher_resources.jsonl"
+  clean_baseline_path: "data/clean_baseline.jsonl"
+  terms_path: "data/protected_terms_math.txt"
+  num_samples: 50
+  num_clean_baselines: 30
+  subject: "math"
+  random_seed: 42
+
+experiment:
+  run_attacks: true
+  use_sentence_embedding: false
+  save_intermediate: true
+  random_seed: 42
+  ablation: "full"
+  content_fidelity:
+    enabled: true
+    max_attempts: 5
+    max_draft_similarity: 0.985
+    min_term_coverage: 1.0
+    fallback_to_draft_on_drift: true
+
+paths:
+  output_dir: "outputs"
+  output_run_subdir: true
