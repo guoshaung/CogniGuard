@@ -60,6 +60,23 @@ def test_dashboard_metrics_endpoint(api_base_url: str) -> None:
         assert 0 <= payload[key] <= 1
 
 
+def test_runtime_status_endpoint(api_base_url: str) -> None:
+    payload = _get_json(api_base_url, "/api/runtime/status")
+
+    required = {
+        "runtime_mode",
+        "llm_provider",
+        "api_key_loaded",
+        "nemo_guardrails_enabled",
+        "fallback_reason",
+        "agent_call_mode",
+    }
+    assert required <= set(payload)
+    assert payload["runtime_mode"] in {"mock", "llm", "guarded_llm"}
+    assert payload["llm_provider"] == "MiniMax"
+    assert payload["agent_call_mode"] in {"deterministic_fallback", "real_llm"}
+
+
 def test_demo_workflow_endpoint(api_base_url: str) -> None:
     payload = _get_json(api_base_url, "/api/demo/workflow")
     steps = payload["steps"]
@@ -78,6 +95,49 @@ def test_demo_workflow_endpoint(api_base_url: str) -> None:
     assert all(required <= set(step) for step in steps)
     assert any("MM-FOPD" in step["related_protection_layer"] for step in steps)
     assert any("HSW-ST" in step["related_protection_layer"] for step in steps)
+
+
+def test_run_case_returns_new_protected_multi_agent_round(api_base_url: str) -> None:
+    first = _get_json(api_base_url, "/api/run-case?index=0&t=1")
+    second = _get_json(api_base_url, "/api/run-case?index=0&t=2")
+
+    assert first["round_id"] != second["round_id"]
+    required = {
+        "round_id",
+        "runtime_status",
+        "workflow_steps",
+        "agent_outputs",
+        "communication_logs",
+        "protection_logs",
+        "final_protected_teaching_answer",
+        "audit_trace",
+    }
+    assert required <= set(first)
+    assert first["workflow_steps"]
+    step_required = {
+        "step_id",
+        "step_name",
+        "layer",
+        "input_summary",
+        "output_summary",
+        "tpcs_decision",
+        "nemo_decision",
+        "risk_score",
+        "timestamp",
+    }
+    assert all(step_required <= set(step) for step in first["workflow_steps"])
+    assert all(
+        step["tpcs_decision"] in {"allow", "sanitize", "degrade", "refuse"}
+        for step in first["workflow_steps"]
+    )
+    assert all(
+        step["nemo_decision"] in {"not_enabled", "allow", "block", "rewrite"}
+        for step in first["workflow_steps"]
+    )
+    assert {"mm_fopd", "c2_rag", "hsw_st", "tpcs", "nemo_guardrails"} <= set(
+        first["protection_logs"]
+    )
+    assert first["communication_logs"]
 
 
 def test_mm_fopd_cases_endpoint_does_not_expose_raw_payloads(api_base_url: str) -> None:

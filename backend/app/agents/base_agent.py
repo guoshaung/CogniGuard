@@ -67,14 +67,29 @@ class BaseAgent(ABC):
     def log_agent_call(
         self, input_summary: dict[str, Any] | str, output_summary: dict[str, Any] | str
     ) -> dict[str, Any]:
+        meta = getattr(self, "last_call_metadata", None)
+        if meta is None:
+            meta = {
+                "prompt": "Mock System Prompt\n\nPayload:\n" + (input_summary if isinstance(input_summary, str) else json.dumps(input_summary, ensure_ascii=False)),
+                "sanitized_prompt": "Mock System Prompt\n\nPayload:\n" + (input_summary if isinstance(input_summary, str) else json.dumps(input_summary, ensure_ascii=False)),
+                "raw_response": output_summary if isinstance(output_summary, str) else json.dumps(output_summary, ensure_ascii=False),
+                "parsed_output": output_summary if isinstance(output_summary, dict) else {},
+                "fallback_or_real_llm": "real_llm" if getattr(self, "c2rag_service", None) is not None else "fallback"
+            }
         entry = {
             "agent_id": self.agent_id,
             "agent_name": self.agent_name,
             "timestamp": utc_now_iso(),
             "input_summary": input_summary,
             "output_summary": output_summary,
+            "llm_prompt": meta.get("prompt"),
+            "sanitized_prompt": meta.get("sanitized_prompt"),
+            "llm_response": meta.get("raw_response"),
+            "parsed_output": meta.get("parsed_output"),
+            "fallback_or_real_llm": meta.get("fallback_or_real_llm"),
         }
         self.call_log.append(entry)
+        self.last_call_metadata = None
         return entry
 
     def _llm_json_or_fallback(
@@ -84,6 +99,13 @@ class BaseAgent(ABC):
         fallback: Callable[[], dict[str, Any]],
     ) -> dict[str, Any]:
         if self.llm_client is None:
+            self.last_call_metadata = {
+                "prompt": f"{system_prompt}\n\nPayload:\n{json.dumps(payload, ensure_ascii=False)}",
+                "sanitized_prompt": f"{system_prompt}\n\nPayload:\n{json.dumps(payload, ensure_ascii=False)}",
+                "raw_response": json.dumps(fallback(), ensure_ascii=False),
+                "parsed_output": fallback(),
+                "fallback_or_real_llm": "fallback"
+            }
             return fallback()
 
         prompt = (
@@ -95,8 +117,32 @@ class BaseAgent(ABC):
         try:
             raw = self._call_llm(prompt, system_prompt, payload)
             parsed = _parse_json_object(raw)
-            return parsed if isinstance(parsed, dict) else fallback()
-        except Exception:
+            if isinstance(parsed, dict):
+                self.last_call_metadata = {
+                    "prompt": prompt,
+                    "sanitized_prompt": prompt,
+                    "raw_response": raw if isinstance(raw, str) else json.dumps(raw, ensure_ascii=False),
+                    "parsed_output": parsed,
+                    "fallback_or_real_llm": "real_llm"
+                }
+                return parsed
+            else:
+                self.last_call_metadata = {
+                    "prompt": prompt,
+                    "sanitized_prompt": prompt,
+                    "raw_response": str(raw),
+                    "parsed_output": fallback(),
+                    "fallback_or_real_llm": "fallback"
+                }
+                return fallback()
+        except Exception as e:
+            self.last_call_metadata = {
+                "prompt": prompt,
+                "sanitized_prompt": prompt,
+                "raw_response": f"Error: {e}",
+                "parsed_output": fallback(),
+                "fallback_or_real_llm": "fallback"
+            }
             return fallback()
 
     def _call_llm(

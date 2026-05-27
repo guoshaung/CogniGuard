@@ -208,6 +208,65 @@
   box-shadow: var(--shadow-glow);
 }
 
+.runtime-status-banner {
+  margin: 1rem 2rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(18, 24, 39, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.runtime-status-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.runtime-status-main svg {
+  color: var(--color-blue);
+}
+
+.runtime-status-title {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.runtime-status-meta,
+.runtime-status-reason {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.runtime-status-reason {
+  text-align: right;
+  max-width: 32rem;
+}
+
+.runtime-mock {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.runtime-mock .runtime-status-main svg {
+  color: var(--color-yellow);
+}
+
+.runtime-llm,
+.runtime-guarded_llm {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.runtime-llm .runtime-status-main svg,
+.runtime-guarded_llm .runtime-status-main svg {
+  color: var(--color-green);
+}
+
 .btn-run-pipeline {
   background: linear-gradient(135deg, var(--color-blue) 0%, #1e40af 100%);
   color: #ffffff;

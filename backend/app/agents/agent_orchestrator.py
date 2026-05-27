@@ -12,9 +12,13 @@ from .base_agent import (
 )
 from .copyright_aware_resource_agent import CopyrightAwareResourceAgent
 from .learning_assessment_agent import LearningAssessmentAgent
-from .minimax_client import build_default_llm_client
 from .pedagogical_teaching_agent import PedagogicalTeachingAgent
 from .profile_diagnosis_agent import ProfileDiagnosisAgent
+from backend.app.runtime.mode import (
+    build_guardrail_adapter,
+    build_runtime_llm_client,
+    get_runtime_status,
+)
 
 
 class TPCSController:
@@ -25,10 +29,12 @@ class TPCSController:
         max_disclosure_score: float = 0.75,
         cumulative_privacy_budget: float = 3.0,
         hsw_st_auditor: Any | None = None,
+        guardrail_adapter: Any | None = None,
     ) -> None:
         self.max_disclosure_score = max_disclosure_score
         self.cumulative_privacy_budget = cumulative_privacy_budget
         self.hsw_st_auditor = hsw_st_auditor
+        self.guardrail_adapter = guardrail_adapter
         self.message_log: list[dict[str, Any]] = []
         self.cumulative_disclosure_by_round: dict[str, float] = {}
         self.allowed_routes = {
@@ -263,6 +269,14 @@ class TPCSController:
                 f"{updated:.4f} > {self.cumulative_privacy_budget}"
             )
         self.cumulative_disclosure_by_round[round_id] = round(updated, 4)
+        if self.guardrail_adapter is not None:
+            guardrail_decision = self.guardrail_adapter.check_message(message)
+            message["guardrail_decision"] = guardrail_decision
+            if not guardrail_decision.get("allowed", True):
+                raise AgentValidationError(
+                    "TPCS guardrail adapter blocked message: "
+                    f"{guardrail_decision.get('reason') or guardrail_decision.get('decision')}"
+                )
 
     def _find_forbidden_keys(self, value: Any) -> set[str]:
         forbidden = set()
@@ -290,9 +304,13 @@ class AgentOrchestrator:
         tpcs_controller: TPCSController | None = None,
     ) -> None:
         self.mm_fopd_service = mm_fopd_service
-        self.tpcs = tpcs_controller or TPCSController(hsw_st_auditor=hsw_st_auditor)
+        self.runtime_status = get_runtime_status()
+        self.tpcs = tpcs_controller or TPCSController(
+            hsw_st_auditor=hsw_st_auditor,
+            guardrail_adapter=build_guardrail_adapter(),
+        )
         if llm_client is None:
-            llm_client = build_default_llm_client()
+            llm_client = build_runtime_llm_client()
         self.profile_diagnosis_agent = ProfileDiagnosisAgent(llm_client=llm_client)
         self.resource_agent = CopyrightAwareResourceAgent(
             c2rag_service=c2rag_service,

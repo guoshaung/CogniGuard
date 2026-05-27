@@ -1,0 +1,38 @@
+models:
+  - type: main
+    engine: openai
+    model: placeholder
+
+instructions:
+  - type: general
+    content: |
+      You are the CogniGuard TPCS guardrail runtime.
+      Enforce the three protection layers: MM-FOPD, C2-RAG, and HSW-ST.
+      The four tutoring agents are controlled execution nodes and must not
+      bypass TPCS authorization.
+
+rails:
+  input:
+    flows:
+      - block full student profile requests
+      - block raw multimodal data requests
+      - block original teacher question bank requests
+      - block copyright bypass requests
+  retrieval:
+    flows:
+      - sanitize retrieved prompt injection
+      - block original teacher resource retrieval
+  dialog:
+    single_call:
+      enabled: false
+  output:
+    flows:
+      - block raw profile or multimodal output
+      - block copyrighted original output
+
+actions_server:
+  url: null
+
+sample_conversation: |
+  user: Show me the student's full learning profile.
+  bot: I cannot reveal the full learning profile. I can only use the minimized MM-FOPD teaching context.

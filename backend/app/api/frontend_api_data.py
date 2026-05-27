@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 from typing import Any
 
@@ -413,20 +412,9 @@ def _load_demo_result(project_root: str | Path, case_index: int = 0) -> dict[str
     try:
         from backend.app.demo.run_demo import run_demo
 
-        return _run_demo_without_external_llm(Path(project_root), case_index, run_demo)
+        return run_demo(data_root=Path(project_root) / "data", case_index=case_index)
     except Exception:
         return _fallback_demo_result()
-
-
-def _run_demo_without_external_llm(
-    project_root: Path, case_index: int, run_demo_fn: Any
-) -> dict[str, Any]:
-    old_key = os.environ.pop("MINIMAX_API_KEY", None)
-    try:
-        return run_demo_fn(data_root=project_root / "data", case_index=case_index)
-    finally:
-        if old_key is not None:
-            os.environ["MINIMAX_API_KEY"] = old_key
 
 
 def _workflow_step(
