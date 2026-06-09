@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any
+from typing import Any, Callable
 
 from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 
@@ -17,6 +17,7 @@ class CopyrightAwareResourceAgent(BaseAgent):
         self,
         c2rag_service: Any | None = None,
         llm_client: Any | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
         max_total_exposure: float = 0.6,
         max_snippets: int = 3,
     ) -> None:
@@ -30,6 +31,7 @@ class CopyrightAwareResourceAgent(BaseAgent):
             allowed_inputs=("teaching_request", "knowledge_point", "allowed_return_modes"),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
+            event_sink=event_sink,
         )
         self.c2rag_service = c2rag_service
         self.max_total_exposure = max_total_exposure

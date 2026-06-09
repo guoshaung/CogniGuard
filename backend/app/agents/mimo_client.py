@@ -6,37 +6,41 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
-from urllib.parse import urlparse
+from typing import Any, Callable
 
 
-DEFAULT_MINIMAX_BASE_URL = "https://api.minimaxi.com/v1"
-DEFAULT_MINIMAX_MODEL = "MiniMax-M2.7"
+DEFAULT_MIMO_BASE_URL = "https://api.xiaomimimo.com/v1"
+DEFAULT_MIMO_MODEL = "mimo-v2.5-pro"
 
 
-class MiniMaxClientError(RuntimeError):
-    """Raised when MiniMax returns an unusable response."""
+class MiMoClientError(RuntimeError):
+    """Raised when Xiaomi MiMo returns an unusable response."""
 
 
 @dataclass(slots=True)
-class MiniMaxChatClient:
-    """Minimal OpenAI-compatible MiniMax chat client.
+class MiMoChatClient:
+    """Minimal OpenAI-compatible Xiaomi MiMo chat client.
 
     The API key is intentionally provided at runtime and should come from an
     environment variable or secret manager, never from committed source code.
     """
 
     api_key: str
-    base_url: str = DEFAULT_MINIMAX_BASE_URL
-    model: str = DEFAULT_MINIMAX_MODEL
+    base_url: str = DEFAULT_MIMO_BASE_URL
+    model: str = DEFAULT_MIMO_MODEL
     timeout_seconds: float = 60.0
     temperature: float = 0.2
     max_tokens: int = 700
 
     def __post_init__(self) -> None:
-        self.base_url = normalize_minimax_base_url(self.base_url)
+        self.base_url = normalize_mimo_base_url(self.base_url)
 
-    def chat(self, system_prompt: str, payload: dict[str, Any]) -> dict[str, Any]:
+    def chat(
+        self,
+        system_prompt: str,
+        payload: dict[str, Any],
+        on_text_delta: Callable[[str], None] | None = None,
+    ) -> dict[str, Any]:
         user_content = (
             "Return one valid JSON object only. Do not include markdown fences.\n"
             f"Payload:\n{json.dumps(payload, ensure_ascii=False, sort_keys=True)}"
@@ -48,17 +52,26 @@ class MiniMaxChatClient:
                 {"role": "user", "content": user_content},
             ],
             "temperature": self.temperature,
-            "max_tokens": self.max_tokens,
+            "max_completion_tokens": self.max_tokens,
+            "thinking": {"type": "disabled"},
+            "response_format": {"type": "json_object"},
         }
-        content = self._post_chat_completions(body)
+        content = self._post_chat_completions(body, on_text_delta=on_text_delta)
         parsed = _parse_json_content(content)
         if parsed is None:
-            raise MiniMaxClientError("MiniMax response did not contain valid JSON.")
+            raise MiMoClientError("Xiaomi MiMo response did not contain valid JSON.")
         return parsed
 
-    def _post_chat_completions(self, body: dict[str, Any]) -> str:
+    def _post_chat_completions(
+        self,
+        body: dict[str, Any],
+        on_text_delta: Callable[[str], None] | None = None,
+    ) -> str:
         url = f"{self.base_url.rstrip('/')}/chat/completions"
-        data = json.dumps(body, ensure_ascii=False).encode("utf-8")
+        request_body = dict(body)
+        if on_text_delta is not None:
+            request_body["stream"] = True
+        data = json.dumps(request_body, ensure_ascii=False).encode("utf-8")
         request = urllib.request.Request(
             url=url,
             data=data,
@@ -73,37 +86,80 @@ class MiniMaxChatClient:
             with urllib.request.urlopen(
                 request, timeout=self.timeout_seconds
             ) as response:
+                if on_text_delta is not None:
+                    return _read_streamed_chat_response(response, on_text_delta)
                 response_body = response.read().decode("utf-8")
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="replace")
-            raise MiniMaxClientError(
-                f"MiniMax HTTP {exc.code}: {_trim_secret_detail(detail)}"
+            raise MiMoClientError(
+                f"Xiaomi MiMo HTTP {exc.code}: {_trim_secret_detail(detail)}"
             ) from exc
         except urllib.error.URLError as exc:
-            raise MiniMaxClientError(f"MiniMax connection error: {exc.reason}") from exc
+            raise MiMoClientError(
+                f"Xiaomi MiMo connection error: {exc.reason}"
+            ) from exc
 
         parsed = json.loads(response_body)
         try:
             return parsed["choices"][0]["message"]["content"]
         except (KeyError, IndexError, TypeError) as exc:
-            raise MiniMaxClientError("Unexpected MiniMax chat response schema.") from exc
+            raise MiMoClientError(
+                "Unexpected Xiaomi MiMo chat response schema."
+            ) from exc
+
+
+def _read_streamed_chat_response(
+    response: Any,
+    on_text_delta: Callable[[str], None],
+) -> str:
+    chunks: list[str] = []
+    for raw_line in response:
+        line = raw_line.decode("utf-8", errors="replace").strip()
+        if not line or not line.startswith("data:"):
+            continue
+
+        data = line.removeprefix("data:").strip()
+        if data == "[DONE]":
+            break
+
+        try:
+            event = json.loads(data)
+        except json.JSONDecodeError:
+            continue
+
+        choices = event.get("choices") or []
+        if not choices:
+            continue
+
+        delta = choices[0].get("delta") or {}
+        text = delta.get("content") or delta.get("reasoning_content") or ""
+        if not text:
+            continue
+
+        chunks.append(text)
+        try:
+            on_text_delta(text)
+        except Exception:
+            pass
+
+    return "".join(chunks)
 
 
 def build_default_llm_client(
     env_file: str | os.PathLike[str] | None = None,
-) -> MiniMaxChatClient | None:
+) -> MiMoChatClient | None:
     _load_env_file(env_file)
-    api_key = os.environ.get("MINIMAX_API_KEY", "").strip()
+    api_key = os.environ.get("MIMO_API_KEY", "").strip()
     if not api_key:
         return None
 
-    base_url = os.environ.get("MINIMAX_BASE_URL", DEFAULT_MINIMAX_BASE_URL).strip()
-    model = os.environ.get("MINIMAX_MODEL", DEFAULT_MINIMAX_MODEL).strip()
-    timeout = _safe_float(os.environ.get("MINIMAX_TIMEOUT_SECONDS"), 60.0)
-    temperature = _safe_float(os.environ.get("MINIMAX_TEMPERATURE"), 0.2)
-    max_tokens = _safe_int(os.environ.get("MINIMAX_MAX_TOKENS"), 700)
+    base_url = os.environ.get("MIMO_BASE_URL", DEFAULT_MIMO_BASE_URL).strip()
+    model = os.environ.get("MIMO_MODEL", DEFAULT_MIMO_MODEL).strip()
+    timeout = _safe_float(os.environ.get("MIMO_TIMEOUT_SECONDS"), 60.0)
+    temperature = _safe_float(os.environ.get("MIMO_TEMPERATURE"), 0.2)
+    max_tokens = _safe_int(os.environ.get("MIMO_MAX_TOKENS"), 700)
 
-    return MiniMaxChatClient(
+    return MiMoChatClient(
         api_key=api_key,
         base_url=base_url,
         model=model,
@@ -113,19 +169,10 @@ def build_default_llm_client(
     )
 
 
-def normalize_minimax_base_url(raw_url: str) -> str:
-    url = (raw_url or DEFAULT_MINIMAX_BASE_URL).strip().rstrip("/")
-    parsed = urlparse(url)
-    host = parsed.netloc.lower()
-
-    if host == "platform.minimaxi.com":
-        return DEFAULT_MINIMAX_BASE_URL
-    if host == "platform.minimax.io":
-        return "https://api.minimax.io/v1"
-    if host == "api.minimaxi.com" and not parsed.path.rstrip("/").endswith("/v1"):
-        return "https://api.minimaxi.com/v1"
-    if host == "api.minimax.io" and not parsed.path.rstrip("/").endswith("/v1"):
-        return "https://api.minimax.io/v1"
+def normalize_mimo_base_url(raw_url: str) -> str:
+    url = (raw_url or DEFAULT_MIMO_BASE_URL).strip().rstrip("/")
+    if url == "https://api.xiaomimimo.com":
+        return DEFAULT_MIMO_BASE_URL
     return url
 
 

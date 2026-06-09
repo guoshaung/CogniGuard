@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Any
+from typing import Any, Callable
 
 from .base_agent import (
     COMMON_FORBIDDEN_INPUTS,
@@ -30,11 +30,13 @@ class TPCSController:
         cumulative_privacy_budget: float = 3.0,
         hsw_st_auditor: Any | None = None,
         guardrail_adapter: Any | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         self.max_disclosure_score = max_disclosure_score
         self.cumulative_privacy_budget = cumulative_privacy_budget
         self.hsw_st_auditor = hsw_st_auditor
         self.guardrail_adapter = guardrail_adapter
+        self.event_sink = event_sink
         self.message_log: list[dict[str, Any]] = []
         self.cumulative_disclosure_by_round: dict[str, float] = {}
         self.allowed_routes = {
@@ -124,6 +126,7 @@ class TPCSController:
             round_id=round_id,
         )
         self._authorize_message(message)
+        self._emit_message_event(message, "request")
         receiver.validate_input(payload)
         output = receiver.generate(payload)
         response = self.build_message(
@@ -135,6 +138,7 @@ class TPCSController:
             round_id=round_id,
         )
         self._authorize_message(response)
+        self._emit_message_event(response, "response")
         self.message_log.extend([message, response])
         return message, output, response
 
@@ -174,6 +178,7 @@ class TPCSController:
             round_id=round_id,
         )
         self._authorize_message(message)
+        self._emit_message_event(message, "profile_update_evidence")
         pollution_reason = _profile_update_pollution_reason(evidence)
         approved = bool(evidence.get("requires_tpcs_approval", True)) and not pollution_reason
         result = {
@@ -209,6 +214,7 @@ class TPCSController:
             round_id=round_id,
         )
         self._authorize_message(message)
+        self._emit_message_event(message, "final_answer_audit")
 
         if self.hsw_st_auditor is not None and hasattr(self.hsw_st_auditor, "audit"):
             audit = self.hsw_st_auditor.audit(teaching_answer, assessment_result)
@@ -228,6 +234,26 @@ class TPCSController:
         }
         self.message_log.append(message)
         return result
+
+    def _emit_message_event(self, message: dict[str, Any], direction: str) -> None:
+        if self.event_sink is None:
+            return
+        try:
+            self.event_sink(
+                {
+                    "type": "tpcs_message",
+                    "direction": direction,
+                    "message": {
+                        key: value
+                        for key, value in message.items()
+                        if key != "payload"
+                    },
+                    "payload": message.get("payload"),
+                    "timestamp": utc_now_iso(),
+                }
+            )
+        except Exception:
+            return
 
     def disclosure_score(self, payload: Any) -> float:
         text = str(payload)
@@ -302,22 +328,34 @@ class AgentOrchestrator:
         hsw_st_auditor: Any | None = None,
         llm_client: Any | None = None,
         tpcs_controller: TPCSController | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         self.mm_fopd_service = mm_fopd_service
         self.runtime_status = get_runtime_status()
         self.tpcs = tpcs_controller or TPCSController(
             hsw_st_auditor=hsw_st_auditor,
             guardrail_adapter=build_guardrail_adapter(),
+            event_sink=event_sink,
         )
         if llm_client is None:
             llm_client = build_runtime_llm_client()
-        self.profile_diagnosis_agent = ProfileDiagnosisAgent(llm_client=llm_client)
+        self.profile_diagnosis_agent = ProfileDiagnosisAgent(
+            llm_client=llm_client,
+            event_sink=event_sink,
+        )
         self.resource_agent = CopyrightAwareResourceAgent(
             c2rag_service=c2rag_service,
             llm_client=llm_client,
+            event_sink=event_sink,
         )
-        self.teaching_agent = PedagogicalTeachingAgent(llm_client=llm_client)
-        self.assessment_agent = LearningAssessmentAgent(llm_client=llm_client)
+        self.teaching_agent = PedagogicalTeachingAgent(
+            llm_client=llm_client,
+            event_sink=event_sink,
+        )
+        self.assessment_agent = LearningAssessmentAgent(
+            llm_client=llm_client,
+            event_sink=event_sink,
+        )
 
     def run_protected_flow(
         self,

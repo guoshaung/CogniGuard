@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import inspect
+import uuid
 from abc import ABC, abstractmethod
 from datetime import datetime, timezone
 from typing import Any, Callable
@@ -25,6 +27,7 @@ class BaseAgent(ABC):
         allowed_inputs: list[str] | tuple[str, ...],
         forbidden_inputs: list[str] | tuple[str, ...],
         llm_client: Any | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         self.agent_id = agent_id
         self.agent_name = agent_name
@@ -32,6 +35,7 @@ class BaseAgent(ABC):
         self.allowed_inputs = tuple(allowed_inputs)
         self.forbidden_inputs = tuple(forbidden_inputs)
         self.llm_client = llm_client
+        self.event_sink = event_sink
         self.call_log: list[dict[str, Any]] = []
 
     def validate_input(self, payload: dict[str, Any]) -> None:
@@ -98,24 +102,53 @@ class BaseAgent(ABC):
         payload: dict[str, Any],
         fallback: Callable[[], dict[str, Any]],
     ) -> dict[str, Any]:
-        if self.llm_client is None:
-            self.last_call_metadata = {
-                "prompt": f"{system_prompt}\n\nPayload:\n{json.dumps(payload, ensure_ascii=False)}",
-                "sanitized_prompt": f"{system_prompt}\n\nPayload:\n{json.dumps(payload, ensure_ascii=False)}",
-                "raw_response": json.dumps(fallback(), ensure_ascii=False),
-                "parsed_output": fallback(),
-                "fallback_or_real_llm": "fallback"
-            }
-            return fallback()
-
+        call_id = f"{self.agent_id}_{uuid.uuid4().hex[:10]}"
         prompt = (
             f"{system_prompt}\n\n"
             "Return JSON only. Payload:\n"
             f"{json.dumps(payload, ensure_ascii=False, sort_keys=True)}"
         )
+        self._emit_event(
+            {
+                "type": "llm_call_started",
+                "call_id": call_id,
+                "agent_id": self.agent_id,
+                "agent_name": self.agent_name,
+                "system_prompt": system_prompt,
+                "payload": payload,
+                "prompt": prompt,
+                "timestamp": utc_now_iso(),
+            }
+        )
+
+        if self.llm_client is None:
+            fallback_result = fallback()
+            self.last_call_metadata = {
+                "prompt": prompt,
+                "sanitized_prompt": prompt,
+                "raw_response": json.dumps(fallback_result, ensure_ascii=False),
+                "parsed_output": fallback_result,
+                "fallback_or_real_llm": "fallback"
+            }
+            self._emit_llm_completed(call_id, fallback_result, "fallback")
+            return fallback_result
 
         try:
-            raw = self._call_llm(prompt, system_prompt, payload)
+            raw = self._call_llm(
+                prompt,
+                system_prompt,
+                payload,
+                on_text_delta=lambda delta: self._emit_event(
+                    {
+                        "type": "llm_response_delta",
+                        "call_id": call_id,
+                        "agent_id": self.agent_id,
+                        "agent_name": self.agent_name,
+                        "delta": delta,
+                        "timestamp": utc_now_iso(),
+                    }
+                ),
+            )
             parsed = _parse_json_object(raw)
             if isinstance(parsed, dict):
                 self.last_call_metadata = {
@@ -125,32 +158,53 @@ class BaseAgent(ABC):
                     "parsed_output": parsed,
                     "fallback_or_real_llm": "real_llm"
                 }
+                self._emit_llm_completed(call_id, parsed, "real_llm")
                 return parsed
             else:
+                fallback_result = fallback()
                 self.last_call_metadata = {
                     "prompt": prompt,
                     "sanitized_prompt": prompt,
                     "raw_response": str(raw),
-                    "parsed_output": fallback(),
+                    "parsed_output": fallback_result,
                     "fallback_or_real_llm": "fallback"
                 }
-                return fallback()
+                self._emit_llm_completed(call_id, fallback_result, "fallback")
+                return fallback_result
         except Exception as e:
+            fallback_result = fallback()
             self.last_call_metadata = {
                 "prompt": prompt,
                 "sanitized_prompt": prompt,
                 "raw_response": f"Error: {e}",
-                "parsed_output": fallback(),
+                "parsed_output": fallback_result,
                 "fallback_or_real_llm": "fallback"
             }
-            return fallback()
+            self._emit_llm_completed(
+                call_id,
+                fallback_result,
+                "fallback",
+                error=str(e),
+            )
+            return fallback_result
 
     def _call_llm(
-        self, prompt: str, system_prompt: str, payload: dict[str, Any]
+        self,
+        prompt: str,
+        system_prompt: str,
+        payload: dict[str, Any],
+        on_text_delta: Callable[[str], None] | None = None,
     ) -> str | dict[str, Any]:
         client = self.llm_client
 
         if hasattr(client, "chat"):
+            parameters = inspect.signature(client.chat).parameters
+            if "on_text_delta" in parameters:
+                return client.chat(
+                    system_prompt=system_prompt,
+                    payload=payload,
+                    on_text_delta=on_text_delta,
+                )
             return client.chat(system_prompt=system_prompt, payload=payload)
         if hasattr(client, "generate"):
             return client.generate(prompt)
@@ -158,6 +212,35 @@ class BaseAgent(ABC):
             return client(prompt)
 
         raise TypeError("Unsupported llm_client interface.")
+
+    def _emit_llm_completed(
+        self,
+        call_id: str,
+        response: dict[str, Any],
+        mode: str,
+        error: str | None = None,
+    ) -> None:
+        self._emit_event(
+            {
+                "type": "llm_call_completed",
+                "call_id": call_id,
+                "agent_id": self.agent_id,
+                "agent_name": self.agent_name,
+                "response": response,
+                "response_text": json.dumps(response, ensure_ascii=False, indent=2),
+                "mode": mode,
+                "error": error,
+                "timestamp": utc_now_iso(),
+            }
+        )
+
+    def _emit_event(self, event: dict[str, Any]) -> None:
+        if self.event_sink is None:
+            return
+        try:
+            self.event_sink(event)
+        except Exception:
+            return
 
     def _find_forbidden_keys(self, value: Any) -> set[str]:
         forbidden = set()

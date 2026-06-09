@@ -12,7 +12,14 @@ from server import CogniGuardDashboardAPIHandler
 
 
 @pytest.fixture()
-def api_base_url() -> str:
+def deterministic_runtime(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("COGNIGUARD_RUNTIME_MODE", "mock")
+    monkeypatch.setenv("COGNIGUARD_NEMO_GUARDRAILS_ENABLED", "false")
+    monkeypatch.setenv("MIMO_API_KEY", "")
+
+
+@pytest.fixture()
+def api_base_url(deterministic_runtime: None) -> str:
     httpd = HTTPServer(("127.0.0.1", 0), CogniGuardDashboardAPIHandler)
     host, port = httpd.server_address
     thread = threading.Thread(target=httpd.serve_forever, daemon=True)
@@ -30,6 +37,23 @@ def _get_json(base_url: str, path: str) -> Any:
         assert response.status == 200
         assert response.headers["Content-Type"] == "application/json"
         return json.loads(response.read().decode("utf-8"))
+
+
+def _post_ndjson(base_url: str, path: str, payload: dict[str, Any]) -> list[dict[str, Any]]:
+    request = urllib.request.Request(
+        f"{base_url}{path}",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=20) as response:
+        assert response.status == 200
+        assert response.headers["Content-Type"].startswith("application/x-ndjson")
+        return [
+            json.loads(line.decode("utf-8"))
+            for line in response
+            if line.strip()
+        ]
 
 
 def test_dashboard_metrics_endpoint(api_base_url: str) -> None:
@@ -73,7 +97,7 @@ def test_runtime_status_endpoint(api_base_url: str) -> None:
     }
     assert required <= set(payload)
     assert payload["runtime_mode"] in {"mock", "llm", "guarded_llm"}
-    assert payload["llm_provider"] == "MiniMax"
+    assert payload["llm_provider"] == "Xiaomi MiMo"
     assert payload["agent_call_mode"] in {"deterministic_fallback", "real_llm"}
 
 
@@ -138,6 +162,31 @@ def test_run_case_returns_new_protected_multi_agent_round(api_base_url: str) -> 
         first["protection_logs"]
     )
     assert first["communication_logs"]
+
+
+def test_run_case_stream_emits_incremental_events(api_base_url: str) -> None:
+    events = _post_ndjson(
+        api_base_url,
+        "/api/run-case/stream",
+        {
+            "case_index": 0,
+            "runtime_mode": "mock",
+            "enable_nemo": False,
+        },
+    )
+
+    event_types = [event["type"] for event in events]
+    workflow_steps = [
+        event["step"]
+        for event in events
+        if event["type"] == "workflow_step"
+    ]
+
+    assert event_types[0] == "stream_opened"
+    assert "run_started" in event_types
+    assert len(workflow_steps) == 12
+    assert event_types.count("run_completed") == 1
+    assert event_types.index("workflow_step") < event_types.index("run_completed")
 
 
 def test_mm_fopd_cases_endpoint_does_not_expose_raw_payloads(api_base_url: str) -> None:

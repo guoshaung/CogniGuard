@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any
+from typing import Any, Callable
 
 from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 
@@ -9,7 +9,11 @@ from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 class ProfileDiagnosisAgent(BaseAgent):
     """Diagnoses the learner state from an MM-FOPD minimum context card only."""
 
-    def __init__(self, llm_client: Any | None = None) -> None:
+    def __init__(
+        self,
+        llm_client: Any | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
+    ) -> None:
         super().__init__(
             agent_id="profile_diagnosis_agent",
             agent_name="ProfileDiagnosisAgent",
@@ -20,6 +24,7 @@ class ProfileDiagnosisAgent(BaseAgent):
             allowed_inputs=("context_card",),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
+            event_sink=event_sink,
         )
 
     def generate(self, payload: dict[str, Any]) -> dict[str, Any]:

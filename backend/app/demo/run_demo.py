@@ -6,7 +6,7 @@ import json
 import sys
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 if str(PROJECT_ROOT) not in sys.path:
@@ -38,6 +38,31 @@ FRAMEWORK_ARCHITECTURE = {
     "horizontal_governance": "TPCSController mediates every protected transfer and profile update decision.",
     "agent_role": "LLM tutoring agents are controlled execution nodes, not the top-level architecture.",
 }
+
+
+class EventedWorkflowSteps(list[dict[str, Any]]):
+    def __init__(
+        self,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
+    ) -> None:
+        super().__init__()
+        self.event_sink = event_sink
+
+    def append(self, step: dict[str, Any]) -> None:
+        super().append(step)
+        if self.event_sink is None:
+            return
+        try:
+            self.event_sink(
+                {
+                    "type": "workflow_step",
+                    "step": step,
+                    "completed_steps": len(self),
+                    "timestamp": utc_now_iso(),
+                }
+            )
+        except Exception:
+            return
 
 
 class DemoC2RAGService:
@@ -116,26 +141,53 @@ class DemoHSWSTBinder:
         return {"final_protected_answer": final_answer, "audit_trace": trace}
 
 
-def run_demo(data_root: str | Path = "data", case_index: int = 0) -> dict[str, Any]:
+def run_demo(
+    data_root: str | Path = "data",
+    case_index: int = 0,
+    event_sink: Callable[[dict[str, Any]], None] | None = None,
+) -> dict[str, Any]:
     demo_case = load_demo_case(data_root=data_root, case_index=case_index)
     round_id = f"round_{demo_case.task_id}_{uuid.uuid4().hex[:12]}"
     answer_id = f"ans_{round_id}"
     runtime_status = get_runtime_status()
     llm_client = build_runtime_llm_client()
+    if event_sink is not None:
+        event_sink(
+            {
+                "type": "run_started",
+                "round_id": round_id,
+                "case_index": case_index,
+                "task_id": demo_case.task_id,
+                "knowledge_point": demo_case.context_card.get("knowledge_point"),
+                "runtime_status": runtime_status,
+                "timestamp": utc_now_iso(),
+            }
+        )
     tpcs = TPCSController(
         max_disclosure_score=0.75,
         guardrail_adapter=build_guardrail_adapter(),
+        event_sink=event_sink,
     )
-    workflow_steps: list[dict[str, Any]] = []
+    workflow_steps = EventedWorkflowSteps(event_sink)
     nemo_logs: dict[str, Any] = {}
 
-    profile_agent = ProfileDiagnosisAgent(llm_client=llm_client)
+    profile_agent = ProfileDiagnosisAgent(
+        llm_client=llm_client,
+        event_sink=event_sink,
+    )
     resource_agent = CopyrightAwareResourceAgent(
         c2rag_service=DemoC2RAGService(),
         llm_client=llm_client,
+        event_sink=event_sink,
     )
-    teaching_agent = PedagogicalTeachingAgent(llm_client=llm_client)
-    assessment_agent = LearningAssessmentAgent(llm_client=llm_client)
+    teaching_agent = PedagogicalTeachingAgent(
+        llm_client=llm_client,
+        event_sink=event_sink,
+    )
+    assessment_agent = LearningAssessmentAgent(
+        llm_client=llm_client,
+        event_sink=event_sink,
+    )
 
     context_card = dict(demo_case.context_card)
     _append_workflow_step(
@@ -456,6 +508,15 @@ def run_demo(data_root: str | Path = "data", case_index: int = 0) -> dict[str, A
         "final_protected_teaching_answer": hsw_st_binding["final_protected_answer"],
         "audit_trace": hsw_st_binding["audit_trace"],
     }
+    if event_sink is not None:
+        event_sink(
+            {
+                "type": "run_completed",
+                "round_id": round_id,
+                "result": demo_result,
+                "timestamp": utc_now_iso(),
+            }
+        )
     return demo_result
 
 

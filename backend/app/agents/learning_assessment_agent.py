@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Callable
 
 from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 
@@ -8,7 +8,11 @@ from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 class LearningAssessmentAgent(BaseAgent):
     """Assesses mastery and emits evidence, not direct profile updates."""
 
-    def __init__(self, llm_client: Any | None = None) -> None:
+    def __init__(
+        self,
+        llm_client: Any | None = None,
+        event_sink: Callable[[dict[str, Any]], None] | None = None,
+    ) -> None:
         super().__init__(
             agent_id="learning_assessment_agent",
             agent_name="LearningAssessmentAgent",
@@ -19,6 +23,7 @@ class LearningAssessmentAgent(BaseAgent):
             allowed_inputs=("teaching_answer", "student_response", "knowledge_point"),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
+            event_sink=event_sink,
         )
 
     def generate(self, payload: dict[str, Any]) -> dict[str, Any]:
@@ -129,27 +134,55 @@ def _detect_direct_profile_update_request(student_response: str) -> bool:
 def _normalize_assessment(
     result: dict[str, Any], fallback_result: dict[str, Any]
 ) -> dict[str, Any]:
-    required = (
-        "assessment_result",
-        "follow_up_question",
-        "profile_update_evidence",
-        "mastery_score",
-        "confidence_score",
-    )
-    if any(key not in result for key in required):
+    if not isinstance(result, dict):
         return fallback_result
 
+    assessment_result = str(
+        result.get("assessment_result") or fallback_result["assessment_result"]
+    )
+    follow_up_question = str(
+        result.get("follow_up_question") or fallback_result["follow_up_question"]
+    )
+    mastery_score = _safe_score(
+        result.get("mastery_score"), fallback_result["mastery_score"]
+    )
+    confidence_score = _safe_score(
+        result.get("confidence_score"), fallback_result["confidence_score"]
+    )
+
+    fallback_evidence = dict(fallback_result["profile_update_evidence"])
+    raw_evidence = result.get("profile_update_evidence")
+    if isinstance(raw_evidence, dict):
+        evidence = {
+            **fallback_evidence,
+            **{
+                key: value
+                for key, value in raw_evidence.items()
+                if key in fallback_evidence
+            },
+        }
+    else:
+        evidence = fallback_evidence
+
+    evidence["assessment_result"] = assessment_result
+    evidence["mastery_score"] = mastery_score
+    evidence["direct_profile_update_requested"] = bool(
+        fallback_evidence["direct_profile_update_requested"]
+        or evidence.get("direct_profile_update_requested")
+    )
+    evidence["requires_tpcs_approval"] = True
+
     return {
-        "assessment_result": str(result["assessment_result"]),
-        "follow_up_question": str(result["follow_up_question"]),
-        "profile_update_evidence": dict(result["profile_update_evidence"]),
-        "mastery_score": _safe_score(result["mastery_score"]),
-        "confidence_score": _safe_score(result["confidence_score"]),
+        "assessment_result": assessment_result,
+        "follow_up_question": follow_up_question,
+        "profile_update_evidence": evidence,
+        "mastery_score": mastery_score,
+        "confidence_score": confidence_score,
     }
 
 
-def _safe_score(value: Any) -> float:
+def _safe_score(value: Any, default: float) -> float:
     try:
         return max(0.0, min(1.0, float(value)))
     except (TypeError, ValueError):
-        return 0.0
+        return default

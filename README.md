@@ -17,15 +17,17 @@ CogniGuard is a minimum runnable demo for a multi-agent personalized education p
 
 ## LLM Agent Configuration
 
-The backend agent layer can use MiniMax through its OpenAI-compatible chat API. Keep real keys out of git and configure them through environment variables or a local `.env` file:
+The backend agent layer uses Xiaomi MiMo through its OpenAI-compatible chat API. Keep real keys out of git and configure them through environment variables or a local `.env` file:
 
 ```bash
-MINIMAX_API_KEY=your_minimax_api_key_here
-MINIMAX_BASE_URL=https://api.minimaxi.com/v1
-MINIMAX_MODEL=MiniMax-M2.7
+COGNIGUARD_RUNTIME_MODE=guarded_llm
+COGNIGUARD_NEMO_GUARDRAILS_ENABLED=true
+MIMO_API_KEY=your_mimo_api_key_here
+MIMO_BASE_URL=https://api.xiaomimimo.com/v1
+MIMO_MODEL=mimo-v2.5-pro
 ```
 
-If no `MINIMAX_API_KEY` is present, the agents run with deterministic fallback outputs for local demos and tests.
+If no `MIMO_API_KEY` is present, the agents run with deterministic fallback outputs for local demos and tests.
 
 ## Quick Start
 

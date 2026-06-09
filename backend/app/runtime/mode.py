@@ -10,7 +10,7 @@ from backend.app.protection.tpcs.nemo_guardrails_adapter import (
 )
 
 VALID_RUNTIME_MODES = {"mock", "llm", "guarded_llm"}
-PLACEHOLDER_KEYS = {"", "your_minimax_api_key_here", "your_openai_api_key_here"}
+PLACEHOLDER_KEYS = {"", "your_mimo_api_key_here", "your_openai_api_key_here"}
 DEFAULT_GUARDRAILS_CONFIG = Path(__file__).resolve().parents[3] / "guardrails" / "cogniguard"
 GuardrailAdapter = NeMoGuardrailsAdapter
 
@@ -32,7 +32,7 @@ def get_runtime_status(env_file: str | os.PathLike[str] | None = None) -> dict[s
     _load_env_file(env_file)
 
     requested_mode = os.environ.get("COGNIGUARD_RUNTIME_MODE", "").strip().lower()
-    api_key_loaded = _has_minimax_key()
+    api_key_loaded = _has_mimo_key()
     guardrails_requested = requested_mode == "guarded_llm" or _truthy(
         os.environ.get("COGNIGUARD_NEMO_GUARDRAILS_ENABLED")
     )
@@ -56,7 +56,7 @@ def get_runtime_status(env_file: str | os.PathLike[str] | None = None) -> dict[s
         agent_call_mode = "deterministic_fallback"
         fallback_reason = (
             fallback_reason
-            or "MINIMAX_API_KEY is not configured; using deterministic fallback."
+            or "MIMO_API_KEY is not configured; using deterministic fallback."
         )
     elif requested_mode == "guarded_llm" or (not requested_mode and guardrails_requested):
         runtime_mode = "guarded_llm"
@@ -69,7 +69,7 @@ def get_runtime_status(env_file: str | os.PathLike[str] | None = None) -> dict[s
 
     return RuntimeStatus(
         runtime_mode=runtime_mode,
-        llm_provider="MiniMax",
+        llm_provider="Xiaomi MiMo",
         api_key_loaded=api_key_loaded,
         nemo_guardrails_enabled=nemo_enabled,
         fallback_reason=fallback_reason,
@@ -83,7 +83,7 @@ def build_runtime_llm_client(
     status = get_runtime_status(env_file=env_file)
     if status["agent_call_mode"] != "real_llm":
         return None
-    from backend.app.agents.minimax_client import build_default_llm_client
+    from backend.app.agents.mimo_client import build_default_llm_client
 
     return build_default_llm_client(env_file=env_file)
 
@@ -101,8 +101,8 @@ def build_guardrail_adapter(
     return NeMoGuardrailsAdapter(config_path=config_path, enabled=True)
 
 
-def _has_minimax_key() -> bool:
-    key = os.environ.get("MINIMAX_API_KEY", "").strip()
+def _has_mimo_key() -> bool:
+    key = os.environ.get("MIMO_API_KEY", "").strip()
     return key.lower() not in PLACEHOLDER_KEYS
 
 

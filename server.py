@@ -367,6 +367,20 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(json.dumps(payload, ensure_ascii=False).encode("utf-8"))
 
+    def _send_ndjson_event(self, payload: Any) -> None:
+        self.wfile.write(json.dumps(payload, ensure_ascii=False).encode("utf-8"))
+        self.wfile.write(b"\n")
+        self.wfile.flush()
+
+    def _prepare_stream_response(self) -> None:
+        self.send_response(200)
+        self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Connection", "close")
+        self._set_cors_headers()
+        self.end_headers()
+        self.close_connection = True
+
     def _send_api_payload(self, builder: Any, *args: Any, **kwargs: Any) -> None:
         try:
             if builder is None:
@@ -720,7 +734,111 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps({"success": False, "error": str(e)}).encode("utf-8"))
             return
 
-        # 3. API: Run Dynamic Case Pipeline (Appends logs) via POST
+        # 3. API: Run Dynamic Case Pipeline as an event stream
+        elif path == "/api/run-case/stream":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length).decode("utf-8")
+            self._prepare_stream_response()
+            previous_runtime_mode = os.environ.get("COGNIGUARD_RUNTIME_MODE")
+            previous_nemo_enabled = os.environ.get("COGNIGUARD_NEMO_GUARDRAILS_ENABLED")
+
+            def emit(event: dict[str, Any]) -> None:
+                if event.get("type") == "run_completed":
+                    return
+                self._send_ndjson_event(event)
+
+            def restore_runtime_environment() -> None:
+                if previous_runtime_mode is None:
+                    os.environ.pop("COGNIGUARD_RUNTIME_MODE", None)
+                else:
+                    os.environ["COGNIGUARD_RUNTIME_MODE"] = previous_runtime_mode
+                if previous_nemo_enabled is None:
+                    os.environ.pop("COGNIGUARD_NEMO_GUARDRAILS_ENABLED", None)
+                else:
+                    os.environ["COGNIGUARD_NEMO_GUARDRAILS_ENABLED"] = previous_nemo_enabled
+
+            try:
+                payload = json.loads(post_data or "{}")
+                case_index = int(payload.get("case_index", 0))
+                runtime_mode = payload.get("runtime_mode", "guarded_llm")
+                enable_nemo = payload.get("enable_nemo", True)
+                enable_nemo = str(enable_nemo).lower() not in {"0", "false", "no", "off"}
+
+                os.environ["COGNIGUARD_RUNTIME_MODE"] = runtime_mode
+                os.environ["COGNIGUARD_NEMO_GUARDRAILS_ENABLED"] = "true" if enable_nemo else "false"
+
+                emit(
+                    {
+                        "type": "stream_opened",
+                        "case_index": case_index,
+                        "runtime_mode": runtime_mode,
+                        "enable_nemo": enable_nemo,
+                        "timestamp": datetime.now().isoformat(),
+                    }
+                )
+
+                if run_demo is None:
+                    emit(
+                        {
+                            "type": "error",
+                            "error": "backend.app.demo.run_demo not importable",
+                            "timestamp": datetime.now().isoformat(),
+                        }
+                    )
+                    return
+
+                result = run_demo(
+                    data_root=PROJECT_ROOT / "data",
+                    case_index=case_index,
+                    event_sink=emit,
+                )
+
+                try:
+                    demo_case = load_demo_case(
+                        data_root=PROJECT_ROOT / "data",
+                        case_index=case_index,
+                    )
+                    result["educational_semantics"] = demo_case.educational_semantics
+                    result["simulated_student_response"] = demo_case.simulated_student_response
+                except Exception as inner_e:
+                    result["educational_semantics_error"] = str(inner_e)
+
+                result["runtime_status"] = get_runtime_status()
+
+                disclosure_score = result.get("generated_context_card", {}).get("disclosure_score", 0.25)
+                c2rag_log = result.get("protection_logs", {}).get("c2_rag", {})
+                copyright_leakage_rate = c2rag_log.get("exposure_cost", 0.14)
+                append_log({
+                    "type": "normal",
+                    "timestamp": datetime.now().isoformat(),
+                    "case_index": case_index,
+                    "disclosure_score": disclosure_score,
+                    "copyright_leakage_rate": copyright_leakage_rate,
+                    "watermark_bound": True
+                })
+
+                self._send_ndjson_event(
+                    {
+                        "type": "run_completed",
+                        "round_id": result.get("round_id"),
+                        "result": result,
+                        "timestamp": datetime.now().isoformat(),
+                    }
+                )
+                restore_runtime_environment()
+            except Exception as e:
+                restore_runtime_environment()
+                emit(
+                    {
+                        "type": "error",
+                        "error": str(e),
+                        "traceback": traceback.format_exc(),
+                        "timestamp": datetime.now().isoformat(),
+                    }
+                )
+            return
+
+        # 4. API: Run Dynamic Case Pipeline (Appends logs) via POST
         elif path == "/api/run-case":
             content_length = int(self.headers.get("Content-Length", 0))
             post_data = self.rfile.read(content_length).decode("utf-8")

@@ -15,6 +15,7 @@ env/
 .idea/
 .vscode/
 .sixth/
+*.log
 
 # Local secrets and environment overrides
 .env
