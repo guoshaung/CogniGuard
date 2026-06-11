@@ -15,7 +15,12 @@ env/
 .idea/
 .vscode/
 .sixth/
+
+# Logs
 *.log
+*.err
+logs/
+!logs/.gitkeep
 
 # Local secrets and environment overrides
 .env
@@ -25,6 +30,8 @@ env/
 # Generated experiment artifacts
 outputs/
 **/outputs/
+experiments/results/*
+!experiments/results/.gitkeep
 
 # Model and dataset caches
 .cache/

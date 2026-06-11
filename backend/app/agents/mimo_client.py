@@ -11,6 +11,7 @@ from typing import Any, Callable
 
 DEFAULT_MIMO_BASE_URL = "https://api.xiaomimimo.com/v1"
 DEFAULT_MIMO_MODEL = "mimo-v2.5-pro"
+DEFAULT_STUDENT_MIMO_MODEL = "mimo-v2-flash"
 
 
 class MiMoClientError(RuntimeError):
@@ -147,6 +148,11 @@ def _read_streamed_chat_response(
 
 def build_default_llm_client(
     env_file: str | os.PathLike[str] | None = None,
+    *,
+    model_env_var: str = "MIMO_MODEL",
+    default_model: str = DEFAULT_MIMO_MODEL,
+    max_tokens_env_var: str = "MIMO_MAX_TOKENS",
+    default_max_tokens: int = 700,
 ) -> MiMoChatClient | None:
     _load_env_file(env_file)
     api_key = os.environ.get("MIMO_API_KEY", "").strip()
@@ -154,10 +160,13 @@ def build_default_llm_client(
         return None
 
     base_url = os.environ.get("MIMO_BASE_URL", DEFAULT_MIMO_BASE_URL).strip()
-    model = os.environ.get("MIMO_MODEL", DEFAULT_MIMO_MODEL).strip()
+    model = os.environ.get(model_env_var, default_model).strip()
     timeout = _safe_float(os.environ.get("MIMO_TIMEOUT_SECONDS"), 60.0)
     temperature = _safe_float(os.environ.get("MIMO_TEMPERATURE"), 0.2)
-    max_tokens = _safe_int(os.environ.get("MIMO_MAX_TOKENS"), 700)
+    max_tokens = _safe_int(
+        os.environ.get(max_tokens_env_var),
+        default_max_tokens,
+    )
 
     return MiMoChatClient(
         api_key=api_key,
@@ -166,6 +175,18 @@ def build_default_llm_client(
         timeout_seconds=timeout,
         temperature=temperature,
         max_tokens=max_tokens,
+    )
+
+
+def build_student_llm_client(
+    env_file: str | os.PathLike[str] | None = None,
+) -> MiMoChatClient | None:
+    return build_default_llm_client(
+        env_file=env_file,
+        model_env_var="MIMO_STUDENT_MODEL",
+        default_model=DEFAULT_STUDENT_MIMO_MODEL,
+        max_tokens_env_var="MIMO_STUDENT_MAX_TOKENS",
+        default_max_tokens=420,
     )
 
 

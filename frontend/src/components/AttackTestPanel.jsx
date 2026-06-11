@@ -1,120 +1,166 @@
-import React, { useState } from 'react';
-import { ShieldAlert, AlertTriangle, CheckCircle, Shield, Play, Zap, RefreshCw, Crosshair, Swords } from 'lucide-react';
+import { useState } from 'react';
+import {
+  AlertTriangle,
+  Braces,
+  CheckCircle,
+  Crosshair,
+  RefreshCw,
+  Shield,
+  ShieldAlert,
+  Swords,
+  Zap,
+} from 'lucide-react';
 import DecisionBadge from './DecisionBadge';
 
-export default function AttackTestPanel({ attackResults, metrics, onRunAttackBatch, runningAttackBatch, onRunSingleAttack }) {
+export default function AttackTestPanel({
+  attackResults,
+  metrics,
+  onRunAttackBatch,
+  runningAttackBatch,
+  onRunSingleAttack,
+}) {
   const hasHistory = metrics && metrics.total_attacks > 0;
   const [runningAttackId, setRunningAttackId] = useState(null);
+  const [executionResult, setExecutionResult] = useState(null);
+  const [localError, setLocalError] = useState('');
 
   const handleSingleAttack = async (caseId) => {
     if (!onRunSingleAttack) return;
     setRunningAttackId(caseId);
+    setLocalError('');
     try {
-      await onRunSingleAttack(caseId);
+      const result = await onRunSingleAttack(caseId);
+      setExecutionResult({
+        mode: 'single',
+        timestamp: new Date().toISOString(),
+        ...result,
+      });
+    } catch (error) {
+      setLocalError(error.message);
     } finally {
       setRunningAttackId(null);
     }
   };
 
+  const handleBatchAttack = async () => {
+    setLocalError('');
+    try {
+      const result = await onRunAttackBatch();
+      setExecutionResult({
+        mode: 'batch',
+        timestamp: new Date().toISOString(),
+        ...result,
+      });
+    } catch (error) {
+      setLocalError(error.message);
+    }
+  };
+
   return (
     <section className="content-stack attack-panel-container">
-      {/* Title */}
-      <div className="section-header" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="section-header" style={{ marginBottom: '1.5rem' }}>
         <div>
           <h1 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <ShieldAlert size={28} style={{ color: 'var(--color-red)' }} />
-            <span>CogniGuard 攻防演练与防御决策测试舱 (Attack & Defense Lab)</span>
+            <span>CogniGuard Attack & Defense Sandbox / 模拟攻防沙盘</span>
           </h1>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
-            Inject high-risk malicious prompt payloads directly to target agents and evaluate the horizontal mediation controller's safety enforcement in real-time.
+            Run one attack or the full seven-case suite and inspect the actual TPCS decision returned by the backend.
           </p>
         </div>
       </div>
 
-      {/* Launch Attack Button */}
       <div className="attack-launch-section">
         <button
           className={`attack-launch-btn ${runningAttackBatch ? 'running' : ''}`}
-          onClick={onRunAttackBatch}
-          disabled={runningAttackBatch}
+          onClick={handleBatchAttack}
+          disabled={runningAttackBatch || Boolean(runningAttackId)}
         >
           <div className="attack-launch-btn-glow" />
           {runningAttackBatch ? (
             <>
               <RefreshCw size={20} className="spin" />
-              <span>正在执行攻防演练...</span>
+              <span>Running seven attack cases...</span>
             </>
           ) : (
             <>
               <Swords size={20} />
-              <span>启动全面攻防演练 / Launch Attack Simulation</span>
+              <span>Launch Full Attack Simulation / 启动全面攻防演练</span>
             </>
           )}
         </button>
         <p className="attack-launch-hint">
           <Zap size={13} />
-          <span>批量注入 7 种高危攻击向量，测试 TPCS 中介控制器的横向隔离与安全拦截能力</span>
+          <span>Each execution is persisted to the audit history and immediately reflected in the metrics below.</span>
         </p>
       </div>
 
-      {/* Dynamic Summary Dashboard */}
+      {localError && (
+        <div className="attack-execution-banner error">
+          <AlertTriangle size={18} />
+          <span>{localError}</span>
+        </div>
+      )}
+
+      {executionResult && (
+        <div className="attack-execution-result">
+          <div className="attack-execution-result-header">
+            <div>
+              <CheckCircle size={18} />
+              <strong>
+                {executionResult.mode === 'batch'
+                  ? `${executionResult.results?.length || 0} attacks completed`
+                  : `${executionResult.case?.attack_case_id || 'Attack'} completed`}
+              </strong>
+            </div>
+            <span>{new Date(executionResult.timestamp).toLocaleTimeString('zh-CN')}</span>
+          </div>
+          {executionResult.mode === 'single' && executionResult.case && (
+            <div className="attack-execution-summary">
+              <span>Decision: <strong>{executionResult.case.actual_decision}</strong></span>
+              <span>Result: <strong>{executionResult.case.result}</strong></span>
+              <span>Risk: <strong>{executionResult.case.risk_score}</strong></span>
+              <span>Audit: <strong>{executionResult.case.audit_log_id}</strong></span>
+            </div>
+          )}
+          <details>
+            <summary><Braces size={14} /> Inspect execution JSON</summary>
+            <pre>{JSON.stringify(executionResult, null, 2)}</pre>
+          </details>
+        </div>
+      )}
+
       <div className="data-panel-card" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1.25rem', marginBottom: '2rem' }}>
         <div className="data-panel-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
           <Shield size={16} style={{ color: 'var(--color-red)' }} />
-          <span>攻防演练防御决策状态统计 (Live Attack & Defense Analytics)</span>
+          <span>Live Attack & Defense Analytics</span>
         </div>
 
         {!hasHistory ? (
           <div style={{ textAlign: 'center', padding: '2rem 1rem', color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>
             <AlertTriangle size={32} style={{ margin: '0 auto 0.75rem', display: 'block', color: 'var(--color-yellow)' }} />
-            <span>暂无攻防演练记录。请点击上方 <strong>"启动全面攻防演练"</strong> 按钮开始注入攻击向量。</span>
+            <span>No attack execution has been recorded yet.</span>
           </div>
         ) : (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem' }}>
-            <div className="attack-stat-card">
-              <span className="attack-stat-label">总测试注入次数 (Total)</span>
-              <strong className="attack-stat-value">{metrics.total_attacks} 次</strong>
-            </div>
-            <div className="attack-stat-card stat-green">
-              <span className="attack-stat-label">强力阻断拦截 (Blocked)</span>
-              <strong className="attack-stat-value" style={{ color: 'var(--color-green)' }}>{metrics.blocked_attacks} 次</strong>
-            </div>
-            <div className="attack-stat-card stat-blue">
-              <span className="attack-stat-label">文本脱敏净化 (Sanitized)</span>
-              <strong className="attack-stat-value" style={{ color: 'var(--color-blue)' }}>{metrics.sanitized_attacks} 次</strong>
-            </div>
-            <div className="attack-stat-card stat-yellow">
-              <span className="attack-stat-label">降级凭证审查 (Degraded)</span>
-              <strong className="attack-stat-value" style={{ color: 'var(--color-yellow)' }}>{metrics.degraded_attacks} 次</strong>
-            </div>
-            <div className="attack-stat-card stat-red">
-              <span className="attack-stat-label">恶意逃逸成功 (ASR)</span>
-              <strong className="attack-stat-value" style={{ color: metrics.successful_attacks > 0 ? 'var(--color-red)' : '#ffffff' }}>{metrics.successful_attacks} 次</strong>
-            </div>
-            <div className="attack-stat-card">
-              <span className="attack-stat-label">攻击成功率 (ASR %)</span>
-              <strong className="attack-stat-value" style={{ color: metrics.attack_success_rate > 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
-                {(metrics.attack_success_rate * 100).toFixed(1)}%
-              </strong>
-            </div>
-            <div className="attack-stat-card">
-              <span className="attack-stat-label">安全防御率 (ADR %)</span>
-              <strong className="attack-stat-value" style={{ color: 'var(--color-green)' }}>
-                {(metrics.defense_success_rate * 100).toFixed(1)}%
-              </strong>
-            </div>
+            <Stat label="Total" value={metrics.total_attacks} />
+            <Stat label="Blocked" value={metrics.blocked_attacks} color="var(--color-green)" />
+            <Stat label="Sanitized" value={metrics.sanitized_attacks} color="var(--color-blue)" />
+            <Stat label="Degraded" value={metrics.degraded_attacks} color="var(--color-yellow)" />
+            <Stat label="Escaped" value={metrics.successful_attacks} color="var(--color-red)" />
+            <Stat label="Attack success" value={`${(metrics.attack_success_rate * 100).toFixed(1)}%`} />
+            <Stat label="Defense rate" value={`${(metrics.defense_success_rate * 100).toFixed(1)}%`} color="var(--color-green)" />
           </div>
         )}
       </div>
 
-      {/* Case cards */}
       <div className="attack-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
         {attackResults.map((item) => {
           const isRunning = runningAttackId === item.attack_case_id;
-
+          const isLatest = executionResult?.case?.attack_case_id === item.attack_case_id;
           return (
             <div
-              className="attack-card"
+              className={`attack-card ${isLatest ? 'latest-execution' : ''}`}
               key={item.attack_case_id}
               style={{
                 backgroundColor: 'var(--bg-secondary)',
@@ -125,7 +171,7 @@ export default function AttackTestPanel({ attackResults, metrics, onRunAttackBat
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                minHeight: '230px'
+                minHeight: '250px',
               }}
             >
               <div>
@@ -133,54 +179,28 @@ export default function AttackTestPanel({ attackResults, metrics, onRunAttackBat
                   <span style={{ fontFamily: 'monospace', fontWeight: 'bold', color: 'var(--color-red)', fontSize: '0.75rem' }}>{item.attack_case_id}</span>
                   <span className="risk-badge med" style={{ fontSize: '0.6rem' }}>{item.target_protection_layer}</span>
                 </div>
-                
-                <h3 style={{ fontSize: '0.85rem', fontWeight: 700, margin: '0 0 0.5rem 0', color: '#ffffff' }}>
+                <h3 style={{ fontSize: '0.85rem', fontWeight: 700, margin: '0 0 0.5rem', color: '#fff' }}>
                   {item.attack_type}
                 </h3>
-                
-                <div style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.25)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '6px',
-                  padding: '0.5rem',
-                  fontFamily: 'monospace',
-                  fontSize: '0.7rem',
-                  color: 'var(--color-red)',
-                  maxHeight: '75px',
-                  overflowY: 'auto',
-                  lineHeight: '1.4',
-                  marginBottom: '0.75rem'
-                }}>
-                  "{item.malicious_prompt}"
-                </div>
+                <div className="attack-prompt-preview">"{item.malicious_prompt}"</div>
               </div>
 
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.03)', paddingTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.7rem', color: 'var(--color-text-muted)' }}>
-                <div>受侵智能体: <strong style={{ color: '#ffffff' }}>{item.target_agent}</strong></div>
-                <div>安全预案设计: <em>{item.expected_defense}</em></div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.25rem' }}>
-                  <div style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}>
-                    <span>Decision:</span>
-                    <DecisionBadge decision={item.actual_decision} />
-                  </div>
-                  <div>
-                    <span>Result: </span>
-                    <span className="risk-badge low" style={{ fontSize: '0.65rem', textTransform: 'uppercase', backgroundColor: 'rgba(16, 185, 129, 0.08)', color: 'var(--color-green)' }}>
-                      {item.result}
-                    </span>
-                  </div>
+              <div className="attack-card-footer">
+                <div>Target agent: <strong>{item.target_agent}</strong></div>
+                <div>Expected defense: <em>{item.expected_defense}</em></div>
+                <div className="attack-card-decision-row">
+                  <div><span>Decision: </span><DecisionBadge decision={item.actual_decision} /></div>
+                  <span className="risk-badge low">{item.result}</span>
                 </div>
-
-                {/* Single attack trigger button */}
                 <button
                   className="attack-single-btn"
                   onClick={() => handleSingleAttack(item.attack_case_id)}
                   disabled={isRunning || runningAttackBatch}
                 >
                   {isRunning ? (
-                    <><RefreshCw size={12} className="spin" /> 执行中...</>
+                    <><RefreshCw size={12} className="spin" /> Executing...</>
                   ) : (
-                    <><Crosshair size={12} /> 执行此攻击 / Run This Attack</>
+                    <><Crosshair size={12} /> Run This Attack / 执行此攻击</>
                   )}
                 </button>
               </div>
@@ -189,5 +209,14 @@ export default function AttackTestPanel({ attackResults, metrics, onRunAttackBat
         })}
       </div>
     </section>
+  );
+}
+
+function Stat({ label, value, color }) {
+  return (
+    <div className="attack-stat-card">
+      <span className="attack-stat-label">{label}</span>
+      <strong className="attack-stat-value" style={{ color }}>{value}</strong>
+    </div>
   );
 }

@@ -34,7 +34,7 @@ export default function ProtectionExplanation({ step, pipelineData }) {
 
   const getAuditDetails = () => ({
     answer_id: pipelineData?.audit_trace?.answer_id || `ans_${pipelineData?.generated_context_card?.task_id || 'task_0001'}`,
-    watermark_id: pipelineData?.audit_trace?.watermark_id || 'hsw_st_minimal_watermark_id',
+    watermark_id: pipelineData?.audit_trace?.watermark_id || 'audit_trace_watermark_id',
     profile_card_id: pipelineData?.audit_trace?.profile_card_id || `card_${pipelineData?.generated_context_card?.task_id || 'task_0001'}`,
     resource_ids: [pipelineData?.protection_logs?.c2_rag?.resource_id || 'teacher_resource_arithmetic_sequence'],
     chunk_ids: [pipelineData?.protection_logs?.c2_rag?.chunk_id || 'chunk_889e1f6f'],

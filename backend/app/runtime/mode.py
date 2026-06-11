@@ -11,7 +11,9 @@ from backend.app.protection.tpcs.nemo_guardrails_adapter import (
 
 VALID_RUNTIME_MODES = {"mock", "llm", "guarded_llm"}
 PLACEHOLDER_KEYS = {"", "your_mimo_api_key_here", "your_openai_api_key_here"}
-DEFAULT_GUARDRAILS_CONFIG = Path(__file__).resolve().parents[3] / "guardrails" / "cogniguard"
+DEFAULT_GUARDRAILS_CONFIG = (
+    Path(__file__).resolve().parents[3] / "protection" / "tpcs_guardrails"
+)
 GuardrailAdapter = NeMoGuardrailsAdapter
 
 
@@ -86,6 +88,17 @@ def build_runtime_llm_client(
     from backend.app.agents.mimo_client import build_default_llm_client
 
     return build_default_llm_client(env_file=env_file)
+
+
+def build_student_runtime_llm_client(
+    env_file: str | os.PathLike[str] | None = None,
+) -> Any | None:
+    status = get_runtime_status(env_file=env_file)
+    if status["agent_call_mode"] != "real_llm":
+        return None
+    from backend.app.agents.mimo_client import build_student_llm_client
+
+    return build_student_llm_client(env_file=env_file)
 
 
 def build_guardrail_adapter(

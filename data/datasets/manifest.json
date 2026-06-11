@@ -1,0 +1,13 @@
+{
+  "datasets": {
+    "gsm8k": "D:\\pycharm\\CogniGuard\\data\\datasets\\gsm8k",
+    "math": "D:\\pycharm\\CogniGuard\\data\\datasets\\math",
+    "education_scenarios": "D:\\pycharm\\CogniGuard\\data\\datasets\\education_scenarios",
+    "attack_scenarios": "D:\\pycharm\\CogniGuard\\data\\datasets\\attack_scenarios"
+  },
+  "stats": {
+    "student_profiles": 50,
+    "teacher_resources": 30,
+    "attack_cases": 15
+  }
+}

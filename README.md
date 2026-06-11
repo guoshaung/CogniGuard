@@ -1,19 +1,69 @@
 # CogniGuard
 
-CogniGuard is a minimum runnable demo for a multi-agent personalized education protection system. The current system focuses on lifecycle protection around personalized tutoring rather than full-scale federated training.
+CogniGuard is a minimum runnable demo for a closed-loop multi-agent personalized education protection system.
 
-## Protection Layers
+The project focuses on coordinated lifecycle protection around personalized tutoring rather than full-scale federated training. Its architecture is organized as three collaborating protection layers governed horizontally by TPCS.
 
-- User side: FOPD performs task-aware minimum disclosure of student profile records and builds a small context card for the tutor agent.
-- Teaching side: C2-RAG controls retrieval, copyright exposure budgets, return modes, variants, and source tracing for teaching resources.
-- Model output side: HSW-ST applies watermarking, source binding, trace logs, and detection/evaluation for generated answers.
+## Three-Layer Closed-Loop Architecture
+
+- **Student Profile Protection Layer (学生画像隐私保护层):** MM-FOPD / DIB-MM-FOPD performs multimodal student profile modeling, task-aware minimum disclosure, minimum context card generation, and governed profile-update feedback.
+- **Teacher Resource Protection Layer (教师版权资源保护层):** PB-C2-RAG performs copyright-constrained retrieval, resource exposure budgeting, return-mode control, controlled variants, and anti-reconstruction or reverse-inference detection.
+- **Audit & Trace Layer (生成内容审计追踪层):** HSW-ST + Trustworthy Audit provides watermarking, source tracing, hash-chain evidence preservation, role-based permissions, and encrypted statistics for generated educational content.
+- **TPCS (横向治理控制器):** TPCS is the horizontal governance controller across all three layers. It enforces cross-layer permissions, privacy and copyright budgets, sanitization and degradation, refusal, encryption requirements, and audit policies.
+
+The layers are not treated as a one-way sequence. Each layer produces controlled feedback that can update later decisions in the same tutoring lifecycle or a subsequent authorized learning round.
+
+## Closed-loop Feedback
+
+The minimum closed-loop contract uses the following cross-layer signals:
+
+- **Student Profile Layer -> Teacher Resource Layer:** `context_card`, `student_level`, `knowledge_point`, and `risk_level` guide protected retrieval and resource adaptation.
+- **Teacher Resource Layer -> Student Profile Layer:** `resource_difficulty`, `variant_performance`, and `resource_fit` provide bounded evidence for profile-update review.
+- **Teacher Resource Layer -> Audit & Trace Layer:** `resource_id`, `chunk_id`, `return_mode`, `copyright_level`, and `exposure_score` bind generated content to its controlled resource provenance.
+- **Audit & Trace Layer -> Teacher Resource Layer:** `leakage_risk`, `similarity_risk`, and `multi_turn_reconstruction_risk` can trigger return-mode degradation, budget reduction, resource substitution, or refusal.
+- **Student Profile Layer -> Audit & Trace Layer:** `modality_sensitivity` and `recording_scope` define what may be logged, retained, encrypted, or omitted from audit records.
+- **Audit & Trace Layer -> Student Profile Layer:** `learning_evidence`, `abnormal_behavior`, and revocation/forgetting signals are returned as governed evidence and must pass TPCS approval before affecting the student profile.
+
+TPCS mediates every feedback path. No layer may directly expand profile disclosure, expose teacher resources, update a persistent profile, or weaken an audit requirement without an explicit TPCS policy decision.
 
 ## Project Layout
 
-- `backend/app/agents/`: protected LLM tutoring agent layer with TPCS-mediated communication.
-- `fopd_c2rag_mvp/`: minimum demo for profile minimization, copyright-aware retrieval, multi-agent orchestration, metrics, and tests.
-- `hsw_st_minimal/`: minimum implementation of hybrid semantic-aware watermarking and source tracing.
-- `requirements.txt`: root convenience requirements file that points to the HSW-ST dependencies.
+CogniGuard 采用保护机制原型与集成服务分离的架构组织方式：
+
+### 前后端服务层
+- `frontend/`: Vue.js 前端展示层，提供可视化交互界面
+- `backend/`: 后端服务层与 API 集成
+  - `backend/app/agents/`: 受保护的 LLM tutoring agent 层，经 TPCS 中介通信
+  - `backend/app/api/`: 前后端对接 API 和数据适配器
+  - `backend/app/protection/`: 各保护机制的集成 wrapper 接口
+  - `backend/app/demo/`: 完整系统演示入口
+
+### 核心保护机制原型库（Protection Mechanisms）
+这些模块是独立的研究原型，可单独运行、测试和发布：
+
+- `protection/student_profile/`: **MM-FOPD** 学生画像最小化披露、上下文卡片生成和编排
+- `protection/teacher_resource/`: **PB-C²-RAG** 版权约束检索、资源暴露预算、返回模式控制
+- `protection/audit_trace/`: **HSW-ST** 水印嵌入、源追溯、审计原语
+- `protection/tpcs_guardrails/`: **TPCS** 横向治理控制器与 NeMo Guardrails 配置
+- `protection/common/`: 跨层模式定义、度量标准、文本工具和追溯绑定合约
+
+### 数据与实验
+- `data/`: 原始数据和处理后数据（raw/processed/test）
+- `experiments/`: 攻击回归测试、重构攻击、水印攻击、层级评估、消融实验和生成的研究结果
+- `scripts/`: 项目级数据生成和工具脚本入口
+
+### 文档与配置
+- `docs/`: 架构文档和 API 接口文档
+- `requirements.txt`: 根级便捷依赖文件（包含审计追踪层依赖）
+- `server.py`: 开发用轻量级 HTTP 服务器
+
+**架构设计说明：**
+保护机制模块（protection/）保持独立性，便于：
+1. 单独测试和迭代各保护机制
+2. 作为独立研究成果发表或开源
+3. 与其他系统集成时的模块化复用
+
+后端服务层（backend/app/）提供统一集成接口，协调各保护机制形成完整的三层闭环架构。
 
 ## LLM Agent Configuration
 
@@ -25,6 +75,8 @@ COGNIGUARD_NEMO_GUARDRAILS_ENABLED=true
 MIMO_API_KEY=your_mimo_api_key_here
 MIMO_BASE_URL=https://api.xiaomimimo.com/v1
 MIMO_MODEL=mimo-v2.5-pro
+MIMO_STUDENT_MODEL=mimo-v2-flash
+MIMO_STUDENT_MAX_TOKENS=420
 ```
 
 If no `MIMO_API_KEY` is present, the agents run with deterministic fallback outputs for local demos and tests.
@@ -50,24 +102,25 @@ The demo keeps the top-level architecture as three protection layers plus horizo
 Run the FOPD + C2-RAG demo:
 
 ```bash
-cd fopd_c2rag_mvp
-pip install -r requirements.txt
-python -m src.pipeline.run_demo --profiles data/profiles.jsonl --questions data/student_questions.jsonl --resources data/teacher_resources.jsonl --config configs/default.yaml --out outputs/demo_results.jsonl
+pip install -r protection/student_profile/requirements.txt
+python -m protection.student_profile.src.pipeline.run_demo --profiles protection/student_profile/data/profiles.jsonl --questions protection/student_profile/data/student_questions.jsonl --resources protection/teacher_resource/data/teacher_resources.jsonl --config protection/student_profile/configs/default.yaml --out protection/student_profile/outputs/demo_results.jsonl
 ```
 
 Run tests:
 
 ```bash
-cd fopd_c2rag_mvp
-pytest
+pytest backend/app/tests protection/student_profile/tests protection/teacher_resource/tests experiments/attacks/tests
 ```
 
 Run the HSW-ST watermark demo:
 
 ```bash
-cd hsw_st_minimal
-pip install -r requirements.txt
-python -m src.main --config configs/config.yaml
+pip install -r protection/audit_trace/requirements.txt
+cd protection/audit_trace
+python src/main.py --config configs/config.yaml --mode demo
 ```
+
+Run attacks, evaluations, and ablations from the repository root. See
+`experiments/README.md` for the experiment entry points.
 
 See the README files inside each module for detailed configuration notes.

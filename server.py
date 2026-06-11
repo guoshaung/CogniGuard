@@ -8,7 +8,7 @@ import sys
 import traceback
 import urllib.parse
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
@@ -46,13 +46,18 @@ except ImportError:
     load_demo_case = None
 
 try:
+    from backend.app.demo.classroom_session import run_classroom_turn
+except ImportError:
+    run_classroom_turn = None
+
+try:
     from backend.app.runtime.mode import get_runtime_status
 except ImportError:
     get_runtime_status = None
 
 # Import actual watermark attack component
 try:
-    from hsw_st_minimal.src.attacks import run_all_attacks
+    from protection.audit_trace.src.attacks import run_all_attacks
 except ImportError:
     run_all_attacks = None
 
@@ -292,7 +297,19 @@ def build_history_metrics() -> dict[str, Any]:
     )
 
     attack_success_rate = (successful_attacks / total_attacks) if total_attacks > 0 else 0.0
-    defense_success_rate = ((blocked_attacks + sanitized_attacks + degraded_attacks) / total_attacks) if total_attacks > 0 else (1.0 if total_runs > 0 else 0.0)
+    defended_attacks = sum(
+        1
+        for r in attack_runs
+        if any(
+            decision in r.get("result", "")
+            for decision in ("Blocked", "Refused", "Intercepted", "Sanitized", "Degraded")
+        )
+    )
+    defense_success_rate = (
+        defended_attacks / total_attacks
+        if total_attacks > 0
+        else (1.0 if total_runs > 0 else 0.0)
+    )
 
     privacy_leakage_rate = (
         sum(r.get("disclosure_score", 0.25) for r in normal_runs) / total_runs
@@ -547,8 +564,8 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             self._set_cors_headers()
             self.end_headers()
             try:
-                summary_path = PROJECT_ROOT / "fopd_c2rag_mvp" / "outputs" / "attack_simulation_summary.json"
-                csv_path = PROJECT_ROOT / "fopd_c2rag_mvp" / "outputs" / "attack_simulation.csv"
+                summary_path = PROJECT_ROOT / "experiments" / "results" / "attacks" / "copyright_reconstruction_summary.json"
+                csv_path = PROJECT_ROOT / "experiments" / "results" / "attacks" / "copyright_reconstruction.csv"
                 summary_data = {}
                 csv_rows = []
 
@@ -633,6 +650,35 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:
         parsed_url = urllib.parse.urlparse(self.path)
         path = parsed_url.path
+
+        if path == "/api/dialogue/next-round":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length).decode("utf-8")
+            try:
+                if run_classroom_turn is None:
+                    raise RuntimeError("classroom session engine is not importable")
+                payload = json.loads(post_data or "{}")
+                result = run_classroom_turn(
+                    data_root=PROJECT_ROOT / "data",
+                    case_index=int(payload.get("case_index", 0)),
+                    turn_kind=str(payload.get("turn_kind", "learning")),
+                    round_number=int(payload.get("round_number", 1)),
+                    student_message=str(payload.get("student_message", "")),
+                    attack_type=payload.get("attack_type"),
+                    session_state=payload.get("session_state"),
+                    target_mastery=float(payload.get("target_mastery", 0.85)),
+                )
+                self._send_json(result)
+            except Exception as exc:
+                self._send_json(
+                    {
+                        "success": False,
+                        "error": str(exc),
+                        "traceback": traceback.format_exc(),
+                    },
+                    status=500,
+                )
+            return
 
         # 1. API: Trigger Watermark Attacking
         if path == "/api/watermark-attack":
@@ -1015,7 +1061,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
 
 def start_server(port: int = 8000) -> None:
     server_address = ("", port)
-    httpd = HTTPServer(server_address, CogniGuardDashboardAPIHandler)
+    httpd = ThreadingHTTPServer(server_address, CogniGuardDashboardAPIHandler)
     print(f"CogniGuard Academic Demo Server running at http://localhost:{port}/")
     try:
         httpd.serve_forever()

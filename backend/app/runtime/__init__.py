@@ -3,6 +3,7 @@ from .mode import (
     RuntimeStatus,
     build_guardrail_adapter,
     build_runtime_llm_client,
+    build_student_runtime_llm_client,
     get_runtime_status,
 )
 
@@ -11,5 +12,6 @@ __all__ = [
     "RuntimeStatus",
     "build_guardrail_adapter",
     "build_runtime_llm_client",
+    "build_student_runtime_llm_client",
     "get_runtime_status",
 ]

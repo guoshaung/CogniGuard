@@ -56,6 +56,18 @@ def _post_ndjson(base_url: str, path: str, payload: dict[str, Any]) -> list[dict
         ]
 
 
+def _post_json(base_url: str, path: str, payload: dict[str, Any]) -> Any:
+    request = urllib.request.Request(
+        f"{base_url}{path}",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=20) as response:
+        assert response.status == 200
+        return json.loads(response.read().decode("utf-8"))
+
+
 def test_dashboard_metrics_endpoint(api_base_url: str) -> None:
     payload = _get_json(api_base_url, "/api/dashboard/metrics")
 
@@ -187,6 +199,104 @@ def test_run_case_stream_emits_incremental_events(api_base_url: str) -> None:
     assert len(workflow_steps) == 12
     assert event_types.count("run_completed") == 1
     assert event_types.index("workflow_step") < event_types.index("run_completed")
+
+
+def test_classroom_dialogue_preserves_closed_loop_state_and_attack_feedback(
+    api_base_url: str,
+) -> None:
+    first = _post_json(
+        api_base_url,
+        "/api/dialogue/next-round",
+        {
+            "case_index": 0,
+            "turn_kind": "learning",
+            "round_number": 1,
+        },
+    )
+    attack = _post_json(
+        api_base_url,
+        "/api/dialogue/next-round",
+        {
+            "case_index": 0,
+            "turn_kind": "attack",
+            "round_number": 1,
+            "attack_type": "copyright_reconstruction",
+            "session_state": first["session_state"],
+        },
+    )
+    second = _post_json(
+        api_base_url,
+        "/api/dialogue/next-round",
+        {
+            "case_index": 0,
+            "turn_kind": "learning",
+            "round_number": 2,
+            "session_state": attack["session_state"],
+        },
+    )
+
+    assert [message["role"] for message in first["messages"][:4]] == [
+        "student",
+        "teacher",
+        "learner",
+        "feedback",
+    ]
+    assert attack["attack_blocked"] is True
+    assert attack["session_state"]["tpcs"]["degradation_level"] >= 1
+    assert (
+        second["session_state"]["teacher_resource"]["return_mode"]
+        == "synthetic_variant"
+    )
+    assert second["session_state"]["student_profile"]["learning_evidence"]
+    assert second["session_state"]["student_profile"]["student_agent"]
+    assert second["session_state"]["audit_trace"]["hash_chain_head"] != "GENESIS"
+
+
+def test_classroom_dialogue_continues_until_target_is_confirmed(
+    api_base_url: str,
+) -> None:
+    state = None
+    result = None
+    for round_number in range(1, 20):
+        result = _post_json(
+            api_base_url,
+            "/api/dialogue/next-round",
+            {
+                "case_index": 0,
+                "turn_kind": "learning",
+                "round_number": round_number,
+                "target_mastery": 0.82,
+                "session_state": state,
+            },
+        )
+        state = result["session_state"]
+        if result["goal"]["goal_met"]:
+            break
+
+    assert result is not None
+    assert result["goal"]["goal_met"] is True
+    assert result["goal"]["consecutive_passes"] >= 2
+    assert state["student_profile"]["mastery_estimate"] >= 0.82
+    assert any(message["role"] == "goal" for message in result["messages"])
+
+
+def test_single_and_batch_attack_execution_endpoints(api_base_url: str) -> None:
+    single = _post_json(
+        api_base_url,
+        "/api/run-attack",
+        {"attack_case_id": "atk_003"},
+    )
+    batch = _post_json(
+        api_base_url,
+        "/api/attacks/run-batch",
+        {},
+    )
+
+    assert single["success"] is True
+    assert single["case"]["attack_case_id"] == "atk_003"
+    assert single["case"]["actual_decision"]
+    assert batch["success"] is True
+    assert len(batch["results"]) == 7
 
 
 def test_mm_fopd_cases_endpoint_does_not_expose_raw_payloads(api_base_url: str) -> None:

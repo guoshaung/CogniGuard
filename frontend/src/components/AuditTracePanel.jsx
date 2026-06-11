@@ -11,7 +11,7 @@ export default function AuditTracePanel({ data }) {
     { label: 'Resource Chunk', desc: logs.c2_rag?.chunk_id || 'chunk_889e1f6f', color: 'var(--color-purple)' },
     { label: 'Agent Calls', desc: '4 cloud dispatches', color: 'var(--color-text-muted)' },
     { label: 'Final Answer', desc: `ans_${audit.profile_card_id ? audit.profile_card_id.replace('card_', '') : 'task_0001'}`, color: 'var(--color-text-muted)' },
-    { label: 'Watermark', desc: audit.watermark_id || 'hsw_st_minimal_id', color: 'var(--color-green)' },
+    { label: 'Watermark', desc: audit.watermark_id || 'audit_trace_watermark_id', color: 'var(--color-green)' },
     { label: 'Audit Trace', desc: 'SHA256 Bound', color: 'var(--color-green)' }
   ];
 
@@ -94,7 +94,7 @@ export default function AuditTracePanel({ data }) {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
               <span>嵌入隐形水印 ID (Watermark ID):</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{audit.watermark_id || 'hsw_st_minimal_id'}</strong>
+              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{audit.watermark_id || 'audit_trace_watermark_id'}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
               <span>画像卡凭证哈希 (Profile Card ID):</span>

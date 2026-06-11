@@ -134,7 +134,7 @@ class DemoHSWSTBinder:
             "audit_status": "auditable_demo_watermark_bound",
             "watermark_note": (
                 "Runnable demo uses a visible HSW-ST audit reference. Production "
-                "can replace this binder with hsw_st_minimal KGW watermarking."
+                "can replace this binder with protection/audit_trace KGW watermarking."
             ),
             "timestamp": utc_now_iso(),
         }

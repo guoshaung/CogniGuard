@@ -21,7 +21,8 @@ import {
   Clock,
   Eye,
   ArrowRight,
-  Info
+  Info,
+  MessageSquareText
 } from 'lucide-react';
 import { Bar, Doughnut, Radar } from 'react-chartjs-2';
 import {
@@ -54,6 +55,7 @@ import AttackTestPanel from './components/AttackTestPanel';
 import LiveExecutionConsole from './components/LiveExecutionConsole';
 import CasePickerModal from './components/CasePickerModal';
 import FireworksOverlay from './components/FireworksOverlay';
+import MultiRoundDialogue from './components/MultiRoundDialogue';
 
 import './App.css';
 
@@ -72,6 +74,7 @@ ChartJS.register(
 );
 
 const tabs = [
+  { id: 'classroom', label: '多轮课堂 / Classroom Lab', icon: MessageSquareText },
   { id: 'overview', label: '学术大屏 / Overview', icon: Shield },
   { id: 'workflow', label: '防护流水线 / Live Workflow', icon: Workflow },
   { id: 'mmfopd', label: '画隐私脱敏 / MM-FOPD', icon: EyeOff },
@@ -412,11 +415,13 @@ function App() {
       if (data.success) {
         setAttackResults(data.results || attackResults);
         await loadInitialData(); // Refresh metrics
+        return data;
       } else {
-        setError(data.error || 'Attack batch failed');
+        throw new Error(data.error || 'Attack batch failed');
       }
     } catch (err) {
       setError(err.message);
+      throw err;
     } finally {
       setRunningAttackBatch(false);
     }
@@ -432,9 +437,13 @@ function App() {
         body: JSON.stringify({ attack_case_id: caseId }),
       });
       if (!res.ok) throw new Error(`Attack returned HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error || 'Attack execution failed');
       await loadInitialData(); // Refresh metrics
+      return data;
     } catch (err) {
       setError(err.message);
+      throw err;
     }
   };
 
@@ -581,6 +590,19 @@ function App() {
               <ChevronRight size={16} className="case-selector-badge-arrow" />
             </div>
             
+            <button
+              className="run-btn"
+              style={{
+                backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                borderColor: 'var(--color-purple)'
+              }}
+              onClick={() => setActiveTab('classroom')}
+              disabled={cases.length === 0}
+            >
+              <GitBranch size={16} />
+              <span>多轮对话演示</span>
+            </button>
+
             <button className="run-btn" onClick={runProtectedFlowStream} disabled={runningPipeline}>
               {runningPipeline ? <RefreshCw size={16} className="spin" /> : <Play size={16} />}
               <span>{runningPipeline ? '正在执行防护流...' : 'Run Protected Flow'}</span>
@@ -660,6 +682,12 @@ function App() {
                 <div className="chart-box" style={{ height: '220px', position: 'relative' }}><Radar data={radarChart} options={chartOptions} /></div>
               </div>
             </section>
+          )}
+
+          {activeTab === 'classroom' && cases.length > 0 && (
+            <MultiRoundDialogue
+              caseData={{ ...cases[selectedCaseIdx], case_index: selectedCaseIdx }}
+            />
           )}
 
           {/* TAB 2: LIVE WORKFLOW STREAMING */}
@@ -817,6 +845,7 @@ function App() {
         visible={showFireworks}
         onDismiss={dismissFireworks}
       />
+
     </div>
   );
 }

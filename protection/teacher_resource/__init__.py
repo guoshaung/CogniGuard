@@ -1,0 +1,1 @@
+"""Teacher resource protection layer."""

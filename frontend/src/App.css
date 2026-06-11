@@ -1849,6 +1849,124 @@
   cursor: not-allowed;
 }
 
+.attack-execution-banner,
+.attack-execution-result {
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.attack-execution-banner.error {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+}
+
+.attack-execution-result {
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.07);
+}
+
+.attack-execution-result-header,
+.attack-execution-result-header > div,
+.attack-execution-summary,
+.attack-card-decision-row {
+  display: flex;
+  align-items: center;
+}
+
+.attack-execution-result-header {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.attack-execution-result-header > div {
+  gap: 0.5rem;
+  color: var(--color-green);
+}
+
+.attack-execution-result-header > span {
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.attack-execution-summary {
+  flex-wrap: wrap;
+  gap: 0.55rem 1.2rem;
+  margin-top: 0.8rem;
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+
+.attack-execution-summary strong {
+  color: #fff;
+}
+
+.attack-execution-result details {
+  margin-top: 0.8rem;
+}
+
+.attack-execution-result summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #a7f3d0;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.attack-execution-result pre {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 0.7rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: #070a10;
+  color: #cbd5e1;
+  font-size: 0.68rem;
+  white-space: pre-wrap;
+}
+
+.attack-card.latest-execution {
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.5), 0 0 24px rgba(16, 185, 129, 0.12);
+}
+
+.attack-prompt-preview {
+  max-height: 82px;
+  overflow-y: auto;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.55rem;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--color-red);
+  font-family: monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.attack-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 0.65rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.attack-card-footer strong {
+  color: #fff;
+}
+
+.attack-card-decision-row {
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
 /* ---- Topbar Refinements ---- */
 .topbar {
   display: flex;
