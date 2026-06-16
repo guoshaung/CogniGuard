@@ -3,11 +3,18 @@
     "gsm8k": "D:\\pycharm\\CogniGuard\\data\\datasets\\gsm8k",
     "math": "D:\\pycharm\\CogniGuard\\data\\datasets\\math",
     "education_scenarios": "D:\\pycharm\\CogniGuard\\data\\datasets\\education_scenarios",
-    "attack_scenarios": "D:\\pycharm\\CogniGuard\\data\\datasets\\attack_scenarios"
+    "attack_scenarios": "D:\\pycharm\\CogniGuard\\data\\datasets\\attack_scenarios",
+    "scenario_layers": "D:\\pycharm\\CogniGuard\\data\\scenario_layers"
   },
   "stats": {
-    "student_profiles": 50,
-    "teacher_resources": 30,
-    "attack_cases": 15
-  }
+    "student_profiles": 5,
+    "teacher_resources": 5,
+    "attack_cases": 5,
+    "episode_eval_samples": 5
+  },
+  "preferred_layout": "scenario_layers",
+  "notes": [
+    "优先使用 data/scenario_layers 下的新分层数据结构进行攻防演练与 episode 评测",
+    "旧 datasets 目录保留公开基准数据集与兼容样本"
+  ]
 }

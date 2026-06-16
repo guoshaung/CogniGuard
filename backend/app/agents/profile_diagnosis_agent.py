@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import re
 from typing import Any, Callable
 
 from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 
 
 class ProfileDiagnosisAgent(BaseAgent):
-    """Diagnoses the learner state from an MM-FOPD minimum context card only."""
+    """Diagnoses the learner state from a disentangled profile bundle."""
 
     def __init__(
         self,
@@ -21,7 +20,7 @@ class ProfileDiagnosisAgent(BaseAgent):
                 "Diagnose the learner's current knowledge state, error type, "
                 "learning preference, and short-term learning difficulty."
             ),
-            allowed_inputs=("context_card",),
+            allowed_inputs=("profile_encoding", "context_card"),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
             event_sink=event_sink,
@@ -31,91 +30,39 @@ class ProfileDiagnosisAgent(BaseAgent):
         self.validate_input(payload)
 
         def fallback() -> dict[str, Any]:
-            context_card = payload["context_card"]
-            context_text = _context_to_text(context_card)
+            encoding = payload.get("profile_encoding", {}) or {}
+            context_card = payload.get("context_card", {})
+            textual_cards = encoding.get("textual_cards", {}) if isinstance(encoding, dict) else {}
+            labels = encoding.get("labels", {}) if isinstance(encoding, dict) else {}
             diagnosis = {
-                "knowledge_point": _extract_field(
-                    context_card, context_text, ("knowledge_point", "knowledge")
-                ),
-                "error_type": _extract_from_text(
-                    context_text,
-                    ("common_error", "error_type", "常见错误", "错误类型"),
-                    default="not_enough_evidence",
-                ),
-                "learner_state": _extract_from_text(
-                    context_text,
-                    ("learner_state", "mastery_state", "相关掌握状态", "学习状态"),
-                    default="needs_short_term_support",
-                ),
-                "suggested_teaching_strategy": _extract_from_text(
-                    context_text,
-                    ("suggested_teaching_strategy", "recommended_strategy", "推荐策略"),
-                    default=_strategy_from_context(context_text),
-                ),
-                "confidence_score": _confidence_from_context(context_text),
+                "knowledge_point": str(context_card.get("knowledge_point") or labels.get("knowledge_point") or "unknown_knowledge_point"),
+                "error_type": str(labels.get("error_type") or context_card.get("current_error_type") or "not_enough_evidence"),
+                "learner_state": str(textual_cards.get("learning_card") or labels.get("learning_stage") or "needs_short_term_support"),
+                "suggested_teaching_strategy": str(textual_cards.get("teaching_card") or labels.get("teaching_strategy") or "scaffold_then_variant"),
+                "confidence_score": _safe_score(labels.get("confidence_score"), 0.72),
             }
             return {"diagnosis_result": diagnosis}
 
         result = self._llm_json_or_fallback(
             system_prompt=(
-                "You are ProfileDiagnosisAgent. Use only the MM-FOPD minimum "
-                "context card. Do not infer identity, family, school, or raw "
-                "multimodal facts. Return diagnosis_result with knowledge_point, "
-                "error_type, learner_state, suggested_teaching_strategy, and "
-                "confidence_score."
+                "You are ProfileDiagnosisAgent. Use only the provided abstract "
+                "profile representation and its disentangled cards. Do not infer "
+                "identity, family, school, or raw multimodal facts. Return "
+                "diagnosis_result with knowledge_point, error_type, learner_state, "
+                "suggested_teaching_strategy, and confidence_score."
             ),
             payload=payload,
             fallback=fallback,
         )
         result = _normalize_diagnosis(result, fallback())
         self.log_agent_call(
-            {"context_card": summarize_text(payload["context_card"])},
+            {
+                "profile_encoding": summarize_text(payload.get("profile_encoding", {})),
+                "context_card": summarize_text(payload.get("context_card", {})),
+            },
             result["diagnosis_result"],
         )
         return result
-
-
-def _context_to_text(context_card: Any) -> str:
-    if isinstance(context_card, dict):
-        parts = [f"{key}: {value}" for key, value in context_card.items()]
-        return "\n".join(parts)
-    return str(context_card or "")
-
-
-def _extract_field(context_card: Any, text: str, keys: tuple[str, ...]) -> str:
-    if isinstance(context_card, dict):
-        for key in keys:
-            value = context_card.get(key)
-            if value:
-                return str(value)
-    return _extract_from_text(text, keys, default="unknown_knowledge_point")
-
-
-def _extract_from_text(text: str, labels: tuple[str, ...], default: str) -> str:
-    for label in labels:
-        pattern = rf"{re.escape(label)}\s*[:：]\s*([^\n;；]+)"
-        match = re.search(pattern, text, flags=re.IGNORECASE)
-        if match:
-            return match.group(1).strip()
-    return default
-
-
-def _strategy_from_context(text: str) -> str:
-    lowered = text.lower()
-    if "图像" in text or "visual" in lowered:
-        return "visual_scaffold_then_symbolic_reasoning"
-    if "不稳定" in text or "unstable" in lowered:
-        return "step_by_step_scaffold_with_error_check"
-    return "concise_explanation_with_guided_practice"
-
-
-def _confidence_from_context(text: str) -> float:
-    signals = sum(
-        1
-        for token in ("知识点", "knowledge", "错误", "error", "策略", "state")
-        if token in text
-    )
-    return min(0.9, 0.45 + signals * 0.1)
 
 
 def _normalize_diagnosis(

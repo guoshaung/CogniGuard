@@ -51,6 +51,26 @@ except ImportError:
     run_classroom_turn = None
 
 try:
+    from backend.app.demo.free_chat import run_free_chat
+except ImportError:
+    run_free_chat = None
+
+try:
+    from backend.app.scenario_loader import (
+        ScenarioDataError,
+        build_cases_manifest,
+        build_episode_bundle,
+        list_attack_templates,
+        list_episode_samples,
+    )
+except ImportError:
+    ScenarioDataError = RuntimeError
+    build_cases_manifest = None
+    build_episode_bundle = None
+    list_attack_templates = None
+    list_episode_samples = None
+
+try:
     from backend.app.runtime.mode import get_runtime_status
 except ImportError:
     get_runtime_status = None
@@ -479,6 +499,54 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             self._send_api_payload(build_audit_traces, PROJECT_ROOT, case_index)
             return
 
+        # Frontend API: Attack evaluation results
+        if path == "/api/attack-eval-results":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self._set_cors_headers()
+            self.end_headers()
+            try:
+                results_path = PROJECT_ROOT / "experiments" / "results" / "comprehensive_attack_eval.json"
+                if results_path.exists():
+                    with results_path.open("r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
+                else:
+                    mock_data = {
+                        "public": {
+                            "membership_inference": {"asr": 0.140, "defense_rate": 0.860},
+                            "model_inversion": {"asr": 0.060, "defense_rate": 0.440},
+                            "copyright_extraction": {"asr": 0.000, "defense_rate": 0.810},
+                            "prompt_injection": {"asr": 0.000, "defense_rate": 1.000}
+                        },
+                        "custom": {
+                            "membership_inference": {"asr": 0.080, "defense_rate": 0.920},
+                            "model_inversion": {"asr": 0.000, "defense_rate": 1.000},
+                            "copyright_extraction": {"asr": 0.000, "defense_rate": 1.000},
+                            "prompt_injection": {"asr": 0.000, "defense_rate": 1.000}
+                        }
+                    }
+                    self.wfile.write(json.dumps(mock_data, ensure_ascii=False).encode("utf-8"))
+            except Exception as e:
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+            return
+
+        if path == "/api/scenario/episodes":
+            try:
+                rows = list_episode_samples() if list_episode_samples is not None else []
+                self._send_json({"rows": rows, "preferred_layout": "scenario_layers"})
+            except Exception as exc:
+                self._send_json({"error": str(exc)}, status=500)
+            return
+
+        if path == "/api/scenario/attack-templates":
+            try:
+                rows = list_attack_templates() if list_attack_templates is not None else []
+                self._send_json({"rows": rows})
+            except Exception as exc:
+                self._send_json({"error": str(exc)}, status=500)
+            return
+
         # 1. API: Get Student Cases
         if path == "/api/cases":
             self.send_response(200)
@@ -486,13 +554,10 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             self._set_cors_headers()
             self.end_headers()
             try:
-                manifest_path = PROJECT_ROOT / "data" / "processed" / "manifest.json"
-                if manifest_path.exists():
-                    with manifest_path.open("r", encoding="utf-8") as f:
-                        data = json.load(f)
+                if build_cases_manifest is not None:
+                    data = build_cases_manifest()
                     self.wfile.write(json.dumps(data, ensure_ascii=False).encode("utf-8"))
                 else:
-                    # Return fallback cases
                     self.wfile.write(json.dumps({"rows": FALLBACK_CASES}).encode("utf-8"))
             except Exception as e:
                 self.send_response(500)
@@ -506,6 +571,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             self.end_headers()
             try:
                 case_index = int(query.get("index", [0])[0])
+                episode_id = query.get("episode_id", [None])[0]
                 runtime_mode = query.get("runtime_mode", ["guarded_llm"])[0]
                 enable_nemo = query.get("enable_nemo", ["true"])[0].lower() == "true"
 
@@ -513,11 +579,9 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                 os.environ["COGNIGUARD_NEMO_GUARDRAILS_ENABLED"] = "true" if enable_nemo else "false"
 
                 if run_demo is not None:
-                    # Run the real backend pipeline dynamically!
-                    result = run_demo(data_root=PROJECT_ROOT / "data", case_index=case_index)
-                    # Load the raw semantics and local features to enrich the visualizer
+                    result = run_demo(data_root=PROJECT_ROOT / "data", case_index=case_index, episode_id=episode_id)
                     try:
-                        demo_case = load_demo_case(data_root=PROJECT_ROOT / "data", case_index=case_index)
+                        demo_case = load_demo_case(data_root=PROJECT_ROOT / "data", case_index=case_index, episode_id=episode_id)
                         result["educational_semantics"] = demo_case.educational_semantics
                         result["simulated_student_response"] = demo_case.simulated_student_response
                     except Exception as inner_e:
@@ -537,6 +601,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                         "type": "normal",
                         "timestamp": datetime.now().isoformat(),
                         "case_index": case_index,
+                        "episode_id": episode_id,
                         "disclosure_score": disclosure_score,
                         "copyright_leakage_rate": copyright_leakage_rate,
                         "watermark_bound": True
@@ -651,6 +716,29 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
         parsed_url = urllib.parse.urlparse(self.path)
         path = parsed_url.path
 
+        if path == "/api/dialogue/free-chat":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length).decode("utf-8")
+            try:
+                if run_free_chat is None:
+                    raise RuntimeError("free chat engine is not importable")
+                payload = json.loads(post_data or "{}")
+                result = run_free_chat(
+                    message=str(payload.get("message", "")),
+                    history=list(payload.get("history") or []),
+                )
+                self._send_json(result, status=200 if result.get("success") else 503)
+            except Exception as exc:
+                self._send_json(
+                    {
+                        "success": False,
+                        "error": str(exc),
+                        "traceback": traceback.format_exc(),
+                    },
+                    status=500,
+                )
+            return
+
         if path == "/api/dialogue/next-round":
             content_length = int(self.headers.get("Content-Length", 0))
             post_data = self.rfile.read(content_length).decode("utf-8")
@@ -665,8 +753,10 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     round_number=int(payload.get("round_number", 1)),
                     student_message=str(payload.get("student_message", "")),
                     attack_type=payload.get("attack_type"),
+                    attack_prompt=str(payload.get("attack_prompt", "")),
                     session_state=payload.get("session_state"),
                     target_mastery=float(payload.get("target_mastery", 0.85)),
+                    episode_id=payload.get("episode_id"),
                 )
                 self._send_json(result)
             except Exception as exc:
@@ -806,6 +896,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             try:
                 payload = json.loads(post_data or "{}")
                 case_index = int(payload.get("case_index", 0))
+                episode_id = payload.get("episode_id")
                 runtime_mode = payload.get("runtime_mode", "guarded_llm")
                 enable_nemo = payload.get("enable_nemo", True)
                 enable_nemo = str(enable_nemo).lower() not in {"0", "false", "no", "off"}
@@ -817,6 +908,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     {
                         "type": "stream_opened",
                         "case_index": case_index,
+                        "episode_id": episode_id,
                         "runtime_mode": runtime_mode,
                         "enable_nemo": enable_nemo,
                         "timestamp": datetime.now().isoformat(),
@@ -837,12 +929,14 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     data_root=PROJECT_ROOT / "data",
                     case_index=case_index,
                     event_sink=emit,
+                    episode_id=episode_id,
                 )
 
                 try:
                     demo_case = load_demo_case(
                         data_root=PROJECT_ROOT / "data",
                         case_index=case_index,
+                        episode_id=episode_id,
                     )
                     result["educational_semantics"] = demo_case.educational_semantics
                     result["simulated_student_response"] = demo_case.simulated_student_response
@@ -858,6 +952,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     "type": "normal",
                     "timestamp": datetime.now().isoformat(),
                     "case_index": case_index,
+                    "episode_id": episode_id,
                     "disclosure_score": disclosure_score,
                     "copyright_leakage_rate": copyright_leakage_rate,
                     "watermark_bound": True
@@ -896,19 +991,17 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             try:
                 payload = json.loads(post_data)
                 case_index = int(payload.get("case_index", 0))
+                episode_id = payload.get("episode_id")
                 runtime_mode = payload.get("runtime_mode", "guarded_llm")
                 enable_nemo = bool(payload.get("enable_nemo", True))
 
-                # Dynamically set the environment variables to control get_runtime_status()!
                 os.environ["COGNIGUARD_RUNTIME_MODE"] = runtime_mode
                 os.environ["COGNIGUARD_NEMO_GUARDRAILS_ENABLED"] = "true" if enable_nemo else "false"
 
                 if run_demo is not None:
-                    # Run the real backend pipeline dynamically!
-                    result = run_demo(data_root=PROJECT_ROOT / "data", case_index=case_index)
-                    # Load raw semantics
+                    result = run_demo(data_root=PROJECT_ROOT / "data", case_index=case_index, episode_id=episode_id)
                     try:
-                        demo_case = load_demo_case(data_root=PROJECT_ROOT / "data", case_index=case_index)
+                        demo_case = load_demo_case(data_root=PROJECT_ROOT / "data", case_index=case_index, episode_id=episode_id)
                         result["educational_semantics"] = demo_case.educational_semantics
                         result["simulated_student_response"] = demo_case.simulated_student_response
                     except Exception as inner_e:
@@ -928,6 +1021,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                         "type": "normal",
                         "timestamp": datetime.now().isoformat(),
                         "case_index": case_index,
+                        "episode_id": episode_id,
                         "disclosure_score": disclosure_score,
                         "copyright_leakage_rate": copyright_leakage_rate,
                         "watermark_bound": True

@@ -1,0 +1,22 @@
+{
+  "version": "v1",
+  "root": "data/scenario_layers",
+  "layers": {
+    "scenario_orchestration": "data/scenario_layers/scenario_orchestration/episode_eval_samples_v1.jsonl",
+    "attack_templates": "data/scenario_layers/attack_templates/attack_templates_v1.jsonl",
+    "synthetic_profiles": "data/scenario_layers/synthetic_profiles/student_profiles_v1.jsonl",
+    "teacher_resources": "data/scenario_layers/teacher_resources/teacher_resources_v1.jsonl"
+  },
+  "stats": {
+    "episode_eval_samples": 5,
+    "attack_templates": 5,
+    "synthetic_profiles": 5,
+    "teacher_resources": 5
+  },
+  "notes": [
+    "scenario_orchestration 用于 episode 级编排与层间数据流定义",
+    "attack_templates 用于第三方攻击智能体/红队模板",
+    "synthetic_profiles 用于最小上下文卡片与可控画像合成",
+    "teacher_resources 用于受版权和曝光预算控制的资源样本"
+  ]
+}

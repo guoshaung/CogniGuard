@@ -20,7 +20,7 @@ class LearningAssessmentAgent(BaseAgent):
                 "Generate follow-up questions, quiz items, and learning checks; "
                 "evaluate mastery without directly updating the long-term profile."
             ),
-            allowed_inputs=("teaching_answer", "student_response", "knowledge_point"),
+            allowed_inputs=("teaching_answer", "student_response", "knowledge_point", "profile_encoding"),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
             event_sink=event_sink,
@@ -33,28 +33,20 @@ class LearningAssessmentAgent(BaseAgent):
             teaching_answer = str(payload["teaching_answer"])
             student_response = str(payload["student_response"] or "")
             knowledge_point = str(payload["knowledge_point"])
-            mastery_score = _estimate_mastery(
-                teaching_answer, student_response, knowledge_point
-            )
+            profile_encoding = payload.get("profile_encoding", {}) or {}
+            mastery_score = _estimate_mastery(teaching_answer, student_response, knowledge_point, profile_encoding)
             assessment_result = _assessment_label(mastery_score)
             confidence_score = 0.72 if student_response.strip() else 0.45
-            direct_update_request = _detect_direct_profile_update_request(
-                student_response
-            )
+            direct_update_request = _detect_direct_profile_update_request(student_response)
             return {
                 "assessment_result": assessment_result,
                 "follow_up_question": (
-                    f"Using {knowledge_point}, solve one similar step and explain "
-                    "why that rule applies."
+                    f"Using {knowledge_point}, solve one similar step and explain why that rule applies."
                 ),
                 "profile_update_evidence": {
                     "knowledge_point": knowledge_point,
                     "evidence_type": "learning_check",
-                    "evidence_source": (
-                        "self_report_with_learning_check"
-                        if direct_update_request
-                        else "learning_check"
-                    ),
+                    "evidence_source": ("self_report_with_learning_check" if direct_update_request else "learning_check"),
                     "observed_response_summary": summarize_text(student_response, 140),
                     "assessment_result": assessment_result,
                     "mastery_score": mastery_score,
@@ -68,10 +60,10 @@ class LearningAssessmentAgent(BaseAgent):
         result = self._llm_json_or_fallback(
             system_prompt=(
                 "You are LearningAssessmentAgent. Evaluate mastery from the "
-                "teaching_answer, student_response, and knowledge_point only. "
-                "Do not update the long-term profile. Return assessment_result, "
-                "follow_up_question, profile_update_evidence, mastery_score, and "
-                "confidence_score."
+                "teaching_answer, student_response, knowledge_point, and profile "
+                "encoding only. Do not update the long-term profile. Return "
+                "assessment_result, follow_up_question, profile_update_evidence, "
+                "mastery_score, and confidence_score."
             ),
             payload=payload,
             fallback=fallback,
@@ -91,18 +83,22 @@ class LearningAssessmentAgent(BaseAgent):
 
 
 def _estimate_mastery(
-    teaching_answer: str, student_response: str, knowledge_point: str
+    teaching_answer: str,
+    student_response: str,
+    knowledge_point: str,
+    profile_encoding: dict[str, Any],
 ) -> float:
     if not student_response.strip():
         return 0.2
-
     response_terms = _terms(student_response)
     concept_terms = _terms(knowledge_point)
     teaching_terms = _terms(teaching_answer)
     useful_terms = concept_terms | set(list(teaching_terms)[:12])
+    if isinstance(profile_encoding, dict):
+        learning_card = str(profile_encoding.get("textual_cards", {}).get("learning_card", ""))
+        useful_terms |= _terms(learning_card)
     if not useful_terms:
         return 0.45
-
     overlap = len(response_terms & useful_terms) / max(1, len(useful_terms))
     length_bonus = min(0.25, len(student_response.strip()) / 240)
     return max(0.0, min(1.0, 0.25 + overlap * 0.55 + length_bonus))
@@ -131,54 +127,24 @@ def _detect_direct_profile_update_request(student_response: str) -> bool:
     )
 
 
-def _normalize_assessment(
-    result: dict[str, Any], fallback_result: dict[str, Any]
-) -> dict[str, Any]:
+def _normalize_assessment(result: dict[str, Any], fallback_result: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(result, dict):
         return fallback_result
-
-    assessment_result = str(
-        result.get("assessment_result") or fallback_result["assessment_result"]
-    )
-    follow_up_question = str(
-        result.get("follow_up_question") or fallback_result["follow_up_question"]
-    )
-    mastery_score = _safe_score(
-        result.get("mastery_score"), fallback_result["mastery_score"]
-    )
-    confidence_score = _safe_score(
-        result.get("confidence_score"), fallback_result["confidence_score"]
-    )
-
+    assessment_result = str(result.get("assessment_result") or fallback_result["assessment_result"])
+    follow_up_question = str(result.get("follow_up_question") or fallback_result["follow_up_question"])
+    mastery_score = _safe_score(result.get("mastery_score"), fallback_result["mastery_score"])
+    confidence_score = _safe_score(result.get("confidence_score"), fallback_result["confidence_score"])
     fallback_evidence = dict(fallback_result["profile_update_evidence"])
     raw_evidence = result.get("profile_update_evidence")
     if isinstance(raw_evidence, dict):
-        evidence = {
-            **fallback_evidence,
-            **{
-                key: value
-                for key, value in raw_evidence.items()
-                if key in fallback_evidence
-            },
-        }
+        evidence = {**fallback_evidence, **{key: value for key, value in raw_evidence.items() if key in fallback_evidence}}
     else:
         evidence = fallback_evidence
-
     evidence["assessment_result"] = assessment_result
     evidence["mastery_score"] = mastery_score
-    evidence["direct_profile_update_requested"] = bool(
-        fallback_evidence["direct_profile_update_requested"]
-        or evidence.get("direct_profile_update_requested")
-    )
+    evidence["direct_profile_update_requested"] = bool(fallback_evidence["direct_profile_update_requested"] or evidence.get("direct_profile_update_requested"))
     evidence["requires_tpcs_approval"] = True
-
-    return {
-        "assessment_result": assessment_result,
-        "follow_up_question": follow_up_question,
-        "profile_update_evidence": evidence,
-        "mastery_score": mastery_score,
-        "confidence_score": confidence_score,
-    }
+    return {"assessment_result": assessment_result, "follow_up_question": follow_up_question, "profile_update_evidence": evidence, "mastery_score": mastery_score, "confidence_score": confidence_score}
 
 
 def _safe_score(value: Any, default: float) -> float:

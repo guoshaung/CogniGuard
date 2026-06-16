@@ -55,6 +55,15 @@ class NeMoGuardrailsAdapter:
             context=context,
             checks=(
                 _policy(
+                    "protected_resource_summary_request",
+                    "sanitize",
+                    "仅允许返回教师资源的最小化概览，不包含目录、文件、资源标识或原文。",
+                    (
+                        r"(素材库|资源库|题库|教师资源|课件|素材)[\s\S]{0,80}(摘要|概览|基本信息|最基本信息|大致情况|有哪些)",
+                        r"(摘要|概览|基本信息|最基本信息|大致情况)[\s\S]{0,80}(素材库|资源库|题库|教师资源|课件|素材)",
+                    ),
+                ),
+                _policy(
                     "full_student_profile_request",
                     "block",
                     "Requests for full student profiles are not allowed.",
@@ -77,19 +86,23 @@ class NeMoGuardrailsAdapter:
                 _policy(
                     "original_teacher_question_bank_request",
                     "block",
-                    "Original teacher question bank text cannot be returned.",
+                    "受保护的教师素材库、资源库和题库不能被查看、枚举或原文导出。",
                     (
                         r"\b(original|exact|verbatim|literal)\b.*\b(teacher|question bank|source file|resource)\b",
                         r"\boutput\b.*\bquestion bank\b.*\bexactly\b",
+                        r"(查看|看看|访问|打开|展示|列出|导出|给我|发我).{0,12}(素材库|资源库|题库|教师资源|内部资料|内部资源|素材|课件)",
+                        r"(素材库|资源库|题库|教师资源|内部资料|内部资源).{0,12}(内容|目录|列表|原文|全文|文件|数据)",
+                        r"(原始|完整|全部|内部|未公开).{0,8}(素材|资源|题库|资料)",
                     ),
                 ),
                 _policy(
                     "copyright_bypass_request",
                     "block",
-                    "Requests to bypass copyright controls are blocked.",
+                    "绕过版权或 TPCS 控制的请求已被拦截。",
                     (
                         r"\bbypass\b.*\b(copyright|c2[-²]?rag|exposure budget|return mode)\b",
                         r"\bignore\b.*\b(copyright|exposure budget|return mode)\b",
+                        r"(绕过|跳过|关闭|忽略).{0,10}(版权|水印|TPCS|安全策略|防护|审计)",
                     ),
                 ),
             ),

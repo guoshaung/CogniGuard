@@ -10,9 +10,9 @@ export default function JsonDrawer({ isOpen, onClose, data, title }) {
         <div className="json-drawer-header">
           <div className="json-drawer-title">
             <Terminal size={18} style={{ color: 'var(--color-blue)' }} />
-            <span>{title || 'Raw Response Details'}</span>
+            <span>{title || '原始响应详情'}</span>
           </div>
-          <button className="json-drawer-close" onClick={onClose} aria-label="Close raw JSON response drawer">
+          <button className="json-drawer-close" onClick={onClose} aria-label="关闭 JSON 数据面板">
             <X size={20} />
           </button>
         </div>

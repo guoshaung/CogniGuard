@@ -20,6 +20,11 @@ from backend.app.runtime.mode import (
     get_runtime_status,
 )
 
+try:
+    from protection.audit_trace.src.hybrid_watermark import HybridWatermarkSystem
+except ImportError:
+    HybridWatermarkSystem = None
+
 
 class TPCSController:
     """Trusted policy controller for all inter-agent communication."""
@@ -348,9 +353,16 @@ class AgentOrchestrator:
             llm_client=llm_client,
             event_sink=event_sink,
         )
+        
+        # 初始化水印系统用于教学代理
+        watermark_system = None
+        if HybridWatermarkSystem:
+            watermark_system = HybridWatermarkSystem({"hsw": {}})
+        
         self.teaching_agent = PedagogicalTeachingAgent(
             llm_client=llm_client,
             event_sink=event_sink,
+            watermark_system=watermark_system,
         )
         self.assessment_agent = LearningAssessmentAgent(
             llm_client=llm_client,

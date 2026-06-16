@@ -4,6 +4,11 @@ from typing import Any, Callable
 
 from .base_agent import BaseAgent, COMMON_FORBIDDEN_INPUTS, summarize_text
 
+try:
+    from protection.audit_trace.src.hybrid_watermark import HybridWatermarkSystem
+except ImportError:
+    HybridWatermarkSystem = None
+
 
 class PedagogicalTeachingAgent(BaseAgent):
     """Generates protected teaching responses from minimum approved context."""
@@ -12,6 +17,7 @@ class PedagogicalTeachingAgent(BaseAgent):
         self,
         llm_client: Any | None = None,
         event_sink: Callable[[dict[str, Any]], None] | None = None,
+        watermark_system: Any | None = None,
     ) -> None:
         super().__init__(
             agent_id="pedagogical_teaching_agent",
@@ -24,10 +30,14 @@ class PedagogicalTeachingAgent(BaseAgent):
                 "context_card",
                 "diagnosis_result",
                 "controlled_resource_snippets",
+                "profile_encoding",
             ),
             forbidden_inputs=COMMON_FORBIDDEN_INPUTS,
             llm_client=llm_client,
             event_sink=event_sink,
+        )
+        self.watermark_system = watermark_system or (
+            HybridWatermarkSystem({"hsw": {}}) if HybridWatermarkSystem else None
         )
 
     def generate(self, payload: dict[str, Any]) -> dict[str, Any]:
@@ -36,15 +46,11 @@ class PedagogicalTeachingAgent(BaseAgent):
         def fallback() -> dict[str, Any]:
             diagnosis = payload["diagnosis_result"]
             snippets = payload["controlled_resource_snippets"]
+            encoding = payload.get("profile_encoding", {}) or {}
             knowledge_point = str(diagnosis.get("knowledge_point", "the concept"))
-            strategy = str(
-                diagnosis.get(
-                    "suggested_teaching_strategy",
-                    "step_by_step_scaffold_with_error_check",
-                )
-            )
+            strategy = str(diagnosis.get("suggested_teaching_strategy", "step_by_step_scaffold_with_error_check"))
             snippet_text = _join_snippets(snippets)
-
+            textual_cards = encoding.get("textual_cards", {}) if isinstance(encoding, dict) else {}
             answer = (
                 f"Let's work on {knowledge_point} with a scaffolded path.\n"
                 "1. First, identify the key form or rule in the problem.\n"
@@ -52,25 +58,25 @@ class PedagogicalTeachingAgent(BaseAgent):
                 "3. Then solve one small step at a time and check the common "
                 "mistake before moving on.\n"
                 f"Approved resource cue: {snippet_text}\n"
-                "Try explaining the next step in your own words before seeing "
-                "another example."
+                f"画像摘要: {textual_cards.get('learning_card', '')}\n"
+                "Try explaining the next step in your own words before seeing another example."
             )
-            return {
-                "teaching_answer": answer,
-                "teaching_strategy_used": strategy,
-            }
+            return {"teaching_answer": answer, "teaching_strategy_used": strategy}
 
         result = self._llm_json_or_fallback(
             system_prompt=(
                 "You are PedagogicalTeachingAgent. Use only the minimum context "
-                "card, diagnosis_result, and C2-RAG controlled snippets. Do not "
-                "reproduce full teacher resources or reveal private profile data. "
-                "Return teaching_answer and teaching_strategy_used."
+                "card, diagnosis_result, profile_encoding, and C2-RAG controlled "
+                "snippets. Do not reproduce full teacher resources or reveal private "
+                "profile data. Return teaching_answer and teaching_strategy_used."
             ),
             payload=payload,
             fallback=fallback,
         )
         result = _normalize_teaching(result, fallback())
+        snippets = payload["controlled_resource_snippets"]
+        if snippets and self.watermark_system:
+            result = self._apply_watermark(result, snippets)
         self.log_agent_call(
             {
                 "context_card": summarize_text(payload["context_card"]),
@@ -78,6 +84,23 @@ class PedagogicalTeachingAgent(BaseAgent):
             },
             {"teaching_answer": summarize_text(result["teaching_answer"])},
         )
+        return result
+
+    def _apply_watermark(self, result: dict[str, Any], snippets: list) -> dict[str, Any]:
+        answer = result["teaching_answer"]
+        resource_ids = []
+        for snippet in snippets:
+            if isinstance(snippet, dict):
+                resource_ids.append(snippet.get("resource_id", "unknown_resource"))
+        if not resource_ids:
+            return result
+        watermark_result = self.watermark_system.embed_hybrid(
+            text=answer,
+            resource_id=resource_ids[0],
+            mode="semantic",
+        )
+        result["teaching_answer"] = watermark_result["watermarked_text"]
+        result["watermark_info"] = {"applied": True, "resource_ids": resource_ids, "markers": watermark_result.get("semantic_markers", [])}
         return result
 
 
@@ -93,14 +116,9 @@ def _join_snippets(snippets: Any) -> str:
     return " ".join(contents) if contents else "No protected resource snippet was needed."
 
 
-def _normalize_teaching(
-    result: dict[str, Any], fallback_result: dict[str, Any]
-) -> dict[str, Any]:
+def _normalize_teaching(result: dict[str, Any], fallback_result: dict[str, Any]) -> dict[str, Any]:
     answer = result.get("teaching_answer")
     strategy = result.get("teaching_strategy_used")
     if not answer or not strategy:
         return fallback_result
-    return {
-        "teaching_answer": str(answer),
-        "teaching_strategy_used": str(strategy),
-    }
+    return {"teaching_answer": str(answer), "teaching_strategy_used": str(strategy)}

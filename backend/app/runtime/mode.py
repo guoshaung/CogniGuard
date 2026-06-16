@@ -25,6 +25,8 @@ class RuntimeStatus:
     nemo_guardrails_enabled: bool
     fallback_reason: str
     agent_call_mode: str
+    guardrail_backend: str
+    nemo_runtime_available: bool
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -69,6 +71,15 @@ def get_runtime_status(env_file: str | os.PathLike[str] | None = None) -> dict[s
         nemo_enabled = False
         agent_call_mode = "real_llm"
 
+    nemo_runtime_available = _nemo_guardrails_available()
+    guardrail_backend = (
+        "nemo_llmrails"
+        if nemo_enabled and nemo_runtime_available
+        else "tpcs_deterministic_adapter"
+        if nemo_enabled
+        else "disabled"
+    )
+
     return RuntimeStatus(
         runtime_mode=runtime_mode,
         llm_provider="Xiaomi MiMo",
@@ -76,6 +87,8 @@ def get_runtime_status(env_file: str | os.PathLike[str] | None = None) -> dict[s
         nemo_guardrails_enabled=nemo_enabled,
         fallback_reason=fallback_reason,
         agent_call_mode=agent_call_mode,
+        guardrail_backend=guardrail_backend,
+        nemo_runtime_available=nemo_runtime_available,
     ).to_dict()
 
 
@@ -121,6 +134,14 @@ def _has_mimo_key() -> bool:
 
 def _truthy(value: str | None) -> bool:
     return str(value or "").strip().lower() in {"1", "true", "yes", "on", "enabled"}
+
+
+def _nemo_guardrails_available() -> bool:
+    try:
+        import nemoguardrails  # noqa: F401
+    except Exception:
+        return False
+    return True
 
 
 def _load_env_file(env_file: str | os.PathLike[str] | None = None) -> None:

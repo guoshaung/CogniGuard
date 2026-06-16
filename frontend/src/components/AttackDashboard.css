@@ -1,0 +1,422 @@
+/* 金属风格攻击看板 - 动态版 */
+
+@keyframes metalShine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes rotate3d {
+  0% { transform: perspective(1000px) rotateY(0deg); }
+  100% { transform: perspective(1000px) rotateY(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff, 0 0 20px #00d4ff; }
+  50% { box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff; }
+}
+
+@keyframes borderFlow {
+  0% { border-color: #00d4ff; }
+  33% { border-color: #ff00d4; }
+  66% { border-color: #d4ff00; }
+  100% { border-color: #00d4ff; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.attack-dashboard-container {
+  padding: 40px;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 50%, #0a0e1a 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.attack-dashboard-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 212, 255, 0.03) 2px, rgba(0, 212, 255, 0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 0, 212, 0.03) 2px, rgba(255, 0, 212, 0.03) 4px);
+  animation: metalShine 3s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.attack-dashboard-title {
+  font-size: 48px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffd4 25%, #d400ff 50%, #ff00d4 75%, #00d4ff 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: metalShine 4s ease infinite;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.attack-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.attack-stat-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 0, 212, 0.1) 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00d4ff, #ff00d4) 1;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: slideIn 0.6s ease-out;
+}
+
+.attack-stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: metalShine 3s linear infinite;
+}
+
+.attack-stat-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 
+    0 20px 60px rgba(0, 212, 255, 0.4),
+    0 0 40px rgba(255, 0, 212, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+.stat-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00d4ff;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-value {
+  font-size: 56px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.stat-description {
+  font-size: 13px;
+  color: #8899aa;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.attack-results-section {
+  background: linear-gradient(135deg, rgba(26, 31, 46, 0.9) 0%, rgba(10, 14, 26, 0.9) 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00d4ff, #d400ff, #ff00d4) 1;
+  border-radius: 25px;
+  padding: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 212, 255, 0.2),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+  animation: borderFlow 5s linear infinite;
+  z-index: 1;
+}
+
+.attack-results-section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00d4ff, #ff00d4, #d400ff, #00ffd4);
+  background-size: 400% 400%;
+  animation: metalShine 6s ease infinite;
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #00ffd4 0%, #00d4ff 50%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff 0%, #ff00d4 100%);
+  animation: metalShine 2s ease infinite;
+}
+
+.attack-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  position: relative;
+}
+
+.attack-table thead th {
+  background: linear-gradient(135deg, #00d4ff 0%, #d400ff 100%);
+  color: #ffffff;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  font-size: 13px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.attack-table thead th::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: metalShine 2s linear infinite;
+}
+
+.attack-table thead th:first-child {
+  border-radius: 15px 0 0 15px;
+}
+
+.attack-table thead th:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+.attack-table tbody tr {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 0, 212, 0.05) 100%);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+.attack-table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(135deg, #00d4ff 0%, #ff00d4 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.attack-table tbody tr:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  transform: translateX(10px) scale(1.02);
+  box-shadow: 
+    0 10px 40px rgba(0, 212, 255, 0.3),
+    0 0 20px rgba(255, 0, 212, 0.2);
+}
+
+.attack-table tbody tr:hover::before {
+  opacity: 1;
+}
+
+.attack-table tbody td {
+  padding: 25px 20px;
+  color: #ffffff;
+  font-size: 15px;
+  border: none;
+  position: relative;
+}
+
+.attack-table tbody tr td:first-child {
+  border-radius: 15px 0 0 15px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.attack-table tbody tr td:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(45deg);
+  animation: metalShine 2s linear infinite;
+}
+
+.badge.success {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+  color: #003322;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.badge.blocked {
+  background: linear-gradient(135deg, #ff0055 0%, #cc0044 100%);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+}
+
+.badge.sanitized {
+  background: linear-gradient(135deg, #ffaa00 0%, #ff8800 100%);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff 0%, #00ffd4 50%, #d400ff 100%);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  position: relative;
+  animation: metalShine 2s linear infinite;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: metalShine 1.5s linear infinite;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 60px;
+  color: #8899aa;
+  font-size: 18px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 0, 212, 0.05) 100%);
+  border-radius: 20px;
+  border: 2px dashed #00d4ff;
+}
+
+/* 动态加载动画 */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(0, 212, 255, 0.2);
+  border-top: 5px solid #00d4ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .attack-dashboard-container {
+    padding: 20px;
+  }
+  
+  .attack-dashboard-title {
+    font-size: 32px;
+  }
+  
+  .attack-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .attack-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
