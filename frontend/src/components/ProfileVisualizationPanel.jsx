@@ -206,8 +206,8 @@ export default function ProfileVisualizationPanel({ profileEncoding, abstractPro
     <section className="profile-viz-shell">
       <div className="profile-viz-hero">
         <div>
-          <div className="profile-viz-eyebrow"><Layers3 size={14} /> 中文画像可视化面板</div>
-          <h2>抽象画像层 + 三分解耦 + 3D 拖动展示</h2>
+          <div className="profile-viz-eyebrow"><Layers3 size={14} /> 学生画像隐私保护</div>
+          <h2>学生画像隐私保护子机制</h2>
           <p>拖动卡片可观察画像层之间的连接关系。卡片带有惯性，靠近核心时会自动吸附到稳定轨道。</p>
         </div>
         <div className="profile-viz-hero-stat">

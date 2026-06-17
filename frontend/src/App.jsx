@@ -14,14 +14,21 @@ import JsonDrawer from './components/JsonDrawer';
 import MultiRoundDialogue from './components/MultiRoundDialogue';
 import AuditTracePanel from './components/AuditTracePanel';
 import ProfileVisualizationPanel from './components/ProfileVisualizationPanel';
+import C2RAGPanel from './components/C2RAGPanel';
 import InteractiveBackground from './components/InteractiveBackground';
 import './App.css';
 
 const tabs = [
-  { id: 'classroom', label: '多轮课堂', icon: MessageSquareText },
-  { id: 'audit', label: '水印审计', icon: Terminal },
-  { id: 'profile', label: '画像面板', icon: Sparkles },
+  { id: 'classroom', label: '闭环案例演示', icon: MessageSquareText },
+  { id: 'profile', label: '学生画像隐私保护', icon: Shield },
+  { id: 'copyright', label: '教师版权保护', icon: BookOpen },
+  { id: 'audit', label: '生成内容审计追踪', icon: Terminal },
 ];
+
+const pipelineStorageKey = (caseItem, caseIndex) => {
+  if (!caseItem) return '';
+  return `cogniguard:pipeline:${caseItem.episode_id || caseItem.task_id || caseIndex}`;
+};
 
 function App() {
   const [activeTab, setActiveTab] = useState('classroom');
@@ -69,9 +76,40 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setSelectedCase(cases[selectedCaseIdx] || null);
-    setPipelineData(null);
+    const nextCase = cases[selectedCaseIdx] || null;
+    setSelectedCase(nextCase);
+    if (!nextCase) {
+      setPipelineData(null);
+      return;
+    }
+
+    try {
+      const cached = sessionStorage.getItem(pipelineStorageKey(nextCase, selectedCaseIdx));
+      setPipelineData(cached ? JSON.parse(cached) : null);
+    } catch {
+      setPipelineData(null);
+    }
   }, [cases, selectedCaseIdx]);
+
+  useEffect(() => {
+    if (!selectedCase || !pipelineData) return;
+    try {
+      sessionStorage.setItem(
+        pipelineStorageKey(selectedCase, selectedCaseIdx),
+        JSON.stringify(pipelineData),
+      );
+    } catch {
+      // Storage is only a convenience cache; runtime state remains in React.
+    }
+  }, [pipelineData, selectedCase, selectedCaseIdx]);
+
+  const handleSessionUpdate = (nextSnapshot) => {
+    setPipelineData((current) => {
+      const resolved = typeof nextSnapshot === 'function' ? nextSnapshot(current) : nextSnapshot;
+      if (!resolved) return current;
+      return { ...(current || {}), ...resolved };
+    });
+  };
 
   useEffect(() => {
     const updateButtonLight = (event) => {
@@ -220,7 +258,7 @@ function App() {
           <section className="landing-intro">
             <div className="topbar-eyebrow"><Sparkles size={14} /> 可信、可控、可审计</div>
             <h1>让教育智能体在<br /><span>安全边界内持续学习</span></h1>
-            <p>将多轮课堂、攻击注入、学生画像与水印审计汇聚在同一个受控工作台中。</p>
+            <p>将闭环案例演示、学生画像隐私保护、教师版权保护与生成内容审计追踪汇聚在同一个受控工作台中。</p>
             <div className="intro-meta">
               <span><i className="runtime-dot" /> {runtimeStatus?.runtime_mode || '加载中'}</span>
               <span>
@@ -255,11 +293,26 @@ function App() {
             </div>
 
             <section className="content-panel">
-              {activeTab === 'classroom' && selectedCase && (
-                <MultiRoundDialogue caseData={{ ...selectedCase, case_index: selectedCaseIdx }} onSessionUpdate={setPipelineData} />
-              )}
+              <div className="tab-panel-keepalive" hidden={activeTab !== 'classroom'}>
+                {selectedCase && (
+                  <MultiRoundDialogue caseData={{ ...selectedCase, case_index: selectedCaseIdx }} onSessionUpdate={handleSessionUpdate} />
+                )}
+              </div>
 
-              {activeTab === 'audit' && (
+              <div className="tab-panel-keepalive" hidden={activeTab !== 'profile'}>
+                <ProfileVisualizationPanel
+                  profileEncoding={pipelineData?.profile_encoding || selectedCase?.profile_encoding}
+                  abstractProfile={pipelineData?.abstract_profile || selectedCase?.abstract_profile}
+                  studentProfile={pipelineData?.student_profile}
+                  runtimeStatus={runtimeStatus}
+                />
+              </div>
+
+              <div className="tab-panel-keepalive" hidden={activeTab !== 'copyright'}>
+                <C2RAGPanel caseIndex={selectedCaseIdx} pipelineData={pipelineData} />
+              </div>
+
+              <div className="tab-panel-keepalive" hidden={activeTab !== 'audit'}>
                 <AuditTracePanel
                   data={{
                     final_answer: pipelineData?.final_protected_teaching_answer,
@@ -270,16 +323,7 @@ function App() {
                     watermark_preview: pipelineData?.watermark_preview,
                   }}
                 />
-              )}
-
-              {activeTab === 'profile' && (
-                <ProfileVisualizationPanel
-                  profileEncoding={pipelineData?.profile_encoding || selectedCase?.profile_encoding}
-                  abstractProfile={pipelineData?.abstract_profile || selectedCase?.abstract_profile}
-                  studentProfile={pipelineData?.student_profile}
-                  runtimeStatus={runtimeStatus}
-                />
-              )}
+              </div>
             </section>
           </section>
         </main>

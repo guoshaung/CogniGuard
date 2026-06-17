@@ -1041,6 +1041,12 @@
   margin-top: 14px;
 }
 
+.attack-academic-figure {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(103, 232, 249, 0.14);
+}
+
 .classroom-json-backdrop {
   position: fixed;
   inset: 0;

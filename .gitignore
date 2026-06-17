@@ -44,3 +44,6 @@ checkpoints/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Research scratch notes
+.research_notes/

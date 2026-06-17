@@ -4,27 +4,27 @@ CogniGuard is a minimum runnable demo for a closed-loop multi-agent personalized
 
 The project focuses on coordinated lifecycle protection around personalized tutoring rather than full-scale federated training. Its architecture is organized as three collaborating protection layers governed horizontally by TPCS.
 
-## Three-Layer Closed-Loop Architecture
+## Three Protection Mechanisms
 
-- **Student Profile Protection Layer (学生画像隐私保护层):** MM-FOPD / DIB-MM-FOPD performs multimodal student profile modeling, task-aware minimum disclosure, minimum context card generation, and governed profile-update feedback.
-- **Teacher Resource Protection Layer (教师版权资源保护层):** PB-C2-RAG performs copyright-constrained retrieval, resource exposure budgeting, return-mode control, controlled variants, and anti-reconstruction or reverse-inference detection.
-- **Audit & Trace Layer (生成内容审计追踪层):** HSW-ST + Trustworthy Audit provides watermarking, source tracing, hash-chain evidence preservation, role-based permissions, and encrypted statistics for generated educational content.
-- **TPCS (横向治理控制器):** TPCS is the horizontal governance controller across all three layers. It enforces cross-layer permissions, privacy and copyright budgets, sanitization and degradation, refusal, encryption requirements, and audit policies.
+- **学生画像隐私保护子机制:** MM-FOPD / DIB-MM-FOPD performs multimodal student profile modeling, task-aware minimum disclosure, minimum context card generation, and governed profile-update feedback.
+- **教师版权保护子机制:** C²-RAG performs copyright-constrained retrieval, resource exposure budgeting, return-mode control, controlled variants, and anti-reconstruction or reverse-inference detection. Its resource scope includes teacher-uploaded materials, school-purchased databases, publisher question banks, commercial course packages, open educational resources, and AI-derived teaching content.
+- **大模型生成内容审计追踪机制:** HSW-ST now uses a semantic-aware, evidence-chain-bound, multi-round robust watermark mechanism. Each answer is bound to a canonical audit record, HMAC-derived hidden seeds, protected semantic-variant choices, source tracing, hash-chain evidence preservation, role-based permissions, and encrypted statistics for generated educational content.
+- **TPCS (横向治理控制器):** TPCS is the horizontal governance controller across all three mechanisms. It enforces cross-mechanism permissions, privacy and copyright budgets, sanitization and degradation, refusal, encryption requirements, and audit policies.
 
-The layers are not treated as a one-way sequence. Each layer produces controlled feedback that can update later decisions in the same tutoring lifecycle or a subsequent authorized learning round.
+The mechanisms are not treated as a one-way sequence. Each mechanism produces controlled feedback that can update later decisions in the same tutoring lifecycle or a subsequent authorized learning round.
 
 ## Closed-loop Feedback
 
 The minimum closed-loop contract uses the following cross-layer signals:
 
-- **Student Profile Layer -> Teacher Resource Layer:** `context_card`, `student_level`, `knowledge_point`, and `risk_level` guide protected retrieval and resource adaptation.
-- **Teacher Resource Layer -> Student Profile Layer:** `resource_difficulty`, `variant_performance`, and `resource_fit` provide bounded evidence for profile-update review.
-- **Teacher Resource Layer -> Audit & Trace Layer:** `resource_id`, `chunk_id`, `return_mode`, `copyright_level`, and `exposure_score` bind generated content to its controlled resource provenance.
-- **Audit & Trace Layer -> Teacher Resource Layer:** `leakage_risk`, `similarity_risk`, and `multi_turn_reconstruction_risk` can trigger return-mode degradation, budget reduction, resource substitution, or refusal.
-- **Student Profile Layer -> Audit & Trace Layer:** `modality_sensitivity` and `recording_scope` define what may be logged, retained, encrypted, or omitted from audit records.
-- **Audit & Trace Layer -> Student Profile Layer:** `learning_evidence`, `abnormal_behavior`, and revocation/forgetting signals are returned as governed evidence and must pass TPCS approval before affecting the student profile.
+- **学生画像隐私保护子机制 -> 教师版权保护子机制:** `context_card`, `student_level`, `knowledge_point`, and `risk_level` guide protected retrieval and resource adaptation.
+- **教师版权保护子机制 -> 学生画像隐私保护子机制:** `resource_difficulty`, `variant_performance`, and `resource_fit` provide bounded evidence for profile-update review.
+- **教师版权保护子机制 -> 大模型生成内容审计追踪机制:** `resource_id`, `chunk_id`, `return_mode`, `copyright_level`, and `exposure_score` bind generated content to its controlled resource provenance.
+- **大模型生成内容审计追踪机制 -> 教师版权保护子机制:** `leakage_risk`, `similarity_risk`, and `multi_turn_reconstruction_risk` can trigger return-mode degradation, budget reduction, resource substitution, or refusal.
+- **学生画像隐私保护子机制 -> 大模型生成内容审计追踪机制:** `modality_sensitivity` and `recording_scope` define what may be logged, retained, encrypted, or omitted from audit records.
+- **大模型生成内容审计追踪机制 -> 学生画像隐私保护子机制:** `learning_evidence`, `abnormal_behavior`, and revocation/forgetting signals are returned as governed evidence and must pass TPCS approval before affecting the student profile.
 
-TPCS mediates every feedback path. No layer may directly expand profile disclosure, expose teacher resources, update a persistent profile, or weaken an audit requirement without an explicit TPCS policy decision.
+TPCS mediates every feedback path. No mechanism may directly expand profile disclosure, expose teacher resources, update a persistent profile, or weaken an audit requirement without an explicit TPCS policy decision.
 
 ## Project Layout
 
@@ -41,9 +41,9 @@ CogniGuard 采用保护机制原型与集成服务分离的架构组织方式：
 ### 核心保护机制原型库（Protection Mechanisms）
 这些模块是独立的研究原型，可单独运行、测试和发布：
 
-- `protection/student_profile/`: **MM-FOPD** 学生画像最小化披露、上下文卡片生成和编排
-- `protection/teacher_resource/`: **PB-C²-RAG** 版权约束检索、资源暴露预算、返回模式控制
-- `protection/audit_trace/`: **HSW-ST** 水印嵌入、源追溯、审计原语
+- `protection/student_profile/`: **学生画像隐私保护子机制 / MM-FOPD** 学生画像最小化披露、上下文卡片生成和编排
+- `protection/teacher_resource/`: **教师版权保护子机制 / C²-RAG** 版权约束检索、资源暴露预算、返回模式控制和反重构控制
+- `protection/audit_trace/`: **大模型生成内容审计追踪机制 / HSW-ST** 水印嵌入、来源追踪、可信审计原语
 - `protection/tpcs_guardrails/`: **TPCS** 横向治理控制器与 NeMo Guardrails 配置
 - `protection/common/`: 跨层模式定义、度量标准、文本工具和追溯绑定合约
 
@@ -112,7 +112,7 @@ Run tests:
 pytest backend/app/tests protection/student_profile/tests protection/teacher_resource/tests experiments/attacks/tests
 ```
 
-Run the HSW-ST watermark demo:
+Run the HSW-ST semantic evidence-chain watermark demo:
 
 ```bash
 pip install -r protection/audit_trace/requirements.txt

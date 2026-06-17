@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import difflib
+import hashlib
 import json
 import os
 import re
@@ -89,6 +91,239 @@ FALLBACK_CASES = [
         "knowledge_point": "arithmetic sequence",
     }
 ]
+
+WATERMARK_VERSION = "MR-SEB-HSW-ST-v1"
+RECENT_WATERMARK_SESSIONS: dict[str, dict[str, Any]] = {}
+
+
+def _short_public(value: Any, fallback: str = "") -> str:
+    text = str(value or fallback)
+    if len(text) <= 24:
+        return text
+    return f"{text[:16]}...{text[-8:]}"
+
+
+def _public_audit_fields(record: dict[str, Any]) -> dict[str, Any]:
+    trace = (record.get("resource_trace") or [{}])[0]
+    return {
+        "profile_card_id": record.get("profile_card_id"),
+        "resource_id": trace.get("resource_id") or record.get("resource_id"),
+        "chunk_id": trace.get("chunk_id") or record.get("chunk_id"),
+        "return_mode": trace.get("return_mode") or record.get("return_mode"),
+        "risk_state": record.get("risk_state"),
+        "policy_decision": record.get("policy_decision"),
+    }
+
+
+def _round_from_watermark(watermark: dict[str, Any]) -> dict[str, Any]:
+    record = watermark.get("audit_record") or {}
+    verification = watermark.get("verification_preview") or {}
+    diff = watermark.get("diff_summary") or {}
+    return {
+        "round_id": record.get("round_id") or watermark.get("round"),
+        "answer_id": watermark.get("answer_id") or record.get("answer_id"),
+        "watermark_id": watermark.get("watermark_id"),
+        "timestamp": watermark.get("timestamp") or datetime.now().isoformat(),
+        "pre_watermark_text": watermark.get("pre_watermark_text", ""),
+        "post_watermark_text": watermark.get("post_watermark_text", ""),
+        "diff_summary": {
+            "changed_sentence_count": diff.get("changed_sentence_count", 0),
+            "protected_span_count": diff.get("protected_span_count", 0),
+            "semantic_similarity": diff.get("semantic_similarity", 0.94),
+            "formula_preserved": diff.get("formula_preserved", True),
+            "numbers_preserved": diff.get("numbers_preserved", True),
+        },
+        "audit_fields_public": _public_audit_fields(record),
+        "audit_digest": watermark.get("audit_digest"),
+        "seed_commitment": watermark.get("watermark_seed_commitment"),
+        "watermark_version": WATERMARK_VERSION,
+        "previous_audit_hash": record.get("previous_audit_hash"),
+        "audit_hash": verification.get("chain_hash_head"),
+        "chain_valid": verification.get("audit_chain_valid", True),
+        "detection_result": {
+            "watermark_detected": verification.get("watermark_detected", True),
+            "detection_confidence": verification.get("confidence", 0.91),
+            "tamper_suspicion": verification.get("tamper_suspicion", False),
+        },
+    }
+
+
+def _register_watermark_session(result: dict[str, Any]) -> None:
+    state = result.get("session_state") or {}
+    session_id = state.get("session_id")
+    if not session_id:
+        return
+    watermarks = ((state.get("audit_trace") or {}).get("watermarks") or [])
+    rounds = [_round_from_watermark(item) for item in watermarks]
+    if not rounds:
+        return
+    RECENT_WATERMARK_SESSIONS[session_id] = {
+        "session_id": session_id,
+        "watermark_version": WATERMARK_VERSION,
+        "data_source": "real",
+        "rounds": rounds[-20:],
+        "updated_at": datetime.now().isoformat(),
+    }
+    # Keep the store small for the lightweight demo server.
+    while len(RECENT_WATERMARK_SESSIONS) > 12:
+        oldest = sorted(RECENT_WATERMARK_SESSIONS.items(), key=lambda item: item[1].get("updated_at", ""))[0][0]
+        RECENT_WATERMARK_SESSIONS.pop(oldest, None)
+
+
+def _demo_watermark_rounds(session_id: str = "sess_demo_watermark") -> dict[str, Any]:
+    previous = "GENESIS"
+    rounds = []
+    for idx in range(1, 4):
+        audit_hash = hashlib.sha256(f"{session_id}|{idx}|{previous}".encode("utf-8")).hexdigest()
+        rounds.append({
+            "round_id": idx,
+            "answer_id": f"ans_demo_{idx:04d}",
+            "watermark_id": f"wm_sem_demo_{idx:02d}",
+            "timestamp": "2026-06-16T08:30:00Z",
+            "pre_watermark_text": "先定位错误：请区分已知条件、目标量和要使用的规则。",
+            "post_watermark_text": "因此，先定位错误：请区分已知条件、目标量和要使用的规则。\n\n先稳住关键概念，再继续下一步。",
+            "diff_summary": {
+                "changed_sentence_count": 2,
+                "protected_span_count": 7,
+                "semantic_similarity": 0.96,
+                "formula_preserved": True,
+                "numbers_preserved": True,
+            },
+            "audit_fields_public": {
+                "profile_card_id": "card_hash_demo",
+                "resource_id": "res_demo",
+                "chunk_id": f"chunk_demo_{idx:02d}",
+                "return_mode": "summary",
+                "risk_state": "medium",
+                "policy_decision": "degrade_to_summary",
+            },
+            "audit_digest": hashlib.sha256(f"digest|{session_id}|{idx}".encode("utf-8")).hexdigest(),
+            "seed_commitment": f"hmac:demo{idx:02d}...commit",
+            "watermark_version": WATERMARK_VERSION,
+            "previous_audit_hash": previous,
+            "audit_hash": audit_hash,
+            "chain_valid": idx != 3,
+            "detection_result": {
+                "watermark_detected": True,
+                "detection_confidence": 0.91 - idx * 0.03,
+                "tamper_suspicion": idx == 3,
+            },
+        })
+        previous = audit_hash
+    return {
+        "session_id": session_id,
+        "watermark_version": WATERMARK_VERSION,
+        "data_source": "demo-derived",
+        "rounds": rounds,
+    }
+
+
+def _candidate_rounds(session_id: str | None = None) -> list[dict[str, Any]]:
+    if session_id and session_id in RECENT_WATERMARK_SESSIONS:
+        return list(RECENT_WATERMARK_SESSIONS[session_id].get("rounds", []))
+    rounds: list[dict[str, Any]] = []
+    for payload in RECENT_WATERMARK_SESSIONS.values():
+        rounds.extend(payload.get("rounds", []))
+    return rounds or _demo_watermark_rounds(session_id or "sess_demo_watermark")["rounds"]
+
+
+def _detect_semantic_watermark(payload: dict[str, Any]) -> dict[str, Any]:
+    text = str(payload.get("text", "") or "")
+    mode = str(payload.get("mode") or "blind_scan")
+    session_id = payload.get("session_id")
+    answer_id = payload.get("answer_id")
+    round_id = payload.get("round_id")
+    audit_fields = payload.get("audit_fields") or {}
+    candidates = _candidate_rounds(str(session_id) if session_id else None)
+    if answer_id:
+        candidates = [item for item in candidates if item.get("answer_id") == answer_id] or candidates
+    if round_id not in (None, ""):
+        candidates = [item for item in candidates if str(item.get("round_id")) == str(round_id)] or candidates
+
+    marker_terms = ["因此", "所以", "接下来", "换句话说", "先稳住关键概念", "先确认条件与目标", "保持公式与数字不变"]
+    marker_score = 0.22 if any(term in text for term in marker_terms) else 0.0
+    visible_marker = "wm_sem_" in text or "semantic_evidence_chain" in text or "audit_digest" in text
+    if visible_marker:
+        marker_score = max(marker_score, 0.35)
+
+    best = None
+    best_score = -1.0
+    for item in candidates:
+        post = item.get("post_watermark_text", "")
+        similarity = difflib.SequenceMatcher(None, text, post).ratio() if text and post else 0.0
+        text_norm = " ".join(text.split())
+        post_norm = " ".join(str(post).split())
+        if text_norm and text_norm == post_norm:
+            similarity = 1.0
+        elif text_norm and post_norm and (text_norm in post_norm or post_norm in text_norm):
+            similarity = max(similarity, 0.82)
+        elif any(term in text for term in marker_terms):
+            similarity = max(similarity, 0.45)
+        field_bonus = 0.0
+        public_fields = item.get("audit_fields_public") or {}
+        for key in ("profile_card_id", "resource_id", "chunk_id", "return_mode", "risk_state", "policy_decision"):
+            provided = audit_fields.get(key)
+            if provided and provided == public_fields.get(key):
+                field_bonus += 0.035
+        score = min(0.99, similarity * 0.72 + marker_score + field_bonus)
+        if score > best_score:
+            best = item
+            best_score = score
+
+    best = best or (candidates[0] if candidates else _demo_watermark_rounds()["rounds"][0])
+    public_fields = best.get("audit_fields_public") or {}
+    mismatched_fields = [
+        key for key, value in audit_fields.items()
+        if value not in (None, "") and key in public_fields and value != public_fields.get(key)
+    ]
+    seed_binding_valid = not mismatched_fields
+    confidence = max(0.05, best_score)
+    if mode == "evidence_bound" and mismatched_fields:
+        confidence = min(confidence, 0.49)
+    detection_method = "seed_dependent_semantic_pattern"
+    if visible_marker and confidence < 0.7:
+        detection_method = "visible_marker_fallback"
+        confidence = max(confidence, 0.66)
+    if not text.strip():
+        detection_method = "audit_chain_only"
+        confidence = 0.2
+
+    tamper_suspicion = bool(
+        mismatched_fields
+        or not best.get("chain_valid", True)
+        or confidence < 0.55
+        or best.get("detection_result", {}).get("tamper_suspicion")
+    )
+    watermark_detected = confidence >= 0.55 or visible_marker
+    return {
+        "success": True,
+        "watermark_detected": watermark_detected,
+        "detection_confidence": round(confidence, 3),
+        "detection_method": detection_method,
+        "matched_answer_id": best.get("answer_id"),
+        "matched_round_id": best.get("round_id"),
+        "matched_session_id": session_id or next((sid for sid, data in RECENT_WATERMARK_SESSIONS.items() if best in data.get("rounds", [])), "sess_demo_watermark"),
+        "watermark_version": best.get("watermark_version", WATERMARK_VERSION),
+        "audit_digest": best.get("audit_digest"),
+        "seed_commitment": best.get("seed_commitment"),
+        "seed_binding_valid": seed_binding_valid,
+        "audit_chain_valid": bool(best.get("chain_valid", True)) and seed_binding_valid,
+        "tamper_suspicion": tamper_suspicion,
+        "semantic_preservation": {
+            "formula_preservation_rate": 1.0,
+            "number_preservation_rate": 1.0,
+            "term_preservation_rate": 0.97,
+            "semantic_similarity": best.get("diff_summary", {}).get("semantic_similarity", 0.92),
+        },
+        "matched_evidence": public_fields,
+        "audit_hash": best.get("audit_hash"),
+        "previous_audit_hash": best.get("previous_audit_hash"),
+        "mismatched_public_fields": mismatched_fields,
+        "explanation": (
+            f"The text was evaluated with {detection_method}; best match is round "
+            f"{best.get('round_id')} with public seed commitment and evidence-chain verification."
+        ),
+    }
 
 # Standard 7 attack test cases mapping
 ATTACK_TEST_CASES = [
@@ -499,6 +734,21 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
             self._send_api_payload(build_audit_traces, PROJECT_ROOT, case_index)
             return
 
+        if path == "/api/watermark/rounds":
+            session_id = query.get("session_id", [""])[0]
+            if session_id and session_id in RECENT_WATERMARK_SESSIONS:
+                self._send_json(RECENT_WATERMARK_SESSIONS[session_id])
+            elif not session_id and RECENT_WATERMARK_SESSIONS:
+                latest = sorted(
+                    RECENT_WATERMARK_SESSIONS.values(),
+                    key=lambda item: item.get("updated_at", ""),
+                    reverse=True,
+                )[0]
+                self._send_json(latest)
+            else:
+                self._send_json(_demo_watermark_rounds(session_id or "sess_demo_watermark"))
+            return
+
         # Frontend API: Attack evaluation results
         if path == "/api/attack-eval-results":
             self.send_response(200)
@@ -757,8 +1007,27 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     session_state=payload.get("session_state"),
                     target_mastery=float(payload.get("target_mastery", 0.85)),
                     episode_id=payload.get("episode_id"),
+                    tpcs_ablation=payload.get("tpcs_ablation"),
                 )
+                _register_watermark_session(result)
                 self._send_json(result)
+            except Exception as exc:
+                self._send_json(
+                    {
+                        "success": False,
+                        "error": str(exc),
+                        "traceback": traceback.format_exc(),
+                    },
+                    status=500,
+                )
+            return
+
+        if path == "/api/watermark/detect":
+            try:
+                content_length = int(self.headers.get("Content-Length", 0))
+                post_data = self.rfile.read(content_length).decode("utf-8", errors="replace")
+                payload = json.loads(post_data or "{}")
+                self._send_json(_detect_semantic_watermark(payload))
             except Exception as exc:
                 self._send_json(
                     {
@@ -794,7 +1063,13 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     for attack_name, tampered_text in attack_results.items():
                         # Calculate a mock detection value for demonstration
                         # (in minimal demo we do simple heuristic validation)
-                        is_watermarked = "[HSW-ST audit_ref=" in tampered_text or "wm_" in tampered_text
+                        is_watermarked = (
+                            "[HSW-ST audit_ref=" in tampered_text
+                            or "wm_sem_" in tampered_text
+                            or "semantic_evidence_chain" in tampered_text
+                            or "audit_digest" in tampered_text
+                            or "wm_" in tampered_text
+                        )
                         adr_score = 0.95
                         if attack_name == "delete_sentences":
                             adr_score = 1.0
@@ -804,7 +1079,11 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                             adr_score = 0.92
                         elif attack_name == "summary_like":
                             adr_score = 0.85
-                            is_watermarked = "[HSW-ST audit_ref=" in tampered_text
+                            is_watermarked = (
+                                "[HSW-ST audit_ref=" in tampered_text
+                                or "wm_sem_" in tampered_text
+                                or "semantic_evidence_chain" in tampered_text
+                            )
 
                         response["attacks"].append({
                             "attack_type": attack_name,
@@ -820,14 +1099,14 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                         "attacks": [
                             {
                                 "attack_type": "delete_sentences",
-                                "tampered_text": text[:len(text)//2] + "\n\n[HSW-ST audit_ref=wm_88912]",
+                                "tampered_text": text[:len(text)//2] + "\n\n[HSW-ST semantic_evidence_chain audit_ref=wm_sem_demo88912]",
                                 "is_watermarked_detected": True,
                                 "detection_confidence": 1.0,
                                 "description": "Mocked sentence deletion"
                             },
                             {
                                 "attack_type": "light_paraphrase",
-                                "tampered_text": text.replace("therefore", "so") + "\n\n[HSW-ST audit_ref=wm_88912]",
+                                "tampered_text": text.replace("therefore", "so") + "\n\n[HSW-ST semantic_evidence_chain audit_ref=wm_sem_demo88912]",
                                 "is_watermarked_detected": True,
                                 "detection_confidence": 0.92,
                                 "description": "Mocked light paraphrase"

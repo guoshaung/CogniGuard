@@ -92,11 +92,10 @@ export default function AgentCommunicationGraph({ communicationLogs, pipelineDat
   );
 
   const experimentSummary = useMemo(() => {
-    const orbitingAgents = AGENTS
-      .filter((agent) => agents[agent.id].mode !== 'docked')
-      .map((agent) => agent.label);
+    const orbitingAgentRows = AGENTS.filter((agent) => agents[agent.id].mode !== 'docked');
     return {
-      cut_nodes: orbitingAgents,
+      cut_node_ids: orbitingAgentRows.map((agent) => agent.id),
+      cut_nodes: orbitingAgentRows.map((agent) => agent.label),
       tpcs_active_links: dockedIds.length,
       experiment_mode: dockedIds.length === AGENTS.length ? 'full_topology' : 'orbital_ablation',
     };

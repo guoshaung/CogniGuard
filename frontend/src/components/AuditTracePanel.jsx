@@ -1,18 +1,51 @@
-import { Fragment } from 'react';
-import { Terminal, Database, ArrowRight, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Database, Fingerprint, Link2, ShieldCheck, Terminal } from 'lucide-react';
+import AcademicFigurePanel from './AcademicFigurePanel';
+import WatermarkDetectorPanel from './WatermarkDetectorPanel';
+import WatermarkRoundAccordion from './WatermarkRoundAccordion';
+
+const placeholderRecord = {
+  answer_id: 'ans_waiting_for_classroom_round',
+  session_id: 'sess_pending',
+  round_id: '-',
+  profile_card_id: 'card_hash_pending',
+  resource_trace: [
+    {
+      resource_id: 'res_pending',
+      chunk_id: 'chunk_pending',
+      return_mode: 'summary',
+      exposure_score: 0,
+    },
+  ],
+  risk_state: 'pending',
+  policy_decision: 'pending',
+  previous_audit_hash: 'GENESIS',
+  timestamp_bucket: 'pending',
+};
+
+const fieldLine = (label, value) => (
+  <div className="audit-field-line" key={label}>
+    <span>{label}</span>
+    <strong>{value ?? '-'}</strong>
+  </div>
+);
 
 export default function AuditTracePanel({ data }) {
   const answer = data?.final_answer || '';
   const audit = data?.audit_trace || {};
-  const logs = data?.protection_logs || {};
+  const hsw = data?.protection_logs?.hsw_st || {};
+  const c2rag = data?.protection_logs?.c2_rag || {};
+  const record = audit.audit_record || placeholderRecord;
+  const semantic = audit.semantic_watermark || hsw.semantic_watermark || {};
+  const verification = audit.verification_preview || hsw.verification_preview || {};
+  const seedCommitments = audit.sub_seed_commitments || {};
+  const sessionId = audit.audit_record?.session_id || '';
 
   const bindingNodes = [
-    { label: '画像卡', desc: `card_${audit.profile_card_id ? audit.profile_card_id.replace('card_', '') : 'task_0001'}`, color: 'var(--blue)' },
-    { label: '资源分块', desc: logs.c2_rag?.chunk_id || 'chunk_889e1f6f', color: 'var(--amber)' },
-    { label: '代理调用', desc: '受控调用', color: 'var(--muted)' },
-    { label: '最终回答', desc: `ans_${audit.profile_card_id ? audit.profile_card_id.replace('card_', '') : 'task_0001'}`, color: 'var(--muted)' },
-    { label: '水印', desc: audit.watermark_id || 'audit_trace_watermark_id', color: 'var(--green)' },
-    { label: '审计链', desc: 'SHA256 绑定', color: 'var(--green)' },
+    { label: '审计记录', desc: record.answer_id, color: 'var(--blue)' },
+    { label: '规范化 JSON', desc: audit.canonical_audit_record ? 'sort_keys + stable separators' : '待生成', color: 'var(--muted)' },
+    { label: '审计摘要', desc: audit.audit_digest ? `${audit.audit_digest.slice(0, 14)}...` : 'SHA256 pending', color: 'var(--amber)' },
+    { label: '隐藏 Seed', desc: audit.watermark_seed_commitment || 'HMAC pending', color: 'var(--green)' },
+    { label: '多轮绑定', desc: audit.multi_round_binding?.round_seed || 'round seed pending', color: 'var(--green)' },
   ];
 
   return (
@@ -20,121 +53,106 @@ export default function AuditTracePanel({ data }) {
       <div className="section-header" style={{ marginBottom: '1.5rem' }}>
         <h1 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <Terminal size={28} style={{ color: 'var(--green)' }} />
-          <span>水印溯源与审计追踪层</span>
+          <span>大模型生成内容审计追踪机制：HSW-ST 水印、来源追踪与可信审计</span>
         </h1>
-        <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginTop: '0.25rem' }}>
-          通过隐式水印与链式哈希，把课堂回答、资源分块和代理调用绑定到同一条可审计链路中。
+        <p style={{ color: 'var(--muted)', fontSize: '0.92rem', marginTop: '0.25rem' }}>
+          当前水印升级为“语义感知 + 证据链绑定 + 多轮鲁棒水印机制”：先生成审计证据字段，再规范化哈希并派生隐藏 seed，最后只在语义等价表达空间中施加水印。
         </p>
       </div>
 
-      <div className="final-answer-card" style={{ backgroundColor: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: '12px', padding: '1.5rem', marginBottom: '1.5rem', position: 'relative' }}>
-        <div className="watermark-overlay" style={{ position: 'absolute', top: '1rem', right: '1rem', color: 'var(--green)', backgroundColor: 'rgba(16, 185, 129, 0.08)', border: '1px dashed var(--green)', borderRadius: '4px', padding: '0.25rem 0.5rem', fontSize: '0.7rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-          <ShieldCheck size={12} />
-          <span>水印已绑定</span>
+      <WatermarkDetectorPanel
+        defaultText={answer}
+        auditTrace={audit}
+        sessionId={sessionId}
+      />
+
+      <WatermarkRoundAccordion sessionId={sessionId} />
+
+      <div className="final-answer-card glass-panel" style={{ position: 'relative' }}>
+        <div className="watermark-overlay" style={{ position: 'absolute', top: '1rem', right: '1rem', color: 'var(--green)', backgroundColor: 'rgba(16, 185, 129, 0.08)', border: '1px dashed var(--green)', borderRadius: '999px', padding: '0.35rem 0.65rem', fontSize: '0.72rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+          <ShieldCheck size={13} />
+          <span>{audit.watermark_scheme || 'semantic_evidence_chain_multiround'}</span>
         </div>
-        <div className="data-panel-title" style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem', marginBottom: '1rem', fontWeight: 700, fontSize: '0.9rem' }}>
-          最终下发给学生的回答
-        </div>
+        <div className="data-panel-title">最终下发给学生的回答</div>
         {answer ? (
-          <p className="answer-text" style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#f1f5f9', whiteSpace: 'pre-wrap', margin: 0 }}>
-            {answer}
-          </p>
+          <p className="answer-text" style={{ whiteSpace: 'pre-wrap' }}>{answer}</p>
         ) : (
-          <div style={{ textAlign: 'center', padding: '1.5rem 0', color: 'var(--muted)', fontSize: '0.85rem' }}>
-            暂无受保护回答。请先在课堂中运行一轮学习流程。
-          </div>
+          <div className="empty-hint">暂无受保护回答。请先在“闭环案例演示”中运行至少一轮学习流程。</div>
         )}
       </div>
 
-      <div className="data-panel-card" style={{ backgroundColor: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: '12px', padding: '1.5rem', marginBottom: '1.5rem' }}>
-        <div className="data-panel-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem' }}>
-          <Database size={16} style={{ color: 'var(--green)' }} />
-          <span>全链路凭证绑定关系图</span>
-        </div>
-
-        <div style={{ overflowX: 'auto', padding: '0.5rem 0' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 'max-content', justifyContent: 'center' }}>
+      <div className="data-panel-card glass-panel">
+        <div className="data-panel-title"><Link2 size={16} /> 六步证据链绑定路径</div>
+        <div style={{ overflowX: 'auto', padding: '0.6rem 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: 'max-content' }}>
             {bindingNodes.map((node, idx) => (
-              <Fragment key={idx}>
-                <div style={{ backgroundColor: 'var(--bg)', border: '1px solid var(--border)', borderLeft: `3px solid ${node.color}`, borderRadius: '6px', padding: '0.6rem 0.85rem', width: '140px', flexShrink: 0 }}>
-                  <span style={{ fontSize: '0.6rem', color: node.color, fontWeight: 700, textTransform: 'uppercase', display: 'block' }}>{node.label}</span>
-                  <strong style={{ fontSize: '0.7rem', color: '#ffffff', fontFamily: 'monospace', display: 'block', marginTop: '0.15rem', wordBreak: 'break-all' }}>{node.desc}</strong>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }} key={node.label}>
+                <div style={{ backgroundColor: 'rgba(4, 16, 28, 0.62)', border: '1px solid var(--border)', borderLeft: `3px solid ${node.color}`, borderRadius: '12px', padding: '0.75rem 0.9rem', width: '170px' }}>
+                  <span style={{ fontSize: '0.68rem', color: node.color, fontWeight: 800 }}>{node.label}</span>
+                  <strong style={{ display: 'block', marginTop: '0.2rem', fontSize: '0.72rem', wordBreak: 'break-all' }}>{node.desc}</strong>
                 </div>
-                {idx < bindingNodes.length - 1 && <ArrowRight size={14} style={{ color: 'var(--muted)', opacity: 0.5, flexShrink: 0 }} />}
-              </Fragment>
+                {idx < bindingNodes.length - 1 && <ArrowRight size={15} style={{ color: 'var(--muted)' }} />}
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="data-panel" style={{ backgroundColor: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: '12px', padding: '1.5rem', marginBottom: '1.5rem' }}>
-        <div className="data-panel-title" style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem', marginBottom: '1rem', fontWeight: 700, fontSize: '0.95rem' }}>
-          审计溯源存证单
+      <div className="data-panel glass-panel">
+        <div className="data-panel-title"><Database size={16} /> Step 1-3：审计记录、规范化与隐藏 Seed</div>
+        <div className="audit-two-column">
+          <div>
+            {fieldLine('answer_id', record.answer_id)}
+            {fieldLine('session_id', record.session_id)}
+            {fieldLine('round_id', record.round_id)}
+            {fieldLine('profile_card_id', record.profile_card_id)}
+            {fieldLine('risk_state', record.risk_state)}
+            {fieldLine('policy_decision', record.policy_decision)}
+            {fieldLine('previous_audit_hash', record.previous_audit_hash)}
+            {fieldLine('timestamp_bucket', record.timestamp_bucket)}
+          </div>
+          <div>
+            {fieldLine('resource_id', record.resource_trace?.[0]?.resource_id || c2rag.resource_id)}
+            {fieldLine('chunk_id', record.resource_trace?.[0]?.chunk_id || c2rag.chunk_id)}
+            {fieldLine('return_mode', record.resource_trace?.[0]?.return_mode || c2rag.return_mode)}
+            {fieldLine('audit_digest', audit.audit_digest ? `${audit.audit_digest.slice(0, 28)}...` : '-')}
+            {fieldLine('seed_commitment', audit.watermark_seed_commitment)}
+            {Object.entries(seedCommitments).map(([key, value]) => fieldLine(key, value))}
+          </div>
+        </div>
+        <pre className="audit-json-block">{audit.canonical_audit_record || JSON.stringify(record, null, 2)}</pre>
+      </div>
+
+      <div className="summary-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+        <div className="glass-panel">
+          <div className="data-panel-title"><Fingerprint size={16} /> Step 4：语义感知水印</div>
+          <p className="audit-mini-copy">锁定公式、数字、单位、专有名词、知识点、关键步骤和来源 ID，只在连接词、语气、句式、例子和段落组织中选择等价表达。</p>
+          {(semantic.variant_choices || []).map((item) => fieldLine(item.channel, item.choice))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.75rem', color: 'var(--muted)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>辅导话术唯一标号</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{audit.answer_id || `ans_${logs.c2_rag?.chunk_id ? 'task_0001' : 'task_0001'}`}</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>嵌入隐形水印 ID</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{audit.watermark_id || 'audit_trace_watermark_id'}</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>画像卡凭证哈希</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{`card_${audit.profile_card_id ? audit.profile_card_id.replace('card_', '') : 'task_0001'}`}</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>关联版权教案 ID</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{logs.c2_rag?.resource_id || 'teacher_resource_arithmetic_sequence'}</strong>
-            </div>
-          </div>
+        <div className="glass-panel">
+          <div className="data-panel-title"><Link2 size={16} /> Step 5：多轮鲁棒绑定</div>
+          {fieldLine('session_seed', audit.multi_round_binding?.session_seed)}
+          {fieldLine('round_seed', audit.multi_round_binding?.round_seed)}
+          {fieldLine('resource_seed', audit.multi_round_binding?.resource_seed)}
+          {fieldLine('audit_seed', audit.multi_round_binding?.audit_seed)}
+        </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.75rem', color: 'var(--muted)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>课件匹配分块 ID</span>
-              <strong style={{ color: '#ffffff', fontFamily: 'monospace' }}>{logs.c2_rag?.chunk_id || 'chunk_889e1f6f'}</strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>审计数字签名</span>
-              <strong style={{ color: 'var(--green)', fontFamily: 'monospace', fontSize: '0.65rem', wordBreak: 'break-all', textAlign: 'right', maxWidth: '12rem' }}>
-                {audit.watermarked_answer_sha256 || 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}
-              </strong>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>链路存证评级</span>
-              <span className="risk-badge low" style={{ fontSize: '0.65rem' }}>{audit.audit_complete ? '安全链路已验证' : '等待验证'}</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.25rem' }}>
-              <span>系统物理审计状态</span>
-              <strong style={{ color: 'var(--green)' }}>{audit.audit_complete ? '审计完备（已封存）' : '等待流转...'}</strong>
-            </div>
-          </div>
+        <div className="glass-panel">
+          <div className="data-panel-title"><ShieldCheck size={16} /> Step 6：检测与验证</div>
+          {fieldLine('watermark_detected', String(verification.watermark_detected ?? false))}
+          {fieldLine('confidence', verification.confidence ?? '-')}
+          {fieldLine('matched_round_id', verification.matched_round_id ?? '-')}
+          {fieldLine('matched_resource_id', verification.matched_resource_id ?? '-')}
+          {fieldLine('audit_chain_valid', String(verification.audit_chain_valid ?? false))}
+          {fieldLine('tamper_suspicion', String(verification.tamper_suspicion ?? false))}
         </div>
       </div>
 
-      <div className="summary-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-        <div style={{ backgroundColor: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.75rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>代理接入次数</span>
-          <strong style={{ fontSize: '1rem', color: '#ffffff' }}>4 次受控调用</strong>
-        </div>
-        <div style={{ backgroundColor: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.75rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>审计中介通信报文</span>
-          <strong style={{ fontSize: '1rem', color: '#ffffff' }}>{data?.communication_logs?.length || 0} 次 TPCS 握手</strong>
-        </div>
-        <div style={{ backgroundColor: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.75rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>长期画像写库决策</span>
-          <strong style={{ fontSize: '1rem', color: data?.profile_update_decision === 'approve' ? 'var(--green)' : 'var(--red)' }}>
-            {data?.profile_update_decision === 'approve' ? '已允许写入' : '已由门控拦截'}
-          </strong>
-        </div>
-        <div style={{ backgroundColor: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.75rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.15rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>绑定资源实体</span>
-          <strong style={{ fontSize: '1rem', color: 'var(--amber)' }}>1 个 C²-RAG 分块</strong>
-        </div>
-      </div>
+      <AcademicFigurePanel
+        data={data}
+        figures={['evidence_pipeline', 'audit_chain', 'seed_binding', 'watermark_attack_robustness']}
+      />
     </section>
   );
 }
