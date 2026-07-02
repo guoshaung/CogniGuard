@@ -58,6 +58,21 @@ except ImportError:
     run_free_chat = None
 
 try:
+    from backend.app.protection.image_watermarking import (
+        attack_image_watermark,
+        decode_data_url_or_base64,
+        detect_image_watermark,
+        image_file_response,
+        watermark_artifact_response,
+    )
+except ImportError:
+    attack_image_watermark = None
+    decode_data_url_or_base64 = None
+    detect_image_watermark = None
+    image_file_response = None
+    watermark_artifact_response = None
+
+try:
     from backend.app.scenario_loader import (
         ScenarioDataError,
         build_cases_manifest,
@@ -749,6 +764,42 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                 self._send_json(_demo_watermark_rounds(session_id or "sess_demo_watermark"))
             return
 
+        if path.startswith("/api/teaching-images/"):
+            filename = urllib.parse.unquote(path.rsplit("/", 1)[-1])
+            if image_file_response is None:
+                self._send_json({"error": "image service is not importable"}, status=500)
+                return
+            payload = image_file_response(filename)
+            if payload is None:
+                self._send_json({"error": "image not found"}, status=404)
+                return
+            image_bytes, mime = payload
+            self.send_response(200)
+            self.send_header("Content-Type", mime)
+            self.send_header("Cache-Control", "no-store")
+            self._set_cors_headers()
+            self.end_headers()
+            self.wfile.write(image_bytes)
+            return
+
+        if path == "/api/watermark/artifact":
+            artifact_path = query.get("path", [""])[0]
+            if watermark_artifact_response is None:
+                self._send_json({"error": "watermark artifact service is not importable"}, status=500)
+                return
+            payload = watermark_artifact_response(artifact_path)
+            if payload is None:
+                self._send_json({"error": "artifact not found"}, status=404)
+                return
+            image_bytes, mime = payload
+            self.send_response(200)
+            self.send_header("Content-Type", mime)
+            self.send_header("Cache-Control", "no-store")
+            self._set_cors_headers()
+            self.end_headers()
+            self.wfile.write(image_bytes)
+            return
+
         # Frontend API: Attack evaluation results
         if path == "/api/attack-eval-results":
             self.send_response(200)
@@ -976,6 +1027,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                 result = run_free_chat(
                     message=str(payload.get("message", "")),
                     history=list(payload.get("history") or []),
+                    existing_image_count=int(payload.get("teaching_image_count", 0) or 0),
                 )
                 self._send_json(result, status=200 if result.get("success") else 503)
             except Exception as exc:
@@ -1008,6 +1060,7 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                     target_mastery=float(payload.get("target_mastery", 0.85)),
                     episode_id=payload.get("episode_id"),
                     tpcs_ablation=payload.get("tpcs_ablation"),
+                    dialogue_mode=payload.get("dialogue_mode"),
                 )
                 _register_watermark_session(result)
                 self._send_json(result)
@@ -1028,6 +1081,62 @@ class CogniGuardDashboardAPIHandler(BaseHTTPRequestHandler):
                 post_data = self.rfile.read(content_length).decode("utf-8", errors="replace")
                 payload = json.loads(post_data or "{}")
                 self._send_json(_detect_semantic_watermark(payload))
+            except Exception as exc:
+                self._send_json(
+                    {
+                        "success": False,
+                        "error": str(exc),
+                        "traceback": traceback.format_exc(),
+                    },
+                    status=500,
+                )
+            return
+
+        if path == "/api/watermark/image-detect":
+            try:
+                if detect_image_watermark is None or decode_data_url_or_base64 is None:
+                    raise RuntimeError("image watermark detector is not importable")
+                content_length = int(self.headers.get("Content-Length", 0))
+                post_data = self.rfile.read(content_length).decode("utf-8", errors="replace")
+                payload = json.loads(post_data or "{}")
+                image_data = str(payload.get("image_data", "") or "")
+                if not image_data:
+                    raise ValueError("image_data is required")
+                image_bytes = decode_data_url_or_base64(image_data)
+                candidate = {
+                    "image_id": payload.get("image_id") or "",
+                    "resource_id": payload.get("resource_id") or "",
+                }
+                self._send_json(detect_image_watermark(image_bytes, candidate))
+            except Exception as exc:
+                self._send_json(
+                    {
+                        "success": False,
+                        "error": str(exc),
+                        "traceback": traceback.format_exc(),
+                    },
+                    status=500,
+                )
+            return
+
+        if path == "/api/watermark/image-attack":
+            try:
+                if attack_image_watermark is None or decode_data_url_or_base64 is None:
+                    raise RuntimeError("image watermark attacker is not importable")
+                content_length = int(self.headers.get("Content-Length", 0))
+                post_data = self.rfile.read(content_length).decode("utf-8", errors="replace")
+                payload = json.loads(post_data or "{}")
+                image_data = str(payload.get("image_data", "") or "")
+                if not image_data:
+                    raise ValueError("image_data is required")
+                image_bytes = decode_data_url_or_base64(image_data)
+                self._send_json(
+                    attack_image_watermark(
+                        image_bytes,
+                        attack_type=str(payload.get("attack_type") or "inpainting"),
+                        prompt=str(payload.get("prompt") or ""),
+                    )
+                )
             except Exception as exc:
                 self._send_json(
                     {

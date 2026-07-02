@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "chart.js": "^4.5.1",
+    "katex": "^0.17.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",
     "react-chartjs-2": "^5.3.1",

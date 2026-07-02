@@ -1,0 +1,468 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - img [ref=e7]
+      - generic [ref=e10]:
+        - generic [ref=e11]: CogniGuard
+        - generic [ref=e12]: 可信教育智能体平台
+    - generic [ref=e13]:
+      - button "闭环案例演示" [ref=e14] [cursor=pointer]:
+        - img [ref=e15]
+        - generic [ref=e17]: 闭环案例演示
+      - button "学生画像隐私保护" [ref=e18] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 学生画像隐私保护
+      - button "教师版权保护" [ref=e22] [cursor=pointer]:
+        - img [ref=e23]
+        - generic [ref=e25]: 教师版权保护
+      - button "生成内容审计追踪" [ref=e26] [cursor=pointer]:
+        - img [ref=e27]
+        - generic [ref=e29]: 生成内容审计追踪
+    - generic [ref=e30]:
+      - button "运行数据" [disabled] [ref=e31]:
+        - img [ref=e32]
+        - generic [ref=e35]: 运行数据
+      - button "刷新" [ref=e36] [cursor=pointer]:
+        - img [ref=e37]
+        - generic [ref=e42]: 刷新
+      - button "选择案例" [ref=e43] [cursor=pointer]:
+        - img [ref=e44]
+        - generic [ref=e46]: 选择案例
+  - main [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - img [ref=e50]
+        - text: 可信、可控、可审计
+      - heading "让教育智能体在 安全边界内持续学习" [level=1] [ref=e53]:
+        - text: 让教育智能体在
+        - text: 安全边界内持续学习
+      - paragraph [ref=e54]: 将闭环案例演示、学生画像隐私保护、教师版权保护与生成内容审计追踪汇聚在同一个受控工作台中。
+      - generic [ref=e55]:
+        - generic [ref=e56]: guarded_llm
+        - generic [ref=e58]: TPCS 本地策略 Rail
+        - generic [ref=e59]: 一元二次方程 · 函数图像
+        - generic [ref=e60]: grade_8 · membership_inference
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: COGNIGUARD WORKSPACE
+          - strong [ref=e65]: 闭环案例演示
+        - generic [ref=e66]:
+          - generic [ref=e67]: 35 个案例
+          - generic [ref=e68]: ep_0001
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - img [ref=e75]
+              - text: 连续闭环学习
+            - heading "持续迭代的师生代理课堂与攻击实验台" [level=1] [ref=e78]
+            - paragraph [ref=e79]: 学生提出问题后由教师 AI 回答，系统随后进行闭环评估并生成下一轮建议问题。 会话持续到能力标准连续两轮达标，或由你手动停止。
+          - generic [ref=e80]:
+            - generic "Dialogue mode" [ref=e81]:
+              - button "Dataset Replay" [ref=e82] [cursor=pointer]
+              - button "Dynamic Learner" [ref=e83] [cursor=pointer]
+              - button "Human Student" [ref=e84] [cursor=pointer]
+            - generic [ref=e85]:
+              - text: 目标
+              - spinbutton "目标 %" [ref=e86]: "85"
+              - emphasis [ref=e87]: "%"
+            - button "重置" [ref=e88] [cursor=pointer]:
+              - img [ref=e89]
+              - text: 重置
+            - button "开始连续学习" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+              - text: 开始连续学习
+        - generic [ref=e95]:
+          - strong [ref=e96]: 已就绪，可以开始连续学习
+          - generic [ref=e97]:
+            - img [ref=e98]
+            - text: 第 0 轮
+          - generic [ref=e101]:
+            - img [ref=e102]
+            - text: dataset_replay
+          - generic [ref=e114]:
+            - img [ref=e115]
+            - text: TPCS 受控
+        - generic [ref=e119]:
+          - generic [ref=e120]:
+            - generic [ref=e121]: Dialogue Mode
+            - strong [ref=e122]: dataset_replay
+          - generic [ref=e123]:
+            - generic [ref=e124]: Round
+            - strong [ref=e125]: "0"
+          - generic [ref=e126]:
+            - generic [ref=e127]: next_question_source
+            - strong [ref=e128]: "-"
+          - generic [ref=e129]:
+            - generic [ref=e130]: student_response_source
+            - strong [ref=e131]: "-"
+          - generic [ref=e132]:
+            - generic [ref=e133]: mastery
+            - strong [ref=e134]: "-"
+          - generic [ref=e135]:
+            - generic [ref=e136]: confidence
+            - strong [ref=e137]: "-"
+          - generic [ref=e138]:
+            - generic [ref=e139]: error_type
+            - strong [ref=e140]: "-"
+          - paragraph [ref=e141]: 当前轮次来自固定数据集流程
+        - generic [ref=e142]:
+          - generic [ref=e143]:
+            - generic [ref=e144]:
+              - img [ref=e146]
+              - generic [ref=e148]:
+                - strong [ref=e149]: 第三方攻击控制台
+                - text: 点击任一攻击，将其注入当前课堂会话。
+            - generic [ref=e150]:
+              - generic [ref=e151]: 待命
+              - button "收起控制台" [expanded] [ref=e152] [cursor=pointer]:
+                - img [ref=e153]
+                - text: 收起控制台
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - img [ref=e158]
+                - text: 共 13 种攻击，归入 5 个攻击面
+              - button "全部收起" [ref=e162] [cursor=pointer]
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - button "输入与内容攻击 操纵指令、提取受限内容或跨轮拼接信息 2 种" [expanded] [ref=e165] [cursor=pointer]:
+                  - generic [ref=e166]:
+                    - strong [ref=e167]: 输入与内容攻击
+                    - generic [ref=e168]: 操纵指令、提取受限内容或跨轮拼接信息
+                  - generic [ref=e169]:
+                    - generic [ref=e170]: 2 种
+                    - img [ref=e171]
+                - generic [ref=e173]:
+                  - article [ref=e174]:
+                    - emphasis [ref=e175]: 输入攻击
+                    - generic [ref=e176]: 提示词注入
+                    - generic [ref=e177]: 覆盖可信系统指令
+                    - generic [ref=e178]:
+                      - button "查看 / 修改" [ref=e179] [cursor=pointer]:
+                        - img [ref=e180]
+                        - text: 查看 / 修改
+                      - button "注入提示词注入攻击" [ref=e183] [cursor=pointer]: 执行攻击
+                  - article [ref=e184]:
+                    - emphasis [ref=e185]: 版权攻击
+                    - generic [ref=e186]: 版权重构
+                    - generic [ref=e187]: 逐轮拼接教师原始资源
+                    - generic [ref=e188]:
+                      - button "查看 / 修改" [ref=e189] [cursor=pointer]:
+                        - img [ref=e190]
+                        - text: 查看 / 修改
+                      - button "注入版权重构攻击" [ref=e193] [cursor=pointer]: 执行攻击
+              - generic [ref=e194]:
+                - button "隐私与模型攻击 探测训练成员、反演特征或关联推断隐私 4 种" [expanded] [ref=e195] [cursor=pointer]:
+                  - generic [ref=e196]:
+                    - strong [ref=e197]: 隐私与模型攻击
+                    - generic [ref=e198]: 探测训练成员、反演特征或关联推断隐私
+                  - generic [ref=e199]:
+                    - generic [ref=e200]: 4 种
+                    - img [ref=e201]
+                - generic [ref=e203]:
+                  - article [ref=e204]:
+                    - emphasis [ref=e205]: 隐私攻击
+                    - generic [ref=e206]: 隐私提取
+                    - generic [ref=e207]: 批量索取原始学生画像
+                    - generic [ref=e208]:
+                      - button "查看 / 修改" [ref=e209] [cursor=pointer]:
+                        - img [ref=e210]
+                        - text: 查看 / 修改
+                      - button "注入隐私提取攻击" [ref=e213] [cursor=pointer]: 执行攻击
+                  - article [ref=e214]:
+                    - emphasis [ref=e215]: 模型攻击
+                    - generic [ref=e216]: 成员推断
+                    - generic [ref=e217]: 判断样本是否参与训练
+                    - generic [ref=e218]:
+                      - button "查看 / 修改" [ref=e219] [cursor=pointer]:
+                        - img [ref=e220]
+                        - text: 查看 / 修改
+                      - button "注入成员推断攻击" [ref=e223] [cursor=pointer]: 执行攻击
+                  - article [ref=e224]:
+                    - emphasis [ref=e225]: 模型攻击
+                    - generic [ref=e226]: 模型反演
+                    - generic [ref=e227]: 从输出重建隐私特征
+                    - generic [ref=e228]:
+                      - button "查看 / 修改" [ref=e229] [cursor=pointer]:
+                        - img [ref=e230]
+                        - text: 查看 / 修改
+                      - button "注入模型反演攻击" [ref=e233] [cursor=pointer]: 执行攻击
+                  - article [ref=e234]:
+                    - emphasis [ref=e235]: 隐私攻击
+                    - generic [ref=e236]: 多轮推断
+                    - generic [ref=e237]: 关联推断隐藏属性
+                    - generic [ref=e238]:
+                      - button "查看 / 修改" [ref=e239] [cursor=pointer]:
+                        - img [ref=e240]
+                        - text: 查看 / 修改
+                      - button "注入多轮推断攻击" [ref=e243] [cursor=pointer]: 执行攻击
+              - generic [ref=e244]:
+                - button "数据与知识库攻击 污染画像、投毒检索内容或破坏来源水印 3 种" [expanded] [ref=e245] [cursor=pointer]:
+                  - generic [ref=e246]:
+                    - strong [ref=e247]: 数据与知识库攻击
+                    - generic [ref=e248]: 污染画像、投毒检索内容或破坏来源水印
+                  - generic [ref=e249]:
+                    - generic [ref=e250]: 3 种
+                    - img [ref=e251]
+                - generic [ref=e253]:
+                  - article [ref=e254]:
+                    - emphasis [ref=e255]: 数据攻击
+                    - generic [ref=e256]: 检索库投毒
+                    - generic [ref=e257]: 向 RAG 注入恶意资料
+                    - generic [ref=e258]:
+                      - button "查看 / 修改" [ref=e259] [cursor=pointer]:
+                        - img [ref=e260]
+                        - text: 查看 / 修改
+                      - button "注入检索库投毒攻击" [ref=e263] [cursor=pointer]: 执行攻击
+                  - article [ref=e264]:
+                    - emphasis [ref=e265]: 数据攻击
+                    - generic [ref=e266]: 画像污染
+                    - generic [ref=e267]: 写入虚假掌握证据
+                    - generic [ref=e268]:
+                      - button "查看 / 修改" [ref=e269] [cursor=pointer]:
+                        - img [ref=e270]
+                        - text: 查看 / 修改
+                      - button "注入画像污染攻击" [ref=e273] [cursor=pointer]: 执行攻击
+                  - article [ref=e274]:
+                    - emphasis [ref=e275]: 溯源攻击
+                    - generic [ref=e276]: 水印篡改
+                    - generic [ref=e277]: 删除或破坏来源标记
+                    - generic [ref=e278]:
+                      - button "查看 / 修改" [ref=e279] [cursor=pointer]:
+                        - img [ref=e280]
+                        - text: 查看 / 修改
+                      - button "注入水印篡改攻击" [ref=e283] [cursor=pointer]: 执行攻击
+              - generic [ref=e284]:
+                - button "权限与协议攻击 伪造凭证、绕过路由或重放历史授权 2 种" [expanded] [ref=e285] [cursor=pointer]:
+                  - generic [ref=e286]:
+                    - strong [ref=e287]: 权限与协议攻击
+                    - generic [ref=e288]: 伪造凭证、绕过路由或重放历史授权
+                  - generic [ref=e289]:
+                    - generic [ref=e290]: 2 种
+                    - img [ref=e291]
+                - generic [ref=e293]:
+                  - article [ref=e294]:
+                    - emphasis [ref=e295]: 路由攻击
+                    - generic [ref=e296]: 权限绕过
+                    - generic [ref=e297]: 跳过 TPCS 授权
+                    - generic [ref=e298]:
+                      - button "查看 / 修改" [ref=e299] [cursor=pointer]:
+                        - img [ref=e300]
+                        - text: 查看 / 修改
+                      - button "注入权限绕过攻击" [ref=e303] [cursor=pointer]: 执行攻击
+                  - article [ref=e304]:
+                    - emphasis [ref=e305]: 协议攻击
+                    - generic [ref=e306]: 重放攻击
+                    - generic [ref=e307]: 重复提交旧授权消息
+                    - generic [ref=e308]:
+                      - button "查看 / 修改" [ref=e309] [cursor=pointer]:
+                        - img [ref=e310]
+                        - text: 查看 / 修改
+                      - button "注入重放攻击攻击" [ref=e313] [cursor=pointer]: 执行攻击
+              - generic [ref=e314]:
+                - button "审计与可用性攻击 规避追踪链或消耗系统预算与队列 2 种" [expanded] [ref=e315] [cursor=pointer]:
+                  - generic [ref=e316]:
+                    - strong [ref=e317]: 审计与可用性攻击
+                    - generic [ref=e318]: 规避追踪链或消耗系统预算与队列
+                  - generic [ref=e319]:
+                    - generic [ref=e320]: 2 种
+                    - img [ref=e321]
+                - generic [ref=e323]:
+                  - article [ref=e324]:
+                    - emphasis [ref=e325]: 审计攻击
+                    - generic [ref=e326]: 审计规避
+                    - generic [ref=e327]: 隐藏调用来源与行为
+                    - generic [ref=e328]:
+                      - button "查看 / 修改" [ref=e329] [cursor=pointer]:
+                        - img [ref=e330]
+                        - text: 查看 / 修改
+                      - button "注入审计规避攻击" [ref=e333] [cursor=pointer]: 执行攻击
+                  - article [ref=e334]:
+                    - emphasis [ref=e335]: 可用性攻击
+                    - generic [ref=e336]: 资源耗尽
+                    - generic [ref=e337]: 消耗代理预算与队列
+                    - generic [ref=e338]:
+                      - button "查看 / 修改" [ref=e339] [cursor=pointer]:
+                        - img [ref=e340]
+                        - text: 查看 / 修改
+                      - button "注入资源耗尽攻击" [ref=e343] [cursor=pointer]: 执行攻击
+            - generic [ref=e344]:
+              - img [ref=e345]
+              - text: 请选择一种攻击并注入受保护课堂。
+        - generic [ref=e347]:
+          - generic [ref=e348]:
+            - strong [ref=e349]: TPCS 核心与轨道状态
+            - text: 四个代理均已进入 TPCS 地球仪，完整受控拓扑正在运行
+          - generic [ref=e350]:
+            - generic [ref=e351]: 核心模块 4/4
+            - generic [ref=e352]: 轨道代理 0
+        - generic [ref=e353]:
+          - generic [ref=e355]:
+            - generic [ref=e356]:
+              - img [ref=e357]
+              - text: 核式主动中介路由
+            - heading "TPCS 地球仪与代理轨道实验台" [level=1] [ref=e361]
+            - paragraph [ref=e362]: 拖动地球仪可旋转观察 TPCS 核心。把代理核子拖入地球仪会接入为内部模块； 从核心向外甩出时，代理会沿释放方向并按拖动速度进入持续轨道。
+          - generic [ref=e363]:
+            - generic [ref=e364]:
+              - button "拖动旋转 TPCS 地球仪" [ref=e365]:
+                - generic [ref=e371]:
+                  - img [ref=e372]
+                  - text: TPCS 核心
+              - button "拖动画像诊断代理" [ref=e377]:
+                - img [ref=e380]
+              - button "拖动版权资源代理" [ref=e386]:
+                - img [ref=e389]
+              - button "拖动教学代理" [ref=e395]:
+                - img [ref=e398]
+              - button "拖动学习评估代理" [ref=e404]:
+                - img [ref=e407]
+              - generic [ref=e413]:
+                - img [ref=e414]
+                - text: 拖动地球旋转
+                - img [ref=e419]
+                - text: 甩出速度决定公转速度
+            - complementary [ref=e425]:
+              - generic [ref=e426]:
+                - text: 核心拓扑状态
+                - strong [ref=e427]: 4/4 个代理已接入
+                - paragraph [ref=e430]: 完整拓扑已形成
+              - generic [ref=e431]:
+                - generic [ref=e433]:
+                  - strong [ref=e434]: 画像诊断代理
+                  - generic [ref=e435]: 已进入 TPCS，作为内部受控模块运行
+                - generic [ref=e436]: 核心接入
+              - generic [ref=e437]:
+                - generic [ref=e439]:
+                  - strong [ref=e440]: 版权资源代理
+                  - generic [ref=e441]: 已进入 TPCS，作为内部受控模块运行
+                - generic [ref=e442]: 核心接入
+              - generic [ref=e443]:
+                - generic [ref=e445]:
+                  - strong [ref=e446]: 教学代理
+                  - generic [ref=e447]: 已进入 TPCS，作为内部受控模块运行
+                - generic [ref=e448]: 核心接入
+              - generic [ref=e449]:
+                - generic [ref=e451]:
+                  - strong [ref=e452]: 学习评估代理
+                  - generic [ref=e453]: 已进入 TPCS，作为内部受控模块运行
+                - generic [ref=e454]: 核心接入
+          - generic [ref=e455]:
+            - generic [ref=e456]: TPCS 路由日志
+            - table [ref=e458]:
+              - rowgroup [ref=e459]:
+                - row "发送方 接收方 消息类型 隐私等级 披露风险 决策" [ref=e460]:
+                  - columnheader "发送方" [ref=e461]
+                  - columnheader "接收方" [ref=e462]
+                  - columnheader "消息类型" [ref=e463]
+                  - columnheader "隐私等级" [ref=e464]
+                  - columnheader "披露风险" [ref=e465]
+                  - columnheader "决策" [ref=e466]
+              - rowgroup [ref=e467]:
+                - row "运行一轮课堂后，这里会显示真实的 TPCS 路由与审计记录。" [ref=e468]:
+                  - cell "运行一轮课堂后，这里会显示真实的 TPCS 路由与审计记录。" [ref=e469]
+        - generic [ref=e470]:
+          - complementary [ref=e471]:
+            - button "学生代理本地回退模型" [ref=e472] [cursor=pointer]:
+              - img [ref=e474]
+              - generic [ref=e486]:
+                - text: 学生代理
+                - strong [ref=e487]: 本地回退模型
+              - img [ref=e488]
+            - generic [ref=e491]:
+              - generic [ref=e492]:
+                - text: 知识点
+                - strong [ref=e493]: 一元二次方程 / 函数图像
+              - generic [ref=e494]:
+                - text: 学习阶段
+                - strong [ref=e495]: 待生成
+              - generic [ref=e496]:
+                - text: 当前掌握度
+                - strong [ref=e497]: "-%"
+              - generic [ref=e498]:
+                - text: 当前信心
+                - strong [ref=e499]: "-"
+              - generic [ref=e500]:
+                - text: 当前错因
+                - strong [ref=e501]: "-"
+              - generic [ref=e502]:
+                - text: 学习信号
+                - strong [ref=e503]: "-"
+              - generic [ref=e504]:
+                - text: 目标掌握度
+                - strong [ref=e505]: 85%
+              - generic [ref=e506]:
+                - text: 连续达标
+                - strong [ref=e507]: 0/2
+            - generic [ref=e508]:
+              - img [ref=e509]
+              - generic [ref=e518]:
+                - strong [ref=e519]: MM-FOPD + 学生代理
+                - text: 学生侧仅能看到教师回答与受边界约束的评估反馈。
+          - main [ref=e520]:
+            - generic [ref=e521]:
+              - generic [ref=e522]:
+                - strong [ref=e523]: 连续受保护课堂记录
+                - generic [ref=e524]: 0 条实时事件
+              - generic [ref=e525]:
+                - generic [ref=e526]:
+                  - img [ref=e527]
+                  - text: 点击任意消息可查看该轮 JSON
+                - generic [ref=e530]: 学生反思能力评估攻击恢复
+            - generic [ref=e532]:
+              - img [ref=e533]
+              - heading "连续课堂正在等待" [level=3] [ref=e537]
+              - paragraph [ref=e538]: 你可以开始学习、随时注入攻击，或直接输入下一条学生问题。
+            - generic [ref=e539]:
+              - generic [ref=e540]:
+                - img [ref=e541]
+                - text: 自由提问
+                - generic [ref=e544]: 不使用当前案例
+              - generic [ref=e545]:
+                - textbox "自由提问：可使用右侧测试题库验证 Nemo Guard..." [ref=e546]
+                - button "安全测试题库" [ref=e547] [cursor=pointer]:
+                  - img [ref=e548]
+                  - text: 安全测试题库
+              - button "发送单轮对话" [disabled] [ref=e550]:
+                - img [ref=e551]
+          - complementary [ref=e554]:
+            - button "教师 AI受保护响应" [ref=e555] [cursor=pointer]:
+              - img [ref=e557]
+              - generic [ref=e560]:
+                - text: 教师 AI
+                - strong [ref=e561]: 受保护响应
+              - img [ref=e562]
+            - generic [ref=e565]:
+              - generic [ref=e566]:
+                - text: 返回模式
+                - strong [ref=e567]: 待生成
+              - generic [ref=e568]:
+                - text: answer_id
+                - strong [ref=e569]: "-"
+              - generic [ref=e570]:
+                - text: watermark_id
+                - strong [ref=e571]: "-"
+              - generic [ref=e572]:
+                - text: audit_hash
+                - strong [ref=e573]: "-"
+              - generic [ref=e574]:
+                - text: 披露预算
+                - strong [ref=e575]: "-"
+              - generic [ref=e576]:
+                - text: 资源匹配度
+                - strong [ref=e577]: "-"
+              - generic [ref=e578]:
+                - text: 审计风险
+                - strong [ref=e579]: "-"
+            - button "第三方攻击者 攻击历史与当前控制状态" [ref=e580] [cursor=pointer]:
+              - img [ref=e581]
+              - generic [ref=e583]:
+                - strong [ref=e584]: 第三方攻击者
+                - generic [ref=e585]: 攻击历史与当前控制状态
+              - img [ref=e586]
+            - button "审计快照" [ref=e589] [cursor=pointer]:
+              - img [ref=e590]
+              - text: 审计快照
+              - img [ref=e594]

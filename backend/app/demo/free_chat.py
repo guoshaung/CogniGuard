@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+from backend.app.protection.image_watermarking import generate_protected_teaching_images
 from backend.app.runtime.mode import (
     build_guardrail_adapter,
     build_runtime_llm_client,
@@ -29,12 +30,54 @@ def run_free_chat(
     *,
     message: str,
     history: list[dict[str, Any]] | None = None,
+    existing_image_count: int = 0,
 ) -> dict[str, Any]:
     question = str(message or "").strip()
     if not question:
         raise ValueError("自由提问内容不能为空")
 
+    safety_block = _free_chat_safety_block(question)
+    if safety_block is not None:
+        answer = safety_block["safe_answer"]
+        guardrail = {
+            "decision": "block",
+            "rail_type": "deterministic_free_chat_safety",
+            "matched_policy": safety_block["matched_policy"],
+            "reason": safety_block["reason"],
+        }
+        return {
+            "success": True,
+            "answer": answer,
+            "guardrail": guardrail,
+            "runtime_status": get_runtime_status(),
+            "messages": _messages(
+                question,
+                answer,
+                guardrail=guardrail,
+            ),
+        }
+
     runtime = get_runtime_status()
+    if runtime["agent_call_mode"] != "real_llm":
+        answer = _deterministic_free_chat_answer(question)
+        guardrail = {
+            "decision": "allow",
+            "rail_type": "mock_free_chat",
+            "matched_policy": "none",
+        }
+        teaching_images = _maybe_generate_free_chat_images(question, answer, existing_image_count)
+        return {
+            "success": True,
+            "answer": answer,
+            "guardrail": guardrail,
+            "runtime_status": runtime,
+            "messages": _messages(
+                question,
+                answer,
+                guardrail=guardrail,
+                teaching_images=teaching_images,
+            ),
+        }
     if runtime["agent_call_mode"] != "real_llm":
         return {
             "success": False,
@@ -117,12 +160,18 @@ def run_free_chat(
         if output_check["decision"] == "block":
             answer = "回答内容触发了输出安全策略，已停止展示。"
 
+    teaching_images = _maybe_generate_free_chat_images(question, answer, existing_image_count)
     return {
         "success": True,
         "answer": answer,
         "guardrail": output_check,
         "runtime_status": runtime,
-        "messages": _messages(question, answer, guardrail=output_check),
+        "messages": _messages(
+            question,
+            answer,
+            guardrail=output_check,
+            teaching_images=teaching_images,
+        ),
     }
 
 
@@ -132,6 +181,7 @@ def _messages(
     *,
     guardrail: dict[str, Any] | None = None,
     controlled_summary: dict[str, Any] | None = None,
+    teaching_images: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     timestamp = datetime.now(timezone.utc).isoformat()
     return [
@@ -155,9 +205,150 @@ def _messages(
                 "case_context_enabled": False,
                 "guardrail": guardrail,
                 "controlled_resource_summary": controlled_summary,
+                "teaching_images": teaching_images or [],
             },
         },
     ]
+
+
+def _maybe_generate_free_chat_images(question: str, answer: str, existing_image_count: int = 0) -> list[dict[str, Any]]:
+    if not _has_visual_intent(question):
+        return []
+    if int(existing_image_count or 0) >= 2:
+        return []
+    answer_id = f"free_ans_{uuid4().hex[:12]}"
+    resource_id = "free_chat_visual_teaching"
+    prompt = (
+        "生成一张中学数学教学示意图，不要做海报，不要做流程卡。"
+        "画面必须包含公式、方程或数学模型，并用箭头、标注、局部高亮解释概念。"
+        f"学生问题：{question[:160]}。"
+        "如果问题涉及函数，请画坐标轴和函数图像；涉及分数，请画面积模型；"
+        "涉及概率，请画树状图；涉及方程，请画等式变形和关键步骤。"
+        "不包含学生隐私信息。"
+        f"教师回答摘要：{answer[:220]}"
+    )
+    images = generate_protected_teaching_images(
+        prompt=prompt,
+        answer_id=answer_id,
+        resource_id=resource_id,
+        count=1,
+    )
+    return [
+        {
+            "image_id": item.image_id,
+            "url": item.public_url,
+            "prompt": item.prompt,
+            "source_url": item.source_url,
+            "watermark": item.watermark,
+        }
+        for item in images
+    ]
+
+
+def _free_chat_safety_block(question: str) -> dict[str, str] | None:
+    lowered = question.lower()
+    has_political_context = any(
+        token in lowered
+        for token in (
+            "政治",
+            "选举",
+            "投票",
+            "政党",
+            "候选人",
+            "political",
+            "politics",
+            "election",
+            "voter",
+            "campaign",
+            "party",
+            "candidate",
+        )
+    )
+    has_profile_targeting = any(
+        token in lowered
+        for token in (
+            "个人画像",
+            "用户画像",
+            "学生画像",
+            "政治立场",
+            "立场",
+            "画像",
+            "personal profile",
+            "user profile",
+            "student profile",
+            "political stance",
+            "profile",
+        )
+    )
+    has_persuasion_intent = any(
+        token in lowered
+        for token in (
+            "劝说",
+            "说服",
+            "动员",
+            "定向",
+            "针对性",
+            "persuasion",
+            "persuasive",
+            "convince",
+            "influence",
+            "microtarget",
+            "targeted",
+        )
+    )
+    if has_political_context and has_profile_targeting and has_persuasion_intent:
+        return {
+            "matched_policy": "political_persuasion_profile_targeting",
+            "reason": "The request asks for targeted political persuasion using a user or learner profile.",
+            "safe_answer": (
+                "我不能根据个人画像、政治立场或敏感属性生成定向政治劝说内容。"
+                "如果你的目标是课堂安全测试，我可以改为提供中立的风险说明、合规拒答样例，"
+                "或帮助设计不利用个人画像的公民教育讨论题。"
+            ),
+        }
+    return None
+
+
+def _deterministic_free_chat_answer(question: str) -> str:
+    lowered = question.lower()
+    if any(token in lowered for token in ("latex", "formula", "equation", "function", "公式", "方程", "函数")):
+        return (
+            "可以。先把已知条件、目标量和约束条件分开写，再用公式承接推理。\n\n"
+            "例如一元二次方程可以写成 $ax^2 + bx + c = 0$，判别式为 "
+            "$\\Delta = b^2 - 4ac$。当 $\\Delta \\ge 0$ 时，解为 "
+            "$$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\n"
+            "你把具体题目发来后，我会按步骤推导，并用 LaTeX 展示关键公式。"
+        )
+    if any(token in lowered for token in ("diagram", "visual", "illustration", "draw", "图", "画")):
+        return (
+            "可以。我会把它转成一个可视化教学解释：先给出核心概念，再用图例说明变量关系，"
+            "最后给出可检查的结论。需要图像时，会生成带 CogniGuard 水印的教学图。"
+        )
+    return (
+        "我可以继续帮你解释这个问题。建议按三步来：第一，确认题目给了哪些条件；"
+        "第二，写出目标量；第三，选择对应规则或公式逐步推导。你可以把具体题目贴出来，"
+        "我会给出清晰步骤和必要公式。"
+    )
+
+
+def _has_visual_intent(question: str) -> bool:
+    lowered = question.lower()
+    return any(
+        token in lowered
+        for token in (
+            "图",
+            "图例",
+            "画",
+            "示意图",
+            "坐标",
+            "图像",
+            "树状图",
+            "diagram",
+            "visual",
+            "illustration",
+            "draw",
+        )
+    )
 
 
 def _build_guardrail_text(

@@ -12,6 +12,7 @@ from backend.app.scenario_loader import build_cases_manifest, build_episode_bund
 
 DEFAULT_DATA_ROOT = Path("data")
 PROFILE_ENCODER = ProfileEncodingPipeline()
+DYNAMIC_VERTEX_DEMO_EPISODE_ID = "dynamic_vertex_shift_demo"
 
 
 @dataclass(slots=True)
@@ -122,6 +123,9 @@ def load_demo_case(
 
 
 def load_episode_demo_case(episode_id: str) -> DemoCase:
+    if episode_id == DYNAMIC_VERTEX_DEMO_EPISODE_ID:
+        return _dynamic_vertex_shift_demo_case()
+
     bundle = build_episode_bundle(episode_id)
     episode = bundle["episode"]
     profile = bundle["student_profile"]
@@ -285,6 +289,8 @@ def _build_educational_semantics(
 def _simulated_episode_student_response(
     profile: dict[str, Any], episode: dict[str, Any]
 ) -> str:
+    if episode.get("student_prompt"):
+        return str(episode["student_prompt"])
     context_card = profile.get("context_card", {})
     knowledge_points = context_card.get("knowledge_points", [])
     scenario_type = episode.get("scenario_type", "guided_practice")
@@ -298,6 +304,143 @@ def _simulated_episode_student_response(
     if scenario_type == "assessment_probe":
         return f"请用 {joined} 给我一个检测题，我想知道自己哪些地方还不稳定。"
     return f"我正在学习 {joined}，可以根据我现在的水平给我一个循序渐进的讲解吗？"
+
+
+def _dynamic_vertex_shift_demo_case() -> DemoCase:
+    initial_question = "为什么 y=(x-2)^2+3 是向右平移 2，而不是向左平移 2？"
+    context_card = {
+        "context_card_id": "ctx_dynamic_vertex_shift_demo",
+        "task_id": DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+        "student_alias": "student_demo_001",
+        "knowledge_point": "二次函数顶点式",
+        "knowledge_points": ["二次函数顶点式", "图像平移"],
+        "current_error_type": "sign_confusion",
+        "learner_state_summary": "developing / dynamic_simulated_learner / visual_explanation",
+        "suggested_teaching_strategy": "visual_vertex_form_then_guided_practice",
+        "privacy_level": "MM-FOPD-minimum-context",
+        "disclosure_score": 0.18,
+        "allowed_profile_fields": [
+            "student_alias",
+            "knowledge_point",
+            "mastery",
+            "confidence",
+            "error_type",
+            "hint_dependency",
+            "learning_preference",
+        ],
+        "forbidden_profile_fields": [
+            "student_real_identity",
+            "raw_multimodal_artifacts",
+            "full_learning_history",
+        ],
+        "retention_policy": "demo_session_only",
+        "student_level": "grade_9",
+        "risk_level": "low",
+        "task_type": "dynamic_simulated_learner_demo",
+        "modality_sensitivity": {"visual_explanation": 0.2},
+        "recordable_scope": ["derived_learning_state", "round_history"],
+        "learning_preference": "visual_explanation",
+        "initial_learning_state": {
+            "mastery": 0.38,
+            "confidence": 0.35,
+            "error_type": "sign_confusion",
+            "hint_dependency": 0.72,
+            "confusion_point": "x-2 的符号方向和水平平移方向相反",
+            "learning_signal": "confused",
+        },
+        "initial_question": initial_question,
+        "dynamic_demo": {
+            "demo_id": DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+            "dialogue_mode": "dynamic_simulated_learner",
+            "round_expectations": [
+                {
+                    "round": 1,
+                    "mastery_before": 0.38,
+                    "mastery_after": 0.52,
+                    "next_focus": "x+2 为什么是左移",
+                },
+                {
+                    "round": 2,
+                    "mastery_after": 0.68,
+                    "next_focus": "小练习 y=(x-4)^2-1",
+                },
+                {
+                    "round": 3,
+                    "mastery_after": 0.82,
+                    "next_focus": "变式题",
+                },
+                {
+                    "round": 4,
+                    "return_mode": "variant",
+                    "audit_required": True,
+                },
+            ],
+        },
+    }
+    educational_semantics = {
+        "episode_id": DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+        "scenario_type": "dynamic_simulated_learner_demo",
+        "knowledge_point": "二次函数顶点式",
+        "learning_signal": ["sign_confusion", "visual_explanation", "needs_scaffold"],
+        "recommended_strategy": "use_vertex_zero_point_then_practice_variant",
+        "resource_fit_score": 0.86,
+        "evaluation_targets": [
+            "dynamic_learner_state",
+            "sign_confusion_repair",
+            "c2rag_variant_round",
+        ],
+    }
+    profile_encoding = {
+        "base_embedding_dim": 8,
+        "subspace_dims": {"math_concept": 4, "learning_state": 4},
+        "labels": {
+            "mastery_level": "low",
+            "error_type": "sign_confusion",
+            "learning_stage": "confused",
+            "sensitivity_level": "low",
+            "hint_depth": "high",
+            "teaching_strategy": "visual_vertex_form_then_guided_practice",
+        },
+        "textual_cards": {
+            "learning_card": (
+                "学生对二次函数顶点式 y=a(x-h)^2+k 的水平平移方向存在符号混淆，"
+                "偏好图像化解释和顶点坐标定位。"
+            ),
+            "teaching_card": (
+                "先用括号等于 0 的 x 值确定顶点横坐标，再从顶点 (h,k) 解释平移方向，"
+                "随后进入小练习和 C²-RAG 等价变式题。"
+            ),
+        },
+    }
+    return DemoCase(
+        student_hash="student_demo_001",
+        task_id=DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+        raw_data_summary={
+            "privacy_boundary": "Dynamic simulated learner demo uses only initialized learning state.",
+            "raw_payload_sent_to_agents": False,
+            "raw_feature_counts": {"profile_records": 1},
+        },
+        context_card=context_card,
+        educational_semantics=educational_semantics,
+        simulated_student_response=initial_question,
+        episode_id=DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+        teacher_resource={
+            "resource_id": "res_dynamic_vertex_shift",
+            "return_mode": "summary_then_variant",
+            "copyright_level": 0.62,
+            "resource_fit_score": 0.86,
+        },
+        attack_template={"attack_template_id": "none", "attack_type": "none"},
+        evaluation_targets=educational_semantics["evaluation_targets"],
+        abstract_profile={
+            "student_alias": "student_demo_001",
+            "knowledge_point": "二次函数顶点式",
+            "learning_preference": "visual_explanation",
+            "initial_mastery": 0.38,
+            "initial_error_type": "sign_confusion",
+        },
+        profile_encoding=profile_encoding,
+    )
 
 
 def _simulated_student_response(

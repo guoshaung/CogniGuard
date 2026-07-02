@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from typing import Any
 
@@ -36,12 +37,17 @@ class ProfileEncodingPipeline:
         )
 
     def _load_backend(self, model_name: str):
+        if os.environ.get("COGNIGUARD_PROFILE_ENCODER_BACKEND", "").strip().lower() in {"fallback", "mock", "hash"}:
+            return _FallbackBackend(model_name)
         try:
             from transformers import AutoModel, AutoTokenizer
             import torch
         except Exception:
             return _FallbackBackend(model_name)
-        return _HFBackend(model_name=model_name, AutoModel=AutoModel, AutoTokenizer=AutoTokenizer, torch=torch)
+        try:
+            return _HFBackend(model_name=model_name, AutoModel=AutoModel, AutoTokenizer=AutoTokenizer, torch=torch)
+        except Exception:
+            return _FallbackBackend(model_name)
 
     def _build_abstract_profile(
         self,
