@@ -8,6 +8,7 @@ from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCENARIO_ROOT = PROJECT_ROOT / "data" / "scenario_layers"
+DYNAMIC_VERTEX_DEMO_EPISODE_ID = "dynamic_vertex_shift_demo"
 
 
 class ScenarioDataError(RuntimeError):
@@ -155,4 +156,29 @@ def build_cases_manifest() -> dict[str, Any]:
                 "evaluation_targets": episode.get("evaluation_targets", []),
             }
         )
+    rows.append(_dynamic_vertex_demo_manifest_row())
     return {"preferred_layout": "scenario_layers", "rows": rows}
+
+
+def _dynamic_vertex_demo_manifest_row() -> dict[str, Any]:
+    return {
+        "episode_id": DYNAMIC_VERTEX_DEMO_EPISODE_ID,
+        "scenario_type": "dynamic_simulated_learner_demo",
+        "student_id": "student_demo_001",
+        "student_level": "grade_9",
+        "knowledge_points": ["二次函数顶点式", "图像平移"],
+        "knowledge_point": "二次函数顶点式",
+        "risk_level": "low",
+        "resource_id": "res_dynamic_vertex_shift",
+        "resource_return_mode": "summary_then_variant",
+        "attack_template_id": "none",
+        "attack_type": "none",
+        "evaluation_targets": [
+            "dynamic_learner_state",
+            "sign_confusion_repair",
+            "c2rag_variant_round",
+        ],
+        "default_dialogue_mode": "dynamic_simulated_learner",
+        "initial_question": "为什么 y=(x-2)^2+3 是向右平移 2，而不是向左平移 2？",
+        "demo_description": "二次函数顶点式与图像平移的动态学生代理展示案例。",
+    }

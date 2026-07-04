@@ -23,6 +23,8 @@ def build_trace_binding_id(answer_id: str, watermark_id: str, sources: list[dict
                 str(source.get("resource_id", "")),
                 str(source.get("chunk_id", "")),
                 str(source.get("return_mode", "")),
+                str(source.get("resource_provenance_commitment", "")),
+                str(source.get("quote_span_hash", "")),
             ]
         )
     digest = hashlib.sha256("|".join(parts).encode("utf-8")).hexdigest()[:16]
@@ -40,6 +42,16 @@ def normalize_source_trace(source_trace: dict[str, Any] | None) -> list[dict[str
             "copyright_level": source_trace.get("copyright_level"),
             "exposure_before": source_trace.get("exposure_before"),
             "exposure_after": source_trace.get("exposure_after"),
+            "trace_scope": source_trace.get("trace_scope"),
+            "trace_owner": source_trace.get("trace_owner"),
+            "watermark_boundary": source_trace.get("watermark_boundary"),
+            "license_policy": source_trace.get("license_policy"),
+            "policy_reason": source_trace.get("policy_reason"),
+            "decision_factors": source_trace.get("decision_factors") or {},
+            "retrieval_trace": source_trace.get("retrieval_trace") or [],
+            "quote_span_hash": source_trace.get("quote_span_hash"),
+            "controlled_output_hash": source_trace.get("controlled_output_hash"),
+            "resource_provenance_commitment": source_trace.get("resource_provenance_commitment"),
             "extra": source_trace.get("extra") or {},
         }
     ]

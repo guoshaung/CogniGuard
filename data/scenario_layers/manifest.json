@@ -8,10 +8,10 @@
     "teacher_resources": "data/scenario_layers/teacher_resources/teacher_resources_v1.jsonl"
   },
   "stats": {
-    "episode_eval_samples": 5,
+    "episode_eval_samples": 10,
     "attack_templates": 5,
-    "synthetic_profiles": 5,
-    "teacher_resources": 5
+    "synthetic_profiles": 10,
+    "teacher_resources": 10
   },
   "notes": [
     "scenario_orchestration 用于 episode 级编排与层间数据流定义",

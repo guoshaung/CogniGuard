@@ -1,0 +1,54 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - img [ref=f1e7]
+      - generic [ref=f1e10]:
+        - generic [ref=f1e11]: CogniGuard
+        - generic [ref=f1e12]: 可信教育智能体平台
+      - button "切换为英文" [ref=f1e13] [cursor=pointer]:
+        - img [ref=f1e14]
+        - generic [ref=f1e18]: EN
+    - generic [ref=f1e19]:
+      - button "闭环案例演示" [ref=f1e20] [cursor=pointer]:
+        - img [ref=f1e21]
+        - generic [ref=f1e23]: 闭环案例演示
+      - button "学生画像隐私保护" [ref=f1e24] [cursor=pointer]:
+        - img [ref=f1e25]
+        - generic [ref=f1e27]: 学生画像隐私保护
+      - button "教师版权保护" [ref=f1e28] [cursor=pointer]:
+        - img [ref=f1e29]
+        - generic [ref=f1e31]: 教师版权保护
+      - button "生成内容审计追踪" [ref=f1e32] [cursor=pointer]:
+        - img [ref=f1e33]
+        - generic [ref=f1e35]: 生成内容审计追踪
+    - generic [ref=f1e36]:
+      - button "运行数据" [disabled] [ref=f1e37]:
+        - img [ref=f1e38]
+        - generic [ref=f1e41]: 运行数据
+      - button "刷新中" [disabled] [ref=f1e42]:
+        - img [ref=f1e43]
+        - generic [ref=f1e48]: 刷新中
+      - button "选择案例" [disabled] [ref=f1e49]:
+        - img [ref=f1e50]
+        - generic [ref=f1e52]: 选择案例
+  - main [ref=f1e53]:
+    - generic [ref=f1e54]:
+      - generic [ref=f1e55]:
+        - img [ref=f1e56]
+        - text: 可信、可控、可审计
+      - heading "让教育智能体在 安全边界内持续学习" [level=1] [ref=f1e59]:
+        - text: 让教育智能体在
+        - text: 安全边界内持续学习
+      - paragraph [ref=f1e60]: 将闭环案例演示、学生画像隐私保护、教师版权保护与生成内容审计追踪汇聚在同一个受控工作台中。
+      - generic [ref=f1e61]:
+        - generic [ref=f1e62]: 加载中
+        - generic [ref=f1e64]: Guardrail 未启用
+        - generic [ref=f1e65]: 等待案例
+        - generic [ref=f1e66]: 请选择课堂场景
+    - generic [ref=f1e68]:
+      - generic [ref=f1e69]:
+        - generic [ref=f1e70]: COGNIGUARD WORKSPACE
+        - strong [ref=f1e71]: 闭环案例演示
+      - generic [ref=f1e72]:
+        - generic [ref=f1e73]: 0 个案例
+        - generic [ref=f1e74]: 未选择

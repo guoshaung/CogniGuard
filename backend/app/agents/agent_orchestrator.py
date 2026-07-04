@@ -14,6 +14,13 @@ from .copyright_aware_resource_agent import CopyrightAwareResourceAgent
 from .learning_assessment_agent import LearningAssessmentAgent
 from .pedagogical_teaching_agent import PedagogicalTeachingAgent
 from .profile_diagnosis_agent import ProfileDiagnosisAgent
+from backend.app.compliance import (
+    append_compliance_audit_event,
+    build_compliance_state,
+    build_data_categories,
+    evaluate_compliance_policy,
+    sanitize_context_card,
+)
 from backend.app.runtime.mode import (
     build_guardrail_adapter,
     build_runtime_llm_client,
@@ -36,12 +43,16 @@ class TPCSController:
         hsw_st_auditor: Any | None = None,
         guardrail_adapter: Any | None = None,
         event_sink: Callable[[dict[str, Any]], None] | None = None,
+        compliance_state: dict[str, Any] | None = None,
     ) -> None:
         self.max_disclosure_score = max_disclosure_score
         self.cumulative_privacy_budget = cumulative_privacy_budget
         self.hsw_st_auditor = hsw_st_auditor
         self.guardrail_adapter = guardrail_adapter
         self.event_sink = event_sink
+        self.compliance_state = compliance_state or build_compliance_state()
+        self.compliance_audit_log: list[dict[str, Any]] = []
+        self.last_compliance_policy: dict[str, Any] | None = None
         self.message_log: list[dict[str, Any]] = []
         self.cumulative_disclosure_by_round: dict[str, float] = {}
         self.allowed_routes = {
@@ -150,6 +161,20 @@ class TPCSController:
     def pre_check_context_card(
         self, context_card: dict[str, Any], round_id: str
     ) -> dict[str, Any]:
+        data_categories = build_data_categories(context_card, payload_kind="context_card")
+        compliance_policy = evaluate_compliance_policy(
+            {
+                "action": "context_card_send",
+                "actor_role": "system",
+                "data_scope": "context_card",
+                "purpose": "legitimate_educational_interest",
+            },
+            self.compliance_state,
+            data_categories,
+        )
+        if compliance_policy["blocked_fields"]:
+            context_card = sanitize_context_card(context_card, data_categories)
+            data_categories = build_data_categories(context_card, payload_kind="context_card")
         forbidden = self._find_forbidden_keys(context_card)
         if forbidden:
             raise AgentValidationError(
@@ -164,11 +189,26 @@ class TPCSController:
             "disclosure_score": score,
             "round_id": round_id,
             "timestamp": utc_now_iso(),
+            "compliance_policy": compliance_policy,
+            "data_categories": data_categories,
         }
         if not approved:
             raise AgentValidationError(
                 f"TPCS rejected context card disclosure_score={score}"
             )
+        self.last_compliance_policy = compliance_policy
+        self._record_compliance_event(
+            event_type="data_minimization",
+            actor_role="system",
+            data_category="derived_profile",
+            decision=compliance_policy["decision"],
+            legal_context=compliance_policy.get("legal_context", "internal_policy"),
+            details={
+                "round_id": round_id,
+                "blocked_fields": compliance_policy["blocked_fields"],
+                "allowed_fields": compliance_policy["allowed_fields"],
+            },
+        )
         return result
 
     def approve_profile_update_evidence(
@@ -291,6 +331,59 @@ class TPCSController:
                 "TPCS disclosure score exceeded: "
                 f"{message['disclosure_score']} > {self.max_disclosure_score}"
             )
+        compliance_policy = self._evaluate_message_compliance(message)
+        message["compliance_policy"] = compliance_policy
+        self.last_compliance_policy = compliance_policy
+        if compliance_policy["decision"] in {"deny", "require_parental_consent"}:
+            self._record_compliance_event(
+                event_type="policy_denial",
+                actor_role="system",
+                data_category="education_record",
+                decision=compliance_policy["decision"],
+                legal_context=compliance_policy.get("legal_context", "internal_policy"),
+                details={
+                    "sender": message["sender"],
+                    "receiver": message["receiver"],
+                    "blocked_fields": compliance_policy["blocked_fields"],
+                },
+            )
+            raise AgentValidationError(
+                "TPCS compliance policy blocked message: "
+                f"{compliance_policy['reason']}"
+            )
+        if (
+            compliance_policy["decision"] == "local_only"
+            and self._message_data_scope(message) in {"raw_profile", "raw_multimodal_profile"}
+        ):
+            self._record_compliance_event(
+                event_type="policy_denial",
+                actor_role="system",
+                data_category="education_record",
+                decision="local_only",
+                legal_context=compliance_policy.get("legal_context", "internal_policy"),
+                details={
+                    "sender": message["sender"],
+                    "receiver": message["receiver"],
+                    "blocked_fields": compliance_policy["blocked_fields"],
+                },
+            )
+            raise AgentValidationError(
+                "TPCS compliance policy kept payload local-only: "
+                f"{compliance_policy['reason']}"
+            )
+        self._record_compliance_event(
+            event_type=self._compliance_event_type(message),
+            actor_role="system",
+            data_category=self._message_primary_data_category(message),
+            decision=compliance_policy["decision"],
+            legal_context=compliance_policy.get("legal_context", "internal_policy"),
+            details={
+                "sender": message["sender"],
+                "receiver": message["receiver"],
+                "retention_action": compliance_policy["retention_action"],
+                "third_party_model_policy": compliance_policy["third_party_model_policy"],
+            },
+        )
         round_id = str(message.get("round_id") or "default")
         current = self.cumulative_disclosure_by_round.get(round_id, 0.0)
         updated = current + float(message["disclosure_score"])
@@ -322,6 +415,93 @@ class TPCSController:
                 forbidden.update(self._find_forbidden_keys(item))
         return forbidden
 
+    def _evaluate_message_compliance(self, message: dict[str, Any]) -> dict[str, Any]:
+        payload = message.get("payload") if isinstance(message.get("payload"), dict) else {}
+        data_scope = self._message_data_scope(message)
+        payload_kind = (
+            "audit"
+            if data_scope == "audit_chain"
+            else "student_profile"
+            if data_scope in {"raw_profile", "raw_multimodal_profile"}
+            else "context_card"
+            if data_scope == "context_card"
+            else "profile_encoding"
+        )
+        request = {
+            "action": self._message_compliance_action(message),
+            "actor_role": "system",
+            "data_scope": data_scope,
+            "purpose": "audit" if data_scope == "audit_chain" else "legitimate_educational_interest",
+        }
+        category_source = (
+            payload
+            if data_scope in {"raw_profile", "raw_multimodal_profile"}
+            else payload.get("context_card")
+            if isinstance(payload.get("context_card"), dict)
+            else payload
+        )
+        return evaluate_compliance_policy(
+            request,
+            self.compliance_state,
+            build_data_categories(category_source, payload_kind=payload_kind),
+        )
+
+    def _message_compliance_action(self, message: dict[str, Any]) -> str:
+        if message.get("receiver") == "HSW-ST":
+            return "audit_persist"
+        runtime = get_runtime_status()
+        if runtime.get("agent_call_mode") == "real_llm" and message.get("receiver") != "TPCSController":
+            return "third_party_call"
+        return "profile_access"
+
+    def _message_data_scope(self, message: dict[str, Any]) -> str:
+        payload = message.get("payload") if isinstance(message.get("payload"), dict) else {}
+        payload_text = str(payload)
+        if any(token in payload for token in ("raw_multimodal_data", "raw_student_data", "full_student_profile")):
+            return "raw_multimodal_profile"
+        if any(token in payload_text for token in ("raw_screenshot", "voice_recording", "handwriting_trace")):
+            return "raw_multimodal_profile"
+        if message.get("receiver") == "HSW-ST":
+            return "audit_chain"
+        if isinstance(payload.get("context_card"), dict):
+            return "context_card"
+        return "derived_profile"
+
+    def _message_primary_data_category(self, message: dict[str, Any]) -> str:
+        scope = self._message_data_scope(message)
+        if scope == "audit_chain":
+            return "audit_metadata"
+        if scope in {"raw_profile", "raw_multimodal_profile"}:
+            return "education_record"
+        return "derived_profile"
+
+    def _compliance_event_type(self, message: dict[str, Any]) -> str:
+        if self._message_compliance_action(message) == "third_party_call":
+            return "third_party_call"
+        if message.get("receiver") == "HSW-ST":
+            return "data_minimization"
+        return "profile_access"
+
+    def _record_compliance_event(
+        self,
+        *,
+        event_type: str,
+        actor_role: str,
+        data_category: str,
+        decision: str,
+        legal_context: str,
+        details: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        return append_compliance_audit_event(
+            self.compliance_audit_log,
+            event_type=event_type,
+            actor_role=actor_role,
+            data_category=data_category,
+            decision=decision,
+            legal_context=legal_context,
+            details=details,
+        )
+
 
 class AgentOrchestrator:
     """Runs the protected MM-FOPD -> TPCS -> agents -> HSW-ST flow."""
@@ -334,6 +514,7 @@ class AgentOrchestrator:
         llm_client: Any | None = None,
         tpcs_controller: TPCSController | None = None,
         event_sink: Callable[[dict[str, Any]], None] | None = None,
+        compliance_state: dict[str, Any] | None = None,
     ) -> None:
         self.mm_fopd_service = mm_fopd_service
         self.runtime_status = get_runtime_status()
@@ -341,6 +522,7 @@ class AgentOrchestrator:
             hsw_st_auditor=hsw_st_auditor,
             guardrail_adapter=build_guardrail_adapter(),
             event_sink=event_sink,
+            compliance_state=compliance_state,
         )
         if llm_client is None:
             llm_client = build_runtime_llm_client()
@@ -377,14 +559,23 @@ class AgentOrchestrator:
     ) -> dict[str, Any]:
         round_id = round_id or f"round_{uuid.uuid4().hex[:12]}"
 
-        context_card = self._build_mm_fopd_context_card(student_multimodal_data)
+        context_card = sanitize_context_card(
+            self._build_mm_fopd_context_card(student_multimodal_data)
+        )
+        profile_encoding = self._build_enhanced_profile_encoding(
+            student_multimodal_data,
+            context_card,
+        )
         tpcs_pre_check = self.tpcs.pre_check_context_card(context_card, round_id)
 
         _, diagnosis_output, _ = self.tpcs.dispatch(
             sender="MM-FOPD",
             receiver=self.profile_diagnosis_agent,
             message_type="diagnosis_request",
-            payload={"context_card": context_card},
+            payload={
+                "profile_encoding": profile_encoding,
+                "context_card": context_card,
+            },
             privacy_level="minimum_context",
             round_id=round_id,
         )
@@ -412,6 +603,7 @@ class AgentOrchestrator:
             "controlled_resource_snippets": resource_output[
                 "controlled_resource_snippets"
             ],
+            "profile_encoding": profile_encoding,
         }
         _, teaching_output, _ = self.tpcs.dispatch(
             sender=self.resource_agent.agent_id,
@@ -426,6 +618,7 @@ class AgentOrchestrator:
             "teaching_answer": teaching_output["teaching_answer"],
             "student_response": student_response,
             "knowledge_point": diagnosis_result["knowledge_point"],
+            "profile_encoding": profile_encoding,
         }
         _, assessment_output, _ = self.tpcs.dispatch(
             sender=self.teaching_agent.agent_id,
@@ -449,6 +642,7 @@ class AgentOrchestrator:
         return {
             "round_id": round_id,
             "context_card": context_card,
+            "profile_encoding": profile_encoding,
             "tpcs_pre_check": tpcs_pre_check,
             "diagnosis_result": diagnosis_result,
             "controlled_resource_snippets": resource_output[
@@ -465,12 +659,23 @@ class AgentOrchestrator:
     def _build_mm_fopd_context_card(
         self, student_multimodal_data: dict[str, Any]
     ) -> dict[str, Any]:
+        if isinstance(student_multimodal_data.get("context_card"), dict):
+            card = dict(student_multimodal_data["context_card"])
+            card.setdefault("fopd_path", "enhanced")
+            card.setdefault("use_enhanced_fopd", True)
+            return card
         if self.mm_fopd_service is not None and hasattr(
             self.mm_fopd_service, "build_context_card"
         ):
-            return dict(self.mm_fopd_service.build_context_card(student_multimodal_data))
+            card = dict(self.mm_fopd_service.build_context_card(student_multimodal_data))
+            card.setdefault("fopd_path", "enhanced")
+            card.setdefault("use_enhanced_fopd", True)
+            return card
         if callable(self.mm_fopd_service):
-            return dict(self.mm_fopd_service(student_multimodal_data))
+            card = dict(self.mm_fopd_service(student_multimodal_data))
+            card.setdefault("fopd_path", "enhanced")
+            card.setdefault("use_enhanced_fopd", True)
+            return card
 
         return {
             "knowledge_point": student_multimodal_data.get(
@@ -490,6 +695,62 @@ class AgentOrchestrator:
                 "MM-FOPD context card excludes raw multimodal data and full "
                 "long-term profile."
             ),
+            "fopd_path": "enhanced",
+            "use_enhanced_fopd": True,
+        }
+
+    def _build_enhanced_profile_encoding(
+        self,
+        student_multimodal_data: dict[str, Any],
+        context_card: dict[str, Any],
+    ) -> dict[str, Any]:
+        provided = student_multimodal_data.get("profile_encoding")
+        if isinstance(provided, dict) and provided:
+            return {**provided, "fopd_path": provided.get("fopd_path", "enhanced")}
+
+        labels = {
+            "knowledge_point": context_card.get("knowledge_point", "unknown_knowledge_point"),
+            "mastery_level": context_card.get("student_level")
+            or context_card.get("learner_state")
+            or "unknown",
+            "error_type": context_card.get("current_error_type")
+            or context_card.get("common_error")
+            or "not_enough_evidence",
+            "learning_stage": context_card.get("learner_state_summary")
+            or context_card.get("learner_state")
+            or "not_diagnosed",
+            "sensitivity_level": context_card.get("risk_level")
+            or context_card.get("privacy_level")
+            or "bounded",
+            "recordable_scope": ",".join(map(str, context_card.get("recordable_scope", [])))
+            if isinstance(context_card.get("recordable_scope"), list)
+            else context_card.get("recordable_scope", "bounded"),
+            "hint_depth": context_card.get("resource_need", "medium"),
+            "teaching_strategy": context_card.get("suggested_teaching_strategy")
+            or context_card.get("recommended_strategy")
+            or "scaffold_then_variant",
+        }
+        return {
+            "fopd_path": "enhanced",
+            "base_embedding_dim": 0,
+            "subspace_dims": {
+                "learning_state": 0,
+                "privacy_boundary": 0,
+                "teaching_need": 0,
+            },
+            "labels": labels,
+            "textual_cards": {
+                "learning_card": (
+                    f"knowledge={labels['knowledge_point']}; "
+                    f"error={labels['error_type']}; stage={labels['learning_stage']}"
+                ),
+                "privacy_card": (
+                    "Enhanced FOPD exposes only abstract labels and minimum "
+                    "task context; raw multimodal artifacts stay local."
+                ),
+                "teaching_card": str(labels["teaching_strategy"]),
+                "abstract_card": "enhanced_fopd_disentangled_profile_bundle",
+            },
         }
 
 

@@ -43,6 +43,40 @@ def decide_return_mode(resource: TeacherResource, exposure: float, config: dict)
     return "refuse"
 
 
+def explain_return_policy(resource: TeacherResource, exposure: float, mode: str, config: dict) -> dict[str, object]:
+    c2 = config.get("c2rag", {})
+    thresholds = c2.get("thresholds", {})
+    high_copyright = float(c2.get("high_copyright_threshold", 0.70))
+    quote_copyright = float(c2.get("quote_copyright_threshold", 0.35))
+    over_budget = not permit(resource, exposure)
+    if over_budget:
+        reason = "exposure_budget_exceeded"
+    elif mode == "quote":
+        reason = "low_copyright_quote_within_threshold"
+    elif mode == "variant":
+        reason = "high_copyright_or_reconstruction_risk_variant"
+    elif mode == "summary":
+        reason = "summary_allowed_within_exposure_threshold"
+    elif mode == "outline":
+        reason = "outline_allowed_after_summary_threshold"
+    else:
+        reason = "refuse_due_to_policy_or_budget"
+    return {
+        "policy_reason": reason,
+        "over_budget": over_budget,
+        "allow_quote": resource.policy.allow_quote,
+        "allow_summary": resource.policy.allow_summary,
+        "allow_outline": resource.policy.allow_outline,
+        "allow_variant": resource.policy.allow_variant,
+        "copyright_level": resource.copyright_level,
+        "max_exposure": resource.policy.max_exposure,
+        "exposure_before": exposure,
+        "high_copyright_threshold": high_copyright,
+        "quote_copyright_threshold": quote_copyright,
+        "thresholds": thresholds,
+    }
+
+
 def render_controlled_resource(
     resource: TeacherResource,
     mode: str,
@@ -75,9 +109,11 @@ def produce_controlled_resource(
     resource: TeacherResource,
     budget: ExposureBudget,
     config: dict,
+    retrieval_trace: list[dict[str, object]] | None = None,
 ) -> ControlledResource:
     exposure_before = budget.get(resource.chunk_id)
     mode = decide_return_mode(resource, exposure_before, config)
+    policy_explanation = explain_return_policy(resource, exposure_before, mode, config)
     text, extra = render_controlled_resource(resource, mode, config)
     exposure_info = budget.update(resource, text)
     trace = build_source_trace(
@@ -86,6 +122,10 @@ def produce_controlled_resource(
         exposure_before=exposure_before,
         exposure_after=exposure_info["after"],
         extra=extra,
+        controlled_text=text,
+        retrieval_trace=retrieval_trace,
+        policy_reason=str(policy_explanation["policy_reason"]),
+        decision_factors=policy_explanation,
     )
     return ControlledResource(
         mode=mode,

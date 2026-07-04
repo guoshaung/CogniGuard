@@ -85,7 +85,22 @@ def run_pipeline(
         if task.need_resource:
             retrieved = retriever.retrieve(ag2_request, task, context_card)
             if retrieved:
-                controlled = produce_controlled_resource(retrieved[0].resource, budget, config)
+                retrieval_trace = [
+                    {
+                        "rank": rank,
+                        "resource_id": item.resource.resource_id,
+                        "chunk_id": item.resource.chunk_id,
+                        "score": item.score,
+                        "components": item.components,
+                    }
+                    for rank, item in enumerate(retrieved, start=1)
+                ]
+                controlled = produce_controlled_resource(
+                    retrieved[0].resource,
+                    budget,
+                    config,
+                    retrieval_trace=retrieval_trace,
+                )
 
         final_answer, agent2_answer_log = agents.agent2_final_answer(task, context_card, controlled)
         sources = normalize_source_trace(controlled.source_trace if controlled else None)

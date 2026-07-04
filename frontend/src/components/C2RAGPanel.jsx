@@ -58,13 +58,20 @@ export default function C2RAGPanel({ caseIndex = 0, pipelineData }) {
   const selectedCase = cases[selectedIndex] || {};
   const pipelineC2Rag = pipelineData?.protection_logs?.c2_rag || {};
   const record = useMemo(() => {
-    const merged = { ...selectedCase, ...pipelineC2Rag };
+    const pipelineTrace = Array.isArray(pipelineC2Rag.source_traces) ? (pipelineC2Rag.source_traces[0] || {}) : {};
+    const merged = { ...selectedCase, ...pipelineTrace, ...pipelineC2Rag };
     const hasDemoMetadata = !merged.source_type || !merged.license_type || !merged.source_trace_id;
     return {
       ...merged,
       source_type: merged.source_type || DEMO_METADATA.source_type,
       license_type: merged.license_type || DEMO_METADATA.license_type,
       source_trace_id: buildDemoTraceId(merged, selectedIndex),
+      trace_scope: merged.trace_scope || 'resource_level_provenance',
+      trace_owner: merged.trace_owner || 'C2-RAG',
+      watermark_boundary: merged.watermark_boundary || 'generation_watermarking_is_owned_by_HSW-ST',
+      policy_reason: merged.policy_reason || pipelineC2Rag.policy_reasons?.[0] || '',
+      quote_span_hash: merged.quote_span_hash || pipelineC2Rag.quote_span_hashes?.[0] || '',
+      resource_provenance_commitment: merged.resource_provenance_commitment || pipelineC2Rag.resource_provenance_commitments?.[0] || '',
       demo_metadata: hasDemoMetadata,
     };
   }, [pipelineC2Rag, selectedCase, selectedIndex]);
@@ -81,6 +88,12 @@ export default function C2RAGPanel({ caseIndex = 0, pipelineData }) {
     ['return_mode', '返回模式'],
     ['reconstruction_risk', '重构风险'],
     ['source_trace_id', '来源追踪 ID'],
+    ['trace_owner', 'Trace owner'],
+    ['trace_scope', 'Trace scope'],
+    ['policy_reason', 'Policy reason'],
+    ['quote_span_hash', 'Quote span hash'],
+    ['resource_provenance_commitment', 'Resource provenance commitment'],
+    ['watermark_boundary', 'Watermark boundary'],
   ];
 
   const attackSummary = attacks?.summary || {};

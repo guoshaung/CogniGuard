@@ -14,6 +14,10 @@ resolved consistently.
 
 Cross-layer schemas and utilities are provided by `protection.common`.
 
+The default configuration uses enhanced FOPD (`use_enhanced_fopd: true`), which
+routes profile selection through orthogonal decomposition, task attention, and
+an information bottleneck before the minimum context card is generated.
+
 ## Install
 
 ```bash

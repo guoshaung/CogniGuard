@@ -1,126 +1,340 @@
 # CogniGuard
 
-CogniGuard is a minimum runnable demo for a closed-loop multi-agent personalized education protection system.
+<p align="center">
+  <img src="docs/assets/cogniguard-logo.svg" alt="CogniGuard logo" width="760">
+</p>
 
-The project focuses on coordinated lifecycle protection around personalized tutoring rather than full-scale federated training. Its architecture is organized as three collaborating protection layers governed horizontally by TPCS.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=001018" alt="React">
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/Pytest-71%20passed-0A7F3F?style=for-the-badge&logo=pytest&logoColor=white" alt="Pytest">
+  <img src="https://img.shields.io/badge/JointRisk-Full%2BTPCS%200.245-8B5CF6?style=for-the-badge" alt="JointRisk">
+</p>
 
-## Three Protection Mechanisms
+<p align="center">
+  <b>面向个性化教育大模型的学生隐私保护、教师资源版权保护与生成内容审计追踪闭环系统</b>
+</p>
 
-- **学生画像隐私保护子机制:** MM-FOPD / DIB-MM-FOPD performs multimodal student profile modeling, task-aware minimum disclosure, minimum context card generation, and governed profile-update feedback.
-- **教师版权保护子机制:** C²-RAG performs copyright-constrained retrieval, resource exposure budgeting, return-mode control, controlled variants, and anti-reconstruction or reverse-inference detection. Its resource scope includes teacher-uploaded materials, school-purchased databases, publisher question banks, commercial course packages, open educational resources, and AI-derived teaching content.
-- **大模型生成内容审计追踪机制:** HSW-ST now uses a semantic-aware, evidence-chain-bound, multi-round robust watermark mechanism. Each answer is bound to a canonical audit record, HMAC-derived hidden seeds, protected semantic-variant choices, source tracing, hash-chain evidence preservation, role-based permissions, and encrypted statistics for generated educational content.
-- **TPCS (横向治理控制器):** TPCS is the horizontal governance controller across all three mechanisms. It enforces cross-mechanism permissions, privacy and copyright budgets, sanitization and degradation, refusal, encryption requirements, and audit policies.
+CogniGuard 是一个面向硕士毕业论文实验与演示的教育 AI 保护平台。项目关注个性化教学中三个同时存在的风险：学生画像泄漏、教师资源版权重构、生成内容难以追责。系统由三类保护机制和一个横向治理控制器组成，并通过多智能体教学流程串联成闭环。
 
-The mechanisms are not treated as a one-way sequence. Each mechanism produces controlled feedback that can update later decisions in the same tutoring lifecycle or a subsequent authorized learning round.
+## 核心创新
 
-## Closed-loop Feedback
+| 模块 | 全称 | 解决的问题 | 主要输出 |
+|---|---|---|---|
+| `MM-FOPD` | Multimodal Minimum Field-Oriented Profile Disclosure | 学生画像过度披露、raw multimodal profile 进入第三方模型 | 最小上下文卡片、画像选择记录、披露指标 |
+| `C2-RAG` | Copyright-Constrained Retrieval-Augmented Generation | 教师资源被逐轮重构、原文片段泄漏 | 受控返回模式、暴露预算、资源级溯源 commitment |
+| `HSW-ST` | Hybrid Semantic Watermarking and Source Tracing | 生成内容被篡改、复制、争议归因 | 水印记录、审计链、篡改检测与追踪证据 |
+| `TPCS` | Trustworthy Policy Control System | 三机制之间缺少统一策略约束 | 横向策略控制、降级、拒答、合规审计 |
 
-The minimum closed-loop contract uses the following cross-layer signals:
+关键设计不是简单堆叠三个模块，而是让它们互相提供受控证据：
 
-- **学生画像隐私保护子机制 -> 教师版权保护子机制:** `context_card`, `student_level`, `knowledge_point`, and `risk_level` guide protected retrieval and resource adaptation.
-- **教师版权保护子机制 -> 学生画像隐私保护子机制:** `resource_difficulty`, `variant_performance`, and `resource_fit` provide bounded evidence for profile-update review.
-- **教师版权保护子机制 -> 大模型生成内容审计追踪机制:** `resource_id`, `chunk_id`, `return_mode`, `copyright_level`, and `exposure_score` bind generated content to its controlled resource provenance.
-- **大模型生成内容审计追踪机制 -> 教师版权保护子机制:** `leakage_risk`, `similarity_risk`, and `multi_turn_reconstruction_risk` can trigger return-mode degradation, budget reduction, resource substitution, or refusal.
-- **学生画像隐私保护子机制 -> 大模型生成内容审计追踪机制:** `modality_sensitivity` and `recording_scope` define what may be logged, retained, encrypted, or omitted from audit records.
-- **大模型生成内容审计追踪机制 -> 学生画像隐私保护子机制:** `learning_evidence`, `abnormal_behavior`, and revocation/forgetting signals are returned as governed evidence and must pass TPCS approval before affecting the student profile.
+- `FOPD -> C2-RAG`：只把最小学习上下文交给资源检索，不暴露 raw profile。
+- `C2-RAG -> HSW-ST`：把 `resource_provenance_commitment` 交给生成审计，不把水印职责放进版权模块。
+- `HSW-ST -> TPCS`：把篡改、相似度、重构风险反馈给横向治理控制器。
+- `TPCS -> all`：统一决定是否最小化、降级、拒答、删除或 hash-only 保留。
 
-TPCS mediates every feedback path. No mechanism may directly expand profile disclosure, expose teacher resources, update a persistent profile, or weaken an audit requirement without an explicit TPCS policy decision.
+## 系统流程
 
-## Project Layout
-
-CogniGuard 采用保护机制原型与集成服务分离的架构组织方式：
-
-### 前后端服务层
-- `frontend/`: Vue.js 前端展示层，提供可视化交互界面
-- `backend/`: 后端服务层与 API 集成
-  - `backend/app/agents/`: 受保护的 LLM tutoring agent 层，经 TPCS 中介通信
-  - `backend/app/api/`: 前后端对接 API 和数据适配器
-  - `backend/app/protection/`: 各保护机制的集成 wrapper 接口
-  - `backend/app/demo/`: 完整系统演示入口
-
-### 核心保护机制原型库（Protection Mechanisms）
-这些模块是独立的研究原型，可单独运行、测试和发布：
-
-- `protection/student_profile/`: **学生画像隐私保护子机制 / MM-FOPD** 学生画像最小化披露、上下文卡片生成和编排
-- `protection/teacher_resource/`: **教师版权保护子机制 / C²-RAG** 版权约束检索、资源暴露预算、返回模式控制和反重构控制
-- `protection/audit_trace/`: **大模型生成内容审计追踪机制 / HSW-ST** 水印嵌入、来源追踪、可信审计原语
-- `protection/tpcs_guardrails/`: **TPCS** 横向治理控制器与 NeMo Guardrails 配置
-- `protection/common/`: 跨层模式定义、度量标准、文本工具和追溯绑定合约
-
-### 数据与实验
-- `data/`: 原始数据和处理后数据（raw/processed/test）
-- `experiments/`: 攻击回归测试、重构攻击、水印攻击、层级评估、消融实验和生成的研究结果
-- `scripts/`: 项目级数据生成和工具脚本入口
-
-### 文档与配置
-- `docs/`: 架构文档和 API 接口文档
-- `requirements.txt`: 根级便捷依赖文件（包含审计追踪层依赖）
-- `server.py`: 开发用轻量级 HTTP 服务器
-
-**架构设计说明：**
-保护机制模块（protection/）保持独立性，便于：
-1. 单独测试和迭代各保护机制
-2. 作为独立研究成果发表或开源
-3. 与其他系统集成时的模块化复用
-
-后端服务层（backend/app/）提供统一集成接口，协调各保护机制形成完整的三层闭环架构。
-
-## LLM Agent Configuration
-
-The backend agent layer uses Xiaomi MiMo through its OpenAI-compatible chat API. Keep real keys out of git and configure them through environment variables or a local `.env` file:
-
-```bash
-COGNIGUARD_RUNTIME_MODE=guarded_llm
-COGNIGUARD_NEMO_GUARDRAILS_ENABLED=true
-MIMO_API_KEY=your_mimo_api_key_here
-MIMO_BASE_URL=https://api.xiaomimimo.com/v1
-MIMO_MODEL=mimo-v2.5-pro
-MIMO_STUDENT_MODEL=mimo-v2-flash
-MIMO_STUDENT_MAX_TOKENS=420
+```mermaid
+flowchart LR
+    A["Raw student multimodal data"] --> B["MM-FOPD<br/>minimum profile disclosure"]
+    B --> C["Minimum context card"]
+    C --> D["TPCS<br/>privacy/compliance pre-check"]
+    D --> E["Profile diagnosis agent"]
+    E --> F["C2-RAG<br/>copyright-aware retrieval"]
+    F --> G["Controlled resource<br/>summary / outline / variant / refuse"]
+    G --> H["Pedagogical teaching agent"]
+    H --> I["HSW-ST<br/>watermark + audit chain"]
+    I --> J["Protected teaching answer"]
+    J --> K["Learning assessment"]
+    K --> L["TPCS profile update gate"]
+    L --> B
 ```
 
-If no `MIMO_API_KEY` is present, the agents run with deterministic fallback outputs for local demos and tests.
+## 联合协同实验效果
 
-## Quick Start
+当前已经增加端到端联合实验 `experiments/evaluation/eval_joint_synergy.py`，比较单模块、双模块、三模块和 `Full+TPCS`。核心指标是 `JointRisk`，越低越好。
 
-Generate synthetic multimodal student data:
+| 方法 | JointRisk ↓ | Utility ↑ | 说明 |
+|---|---:|---:|---|
+| `None` | `1.000` | `0.658` | 无保护 |
+| `Best single: FOPD-only` | `0.680` | `0.804` | 最强单模块 |
+| `Best pair: FOPD+HSWST` | `0.415` | `0.820` | 最强双模块 |
+| `Full CogniGuard w/o TPCS` | `0.272` | `0.836` | 三机制联合 |
+| `Full CogniGuard+TPCS` | `0.245` | `0.839` | 三机制 + 横向治理 |
 
-```bash
-python scripts/generate_synthetic_multimodal_data.py --student-count 30
+结论：`Full CogniGuard+TPCS` 的联合风险低于任意单模块和任意双模块组合。
+
+```text
+SynergyGain vs best pair = 0.1708
+TPCS gain                 = 0.0275
+Full beats best pair      = True
 ```
 
-The generator writes raw multimodal artifacts to `data/raw/` and MM-FOPD-safe context cards to `data/processed/profile_cards/`. Agent code should only consume the profile cards.
+### 图示
 
-Run the protected tutoring pipeline demo:
+如果图片未显示，请先运行下面的“联合实验与绘图”命令。
+
+<p align="center">
+  <img src="experiments/results/joint_synergy/figures/joint_synergy_gain_bridge.png" alt="Joint synergy gain bridge" width="820">
+</p>
+
+<p align="center">
+  <img src="experiments/results/joint_synergy/figures/joint_risk_component_heatmap.png" alt="Joint risk component heatmap" width="820">
+</p>
+
+## 快速开始
+
+### 1. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+前端依赖：
+
+```bash
+cd frontend
+npm install
+```
+
+### 2. 运行后端演示服务
+
+```bash
+python server.py 8000
+```
+
+默认会启动轻量 HTTP 服务，并提供 `/api/*` 数据接口。没有真实 LLM key 时，系统会使用 deterministic fallback，方便本地演示和测试。
+
+### 3. 运行前端面板
+
+```bash
+cd frontend
+npm run dev
+```
+
+Vite 开发服务会把 `/api` 请求代理到 `http://localhost:8000`。
+
+### 4. 运行完整闭环 demo
 
 ```bash
 python -m backend.app.demo.run_demo --case-index 0
 ```
 
-The demo keeps the top-level architecture as three protection layers plus horizontal TPCS governance; the four LLM agents run only as controlled tutoring nodes.
+输出会包含：
 
-Run the FOPD + C2-RAG demo:
+- `workflow_steps`
+- `agent_outputs`
+- `protection_logs`
+- `compliance_state`
+- `compliance_policy`
+- `audit_trace`
+- `final_protected_teaching_answer`
+
+## 实验入口
+
+### 联合协同实验
 
 ```bash
-pip install -r protection/student_profile/requirements.txt
-python -m protection.student_profile.src.pipeline.run_demo --profiles protection/student_profile/data/profiles.jsonl --questions protection/student_profile/data/student_questions.jsonl --resources protection/teacher_resource/data/teacher_resources.jsonl --config protection/student_profile/configs/default.yaml --out protection/student_profile/outputs/demo_results.jsonl
+python -m experiments.evaluation.eval_joint_synergy --config protection/student_profile/configs/default.yaml
 ```
 
-Run tests:
+生成：
+
+- `experiments/results/joint_synergy/joint_synergy_rows.csv`
+- `experiments/results/joint_synergy/joint_synergy_summary.csv`
+- `experiments/results/joint_synergy/joint_risk_reduction.csv`
+- `experiments/results/joint_synergy/joint_synergy_gain.csv`
+- `experiments/results/joint_synergy/joint_synergy_results.json`
+
+生成论文图：
 
 ```bash
-pytest backend/app/tests protection/student_profile/tests protection/teacher_resource/tests experiments/attacks/tests
+python -m experiments.common.plot_joint_synergy
 ```
 
-Run the HSW-ST semantic evidence-chain watermark demo:
+### 隐私与版权 baseline 对比
 
 ```bash
-pip install -r protection/audit_trace/requirements.txt
+python -m experiments.baselines.run_baseline_comparisons --config protection/student_profile/configs/default.yaml
+```
+
+覆盖的隐私 baseline：
+
+- `PII-Redaction`
+- `PresidioStyle-PII-Masking`
+- `RBAC-only`
+- `ABAC-PurposeOnly`
+- `DP-NoisyTopK`
+- `LocalOnly-NoThirdParty`
+
+覆盖的版权 baseline：
+
+- `ProtectedMaterialDetector`
+- `MemFree-Ngram`
+- `SHIELD-Agent`
+- `BloomScrub-Rewrite`
+- `R-CAD-Approx`
+
+### 组件消融
+
+```bash
+python -m experiments.ablation.run_protection_ablations --config protection/student_profile/configs/default.yaml
+```
+
+FOPD 消融包括：
+
+- `BasicFOPD`
+- `EnhancedFOPD-Full`
+- `EnhancedFOPD-w/o-Orthogonal`
+- `EnhancedFOPD-w/o-TaskAttention`
+- `EnhancedFOPD-w/o-Bottleneck`
+- `EnhancedFOPD+TPCS`
+
+C2-RAG 消融包括：
+
+- `C2RAG-full`
+- `C2RAG-w/o-Budget`
+- `C2RAG-w/o-Variant`
+- `PlainRAG`
+- `RAG-Truncation`
+- `RAG-SummaryOnly`
+- `GuardrailOnly`
+
+### HSW-ST 文本水印实验
+
+```bash
 cd protection/audit_trace
 python src/main.py --config configs/config.yaml --mode demo
 ```
 
-Run attacks, evaluations, and ablations from the repository root. See
-`experiments/README.md` for the experiment entry points.
+批量消融：
 
-See the README files inside each module for detailed configuration notes.
+```bash
+python -m experiments.ablation.run_all_ablations --mode experiment
+```
+
+## 项目结构
+
+```text
+CogniGuard/
+├── backend/                         # 后端 API、多智能体编排、demo 服务
+│   └── app/
+│       ├── agents/                  # 教学智能体与受保护通信
+│       ├── api/                     # 前端数据适配接口
+│       ├── compliance/              # FERPA/COPPA 风格合规治理闭环
+│       ├── demo/                    # 完整闭环 demo
+│       └── protection/              # 图像水印、TPCS 等后端 wrapper
+├── frontend/                        # React + Vite 可视化面板
+├── protection/
+│   ├── student_profile/             # MM-FOPD 学生画像隐私保护
+│   ├── teacher_resource/            # C2-RAG 教师资源版权保护
+│   ├── audit_trace/                 # HSW-ST 文本水印与审计追踪
+│   ├── tpcs_guardrails/             # 横向治理控制配置
+│   └── common/                      # 跨层 schema、文本工具、trace binding
+├── experiments/
+│   ├── attacks/                     # 隐私、版权、水印、污染等攻击脚本
+│   ├── baselines/                   # 隐私与版权 baseline
+│   ├── evaluation/                  # 分层与联合评估脚本
+│   ├── ablation/                    # 组件消融批量运行
+│   ├── common/                      # 实验绘图与公共工具
+│   └── results/                     # 实验输出，默认不纳入版本管理
+├── docs/                            # 论文建议、架构说明、API 文档
+└── server.py                        # 本地演示 HTTP 服务
+```
+
+## 机制边界
+
+### C2-RAG 的资源侧溯源
+
+C2-RAG 负责资源级 provenance：
+
+- `resource_id`
+- `chunk_id`
+- `license_policy`
+- `return_mode`
+- `exposure_before`
+- `exposure_after`
+- `policy_reason`
+- `retrieval_trace`
+- `quote_span_hash`
+- `controlled_output_hash`
+- `resource_provenance_commitment`
+
+### HSW-ST 的生成侧审计
+
+HSW-ST 负责生成内容级别的水印和审计：
+
+- `watermark_id`
+- `audit_hash`
+- `seed_commitment`
+- `watermarked_answer_sha256`
+- `tamper_suspicion`
+- `TraceBindRate`
+
+HSW-ST 绑定 C2-RAG 的资源级 commitment，但不重新定义资源版权溯源；C2-RAG 也不承担生成水印检测职责。
+
+## 合规治理闭环
+
+项目包含一个合规治理模块，作为 TPCS 的横向策略来源，而不是第四个主创新机制。当前覆盖：
+
+- `compliance_state`
+- `compliance_policy`
+- `compliance_audit_log`
+- `data_category`
+- FERPA/COPPA 风格策略判断
+- 删除请求后的 hash-only 处理
+- 审计 hash chain
+
+核心规则包括：
+
+- COPPA 场景未获得父母同意时，不收集或发送儿童个人信息。
+- FERPA 场景下，教育记录必须处于授权和合法教育目的范围内。
+- 第三方 LLM 默认只能接收 sanitized context card，不能接收 raw profile。
+- audit chain 仅保存 hash commitment，不保存原始学生数据。
+
+## 测试
+
+```bash
+python -m pytest backend/app/tests protection/student_profile/tests protection/teacher_resource/tests experiments/attacks/tests -q
+```
+
+当前验证结果：
+
+```text
+71 passed
+```
+
+前端构建：
+
+```bash
+cd frontend
+npm run build
+```
+
+## 论文写作建议
+
+推荐将实验组织为四个研究问题：
+
+1. `RQ1`：CogniGuard 是否比常规隐私/版权 baseline 更能降低风险？
+2. `RQ2`：FOPD、C2-RAG、HSW-ST 的组件分别贡献多少？
+3. `RQ3`：三者联合是否优于任意单模块和任意双模块？
+4. `RQ4`：TPCS 是否进一步提升跨模块治理效果，同时保持教学可用性？
+
+当前最能支撑创新性的结果是联合协同实验：
+
+```text
+JointRisk(None)              = 1.000
+JointRisk(best single)       = 0.680
+JointRisk(best pair)         = 0.415
+JointRisk(Full+TPCS)         = 0.245
+SynergyGain vs best pair     = 0.171
+```
+
+这可以直接作为“大论文系统创新”主线：CogniGuard 不是三个独立保护器的拼接，而是一个由 TPCS 协调的教育 AI 全生命周期保护闭环。
+
+## License
+
+This project is released under the repository license. It is intended for research prototyping, thesis experiments, and educational AI safety demonstrations.

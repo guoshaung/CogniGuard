@@ -23,6 +23,33 @@ def test_c2rag_high_copyright_no_quote() -> None:
     assert resource.content not in controlled.text
 
 
+def test_c2rag_returns_resource_level_provenance_without_watermark_claim() -> None:
+    config = load_config(STUDENT_PROFILE_ROOT / "configs/default.yaml")
+    resource = load_resources(ROOT / "data/teacher_resources.jsonl")[0]
+    controlled = produce_controlled_resource(
+        resource,
+        ExposureBudget(config),
+        config,
+        retrieval_trace=[
+            {
+                "rank": 1,
+                "resource_id": resource.resource_id,
+                "chunk_id": resource.chunk_id,
+                "score": 0.9,
+                "components": {"rel": 0.9},
+            }
+        ],
+    )
+    trace = controlled.source_trace
+    assert trace["trace_owner"] == "C2-RAG"
+    assert trace["trace_scope"] == "resource_level_provenance"
+    assert trace["watermark_boundary"] == "generation_watermarking_is_owned_by_HSW-ST"
+    assert trace["resource_provenance_commitment"]
+    assert trace["controlled_output_hash"]
+    assert trace["retrieval_trace"][0]["chunk_id"] == resource.chunk_id
+    assert "watermark_id" not in trace
+
+
 def test_exposure_budget_increases() -> None:
     config = load_config(STUDENT_PROFILE_ROOT / "configs/default.yaml")
     resource = load_resources(ROOT / "data/teacher_resources.jsonl")[1]
