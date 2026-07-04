@@ -27,6 +27,7 @@ import C2RAGPanel from './components/C2RAGPanel';
 import AcademicFigurePanel from './components/AcademicFigurePanel';
 import WatermarkDetectorPanel from './components/WatermarkDetectorPanel';
 import WatermarkRoundAccordion from './components/WatermarkRoundAccordion';
+import ComplianceGovernancePanel from './components/ComplianceGovernancePanel';
 import InteractiveBackground from './components/InteractiveBackground';
 import './App.css';
 
@@ -360,6 +361,7 @@ function ProfileExperimentPage({ pipelineData, selectedCase, runtimeStatus }) {
           <MiniTrendChart title="Privacy-Utility Tradeoff" values={[0.62, 0.71, 0.78, 0.84]} color="#a78bfa" />
         </div>
       </ExperimentSection>
+      <ComplianceGovernancePanel pipelineData={pipelineData} />
       <ProfileVisualizationPanel
         profileEncoding={pipelineData?.profile_encoding || selectedCase?.profile_encoding}
         abstractProfile={pipelineData?.abstract_profile || selectedCase?.abstract_profile}

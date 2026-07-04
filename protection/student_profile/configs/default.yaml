@@ -1,4 +1,9 @@
 fopd:
+  use_enhanced_fopd: true
+  components:
+    use_orthogonal: true
+    use_task_attention: true
+    use_bottleneck: true
   top_k_profile_records: 3
   relevance_threshold: 0.15
   sensitivity_threshold: 0.70

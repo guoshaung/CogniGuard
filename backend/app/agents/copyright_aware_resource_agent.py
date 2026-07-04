@@ -128,6 +128,15 @@ class CopyrightAwareResourceAgent(BaseAgent):
                     "return_mode": return_mode,
                     "content": content,
                     "exposure_cost": exposure_cost,
+                    "source_type": str(snippet.get("source_type") or "teacher_resource_repository"),
+                    "license_type": str(snippet.get("license_type") or "course_limited_license"),
+                    "source_trace_id": str(snippet.get("source_trace_id") or ""),
+                    "policy_reason": str(snippet.get("policy_reason") or ""),
+                    "quote_span_hash": snippet.get("quote_span_hash"),
+                    "controlled_output_hash": snippet.get("controlled_output_hash"),
+                    "resource_provenance_commitment": snippet.get("resource_provenance_commitment"),
+                    "retrieval_trace": list(snippet.get("retrieval_trace") or []),
+                    "source_trace": dict(snippet.get("source_trace") or {}),
                 }
             )
             exposure_total += exposure_cost

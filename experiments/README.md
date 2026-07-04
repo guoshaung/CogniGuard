@@ -31,6 +31,18 @@ python -m experiments.attacks.copyright_reconstruction
 python -m experiments.evaluation.eval_fopd
 python -m experiments.evaluation.eval_c2rag
 python -m experiments.evaluation.eval_unified
+python -m experiments.evaluation.eval_joint_synergy
+```
+
+`eval_joint_synergy` runs the coupled 2x2x2 mechanism study for FOPD,
+C2-RAG, and HSW-ST, plus the TPCS-governed full system. It writes
+`joint_synergy_rows.csv`, `joint_synergy_summary.csv`,
+`joint_risk_reduction.csv`, and `joint_synergy_gain.csv`.
+
+Generate paper-ready PNG/SVG figures from the joint synergy CSV files:
+
+```bash
+python -m experiments.common.plot_joint_synergy
 ```
 
 ## HSW-ST Ablations

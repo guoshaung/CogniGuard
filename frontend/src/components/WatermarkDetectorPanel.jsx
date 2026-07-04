@@ -140,9 +140,34 @@ export default function WatermarkDetectorPanel({ defaultText = '', auditTrace = 
   const loadPastedImage = (event, target) => {
     const items = Array.from(event.clipboardData?.items || []);
     const imageItem = items.find((item) => item.type.startsWith('image/'));
-    if (!imageItem) return;
+    if (!imageItem) {
+      if (target === 'attack') {
+        setAttackError('剪贴板里没有检测到图片，请复制图片本身后再粘贴。');
+      } else {
+        setImageError('剪贴板里没有检测到图片，请复制图片本身后再粘贴。');
+      }
+      return;
+    }
     event.preventDefault();
     const file = imageItem.getAsFile();
+    if (target === 'attack') {
+      loadAttackImage(file);
+    } else {
+      loadImage(file);
+    }
+  };
+
+  const loadDroppedImage = (event, target) => {
+    event.preventDefault();
+    const file = Array.from(event.dataTransfer?.files || []).find((item) => item.type.startsWith('image/'));
+    if (!file) {
+      if (target === 'attack') {
+        setAttackError('请拖入 PNG、JPG 或 WebP 图片文件。');
+      } else {
+        setImageError('请拖入 PNG、JPG 或 WebP 图片文件。');
+      }
+      return;
+    }
     if (target === 'attack') {
       loadAttackImage(file);
     } else {
@@ -318,18 +343,40 @@ export default function WatermarkDetectorPanel({ defaultText = '', auditTrace = 
           <WandSparkles size={28} />
         </div>
         <div className="image-attack-grid">
-          <label className="image-upload-box attack-upload-box" onPaste={(event) => loadPastedImage(event, 'attack')}>
-            <input
-              type="file"
-              accept="image/png,image/jpeg,image/webp"
-              onChange={(event) => loadAttackImage(event.target.files?.[0])}
+          <div className="image-source-inputs">
+            <div
+              className="image-upload-box attack-upload-box"
+              onPaste={(event) => loadPastedImage(event, 'attack')}
+              onDrop={(event) => loadDroppedImage(event, 'attack')}
+              onDragOver={(event) => event.preventDefault()}
+              tabIndex={0}
+              role="group"
+              aria-label="Paste or drop source image for AIGC attack"
+            >
+              {attackImageData ? (
+                <img src={attackImageData} alt={attackImageName || 'source for AIGC attack'} />
+              ) : (
+                <span>点击这里后 Ctrl+V 粘贴图片，或拖入图片</span>
+              )}
+            </div>
+            <textarea
+              className="image-paste-input"
+              value=""
+              onChange={() => {}}
+              onPaste={(event) => loadPastedImage(event, 'attack')}
+              placeholder="粘贴图片输入框：点击这里后直接 Ctrl+V / ⌘V"
+              rows={2}
+              aria-label="Paste image for AIGC attack"
             />
-            {attackImageData ? (
-              <img src={attackImageData} alt={attackImageName || 'source for AIGC attack'} />
-            ) : (
-              <span>粘贴图片或点击上传</span>
-            )}
-          </label>
+            <label className="image-file-button">
+              <ImageUp size={15} /> 从文件选择图片
+              <input
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                onChange={(event) => loadAttackImage(event.target.files?.[0])}
+              />
+            </label>
+          </div>
           <aside className="image-attack-controls">
             <label>
               <span>攻击方式</span>
@@ -381,18 +428,40 @@ export default function WatermarkDetectorPanel({ defaultText = '', auditTrace = 
           <ImageUp size={28} />
         </div>
         <div className="image-detector-grid">
-          <label className="image-upload-box" onPaste={(event) => loadPastedImage(event, 'detect')}>
-            <input
-              type="file"
-              accept="image/png,image/jpeg,image/webp"
-              onChange={(event) => loadImage(event.target.files?.[0])}
+          <div className="image-source-inputs">
+            <div
+              className="image-upload-box"
+              onPaste={(event) => loadPastedImage(event, 'detect')}
+              onDrop={(event) => loadDroppedImage(event, 'detect')}
+              onDragOver={(event) => event.preventDefault()}
+              tabIndex={0}
+              role="group"
+              aria-label="Paste or drop image for watermark detection"
+            >
+              {imageData ? (
+                <img src={imageData} alt={imageName || 'uploaded teaching resource'} />
+              ) : (
+                <span>点击这里后 Ctrl+V 粘贴图片，或拖入图片</span>
+              )}
+            </div>
+            <textarea
+              className="image-paste-input"
+              value=""
+              onChange={() => {}}
+              onPaste={(event) => loadPastedImage(event, 'detect')}
+              placeholder="粘贴图片输入框：点击这里后直接 Ctrl+V / ⌘V"
+              rows={2}
+              aria-label="Paste image for watermark detection"
             />
-            {imageData ? (
-              <img src={imageData} alt={imageName || 'uploaded teaching resource'} />
-            ) : (
-              <span>选择图片 / Drop-in upload</span>
-            )}
-          </label>
+            <label className="image-file-button">
+              <ImageUp size={15} /> 从文件选择图片
+              <input
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+                onChange={(event) => loadImage(event.target.files?.[0])}
+              />
+            </label>
+          </div>
           <aside>
             <details className="image-advanced-fields">
               <summary>高级：手动指定 ID</summary>

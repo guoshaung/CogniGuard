@@ -75,6 +75,7 @@ async def dialogue_next_round(request: NextRoundRequest) -> NextRoundResponse:
             dialogue_sessions[session_id] = {
                 "case_data": demo_case,
                 "context_card": dict(demo_case.context_card),
+                "profile_encoding": dict(demo_case.profile_encoding or {}),
                 "round_count": 0,
                 "cumulative_disclosure": 0.0,
                 "conversation_history": []
@@ -162,16 +163,16 @@ async def dialogue_next_round(request: NextRoundRequest) -> NextRoundResponse:
         
         # Normal dialogue flow
         context_card = session["context_card"]
+        profile_encoding = session.get("profile_encoding", {})
         
         # Step 1: Profile diagnosis with conversation context
         diagnosis_request, diagnosis_output, diagnosis_response = tpcs.dispatch(
-            sender="Student",
+            sender="MM-FOPD",
             receiver=profile_agent,
             message_type="dialogue_diagnosis_request",
             payload={
                 "context_card": context_card,
-                "current_message": request.message,
-                "conversation_history": request.conversation_history
+                "profile_encoding": profile_encoding,
             },
             privacy_level="minimum_context",
             round_id=round_id,
@@ -233,8 +234,7 @@ async def dialogue_next_round(request: NextRoundRequest) -> NextRoundResponse:
                 "context_card": context_card,
                 "diagnosis_result": diagnosis_result,
                 "controlled_resource_snippets": controlled_snippets,
-                "student_message": request.message,
-                "conversation_history": request.conversation_history
+                "profile_encoding": profile_encoding,
             },
             privacy_level="minimum_context_plus_controlled_resource",
             round_id=round_id,

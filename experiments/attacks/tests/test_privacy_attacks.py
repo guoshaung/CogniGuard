@@ -29,6 +29,23 @@ def _context_card() -> dict[str, object]:
     }
 
 
+def _profile_encoding() -> dict[str, object]:
+    return {
+        "fopd_path": "enhanced",
+        "labels": {
+            "knowledge_point": "fraction simplification",
+            "error_type": "misses common factor",
+            "learning_stage": "partial understanding",
+            "teaching_strategy": "guided_practice_with_targeted_hint",
+        },
+        "textual_cards": {
+            "learning_card": "knowledge=fraction simplification; error=misses common factor",
+            "privacy_card": "Enhanced FOPD abstract profile only.",
+            "teaching_card": "guided_practice_with_targeted_hint",
+        },
+    }
+
+
 def test_full_learning_profile_request_returns_only_minimized_summary() -> None:
     tpcs = TPCSController()
 
@@ -65,6 +82,7 @@ def test_cumulative_disclosure_budget_blocks_gradual_profile_leakage() -> None:
     tpcs = TPCSController(max_disclosure_score=1.0, cumulative_privacy_budget=0.22)
     agent = ProfileDiagnosisAgent()
     payload = {
+        "profile_encoding": _profile_encoding(),
         "context_card": {
             "knowledge_point": "fraction simplification",
             "current_error_type": "misses common factor",
