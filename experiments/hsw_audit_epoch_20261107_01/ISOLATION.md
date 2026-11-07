@@ -1,0 +1,23 @@
+{
+  "task": "HSW-AUDIT-EPOCH-01",
+  "created_utc": "2026-11-07T15:41:40.148115+00:00",
+  "actual_root": "D:/pycharm/CogniGuard-worktrees/hsw-st",
+  "branch": "codex/hsw-st",
+  "HEAD": "d01953234add03996cb9200af3ff02c9592697e7",
+  "pre_write_status": "?? experiments/hsw_audit_epoch_20261107_01/",
+  "worktrees": "worktree D:/pycharm/CogniGuard\nHEAD d01953234add03996cb9200af3ff02c9592697e7\nbranch refs/heads/资源测溯源返还\n\nworktree D:/pycharm/CogniGuard-worktrees/c2rag\nHEAD d01953234add03996cb9200af3ff02c9592697e7\nbranch refs/heads/codex/c2rag\n\nworktree D:/pycharm/CogniGuard-worktrees/cgc\nHEAD d01953234add03996cb9200af3ff02c9592697e7\nbranch refs/heads/codex/cgc\n\nworktree D:/pycharm/CogniGuard-worktrees/hsw-st\nHEAD d01953234add03996cb9200af3ff02c9592697e7\nbranch refs/heads/codex/hsw-st\n\nworktree D:/pycharm/CogniGuard-worktrees/mmfopd\nHEAD b858f9bd46c87008452a977c9fa6b6dfe40df3b8\nbranch refs/heads/codex/mmfopd",
+  "origin_before": "https://github.com/guoshaung/CogniGuard.git",
+  "isolation_difference": "Expected HSW tree/branch absent; created new sparse worktree at expected path from current registered baseline. Shared uncommitted source changes NOT migrated; no backup, no model/venv copies.",
+  "precedent_read_only": "D:/pycharm/CogniGuard-worktrees/c2rag/tools/isolation/README.md",
+  "precedent_migration_sha256": "150b5448a7628233ca259ed22c017cbd2dded5f29ef09ae1b99bd7c84c42e888",
+  "first_failed_git_command": "git worktree add from non-repository parent failed before mutation; then used existing registered tree",
+  "formal_admin_signature": "NOT_LOCATED; actual filesystem/git isolation verified",
+  "result_root": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\audit_epoch_20261107_01\\run01",
+  "shared_assets": "read only absolute paths; bytecode disabled",
+  "disk_free": 126782939136,
+  "python": "C:\\Users\\guoshuang\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "original_worktree_research_files_written": false,
+  "GPU_calls": 0,
+  "paid_API_calls": 0
+}

@@ -1,0 +1,38 @@
+{
+  "repository": "https://github.com/bangawayoo/mb-lm-watermarking",
+  "commit": "07911026575f01400bc03d76a4f2aff498d0911f",
+  "files": [
+    {
+      "path": "mb_watermark_processor.py",
+      "bytes": 55560,
+      "sha256": "bf5004a61fdd0528f0e61886dfe46af82889947a2e47eafe2f083460d74bc581",
+      "unaltered": true
+    },
+    {
+      "path": "alternative_prf_schemes.py",
+      "bytes": 6236,
+      "sha256": "589196aeb266a4ac92ec2e40ce6bf9c75b9f1a1bc60a1b86344b598936c1a3f6",
+      "unaltered": true
+    },
+    {
+      "path": "normalizers.py",
+      "bytes": 9011,
+      "sha256": "ce1c25759f777fdb32a34f8feeba40266762bbe805dbdbbdbc0cb12fc68ae6ff",
+      "unaltered": true
+    },
+    {
+      "path": "homoglyphs.py",
+      "bytes": 8380,
+      "sha256": "6a05ba00792f6bec6b648d347494204f06d6a8ec80f3bc161d2a56d6ebdb592a",
+      "unaltered": true
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 11384,
+      "sha256": "e0f04bdc07f492d6237bf6d675a4a55c352e18554240ef8ecd4f6e4dbb4f12ae",
+      "unaltered": true
+    }
+  ],
+  "license": "Apache-2.0",
+  "source_acquisition": "GitHub official Git blob API; raw host failed once"
+}
