@@ -7,6 +7,7 @@ import argparse,json,re,shutil
 from pathlib import Path
 from bootstrap import R,save,digest
 from secrets_store import read
+from secret_scan import compile_values,unsafe
 
 ap=argparse.ArgumentParser();ap.add_argument('--staging',required=True);ap.add_argument('--round',required=True);a=ap.parse_args()
 S=Path('D:/pycharm/research-sync-worktrees/hsw-audit-epoch-20261107-01')
@@ -65,13 +66,13 @@ def leaves(x):
  return [str(x)]
 
 values=leaves(read(R/'private/RUN_SECRETS.dpapi'))+leaves(read(R/'private/ISSUER_SIGNING.dpapi'))+leaves(read(R/'private/NULL_DETECTOR_KEYS.dpapi'))
+compiled_values=compile_values(values)
 bad=[]
 for p in dest.rglob('*'):
  if not p.is_file():continue
  assert p.suffix.lower() not in {'.dpapi','.dat','.dll','.gguf','.safetensors','.pdf','.env','.sqlite3'}
  text=p.read_text(encoding='utf-8-sig')
- if re.search(r'\bsk-[A-Za-z0-9_-]{20,}',text):bad.append(p.relative_to(dest).as_posix())
- if any(len(v)>=7 and re.search(r'(?<![A-Za-z0-9])'+re.escape(v)+r'(?![A-Za-z0-9])',text) for v in values):bad.append(p.relative_to(dest).as_posix())
+ if unsafe(text,compiled_values):bad.append(p.relative_to(dest).as_posix())
 assert not bad,'SECRET_SCAN_FAILED filenames only: '+json.dumps(sorted(set(bad)))
 manifest={p.relative_to(dest).as_posix():digest(p) for p in dest.rglob('*') if p.is_file() and p.relative_to(dest).as_posix() not in {'SHA256_MANIFEST.json','SYNC_RECEIPT.json'}}
 # Archived manifests are regular input files; exclude only the current root

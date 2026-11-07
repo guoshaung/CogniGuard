@@ -3,6 +3,7 @@ import argparse,hashlib,json,re,shutil,subprocess
 from pathlib import Path
 from bootstrap import W,E,R,save,digest
 from secrets_store import read
+from secret_scan import compile_values,unsafe
 ap=argparse.ArgumentParser();ap.add_argument('--round',required=True);ap.add_argument('--destination',required=True);a=ap.parse_args()
 D=R/('analysis_'+a.round);delivery=R/('delivery_'+a.round);dest=Path(a.destination)
 assert dest.resolve().is_relative_to(Path('D:/pycharm/research-sync-worktrees/hsw-audit-epoch-20261107-01').resolve())
@@ -112,15 +113,13 @@ def leaves(o):
  if isinstance(o,list):return [v for x in o for v in leaves(x)]
  return [str(o)]
 values=leaves(secret)+leaves(sign)+[str(x) for x in read(R/'private/NULL_DETECTOR_KEYS.dpapi')['null_keys']]
+compiled_values=compile_values(values)
 bad=[]
 for p in dest.rglob('*'):
  if not p.is_file():continue
  assert p.suffix.lower() not in {'.dpapi','.dat','.dll','.gguf','.safetensors','.pdf','.env','.sqlite3'}
  text=p.read_text(encoding='utf-8-sig')
- if re.search(r'\bsk-[A-Za-z0-9_-]{20,}',text):bad.append(str(p.relative_to(dest)))
- for v in values:
-  if len(v)>=7 and re.search(r'(?<![A-Za-z0-9])'+re.escape(v)+r'(?![A-Za-z0-9])',text):
-   bad.append(str(p.relative_to(dest)));break
+ if unsafe(text,compiled_values):bad.append(str(p.relative_to(dest)))
 assert not bad,'SECRET_SCAN_FAILED filenames only: '+json.dumps(sorted(set(bad)))
 files={p.relative_to(dest).as_posix():digest(p) for p in dest.rglob('*') if p.is_file()}
 save(dest/'SHA256_MANIFEST.json',{'self_excluded':True,'files':files})
