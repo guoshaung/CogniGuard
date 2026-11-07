@@ -66,7 +66,12 @@ if a.round!='round01':
  for name in ['ADMISSION_S2.json','CHAPTER_SPLIT_VERIFICATION.json','CANDIDATE_COLLISION_FULL_PLAN.json',
    'RESOURCE_ACCOUNTING_AMENDMENT.json','UTF8_RUNTIME_AMENDMENT.json','PUBLIC_SCORING_OPTIMIZATION_FREEZE.json',
    'PUBLIC_SCORING_OPTIMIZATION_V2_FREEZE.json','PUBLIC_BATCH_REGRESSION.json','PUBLIC_BATCH_V2_REGRESSION.json',
-   'BYTE_COLLISION_AUDIT_phaseS05.json','FINAL_ACCOUNTING_NOTES.json','OFFLINE_ENGINEERING_FAILURES.md','EXECUTION_STATE.md']:
+   'BYTE_COLLISION_AUDIT_phaseS05.json','FINAL_ACCOUNTING_NOTES.json','FINAL_REPORT_SCOPE_V2.json',
+   'IDENTITY_GUARD_TIMING_NOTE.json','SOURCE_RENDERING_LIMITATION_CAL.json','MODEL_CALL_ACCOUNTING.json',
+   'ASSET_RECHECK_AFTER_GENERATION.json','QUALITY_SAME_BYTES_CONSISTENCY.json','GENERATION_CLOSED.json',
+   'PUBLIC_CHECKER_ROUND02_REGRESSION.json','PUBLIC_ARCHIVE_CHECK_round03.json','SOURCE_VERSION_FINAL.json',
+   'QUOTE_VERBATIM_AUDIT.json','B2_CONFIG_FIXTURE_PROTOCOL.json','B2_CONFIG_FIXTURE_RESULT.json',
+   'STATE.json','OFFLINE_ENGINEERING_FAILURES.md','EXECUTION_STATE.md']:
   if (R/name).exists():copy(R/name,Path('data')/name)
  for p in (R/'attack_preparation').glob('*'):
   if p.is_file() and p.suffix.lower() in {'.json','.md','.txt'}:copy(p,Path('data/attack_preparation')/p.name)
@@ -87,6 +92,10 @@ for p in R.glob('generation_*'):
 for name in ['fingerprint_round01.log','fingerprint_round01_v2.log','watermark_round01.log','null_stress.log','alignment_postscore.log']:
  p=R/'logs'/name
  if p.exists():copy(p,Path('data/logs')/name)
+if a.round!='round01':
+ for p in (R/'logs').glob('*.log'):
+  if p.name.startswith(('fingerprint_round02','fingerprint_round03','watermark_round02','watermark_round03','generation_')):
+   copy(p,Path('data/logs')/p.name)
 copy(R/'score_fingerprints_failed_v1.py','history/score_fingerprints_failed_v1.py')
 (dest/'.gitattributes').write_text('* -text\n',encoding='utf-8',newline='\n')
 save(dest/'PUBLICATION_SCOPE.json',{'kind':'PARTIAL_CHECKPOINT_NOT_WHOLE_EXPERIMENT_COMPLETION','round':a.round,

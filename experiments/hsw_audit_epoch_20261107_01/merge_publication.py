@@ -25,7 +25,7 @@ report=src/'FINAL_RESULT.md';assert report.is_file()
 raw_reports=src/'history'/('delivery_'+a.round+'_initial_reports');raw_reports.mkdir(parents=True)
 for name in ['RESULT.md','README.md','FINAL_DECISION.md']:
  if (src/name).exists():shutil.copyfile(src/name,raw_reports/name)
-shutil.copyfile(report,src/'RESULT.md')
+(src/'RESULT.md').write_text(report.read_text(encoding='utf-8')+'\n\n'+(src/'METHOD_RESULTS.md').read_text(encoding='utf-8'),encoding='utf-8')
 res=json.loads((src/'RESOURCE_FINAL.json').read_text(encoding='utf-8'))
 (src/'README.md').write_text(f'''# HSW-AUDIT-EPOCH-01
 
@@ -46,6 +46,10 @@ res=json.loads((src/'RESOURCE_FINAL.json').read_text(encoding='utf-8'))
 下一步唯一问题：在充分独立背景校准且交付完整保真的条件下，水印是否给完整版本指纹索引带来增量价值。
 不自动恢复旧路线、不自动开发算法；详见RESULT.md、ERROR_CASES.md、ATTACK_STATUS.md及全部原始表。
 ''',encoding='utf-8')
+if (src/'FINAL_DECISION_FINAL.md').exists():shutil.copyfile(src/'FINAL_DECISION_FINAL.md',src/'FINAL_DECISION.md')
+if (src/'REPRODUCE_FINAL.md').exists():
+ shutil.copyfile(src/'REPRODUCE.md',raw_reports/'REPRODUCE.md')
+ shutil.copyfile(src/'REPRODUCE_FINAL.md',src/'REPRODUCE.md')
 changes=[]
 for p in src.rglob('*'):
  if not p.is_file() or p.name in {'SHA256_MANIFEST.json','SYNC_RECEIPT.json'}:continue

@@ -59,10 +59,22 @@ resource={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'formal
  'main_EOS':sum(x['EOS'] for x in actual),'planned_issuance_slots_excluding_CAL':sum(t['issue_id'] is not None for t in tasks),
  'observed_issuance_snapshots':len(noncal),'CAL_rewrites':sum(x['stage']=='CAL' for x in actual),
  'quality':dict(Counter(x['quality'] for x in actual)),'model_stage_wall_seconds':spent,
+ 'fact_judgements':dict(Counter(x['facts'] for x in actual)),
+ 'coverage_judgements':dict(Counter(x['coverage'] for x in actual)),
  'generated_tokens_all_ledger':sum(x.get('tokens',0) for x in ledger if x['event'] in {'DELIVERED','TECH_FAIL'}),
  'GPU_calls':0,'paid_API_calls':0,'new_model_downloads':0,'original_hard_model_seconds':7200,
  'active_stage_processes_must_be_closed_before_final_sync':True,'final_generator_freeze_verified':True,
  'calibration_independent_chapters':2,'unknown_independent_TEST_sources':0,'FPR_1percent_certified':False}
+calls=json.loads((R/'MODEL_CALL_ACCOUNTING.json').read_text(encoding='utf-8'))
+resource.update(native_model_forward_calls=calls['native_forward_calls'],HTTP_generation_requests=0,
+ peak_native_worker_RSS_bytes=max(x.get('peak_native_worker_RSS_bytes',0) for x in stages),
+ raw_generated_tokens_per_model_stage_second=resource['generated_tokens_all_ledger']/spent)
+fp_receipt=json.loads((D/'FP_COMPUTE.json').read_text(encoding='utf-8'))
+wm_receipt=json.loads((D/'WM_COMPUTE.json').read_text(encoding='utf-8'))
+resource.update(public_fingerprint_encoder_seconds_this_round=fp_receipt['encoder_forward_seconds'],
+ public_watermark_detector_wall_seconds_this_round=wm_receipt['elapsed_seconds'],
+ public_detector_new_calls_this_round=wm_receipt['unique_public_detector_calls'],
+ public_detector_exact_cache_reuses=wm_receipt['cache_reuses'])
 save(V/'RESOURCE_FINAL.json',resource)
 table='\n'.join('|'+ '|'.join(str(s[k]) for k in ['stage','arm','planned','started','natural_EOS','quality_PASS','quality_FAIL','quality_UNKNOWN','not_assessed'])+'|' for s in summary)
 save(V/'FINAL_RESULT.md',f'''# HSW-AUDIT-EPOCH-01：执行与证据边界
@@ -99,9 +111,11 @@ B2是TextSeal工具包Greenlist，不是TextSeal双密钥；B3是真实MPAC 32bi
 
 全部知识FAIL/UNKNOWN保留原文引句，见ERROR_CASES.md与质量锁。独立测量/相同条件、变量R_E定义、刚性腔体等覆盖遗漏与明确事实错误分开；倒数加“times smaller”保留UNKNOWN而不猜作者意图。普通改写也可能有这些问题，不能凭单次成对差异归因水印。技术中断/截断不重跑，也不伪装成已观察知识错误。
 
+逐项事实判定为{resource['fact_judgements']}；覆盖判定为{resource['coverage_judgements']}。本轮没有锁定为明确事实FAIL的输出，不能将26个整体FAIL改称26个确定的错误科学结论。整体FAIL来自冻结义务覆盖不足；事实UNKNOWN与覆盖FAIL可能重叠。作者对严格范围的解释仍需独立人审。
+
 ## 成本与下一步边界
 
-账本累计模型阶段{spent:.3f}秒；实际Token、EOS、CPU速度、RSS及独立语义编码/公开检测成本分别保留，不能拿原始生成Token/s当合格交付吞吐。API/GPU调用均0，未新增模型和付费资源。保持7B；3B如仅准备而未生成，不算有效跨模型攻击证据。没有有效强改写时不声称强攻击鲁棒性。
+账本累计模型阶段{spent:.3f}秒，生成{resource['generated_tokens_all_ledger']} Token，实际原生模型前向{calls['native_forward_calls']}次，生成HTTP请求0。原始Token/阶段秒为{resource['raw_generated_tokens_per_model_stage_second']:.3f}，原生Worker峰值RSS {resource['peak_native_worker_RSS_bytes']/2**30:.3f}GiB；它不是GPU显存，也不是知识合格交付吞吐。独立语义编码前向本轮{fp_receipt['encoder_forward_seconds']:.3f}秒，公开水印检测本轮{wm_receipt['elapsed_seconds']:.3f}秒，另计而非零计算。API/GPU调用均0，未新增模型和付费资源。保持7B；3B只准备而未生成，不算有效跨模型攻击证据。剩余73.964秒低于冻结80秒准入，攻击NOT_RUN_RESOURCE，不称0/若干次强攻击成功或强攻击鲁棒性。
 
 当前可集成登记、历史密钥保留和明确拒识的审计能力；是否有可重复的归因—保真—成本缺口仍证据不足。不能据此开发新算法。下一项唯一研究问题是：在充分独立背景校准并保证真实交付完整保真的条件下，水印对完整版本指纹索引是否有增量价值。
 ''')

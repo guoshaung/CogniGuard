@@ -30,6 +30,12 @@ def read(sha):
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
  for sha,s256,size,raw in pool.map(read,sorted(unique)):
   computed[sha]={'sha256':s256,'bytes':size}
+  if len(computed)%100==0 or len(computed)==len(unique):
+   pointer=R/('REMOTE_READBACK_PROGRESS_'+a.label+'.json')
+   partial=pointer.with_suffix('.json.partial')
+   partial.write_text(json.dumps({'status':'REMOTE_BLOB_READBACK_IN_PROGRESS','commit':a.commit,
+    'downloaded_unique_blobs':len(computed),'total_unique_blobs':len(unique),'elapsed_seconds':time.perf_counter()-t}),encoding='utf-8')
+   partial.replace(pointer)
   for e in entries:
    if e['sha']==sha and e['path'] in {'RESULT.md','FINAL_DECISION.md','SYNC_RECEIPT.json'}:critical[e['path']]=raw
 for path,expected in manifest['files'].items():assert computed[payload[path]['sha']]['sha256']==expected,'SHA256 readback mismatch: '+path
