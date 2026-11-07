@@ -27,6 +27,12 @@ for t in tasks:
    evidence=json.dumps(q['evidence'],ensure_ascii=False))
   original=Path(t['source_path']).read_text(encoding='utf-8');text=(p.parent/'public.txt').read_text(encoding='utf-8')
   row['change_1minus_SequenceMatcher_no_autojunk']=1-difflib.SequenceMatcher(None,original,text,autojunk=False).ratio()
+ elif (p.parent/'FAILURE.json').exists():
+  failure=json.loads((p.parent/'FAILURE.json').read_text(encoding='utf-8'))
+  row.update(status='TECH_FAIL',reason=failure['type'],overall_quality='NOT_ASSESSED_TECH_FAIL',
+   facts='NOT_ASSESSED',coverage='NOT_ASSESSED',task_utility='NOT_ASSESSED',EOS=False,
+   generated_tokens=len(failure.get('partial_ids',[])),no_final_public_output=True,
+   evidence=json.dumps([{'quote':'NO_FINAL_PUBLIC_TEXT','reason':'Technical failure; saved raw partial IDs are not a completed answer or an observed knowledge/detection failure.'}]))
  rows.append(row)
 def csvwrite(path,data):
  fields=list(dict.fromkeys(k for r in data for k in r))
@@ -99,7 +105,7 @@ save(V/'REPRODUCE.md','''# 复现与保密边界
 
 生成代码最终首个forward之前冻结在GENERATION_CODE_FREEZE.json；freeze.json保留更早准备版源码SHA，之后的事前兼容补丁有单独冻结，不能声称freeze.json所有早期源码字段都仍为现值。输入和任务SHA保持原样。
 
-受控本机续跑：先核对STATE、RUN_MANIFEST、资源和open_stages，不重复已有任务；确认>=6.5GiB空闲、无自有重复进程后执行 `python -B experiments/hsw_audit_epoch_20261107_01/run_generation.py --phase s2`。S2双来源准入锁之前不得执行s3；禁止重跑63Token内存截断槽。实际密钥及生成seed由同一Windows账户DPAPI读取，未发布。
+受控本机续跑：先核对STATE、RUN_MANIFEST、资源和open_stages，不重复已有任务；确认>=6.5GiB空闲、无自有重复进程后执行 `python -X utf8 -B experiments/hsw_audit_epoch_20261107_01/run_guarded.py --phase s2`。S2双来源准入锁之前不得执行s3；禁止重跑63Token内存截断槽。实际密钥及生成seed由同一Windows账户DPAPI读取，未发布。
 
 公开可复算：签名记录、正文SHA、MinHash1617配对在首轮可无秘密检查，执行 `python -B code/public_archive_check.py <本发布目录>`；后续轮相同接口，具体数量以该轮输出为准。MiniLM须相同既有英文checkpoint，权重不在发布物中。
 
@@ -114,7 +120,7 @@ save(V/'PROTOCOL_AMENDMENTS.md','''# 追加修订记录（不覆盖原冻结）
 3. 内存保护中断后，用户明确保持7B，等待资源空闲。准入线6.5GiB、输出上限、全部方法参数与槽位不变，已STARTED失败不重跑。
 4. 新离线生命周期守卫lifecycle_v2.py修复时间/泄露检查，不修改原v1和实际生成路径；实际asof150记录兼容性另测，不以修复覆盖旧证据。
 ''')
-save(V/'RUN_SNAPSHOT.json',{'utc':now,'round':a.round,'engineering':'PARTIAL','research':'INSUFFICIENT_EVIDENCE','included_actual_task_ids':sorted(actualids),
+save(V/'RUN_SNAPSHOT.json',{'utc':now,'round':a.round,'engineering':'PARTIAL','research':'INSUFFICIENT_EVIDENCE','included_actual_task_ids':sorted(r['task_id'] for r in actual),
  'new_generations':n,'planned_base_slots':len(tasks),'natural_EOS':eos,'quality':dict(qc),'CAL_sources':2,'TEST_chapters_generated':evalrec['TEST_chapters_generated'],
  'keep7B_wait_user_directive':True,'private_detector_material_required_for_actual_watermark_recompute':True})
 print(json.dumps({'status':'VERSIONED_DELIVERY_BUILT','path':str(V),'actual':n}))

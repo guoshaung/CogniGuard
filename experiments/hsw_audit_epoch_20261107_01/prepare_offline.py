@@ -12,7 +12,8 @@ from transformers import AutoTokenizer
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from cryptography.hazmat.primitives import serialization
 from secrets_store import read,store
-from lifecycle import Register,canonical
+from lifecycle import canonical
+from lifecycle_v2 import StrictRegister as Register
 
 ap=argparse.ArgumentParser();ap.add_argument('--round',required=True);a=ap.parse_args()
 D=R/('analysis_'+a.round);D.mkdir()

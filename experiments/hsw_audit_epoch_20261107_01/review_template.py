@@ -4,6 +4,9 @@ from bootstrap import R,save,digest
 ap=argparse.ArgumentParser();ap.add_argument('batch');ap.add_argument('assessments');args=ap.parse_args()
 batch=json.loads((R/'reviews'/(args.batch+'.json')).read_text())['rows']
 mapping=json.loads((R/'private'/(args.batch+'_MAPPING.json')).read_text())
+for prior in (R/'reviews').glob('*QUALITY_LOCK*.json'):
+ already={r['task_id'] for r in json.loads(prior.read_text(encoding='utf-8')).get('rows',[])}
+ assert not already.intersection(mapping.values()),'A task already has an immutable quality lock; do not double-count reviewers or overwrite it'
 assessment=json.loads(__import__('pathlib').Path(args.assessments).read_text(encoding='utf-8'))
 assert set(assessment)=={r['review_id'] for r in batch},'All delivered cards must be reviewed, including FAIL/UNKNOWN'
 rows=[]

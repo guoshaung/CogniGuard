@@ -37,6 +37,11 @@ for key,b in texts.items():
   if not part:continue
   inp=tok.prepare_for_model(part,add_special_tokens=True,return_attention_mask=True)
   windows.append({'key':key,'start':st,'end':st+len(part),'full_subtokens':len(ids),'input':inp})
+prior_forward=sum(json.loads(p.read_text(encoding='utf-8')).get('encoder_forward_seconds',0)
+ for p in R.glob('analysis_*/FP_COMPUTE.json') if p.parent!=D)
+save(D/'FP_EXECUTION_FREEZE.json',{'before_new_encoder_forward':True,'prior_encoder_forward_seconds':prior_forward,
+ 'cumulative_encoder_forward_seconds_cap':300,'score_rules_unchanged':True,'query_truth_or_keys_read':False})
+assert prior_forward<300,'Cumulative encoder compute exhausted; no extra model work'
 forward=0.;ledger=[]
 for i in range(0,len(windows),8):
  batch=windows[i:i+8];x=tok.pad([w['input'] for w in batch],padding=True,return_tensors='pt');assert x['input_ids'].shape[1]<=512
@@ -44,7 +49,7 @@ for i in range(0,len(windows),8):
  with torch.inference_mode():
   y=model(**x).last_hidden_state;mask=x['attention_mask'].unsqueeze(-1);z=(y*mask).sum(1)/mask.sum(1).clamp(min=1);z=torch.nn.functional.normalize(z,p=2,dim=1).cpu().numpy()
  elapsed=time.perf_counter()-t;forward+=elapsed
- if forward>300:raise TimeoutError('Frozen encoder forward budget')
+ if prior_forward+forward>300:raise TimeoutError('Cumulative frozen encoder forward budget')
  for w,v in zip(batch,z):vec[w['key']].append(v)
  ledger.append({'batch':i//8,'windows':len(batch),'padded_tokens':int(x['input_ids'].shape[1]),'forward_seconds':elapsed})
 for k in vec:vec[k]=np.stack(vec[k])
@@ -63,7 +68,7 @@ with (D/'FP_SCORES.csv').open('x',encoding='utf-8-sig',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 save(D/'FP_COMPUTE.json',{'status':'COMPLETE','queries':len(queries),'gallery_instances':len(gallery),'score_rows':len(rows),
  'unique_public_byte_inputs':len(texts),'new_encoder_batches':len(ledger),'embedding_windows':len(windows),'encoder_forward_seconds':forward,
- 'stage_wall_seconds':time.perf_counter()-start,'model_path':str(model_path),'model_sha256':digest(model_path/'model.safetensors'),
+ 'stage_wall_seconds':time.perf_counter()-start,'prior_encoder_forward_seconds':prior_forward,'model_path':str(model_path),'model_sha256':digest(model_path/'model.safetensors'),
  'immutable_minhash_source_sha256':digest(p),'query_truth_read':False,'private_generation_trace_or_key_read':False,
  'new_generative_answers':0,'paid_API_calls':0,'GPU_calls':0,'method_language':'en','BGE_zh_not_mislabeled_as_English_model':True,
  'ledger':ledger})

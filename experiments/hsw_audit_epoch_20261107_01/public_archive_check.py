@@ -17,10 +17,11 @@ def minhash(raw):
  b=np.array([int.from_bytes(hashlib.sha256(f'R37N_MINHASH_B_{i}'.encode()).digest()[:4],'big') for i in range(128)],dtype=np.uint64)
  return ((a[:,None]*hv[None,:]+b[:,None])%np.uint64(4294967291)).min(axis=1).astype(np.uint32)
 
-def check(root):
- root=Path(root);D=root/'data/analysis_round01'
+def check(root,round_name='round01'):
+ assert re.fullmatch(r'round[0-9]+',round_name),'Explicit published analysis round required'
+ root=Path(root);D=root/('data/analysis_'+round_name)
  # Source tree can also run the exact same verifier against the local round.
- if not D.exists():D=root/'analysis_round01'
+ if not D.exists():D=root/('analysis_'+round_name)
  reg=json.loads((D/'REGISTER_PUBLIC.json').read_text())
  pub=Ed25519PublicKey.from_public_bytes(bytes.fromhex(reg['signature_public_key_hex']))
  for x in reg['rows']:
@@ -36,8 +37,8 @@ def check(root):
  for x in rows:
   expected=float(np.mean(features[x['query_public_sha256']]==features[x['candidate_public_sha256']]))
   assert expected==float(x['MINHASH128_CHAR3'])
- return {'status':'PASS','public_signatures':len(reg['rows']),'public_text_files':len(q)+len(g),'MinHash_pairs':len(rows),
+ return {'status':'PASS','round':round_name,'public_signatures':len(reg['rows']),'public_text_files':len(q)+len(g),'MinHash_pairs':len(rows),
   'keys_or_private_traces_read':False,'semantic_model_or_watermark_scores_recomputed':False,'new_model_calls':0}
 
 if __name__=='__main__':
- ap=argparse.ArgumentParser();ap.add_argument('archive_root');args=ap.parse_args();print(json.dumps(check(args.archive_root)))
+ ap=argparse.ArgumentParser();ap.add_argument('archive_root');ap.add_argument('--round',default='round01');args=ap.parse_args();print(json.dumps(check(args.archive_root,args.round)))

@@ -3,7 +3,7 @@
 This diagnostic uses private history ONLY to audit implementation, never to
 substitute attribution scores or select a decoding candidate by its truth.
 """
-import json,os,sys
+import argparse,json,os,sys
 os.environ.update(PYTHONDONTWRITEBYTECODE='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
 sys.dont_write_bytecode=True
 import torch
@@ -12,16 +12,22 @@ from bootstrap import R,save
 from methods import config,load_official,WatermarkDetector,mpac_params
 from secrets_store import read
 torch.set_num_threads(2)
+ap=argparse.ArgumentParser();ap.add_argument('--round',default='round01');a=ap.parse_args();D=R/('analysis_'+a.round)
 cfg=json.loads((R/'CONFIG_FROZEN.json').read_text());tok=AutoTokenizer.from_pretrained(cfg['tokenizer_path'],local_files_only=True)
 secret=read(R/'private/RUN_SECRETS.dpapi');tasks=json.loads((R/'TASKS_FROZEN.json').read_text());rows=[]
-assert (R/'analysis_round01/EVALUATION_RECEIPT.json').exists()
+assert (D/'EVALUATION_RECEIPT.json').exists()
+included={x['issue_id'] for x in json.loads((D/'GALLERY_PUBLIC.json').read_text())}
 for t in tasks:
  p=R/'raw'/t['task_id']/'result.json'
- if not p.exists() or t['method']=='C0':continue
+ if not p.exists() or t['method']=='C0' or t['issue_id'] not in included:continue
  r=json.loads(p.read_text());trace=[json.loads(l) for l in (p.parent/'trace.jsonl').read_text().splitlines()]
  public=tok.encode((p.parent/'public.txt').read_text(encoding='utf-8'),add_special_tokens=False)
  visible=[v for v in r['generated_ids'] if v not in tok.all_special_ids]
- assert public==visible,'Private-position comparison unsupported when B histories differ; never alter public detection'
+ if public!=visible:
+  rows.append({'task_id':t['task_id'],'method':t['method'],'status':'SCORABLE_HISTORY_MISMATCH',
+   'private_visible_tokens':len(visible),'public_tokens':len(public),'public_score_replaced':False,
+   'positionwise_private_alignment_not_claimed':True,'not_a_generation_failure':True})
+  continue
  mismatch=0
  if t['method']=='B2':
   _,_,module=load_official();d=module.build_detector(tok,config('greenlist',secret['B2_keys'][t['issue_id']]),model=None)
@@ -45,7 +51,8 @@ for t in tasks:
    'actual_message_used_for_alignment_not_for_blind_decode':True,'not_replacement_for_public_Top1_score':True}
  rows.append(row)
  assert mismatch==0 and row.get('position_PRF_mismatch',0)==0,'Actual sampled color or position misalignment'
-save(R/'GENERATION_PUBLIC_ALIGNMENT.json',{'status':'PASS_POSTSCORE_DIAGNOSTIC','rows':rows,
+output=R/'GENERATION_PUBLIC_ALIGNMENT.json' if a.round=='round01' else D/'GENERATION_PUBLIC_ALIGNMENT.json'
+save(output,{'status':'POSTSCORE_SUPPORTED_ALIGNMENT_COMPLETE','rows':rows,
  'private_history_used_in_this_diagnostic':True,'private_history_used_by_standalone_detector':False,
  'public_scores_replaced':False,'new_model_forward_calls':0})
 print(json.dumps({'status':'GENERATED_COLORS_PUBLIC_HISTORY_MATCH','rows':rows}))

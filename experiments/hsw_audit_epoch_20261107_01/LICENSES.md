@@ -9,3 +9,5 @@
 TextSeal：原有已核验commit0b76bc64013081c570b8633d3d3585e3ee9a495a，LICENSE/NOTICE为Apache2.0，不按包metadata的MIT分类重写许可。
 多比特：作者MPAC commit07911026575f01400bc03d76a4f2aff498d0911f，Apache2.0，5个小源码文件逐字节保留，SOURCE_PIN记录哈希；没有下载模型或训练数据。
 Qwen7B原有官方Q4模型及Tokenizer只读，模型许可单列来源；本轮不分发权重。英语向量基线采用已存在all-MiniLM-L6-v2，其模型卡明确language:en、Apache2.0；不把中文BGE用在英文上冒充经过验证的强英语基线。
+
+可选攻击器3B仅使用已有Qwen2.5-3B-Instruct GGUF，官方仓库revision7dabda4d13d513e3e842b20f0d435c732f172cbe的LFS SHA已核对。该3B的Qwen研究许可不同于7B的Apache许可，仅在许可允许的非商业研究/评估范围；不分发权重，不作为主发行臂模型替换。身份准备不代表实际运行或强攻击成功；实际状态另见ATTACK_STATUS.md。

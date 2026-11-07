@@ -2,6 +2,9 @@
 import json,hashlib
 from bootstrap import R,save,digest
 tasks={x['task_id']:x for x in json.loads((R/'TASKS_FROZEN.json').read_text())}
+for prior in (R/'reviews').glob('BATCH_[0-9][0-9][0-9].json'):
+ if not (prior.parent/(prior.stem+'_QUALITY_LOCK.json')).exists() and not (prior.parent/(prior.stem+'_SUPERSEDED.json')).exists():
+  raise RuntimeError('Close the existing unsubmitted review batch first: '+prior.stem)
 done={}
 for p in (R/'reviews').glob('*QUALITY_LOCK*.json'):
  for r in json.loads(p.read_text()).get('rows',[]):done[r['task_id']]=r

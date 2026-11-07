@@ -20,6 +20,7 @@ truth={x['query_id']:x for x in truth_rows if x['status']=='SCORABLE'}
 queries=json.loads((D/'DETECTOR_QUERIES.json').read_text())
 gallery=json.loads((D/'GALLERY_PUBLIC.json').read_text());byissue={x['issue_id']:x for x in gallery}
 register=json.loads((D/'REGISTER_PUBLIC.json').read_text())
+record_byid={x['record']['issue_id']:x['record'] for x in register['rows']}
 pub=Ed25519PublicKey.from_public_bytes(bytes.fromhex(register['signature_public_key_hex']))
 for x in register['rows']:pub.verify(bytes.fromhex(x['signature_ed25519_hex']),canonical(x['record']))
 for g in gallery:assert digest(g['public_path'])==g['public_sha256']
@@ -52,13 +53,28 @@ def outcome(selected,t):
  return 'CORRECT' if selected[0]==t['truth_issue_id'] else 'WRONG'
 def add(q,t,method,rule,candidates,score=None,threshold=None):
  candidates=sorted(set(candidates));pred=candidates[0] if len(candidates)==1 else None
+ byte_matches=[g['issue_id'] for g in gallery if q['public_sha256']==g['public_sha256']]
+ true_record=record_byid.get(t.get('truth_issue_id'));pred_record=record_byid.get(pred)
  rows.append({'query_id':q['query_id'],'parent_id':t['parent_id'],'source_id':t['source_id'],'role':t['role'],
   'variant':t['variant'],'issued_method':t.get('issued_method'),'quality':t['quality'],'natural_EOS':t.get('EOS'),
   'method':method,'rule':rule,'status':outcome(candidates,t),'predicted_issue':pred,
   'candidate_issues':json.dumps(candidates),'true_issue':t.get('truth_issue_id'),'true_epoch':t.get('truth_epoch'),
   'wrong_epoch':bool(pred and t.get('truth_epoch') and byissue[pred]['key_epoch']!=t['truth_epoch']),
   'source_only_correct':bool(pred and pred!=t.get('truth_issue_id') and byissue[pred]['source_id']==t['source_id']),
+  'predicted_recipient':pred_record['recipient_pseudonym'] if pred_record else None,
+  'true_recipient':true_record['recipient_pseudonym'] if true_record else None,
+  'predicted_epoch':pred_record['key_epoch'] if pred_record else None,
+  'predicted_content_version':pred_record['content_version'] if pred_record else None,
+  'wrong_recipient':pred_record['recipient_pseudonym']!=true_record['recipient_pseudonym'] if pred_record and true_record else None,
+  'content_version_evaluation':'NOT_TESTED_CONSTANT_V1',
   'score':score,'threshold':threshold,'public_token_N':q['public_tokens'],
+  'query_matches_any_registered_body':any(q['public_sha256']==g['public_sha256'] for g in gallery),
+  'query_matches_predicted_body':bool(pred and q['public_sha256']==byissue[pred]['public_sha256']),
+  'registered_same_byte_issue_count':len(byte_matches),
+  'known_byte_identity_conflict':bool(pred and byte_matches and pred not in byte_matches),
+  'safe_unique_identity_after_known_copy_collision_guard':bool(pred and len(byte_matches)<=1 and not (byte_matches and pred not in byte_matches)),
+  'safe_status_with_known_copy_collision_guard':'AMBIGUOUS' if len(byte_matches)>1 else 'IDENTITY_CONFLICT' if pred and byte_matches and pred not in byte_matches else outcome(candidates,t),
+  'association_does_not_sign_modified_query_bytes':True,
   'new_generative_answer':False,'1percent_target_certified':False})
 for q in queries:
  qid=q['query_id'];t=truth[qid]
@@ -129,7 +145,8 @@ write_csv(D/'STATUS_SUMMARY.csv',summary)
 save(D/'CALIBRATION_RESULT.json',{'status':'TARGET_1PCT_NOT_CERTIFIED','independent_CAL_chapters':2,
  'independent_unknown_TEST_sources':0,'CAL_source_maxima':calmax,'rank':3,'primary_threshold':'INFINITY',
  'unknown_CAL_texts_are_not_independent_test_FPR':True,'primary_rejection_not_defense_success':True,
- 'zero_false_accepts_out_of_2_upper_one_sided95':1-.05**.5,
+ 'illustrative_iid_upper95_if_zero_false_accepts_out_of_2':1-.05**.5,
+ 'illustration_not_an_independent_measured_or_certified_FPR':True,
  'finite_CAL_max_and_nominal_results':'uncertified diagnostics only; NOT TPR@1percentFPR'})
 actual_ids={g['issue_id'] for g in gallery if g['method']!='B0'}
 results=[json.loads((R/'raw'/tid/'result.json').read_text()) for tid in actual_ids]
@@ -142,5 +159,7 @@ save(D/'EVALUATION_RECEIPT.json',{'status':'SCORED_SNAPSHOT_COMPLETE_NOT_WHOLE_E
  'knowledge_locked_before_scores':True,'generated_answers':len(results),'natural_EOS':sum(r['natural_EOS'] for r in results),'technical_truncated':sum(not r['natural_EOS'] for r in results),
  'quality_counts':dict(Counter(quality[tid] for tid in actual_ids)),'attribution_rows':len(rows),
  'new_model_or_detector_calls':0,'future_unstarted_slots_not_silently_filled':True,
- 'not_a_completed_S2_or_S3_experiment':True})
+ 'completion_claim':'This receipt closes the named offline scoring snapshot only; generation completion and failed/never-started main slots are reported independently.',
+ 'unregistered_CAL_rewrites_in_queries':len({t['parent_id'] for t in truth.values() if t['role']=='CAL' and not t['parent_id'].startswith('ORIGINAL_')}),
+ 'earlier_receipt_flag_correction':'round01/02 retained a hardcoded not_a_completed_S2_or_S3_experiment=true; it did not describe S2 completion. Original receipts remain unchanged.'})
 print(json.dumps({'status':'EVALUATED','queries':len(queries),'rows':len(rows),'calibration':'NOT_CERTIFIED'}))

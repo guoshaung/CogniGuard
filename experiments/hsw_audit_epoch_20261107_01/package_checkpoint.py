@@ -53,6 +53,26 @@ for p in D.rglob('*'):
  if p.is_file() and p.suffix.lower() in {'.json','.jsonl','.csv','.txt'}:
   copy(p,Path('data')/D.name/p.relative_to(D))
 copy(R/'private'/f'{a.round}_QUERY_TRUTH.json',Path('data')/D.name/'EVALUATION_TRUTH.json')
+# Later delivery includes earlier completed, independently versioned snapshots.
+# The first checkpoint remains byte-identical in Git and on disk.
+if a.round!='round01':
+ for prior in R.glob('analysis_*'):
+  if prior==D or not (prior/'EVALUATION_RECEIPT.json').is_file():continue
+  for p in prior.rglob('*'):
+   if p.is_file() and p.suffix.lower() in {'.json','.jsonl','.csv','.txt'}:
+    copy(p,Path('data')/prior.name/p.relative_to(prior))
+  truth=R/'private'/(prior.name.removeprefix('analysis_')+'_QUERY_TRUTH.json')
+  if truth.exists():copy(truth,Path('data')/prior.name/'EVALUATION_TRUTH.json')
+ for name in ['ADMISSION_S2.json','CHAPTER_SPLIT_VERIFICATION.json','CANDIDATE_COLLISION_FULL_PLAN.json',
+   'RESOURCE_ACCOUNTING_AMENDMENT.json','UTF8_RUNTIME_AMENDMENT.json','PUBLIC_SCORING_OPTIMIZATION_FREEZE.json',
+   'PUBLIC_SCORING_OPTIMIZATION_V2_FREEZE.json','PUBLIC_BATCH_REGRESSION.json','PUBLIC_BATCH_V2_REGRESSION.json',
+   'BYTE_COLLISION_AUDIT_phaseS05.json','FINAL_ACCOUNTING_NOTES.json','OFFLINE_ENGINEERING_FAILURES.md','EXECUTION_STATE.md']:
+  if (R/name).exists():copy(R/name,Path('data')/name)
+ for p in (R/'attack_preparation').glob('*'):
+  if p.is_file() and p.suffix.lower() in {'.json','.md','.txt'}:copy(p,Path('data/attack_preparation')/p.name)
+ for p in (R/'reviews').glob('*SUPERSEDED.json'):copy(p,Path('data/reviews')/p.name)
+ for p in (R/'attacks').rglob('*') if (R/'attacks').exists() else []:
+  if p.is_file() and p.suffix.lower() in {'.json','.jsonl','.txt'}:copy(p,Path('data/attacks')/p.relative_to(R/'attacks'))
 # Restrict ledger to the immutable first two closed stages for round01 snapshot.
 ledger=[json.loads(l) for l in (R/'RUN_MANIFEST.jsonl').read_text().splitlines()]
 if a.round=='round01':
