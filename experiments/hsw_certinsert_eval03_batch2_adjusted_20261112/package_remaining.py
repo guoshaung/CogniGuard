@@ -22,6 +22,9 @@ def main():
     if image_records:put(dst/'OCR_RENDERED_IMAGE_HASHES.json',dict(images=image_records,note='Rendered images retained locally; deterministic renderer and OCR raw results published.'))
     names=['T5_SOURCES.json','data/T5_QUESTIONS.json','data/SOURCE_MANIFEST.json'] if stage=='P3-P4' else ['data/LEARNING_BACKGROUND.json','data/SPOOF_TARGETS.json','KEY_SELECTION_AUDIT.md','KEY_SELECTION_STRUCTURAL_DIAGNOSTIC.json','P1/POSTHOC_CAPACITY_BREAKDOWN.json']
     for name in names:copy(O/name,'inputs_and_diagnostics/'+name)
+    copy(O/'FREEZE_CHAIN_RECHECK.json','FREEZE_CHAIN_RECHECK.json')
+    if (O/'REPORT_ENGINEERING_LOG.jsonl').exists():copy(O/'REPORT_ENGINEERING_LOG.jsonl','REPORT_ENGINEERING_LOG.jsonl')
+    if stage=='P3-P4':copy(O/'T5_SOURCE_LINKAGE_VALIDATION.json','T5_SOURCE_LINKAGE_VALIDATION.json')
     for p in sorted(E.iterdir()):
         if p.is_file() and p.suffix in ['.py','.md','.json']:copy(p,'code_and_protocol/'+p.name)
     copy(O/'publication_P1N10_P2/LICENSES.md','LICENSES.md')
