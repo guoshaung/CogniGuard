@@ -1,0 +1,23 @@
+{
+  "stage": "BEFORE_MODEL_SCORING",
+  "data_directory": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\materials02",
+  "T4": 238,
+  "in_domain": 91,
+  "in_domain_independent_examples": 77,
+  "paired": 60,
+  "collection_complete": true,
+  "no_further_source_expansion": true,
+  "hashes": {
+    "ALL_CONTROL_PARAGRAPHS.json": "ecfe22d02deb520c59a88d7ed28aafee9f99560d1c8d1a403408968b7d05132b",
+    "ALL_WORKED_EXAMPLES.json": "c51ee6ca0615b3ace96c9120f4b2a4a4d7419ebdee00c67df6a0be024aa16494",
+    "ARITHMETIC_ALARM_REVIEW.json": "f730e62a9c397ecd51d58c83b52a5caddbbdf42bf65364c5091548eace6ba49a",
+    "ARITHMETIC_SCREEN.json": "d0b7fead98992db58cf1ecc996e9cb98f0e90cf6b632fc861eea3c2637dfe015",
+    "BATCH1_DATA_FREEZE.json": "9a2dddcaffbacdaaf4f6d688cdeff991da7636312b02897ad8e24a9e5f10123f",
+    "DISJOINTNESS.json": "8a6834b7a28e768c4da9ed452ff0e317dfc767b07365af838751afe63d49ed5d",
+    "IN_DOMAIN.json": "fa98b8a7bc3ec80bc62411f0fdc2ad23836b3ee2afdd47efb6d1f0bd3113a4d6",
+    "MATERIAL_REJECTIONS.json": "79b7d55a6ecde4683c863c3b00776685f9345538af3bfe2ba50b9cfe8192bc92",
+    "PAIRED_IDS.json": "64d77339c1f270bf5ce29cd2b50401fed0de33e07a0ca4507ae71f662186a605",
+    "T4.json": "61449c6da588080bab338b3df07adfc442d07149897fc8d0132652e130524867"
+  },
+  "material_limitations": "Statistics, mathematics and astronomy replace unavailable nonoverlapping physics/chemistry; denominator shortages reported, no duplication. Literal screens do not certify all knowledge."
+}
