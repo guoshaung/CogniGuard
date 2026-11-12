@@ -1,0 +1,65 @@
+{
+  "tasks": 936,
+  "task_sha256": "db9acca5d76d68d0d077632aea5e4fbe74fcbbb32e396405cb37d0ed9cd48a0a",
+  "learned_sha256": "01f5bb32bcec484f7c2ddc5aff9dd69285106a8f3d856ab908f1b72413e93fc6",
+  "scored": false,
+  "stage": "N10_ONLY_OTHER_N_PENDING_T5",
+  "observation_split": {
+    "CertInsert": {
+      "10": {
+        "status": "AVAILABLE",
+        "ids": [
+          "T4__osbooks-statistics_m79612_fs-idm1468672__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00011_exam-00007__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00058_exam-00013__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00102_exam-00011__CertInsert",
+          "T4__osbooks-statistics_m79594_fs-id1170308255065__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00012_exam-00001__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00017_exam-00002__CertInsert",
+          "T4__osbooks-statistics_m79627_fs-idm140754736__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00011_exam-00004__CertInsert",
+          "T4__osbooks-contemporary-mathematics_m00094_exam-00001__CertInsert"
+        ],
+        "available": 39
+      },
+      "50": {
+        "status": "NOT_AVAILABLE_PENDING_T5",
+        "ids": [],
+        "available": 39
+      },
+      "200": {
+        "status": "NOT_AVAILABLE_PENDING_T5",
+        "ids": [],
+        "available": 39
+      }
+    },
+    "RC": {
+      "10": {
+        "status": "AVAILABLE",
+        "ids": [
+          "T4__osbooks-statistics_m79596_fs-idp23504416__RC",
+          "T4__osbooks-contemporary-mathematics_m00090_exam-00002__RC",
+          "T4__osbooks-statistics_m79594_element-575__RC",
+          "T4__osbooks-contemporary-mathematics_m00022_exam-00004__RC",
+          "T4__osbooks-contemporary-mathematics_m00063_exam-00002__RC",
+          "T4__osbooks-contemporary-mathematics_m00023_exam-00001__RC",
+          "T4__osbooks-contemporary-mathematics_m00089_exam-00006__RC",
+          "T4__osbooks-statistics_m79594_fs-id1170308255065__RC",
+          "T4__osbooks-statistics_m79648_fs-idp22561888__RC",
+          "T4__osbooks-statistics_m79594_fs-idm36372528__RC"
+        ],
+        "available": 49
+      },
+      "50": {
+        "status": "NOT_AVAILABLE_PENDING_T5",
+        "ids": [],
+        "available": 49
+      },
+      "200": {
+        "status": "NOT_AVAILABLE_PENDING_T5",
+        "ids": [],
+        "available": 49
+      }
+    }
+  }
+}
