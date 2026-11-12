@@ -52,6 +52,8 @@ def main():
                 lines.append(f"|{method}|{N}|{m}|{fmt(c['spoofing'])}|{fmt(c['scrubbing'])}|")
     lines+=['',f"公开输出池中零插入即达到预测目标的数量：{json.dumps(fc['attack_pool_zero_insertion_outputs'])}；它们保持原分母，不称作新嵌入的水印信号。",'每格的源文本聚类bootstrap95%区间见COUNTS.json；零事件的退化bootstrap区间不能证明总体零风险。','区间条件于本轮固定密钥、固定观察样本和学得短语，不包含跨密钥或重新训练攻击器的不确定性。','擦除目标可能与观察输出重叠，重叠与未观察子组分别报告；材料不足的N不以较小N冒充。','攻击只用公开句首频率，不读取密钥、真实插入位置或私有选词列表；真实检测在攻击文本冻结之后进行。','200篇伪造目标未攻击时，两方法均0/200。主动接受率不可由自然背景低误报抵消。','伪造只证明冻结统计检测可被公开频率攻击影响，不证明伪造文本知识正确或具有合法发行身份。','CertInsert与RC的差异不是锚点保护的独立因果效应：学得词成本、可插位置及预测容量不同。']
     (d/'RESULT.md').write_text('\n'.join(lines),encoding='utf8')
+    with (d/'RESULT.md').open('a',encoding='utf8') as f:
+        f.write('\n擦除依据公开句首匹配，可能连同原有短语一起删除；未作独立知识保真审定，不能冒称已验证的知识保持型攻击。\n')
     import csv
     fields=sorted({k for r in raw for k in r})
     with (d/'per_item.csv').open('x',encoding='utf-8-sig',newline='') as f:

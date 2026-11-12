@@ -1,7 +1,8 @@
 # EVAL-03-LITE adjusted Batch02
 
 Authority: `TASK_AUTHORITY.md`, replacing the previous 60-pair plan. Frozen
-method hash: `a50f08df466c35a1c07177e14f05305389299bea3288158fb62c31ed0180c001`.
+evaluation-manifest hash: `a50f08df466c35a1c07177e14f05305389299bea3288158fb62c31ed0180c001`.
+Its pinned method-file hash is `7cbec2d955563715d35935bed04334fbc934e8b9499dfec8c3ece81f53a13f87`.
 This folder contains isolated research scripts; no production changes.
 
 Run state is under

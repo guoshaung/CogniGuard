@@ -1,0 +1,4 @@
+from common_adjusted import *
+import itertools,math
+r=W/'var/results/hsw-st/english_replication_20261110_01/e1_guarded/protocol_v4/revision09';v=read(r/'VOCABULARY.json');u={x['text'] for x in v if x['function'] in ['location','example']};sets=[list(c) for c in itertools.combinations([x['text'] for x in v],4) if len(set(c)&u)>=3];assert len(v)==7 and len(u)==4 and len(sets)==13
+put(O/'KEY_SELECTION_STRUCTURAL_DIAGNOSTIC.json',dict(kind='EXACT_ENUMERATION_NOT_GENERATION',vocabulary=7,k=4,first_stage_pool=min(3*4,7),unconditional=4,allowed_selected_sets=13,per_text_observable_state_upper_bound_bits=math.log2(13),not_secret_key_entropy=True,layer1_words=[x['text'] for x in v if 1 in x['layers']],selected_sets=sets,selector_sha256=sha(W/'experiments/hsw_english_replication_20261110_01/e1_v4r8_selector.py'),vocabulary_sha256=sha(r/'VOCABULARY.json')))
