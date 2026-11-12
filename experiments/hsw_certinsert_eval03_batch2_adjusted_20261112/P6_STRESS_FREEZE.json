@@ -1,0 +1,12 @@
+{
+  "keys": 1000,
+  "reuse_diagnostic_keys": true,
+  "aggregate_sha256": "5f1cea8768a9dad846964884fb572fcd6b0c0048eb761b2073445e3870543d06",
+  "alpha": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "script_sha256": "600ea75a4768f031d2250f8a8471ae5d754571aae9e81bbc4788c37b4c1a5ad8",
+  "refit": false
+}
