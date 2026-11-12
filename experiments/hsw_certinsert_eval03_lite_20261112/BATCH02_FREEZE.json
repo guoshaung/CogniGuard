@@ -1,0 +1,556 @@
+{
+  "task": "EVAL03-LITE-BATCH02",
+  "before_generation": true,
+  "paired_ids_sha256": "64d77339c1f270bf5ce29cd2b50401fed0de33e07a0ca4507ae71f662186a605",
+  "source_hashes": {
+    "osbooks-contemporary-mathematics_m00063_exam-00011": "fba09705b2dfb077aff2b1228803b92848c2302ac513ffd6708b022a34547c2c",
+    "osbooks-contemporary-mathematics_m00059_exam-00008": "58798965583893c043ee942ed6b59e20714b974b19d7e2b57e774e653f620aa5",
+    "osbooks-contemporary-mathematics_m00057_exam-00001": "50d6c8963469c185cf9b9285992068425e0577194898606301981fbdfbe81264",
+    "osbooks-contemporary-mathematics_m00021_exam-00004": "797ec094a2667f4f1a98db33ae87c45f74dbd3a23aed51635f4035972b792ce5",
+    "osbooks-contemporary-mathematics_m00098_exam-00004": "37890acd921766ccca183f91583229dc9b386859637b856820d63d0c6b3bc9f9",
+    "osbooks-contemporary-mathematics_m00011_exam-00001": "cea865e5d9dd01060b8a214c01edf3ebc670471fc5875cc8013e588e8690d037",
+    "osbooks-contemporary-mathematics_m00130_exam-00012": "ce591b5e0ed56c70a5a936dbf0cdef4bd56a0f2a5f37e2c429ecac9082779afd",
+    "osbooks-contemporary-mathematics_m00102_exam-00011": "fecf357ef36cccf8e42240cf384fac50877a41b2a70f62f2e3f2ac617fc7b3de",
+    "osbooks-contemporary-mathematics_m00097_exam-00002": "662e5bdf01b7908583fdfb928a018cd87fcddc35c284e1bd732c90653646ae5d",
+    "osbooks-statistics_m79594_fs-idp39929584": "7d9b3ba6af884bd2e5447d33143c5426b18387d3acc699700ca8a297b6605de7",
+    "osbooks-contemporary-mathematics_m00103_exam-00003": "c11a77bcd44644a0d5c86782e4959195bd2ec835e9f71f8422d4002031eadc00",
+    "osbooks-contemporary-mathematics_m00014_exam-00010": "df1ef6f5a9ce53f5a793646d1f184866f2be5042af22274aaa882db40b5e4024",
+    "osbooks-statistics_m79594_element-575": "28eb7a5a6e361b5595e0bb5329c392523cba00da3a728016faf244d18a7ea783",
+    "osbooks-contemporary-mathematics_m00112_exam-00003": "4b3c030ecc216ca07168e2164c922583a78a19ae05c490cdd5f909ea9acff710",
+    "osbooks-contemporary-mathematics_m00011_exam-00005": "930e9ca99d6e95833d6ab14c386fadcb82ac006afe0a2d5e0e3fed04111cdf96",
+    "osbooks-contemporary-mathematics_m00011_exam-00010": "15ee7c607f62e8535eaec7ebb6a05db46dedade50bedfc9bd322da22087a5a10",
+    "osbooks-astronomy_m62195_fs-id1168047971728": "c5579a2881bd97fa46d8119afa24ea49c497e4a0ceaab23bbb407bee1cc02827",
+    "osbooks-contemporary-mathematics_m00014_exam-00004": "b33ca5e58719228f5163834e069b6ef73b90955f8c8656edeb6cb4330c9d46ae",
+    "osbooks-contemporary-mathematics_m00059_exam-00005": "a92d697bb95ee1072471b6a99183111b8ff6c75578c54517a22b13259459ce95",
+    "osbooks-contemporary-mathematics_m00014_exam-00007": "2311e80c536cdf1f5f1b5b4537d1402db4b9f3758b0c5e224bc2bdc644597ebf",
+    "osbooks-contemporary-mathematics_m00098_exam-00005": "f0f6646a63c9a1270fb63d68ef12e7f06cd239fa95a4a121a793e7da1c8fe493",
+    "osbooks-statistics_m79627_fs-idm98662832": "d3664c7f181dd248d1f031c61c26b0cae2870a8783848ff9d23a798c021469fa",
+    "osbooks-contemporary-mathematics_m00130_exam-00003": "d3c70eb5d9966526e5ef6c90d195ca97d0806d86e175f846a6cb6398b2a092c7",
+    "osbooks-astronomy_m59785_fs-id1168048302244": "83c6c6e1ab597522d261fd52b78794c8e1368d22d75b40fc5d6f8dc8be988ae9",
+    "osbooks-contemporary-mathematics_m00089_exam-00002": "ce166a697a3609dea5e7e54f54d0e87379e8a68b9d8d6af092c98f7e20903c9a",
+    "osbooks-contemporary-mathematics_m00130_exam-00015": "0ac231b88656ca88772a72aa37aaaa997eb4bf0ee4b0a91b9ca164312e9875a0",
+    "osbooks-contemporary-mathematics_m00130_exam-00011": "6da49ee475701dda6d51d04f849429a45616fb00f35b0e3db2da15a2796172ca",
+    "osbooks-contemporary-mathematics_m00060_exam-00001": "dde908fa7381de58d8810bfca0dcc2bf4bd56d0f6f469448bc4ee9463bb07e98",
+    "osbooks-contemporary-mathematics_m00067_exam-00002": "367a5d834bd3385f38da50a55c04521728077445cff777b0ca6245113a26362d",
+    "osbooks-statistics_m79596_fs-idp23504416": "09a38cfe7172259efc643e83e5813a10d262bbd3410ed93546d1d1dcf62a8ac4",
+    "osbooks-statistics_m79624_element-167": "532117c6a1cd1cfdae8018b33d268cc0929595c58932f06bab71d74dffd5784d",
+    "osbooks-contemporary-mathematics_m00059_exam-00007": "f081f282c96ddb3325d7b1bfc22a1f6b199d29bd872c35cc05fc76ac74b5b792",
+    "osbooks-contemporary-mathematics_m00066_exam-00001": "ad02be3a07287414b55b3a2d97eda2979c070f4f1d4a6a4c03729d76a5e3a5f5",
+    "osbooks-contemporary-mathematics_m00114_exam-00001": "f52ead628be8673d217141e80dd773370208b6d072386c39b32005736f44effe",
+    "osbooks-astronomy_m59794_fs-id1163975733966": "2f301f34eb7be195c44ef8b3838be31a7edca2c6cf2b408f2fffc10dfaf6901b",
+    "osbooks-contemporary-mathematics_m00086_exam-00002": "221e8193d7d1addd84cb5f313f5ccb3109bfd7f376bbef62ac3f129cab77f500",
+    "osbooks-contemporary-mathematics_m00058_exam-00016": "09bbc3380eead5c429c91d994335a68137af0cb82cc7450cdc18aa851e217019",
+    "osbooks-statistics_m79593_fs-idm41492224": "f3baaec8a8698fc3e8633305bc26d0ebd9cc069fe6f3ebcb6ea857286c12da93",
+    "osbooks-astronomy_m59884_fs-id1163975572684": "0cca720cc8b0e78d7fcf9f3b845dfd67197c7a6e8c978682b2d3f132214ab20d",
+    "osbooks-contemporary-mathematics_m00105_exam-00005": "6a719ecdcbd51fb6a0c41d91a7b3c1cdacf0c30e5aadc430a058dbc269fc9501",
+    "osbooks-contemporary-mathematics_m00017_exam-00003": "deba26c520429a1a79e061083494f333f6ee1805842f6416f27c34b362588aff",
+    "osbooks-contemporary-mathematics_m00090_exam-00002": "2b99dccfe5c45fd6731b9ff0c6272cbda0ccb5edb013a89e93bed3f2237f4f9d",
+    "osbooks-contemporary-mathematics_m00013_exam-00005": "99ca12d0f475b4e8907a5fc70dfbf366d693c1e3de68d60a7a7d552ff47ec18f",
+    "osbooks-contemporary-mathematics_m00133_exam-00001": "a132bf568abac2ea022e100d79b355bf02c8aec561e0d1098d9f06d6659cfeee",
+    "osbooks-astronomy_m59751_fs-id1167471064677": "5deb268de65540978408240e3459c02d4d58b04749ed8a041ae5cb174a7f7328",
+    "osbooks-astronomy_m59798_fs-id1163976933187": "4dbeaaaf5e6d27c4ca835901b89fd57054a073a4030af2859c615c90557d35b2",
+    "osbooks-contemporary-mathematics_m00116_exam-00001": "a6078922ccbf93b063b791f2201292f37daafa84beeb9e39f3c4d57a3d262560",
+    "osbooks-contemporary-mathematics_m00059_exam-00004": "017a1ac8c8e9ccc241e09cbf913bff7fc71c12909a1b5fd08a7f982676aad275",
+    "osbooks-contemporary-mathematics_m00089_exam-00005": "a683a8d4de7c2a147ed98bf5277fd693247ec94c7c073252317f2ac0470f1f86",
+    "osbooks-contemporary-mathematics_m00108_exam-00001": "1f0ee4b736a596a910b2c356dbe91d60f6a1d279e16b9908060063fc9862faf9",
+    "osbooks-contemporary-mathematics_m00011_exam-00007": "11bcddfdd029625a9f9b33af70613e6f43faedb49cf06c654baf5997fd656253",
+    "osbooks-statistics_m79626_element-84": "33db495d13b9efaec45e596869ea562e2e5636968ba78250bd539af10fca85d2",
+    "osbooks-contemporary-mathematics_m00113_exam-00007": "24905bf26e795ae683a9268091bc42ad9c06992dcb29edab78c449c372723d98",
+    "osbooks-contemporary-mathematics_m00014_exam-00006": "637d4a4401d75e48b5cdee2378150677cdeb9e9a056c308dbdd637c25434a679",
+    "osbooks-contemporary-mathematics_m00014_exam-00003": "8221269601043b45b9f98ba8ad8d05062b098fd504b4a25a10f2d9cc0e294a69",
+    "osbooks-contemporary-mathematics_m00099_exam-00006": "4f700b5491920bdf60152eaf789dc636e73a1bf52ef5f64d3a945b75300f411d",
+    "osbooks-statistics_m79612_fs-idm4667408": "7e4223e39bb6fb6805246572e7a54ab3064460d9af06d8cfa7e11cb8880d5419",
+    "osbooks-statistics_m79626_element-582": "dd720644758ac37a38cbe701139f197a0960651f15feb172c1f499628fa020c9",
+    "osbooks-contemporary-mathematics_m00058_exam-00004": "1f7419203c5e952e25b8828c00f287ab07277ab411be900331bc139300c2b72b",
+    "osbooks-contemporary-mathematics_m00058_exam-00013": "b3ec2b9f6c9cc19e66052e8fe332eab8e331c1cfa5ecf8e5284215fe0fa87a7b"
+  },
+  "baseline_methods": [
+    "KGW",
+    "Unigram"
+  ],
+  "baseline_tasks": 120,
+  "compression_methods": [
+    "CertInsert",
+    "KGW",
+    "Fingerprint"
+  ],
+  "compression_ratio": 70,
+  "compression_replicates": 1,
+  "compression_planned": 180,
+  "cert_available": 10,
+  "CertInsert_parents": [
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00063_exam-00011",
+      "parent": "T4__osbooks-contemporary-mathematics_m00063_exam-00011__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00063_exam-00011__CertInsert.txt",
+      "sha256": "fba09705b2dfb077aff2b1228803b92848c2302ac513ffd6708b022a34547c2c"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00059_exam-00008",
+      "parent": "T4__osbooks-contemporary-mathematics_m00059_exam-00008__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00059_exam-00008__CertInsert.txt",
+      "sha256": "58798965583893c043ee942ed6b59e20714b974b19d7e2b57e774e653f620aa5"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00057_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00057_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00057_exam-00001__CertInsert.txt",
+      "sha256": "50d6c8963469c185cf9b9285992068425e0577194898606301981fbdfbe81264"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00021_exam-00004",
+      "parent": "T4__osbooks-contemporary-mathematics_m00021_exam-00004__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00021_exam-00004__CertInsert.txt",
+      "sha256": "797ec094a2667f4f1a98db33ae87c45f74dbd3a23aed51635f4035972b792ce5"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00098_exam-00004",
+      "parent": "T4__osbooks-contemporary-mathematics_m00098_exam-00004__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00098_exam-00004__CertInsert.txt",
+      "sha256": "37890acd921766ccca183f91583229dc9b386859637b856820d63d0c6b3bc9f9"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00011_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00011_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00011_exam-00001__CertInsert.txt",
+      "sha256": "cea865e5d9dd01060b8a214c01edf3ebc670471fc5875cc8013e588e8690d037"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00130_exam-00012",
+      "parent": "T4__osbooks-contemporary-mathematics_m00130_exam-00012__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00130_exam-00012__CertInsert.txt",
+      "sha256": "ce591b5e0ed56c70a5a936dbf0cdef4bd56a0f2a5f37e2c429ecac9082779afd"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00102_exam-00011",
+      "parent": "T4__osbooks-contemporary-mathematics_m00102_exam-00011__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00102_exam-00011__CertInsert.txt",
+      "sha256": "fb1041fea9c5a78292eecc42ee7e96d164631c25f26392d26f6009275a4acf5b"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00097_exam-00002",
+      "parent": "T4__osbooks-contemporary-mathematics_m00097_exam-00002__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00097_exam-00002__CertInsert.txt",
+      "sha256": "08862ef0177ac02893c1ddc7d78b75a81da076ccf0d62125b12ad0d9c18459e2"
+    },
+    {
+      "source_id": "osbooks-statistics_m79594_fs-idp39929584",
+      "parent": "T4__osbooks-statistics_m79594_fs-idp39929584__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79594_fs-idp39929584__CertInsert.txt",
+      "sha256": "7d9b3ba6af884bd2e5447d33143c5426b18387d3acc699700ca8a297b6605de7"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00103_exam-00003",
+      "parent": "T4__osbooks-contemporary-mathematics_m00103_exam-00003__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00103_exam-00003__CertInsert.txt",
+      "sha256": "c11a77bcd44644a0d5c86782e4959195bd2ec835e9f71f8422d4002031eadc00"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00014_exam-00010",
+      "parent": "T4__osbooks-contemporary-mathematics_m00014_exam-00010__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00014_exam-00010__CertInsert.txt",
+      "sha256": "93118c7783cb0a304d56261b0f7628f7a4b5cbff601152ea873dfd3b899d2d52"
+    },
+    {
+      "source_id": "osbooks-statistics_m79594_element-575",
+      "parent": "T4__osbooks-statistics_m79594_element-575__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-statistics_m79594_element-575__CertInsert.txt",
+      "sha256": "ab9634430fd5493c78cc648dc648a084e2dd741949d6575e7aeb72b0ad7769b7"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00112_exam-00003",
+      "parent": "T4__osbooks-contemporary-mathematics_m00112_exam-00003__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00112_exam-00003__CertInsert.txt",
+      "sha256": "4b3c030ecc216ca07168e2164c922583a78a19ae05c490cdd5f909ea9acff710"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00011_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00011_exam-00005__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00011_exam-00005__CertInsert.txt",
+      "sha256": "930e9ca99d6e95833d6ab14c386fadcb82ac006afe0a2d5e0e3fed04111cdf96"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00011_exam-00010",
+      "parent": "T4__osbooks-contemporary-mathematics_m00011_exam-00010__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00011_exam-00010__CertInsert.txt",
+      "sha256": "15ee7c607f62e8535eaec7ebb6a05db46dedade50bedfc9bd322da22087a5a10"
+    },
+    {
+      "source_id": "osbooks-astronomy_m62195_fs-id1168047971728",
+      "parent": "T4__osbooks-astronomy_m62195_fs-id1168047971728__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m62195_fs-id1168047971728__CertInsert.txt",
+      "sha256": "c5579a2881bd97fa46d8119afa24ea49c497e4a0ceaab23bbb407bee1cc02827"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00014_exam-00004",
+      "parent": "T4__osbooks-contemporary-mathematics_m00014_exam-00004__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00014_exam-00004__CertInsert.txt",
+      "sha256": "b33ca5e58719228f5163834e069b6ef73b90955f8c8656edeb6cb4330c9d46ae"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00059_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00059_exam-00005__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00059_exam-00005__CertInsert.txt",
+      "sha256": "a92d697bb95ee1072471b6a99183111b8ff6c75578c54517a22b13259459ce95"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00014_exam-00007",
+      "parent": "T4__osbooks-contemporary-mathematics_m00014_exam-00007__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00014_exam-00007__CertInsert.txt",
+      "sha256": "2311e80c536cdf1f5f1b5b4537d1402db4b9f3758b0c5e224bc2bdc644597ebf"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00098_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00098_exam-00005__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00098_exam-00005__CertInsert.txt",
+      "sha256": "f0f6646a63c9a1270fb63d68ef12e7f06cd239fa95a4a121a793e7da1c8fe493"
+    },
+    {
+      "source_id": "osbooks-statistics_m79627_fs-idm98662832",
+      "parent": "T4__osbooks-statistics_m79627_fs-idm98662832__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79627_fs-idm98662832__CertInsert.txt",
+      "sha256": "d3664c7f181dd248d1f031c61c26b0cae2870a8783848ff9d23a798c021469fa"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00130_exam-00003",
+      "parent": "T4__osbooks-contemporary-mathematics_m00130_exam-00003__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00130_exam-00003__CertInsert.txt",
+      "sha256": "d3c70eb5d9966526e5ef6c90d195ca97d0806d86e175f846a6cb6398b2a092c7"
+    },
+    {
+      "source_id": "osbooks-astronomy_m59785_fs-id1168048302244",
+      "parent": "T4__osbooks-astronomy_m59785_fs-id1168048302244__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m59785_fs-id1168048302244__CertInsert.txt",
+      "sha256": "83c6c6e1ab597522d261fd52b78794c8e1368d22d75b40fc5d6f8dc8be988ae9"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00089_exam-00002",
+      "parent": "T4__osbooks-contemporary-mathematics_m00089_exam-00002__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00089_exam-00002__CertInsert.txt",
+      "sha256": "ce166a697a3609dea5e7e54f54d0e87379e8a68b9d8d6af092c98f7e20903c9a"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00130_exam-00015",
+      "parent": "T4__osbooks-contemporary-mathematics_m00130_exam-00015__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00130_exam-00015__CertInsert.txt",
+      "sha256": "0ac231b88656ca88772a72aa37aaaa997eb4bf0ee4b0a91b9ca164312e9875a0"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00130_exam-00011",
+      "parent": "T4__osbooks-contemporary-mathematics_m00130_exam-00011__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00130_exam-00011__CertInsert.txt",
+      "sha256": "6da49ee475701dda6d51d04f849429a45616fb00f35b0e3db2da15a2796172ca"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00060_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00060_exam-00001__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00060_exam-00001__CertInsert.txt",
+      "sha256": "5df3039dc5a039a0ada11f1c72bb4e8840512c392e9bc456bc67b7b50aded33e"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00067_exam-00002",
+      "parent": "T4__osbooks-contemporary-mathematics_m00067_exam-00002__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00067_exam-00002__CertInsert.txt",
+      "sha256": "8cc3ab4e193a730d8706ef4a37bf88327904bb14aec0ee74cbc72d83f4c1296d"
+    },
+    {
+      "source_id": "osbooks-statistics_m79596_fs-idp23504416",
+      "parent": "T4__osbooks-statistics_m79596_fs-idp23504416__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-statistics_m79596_fs-idp23504416__CertInsert.txt",
+      "sha256": "d99ecd81da2ebc229455af9f1d1a70f506750362c6b7d0085fc4871d71a192de"
+    },
+    {
+      "source_id": "osbooks-statistics_m79624_element-167",
+      "parent": "T4__osbooks-statistics_m79624_element-167__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79624_element-167__CertInsert.txt",
+      "sha256": "532117c6a1cd1cfdae8018b33d268cc0929595c58932f06bab71d74dffd5784d"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00059_exam-00007",
+      "parent": "T4__osbooks-contemporary-mathematics_m00059_exam-00007__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00059_exam-00007__CertInsert.txt",
+      "sha256": "f081f282c96ddb3325d7b1bfc22a1f6b199d29bd872c35cc05fc76ac74b5b792"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00066_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00066_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00066_exam-00001__CertInsert.txt",
+      "sha256": "ad02be3a07287414b55b3a2d97eda2979c070f4f1d4a6a4c03729d76a5e3a5f5"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00114_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00114_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00114_exam-00001__CertInsert.txt",
+      "sha256": "f52ead628be8673d217141e80dd773370208b6d072386c39b32005736f44effe"
+    },
+    {
+      "source_id": "osbooks-astronomy_m59794_fs-id1163975733966",
+      "parent": "T4__osbooks-astronomy_m59794_fs-id1163975733966__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m59794_fs-id1163975733966__CertInsert.txt",
+      "sha256": "2f301f34eb7be195c44ef8b3838be31a7edca2c6cf2b408f2fffc10dfaf6901b"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00086_exam-00002",
+      "parent": "T4__osbooks-contemporary-mathematics_m00086_exam-00002__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00086_exam-00002__CertInsert.txt",
+      "sha256": "221e8193d7d1addd84cb5f313f5ccb3109bfd7f376bbef62ac3f129cab77f500"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00058_exam-00016",
+      "parent": "T4__osbooks-contemporary-mathematics_m00058_exam-00016__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00058_exam-00016__CertInsert.txt",
+      "sha256": "09bbc3380eead5c429c91d994335a68137af0cb82cc7450cdc18aa851e217019"
+    },
+    {
+      "source_id": "osbooks-statistics_m79593_fs-idm41492224",
+      "parent": "T4__osbooks-statistics_m79593_fs-idm41492224__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79593_fs-idm41492224__CertInsert.txt",
+      "sha256": "f3baaec8a8698fc3e8633305bc26d0ebd9cc069fe6f3ebcb6ea857286c12da93"
+    },
+    {
+      "source_id": "osbooks-astronomy_m59884_fs-id1163975572684",
+      "parent": "T4__osbooks-astronomy_m59884_fs-id1163975572684__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m59884_fs-id1163975572684__CertInsert.txt",
+      "sha256": "0cca720cc8b0e78d7fcf9f3b845dfd67197c7a6e8c978682b2d3f132214ab20d"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00105_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00105_exam-00005__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00105_exam-00005__CertInsert.txt",
+      "sha256": "6a719ecdcbd51fb6a0c41d91a7b3c1cdacf0c30e5aadc430a058dbc269fc9501"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00017_exam-00003",
+      "parent": "T4__osbooks-contemporary-mathematics_m00017_exam-00003__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00017_exam-00003__CertInsert.txt",
+      "sha256": "deba26c520429a1a79e061083494f333f6ee1805842f6416f27c34b362588aff"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00090_exam-00002",
+      "parent": "T4__osbooks-contemporary-mathematics_m00090_exam-00002__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00090_exam-00002__CertInsert.txt",
+      "sha256": "2b99dccfe5c45fd6731b9ff0c6272cbda0ccb5edb013a89e93bed3f2237f4f9d"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00013_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00013_exam-00005__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00013_exam-00005__CertInsert.txt",
+      "sha256": "99ca12d0f475b4e8907a5fc70dfbf366d693c1e3de68d60a7a7d552ff47ec18f"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00133_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00133_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00133_exam-00001__CertInsert.txt",
+      "sha256": "a132bf568abac2ea022e100d79b355bf02c8aec561e0d1098d9f06d6659cfeee"
+    },
+    {
+      "source_id": "osbooks-astronomy_m59751_fs-id1167471064677",
+      "parent": "T4__osbooks-astronomy_m59751_fs-id1167471064677__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m59751_fs-id1167471064677__CertInsert.txt",
+      "sha256": "5deb268de65540978408240e3459c02d4d58b04749ed8a041ae5cb174a7f7328"
+    },
+    {
+      "source_id": "osbooks-astronomy_m59798_fs-id1163976933187",
+      "parent": "T4__osbooks-astronomy_m59798_fs-id1163976933187__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-astronomy_m59798_fs-id1163976933187__CertInsert.txt",
+      "sha256": "4dbeaaaf5e6d27c4ca835901b89fd57054a073a4030af2859c615c90557d35b2"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00116_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00116_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00116_exam-00001__CertInsert.txt",
+      "sha256": "a6078922ccbf93b063b791f2201292f37daafa84beeb9e39f3c4d57a3d262560"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00059_exam-00004",
+      "parent": "T4__osbooks-contemporary-mathematics_m00059_exam-00004__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00059_exam-00004__CertInsert.txt",
+      "sha256": "18cdec9b7aa786b3e2c1728eb178fb94d3b0da10ec71aa8aa82666c2b4682503"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00089_exam-00005",
+      "parent": "T4__osbooks-contemporary-mathematics_m00089_exam-00005__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00089_exam-00005__CertInsert.txt",
+      "sha256": "e0bd525d6409778533376871d103a77918ef4e881bc5cd71b781f9be6b8a9f4b"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00108_exam-00001",
+      "parent": "T4__osbooks-contemporary-mathematics_m00108_exam-00001__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00108_exam-00001__CertInsert.txt",
+      "sha256": "1f0ee4b736a596a910b2c356dbe91d60f6a1d279e16b9908060063fc9862faf9"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00011_exam-00007",
+      "parent": "T4__osbooks-contemporary-mathematics_m00011_exam-00007__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00011_exam-00007__CertInsert.txt",
+      "sha256": "e0ee0763e13121f3b80ab66845c9c056038ba30795956d167871006163c19538"
+    },
+    {
+      "source_id": "osbooks-statistics_m79626_element-84",
+      "parent": "T4__osbooks-statistics_m79626_element-84__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79626_element-84__CertInsert.txt",
+      "sha256": "33db495d13b9efaec45e596869ea562e2e5636968ba78250bd539af10fca85d2"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00113_exam-00007",
+      "parent": "T4__osbooks-contemporary-mathematics_m00113_exam-00007__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00113_exam-00007__CertInsert.txt",
+      "sha256": "24905bf26e795ae683a9268091bc42ad9c06992dcb29edab78c449c372723d98"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00014_exam-00006",
+      "parent": "T4__osbooks-contemporary-mathematics_m00014_exam-00006__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00014_exam-00006__CertInsert.txt",
+      "sha256": "637d4a4401d75e48b5cdee2378150677cdeb9e9a056c308dbdd637c25434a679"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00014_exam-00003",
+      "parent": "T4__osbooks-contemporary-mathematics_m00014_exam-00003__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00014_exam-00003__CertInsert.txt",
+      "sha256": "8221269601043b45b9f98ba8ad8d05062b098fd504b4a25a10f2d9cc0e294a69"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00099_exam-00006",
+      "parent": "T4__osbooks-contemporary-mathematics_m00099_exam-00006__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00099_exam-00006__CertInsert.txt",
+      "sha256": "4f700b5491920bdf60152eaf789dc636e73a1bf52ef5f64d3a945b75300f411d"
+    },
+    {
+      "source_id": "osbooks-statistics_m79612_fs-idm4667408",
+      "parent": "T4__osbooks-statistics_m79612_fs-idm4667408__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79612_fs-idm4667408__CertInsert.txt",
+      "sha256": "7e4223e39bb6fb6805246572e7a54ab3064460d9af06d8cfa7e11cb8880d5419"
+    },
+    {
+      "source_id": "osbooks-statistics_m79626_element-582",
+      "parent": "T4__osbooks-statistics_m79626_element-582__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-statistics_m79626_element-582__CertInsert.txt",
+      "sha256": "dd720644758ac37a38cbe701139f197a0960651f15feb172c1f499628fa020c9"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00058_exam-00004",
+      "parent": "T4__osbooks-contemporary-mathematics_m00058_exam-00004__CertInsert",
+      "status": "NOT_RUN_PARENT_UNWATERMARKABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\outputs\\T4__osbooks-contemporary-mathematics_m00058_exam-00004__CertInsert.txt",
+      "sha256": "1f7419203c5e952e25b8828c00f287ab07277ab411be900331bc139300c2b72b"
+    },
+    {
+      "source_id": "osbooks-contemporary-mathematics_m00058_exam-00013",
+      "parent": "T4__osbooks-contemporary-mathematics_m00058_exam-00013__CertInsert",
+      "status": "AVAILABLE",
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\scoring_recovery01\\outputs\\T4__osbooks-contemporary-mathematics_m00058_exam-00013__CertInsert.txt",
+      "sha256": "bb66c6ab2c0be0fe34ff3f631c179667d120242af8abfead8fad8c1a3ae726d7"
+    }
+  ],
+  "seed": 2026111203,
+  "seed_rule": "uint31(first8hex SHA256(2026111203|method|source_id)) baseline; SHA256(2026111203|source_id|method|concise70|1) compression",
+  "KGW_backend": "UNCHANGED_STEPWISE_HTTP_NO_MIGRATION",
+  "internal_equivalence": "NOT_APPLICABLE_NO_BACKEND_CHANGE",
+  "key_sha256": "5d0f4c85d432ac52b3fa137d9bff869e3c485307422dda8ef287ed2f93562a31",
+  "unigram_mask_sha256": "ec95e85d46e9085f675912d142763d33260fbc3e7876d8e6a3d47c3a6de42acc",
+  "model7b": "D:\\pycharm\\CogniGuard\\assets\\models\\qwen2.5-7b-instruct-q4_k_m-official\\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+  "model7b_parts": {
+    "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+  },
+  "server": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\insertion_feasibility_20261109_01\\run05\\v3_gpu\\runtime\\llama-server.exe",
+  "server_sha256": "00d50686815af38249d0218c91558fbd0e9093ac8c074bac86196907f4305e31",
+  "server_config": {
+    "n_gpu_layers": 20,
+    "parallel": 2,
+    "context_total": 8192,
+    "flash_attention": true
+  },
+  "generation": {
+    "model": "existing Qwen2.5-7B-Instruct Q4_K_M",
+    "max_new_tokens": 1024,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.0,
+    "source_temperature": 0.7,
+    "KGW_temperature": 0.0
+  },
+  "KGW": {
+    "gamma": 0.25,
+    "delta": 4,
+    "window": 4,
+    "PRF": "SHA256-PCG64 frozen historical implementation",
+    "threshold": "z>3; not FPR-matched to other methods"
+  },
+  "Unigram": {
+    "algorithm_name": "Unigram",
+    "gamma": 0.5,
+    "delta": 2.0,
+    "hash_key": 15485863,
+    "z_threshold": 4.0,
+    "vocab_size": 152064
+  },
+  "rewrite_prompt": "Rephrase the complete English teaching explanation below. Preserve all formulas, numerical values, units, variable bindings, assumptions, conditions, causal relations and conclusions. Do not answer a different problem. Return only the rewritten explanation.",
+  "compression_prompt": "Preserve all formulas, numerical values, units, assumptions, applicability conditions, reasoning results and scientific meaning. Remove decorative wording, redundant explanations and unnecessary transitions. Aim for 70% of the input word count. Do not solve a different problem. Return only the revised text.",
+  "parallel": "single shared model, slot0 KGW, slot1 Unigram followed by pending compression; explicit IDs, no shared histories",
+  "max_total_EVAL03_GPU_seconds": 172800,
+  "prior_GPU_seconds": 220.5630000000092,
+  "max_baseline_retries": 0,
+  "max_attack_retries": 0,
+  "per_request_timeout_seconds": 240,
+  "failed_parents_not_replaced": true
+}
