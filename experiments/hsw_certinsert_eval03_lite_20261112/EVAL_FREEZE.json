@@ -1,0 +1,81 @@
+{
+  "task": "HSW-CERTINSERT-EVAL-03-LITE",
+  "phase": "BEFORE_DATA_INVENTORY_AND_GENERATION",
+  "utc": "2026-11-12T03:35:40.956848+00:00",
+  "seed": 2026111203,
+  "task_sha256": "ae0ac7710ce33281de5c29a0ebc39401092df72ab55c02442577c8404a5ebfa4",
+  "frozen_files": {
+    "method": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval_20261111_02\\run01\\FROZEN_METHOD.json",
+      "sha256": "7cbec2d955563715d35935bed04334fbc934e8b9499dfec8c3ece81f53a13f87"
+    },
+    "parser": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\experiments\\hsw_certinsert_eval_20261111_02\\structure_adapter.py",
+      "sha256": "844d9c3095cad8615f0d4e225d311d9f23c5b77545324833524130e7ae4fec49"
+    },
+    "domain_null": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval_20261111_02\\run01\\DOMAIN_FREQUENCIES.json",
+      "sha256": "439476bfa7267f1fd7d2a5db854b892bd1ab82721913cce46e161c32c97eb100"
+    },
+    "original_generation_freeze": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval_20261111_01\\run01\\EVAL_FREEZE.json",
+      "sha256": "451b2ee137e43754c7cf9bca413cb932c2834ee01b454e2f47573ae0d02c5e2f"
+    }
+  },
+  "targets": {
+    "T4": 400,
+    "T5": 200,
+    "in_domain": 1000,
+    "general_reused": 300,
+    "costly_T4": 100
+  },
+  "generation": {
+    "model": "existing Qwen2.5-7B-Instruct Q4_K_M",
+    "max_new_tokens": 1024,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.0,
+    "source_temperature": 0.7,
+    "KGW_temperature": 0.0
+  },
+  "prompts": {
+    "T3_prompt": "Write a complete textbook-style English explanation for the following problem. Preserve the given values and conditions. Include a Solution heading, derivation, units and applicability assumptions. Return only the explanation.\n\nPROBLEM:\n",
+    "rewrite_prompt": "Rephrase the complete English teaching explanation below. Preserve all formulas, numerical values, units, variable bindings, assumptions, conditions, causal relations and conclusions. Do not answer a different problem. Return only the rewritten explanation.",
+    "attacks": {
+      "light": "Lightly rephrase the following English explanation sentence by sentence. Preserve its structure and all formulas, numerical values, units, assumptions, applicability conditions, conclusions and scientific meaning. Change only wording; do not summarize or add information. Return only the revised text.",
+      "concise": "Preserve all formulas, numerical values, units, assumptions, applicability conditions, reasoning results and scientific meaning. Remove decorative wording, redundant explanations and unnecessary transitions. Aim for {ratio}% of the input word count. Do not solve a different problem. Return only the revised text."
+    }
+  },
+  "KGW": {
+    "gamma": 0.25,
+    "delta": 4,
+    "window": 4,
+    "PRF": "SHA256-PCG64 frozen historical implementation",
+    "threshold": "z>3; not FPR-matched to other methods"
+  },
+  "model7b": "D:\\pycharm\\CogniGuard\\assets\\models\\qwen2.5-7b-instruct-q4_k_m-official\\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+  "model7b_parts": {
+    "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+  },
+  "retry": 0,
+  "paid_API": 0,
+  "max_GPU_seconds": 172800,
+  "stop_target_p": 0.001,
+  "detector_p": 0.01,
+  "random_key_stress": 1000,
+  "stress_alpha": [
+    0.001,
+    0.01,
+    0.05
+  ],
+  "source_rng": "SHA256(seed|purpose|id)",
+  "RC": "global-only key k4; random permitted token-safe positions; structure mask off; same remaining constraints",
+  "bootstrap_seed": 2026111204,
+  "bootstrap_replicates": 2000,
+  "calibration_status_inherited": "INCOMPLETE_SCORING",
+  "domain_null_adoption": "Explicit EVAL03 task revision, not retroactive EVAL02 modification",
+  "paper_plot_script": "AWAITING_ACTUAL_PATH",
+  "sample_freeze": "REQUIRED before scoring/generation"
+}
