@@ -1,0 +1,12 @@
+from common_adjusted import *
+s=(PREV/'evaluate_batch1.py').read_text(encoding='utf8')
+s=s.replace('from initialize import *','from common_adjusted import *')
+s=s.replace("z=O/'evaluation_batch1'","z=O/'T5_evaluation'")
+s=s.replace("sources=read(O/'materials02/T4.json')","sources=read(O/'T5_SOURCES.json')")
+s=s.replace("sources+read(O/'materials02/IN_DOMAIN.json')","sources+read(BASE/'materials02/T4.json')+read(BASE/'materials02/IN_DOMAIN.json')+read(O/'data/P6_BACKGROUND.json')")
+s=s.replace("'T4__'","'T5__'").replace("glob('T4__*.json')","glob('T5__*.json')")
+s=s.replace("[O,O/'scoring_recovery01']","[O/'T5_insertion']")
+s=s.replace("dataset='T4'","dataset='T5'")
+s=s.replace("O/'ocr/records'","O/'T5_ocr/records'").replace("O/'ocr/texts'","O/'T5_ocr/texts'")
+s=s.replace("O/'ocr/FINISHED.json'","O/'T5_ocr/FINISHED.json'").replace("O/'scoring_recovery01/INSERT_T4_all_RESULT.json'","O/'T5_insertion/INSERT_T5_all_RESULT.json'")
+(E/'evaluate_t5.py').write_text(s,encoding='utf8')
