@@ -1,0 +1,46 @@
+{
+  "before_generation": true,
+  "batch1": {
+    "T4_target": 400,
+    "actual_if_short": true,
+    "methods": [
+      "CertInsert",
+      "RC",
+      "Fingerprint"
+    ],
+    "attacks": [
+      "none",
+      "ocr",
+      "crop_first100",
+      "crop_middle100"
+    ],
+    "in_domain_target": 1000,
+    "stress_keys": 1000,
+    "no_7B_generation": true,
+    "target_hours": [
+      3,
+      5
+    ]
+  },
+  "batch2": {
+    "paired_sources": 60,
+    "baseline_methods": [
+      "KGW",
+      "Unigram"
+    ],
+    "compression_methods": [
+      "CertInsert",
+      "KGW",
+      "Fingerprint"
+    ],
+    "compression_target": 0.7,
+    "internal_KGW_optional": true,
+    "internal_requires_10_source_equivalence": true
+  },
+  "batch3": {
+    "optional": true,
+    "T5": 100
+  },
+  "sources": "Additional licensed OpenStax STEM allowed, chapter-disjoint and deduplicated; actual shortages accepted",
+  "old_protocol_retained": true
+}

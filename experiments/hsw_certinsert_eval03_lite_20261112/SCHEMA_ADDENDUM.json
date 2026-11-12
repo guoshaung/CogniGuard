@@ -1,0 +1,6 @@
+{
+  "schema_sha256": "b14f34492797c268451aa16b2cef4853710597fbcd54db0919769a7ce77b38ac",
+  "supersedes": "paper make_figures.py dependency",
+  "counts": "actual evaluated denominator; unrun=null; planned denominator separately reported",
+  "no_method_change": true
+}
