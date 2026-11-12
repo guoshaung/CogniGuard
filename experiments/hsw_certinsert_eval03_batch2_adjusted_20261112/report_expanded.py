@@ -22,6 +22,8 @@ def main():
     raw=[read(p) for p in (O/'P1_expanded/scores').glob('*.json')]
     result=read(O/'P1_expanded/RESULT.json');obs=read(O/'data_expanded/OBSERVATIONS.json')
     fc=read(O/'delivery_P3_P4/figure_counts.json')
+    fc['meta']['run_id']='EVAL03_ADJUSTED_AVAILABLE_STAGES_COMPLETE'
+    human=read(O/'P4/STATUS.json');fc['human_eval_package']={k:human[k] for k in ['source_count','versions','reviewers','status']}
     fc['attack_phases']={'initial_T4_N10':read(O/'P1/RESULT.json')['counts'],'expanded_T4_T5':result['counts']}
     fc['meta']['attack_primary_phase']='expanded_T4_T5; initial phase retained separately, not pooled'
     fc['attack_observation_availability']=obs

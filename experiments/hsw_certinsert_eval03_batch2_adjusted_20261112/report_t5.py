@@ -11,6 +11,7 @@ def main():
    cov.append(dict(kind='coverage',id=ident,source_id=x['id'],dataset='T5',method=m,status=r.get('status','NOT_RUN_SOURCE_OR_PREPARATION_FAILURE'),watermarkable=ok,explanation_words=ss.get(x['id'],{}).get('explanation_words'),inserted_entries=r.get('inserted_entries'),seconds=r.get('seconds'),zero_insertion_positive=ok and r.get('inserted_entries')==0))
  for r in rows:r['conditional_eligible']=r['method']=='Fingerprint' or 'T5__'+r['source_id']+'__'+r['method'] in success
  fc=read(O/'delivery_P6/figure_counts.json');fc['meta'].update(run_id='EVAL03_ADJUSTED_P3_P4',actual_T5_sources=len(sources),planned_T5_sources=len(planned),T5_source_quality='FORMAT_ONLY_NOT_GOLD',paired_actual=None,superseded_pair_plan=60,P5_status='NOT_STARTED_OPTIONAL')
+ fc['meta']['inherited_batch01_code_commit']=fc['meta'].get('commit');fc['meta']['commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=W,text=True).strip()
  def cnt(rr,key):return dict(k=sum(x.get(key) is True for x in rr),n=len(rr)) if rr else None
  def band(n):return '<100' if n<100 else '100-200' if n<=200 else '200-400' if n<=400 else '>400'
  fc['coverage_by_length_by_method']={'T5':{}}
@@ -30,6 +31,7 @@ def main():
  fc['T5_predicted_target_before_invariant_gate']={m:dict(k=sum(r['method']==m and r['status']=='PREDICTED_TARGET_REACHED' for r in ins),n=len(planned)) for m in ['CertInsert','RC']}
  fc['T5_invariant_failures']=[dict(id=r['id'],method=r['method'],certificate=r.get('certificate'),anchor_invariant=r.get('anchor_invariant'),selection_invariant=r.get('selection_invariant'),numeric_formula_intact=r.get('numeric_formula_intact')) for r in rows if r['method']!='Fingerprint' and r['attack']=='none' and not all(r.get(k) is True for k in ['certificate','anchor_invariant','selection_invariant'])]
  orig=[r for r in rows if r['method']=='Fingerprint' and r['attack']=='none' and r.get('p') is not None];fc['T5_unmarked_CertInsert_detector']=dict(k=sum(r['p']<.01 for r in orig),n=len(orig));fc['T5_zero_insertion_success']={m:cnt([r for r in cov if r['method']==m and r['watermarkable']],'zero_insertion_positive') for m in ['CertInsert','RC']}
+ fc['T5_unmarked_controls']=read(O/'T5_UNMARKED_CONTROLS.json')['counts']
  gen=read(O/'P3/RESULT.json');fc['T5_generation']=dict(planned=gen['planned'],attempted=gen['attempted'],completed=sum(r['status']=='COMPLETED' for r in gen['rows']),natural_eos=sum(r.get('stop_type')=='eos' for r in gen['rows']),token_limited=sum(r.get('stop_type')=='limit' for r in gen['rows']),failed=sum(r['status']=='FAILED' for r in gen['rows']))
  usage=[]
  for root in ['P3','T5_insertion']:
@@ -45,6 +47,7 @@ def main():
  for b in ['<100','100-200','200-400','>400']:text.append('|'+b+'|'+fmt(fc['coverage_by_length_by_method']['T5']['CertInsert'][b])+'|'+fmt(fc['coverage_by_length_by_method']['T5']['RC'][b])+'|')
  human=read(O/'P4/STATUS.json');text+=['',f"P4：{human['source_count']}个共同成功源，{human['versions']}个版本，已导出两名审核者的独立盲审页面。未收到评分，自然度/新增关系/知识错误均为null，一致性尚不能计算。",'', '知识检查是机械PROVISIONAL指标，不是独立人工金标；T5原文由Qwen根据题干生成，只作格式检查，没有静默修补。','本阶段P5可选基线尚未运行；历史26个中断范围槽另有归档，不冒充已完成配对基线。','逐个输出与OCR失败/不可计分状态见原始记录及per_item.csv。','', '决策：ANALYZE。结果不自动授权修改冻结方法或扩样。']
  (d/'RESULT.md').write_text('\n'.join(text),encoding='utf8');put(d/'P4_STATUS.json',human)
+ with (d/'RESULT.md').open('a',encoding='utf8') as f:f.write('\n未标记T5原文的固定阈值诊断：'+json.dumps(fc['T5_unmarked_controls'])+'。未据此重新校准，与500篇教材背景分开报告。\n')
  # Independent cross-check from serialized CSV, not the in-memory count helper.
  parsed=list(csv.DictReader((d/'per_item.csv').open(encoding='utf-8-sig')));checks=[]
  for m in ['CertInsert','RC']:

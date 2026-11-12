@@ -26,6 +26,7 @@ def main():
     if (O/'REPORT_ENGINEERING_LOG.jsonl').exists():copy(O/'REPORT_ENGINEERING_LOG.jsonl','REPORT_ENGINEERING_LOG.jsonl')
     if stage=='P3-P4':copy(O/'T5_SOURCE_LINKAGE_VALIDATION.json','T5_SOURCE_LINKAGE_VALIDATION.json')
     if stage=='P3-P4':copy(O/'RC_ANCHOR_CHANGE_DIAGNOSTIC.json','RC_ANCHOR_CHANGE_DIAGNOSTIC.json')
+    if stage=='P3-P4':copy(O/'T5_UNMARKED_CONTROLS.json','T5_UNMARKED_CONTROLS.json')
     for p in sorted(E.iterdir()):
         if p.is_file() and p.suffix in ['.py','.md','.json']:copy(p,'code_and_protocol/'+p.name)
     copy(O/'publication_P1N10_P2/LICENSES.md','LICENSES.md')
