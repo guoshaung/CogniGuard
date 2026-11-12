@@ -11,3 +11,5 @@
 - Insertion runner first admission failed before START/model load because path hashing received a string. Corrected to Path; no sample was attempted.
 
 - Shared path-hash adapter also rejected model path strings before model load. All affected CertInsert records have zero scoring sequences and zero insertions. Separate recovery01 resumes only those unstarted scoring slots; all original failures and RC outputs are retained. No completed output is reselected or retried.
+
+- User requested CPU parallelization: same render and OCR parameters, four independent CPU processes × two threads; exclusive claims prevent duplicate task execution. Two prior outputs/image sets byte-identical in engineering regression. Serial process stopped after commit; uncommitted task/images logged in parallel01/MIGRATION.json and preserved. Only uncommitted OCR may be recomputed, not text generation.
