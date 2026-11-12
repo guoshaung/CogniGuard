@@ -8,15 +8,14 @@ def main():
  for n in ['records','outputs']:(d/n).mkdir()
  f=read(E1/'EVAL_FREEZE.json');f['T3_prompt']=read(PREV/'EVAL_FREEZE.json')['prompts']['T3_prompt'];put(d/'EVAL_FREEZE.json',f)
  assert sha(Path(f['server']))==f['server_sha256']
- for p in read(PREV/'EVAL_FREEZE.json')['model7b_parts']:
-  path=p.get('path') if isinstance(p,dict) else p
-  if isinstance(p,dict) and path:assert sha(Path(path))==p['sha256']
+ for name,digest in read(PREV/'EVAL_FREEZE.json')['model7b_parts'].items():
+  assert sha(Path(f['model7b']).parent/name)==digest
  rt.O=d
  def log(name,row):
   with (d/name).open('a',encoding='utf8') as fp:fp.write(json.dumps(row)+'\n')
  rt.failure=lambda ident,reason:log('FAILURES.jsonl',dict(id=ident,error=reason,unix=time.time()))
  rt.checkpoint=lambda stage,**kw:log('CHECKPOINTS.jsonl',dict(stage=stage,**kw))
- rows=[];server=None;tasks=read(O/'data/T5_QUESTIONS.json');put(d/'TASK_FREEZE.json',dict(inputs_sha256=sha(O/'data/T5_QUESTIONS.json'),n=len(tasks),source_only=True,temperature=.7,max_new_tokens=1024,seed_rule='SHA256(2026111205|T5|id) first32bit &0x7fffffff',no_retry=True,stage_seconds=7200))
+ rows=[];server=None;tasks=read(O/'data/T5_QUESTIONS.json');put(d/'TASK_FREEZE.json',dict(inputs_sha256=sha(O/'data/T5_QUESTIONS.json'),n=len(tasks),source_only=True,temperature=.7,max_new_tokens=1024,seed_rule='SHA256(2026111205|T5_generation|id) first32bit &0x7fffffff',no_retry=True,stage_seconds=7200))
  try:
   server=rt.Server('T5',7200)
   def run(pair):
@@ -31,3 +30,4 @@ def main():
   if server:server.stop()
   put(d/'RESULT.json',dict(planned=len(tasks),attempted=len(rows),rows=rows,not_run=len(tasks)-len(rows),quality='FORMAT_ONLY_NO_REPAIR',own_server_stopped=True,paid_API=0))
 if __name__=='__main__':main()
+
