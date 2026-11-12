@@ -1,0 +1,830 @@
+{
+  "authority": "User batch revision permits other CC BY4.0 OpenStax STEM",
+  "source": {
+    "repo": "osbooks-statistics",
+    "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+    "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\new_collections\\osbooks-statistics_statistics.collection.xml",
+    "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/collections/statistics.collection.xml",
+    "sha256": "bcf89d0ff4f2ce4c752cc001bc7230ff54377d0b338291a2d8dfb86d6cd49a3a",
+    "licenses": [
+      "http://creativecommons.org/licenses/by/4.0/"
+    ],
+    "modules": [
+      "m79619",
+      "m79592",
+      "m79593",
+      "m79594",
+      "m79595",
+      "m79596",
+      "m79597",
+      "m79598",
+      "m79599",
+      "m79600",
+      "m79601",
+      "m79602",
+      "m79603",
+      "m79604",
+      "m79605",
+      "m79606",
+      "m79608",
+      "m79609",
+      "m79611",
+      "m79612",
+      "m79614",
+      "m79616",
+      "m79617",
+      "m79618",
+      "m79620",
+      "m79621",
+      "m79623",
+      "m79624",
+      "m79625",
+      "m79626",
+      "m79627",
+      "m79628",
+      "m79629",
+      "m79631",
+      "m79632",
+      "m79633",
+      "m79635",
+      "m79637",
+      "m79640",
+      "m79641",
+      "m79643",
+      "m79644",
+      "m79645",
+      "m79647",
+      "m79648",
+      "m79649",
+      "m79650",
+      "m79651",
+      "m79652",
+      "m79653",
+      "m79654",
+      "m79655",
+      "m79656",
+      "m79657",
+      "m79658",
+      "m79659",
+      "m79660",
+      "m79661",
+      "m79662",
+      "m79663",
+      "m79664",
+      "m79665",
+      "m79666",
+      "m79667",
+      "m79668",
+      "m79669",
+      "m79670",
+      "m79672",
+      "m79671",
+      "m79673",
+      "m79674",
+      "m79675",
+      "m79676",
+      "m79678",
+      "m79679",
+      "m79682",
+      "m79683",
+      "m79685",
+      "m79700",
+      "m79686",
+      "m79689",
+      "m79691",
+      "m79692",
+      "m79694",
+      "m79695",
+      "m79697",
+      "m79699",
+      "m79701",
+      "m79703",
+      "m79704",
+      "m79705",
+      "m79706",
+      "m79708",
+      "m79709",
+      "m79711",
+      "m79712",
+      "m79713",
+      "m79714",
+      "m79715",
+      "m79717",
+      "m79718"
+    ]
+  },
+  "requests": [
+    {
+      "module": "m79592",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79592/index.cnxml"
+    },
+    {
+      "module": "m79593",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79593/index.cnxml"
+    },
+    {
+      "module": "m79594",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79594/index.cnxml"
+    },
+    {
+      "module": "m79595",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79595/index.cnxml"
+    },
+    {
+      "module": "m79596",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79596/index.cnxml"
+    },
+    {
+      "module": "m79597",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79597/index.cnxml"
+    },
+    {
+      "module": "m79598",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79598/index.cnxml"
+    },
+    {
+      "module": "m79599",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79599/index.cnxml"
+    },
+    {
+      "module": "m79600",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79600/index.cnxml"
+    },
+    {
+      "module": "m79601",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79601/index.cnxml"
+    },
+    {
+      "module": "m79602",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79602/index.cnxml"
+    },
+    {
+      "module": "m79603",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79603/index.cnxml"
+    },
+    {
+      "module": "m79604",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79604/index.cnxml"
+    },
+    {
+      "module": "m79605",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79605/index.cnxml"
+    },
+    {
+      "module": "m79606",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79606/index.cnxml"
+    },
+    {
+      "module": "m79608",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79608/index.cnxml"
+    },
+    {
+      "module": "m79609",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79609/index.cnxml"
+    },
+    {
+      "module": "m79611",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79611/index.cnxml"
+    },
+    {
+      "module": "m79612",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79612/index.cnxml"
+    },
+    {
+      "module": "m79614",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79614/index.cnxml"
+    },
+    {
+      "module": "m79616",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79616/index.cnxml"
+    },
+    {
+      "module": "m79617",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79617/index.cnxml"
+    },
+    {
+      "module": "m79618",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79618/index.cnxml"
+    },
+    {
+      "module": "m79619",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79619/index.cnxml"
+    },
+    {
+      "module": "m79620",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79620/index.cnxml"
+    },
+    {
+      "module": "m79621",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79621/index.cnxml"
+    },
+    {
+      "module": "m79623",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79623/index.cnxml"
+    },
+    {
+      "module": "m79624",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79624/index.cnxml"
+    },
+    {
+      "module": "m79625",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79625/index.cnxml"
+    },
+    {
+      "module": "m79626",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79626/index.cnxml"
+    },
+    {
+      "module": "m79627",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79627/index.cnxml"
+    },
+    {
+      "module": "m79628",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79628/index.cnxml"
+    },
+    {
+      "module": "m79629",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79629/index.cnxml"
+    },
+    {
+      "module": "m79631",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79631/index.cnxml"
+    },
+    {
+      "module": "m79632",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79632/index.cnxml"
+    },
+    {
+      "module": "m79633",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79633/index.cnxml"
+    },
+    {
+      "module": "m79635",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79635/index.cnxml"
+    },
+    {
+      "module": "m79637",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79637/index.cnxml"
+    },
+    {
+      "module": "m79640",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79640/index.cnxml"
+    },
+    {
+      "module": "m79641",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79641/index.cnxml"
+    },
+    {
+      "module": "m79643",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79643/index.cnxml"
+    },
+    {
+      "module": "m79644",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79644/index.cnxml"
+    },
+    {
+      "module": "m79645",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79645/index.cnxml"
+    },
+    {
+      "module": "m79647",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79647/index.cnxml"
+    },
+    {
+      "module": "m79648",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79648/index.cnxml"
+    },
+    {
+      "module": "m79649",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79649/index.cnxml"
+    },
+    {
+      "module": "m79650",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79650/index.cnxml"
+    },
+    {
+      "module": "m79651",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79651/index.cnxml"
+    },
+    {
+      "module": "m79652",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79652/index.cnxml"
+    },
+    {
+      "module": "m79653",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79653/index.cnxml"
+    },
+    {
+      "module": "m79654",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79654/index.cnxml"
+    },
+    {
+      "module": "m79655",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79655/index.cnxml"
+    },
+    {
+      "module": "m79656",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79656/index.cnxml"
+    },
+    {
+      "module": "m79657",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79657/index.cnxml"
+    },
+    {
+      "module": "m79658",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79658/index.cnxml"
+    },
+    {
+      "module": "m79659",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79659/index.cnxml"
+    },
+    {
+      "module": "m79660",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79660/index.cnxml"
+    },
+    {
+      "module": "m79661",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79661/index.cnxml"
+    },
+    {
+      "module": "m79662",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79662/index.cnxml"
+    },
+    {
+      "module": "m79663",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79663/index.cnxml"
+    },
+    {
+      "module": "m79664",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79664/index.cnxml"
+    },
+    {
+      "module": "m79665",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79665/index.cnxml"
+    },
+    {
+      "module": "m79666",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79666/index.cnxml"
+    },
+    {
+      "module": "m79667",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79667/index.cnxml"
+    },
+    {
+      "module": "m79668",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79668/index.cnxml"
+    },
+    {
+      "module": "m79669",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79669/index.cnxml"
+    },
+    {
+      "module": "m79670",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79670/index.cnxml"
+    },
+    {
+      "module": "m79671",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79671/index.cnxml"
+    },
+    {
+      "module": "m79672",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79672/index.cnxml"
+    },
+    {
+      "module": "m79673",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79673/index.cnxml"
+    },
+    {
+      "module": "m79674",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79674/index.cnxml"
+    },
+    {
+      "module": "m79675",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79675/index.cnxml"
+    },
+    {
+      "module": "m79676",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79676/index.cnxml"
+    },
+    {
+      "module": "m79678",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79678/index.cnxml"
+    },
+    {
+      "module": "m79679",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79679/index.cnxml"
+    },
+    {
+      "module": "m79682",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79682/index.cnxml"
+    },
+    {
+      "module": "m79683",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79683/index.cnxml"
+    },
+    {
+      "module": "m79685",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79685/index.cnxml"
+    },
+    {
+      "module": "m79686",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79686/index.cnxml"
+    },
+    {
+      "module": "m79689",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79689/index.cnxml"
+    },
+    {
+      "module": "m79691",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79691/index.cnxml"
+    },
+    {
+      "module": "m79692",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79692/index.cnxml"
+    },
+    {
+      "module": "m79694",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79694/index.cnxml"
+    },
+    {
+      "module": "m79695",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79695/index.cnxml"
+    },
+    {
+      "module": "m79697",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79697/index.cnxml"
+    },
+    {
+      "module": "m79699",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79699/index.cnxml"
+    },
+    {
+      "module": "m79700",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79700/index.cnxml"
+    },
+    {
+      "module": "m79701",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79701/index.cnxml"
+    },
+    {
+      "module": "m79703",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79703/index.cnxml"
+    },
+    {
+      "module": "m79704",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79704/index.cnxml"
+    },
+    {
+      "module": "m79705",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79705/index.cnxml"
+    },
+    {
+      "module": "m79706",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79706/index.cnxml"
+    },
+    {
+      "module": "m79708",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79708/index.cnxml"
+    },
+    {
+      "module": "m79709",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79709/index.cnxml"
+    },
+    {
+      "module": "m79711",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79711/index.cnxml"
+    },
+    {
+      "module": "m79712",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79712/index.cnxml"
+    },
+    {
+      "module": "m79713",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79713/index.cnxml"
+    },
+    {
+      "module": "m79714",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79714/index.cnxml"
+    },
+    {
+      "module": "m79715",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79715/index.cnxml"
+    },
+    {
+      "module": "m79717",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79717/index.cnxml"
+    },
+    {
+      "module": "m79718",
+      "subject": "statistics",
+      "repo": "osbooks-statistics",
+      "revision": "7dea80ae2800386d470b11f6528962f9c4992d15",
+      "url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79718/index.cnxml"
+    }
+  ],
+  "retries": 0,
+  "workers": 4,
+  "timeout_seconds": 30,
+  "only_public_source_files": true,
+  "watermark_parameters_unchanged": true
+}
