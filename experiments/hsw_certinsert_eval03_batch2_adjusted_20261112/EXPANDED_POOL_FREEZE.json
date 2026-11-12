@@ -1,0 +1,9 @@
+{
+  "public_sha256": "483cd6a6094bea45d61dfebc7ec498769c0cd33244ba5037b335480276ba8c2f",
+  "observations_sha256": "ccb60da728f2490dc371d2d7f94cc0d8e35195823f5c456319440278ec36d6f1",
+  "counts": {
+    "CertInsert": 149,
+    "RC": 65
+  },
+  "protocol_sha256": "f6d67b70f2839d87c047c7d6d988836beafe5bb5a3e3e0a4857902d54d652bf6"
+}
