@@ -1,0 +1,11 @@
+{
+  "planned": 200,
+  "attempted": 200,
+  "actual_sources": 200,
+  "missing": [],
+  "texts_sha256": "01b193827e68e72b5877951e05da1550765c19e1d06d347cc6d20af265b63569",
+  "plans_sha256": "8d70d903b389add28aab65c6265625a28f532f6e9d71b70b8350679c7e288c65",
+  "capacity_sha256": "99e7020c85a4a56b1c1c0ea690b7688b0dcc74dbc3783de7ccd3acc711fa206e",
+  "format_only": true,
+  "source_quality_not_gold": true
+}
