@@ -7,3 +7,7 @@
 - Numeric screen alarms reviewed against complete source context; false equations explicitly used in questions or contradiction proofs are not mislabeled source defects. Mechanical screen is not human gold.
 - 1000 random diagnostic keys are detection-only, not new generations or independent text samples.
 - Preparation first arithmetic invocation failed on Windows default GBK decoding; rerun with UTF-8 before any model execution. Original evidence unchanged.
+
+- Insertion runner first admission failed before START/model load because path hashing received a string. Corrected to Path; no sample was attempted.
+
+- Shared path-hash adapter also rejected model path strings before model load. All affected CertInsert records have zero scoring sequences and zero insertions. Separate recovery01 resumes only those unstarted scoring slots; all original failures and RC outputs are retained. No completed output is reselected or retried.

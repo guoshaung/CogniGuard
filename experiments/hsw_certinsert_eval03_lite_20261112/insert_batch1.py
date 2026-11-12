@@ -24,7 +24,7 @@ def main():
  label='INSERT_'+stage+'_'+mode;assert not (O/'records'/f'{label}_START.json').exists()
  ledger=O/'GPU_USAGE.jsonl';prior_insert=sum(json.loads(l)['seconds'] for l in ledger.read_text().splitlines() if json.loads(l)['stage'].startswith('INSERT_')) if ledger.exists() else 0
  limit=max(0,min(7200-prior_insert,21600-spent()-10))
- put(O/'records'/f'{label}_START.json',dict(unix=time.time(),cap_seconds=limit,code_sha256=sha(__file__),scaling='FROZEN_DEVELOPMENT_SD',sd=sd))
+ put(O/'records'/f'{label}_START.json',dict(unix=time.time(),cap_seconds=limit,code_sha256=sha(Path(__file__)),scaling='FROZEN_DEVELOPMENT_SD',sd=sd))
  start=time.monotonic();sc=None;rows=[];cache={};loader_error=None
  # Primary methods before ablations; seeded order inside each arm is fixed without outcomes.
  plans.sort(key=lambda p:(p['method']!='CertInsert',p['set'],hashlib.sha256(('2026111203|insert|'+p['id']).encode()).hexdigest()))
