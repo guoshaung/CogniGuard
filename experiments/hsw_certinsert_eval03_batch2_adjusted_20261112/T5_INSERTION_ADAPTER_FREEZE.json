@@ -1,0 +1,13 @@
+{
+  "parent_sha256": "67b84d91dd2a599a0d97894c1d58af30faa235350d18450a7460ed3e7a5e25c3",
+  "adapted_sha256": "0700ccda0ac8ab33bc320aa82f133a2e9575e05e0e08abf504ccd78aabd97e66",
+  "changes": [
+    "input/output path isolation",
+    "sha supports str path"
+  ],
+  "algorithm_parameters_changed": false,
+  "scoring_per_source_seconds": 300,
+  "scoring_per_source_tokens": 250000,
+  "scoring_context_max": 1024,
+  "stage_seconds": 7200
+}
