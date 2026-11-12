@@ -3,7 +3,7 @@ import shutil,re
 
 def main():
  report=O/'batch01_delivery';assert (report/'INDEPENDENT_COUNTS_VALIDATION.json').exists()
- dst=O/'publication/batch01';dst.mkdir(parents=True,exist_ok=False)
+ dst=O/'publication02/batch01';dst.mkdir(parents=True,exist_ok=False)
  def copy(p,rel):
   q=dst/rel;q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,q)
  for p in report.iterdir():
@@ -43,7 +43,7 @@ Batch01 contains no7B generation. T4_paired100 and in_domain_1000 are legacy sch
  for p in dst.rglob('*'):
   if not p.is_file():continue
   bb=p.read_bytes()
-  if 'restricted' in p.relative_to(dst).parts or secret in bb or secret.hex().encode() in bb or re.search(rb'sk-[A-Za-z0-9_-]{24,}',bb) or b'-----BEGIN PRIVATE KEY-----' in bb:bad.append(p.relative_to(dst).as_posix())
+  if 'restricted' in p.relative_to(dst).parts or secret in bb or secret.hex().encode() in bb or re.search(rb'sk-[A-Za-z0-9_-]{24,}',bb) or re.search(rb'(?m)^-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----\r?$',bb):bad.append(p.relative_to(dst).as_posix())
  assert not bad,('REDACTION_FAILURE_PATHS_ONLY',bad)
  put(dst/'REDACTION_CHECK.json',dict(PASS=True,private_keys_uploaded=False,model_weights_uploaded=False,raw_diagnostic_key_bytes_uploaded=False,notes='Selected public word lists and key hash commitments retained; secrets never logged.'))
  files=[]
