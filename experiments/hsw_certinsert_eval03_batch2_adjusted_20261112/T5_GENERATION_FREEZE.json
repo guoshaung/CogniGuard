@@ -1,0 +1,26 @@
+{
+  "input_sha256": "91ff1895bee95d2dba4f1f810c435dfb0c43f6e4c3a65fc7b73196dd4574e0cb",
+  "n": 200,
+  "prompt": "Write a complete textbook-style English explanation for the following problem. Preserve the given values and conditions. Include a Solution heading, derivation, units and applicability assumptions. Return only the explanation.\n\nPROBLEM:\n",
+  "generation": {
+    "model": "existing Qwen2.5-7B-Instruct Q4_K_M",
+    "max_new_tokens": 1024,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.0,
+    "source_temperature": 0.7,
+    "KGW_temperature": 0.0
+  },
+  "seed_rule": "SHA256(2026111205|T5_generation|id) first32bit &0x7fffffff",
+  "model": "D:\\pycharm\\CogniGuard\\assets\\models\\qwen2.5-7b-instruct-q4_k_m-official\\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+  "parts": {
+    "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+  },
+  "two_slots_one_model": true,
+  "no_retry": true,
+  "stage_seconds": 7200,
+  "code_sha256": "c4161dbf58e7675043ef7ae05a6a3abbb3738ded316a3dacaae304a6356eb36a",
+  "parser_sha256": "844d9c3095cad8615f0d4e225d311d9f23c5b77545324833524130e7ae4fec49"
+}

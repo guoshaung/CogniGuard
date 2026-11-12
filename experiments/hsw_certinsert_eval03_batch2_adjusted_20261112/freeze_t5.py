@@ -1,0 +1,2 @@
+from common_adjusted import *
+f=read(PREV/'EVAL_FREEZE.json');put(E/'T5_GENERATION_FREEZE.json',dict(input_sha256=sha(O/'data/T5_QUESTIONS.json'),n=200,prompt=f['prompts']['T3_prompt'],generation=f['generation'],seed_rule='SHA256(2026111205|T5_generation|id) first32bit &0x7fffffff',model=f['model7b'],parts=f['model7b_parts'],two_slots_one_model=True,no_retry=True,stage_seconds=7200,code_sha256=sha(E/'generate_t5.py'),parser_sha256=sha(W/'experiments/hsw_certinsert_eval_20261111_02/structure_adapter.py')))
