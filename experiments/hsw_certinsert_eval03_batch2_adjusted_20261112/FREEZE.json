@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-12T04:57:13.207496+00:00",
+  "task_sha256": "69c5ffcc8d05d1ed71478c7d8f66137ca0935e6339d69f699d910ca68729342b",
+  "protocol_sha256": "93bf100ee7dd6f47a01814a503fcac775be5ced58d65126f50fcc3dd54423144",
+  "method_freeze_sha256": "a50f08df466c35a1c07177e14f05305389299bea3288158fb62c31ed0180c001",
+  "seed": 2026111205,
+  "bootstrap_seed": 2026111206,
+  "bootstrap_replicates": 2000,
+  "N": [
+    10,
+    50,
+    200
+  ],
+  "m": [
+    4,
+    8
+  ],
+  "threshold": 0.01,
+  "method_changes": false,
+  "paid_API": 0,
+  "prior_attempts_preserved": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval03_lite_20261112\\run01\\batch02",
+  "GPU_seconds_remaining": 171987.9859640236
+}
