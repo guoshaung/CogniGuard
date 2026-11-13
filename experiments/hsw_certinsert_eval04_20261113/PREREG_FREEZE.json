@@ -1,0 +1,8 @@
+{
+  "stage": "PRE_SCORE_PREREGISTRATION_NOT_STAGE0_COMPLETION",
+  "task_sha256": "3ef5086f0830da5faab198da9839d79aebeb0fe65638c8696e04a8dd7cb046a4",
+  "prereg_sha256": "cf825445a6731287d3f4b20f02f1d9e1e2d3c17fcc9878eaf109aa01e02c5ca9",
+  "R_scores": 0,
+  "T6_content_reads": 0,
+  "paid_API": 0
+}
