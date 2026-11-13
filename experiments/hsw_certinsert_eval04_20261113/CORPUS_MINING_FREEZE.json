@@ -1,0 +1,17 @@
+{
+  "stage": "0_CORPUS_MINING_COMPLETE_NOT_STAGE0_COMPLETE",
+  "files": {
+    "R_CORPUS.json": "612af82f42d24f63844c66025229407e7d2f1c1f40db55a9d48c0efd49635387",
+    "RAG_CORPUS_MANIFEST.json": "3964079af608ccb40cabfecc76164bd375a1e0e40f05858a0a3a11dccc1b6d9a",
+    "MINED_CANDIDATES.json": "68679d5ecd41e8eabb0b213fc7793167d7a02ad153e001f1fec77ed6817a41da",
+    "ATTESTED_CANDIDATES.json": "b2814f7b834e51d356656f2be6b36ddb6fe925a66c57cb8ae834c9a52f75b9ab",
+    "NLI_SENTENCE_POOL.json": "3e6448ce3f48bc31e419f35c3ceaeef341772f8d49551493e0f6de763e38368b",
+    "FUNNEL.json": "3c744a660990bfee107d68b73f1e811d7128a46c37280cfef06a0132f35e2cd8"
+  },
+  "documents": 4461,
+  "build": 3568,
+  "calib": 893,
+  "mined": 1592,
+  "attested": 47,
+  "T6_content_reads": 0
+}
