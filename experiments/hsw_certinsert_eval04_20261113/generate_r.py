@@ -9,7 +9,7 @@ from pathlib import Path
 W=Path(__file__).resolve().parents[2]
 E=Path(__file__).resolve().parent
 O=W/'var/results/hsw-st/certinsert_eval04_20261113/stage0'
-D=O/'generation'
+D=O/'generation01'
 
 
 def read(p):
@@ -72,7 +72,8 @@ def run():
         tasks=read(E/'R_GENERATION_INPUTS.json')
         def generate(pair):
             index,source=pair
-            row=server.complete('R__'+source['id'],f['T3_prompt'],source['text'],
+            ident='R__'+hashlib.sha256(source['id'].encode()).hexdigest()[:24]
+            row=server.complete(ident,f['T3_prompt'],source['text'],
                 int(rank('R_generation',source['id'])[:8],16)&0x7fffffff,dict(id_slot=index%2))
             row['source_id']=source['id']
             return row
