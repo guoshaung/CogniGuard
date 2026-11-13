@@ -1,0 +1,28 @@
+{
+  "n": 300,
+  "inputs_sha256": "f464e9a448ab4aa17a4dd259db420ebf340caf294f1c8fceb5800ddda5d4d8cf",
+  "model": "D:\\pycharm\\CogniGuard\\assets\\models\\qwen2.5-7b-instruct-q4_k_m-official\\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+  "parts": {
+    "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+    "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+  },
+  "server": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\insertion_feasibility_20261109_01\\run05\\v3_gpu\\runtime\\llama-server.exe",
+  "server_sha256": "00d50686815af38249d0218c91558fbd0e9093ac8c074bac86196907f4305e31",
+  "prompt": "Write a complete textbook-style English explanation for the following problem. Preserve the given values and conditions. Include a Solution heading, derivation, units and applicability assumptions. Return only the explanation.\n\nPROBLEM:\n",
+  "generation": {
+    "model": "existing Qwen2.5-7B-Instruct Q4_K_M",
+    "max_new_tokens": 1024,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.0,
+    "source_temperature": 0.7,
+    "KGW_temperature": 0.0
+  },
+  "seed_rule": "SHA256(EVAL04v3|R_generation|id) first32bits & 0x7fffffff",
+  "slot_count": 2,
+  "stage_seconds": 21600,
+  "no_retry": true,
+  "format": "same EVAL03 parser; no repair",
+  "corpus_split": "SHA256(EVAL04v3|R_split|document_id), sorted first floor(.8*N) build; rest calib after all generation succeeds"
+}
