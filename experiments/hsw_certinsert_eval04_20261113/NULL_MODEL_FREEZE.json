@@ -1,0 +1,16 @@
+{
+  "stage": "PRE_SCORE_NULL_MODEL_ADDENDUM",
+  "authority": "Explicit user reply 2026-11-13",
+  "formula": "q_j(y)=1-(1-p_j)^n(y)",
+  "sentence_probability": "(hits+1)/(eligible_sentences+2)",
+  "unit": "eligible explanation sentences, excluding headings and questions",
+  "statistic": "one Bernoulli per distinct selected word; Poisson-binomial upper tail",
+  "same_formula_for_embedding_prediction_and_detection": true,
+  "files": {
+    "NULL_MODEL_ADDENDUM.md": "75b4895b785ef1f39e0bc4940b78cdb02f7e358159ad66e380d549e1b6c0c91a",
+    "null_model.py": "830c1fd3a4e507ce24887e939fe310a2b20297db8d6153b2c0081e95fa939d2a",
+    "test_null_model.py": "155e03fd73d704130f522ff93b4fbe598307b442ebd7ef68990e622369ff66f8"
+  },
+  "validation": "4 analytic/exhaustive tests passed; no corpus scoring",
+  "original_prereg_rules_modified": false
+}
