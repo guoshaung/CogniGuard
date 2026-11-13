@@ -1,0 +1,36 @@
+{
+  "stage": "0_PREFLIGHT_ONLY",
+  "complete": false,
+  "T6_content_reads": 0,
+  "metadata": {
+    "CHAPTER_ALLOCATION.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\CHAPTER_ALLOCATION.json",
+      "sha256": "ddb0621a2859551caf7d0ec327bed0e80262e702d467c2d75036a48f4dc1e9a1"
+    },
+    "PREFLIGHT.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\PREFLIGHT.json",
+      "sha256": "7fb924f963606edd303c228748e39657e24ea54988f4be4f9923dd85c6f3af3e"
+    },
+    "R_FETCH_RESULT.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\R_FETCH_RESULT.json",
+      "sha256": "decabfe7c3b273231ce96dea39754bbd4cc876ac07f7312288570aa63d478c90"
+    },
+    "R_MATERIAL_INVENTORY.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\R_MATERIAL_INVENTORY.json",
+      "sha256": "fe60076a0993aa126a141d191edb1586b6a44dd2389549d402b4788c9fa2b3ff"
+    },
+    "NEW_COLLECTIONS_METADATA.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\NEW_COLLECTIONS_METADATA.json",
+      "sha256": "6de6e953ae8e18b1dd23ae683ac1ea4c88ac800af7fd206c9b136fa34bb087e2"
+    },
+    "ADDITIONAL_CATALOG_METADATA.json": {
+      "path": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\certinsert_eval04_20261113\\stage0\\ADDITIONAL_CATALOG_METADATA.json",
+      "sha256": "e82d567da8519a455071b23997d3224ec5bc397649747c4c944e87bf1191f7fc"
+    }
+  },
+  "documents": 4161,
+  "question_candidates": 2486,
+  "scorer": "Qwen2.5-3B Q4_K_M",
+  "scorer_sha256": "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d",
+  "pending_definition": "q sentence-level versus document-level probability; must resolve before scores or null estimation"
+}

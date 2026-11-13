@@ -22,11 +22,12 @@ entailment >=.9 in >=95% pairs; reject anchor-bearing candidate; remove worst
 30% by EVAL03 3B fluency change; calibration q<=.05; pair lift<=3 after conflict
 removal. Nested sizes 10/20/40/80 or actual fewer. No EVAL02 null calibration.
 
-Unspecified consequential rules awaiting pre-score resolution: exact combined
-fluency/evidence ranking and L* coverage/spoofing choice objective. No results
-will be used to invent these rules. Candidate sentence sampling, NLI label
-mapping, q opportunity denominator and group construction must also be explicit
-before scoring; ambiguities are logged rather than filled after results.
+The updated TASK_EVAL04.md resolves combined ranking, L* selection and entry
+conditions. Rules 1–3 are copied verbatim into PREREG_RULES.md and committed
+before any R scores. Require >=10 qualified candidates; stop if not achieved.
+Automatic entries have no position conditions, as explicitly required by v3.
+Candidate sentence sampling, NLI label mapping, q opportunity denominator and
+group construction must also be explicit before scoring, never after results.
 
 Stage 0 is NOT complete. A protocol/preflight commit does not satisfy its gate.
 The first action is a metadata-only source/asset inventory. This does not read
