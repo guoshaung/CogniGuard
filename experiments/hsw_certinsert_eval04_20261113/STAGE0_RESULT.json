@@ -1,0 +1,79 @@
+{
+  "status": "STOPPED_BEFORE_FLUENCY",
+  "stage0_complete": false,
+  "L_star": null,
+  "qualified_so_far": [
+    {
+      "text": "for example",
+      "df": 242,
+      "samples": 100,
+      "bidirectional_passed": 98,
+      "pass_rate": 0.98,
+      "qualified": true,
+      "candidate_anchors": []
+    },
+    {
+      "text": "for instance",
+      "df": 30,
+      "samples": 100,
+      "bidirectional_passed": 98,
+      "pass_rate": 0.98,
+      "qualified": true,
+      "candidate_anchors": []
+    },
+    {
+      "text": "in fact",
+      "df": 44,
+      "samples": 100,
+      "bidirectional_passed": 98,
+      "pass_rate": 0.98,
+      "qualified": true,
+      "candidate_anchors": []
+    },
+    {
+      "text": "in other words",
+      "df": 52,
+      "samples": 100,
+      "bidirectional_passed": 99,
+      "pass_rate": 0.99,
+      "qualified": true,
+      "candidate_anchors": []
+    },
+    {
+      "text": "in this case",
+      "df": 28,
+      "samples": 100,
+      "bidirectional_passed": 97,
+      "pass_rate": 0.97,
+      "qualified": true,
+      "candidate_anchors": []
+    },
+    {
+      "text": "that is",
+      "df": 33,
+      "samples": 100,
+      "bidirectional_passed": 99,
+      "pass_rate": 0.99,
+      "qualified": true,
+      "candidate_anchors": []
+    }
+  ],
+  "funnel": {
+    "documents": 4461,
+    "build_documents": 3568,
+    "calib_documents": 893,
+    "mined": 1592,
+    "attested": 47,
+    "df_cutoff": 7.136,
+    "nli_sentence_pool": 10450,
+    "NLI": 6,
+    "anchor_free": 6,
+    "fluency": null,
+    "frequency": null,
+    "independence": null,
+    "group_capped": null
+  },
+  "nli_scores": 9400,
+  "T6_content_reads": 0,
+  "paid_API": 0
+}
