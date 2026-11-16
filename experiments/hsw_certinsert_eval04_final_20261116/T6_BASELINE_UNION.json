@@ -1,0 +1,1591 @@
+{
+  "scope": "KGW and Unigram only",
+  "planned_per_method": 176,
+  "verifier_ledger_sha256": "e4f7b5293cbcd82fd66e716998bf8bc4aa29884ef61042ff96deaa6d89dd59ac",
+  "sources": [
+    {
+      "id": "T6_5584147c7f04c511714e7b93",
+      "subject": "biology",
+      "source_output_sha256": "99dcd1795baccdc07d7c2e54713990a61db254a7f63c47bfca26e05f1297062b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7802e250639f12ab6b62f318",
+      "subject": "biology",
+      "source_output_sha256": "8cf31af26035d15e0ae25522ff41a03a10cd97b97550a479e7cca61ae5a33315",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6dbac1bd4fdf0a6f79d99bc7",
+      "subject": "mathematics",
+      "source_output_sha256": "29f7236cf1b28799abe7cc1aaf71da98fc9a7c861533df497191921f080fd177",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e614ccff6fc7d3eea08f4157",
+      "subject": "physics",
+      "source_output_sha256": "be68346edc380b7c79b95c85caa5bc795f0781757cde884d10e833d7f2bd72bb",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_15ef30f6fc3e2637d5089d8e",
+      "subject": "biology",
+      "source_output_sha256": "41c69e5a35d2a16db655cfda9843ecee3282e0dad7383cd95b0c9593bafdf774",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_823d78957e2ad3c932ed5ac7",
+      "subject": "mathematics",
+      "source_output_sha256": "2ffc551528b3579b6e7ddc4b2d6fe1f88ecb9f4593f86fe2626534199007db13",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6bd484cb2a6af5aad4024664",
+      "subject": "biology",
+      "source_output_sha256": "1f44d3787d08ae63e249156850a038ed868af593ee7be8ae9757024743606d35",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c3c7e8424b4e40ed2a5de00d",
+      "subject": "mathematics",
+      "source_output_sha256": "3daf1e6c8023376382300f8afdd996845e12a5dc5c5b12aebe6003aa68ce036f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8203cc96f680ef725f52ec63",
+      "subject": "mathematics",
+      "source_output_sha256": "554f246408d2cef44bfc3d2d9c82d5105aa5c263ff8202a523762f688cbe5b8c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9778af2cd9e18a9ae292332d",
+      "subject": "mathematics",
+      "source_output_sha256": "51fece345624d1a82094674ae92c05b0745f4f2453882a52890238378dbb93e5",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_718656f42e015bc6fdc02cb9",
+      "subject": "physics",
+      "source_output_sha256": "30f15be8b46d6c2040363d83bd798c0112ab97a4e95ba6aeab515217de3fd220",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a659aaf1dd729384218b96fd",
+      "subject": "physics",
+      "source_output_sha256": "e49948ef9eb92ee3033b5540d86ae7e16678cc318c3ce8f2900073ed3aaef2eb",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_77ce46cf87c4433e004ff895",
+      "subject": "biology",
+      "source_output_sha256": "29fc364d371fe299b71552accb38ba7a793af2611c9a6a5cd0dbb48ac3d3ec23",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_52493031114ef79a0daec8c7",
+      "subject": "physics",
+      "source_output_sha256": "8813e75fc940979503bf22063635281d5534aa92fd7d5c264c783a1022dc477e",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2e9214b55037020e302eebc2",
+      "subject": "biology",
+      "source_output_sha256": "82283935a79dcc8caa370c0be25d00d839a709528756477af723deb3a27039f3",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a28713c90b2527c83c76e3de",
+      "subject": "mathematics",
+      "source_output_sha256": "a9b672bb23b563c83b653f9ee3251b775cbc561c2743c1e9dabc549516175ba8",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_ab76fcf684e2210ef167b836",
+      "subject": "physics",
+      "source_output_sha256": "13ea4d9027b3490f985f15d287682c53ba40806d02d29fa821474b8c7be9a72f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fa25d77bb8c6f6b72fa40d68",
+      "subject": "biology",
+      "source_output_sha256": "6eed7efd3c0b599502807d13891b2715f10834a4079a5679da494bc36154f0b0",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0cd86ccc93d3a8c50912cc9b",
+      "subject": "mathematics",
+      "source_output_sha256": "83482cbe91287067afd47a194e4b1b51a04631bfa866e665020b6037b6d83bbb",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_23980718e76cc4e7de60096a",
+      "subject": "mathematics",
+      "source_output_sha256": "d388e2099e4dc17b89d5e0cf5cf1dff745319cde3da2bfe176cb60b19d787b4c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_221372609c9cd6a2de9b9ded",
+      "subject": "physics",
+      "source_output_sha256": "1e038e68df5f83d715610e2d1746434a1160d169e102925773a67b2346d62b88",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a5567b80eb6aabb75eddf694",
+      "subject": "physics",
+      "source_output_sha256": "5655f0212a91128ceb3f875d8118c16f3f9fa77771a1ce4e8dc56425fe762a49",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_126fc91bd1d5ea3b1fa787fa",
+      "subject": "physics",
+      "source_output_sha256": "b685e2dfa5a81b8622c41f0e1cf896ce39b1811779006e28f447f5a3beef119f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9f387ffc309a38b9037c743f",
+      "subject": "mathematics",
+      "source_output_sha256": "06e52d364ead3adb5edf7546b7ba96a29f3655f5087cfc8bf35b6a8d22f7e9e7",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e33b8adff7ee456050425195",
+      "subject": "mathematics",
+      "source_output_sha256": "c2b3c98f825f49f56cb047d1ae0f34bf4ba20abe4fc307aad7fb889c8e1aa307",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_bebf0d3ab1e0565b0cfcf79a",
+      "subject": "mathematics",
+      "source_output_sha256": "7efd88539881ff303e6426599eaada10e730849bd2d78c2a306a586e3daba315",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9f8dd82a9c707efb2e3f0e91",
+      "subject": "physics",
+      "source_output_sha256": "731153c4a72c1c80801f0e16acf4f3c59056f13008a8d4ff5a344445be8fd819",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_78b3bb676ae0ce0798038ea3",
+      "subject": "mathematics",
+      "source_output_sha256": "22bd8beaae98bf503538a3cb2474e13b9ed11df00e19196b1cc915818931bf44",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_5b6d1e3e1f15ee16f56db678",
+      "subject": "physics",
+      "source_output_sha256": "51019387b901ecb62419ebda45796e371e147f2cab0e003c500bfff06f2aae17",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f7fd66fa5f5221f9e69324da",
+      "subject": "biology",
+      "source_output_sha256": "d58afb896e0246bf42eb6ae2b404bd6931c5bb42aac2200bcb565143faa347d0",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0c27c3de9bc5ab9b13176038",
+      "subject": "mathematics",
+      "source_output_sha256": "84f240020e68b34208eeacd0e09b4e66215a26ccf09292b6122e782b653ef973",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f618de812a873cc33fad81d6",
+      "subject": "biology",
+      "source_output_sha256": "b847bdfd0e53494f64d4ed3b448a1bd3123a88fe52f35058b7fde384149fb671",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_769238087d898241b09eb994",
+      "subject": "physics",
+      "source_output_sha256": "8ab2858cdf82eed58a85cb589eefba1a53c1f1d5ca29920bd83b29ca928221ba",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_d48554a36e6ecd2bc66cd726",
+      "subject": "mathematics",
+      "source_output_sha256": "18d8ba042b94be6520cbc0c0db147f467fd42872f3770b627aed1de8ab94797c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_778a121342d9b52b94c4b731",
+      "subject": "mathematics",
+      "source_output_sha256": "ee37200399441642d6c150061a67b638042a418b1c688ee6c1bf7acd539f0e89",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e29b7ce72f1a590e45f7a0bb",
+      "subject": "physics",
+      "source_output_sha256": "012f7857b8826c2bebb25da534651c5423af0a253e61d8a6e5ceedbb44cf26fb",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_85572a32410d3175e3a2f1b7",
+      "subject": "mathematics",
+      "source_output_sha256": "8bdde542e59ff3b0300818dbda06a8db9120a1c13dcf4ca7bd427bcfc23bc5f0",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_d0ad88b41d246cc2ace14607",
+      "subject": "mathematics",
+      "source_output_sha256": "e6fca49ca1dad1293b550cb0ab58a66ce0765d731c77d90ba726c9e60fac2ec6",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f604c5465c658e9eba79543b",
+      "subject": "biology",
+      "source_output_sha256": "2ea578e77c3e21a954a8a6784f85b3cf63d8ee773dab869f43738c23fd9919aa",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_601ef1315ea0746f9cb1875e",
+      "subject": "physics",
+      "source_output_sha256": "df4b49ea0539a885d2ac7caec77cb2b0a0c00d051366802926c3882f07e23b52",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fb1535a94446a93db77e1cf2",
+      "subject": "mathematics",
+      "source_output_sha256": "576a24b23b27cec742f94dff8effdb760727f2011aa7e5ecc693e613da90ba40",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_99371479c5c582a1ad7ca369",
+      "subject": "biology",
+      "source_output_sha256": "f4301b5b9308e742ce28476d9e020c99dffabc589b49f9031a3f3c4684c98e14",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cc089f28404bb8302d4faf4b",
+      "subject": "biology",
+      "source_output_sha256": "960de73baa50b46786ead530c6757468a42faeb1b96920373eb27a3e7add6a5f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_ae4f0683329d944e4a3238aa",
+      "subject": "mathematics",
+      "source_output_sha256": "0e59fa7fafedd08efabd6c5f7586fefb15ba2c3233f1be5617130ba622c98e5b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e5e167c15cdfa5b137c50994",
+      "subject": "physics",
+      "source_output_sha256": "7cbf7e1ecd092fabf5d5a3daa36721a83ca5e1439f278a309c634a22edeafa4d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8ee466f3d2ff1c8e65622def",
+      "subject": "biology",
+      "source_output_sha256": "0d2423f8c70f9890edc0e0debeb16789b52dd992f59b0a4a946bb6c55e0d1625",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0c1f8e832e9c7ff76daa9f27",
+      "subject": "physics",
+      "source_output_sha256": "c97639c5f19fd41d11ad033d21d884e7d16824e7bca6f72cc6ed933af3bd9235",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_368ac60295c36c725944ab37",
+      "subject": "biology",
+      "source_output_sha256": "8e1f764025157018d5620d217012babe7e81bb4c72bba3e245cb2ae47d458d18",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_56d5a9ace5a938da8c906c79",
+      "subject": "physics",
+      "source_output_sha256": "35f7410fa2767f6e55cc91a9161e7f8cb7320a5d874784897b7f2bf70c45d40f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a7515d76f03472e1de1f1fd6",
+      "subject": "physics",
+      "source_output_sha256": "8d92b9688f36dc60c93a3f5653d513cc172cb075056a5b6a38a7afd12c903895",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_1624276ef3ce0760c135b411",
+      "subject": "mathematics",
+      "source_output_sha256": "f2db227b15ccaeead87b4df71387411ceda19b5188be267bc46d761a9b119211",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f2c8f9375314ba5db3b64ea1",
+      "subject": "biology",
+      "source_output_sha256": "3ed1dbfcae26384cfbf454e954ae20aabe23325ccb737e33225cd16187647190",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c23da4c47b335e97140a6dca",
+      "subject": "mathematics",
+      "source_output_sha256": "c3a633348d5805a951390d53c8ef35e843a9620bd8e2118d41b11d6d66dbde4a",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c49508fc508ea44ebf08ce05",
+      "subject": "biology",
+      "source_output_sha256": "a50b7a95a48153669b0d93c7d5bb594ce221073e9067b627b2c7997c6d7d0f37",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6a4b440be1a1a7727dffcd3d",
+      "subject": "mathematics",
+      "source_output_sha256": "21efbd014a89ad35b0823145d71b7b1d3c4285d9ff98410408904a4ad89a0ed7",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f12a24726a6477cbe35e60b0",
+      "subject": "mathematics",
+      "source_output_sha256": "9482faa365725b786d04e593278cc324c1ab05e5454fa83edecec9173d0a380a",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c1fb1ee0cad291bdb31dd533",
+      "subject": "biology",
+      "source_output_sha256": "776f81a8bbdbd95a900940773a8af9811ea82648477fbabc42fe65bd57ac33d3",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_885777a753304db71a83f32c",
+      "subject": "mathematics",
+      "source_output_sha256": "f65dbfe79e100205b6c0e2e2fe4ac325da171011f8096a0c055b59d2382629b8",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_4103f031e7c7c79a1c1fc5c2",
+      "subject": "physics",
+      "source_output_sha256": "1163d23deaf27432db07909bb8681eabc4f9b3d6e8dfad595df9e240477b1436",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_902bf1520f6bacf7838e4b24",
+      "subject": "biology",
+      "source_output_sha256": "72dc69847e5256c91053b4647cd6fc6730a96804c5876cc740070d44b9b22abc",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7b984504f2f3da08507cc15a",
+      "subject": "biology",
+      "source_output_sha256": "667c4671bf020adb9a7e04deed64145a0d8d1f20fc0257de360fd742106f96aa",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9e984b23ea7636e2de3be987",
+      "subject": "mathematics",
+      "source_output_sha256": "8db0388429db25a169f54a6e455f4cd8f4dca158254f8bdd49ca448af7a064e0",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_953362c3d8ecfd1a1de9b0e9",
+      "subject": "mathematics",
+      "source_output_sha256": "96ee285c2fd100acfaa0aeb757358996a413e49522fa7308b8c630d461f25cad",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c7b126e195afb660cc83f02a",
+      "subject": "biology",
+      "source_output_sha256": "e36294d17af75d9edbce27947df913707a3eebc290e95ab79eb3ff047675e239",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_741329202d339b481d0392ff",
+      "subject": "mathematics",
+      "source_output_sha256": "bf0156c8649b80bb816441383f8bea72ed41a299fb9fcd6a619ac374482d1f64",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cb05d3272b339b37accdb0bc",
+      "subject": "biology",
+      "source_output_sha256": "aad143cb6987889d0a5f26bdaccd0f3afb2b3c6f8d8d6891bb7e67570e36ea47",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c16eabe0748fe088f818bef0",
+      "subject": "mathematics",
+      "source_output_sha256": "d11b8a60cb473251facbc2ab8c9064c64d079eaea8f36c3a6f0d1492dad6e409",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fe1478a2d897e700b85657ae",
+      "subject": "biology",
+      "source_output_sha256": "8ffcf351ba851722b1fffcac1eafc617de0a11b175f9cec8c928f463a1eb2f43",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_641d404b420d6f09917e4814",
+      "subject": "mathematics",
+      "source_output_sha256": "8a842c9e95597a9ddf6d103b586e3b1a4c1b90eb99a9216dfc9e2932ef6c9b8e",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a360ad85760aa965666016c2",
+      "subject": "biology",
+      "source_output_sha256": "b92938784525a14fca7446c239369f06b20c3ad7b9610c1203c86cc1470a2d2b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_21439f036c3d1c8d6725f5a5",
+      "subject": "physics",
+      "source_output_sha256": "0f2ee0527aa5bdc6635bc7253fc3377292c5d5f92c6723391333253819e45840",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_4b3952d31c15177eaf55fd82",
+      "subject": "physics",
+      "source_output_sha256": "730de6f015a98357f13b86b24f9971c7f95705eb27afe2c8569d97b211121d74",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7120650ca47d718f0deecb0a",
+      "subject": "biology",
+      "source_output_sha256": "a6d6cfb4cb0271690aff402c7dac0349eed0219c675663577f03a1d16f550c33",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_694d3827021326e15242f1eb",
+      "subject": "biology",
+      "source_output_sha256": "bcbdbe6c2856c4a6b78bece7d0e9d3ea2ec3f5fb7869fce1d9007359902b4696",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_d81ca7eed96188560ae760df",
+      "subject": "mathematics",
+      "source_output_sha256": "70d59894baf23de83150c7f70f2daf43dbc7532624b2263a511f289d4a78336c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cf7a8da53f7aa71228e775b9",
+      "subject": "physics",
+      "source_output_sha256": "45aee21d004df35efa2d2ac89d88eb9db3e58dfd2a64176d9e01ff14ef9fafa6",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9806d93a4cab6a6945f36b84",
+      "subject": "biology",
+      "source_output_sha256": "92e9a7988940b5238a7e602a61e3288b65ba0395cbd7c2b1d43e47b51ffec716",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6ed320583bbd94095efe3190",
+      "subject": "mathematics",
+      "source_output_sha256": "8c3784fc1f91534d11c7e12cee4ebf03105a763c4cc82276070a6b205046cbe3",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_3bf4ad5f876287b7481fa01e",
+      "subject": "mathematics",
+      "source_output_sha256": "f1785d8497353383e8d1525147679ca163ff590c5e96e3415cce39544625b41f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8f81e7c638b6d400e81ddb06",
+      "subject": "biology",
+      "source_output_sha256": "b9adb12263bb05e7d2d7f4852f7e3b9fd2f03c258166e8020d72c4eed8f09ee5",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_bce506736eb096dfd35d7f67",
+      "subject": "biology",
+      "source_output_sha256": "2d8384d505c40ac5e4c96c1d389f4f164f210ff2c4453393548a807565ee69bd",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f3aff5bc8970cad3547a73ab",
+      "subject": "biology",
+      "source_output_sha256": "bd7c9615df1f598dbf9f349f48de241d44d913b635fe3fd3a22ad8bf892e6812",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_30244c1a99f0c885cf5ed89e",
+      "subject": "physics",
+      "source_output_sha256": "39e4f970828e770e159bcbd96d7331cf947f8796426049e776b376dcbf1ffebc",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e72b8b4f27dfd70fa03e98fe",
+      "subject": "biology",
+      "source_output_sha256": "efcf826dc7b846f3405a4b14b8a9933bf1b98e5e35c23db413c6c48240e8c9e8",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8a1ba80faf24bceb412ff96d",
+      "subject": "physics",
+      "source_output_sha256": "2312d35a190b9880100e0a5d6664040e53fed63337f9dc68c065fd3e142638ab",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0359c464dabeecd411356b75",
+      "subject": "physics",
+      "source_output_sha256": "a6e3e3de8ad7bdb0f38aa1b700e4ca8af5adbee25974b511c942a0d6de034242",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2d56c7be3af3ae75277bb734",
+      "subject": "physics",
+      "source_output_sha256": "ba1177c1ee4d898c3210666562f529b4aa1170accbdcd095b0c200136fb5d7ee",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8214190bf342d08dab887979",
+      "subject": "physics",
+      "source_output_sha256": "25a4d7187ad771e29ac65a50b920eabdbe683706295120dc3e0cbe53d71d4299",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_5170a3f635ffa366030c74ee",
+      "subject": "physics",
+      "source_output_sha256": "bd6a41de2d0b91b4db91bcb286f73e4e6b4cf252fa55bf38b7304b5809e46ea0",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_c5b93cec0db72c29323783d8",
+      "subject": "physics",
+      "source_output_sha256": "f79d17c3d191394166d231bef1d1d07251498d065695299cb1ca3f7b082e0811",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0a2d148fbde1b6bd898b4378",
+      "subject": "physics",
+      "source_output_sha256": "d590637d6bafc8cb8226830edd5e1421ac8a41b98d4b8276ec87904fc6a36c1b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0f301e3392523c52cd9ef4fb",
+      "subject": "biology",
+      "source_output_sha256": "452f28be631c950193c48624a987a7cc58185d78246a1b5a4d842d1e93322e72",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_20a498f2672b3fa2dba8dc9b",
+      "subject": "biology",
+      "source_output_sha256": "7f65d64e8ec1533f30515dac07637ed21ddcd6517968836f939a5fa914888226",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2c56353925134413b06855a6",
+      "subject": "mathematics",
+      "source_output_sha256": "281360d65e76be466174e7a025d242427fe51289f5080d2c9dfeb177f60f557b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0b7aee7b31ef00bed9e2887d",
+      "subject": "physics",
+      "source_output_sha256": "cb05348086baa4b5ea92cc1dc95ef4e7e76c4997ccf9f454ba1090282c3d634b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e0898531aede8918993dc357",
+      "subject": "mathematics",
+      "source_output_sha256": "7002e8f976ad787250f8c8bd01bcb007f6d2849358e0ec41aee35a5169ff5af2",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7133909513e13b35ea039f82",
+      "subject": "mathematics",
+      "source_output_sha256": "bd8a3247f730633cdbdb166063e215d6e5ea655eba25ce12efbd6a3a2080e77b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0ed732b719e9f28018fb7be3",
+      "subject": "mathematics",
+      "source_output_sha256": "4118e603fcab7fecc7460f0902f9f34d83ae8f5c516d1aa0b09ca9a38990b25d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_df080f52ff963cb3c8e1c911",
+      "subject": "mathematics",
+      "source_output_sha256": "f94495ec831dfcbd96a0ec522097fe0ee314a9d64eb914657a874b5715a655f2",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_560ea4ed1dce3002264fbc6c",
+      "subject": "biology",
+      "source_output_sha256": "e6cf6aff5f86156cb5e040c765a427e7e527e6d8b455dc902624da055242035e",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fb331177d8a2f5f1b18fc607",
+      "subject": "physics",
+      "source_output_sha256": "62f242df33694f1e23f055c737946b7dd7c6362c25242a6f77928654379c0ced",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6c47b120ef7c6568394906fd",
+      "subject": "mathematics",
+      "source_output_sha256": "133fa9da9155a513352dc0723647d7e37cc0f6fb811f586c65f6cdc1736fbcba",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_dc302cf00b3e465df00e1fa8",
+      "subject": "mathematics",
+      "source_output_sha256": "fa1a22b2811f522b1b00ea5188617ba2cbab8cb549cabde77383ee322d7b1b81",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_e8513a209ff02876b413d5d2",
+      "subject": "physics",
+      "source_output_sha256": "8b35008097b69e1481f70abc56edd7a995d66282ad2278ad0f96f7ae361c9901",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_b44d90170aff23b6b8f9ec1f",
+      "subject": "physics",
+      "source_output_sha256": "c60b1db8c9c9abe02f4f2db93cca8d9bdacf55524fc4ce9f11271cd74cfaeaf4",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_366eeeebbde13933029dfcd0",
+      "subject": "mathematics",
+      "source_output_sha256": "e015fc845304706cfe170e6f3d93e79678d87bfd6cfd7e3cadc6351fa4a76455",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_b33d606977b1238db239049a",
+      "subject": "mathematics",
+      "source_output_sha256": "6f992309e8ff43f31971e89192ae4a9bafbdea5492eba520e4991f95c7b868c6",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_82dbafe288f2c487e6203fcb",
+      "subject": "physics",
+      "source_output_sha256": "ab0eab4b32861bddee2e931b806b778f5ec457764acaf836a1ec09b4656b7c1c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_290b088ab3581ee2acf0a5d1",
+      "subject": "physics",
+      "source_output_sha256": "fdca50fb2ab1d7a7d228ab34218168af78866bb0782e1cbd828bd37d03363113",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_5b6f4b7d47d9faf386c5453e",
+      "subject": "physics",
+      "source_output_sha256": "72e2a9ecf8b9486efb46d14f0ddd782c5a514ae385ec6cdc58100aa613cc5637",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_4efeb72ea5bef5c118bc1817",
+      "subject": "biology",
+      "source_output_sha256": "3c903ab61303b3e83490fafd4964c4f59d0ff9730757a9717dddd69dd92c593d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0d10d3ef628002453207feb4",
+      "subject": "mathematics",
+      "source_output_sha256": "f9dfcfd19da0b293ba99f094cee9a882a0e067cc82109ac7923d7253a2489796",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cc8e416ccd08be17b4350a39",
+      "subject": "biology",
+      "source_output_sha256": "07f2c255f089ffcadef1bb2a35010c7f310e4eeabd33139fb5fd568976856502",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_33cfee0be827f76ba50e7b5c",
+      "subject": "mathematics",
+      "source_output_sha256": "f4c8a1be597b24f6740e54251ad92e456a70f57f075ed4e5fde8f974948fcac1",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_3b860104c35d9e46b9319c7d",
+      "subject": "mathematics",
+      "source_output_sha256": "4e0ae3df142c59fef212a940e4bb435cd8f280a79e8ad946612bcbf974b184f9",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_68d4f3eaeffeab686cfc9fa0",
+      "subject": "physics",
+      "source_output_sha256": "9ced0d870a7f7fb8f78c6086277094de46864d5d423469245677199c6628302b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2d5ab004e00286f7f8e5e320",
+      "subject": "biology",
+      "source_output_sha256": "47ade73e4b255dd290254a8a3d1888a02f75264b304e472ef41611f76cb63a7f",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_85973153942b78a1a86df792",
+      "subject": "biology",
+      "source_output_sha256": "ce2349402d651502fb2fbdd2cc5f2c69dcc98ccf3558522cb65f7631613fb76b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_565ba1617009cdd1efa59b18",
+      "subject": "physics",
+      "source_output_sha256": "bd1f8012a8da350b0ebd97bc97631b800aa651ea590ac3fcbe8ecaa926557d72",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7f1739694e584808881c72c1",
+      "subject": "biology",
+      "source_output_sha256": "375279f9a6dc81aa8136efef96119af57aa5de0cf8942b6e21a6d89ea031f8d7",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_101dc74edb3589d318835e04",
+      "subject": "biology",
+      "source_output_sha256": "26490413e1fa522f6d9b269ebb6559545472437919d5dafe1e35ca1af85b13b1",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_bc54ad775d13e88ce7cd30b8",
+      "subject": "mathematics",
+      "source_output_sha256": "e552266a4c0ac82a2d9b9e5f1b9d408c2027dc478ef400c3425f0f2a03f83ac1",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_728382ab38ad154d51b62090",
+      "subject": "physics",
+      "source_output_sha256": "d7fbae9f7bac308d9ac3b9a1b1addf12f569ded7422af73808dfbb98649b55ac",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_67e646a277a50592f2642665",
+      "subject": "mathematics",
+      "source_output_sha256": "a655ea922e4a8fca6a511019bc5d991ca3cf7ba34cadd5ecf807a8f7f79e7b96",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_71ba3f3a94f3b69fd78a8500",
+      "subject": "mathematics",
+      "source_output_sha256": "d4e6c943b6d2e91e66b7cdda05153d5f08151c81ec7e8156982ae7aecd415909",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_51553898ad42851cb3335588",
+      "subject": "biology",
+      "source_output_sha256": "9b73b1fd1a3063537c5b2690b7806b484ee7d5a723397d6b5a1d9ed80266e233",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9ec28154d75082f68da5e7f6",
+      "subject": "biology",
+      "source_output_sha256": "c0f2b70e0d2792c1e228363466d854ef85bdcbb35c8cdf77b7585c9bc007082c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_deeb90246d3d83e9e5eedc78",
+      "subject": "mathematics",
+      "source_output_sha256": "1ee263bf9e85f101ebdb8efb56cc40138a39daf2cb52500f7e154beb430a482a",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_420c1a2359ba017eabe80559",
+      "subject": "physics",
+      "source_output_sha256": "e9024349fe1e95e9f5d8584e8e65760bf73367a0e31a57f4d0f310edf9f6c504",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_ab3e8b4bb8c4a855d5bedf43",
+      "subject": "biology",
+      "source_output_sha256": "91a021fbfbc3cadb6da9eba8442a47544e39b41622e198c987067f9d16d3b02b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f372f3b421dae25174f50d51",
+      "subject": "physics",
+      "source_output_sha256": "e12d4da4f3592f6e4958bd168f1d609c1b438c325927a7805b373014cdc320a2",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_dfad6e8f38384185ab77a769",
+      "subject": "biology",
+      "source_output_sha256": "31d84223aae90002ca1bc0d4d1ef109dc6550c7684909b6569fc0e1518cf4703",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_43483993576498b6b2280571",
+      "subject": "mathematics",
+      "source_output_sha256": "047a6a016682019f05f56cd3ef6567363772d26cfaa7703c9a07f6adf164e6fa",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6bcd82f7d1bbbeed4c46244b",
+      "subject": "biology",
+      "source_output_sha256": "4b85ff0748ce626af5c2986e4edb2bfe29771a6050798fde39389d66990db5b9",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_14acc819463b0e1f55ed40a8",
+      "subject": "mathematics",
+      "source_output_sha256": "d2980fafa50e60c06ae9b5c7b0ba9d392cbc4b42121d1f71dd67a1d57451edb9",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_746cd3044283a4a8683097f2",
+      "subject": "physics",
+      "source_output_sha256": "0bafd86273b1de4e377a020728dee47ebf7d1ad0521ec7c5e4fb7fd09de12cdc",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_19ee7585bcc0a9f7bd436802",
+      "subject": "biology",
+      "source_output_sha256": "efe718c2c9cd53578fa82528438a5b21f0e65e02b2d279367839937a510555ec",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_a43e89fa4c19aaba875c1df2",
+      "subject": "mathematics",
+      "source_output_sha256": "7fa050444cacc47dff16d4e3731f70aab8932d583e4f0d6f1a73201a39b3d353",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_62339329c7689e9b759c83dd",
+      "subject": "biology",
+      "source_output_sha256": "ffc148f91189654a30532b7855df4d0b778daa65405e21c5a4965c5f4c7cf064",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0e0705b2918767176956ff13",
+      "subject": "mathematics",
+      "source_output_sha256": "0418793c65e4476f1c4e16bf34cbc69b7cf52f9935bce7a694bbbab7dae6956a",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_23ffe39a8975bf1cf02cdff9",
+      "subject": "physics",
+      "source_output_sha256": "b166d7cc5455f6a4235ec8e884f76e30fabe2afff840e3112b8a448f042b3780",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_ed95f95573f0f55fe6c44a8b",
+      "subject": "mathematics",
+      "source_output_sha256": "828af23ad47fd92847a96a9e1e3acddb62e47ec82eff16661d65ab9084b5707c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cd85680576b4a5f80de5e143",
+      "subject": "mathematics",
+      "source_output_sha256": "c7273212fa2d6eef73c6aa1ee194ce523e6e4485134fff8583ca77d4d44a9eef",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0fbd0fe0f61f71d0aacb8694",
+      "subject": "mathematics",
+      "source_output_sha256": "4e5cb9beb3f1884310b75689801a9272143d65bc554a4593b1624b9e5984686c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_26c10700f3e517e36e9ff88d",
+      "subject": "biology",
+      "source_output_sha256": "596e3c080de8781abaf42f1f6f1d9f1120a5fc2d248493425d8de3601f75b4d8",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_921306df244e6f9e1ad1a580",
+      "subject": "biology",
+      "source_output_sha256": "0f37a188b74b3f7da71d761261f663c6bb824652158e61fa7eea873a4ec48650",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6c15a7e76ece4c24a6c8dd0b",
+      "subject": "physics",
+      "source_output_sha256": "2efa7e163f4d21e0bfd76d1cee5a2e19d5bd857cc8e5baa919967389d751a6fb",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_91458aed17a78f27a53bbbd0",
+      "subject": "physics",
+      "source_output_sha256": "836fb8f1098a7b200473b2e28e9334ac79147a7a676716168d85a0e7b703f288",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_008b3d1fc4c42f463ecfa303",
+      "subject": "mathematics",
+      "source_output_sha256": "d3585270193f705669126518aebc9c97225abaface3f638b77ea25fa2e2d95f5",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_1e77f79db6d1953a6a717d80",
+      "subject": "biology",
+      "source_output_sha256": "7a04e088f8d53998ee5355cccad60482a34d35c2882b7a1846a813fc19cbe63c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_d9ff6c8c84cd54779f862b55",
+      "subject": "physics",
+      "source_output_sha256": "2d53fbab50001690d63425a3f2b4be5890295b65df53334c84bddd2db74cc338",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_07fc6714ab6df4b431ee880d",
+      "subject": "physics",
+      "source_output_sha256": "279cc4528abae928faf5ac06c9585e10555cf74f0cf7d7baa4577fca07d26733",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_dae801818d604d919512c799",
+      "subject": "physics",
+      "source_output_sha256": "73e095a9e88f89edfc855c14c8753153457eca28da5ed4e181fc5cb1fd7b3bc3",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6e8f0a48573973f038d0ddd3",
+      "subject": "physics",
+      "source_output_sha256": "2b5f3c38d4420c928784d060732c200f19629a729ba52f082bbd6368b3954ed1",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_bd8ab22b1ee1adbf699255a0",
+      "subject": "mathematics",
+      "source_output_sha256": "3b9ff89b03174360b0dd41b5e3fd216a154b460c8751b45ddd130dce90b885d3",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2204a884d8e8da9c304226af",
+      "subject": "biology",
+      "source_output_sha256": "bf381921de560d674c0ed9656e3601da18116c623af6ca1d6f96862dc02bf3d2",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_0cdf6123dea6a77759885fc4",
+      "subject": "physics",
+      "source_output_sha256": "3c64356d92fcddf4ccae0f06e98e49118ba8b4f24bc2bbea29b13aa7710b3881",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_f326bf83cfcb97a9f072ecb6",
+      "subject": "physics",
+      "source_output_sha256": "2e0ea8e4d055958b4c031e04ef3f76792dcd9a2fd24e86a0d86193dee34165b4",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_cda428f8c734a440c252757e",
+      "subject": "biology",
+      "source_output_sha256": "29fb159cab66ae3a1fd03fc26b47bb447f5508bd1ad4bbef26c486c17c82f510",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_67d97867a3eb2a5a33197c5f",
+      "subject": "physics",
+      "source_output_sha256": "e1ba7f26c264edfe0259be671316bb314918f0d29c2f2dd6bc55f510212c91aa",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fb9791c97630e150d970ab22",
+      "subject": "mathematics",
+      "source_output_sha256": "f95c82232fe09905f4b0a07bc87c9f97a70089d68c7bf571ec2a5f15038ad430",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_9775b7cd31b16179964a462d",
+      "subject": "physics",
+      "source_output_sha256": "597258f87cdfa12408f4ad62c7c84bcc56f51e091a24543162cdec982095d106",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_2ee52210645286fd5fb21ee2",
+      "subject": "mathematics",
+      "source_output_sha256": "e29a48c2a4d5c25975d272aa6d76dc68b64f10d99af4ec448519b3b6c1b6564b",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7a9faacd35a592861451fbbd",
+      "subject": "biology",
+      "source_output_sha256": "855d5b3d22c647415b8c540da7d026c7b825930737a88e8c49484d0ed7fdb274",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_eed36545e5c67cc903d41f45",
+      "subject": "biology",
+      "source_output_sha256": "612a21ef4de354a2913e897efa85016694e64e7cda638994a4c07308e17317f8",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_7b88b4bcb4ca5e2771760d9e",
+      "subject": "physics",
+      "source_output_sha256": "1c80929affdff993e6b4b2c1614987713243e91de6d2e0744993a2ba06806c7e",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_616d53d8fbeeae92e4021ea7",
+      "subject": "mathematics",
+      "source_output_sha256": "a04e657e0be5c74e3973bbb1a226c5e2e8776b7d2f719d3eacf1b85ad5f0221c",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_608536ec6fc8ed6c35201f84",
+      "subject": "mathematics",
+      "source_output_sha256": "2c39381f8ae038f0cc19f425f907502a35a58a6ada694f3dfd4b0f11f237c526",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_8687194bbf45f5f752d1bf37",
+      "subject": "mathematics",
+      "source_output_sha256": "d36ef99d10886caba8452e567cdfe688fc9973feb2215f743415466eca53c485",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_58df50ac5d754dbae2848253",
+      "subject": "physics",
+      "source_output_sha256": "eb5495c782e7faa68f8ba9e7e34248def7f9c2b86cec15afedcc0f51c85add9d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_929738dc31c26eb6b31d544b",
+      "subject": "mathematics",
+      "source_output_sha256": "122990718cd92f763f09bf2f4ddabcf43cdbd8f3020a17deeb6f573e84d6f94d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_ea6f3d7cdc2fa80ad8827f89",
+      "subject": "physics",
+      "source_output_sha256": "5d70d622a12fb23bddc623825ec7ba84740463c3c744352d0e1b82ebfb6b9090",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_6e122603242acd4116254606",
+      "subject": "mathematics",
+      "source_output_sha256": "2a72f08ae2ba8d97335e9bf59fb3c95d1c294a026969343f48b2a56da5724e9e",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_fa1831b689dc9495dec6f7ed",
+      "subject": "biology",
+      "source_output_sha256": "b2f8b74b6dc216cb2964bc52509e4805c5a0817998744660b1ff0eb435823d7d",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_02275ea3f9f345231f9a7786",
+      "subject": "physics",
+      "source_output_sha256": "b53cb7b089205fbc0be7795c1f4dafec1b87d12bed3a58c2a316b0a3eca47eba",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    },
+    {
+      "id": "T6_956c07ed438da0a4de2c5a4b",
+      "subject": "mathematics",
+      "source_output_sha256": "4cd06a7fe6c45adbffa38bde18f5b07a6a7a4800c2d4b65dcc1abf8b6b45aad1",
+      "success": {
+        "GREEDY-dyn": true,
+        "OPT": true
+      }
+    }
+  ]
+}

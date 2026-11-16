@@ -1,0 +1,24 @@
+{
+  "planned": 176,
+  "files_sha256": {
+    "experiments/hsw_certinsert_eval04_final_20261116/T6_BASELINE_UNION.json": "8afbe7b520101f80cf362ee648f515990f68225fe8e10d05745be57742b4b1e7",
+    "experiments/hsw_certinsert_eval04_final_20261116/T6_EMBED_RESULT.json": "af3cc244620a0b1a18f6b8afd34980ff09af0c7e3b783ad6904aaebacebc5c1a",
+    "experiments/hsw_certinsert_eval04_final_20261116/t6_model_arms.py": "d73f228d89bf38a879e1f534163735ec3446f7ae3e9b69fc57da5b20e5d9962f",
+    "var/results/hsw-st/certinsert_eval_20261111_01/run01/EVAL_FREEZE.json": "451b2ee137e43754c7cf9bca413cb932c2834ee01b454e2f47573ae0d02c5e2f",
+    "var/results/hsw-st/certinsert_eval_20261111_01/run01/PUBLIC_TOKENIZER_VALIDATION.json": "c41463cc98d93e57886fc6f77d7b39aaae334ffea31534dfea9f98339e2ef77e",
+    "var/results/hsw-st/certinsert_eval_20261111_01/run01/restricted/UNIGRAM_GREEN.json": "ec95e85d46e9085f675912d142763d33260fbc3e7876d8e6a3d47c3a6de42acc"
+  },
+  "kgw_key_sha256": "5d0f4c85d432ac52b3fa137d9bff869e3c485307422dda8ef287ed2f93562a31",
+  "platform": "frozen EVAL03 Qwen runtime",
+  "kgw_reference_sha256": {
+    "kgw.py": "b1a2e895df9b2b5c4baee0f5675bad1601b0351fcdde7293f69c0aed599929ff",
+    "protocol.py": "d5e84efb5250e02cbc50d27fd736ebb0d601fbb98d53b48f47acc027d726a087",
+    "__init__.py": "0f45aeb19c2bb23efaa6e4dbf4c861fd90adb3c91d82b081e01e504f2d32d079"
+  },
+  "compression_ratio": 0.7,
+  "same_inputs": [
+    "KGW",
+    "Unigram"
+  ],
+  "source": "verified success union only"
+}

@@ -1,0 +1,22 @@
+{
+  "planned": 200,
+  "success": {
+    "GREEDY-dyn": 176,
+    "OPT": 176
+  },
+  "common_success": 176,
+  "union": 176,
+  "forward_tokens": 1696839,
+  "verify_failures": 0,
+  "status_by_arm": {
+    "GREEDY-dyn": {
+      "PREDICTED_TARGET_REACHED": 176,
+      "UNWATERMARKABLE_CAPACITY": 24
+    },
+    "OPT": {
+      "PREDICTED_TARGET_REACHED": 176,
+      "UNWATERMARKABLE_EXACT": 24
+    }
+  },
+  "local_ledger_sha256": "e4f7b5293cbcd82fd66e716998bf8bc4aa29884ef61042ff96deaa6d89dd59ac"
+}

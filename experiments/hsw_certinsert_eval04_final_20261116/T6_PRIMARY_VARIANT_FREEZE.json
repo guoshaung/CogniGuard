@@ -1,0 +1,18 @@
+{
+  "registry_sha256": "3c5fc70738ab6b108df7bd90eabfdb108f4d401bbd2c1540f2603439ccdca8dc",
+  "planned": {
+    "Fingerprint": 200,
+    "GREEDY-dyn": 176,
+    "OPT": 176,
+    "RC": 49
+  },
+  "code_sha256": {
+    "t6_registry.py": "3ed514edbf7fa1a61e340d658f1c7c856dd17b3e6780ca6e0ceb3f36aaa194f4",
+    "t6_metrics.py": "d4fbbc86aafa017b0fc0e23d376823c6da0c0ee59ca4c3914a80bf426dd99a97",
+    "t6_ocr.py": "5a42e6af80bd14ba7768466bdd0e60883a928400fcccc4cba2335fb8cb37c417",
+    "t6_frequency.py": "74acc68cc22359f9afc74e3623c950465501f79831ee40aadcd11ec81276ea08"
+  },
+  "crop_policy": "first/middle/last100 and first/middle200 when available",
+  "ocr": "EVAL03 CPU reuse",
+  "planned_compressions": 601
+}
