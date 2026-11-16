@@ -1,0 +1,2424 @@
+{
+  "requested": 200,
+  "admitted": 200,
+  "counts": {
+    "physics": 69,
+    "biology": 63,
+    "mathematics": 68
+  },
+  "candidates": {
+    "biology": 63,
+    "mathematics": 388,
+    "physics": 262
+  },
+  "format_rejections": {
+    "length": 1401,
+    "duplicate": 89,
+    "unsupported_structure": 193,
+    "incomplete": 61
+  },
+  "fetch_failures": [],
+  "local_input_sha256": "cddaad272fe216392bbf20a8fd21d37942a32508de1b64e00fbfc19010985da7",
+  "sources": [
+    {
+      "id": "T6_a659aaf1dd729384218b96fd",
+      "source_id": "osbooks-college-physics-bundle|m42175|fs-id1169738209016",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42175/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "a5986502b3233c6be58c55cfc878581909cdb805cfdf1a9a82e30ea5631fb43e",
+      "question_sha256": "9e956aee6dd07283696a4914be437d284dcb8b44cf440049646146c953e00ecf",
+      "source_sha256": "05956f9a80c3712a5c80670a1e833c0753c9217cd82b698c4dafa45511f2d386"
+    },
+    {
+      "id": "T6_64659eaf499da1aacf06a6c0",
+      "source_id": "osbooks-biology-bundle|m66398|fs-idp241870320",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66398/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "4961b052bd0cdff15b89d2208797f10e55a85282b9941069f7a4d243772f192e",
+      "question_sha256": "2f0d00b97033e1ac693561879ce88775316a3b88a791d52d96f90e79cc154a7d",
+      "source_sha256": "fc04750a73cda2603d2f941bef673bb6f53ec78162c0b04990bd64663c7de64d"
+    },
+    {
+      "id": "T6_6c47b120ef7c6568394906fd",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165137756885",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "72e315ec4f9ed5bed58b697e4d15087622f54cff1f2c193c0c58c22db42ca6b2",
+      "question_sha256": "26cb97c8edced84bd1d70372f25732f9c0adbd2bc964d6a561cf0f2ea3979e0e",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_f372f3b421dae25174f50d51",
+      "source_id": "osbooks-physics|m54181|fs-id1167062547752",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "6518f3d2ad47161da111e4d605905bd61c315f8cf325c42b9449df475a8a730e",
+      "question_sha256": "6859cb5b7beb91fa48a64f210b6fa6c680e93cdf7aefb7765e6cb1c5c209510f",
+      "source_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6"
+    },
+    {
+      "id": "T6_2d5ab004e00286f7f8e5e320",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303878",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "5b19a484c182efe425b92dc2cf0da5bc80add040ca1ead005ba096f9a55ee864",
+      "question_sha256": "1a8ef75faa26615acd0a40c60606af5ca23b323954cf701ca02e2384d6fdce74",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_6e122603242acd4116254606",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165135320324",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "aa3316ab8d361899bdd9c56d057f1786101913b088f50e47de5cf8e811f469d5",
+      "question_sha256": "d895ed42a1367c626e901856c70f625ed9db24fcc582f3d35712046192d2dbb5",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_e8513a209ff02876b413d5d2",
+      "source_id": "osbooks-college-physics-bundle|m42659|fs-id1557239",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42659/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "f41c14b3264eb69968f2528beb9a2a26fbbc166dfb88cc6ecdeb35eaf2edd341",
+      "question_sha256": "aec950efff444069c40d330bc6096ecfa8ce69af8a00e89f032eb232cb5e2f6e",
+      "source_sha256": "c622bc13d9f7b9f9dd7ebd661ce38a1db3a47b3bfb32f44b0d9e63391391a22c"
+    },
+    {
+      "id": "T6_9806d93a4cab6a6945f36b84",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303874",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "4345d37bb4526a3f06c1f2b693cce9495403afc7acf8c632d3276013ac89ce08",
+      "question_sha256": "a0ae2704542ebc51a13ce002918ffa4c289de359e06949416dfa5a562f18dbe3",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_c16eabe0748fe088f818bef0",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165137911687",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "d0c65b415433a958fd8c7af6fbdbb0cbed88aec25e5962ac47f1979e7ec358c6",
+      "question_sha256": "1591843037167ed4f72a97efc642f384a50541ebb8d73944bef1839b8c527ea9",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_78f35276e90660c406c93181",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id2929936",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "8267c77b70e461f60d84df881b148d9fd60fd5affa0eb87ad56bfed5b9eec660",
+      "question_sha256": "d61efddbcc08ac02004abc5d239d9ebd9e4d4bfbdb10135745a108628b274a49",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_c49508fc508ea44ebf08ce05",
+      "source_id": "osbooks-biology-bundle|m66395|fs-idm240788064",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66395/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "a04830459a82bd50719d699927b40437b34e7511308a7e2fc8979b003c081d9e",
+      "question_sha256": "73ef0895a0a63ea834909ead530501904dcac57b712cc07f46f0964ff02cd53c",
+      "source_sha256": "7b062dcf0ee14bba62e7996b10ca2bb3b61967fabda3bb4b5b18339a5f52e9d3"
+    },
+    {
+      "id": "T6_c3c7e8424b4e40ed2a5de00d",
+      "source_id": "osbooks-college-algebra-bundle|m49406|fs-id1165137634229",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49406/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "e8ea29b6345f4491cdc3fa836454a30fec1966e2bc2b124724e412bd1a731890",
+      "question_sha256": "734b6a3ed077ebd60b795260b650e8c5481b076cdfe245b0cf5096caf2296df1",
+      "source_sha256": "eaef72d753e625134090d8c3ce02e20f2b1da15a282696c47da281b7452a0765"
+    },
+    {
+      "id": "T6_a5567b80eb6aabb75eddf694",
+      "source_id": "osbooks-physics|m54131|fs-idm59599488",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "640b1a36fe4c47c03c457517fdf74e616fdd4299620ad31ae3ad20759d0bb33a",
+      "question_sha256": "4923a8f5e386d5fb5efe408333795696132b4610a3f81aacfaeb2ac22908ad52",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_15ef30f6fc3e2637d5089d8e",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1303870",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "fe7cc4b5d20faf06a8959d4507314eb5426aaa6bd441b0b44366eeba2c53ce3c",
+      "question_sha256": "79f1effa26f684d76db516c2371b2265efbc5108041a8d49030f37d726a0e93e",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_493e1da567740c97a8e03d92",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165134331116",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "eb8547d089b1d9c67d5303eb7c00023fbac9ab2aafb20671f25d913032d9f0f3",
+      "question_sha256": "c3254a4bc241e62389733ecb7b58d7f0e8231e4e20ab60385f295ac7c45ae10c",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_565ba1617009cdd1efa59b18",
+      "source_id": "osbooks-college-physics-bundle|m42171|fs-id581705",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42171/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "d42d708cc4923d3b1d22d56c9aa6f2e29e52323c8020c49a9bdbbf0f7fba54c8",
+      "question_sha256": "faa812b41c1b871e1cb114941f99bb612ee4c73cf444150dd4ee2e647479f1ae",
+      "source_sha256": "da560cb34dd88c06364aa10e673fb45ec76ef4a88b5770d0d0f0ec8aa33e8297"
+    },
+    {
+      "id": "T6_fa25d77bb8c6f6b72fa40d68",
+      "source_id": "osbooks-biology-bundle|m66399|eip-424",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66399/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "9c3e29dac410192f89ca8df2b79f070601bc7ffbbe26e84c3b1c433092b8cf88",
+      "question_sha256": "c7d02a9558d4cf66f9dcbd607ad2102a215b6ad9a77285c1b38ef78a3d196383",
+      "source_sha256": "b61c542e7f11e2d8073e6592d3e9f8c901739188d148881199fbb00d703365e4"
+    },
+    {
+      "id": "T6_608536ec6fc8ed6c35201f84",
+      "source_id": "osbooks-college-algebra-bundle|m49371|fs-id1165137469732",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49371/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "828afff3dc02f79b161a08ad12d9f4def183d0dea728382e6ff396768cc8a149",
+      "question_sha256": "d805cec7cd2fffdb884908962c55460065668da7b841d3118a96cad702d645c5",
+      "source_sha256": "31046acf69387e0fb6d60728c892e87c44da242f96bb482251312d0864a29365"
+    },
+    {
+      "id": "T6_67d97867a3eb2a5a33197c5f",
+      "source_id": "osbooks-physics|m54142|fs-idm73179712",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "745f4f6920727ca48a42b86e05b6714495e36ba3b93e5a3520a6d797ffd2218b",
+      "question_sha256": "15cc482c6621d5091a790752c0447eab950d822823dfab6f50bb5cfc2e27b9e5",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_fe1478a2d897e700b85657ae",
+      "source_id": "osbooks-biology-bundle|m66397|fs-idm32700064",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "f91093f98e22ed24258e9c607615f357d4f0ea5104516434cbccfbceb499722c",
+      "question_sha256": "9514d895a474c932f3a84368207b62950fdce7a8ff6d21d34dcf72e8fac62fb6",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_bd8ab22b1ee1adbf699255a0",
+      "source_id": "osbooks-contemporary-mathematics|m00070|prob-00007",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00070/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "fbdbfae2bcd3f2fc8d3ff13837231825e2c452796a78f081898f5ae0a7431e10",
+      "question_sha256": "bcf4eb1654555e3d0a64d622ce0383ffcba9325b6c9e7a44244e5e3dd753af1d",
+      "source_sha256": "97e8565b88f8026be4b661a42fe3724383d66197d959a0a8382251b58d7036f9"
+    },
+    {
+      "id": "T6_d9ff6c8c84cd54779f862b55",
+      "source_id": "osbooks-physics|m54131|eip-id1166851150765",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "6150a22dd445d085e0b33bfdd1e149ef858820097ac41884878f4f4481dc8dcc",
+      "question_sha256": "7c5d5d531a691bab3b312aaedce05bc90a415cee17d930db669ba6f8828aa65a",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_2e9214b55037020e302eebc2",
+      "source_id": "osbooks-biology-bundle|m66400|eip-178",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66400/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "f380ac9e6eed0fa271d98bcf64fcb23a234de4a5e42261b5dad6bb225978b414",
+      "question_sha256": "63e0bc69d046f21a768b9254b603e93885cc5c9d92b682bcbac6033b4b0c130a",
+      "source_sha256": "c35b6c18bbdb3b38b7ec71ea5e72dbd20bc8dc4daadbabedc92de3eaf42d6488"
+    },
+    {
+      "id": "T6_d0ad88b41d246cc2ace14607",
+      "source_id": "osbooks-contemporary-mathematics|m00072|prob-00005",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00072/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "99d42e653e4bc7ff4defea5f9a9b3e39121be8b6548f96c94aba977164c6da69",
+      "question_sha256": "cbe397fdadae4fd15e369a8a251b3fed18b74ebe07bc1ccf1d551bdb2fd02527",
+      "source_sha256": "d18ddae9ae7f340b7370d30d205ab247f177366382b804a15be6e0729b9c7601"
+    },
+    {
+      "id": "T6_e1726ef449435464c0b016c9",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id3163408",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "f9b61bec681fa687eb81545db2b09840ab476ae9a842a90d5077019342c6ae15",
+      "question_sha256": "673d90138e44def822be7b489f0f14ff7caa1f61e0caca50fbd82aa52627abac",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_ab3e8b4bb8c4a855d5bedf43",
+      "source_id": "osbooks-biology-bundle|m66394|eip-176",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "864498bbac76962e36107a75154c05164afc5d318853db42f548416526b853a9",
+      "question_sha256": "e8fc9da80e2f848115383301968b24dd621d58f836c98b20836e14baf2c4f2f4",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_641d404b420d6f09917e4814",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165133359485",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "f485774081d2650d91350b7a67b0e718bc416f68d59d9cd53cbf5e30d34a2601",
+      "question_sha256": "df3d153b1af346ac2ed0c5a3b7e68b10915c0951e6bc860d075920ddf6725c07",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_36f4bf868cb62283466de3eb",
+      "source_id": "osbooks-college-physics-bundle|m42659|fs-id2053274",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42659/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "b294871fbd5ec328658babe671a0ef53a14599eb66e3529c067f274a25b4eefc",
+      "question_sha256": "716aca2300e755084f186751c597f429d4770b05b759d7cee808d1bc09cbc671",
+      "source_sha256": "c622bc13d9f7b9f9dd7ebd661ce38a1db3a47b3bfb32f44b0d9e63391391a22c"
+    },
+    {
+      "id": "T6_cc8e416ccd08be17b4350a39",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1209961",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "9eb852e5ca201daa34c40bd723481051f385c4481925e251235582a4e65d5e35",
+      "question_sha256": "ab56562f914a6450b047312bd83363d93cf8b187d2cc4790a3a0524103e79c1d",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_43483993576498b6b2280571",
+      "source_id": "osbooks-contemporary-mathematics|m00073|prob-00003",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00073/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "81c0d72a27ab563dc383393fb09abedeee79596f9704c714da513b7e022b2631",
+      "question_sha256": "804c449748b40ac61fc451e1da43c3f15fe49e1b2c84905853f816041cf655f4",
+      "source_sha256": "14e96d6ec314d1f0946b62834dabc963a6fda4db37c570192ead14e5b418cd82"
+    },
+    {
+      "id": "T6_0cdf6123dea6a77759885fc4",
+      "source_id": "osbooks-physics|m54180|fs-id1167066031637",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54180/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "812db426cd6deda94d3f7e0a4cb817c3828af40a427b518166550df1d2ea9bf8",
+      "question_sha256": "1a688066aa5a1dc400575bc197a84dd521b745f373e12cb7a142381ef4dc1ab6",
+      "source_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a"
+    },
+    {
+      "id": "T6_7f1739694e584808881c72c1",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303876",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "4e75d613bf80ac53ddd9f59aef16c59e8267182b2223bcef9340585af0557cf2",
+      "question_sha256": "211905987fe7c4405a82596d619a27e8ddb5969be16bfa97ecd33cb0798d234f",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_b33d606977b1238db239049a",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165133243591",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "473b3b2a5f4e8fb630ec3c1eeb12f3dfb17bb0770216de7351d2ef80f2fba374",
+      "question_sha256": "d3fb191561b6dcf5404853480cbb91a722f0633ba50c4a496a96695ca80b95c2",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_30244c1a99f0c885cf5ed89e",
+      "source_id": "osbooks-physics|m54138|fs-idp60964576",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "09b2f21b36873a533daa7dd8c904df8f46c4f7b5d2b293bd43e450c2035e6f58",
+      "question_sha256": "910ad7e86e8eb54d70f7bbc227c4fda3e68c01ee1b8d199cd13defea2ec14241",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_a360ad85760aa965666016c2",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1303872",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "7b6f368f8609393175d38c7fbd613ffc6628a68c95d8e57818fb93cb31de6b16",
+      "question_sha256": "dd220382d5b94e91a15dc1103e99878e79dfa899531610a22eff7d6f466f2e4d",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_d81ca7eed96188560ae760df",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165134329607",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "8d8dab47e8496b8cb973a165e54fde5ba4b0aa4f95c764f0c356162e6ce3797d",
+      "question_sha256": "58aab9d38113b53037cf65c73350b86e008e1572aca2580ff1e43ccb3c26aaa8",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_5b6d1e3e1f15ee16f56db678",
+      "source_id": "osbooks-physics|m54181|fs-id1167066038549",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "2e865052243ba3f1c7a730348b27c60e157f7fcbd2476fe7dd08b9ba925ed552",
+      "question_sha256": "0af37c61f4a80fd70f1f6af8c177703a6b21ff7804134faec96980e3cad4d939",
+      "source_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6"
+    },
+    {
+      "id": "T6_c7b126e195afb660cc83f02a",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303875",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "93514a19c16bba1912d84bd162e18993423c7fc36fefaa0aca9c2bad6c09a5ff",
+      "question_sha256": "7dfc57a488a009a6122911feff1bc016e23f506182cd89dd65909e10643bdcc9",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_3bf4ad5f876287b7481fa01e",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165137851363",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "7dc50c5ab28a1ad029bf71459210aa52babce5352657e539a445f6607a58a2c1",
+      "question_sha256": "df37053696de1699bb9f069a8ebf4b8149456f9cbd74ce6276c347096226aa2e",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_9e9ec46c63e71585033d95e0",
+      "source_id": "osbooks-physics|m54180|fs-id1167067154092",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54180/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "9b5224de3d1b724c550ea288b80ecb5b4773187ade955ec421db49310c6c3801",
+      "question_sha256": "dd6cbbc70166df8aad00db3188aa5d34d6c921c2217aabb2bc688a5abfca8ca5",
+      "source_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a"
+    },
+    {
+      "id": "T6_cc089f28404bb8302d4faf4b",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1303873",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "e1899f2927c1f63c35aa54412f45cc2abd04ebc88305f0cd0758a174d3fe03ae",
+      "question_sha256": "9ec2d60c6f25ee5d8f420adc1a3e350f6d81f42ef2341897fa1baca8a69612e1",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_cd85680576b4a5f80de5e143",
+      "source_id": "osbooks-college-algebra-bundle|m49371|fs-id1165133291303",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49371/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "c6b66d8b0b7221befddbb1428e3f4a2131251c3f846b3804f6741b40ad9fa675",
+      "question_sha256": "f737f8778ce69b4a16a0ab99649635b5da99c1f268268608702f2f6d03affe18",
+      "source_sha256": "31046acf69387e0fb6d60728c892e87c44da242f96bb482251312d0864a29365"
+    },
+    {
+      "id": "T6_0b7aee7b31ef00bed9e2887d",
+      "source_id": "osbooks-physics|m54135|fs-idm13192464",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54135/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "b2c4458ef2c78a6b4e70d6a5a6fe90afa951fc470552cd4fb286cd39b62f458b",
+      "question_sha256": "2a6833a73fde399411132395ba2296c151e997a0dec0755f9e442fa69442d954",
+      "source_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03"
+    },
+    {
+      "id": "T6_368ac60295c36c725944ab37",
+      "source_id": "osbooks-biology-bundle|m66395|eip-145",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66395/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "e03ef78b87c2eb685fe5fdae3288f40b0cfe0aa0ffa2b607fb1743698dae7d33",
+      "question_sha256": "48fee16c327ea83e5295cd9cb56c4c4641ac5e0f7cebcaa7077ebe16a9950ac7",
+      "source_sha256": "7b062dcf0ee14bba62e7996b10ca2bb3b61967fabda3bb4b5b18339a5f52e9d3"
+    },
+    {
+      "id": "T6_23980718e76cc4e7de60096a",
+      "source_id": "osbooks-college-algebra-bundle|m49372|fs-id1165135706770",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49372/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "aab57ed4f9d660b08459699ae17194a106c320081f722733e2222f046d9758db",
+      "question_sha256": "8aea730c88fadc4070fd3904d66b9d7ae3b6b9d6c91dcb386ee93fdd119bf724",
+      "source_sha256": "c077229b183cf61abf2c57229dbc284c052ca20081cfe6ac618b19c8a86c6996"
+    },
+    {
+      "id": "T6_6e8f0a48573973f038d0ddd3",
+      "source_id": "osbooks-physics|m54131|fs-idm32982640",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "0da9a8735bd0190a0cee9bad53f997b861424d83ef2934888807cb1f67be97cf",
+      "question_sha256": "00c834b467a64f038044c486cfea31c13b1d5430a8350d1eebf085bd61899bcf",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_e0452a52f6d052f7de9e7cea",
+      "source_id": "osbooks-biology-bundle|m66398|fs-idp227266464",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66398/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "908778928a00ddd620923893239b783d7d25368172bdd9f2206d5500a04068ee",
+      "question_sha256": "5f382b5fe147ed21f74b8696bb6e883226d12d51a103de2a2381897d1e33274f",
+      "source_sha256": "fc04750a73cda2603d2f941bef673bb6f53ec78162c0b04990bd64663c7de64d"
+    },
+    {
+      "id": "T6_67e646a277a50592f2642665",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165137656843",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "f48504ff426ecafbffeaf958821b3395a03c571cbf69ed58ff23bd96da57b7f4",
+      "question_sha256": "1c3ab833158d5bb02e8898fcf8125ed80abad0b5bd0badd07b4597799e669f70",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_9e54bf77edfaaabcc8c7b43a",
+      "source_id": "osbooks-physics|m54138|fs-idp78160720",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "93791c615ca800d5fdcad8bb8c24664071412c30637c6c9ea0abf396fa99878d",
+      "question_sha256": "0651a5db49232289f87a5301b00de114187366b885ab9909d7c7adbcb42388c5",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_8f81e7c638b6d400e81ddb06",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1727236",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "6d3f9ae4797645224eeb87b1f744d6148fcdc9f7dc330a815a1d126a5a74c6a4",
+      "question_sha256": "f02fa4eb6d683404f9c772b7d3b4e25d613a90be002be834ed8c57ed5ab905eb",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_df080f52ff963cb3c8e1c911",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165134383717",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "5144a9b947a565019ef799d2dd41ca284b93d9bef7a0898eab0e16c78a576451",
+      "question_sha256": "6bc481665ff45cb35744065a3358eebd8ed50d644a4f58d383dfefdc93331636",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_ea6f3d7cdc2fa80ad8827f89",
+      "source_id": "osbooks-college-physics-bundle|m42174|fs-id3050580",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42174/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "7921af268174984c7b6c7a854f0191a56538915503d67c87d8d351e5bf3cb64d",
+      "question_sha256": "fc86b4d5f51e500495982b5e26a0e63870f954ed2ccb56db3e4eb704491d765d",
+      "source_sha256": "3da1b42fcbf52c030be3c8621027e2e825894a0317c212a69072b782dc3c6648"
+    },
+    {
+      "id": "T6_5584147c7f04c511714e7b93",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303868",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "f8f2bdbc3eeeed5a7174ccc1916f835b036af6de9529f5ca5cc1eebf35a0d229",
+      "question_sha256": "f19b1c3812921f2f0b2bb651843d73406884175f82dda4c9db81aadf0a4ad957",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_0d10d3ef628002453207feb4",
+      "source_id": "osbooks-contemporary-mathematics|m00071|prob-00015",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00071/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "11ae6071c40d327e5c84f38e9249f79feb2af74af33934ab94857eb128f0a21e",
+      "question_sha256": "291267f95bd40e94617b5ce49694bbe86432c9b03d0978c34c90a67f103f5c0d",
+      "source_sha256": "8c78a03990faa2c6aafa1e57c91024f023b36351757985c796b70e8e2f296236"
+    },
+    {
+      "id": "T6_718656f42e015bc6fdc02cb9",
+      "source_id": "osbooks-college-physics-bundle|m42652|fs-id2421911",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42652/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "aa0bef38aea1fcb192845061bcde8145547638bfec85e35b86729db74ed6127f",
+      "question_sha256": "adf900733fcf972d57e3102eaff51dd037f734e8961322b1d4452497ceb16d68",
+      "source_sha256": "11dd04d0890e56086b33df1ae8ff59a8e40280a3f34a555334b11eaccdd6cdb0"
+    },
+    {
+      "id": "T6_77ce46cf87c4433e004ff895",
+      "source_id": "osbooks-biology-bundle|m66398|eip-801",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66398/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "87f46f329b479be368051f671633cd1f3440736e7ddd8c10fb5ae47d41844f3f",
+      "question_sha256": "fecf34b357a9139ca9efbdcf28bdf22cdeb8f4e885921bc6f51b8483a6e28efc",
+      "source_sha256": "fc04750a73cda2603d2f941bef673bb6f53ec78162c0b04990bd64663c7de64d"
+    },
+    {
+      "id": "T6_8203cc96f680ef725f52ec63",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165137619101",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "25bf1d28c36e225d844a50ca4af86f56f1703fb93c24daeab12b3ed4ea545eeb",
+      "question_sha256": "e011fda06979f6c2d5eff1d78cee00f142a7a2db22caaa391d54f76f376769f2",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_769238087d898241b09eb994",
+      "source_id": "osbooks-physics|m54138|eip-id1166850283511",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "c30ac76f76e5ed2de60f392939b45c82f268aa211702364de3e7d4ddf697215b",
+      "question_sha256": "0a9975d51d9a3a7ed768eaf3d5ddbbebc556e93ca428389a212e0c4cc4c1ba7f",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_101dc74edb3589d318835e04",
+      "source_id": "osbooks-biology-bundle|m66400|fs-idp48992144",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66400/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "262fd966cb07bb8421e193705ab4d255e6a9eb0532ca71c855197a1494cf21df",
+      "question_sha256": "95cb038ed1728349eea975032e8f66ccace4790e1c92d4215bb0b49060458f99",
+      "source_sha256": "c35b6c18bbdb3b38b7ec71ea5e72dbd20bc8dc4daadbabedc92de3eaf42d6488"
+    },
+    {
+      "id": "T6_bebf0d3ab1e0565b0cfcf79a",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134398683",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "208f6381327dbafdfa3cf5571915847a053343f9133ed67deb3bea84d23a62da",
+      "question_sha256": "ee9b066d3d4c3f6a5ebd4cb466cb9ff5b23294ca53aac1527f747c87aa6f6402",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_a7515d76f03472e1de1f1fd6",
+      "source_id": "osbooks-physics|m54142|fs-idm60309424",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "a0241c0c6630664186e9c328f737bf1aacb2819a06013b386acd9a4e95a47580",
+      "question_sha256": "6b80c7759d56d9014f6ad270c38154ed7d24d1cee4c85bffde4c3d87730433f3",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_19ee7585bcc0a9f7bd436802",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1303869",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "26edf978c5b7eb6a88eafa77f304d2c850e1ef539ac436deafc230ad4c915fd0",
+      "question_sha256": "5531a5fe7b575327bd53699f7aec272d676838ec98f408a5e8b84e3d87ee7d23",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_1624276ef3ce0760c135b411",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165132039482",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "416785dd337ce555b6387607d82b5480768433dcf90e15413fc2b93e60b431b9",
+      "question_sha256": "5c2fabf685be96041dbee50ed61f7760c27e6376ecc4941413d5ddf09be8bfb0",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_6c15a7e76ece4c24a6c8dd0b",
+      "source_id": "osbooks-college-physics-bundle|m42652|fs-id3386266",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42652/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "ef1fcbd170157ba84ebaf345cbbc370a9cb10b84da331ca43663239cc6cfe4ce",
+      "question_sha256": "ec5a2f9261f0bec94a32f84a5feb58137dff2ce05f13fec32cb14c85c1702629",
+      "source_sha256": "11dd04d0890e56086b33df1ae8ff59a8e40280a3f34a555334b11eaccdd6cdb0"
+    },
+    {
+      "id": "T6_20a498f2672b3fa2dba8dc9b",
+      "source_id": "osbooks-biology-bundle|m66398|fs-idm12550240",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66398/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "bc45ad82a1d075e1bbe5c45d094d516493a99e7f5d79bea3534e4b835e810f45",
+      "question_sha256": "8883bcdd149764e672aa4f3fa90e497293d85d0a190805c31a517e15fd59e185",
+      "source_sha256": "fc04750a73cda2603d2f941bef673bb6f53ec78162c0b04990bd64663c7de64d"
+    },
+    {
+      "id": "T6_ed95f95573f0f55fe6c44a8b",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165137761654",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "74b3efe15735bcfdf49d52a81d55e194d77afeff1974649d1d88e74dbf863aea",
+      "question_sha256": "149d49bbe2ca90e1bc7688247f7d81f09dcf00ad94974545c47bebc4e8546ea6",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_b44d90170aff23b6b8f9ec1f",
+      "source_id": "osbooks-physics|m54180|fs-id1167063515166",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54180/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "85ac30f46ea01877553e9a6501611516dfa3801cefdba3ee80a1e5d76f0fe150",
+      "question_sha256": "4b1c39b5360db8b96238fff8f7c773f0d03a92d3990a0eb5553a281d492c13d6",
+      "source_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a"
+    },
+    {
+      "id": "T6_85973153942b78a1a86df792",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1282264",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "18358f9cc7b4bee11e9dc63e1f6a951428688c3d025c5fe85f72e7a4c9293e70",
+      "question_sha256": "ef655023139722c737fe08fe7ebbd013ba71754d4292a8966eb019a2a7dd982b",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_8687194bbf45f5f752d1bf37",
+      "source_id": "osbooks-contemporary-mathematics|m00070|prob-00015",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00070/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "f930a497fac81c9f53a261d41c944c340b5388706ef2226ec537928935eb0f5a",
+      "question_sha256": "0adcd5e341d3bf227f042d837800c036755c154bab1c35a23aad7fa2656c0d66",
+      "source_sha256": "97e8565b88f8026be4b661a42fe3724383d66197d959a0a8382251b58d7036f9"
+    },
+    {
+      "id": "T6_0c1f8e832e9c7ff76daa9f27",
+      "source_id": "osbooks-physics|m54138|fs-idp77055600",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "ee0b99db2637abd7955f8bcf6cbcaa06a9327cbabf7f5c590993d6092aa545d9",
+      "question_sha256": "e48825fc0400c1acc4dacf823b689c28c970719ad63aab38029d657c481a36b7",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_f604c5465c658e9eba79543b",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1382947",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "90d6e252c9b7fbc8078f0892e1869c9b03b00ba90cf573fc8eef8a573ad3d73f",
+      "question_sha256": "42b76de84376e91d0b63fa672ae7d80ecc40d112873fdb3d20584f055a3251db",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_c23da4c47b335e97140a6dca",
+      "source_id": "osbooks-college-algebra-bundle|m49374|fs-id1165135541503",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49374/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "b9e5d982cb35647d80f4b8630ffbe1486434cadae12a4da4d41fb5e10d95a7ac",
+      "question_sha256": "16168281faaa1d2b99d5bd4d06043de4521a78c22fffd0647fcaa57b548961c5",
+      "source_sha256": "71dd34da0ae68ed1f0be7d668d2e0c7406836900599baac85f49185f406b5479"
+    },
+    {
+      "id": "T6_8214190bf342d08dab887979",
+      "source_id": "osbooks-college-physics-bundle|m42665|fs-id2514728",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42665/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "2957c41edc7e56ee60e94cdf76716009835aae9e252aeb363505833311ad6a11",
+      "question_sha256": "e2f29f469c2f48d25ef708c540c9bc85d650e62a4a17fa799730bec333f7b725",
+      "source_sha256": "87ef5f0955e1bd0ded58616e91c1c806403c7bb438b92096f53c3d972d66d8b0"
+    },
+    {
+      "id": "T6_fa1831b689dc9495dec6f7ed",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1417451",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "623ba3de14649ff00da16a9dd513085d21ccb548d7b99675bf0183286904b59e",
+      "question_sha256": "9fd36271fd89ceea1ce6e11ee444d026578255b6084b66683da217b415be2743",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_71ba3f3a94f3b69fd78a8500",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165131863235",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "fa34ca4f7a3f8675684bd65a8591718b5ccdc5fe45f873aabbc48d40454142b9",
+      "question_sha256": "e1d2fa407ad21782b0c2e8b62e8b8cfd8777ddfb93aab9e3dccda20249551b82",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_dae801818d604d919512c799",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id2716143",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "88bcdd8368347463189ea4be9063db6a46102ff78af24505c641d68957d589d6",
+      "question_sha256": "32df60cc8bad5c6723092804789d68bc52772b6d37aa3499366a1c73951b9829",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_694d3827021326e15242f1eb",
+      "source_id": "osbooks-biology-bundle|m66394|fs-idp127636928",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "5aced761da1f850411734fd4bffe9d7bad0acbd7e254aec03369c82b55f62feb",
+      "question_sha256": "59fcb955c8e19e95f57a88f262b8b7ff211db00ccae6e9c27912ce6da60855b1",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_366eeeebbde13933029dfcd0",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165135251242",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "c25100863b17e1b36b289cdcc3f6416c1ac7c4ec1327cc453d92cd66ed2234c6",
+      "question_sha256": "58f7ef2adb41532f755868fd51b93712eb36b57f9fab7c1d7744ee0a11876851",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_126fc91bd1d5ea3b1fa787fa",
+      "source_id": "osbooks-college-physics-bundle|m42175|fs-id1169738208831",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42175/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "77d0688a2786c6eb30b98937aabb8850fc9e2878564d4ac44bae0679098eac40",
+      "question_sha256": "e3ac944a4b6a01ca56c82a7be8e09b80924e782781aae15be7967199b15a468d",
+      "source_sha256": "05956f9a80c3712a5c80670a1e833c0753c9217cd82b698c4dafa45511f2d386"
+    },
+    {
+      "id": "T6_bce506736eb096dfd35d7f67",
+      "source_id": "osbooks-biology-bundle|m66397|eip-96",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "89d0f7fe76c5712281753fc771e91bd9964941cdf4bf9ae71dd6547bc70ef2a7",
+      "question_sha256": "89a3069cc8de29ebf7d16a8cc47bb46080dae8edec1ff76c4687d37e15d5fbee",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_d48554a36e6ecd2bc66cd726",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165137935182",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "73f7aec58b1bac20f22d6d9098f1ebd51ea0ecf2ac956d8b7fb7682440d3324a",
+      "question_sha256": "5eb2b201624efdc1bd127f726ab8ea9790c1a0d2387e330db75be6f77f979e56",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_cf7a8da53f7aa71228e775b9",
+      "source_id": "osbooks-physics|m54131|fs-idm25241904",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "4fca4467530a6e26ebe203e6e32fcfb0144ed5284c796bb522dc9ede2b5a23de",
+      "question_sha256": "1e3b686436db776b00a8b75ee59c3ba54c61f24d3d5911ea2b0e91cf28c9680d",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_dfad6e8f38384185ab77a769",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1267632",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "4e4c8d7c33af3707ff43f5b51deda29240ffd8af82025851b7914bd1ffd7df5d",
+      "question_sha256": "ae35af9e69da4228af6c0b3028fae2076eef5035e352daa145da93e1c3741143",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_9f387ffc309a38b9037c743f",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165137404659",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "5c21d923149a7ce47e6c2e9343bc82cb5a561f90e163630184a4de9af2103839",
+      "question_sha256": "bd42ff3717b139d913f1bcfcf9a69e83f9b8c81d85c2ead240dec17acc4559a0",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_0359c464dabeecd411356b75",
+      "source_id": "osbooks-college-physics-bundle|m42659|fs-id2612274",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42659/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "de10a2572f7b150975a3af90f7d52d2b6822f9979b8568a264438e6ab6b439ec",
+      "question_sha256": "6e7b30d8cc8702b141336e5a5489d3ddd2deb9313c4389e6117526d6326c3f42",
+      "source_sha256": "c622bc13d9f7b9f9dd7ebd661ce38a1db3a47b3bfb32f44b0d9e63391391a22c"
+    },
+    {
+      "id": "T6_f2c8f9375314ba5db3b64ea1",
+      "source_id": "osbooks-biology-bundle|m66396|fs-idm12524050",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66396/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "d8c1a2182784b7c99ee1eadf13206eeae13b0fe57e296516c6ebe182c8a0547b",
+      "question_sha256": "cdb7fc3e8f535af41435a23bcc0afab8fbccb8b493ac0c52adcb5ed623353f0d",
+      "source_sha256": "b1acd3dae5d26b3c1e5f49a63021f2da96098881101eb252d2f1cd269842813a"
+    },
+    {
+      "id": "T6_a43e89fa4c19aaba875c1df2",
+      "source_id": "osbooks-college-algebra-bundle|m49404|fs-id1165135189792",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49404/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "a5a72224e6b1a67062e31b082102608f19d68e39a1c4f1ba23fa02397c1dedef",
+      "question_sha256": "75b6b10721f3ce30d52318453f48ea5b8e598be4ff6c6ef4a932c1b1d7ede1a9",
+      "source_sha256": "76c431dd238fbda94b3ce628f91ba9a2910fc9a75234603dba53d78148b18253"
+    },
+    {
+      "id": "T6_21439f036c3d1c8d6725f5a5",
+      "source_id": "osbooks-college-physics-bundle|m42172|fs-id2899554",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42172/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "826aabc67164b27e36d10840121f2922b677afaaa9eda78a3122efd82a8e5f15",
+      "question_sha256": "d28c8efc1fa05e831e68fb01b13917627464d1c0dc17e88970aa71fe58b2e8bc",
+      "source_sha256": "0e027e77f413fb2450e529205657d89a3773aa0e2ec83712becc3a6bf8591a90"
+    },
+    {
+      "id": "T6_62339329c7689e9b759c83dd",
+      "source_id": "osbooks-biology-bundle|m66399|fs-idp121241136",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66399/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "d71fa625314514063af3025a41fdb069b465bb8c5eb37d7474a5d73dd3adf356",
+      "question_sha256": "2cb0fa74b8920e2b1e6423ed576507a2d96bc01c017bc9b385fc4b7e3a48845d",
+      "source_sha256": "b61c542e7f11e2d8073e6592d3e9f8c901739188d148881199fbb00d703365e4"
+    },
+    {
+      "id": "T6_953362c3d8ecfd1a1de9b0e9",
+      "source_id": "osbooks-college-algebra-bundle|m49407|fs-id1165135640961",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49407/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "3233f3ff8f879f0a4ef404d13756e3b52a82ecc0908017b16b3b83d142d59587",
+      "question_sha256": "93983a58a19d3f42d1ec84656e70dae34ae8f09337c6e39eb16b0de64d40149c",
+      "source_sha256": "3783ce0448cac5515ba6b1f416af9cfe01275f4388ab45e1b443d98127fb12d8"
+    },
+    {
+      "id": "T6_d0f59600bd9ddb8746907441",
+      "source_id": "osbooks-college-physics-bundle|m42649|fs-id1413270",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42649/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "ff5a0fa9787c21cb071c5f8768f15a5cf0a0cf9ffe9cae254ac16b16201b27ac",
+      "question_sha256": "1f02405b405294bc1c37991b8315a061852b59df9abac6d67223c4c94e0d6f96",
+      "source_sha256": "e586b655cf0f2ae783bdce1bf32147d95e0c4a4bf7e17d24c02d429e28bd4d6a"
+    },
+    {
+      "id": "T6_2204a884d8e8da9c304226af",
+      "source_id": "osbooks-biology-bundle|m66395|fs-idm93669216",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66395/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "fdcabd75d3e441a3463ef30cc1299ac4d4fe6f7139c1da70cf554c79eb68935d",
+      "question_sha256": "b72e35e89283a60455e45715c067f6eb800ec58f88c7de61e6312bcf7b1fb92a",
+      "source_sha256": "7b062dcf0ee14bba62e7996b10ca2bb3b61967fabda3bb4b5b18339a5f52e9d3"
+    },
+    {
+      "id": "T6_6dbac1bd4fdf0a6f79d99bc7",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134279260",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "282edf133f8b801739ce265a72f4b0618344d9c10c98b67909eb452154acf84b",
+      "question_sha256": "57886b44ce9a49ea5cd509763abb316cf38933bf2b3fd07150939641418753c0",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_7b88b4bcb4ca5e2771760d9e",
+      "source_id": "osbooks-physics|m54181|fs-id1167065853510",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "484257e297f02e01a8e903baeea68a05adf781da0f9d000601304038f1f699ec",
+      "question_sha256": "11fcc7f5812b8956adc95140a90bf4cba38fc1a75af481f224aa2461a16deb0f",
+      "source_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6"
+    },
+    {
+      "id": "T6_f7fd66fa5f5221f9e69324da",
+      "source_id": "osbooks-biology-bundle|m66397|fs-idm27922704",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "d7bbb0c83a5ea3b04f45ac9323d2b1ebb024078a577e219ef82ccc5b0f64d7aa",
+      "question_sha256": "901d7b485f11521dafde30c94616f629f232be3626c05b1ee84bdc5352a87686",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_e0898531aede8918993dc357",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165137823080",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "96afb984fbaa67344a1a0258cacba8f4a73b5e5abfffb6eb4597187207f4ebcc",
+      "question_sha256": "47774fc5d05351c04f30bc1bcd9db7d5f9644068789234fd3d2160b1530e366e",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_fb331177d8a2f5f1b18fc607",
+      "source_id": "osbooks-physics|m54138|fs-idp72009312",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "c11a92d9534181f5afcf664ce624ea5e95906f7bff06167a3ad3a5a0213f32d6",
+      "question_sha256": "7befe819f0b8288b9290f0e0c69fcad5b7dc398c75b5e726504203f9f94d6f48",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_f618de812a873cc33fad81d6",
+      "source_id": "osbooks-biology-bundle|m66394|fs-idm8967888",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "92ceac2d231aa7f8c0e4fc63f9cba12a9b8c80afa14e69a0552b1c957cfe1f0e",
+      "question_sha256": "386d70fff60f46317332df6e198d9e40e8473fdf695fe693c5f56201b74b7bc7",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_6a4b440be1a1a7727dffcd3d",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165135546056",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "4f396b6f8b048372ecce2875a7f537eb37804764c3781deb1afe1dcd4ffe3cc6",
+      "question_sha256": "bf2af7c539d8ad93241ada79b0968d85c8c93e0a2ab9fbb8a68ee64b26547171",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_290b088ab3581ee2acf0a5d1",
+      "source_id": "osbooks-physics|m54131|fs-idm67771200",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "b68e2e3687ca93c079780b83162ec66d2c96c3372581e87da2c91df0c10ef8b7",
+      "question_sha256": "1a4bfe3a7d4eb7cbc02b30bd923e9452a215e5202efd018a7d519c037a008508",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_9ec28154d75082f68da5e7f6",
+      "source_id": "osbooks-biology-bundle|m66397|eip-159",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "d2d7834b78068b3f52c830865fd0803978b62a4a0576bf68740b54b5b102bb25",
+      "question_sha256": "e84026b0becca869332974265de9771b34becc0ef19048ff312e46eb8a8377d6",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_008b3d1fc4c42f463ecfa303",
+      "source_id": "osbooks-college-algebra-bundle|m49406|fs-id1165135403193",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49406/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "34483fb21ee2465e4a1aeef8d714a3c67ef5d1a13bcd3bb97456d847da3193c8",
+      "question_sha256": "2b78d17b8614d246575c9cb414deadd80e2f891913331736d8a3fb82817fde00",
+      "source_sha256": "eaef72d753e625134090d8c3ce02e20f2b1da15a282696c47da281b7452a0765"
+    },
+    {
+      "id": "T6_ff3b871257c4dfa35cfe3190",
+      "source_id": "osbooks-physics|m54142|fs-idm74724688",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "7f6725998cc50f3a6a0856318c5324aeba010d7771754268588e91213f8a7dfc",
+      "question_sha256": "868ce30fa15fb22994c237f9b9e3a33f3c062ac32298f42afc15c52ce1391c7d",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_0f301e3392523c52cd9ef4fb",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1303877",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "c2519b6f2b092d6f4375c80a3374861ccfb781ec87288dc4a94f3b2fa7b8d97e",
+      "question_sha256": "be7e2330211abe2d542329330881e2c5776b1555c62b8b7296d67383a0bda492",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_f12a24726a6477cbe35e60b0",
+      "source_id": "osbooks-college-algebra-bundle|m49407|fs-id1165135194907",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49407/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "c84200ed6ec66bb456b3914cbb082975a1cc1617c4a0b404f89362724df3a3fe",
+      "question_sha256": "aea884812865058863453e50197bc314bc6dd42723ffff80085d150ef583ada0",
+      "source_sha256": "3783ce0448cac5515ba6b1f416af9cfe01275f4388ab45e1b443d98127fb12d8"
+    },
+    {
+      "id": "T6_07fc6714ab6df4b431ee880d",
+      "source_id": "osbooks-physics|m54180|fs-id1167067186334",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54180/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "ea89561242968f6a74ed2db2327c75d70604a349e425218139ed094af2c2ab17",
+      "question_sha256": "32098e5affa1cb30db1212ed9ee33ee9d35b83710b6ec88881a738fd1b59e68b",
+      "source_sha256": "e3cd1cecbf867feb2f2a5364acea69330feb98f0f95f4222b373b61aa0c83a6a"
+    },
+    {
+      "id": "T6_c1fb1ee0cad291bdb31dd533",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1464963",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "d636282db5d4b0dc158d21733bec021b214e3dbcaec6a313c9de1188a7d8c86b",
+      "question_sha256": "8d800bddf7212ce2f22d0e88cd4806fcc9f7e24d4b0aa14c92dbce0a66607ec6",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_3b860104c35d9e46b9319c7d",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165135320316",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "f99e4490e6b226196815216381af81e33d01231a81bc051f8952b6b268923cb2",
+      "question_sha256": "350256ee617fdd9f18c0c231270555f368587b2c5c4e91c77036755f3d035189",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_e614ccff6fc7d3eea08f4157",
+      "source_id": "osbooks-college-physics-bundle|m42173|fs-id1475294",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42173/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "56db7209e398c39807ffd7207cffdff06da805aac2528bfc94a25f768cfaad30",
+      "question_sha256": "f42338474ed40cad057c862bb07d705ca97717e122ead70d747d23571c64bab0",
+      "source_sha256": "c074800764b20b0801fabafd8bd403f895b6705ac3856a7c61b52bfa1e484e59"
+    },
+    {
+      "id": "T6_55e50a7164b597cdb7e47330",
+      "source_id": "osbooks-biology-bundle|m66396|fs-idm118161616",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66396/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "9131ce09afd24c6f8c8844ea004c2eba6c55c40312f48dc6ab0456f05ebc7016",
+      "question_sha256": "b6c5abbe57ddc9135e8657bc55e0fd31505da7b1ea055701388d1b7fd6b0b7f8",
+      "source_sha256": "b1acd3dae5d26b3c1e5f49a63021f2da96098881101eb252d2f1cd269842813a"
+    },
+    {
+      "id": "T6_0e0705b2918767176956ff13",
+      "source_id": "osbooks-college-algebra-bundle|m49404|fs-id1165135528435",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49404/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "9beb53c8606386da019f7d3fee4f570d6c34a1d6200fa1d0bd4363fa80f43a34",
+      "question_sha256": "ccc006f536ebb8a159819a6374e82c86d4347094f70023f110759f2a28f7131e",
+      "source_sha256": "76c431dd238fbda94b3ce628f91ba9a2910fc9a75234603dba53d78148b18253"
+    },
+    {
+      "id": "T6_68d4f3eaeffeab686cfc9fa0",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id1355573",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "c8c22ce052d5f3834c4d53a87096f76e18f5aaacb1d5afb938a15f411262af41",
+      "question_sha256": "f7ef6698139aba43197a9708989977bc0092fcbc30ee06f4e1c98d1922af4785",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_8f475d3bec99e411a76beb15",
+      "source_id": "osbooks-biology-bundle|m66400|eip-insert171",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66400/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "0c88687b189b901d4f3f92b23d5aef1ade4a96948f254616269ed2eb55848d7b",
+      "question_sha256": "1f634be8462f996fafe260581073a1e3f15b24393a66c9c32078eb057815621e",
+      "source_sha256": "c35b6c18bbdb3b38b7ec71ea5e72dbd20bc8dc4daadbabedc92de3eaf42d6488"
+    },
+    {
+      "id": "T6_9778af2cd9e18a9ae292332d",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165135186958",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "e3b3e61de9a4a6d7fee7479ebdf0924cab70a06c97115ee257779cc94ed1dec3",
+      "question_sha256": "1cb7898c8660d9efb82c8d086427bb8b893d370fa95e5009d8631b9453ba83be",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_ab76fcf684e2210ef167b836",
+      "source_id": "osbooks-physics|m54181|fs-id1167065792384",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "e51a17db46a5fd369fd9e7f0136acd6481b393a15dd980eb16e260c2b64ae967",
+      "question_sha256": "77e51212e585f66dd429eaf2f3964014bb23cce1c13c68ffe4ce1983278efadf",
+      "source_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6"
+    },
+    {
+      "id": "T6_7120650ca47d718f0deecb0a",
+      "source_id": "osbooks-biology-bundle|m66400|fs-idp260668976",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66400/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "fa7d71b66f0e1bb5d4c901d17eaf18663da2272cf0d970f4a88294c40353244f",
+      "question_sha256": "6a85e69cad9484941b51d27677e8965b60070292b0c42c38f83f4db6e21fe221",
+      "source_sha256": "c35b6c18bbdb3b38b7ec71ea5e72dbd20bc8dc4daadbabedc92de3eaf42d6488"
+    },
+    {
+      "id": "T6_60ad29dd6c0f725524c9ab40",
+      "source_id": "osbooks-college-algebra-bundle|m49404|fs-id1165135551786",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49404/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "1ac584d5b362ad781847c7d1e8d95d461e1bc0c1653f21ba1282f4c464293866",
+      "question_sha256": "03a2fda5bae8438f07a260dfecd5df9a283aba0c3b9ecbeeb7ad0c06881fb2af",
+      "source_sha256": "76c431dd238fbda94b3ce628f91ba9a2910fc9a75234603dba53d78148b18253"
+    },
+    {
+      "id": "T6_f326bf83cfcb97a9f072ecb6",
+      "source_id": "osbooks-physics|m54135|fs-idp19836816",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54135/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "34a08aff40afff373fbc98c67462a1ec569b957ccfa97eb04240e06b4ecb1d31",
+      "question_sha256": "c3d010faffe92970ad27cbbec6e3f5ac6b98fe2ed4faebf1180affc20a682038",
+      "source_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03"
+    },
+    {
+      "id": "T6_6bd484cb2a6af5aad4024664",
+      "source_id": "osbooks-biology-bundle|m66394|fs-idm89713808",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "7cd3cf5d2995fde80e0e17bb17f175ea6f5d983dbd24c6a5788b9e1a1b6a9b8c",
+      "question_sha256": "6fdee8a1af40c90192834fa5fb7ad0d718a40815ef689c1063bae14930f6fbad",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_78b3bb676ae0ce0798038ea3",
+      "source_id": "osbooks-college-algebra-bundle|m49374|fs-id1165135191486",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49374/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "9d87856f13a88e8de75e84b8bcbb1362d8bc0601b86f9b0e0cc6852ac38c1329",
+      "question_sha256": "73a88e9837eee856a532f3354da4cdc8c4a2242ec2d6a83c61104113e30356f9",
+      "source_sha256": "71dd34da0ae68ed1f0be7d668d2e0c7406836900599baac85f49185f406b5479"
+    },
+    {
+      "id": "T6_82dbafe288f2c487e6203fcb",
+      "source_id": "osbooks-physics|m54131|fs-idm21754928",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "8e4a5d22fbdb755c35e28a0d26d4341f22fd443d0418df40aefb3bd3bd938bf8",
+      "question_sha256": "79c72952903dd1f4757bfe840e118afa359a73b2a16b90042c75438cb26ad691",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_26c10700f3e517e36e9ff88d",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1892091",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "5c1b2c264781f22d758f9359c9ea9a06a82330519c0ce5c6d9f8fe2683be8e8a",
+      "question_sha256": "c5b1de04ce233dc46db6bfcda534e00ec84d2e5c11398beb4588ea98bb5776a8",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_ae4f0683329d944e4a3238aa",
+      "source_id": "osbooks-contemporary-mathematics|m00073|prob-00017",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00073/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "e6eec7e84cec48dbf74ad820d69c9e2f53862ebc547d502865c38f4df6cb3dab",
+      "question_sha256": "9c5ac9621c728fde9392e0543ac882ba22ea08cd32405ec82f4300ff05c0ee01",
+      "source_sha256": "14e96d6ec314d1f0946b62834dabc963a6fda4db37c570192ead14e5b418cd82"
+    },
+    {
+      "id": "T6_8a1ba80faf24bceb412ff96d",
+      "source_id": "osbooks-college-physics-bundle|m42649|fs-id2447320",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42649/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "1510fe5f9156598fa759bb88c397e2c2dbc0995ce709b52ffce7a735c4d17ef2",
+      "question_sha256": "a504b335268dc9126f43a1f539285a62600d3b38907963c72414475349ac1f7c",
+      "source_sha256": "e586b655cf0f2ae783bdce1bf32147d95e0c4a4bf7e17d24c02d429e28bd4d6a"
+    },
+    {
+      "id": "T6_7a9faacd35a592861451fbbd",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1330109",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "7ca46bc802aa941dfd098c945e446cc9a08ff31f62a2509be161276c3bbec386",
+      "question_sha256": "313083281bd0d06ca091121dc7853f4995e6e5e49bc215ffc3b7dc62a5298382",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_dc302cf00b3e465df00e1fa8",
+      "source_id": "osbooks-college-algebra-bundle|m49374|fs-id1165131990656",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49374/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "d6b794543c26d93ed1fbd1fa6f9e0a0dabe3d480c16d9d187707b440b7c6495f",
+      "question_sha256": "99ec189d073b9723e514f7ef2b6689c3c96a81638e52147c5f7c597a38746c05",
+      "source_sha256": "71dd34da0ae68ed1f0be7d668d2e0c7406836900599baac85f49185f406b5479"
+    },
+    {
+      "id": "T6_2d56c7be3af3ae75277bb734",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id2420244",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "67c5b1c7af5794697599e5a0e2cc7ecc339f2acc5b58baf4eac5bc98b146da74",
+      "question_sha256": "99e45e937748ce3fac3b976f85b6a1483a06a21167cc54834db6997d52515ddb",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_4efeb72ea5bef5c118bc1817",
+      "source_id": "osbooks-biology-bundle|m66397|fs-idm97685872",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "b006592ba42d6e48d54e4c7842d8ea405e9a8a71f85ca3a35c1635cb7251e5e2",
+      "question_sha256": "b599d6ababf1f2c72daba205719d93fcacdac849375249e512d5de8b183b17e2",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_616d53d8fbeeae92e4021ea7",
+      "source_id": "osbooks-college-algebra-bundle|m49404|fs-id1165134314755",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49404/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "9a28d363627c2e4c2fee229e59ae7cee0762145b3a2be7fbbdddfa0954c6b7e5",
+      "question_sha256": "c2727951e49f4a911bac705895dbf5a197c84a56c921763d988c8bae7b599d34",
+      "source_sha256": "76c431dd238fbda94b3ce628f91ba9a2910fc9a75234603dba53d78148b18253"
+    },
+    {
+      "id": "T6_8bc4054a9011aee1ca9a2b12",
+      "source_id": "osbooks-physics|m54142|fs-id1166851324668",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "1cae63c6317f9127f7280c3cf46e2e95b6eed4915bc341f4a67aa5f5465d8598",
+      "question_sha256": "c8b17662b8e082d9ad6a851fded818463334f24665e1290a788a94ab07d4f607",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_f3aff5bc8970cad3547a73ab",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id872298",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "452ecaa6c9a1f103e545c1f6caf9cbcbca7f19d575d2786a52082a41dc0c8002",
+      "question_sha256": "e52bee2a84c7224ad0704a2e88ff7da02bb97c66ffe20f699143c2a2b6f7cdf4",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_a28713c90b2527c83c76e3de",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134280405",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "e467269d1dea27898221c377541922d6cfbd0cd73f8735954b97eb9147039d04",
+      "question_sha256": "dd726349dcd48f3d05f6394aa7b55165031f296e7e28202fc0dbd10c5bcd734e",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_45e87be3330c6c5a1d6b2f50",
+      "source_id": "osbooks-physics|m54135|fs-idp3928224",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54135/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "0dcb574c8d11abc46cbfd799422340288f152de7d1a710759e1a4eb1fffadf7c",
+      "question_sha256": "f560f7a7d1d2abcb92328fbc932c82cc7718ad0eae0d4d9128ee9b2601618e7d",
+      "source_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03"
+    },
+    {
+      "id": "T6_bff0dc3d532ecb5c799782d1",
+      "source_id": "osbooks-biology-bundle|m66395|eip-730",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66395/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "39638ef0dec92bab57f9d9e128e0a789b10eacf9b817894784170a2149156b83",
+      "question_sha256": "8fb665c6360d52b1be27bf7dfadfd0f5e5e3c71db82c1bafa9303acff16348c2",
+      "source_sha256": "7b062dcf0ee14bba62e7996b10ca2bb3b61967fabda3bb4b5b18339a5f52e9d3"
+    },
+    {
+      "id": "T6_741329202d339b481d0392ff",
+      "source_id": "osbooks-college-algebra-bundle|m49374|fs-id1165137414778",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49374/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "e6adb0203fedf3eca177bed1583f634d44b4d72c040bac97947adb16ca9c4453",
+      "question_sha256": "dd01b7f9da4636965883db0b8df2746826abbad9791c9331232c45a71ef486c4",
+      "source_sha256": "71dd34da0ae68ed1f0be7d668d2e0c7406836900599baac85f49185f406b5479"
+    },
+    {
+      "id": "T6_8bbc00ec10de704cfc4e04f6",
+      "source_id": "osbooks-physics|m54138|fs-idp96966160",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54138/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "13de873a00f5202d9ee2464bd7efbc98ed1bdc7bd5075133fa522142645e80b3",
+      "question_sha256": "ef3f7212555690418e5b24e29ae574852971a4bb44ef21bdef41c2388a7a91b8",
+      "source_sha256": "984642455b05a416f1d307e43dea55bfe5bfbf1e47ac4503d894dc176fb39683"
+    },
+    {
+      "id": "T6_e72b8b4f27dfd70fa03e98fe",
+      "source_id": "osbooks-biology-bundle|m66399|fs-idp42564320",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66399/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "f52c88bff4963d6744e6724ddcd2312a642ba537118c2b73bd7884169ea1cea0",
+      "question_sha256": "08b5246a106134dc3b8e0c326a86b61c5cba73cae3500b6a9b7c0ae04cc0583e",
+      "source_sha256": "b61c542e7f11e2d8073e6592d3e9f8c901739188d148881199fbb00d703365e4"
+    },
+    {
+      "id": "T6_0c27c3de9bc5ab9b13176038",
+      "source_id": "osbooks-contemporary-mathematics|m00072|prob-00013",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00072/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "4043c448e3af301d8e8210671e2b69ef2300924dbf2a008395f44ed2056da4d6",
+      "question_sha256": "07b10b899080b7600f3d7bb033fd9bb6beee6ddc313727236a68c5e8b48bc4e6",
+      "source_sha256": "d18ddae9ae7f340b7370d30d205ab247f177366382b804a15be6e0729b9c7601"
+    },
+    {
+      "id": "T6_601ef1315ea0746f9cb1875e",
+      "source_id": "osbooks-college-physics-bundle|m42649|fs-id1817203",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42649/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "13c53446118c3dadad1d903a5932803fe665224eb38803ee1d6c62118eb4bd64",
+      "question_sha256": "75f934a63b41ce6a15656aa41fb4f4250b70cdf1dd01e7d994217f80305e8a55",
+      "source_sha256": "e586b655cf0f2ae783bdce1bf32147d95e0c4a4bf7e17d24c02d429e28bd4d6a"
+    },
+    {
+      "id": "T6_7802e250639f12ab6b62f318",
+      "source_id": "osbooks-biology-bundle|m66400|fs-idm18244000",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66400/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "2560125b6fcf8e8e8b43e192e18a780e0823471ef4de66548b873c6535153edf",
+      "question_sha256": "dfd34b60e05e569d16ee47410b5b7108ceed4cea5053875f1360ea3c6b7e1730",
+      "source_sha256": "c35b6c18bbdb3b38b7ec71ea5e72dbd20bc8dc4daadbabedc92de3eaf42d6488"
+    },
+    {
+      "id": "T6_33cfee0be827f76ba50e7b5c",
+      "source_id": "osbooks-college-algebra-bundle|m49371|fs-id1165133320777",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49371/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "a6940c9bdb16f46083d8f0eb9ede60a3bc21c57852766e9862359fe21c657e71",
+      "question_sha256": "5ff885df2d08dfab8217b1ae97b83d445f148b10a65b120d06ef414189e31b35",
+      "source_sha256": "31046acf69387e0fb6d60728c892e87c44da242f96bb482251312d0864a29365"
+    },
+    {
+      "id": "T6_c5b93cec0db72c29323783d8",
+      "source_id": "osbooks-college-physics-bundle|m42665|fs-id2448995",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42665/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "7c7a46d8274deca945d2f21603b25e9d61b4723605fd04e0f532556f35452126",
+      "question_sha256": "ab4e70c3899c6cf3b548a9ba49197d525d0b27672d3b9e0e259a3730fa40f0d6",
+      "source_sha256": "87ef5f0955e1bd0ded58616e91c1c806403c7bb438b92096f53c3d972d66d8b0"
+    },
+    {
+      "id": "T6_94ff6ef11b694c6f363c671d",
+      "source_id": "osbooks-biology-bundle|m66394|fs-idp15480176",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "ccd1c5522c0ac279114f6309e8e3fe7fa04a6198685e32c8275d0c2838e81c3b",
+      "question_sha256": "bba11f64b8e921b896ca13454948be1520881b83fb5141ad78f410742c5ee026",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_e33b8adff7ee456050425195",
+      "source_id": "osbooks-college-algebra-bundle|m49371|fs-id1165135430911",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49371/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "cc7a89fac59aae3f8d72ce59a4da497bdded88a91d4ac0b8ae43683473531066",
+      "question_sha256": "2e23df4e4bd0c727f6a45bc391e6aa0497424a4752511ea927387599bdfd8cd4",
+      "source_sha256": "31046acf69387e0fb6d60728c892e87c44da242f96bb482251312d0864a29365"
+    },
+    {
+      "id": "T6_0a2d148fbde1b6bd898b4378",
+      "source_id": "osbooks-physics|m54142|fs-idm30588752",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "d053e37f56ff2d49e2c0d23545c27903a84fdd3afbe648e4195d140b995f4377",
+      "question_sha256": "0673661bddb9401c82629b0f3abf4676fd280bbf0f036c7a723cd080227cc3af",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_99371479c5c582a1ad7ca369",
+      "source_id": "osbooks-biology-bundle|m66394|fs-idp13628176",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66394/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "f066434e1a1fb36c4184b2158558208679e6d8ca503682c667f356d2c3c807aa",
+      "question_sha256": "85c325dd63c764933c0ac0a8edb2488fd3a8b6697211b9f1111194ea8e506539",
+      "source_sha256": "c30e29d03ba0a1f542478e1699baf62e992ceb59fbb54b37c8f24473d086ffd6"
+    },
+    {
+      "id": "T6_0fbd0fe0f61f71d0aacb8694",
+      "source_id": "osbooks-contemporary-mathematics|m00071|prob-00011",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00071/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "3c2ada5a868dd1cbbd3e4bce6d609df5274178dfeb841a3d5205e5893579a9e0",
+      "question_sha256": "661a6ebc739c3e91b7b0b605822af9a0eb0e5980716b16af720e5986abd7bec6",
+      "source_sha256": "8c78a03990faa2c6aafa1e57c91024f023b36351757985c796b70e8e2f296236"
+    },
+    {
+      "id": "T6_58df50ac5d754dbae2848253",
+      "source_id": "osbooks-college-physics-bundle|m42656|fs-id1917360",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42656/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "0d4ef1609a2dc062569195589f6b39b072bae390c8ac7bd0ac404f2823fe57bf",
+      "question_sha256": "c51f501f8ef5d2101e296586fa0331c8fde663866275c178bceeba435e129338",
+      "source_sha256": "46da2ba74a6ee3a021ae78e139c264126f79dab486f663301f3ede2471a49837"
+    },
+    {
+      "id": "T6_39f3a4655540d990b9c95811",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1723142",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "04a6edae9105dc01ceeebbca1d25aba59377d2c9f02f6d3b9a85664c19f3dd38",
+      "question_sha256": "6f1a1a3ba1333a40c03ec41fd4e5ce4ac93738196f1b97cffa41ec79f8fe7e6f",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_14acc819463b0e1f55ed40a8",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134279251",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "c51a00826a3733dcf30b2853ca1af267567637d99f8ad68fca12be28d9128a1f",
+      "question_sha256": "4ab9396e674004a3b975fb0c636d6e88d61d73866c9c0e0e67779aedf0a07cdc",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_4103f031e7c7c79a1c1fc5c2",
+      "source_id": "osbooks-physics|m54176|fs-id1167065849130",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54176/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "750ff3f58955448448654697a4ab775d376917ce070ca9d77ade2005afba7a90",
+      "question_sha256": "a146fc485188d01c3e10ed6326b6408024622eecb49d113d69d454644550af86",
+      "source_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b"
+    },
+    {
+      "id": "T6_8ee466f3d2ff1c8e65622def",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1467772",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "f47119afa162813e2a8f439732fd62dec77d69bbe57e7c2a7f5381497fafb6ed",
+      "question_sha256": "0d79d76dc484449c5e505b16fbcbd4c20f284735d6380fc412590627eeafb560",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_85572a32410d3175e3a2f1b7",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165133141350",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "2d3641b42a7dc109b6bcb19b5b5e5291e1cf9249364ab2148318526d1f9d9018",
+      "question_sha256": "292aad8ad992b58254019417320314c7fb2b7cef584a93c944e38dc618a0874e",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_91458aed17a78f27a53bbbd0",
+      "source_id": "osbooks-college-physics-bundle|m42652|fs-id1422022",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42652/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "1b1293f8807b468a7152162b2428baeddc27c7699acedb43d625269ca5544ba1",
+      "question_sha256": "7e7aa1f595d6853a1a39a1fe6090bfa000941f48e520528692dd14d0a84d529f",
+      "source_sha256": "11dd04d0890e56086b33df1ae8ff59a8e40280a3f34a555334b11eaccdd6cdb0"
+    },
+    {
+      "id": "T6_560ea4ed1dce3002264fbc6c",
+      "source_id": "osbooks-biology-bundle|m66398|fs-idp176521632",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66398/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "86eae40cb7f6edc0909dc8a77f0169355dc2ba211030dcca164c4062c99958f5",
+      "question_sha256": "4946e8e75d29d2834ed31b2ab4a93791385ceecb39b6644c9b76c2b546345586",
+      "source_sha256": "fc04750a73cda2603d2f941bef673bb6f53ec78162c0b04990bd64663c7de64d"
+    },
+    {
+      "id": "T6_885777a753304db71a83f32c",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134401634",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "f44cbaa53d9d373dc2f12b96c029b69edd69633bb82a1305bd6d6a17d4d04dbe",
+      "question_sha256": "cef952116d7ac33a77d1679b2feb7b1a5328687b343c34857ac72acad8187b3d",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_5170a3f635ffa366030c74ee",
+      "source_id": "osbooks-physics|m54176|fs-id1167065794922",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54176/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "148fa3bb6230ebcace95a7e5f2ab031a470e8228214f1b21165007146f0077ab",
+      "question_sha256": "4abf8c4cf7c5f5bc53e8d04df5a822f0beeaee7dddff843a543e2f6f3bb8a1bf",
+      "source_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b"
+    },
+    {
+      "id": "T6_cda428f8c734a440c252757e",
+      "source_id": "osbooks-biology-bundle|m66397|fs-idp57528944",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66397/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "c229c85b56bfb0fce614c3e5222a78fc9713e8ce9e4aab8271cc28525b64ce14",
+      "question_sha256": "acab14607efb906ac17edbb7e6143bd1741430a4aea3ee15f57067020e66cff4",
+      "source_sha256": "0e9fc5fbb59eaddb9c29e382d4aae44973dca94674ba2c24a4f8ca3232c02931"
+    },
+    {
+      "id": "T6_823d78957e2ad3c932ed5ac7",
+      "source_id": "osbooks-college-algebra-bundle|m49374|fs-id1165135368473",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49374/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "fda64e45f6ad31adfa43cfc78e40e086c18743dc9e0c1aee793f40c2fa5b833a",
+      "question_sha256": "ed8efb2d6136d2e1c0b08e8d59293a0d9687d7f70c5df5458b0157e739fb8c39",
+      "source_sha256": "71dd34da0ae68ed1f0be7d668d2e0c7406836900599baac85f49185f406b5479"
+    },
+    {
+      "id": "T6_e5e167c15cdfa5b137c50994",
+      "source_id": "osbooks-physics|m54142|fs-idm73272384",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54142/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "76d7d0eb178a48841f231303e84e1802d7836410ad806500f1b4a89beb643043",
+      "question_sha256": "ac45a03e7bf16c0c3afc9efd1304dc10461bc8370d57517e55dce10149f4e4f2",
+      "source_sha256": "abc11d4bc87d9527c93acbb7cb1b3e78cb0eee7254569a4aaec32a03b9de01ce"
+    },
+    {
+      "id": "T6_921306df244e6f9e1ad1a580",
+      "source_id": "osbooks-biology-bundle|m66396|fs-idm8298224",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66396/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "dc6c6a3c3d9e577105a1b575ab113a2de585929f5f9f962ffb628a4c67ef4f79",
+      "question_sha256": "6122ba4875d95c686d4fb521d5ad69182a438be88c2bf8c761a980c82ef1a9f2",
+      "source_sha256": "b1acd3dae5d26b3c1e5f49a63021f2da96098881101eb252d2f1cd269842813a"
+    },
+    {
+      "id": "T6_9e984b23ea7636e2de3be987",
+      "source_id": "osbooks-college-algebra-bundle|m49411|fs-id1165137642897",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49411/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "e920012412d6ac7736580653d7233efa59007e2fce97d93a3f713ee1a6e7d7f7",
+      "question_sha256": "cac60f244763dfc55a39b902bc87ea4ff045ae5c4c49b88ebf4715d189528686",
+      "source_sha256": "ca22a64e28d55660e31887d683aa222826c00b1c74b048e2c8f9406546ec7647"
+    },
+    {
+      "id": "T6_23ffe39a8975bf1cf02cdff9",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id3245974",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "20176951dbd5cc5ae20765394ba2402360c991876e43687daccdcd08689e091e",
+      "question_sha256": "934673e5ed240be2a2ec806575c798406204f0e8fcdd4c7b43ae20c1f52c2ddb",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    },
+    {
+      "id": "T6_a6515f6e49a8e39e028a13dc",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1322177",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "d2dda75fc90004e151b7428e8dccf31a81a09a6088c7b401f096f7ade133494d",
+      "question_sha256": "e641e7e6646110ee30fc3f14b90a3b1f41e313e0b626d404052e2cb542a3a7a4",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_fb9791c97630e150d970ab22",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165135666707",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "678bbcfa0111401cdf4d180872280a13a1857797ad1dc62350f0025202d7db95",
+      "question_sha256": "fd9c3f431046cfcc63755865670b5510170b4e5ade86986b88ca6d1e14b2cb83",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_bed1235bd773633343c390cf",
+      "source_id": "osbooks-college-physics-bundle|m42665|fs-id1546241",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42665/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "4bd32f6f2cbc08ce87aac9b2e967f01b24d556f5a40f0648a339eb7210ccf1b5",
+      "question_sha256": "6d27b64296407a8839749bb76afdf5a90998b88852c38865e91c76742ec11fbc",
+      "source_sha256": "87ef5f0955e1bd0ded58616e91c1c806403c7bb438b92096f53c3d972d66d8b0"
+    },
+    {
+      "id": "T6_7b984504f2f3da08507cc15a",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1442499",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "6d3b337874e3cfaf804cc6c6860bab6953cd665a0e3608125c1eb4fc7c7eedeb",
+      "question_sha256": "75cd1049f672c7289f77c90fa5afc8a393e1ffa89cdf269cc764558b6786c278",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_6ed320583bbd94095efe3190",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134116934",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "c32474cd4d1e0909bb82a4e0289cbc6bd4da184de109dce36fbb4e703858a5ab",
+      "question_sha256": "7117894895e3e150ffbbf679a7fa305b35243977c664a72db1817c3a6cbcb595",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_52493031114ef79a0daec8c7",
+      "source_id": "osbooks-college-physics-bundle|m42659|fs-id1934515",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42659/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "a4f50d2ec49dded405324e85d9bb85bc1cf756d7a9ca539ad3adaffe06e29a7b",
+      "question_sha256": "adb24abaf28a25926d9b93550a141aa96778c03224d747e891035c6862c0ec45",
+      "source_sha256": "c622bc13d9f7b9f9dd7ebd661ce38a1db3a47b3bfb32f44b0d9e63391391a22c"
+    },
+    {
+      "id": "T6_cb05d3272b339b37accdb0bc",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1743391",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "6c6d76ecdba6c7319708b990550cb1b4adb2d5b57087b8e009cf570125cbe475",
+      "question_sha256": "8ee86ee5af396183188a5d54dfc2df2a7d04e7eb60573c97d08f0adda84f3231",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_0cd86ccc93d3a8c50912cc9b",
+      "source_id": "osbooks-college-algebra-bundle|m49404|fs-id1165135195290",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49404/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "8378e6626ca8fcddff0bdb908a2f9c41f409dee7eb9bfeb2e37dfd6225cfd452",
+      "question_sha256": "f0d873be304c2d4ace2c78c3d54c50a95f50dd1b7f3955ab42f12849018c2417",
+      "source_sha256": "76c431dd238fbda94b3ce628f91ba9a2910fc9a75234603dba53d78148b18253"
+    },
+    {
+      "id": "T6_56d5a9ace5a938da8c906c79",
+      "source_id": "osbooks-college-physics-bundle|m42174|fs-id2560894",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42174/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "90ea531092125a328eab11a473c641901064e451cb80db68dc6ef9f2d07619f2",
+      "question_sha256": "ae53aa243cf95e59ecfaa492542e05b327eb486f134a3fd0761e8a80b4ff3933",
+      "source_sha256": "3da1b42fcbf52c030be3c8621027e2e825894a0317c212a69072b782dc3c6648"
+    },
+    {
+      "id": "T6_6bcd82f7d1bbbeed4c46244b",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1370810",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "16cfb76872bd0ca80c814ad588b11ebd7d6f966380f6af6d8d94f9ed1071aded",
+      "question_sha256": "b8e859016822ef50d2dedbb8b4ac4ceca89059fa3c2a93fa8be9f750981feec9",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_bc54ad775d13e88ce7cd30b8",
+      "source_id": "osbooks-college-algebra-bundle|m49372|fs-id1165137414608",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49372/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "1f0ef04310dd616370813586fbb0647dfde1fd30055d8635f8dce858a61b6507",
+      "question_sha256": "603bf52dfeb0fdf404b12c9f7e61d4528a036571a2cd22556beb820efc7ac028",
+      "source_sha256": "c077229b183cf61abf2c57229dbc284c052ca20081cfe6ac618b19c8a86c6996"
+    },
+    {
+      "id": "T6_5b6f4b7d47d9faf386c5453e",
+      "source_id": "osbooks-physics|m54135|fs-idp79016048",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54135/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "961054e934ad4006efa64cef737079d889e314c2392ea873326a2e18d7691991",
+      "question_sha256": "5186791bccced94cfc94dd26f166779121e272ea86e47e3dd96d03ea5d008a5b",
+      "source_sha256": "3116e4a02adda4ccf042e6a0ecfd881f0d913d199181eace9214c1b002399a03"
+    },
+    {
+      "id": "T6_1e77f79db6d1953a6a717d80",
+      "source_id": "osbooks-biology-bundle|m66483|fs-id1303871",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66483/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "91522223609472c5156b3763526d45e4174d368c21b2c43f0032eff5cbbcc081",
+      "question_sha256": "d429640efe92da9f99fb458206eff2c68a9148e07b43f934f0477ca23cfd3f1b",
+      "source_sha256": "4a8ee34e3656f0172a6a4d12c374789eb2028682b935a1f75e2f8fa4af4cb1a8"
+    },
+    {
+      "id": "T6_778a121342d9b52b94c4b731",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165133023585",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "baf52cdbf6b5da414aff02b035a49b9425eb45d6189e606f10717262f2dee484",
+      "question_sha256": "8431aa30dcaa01979dd9c867f9b67f9076611df08d3a60bccd1b74086c4412a4",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_420c1a2359ba017eabe80559",
+      "source_id": "osbooks-physics|m54176|fs-id1167065841132",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54176/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "5eeb696319c46b44b12e2a74b86339d42c72e97bb199f480f4e0b1191eb2feb2",
+      "question_sha256": "6142238eb84ee5b25da71eed2db2fe9ca3d36d43ca7755994dc31f4b4c3ea945",
+      "source_sha256": "c5dfffadc2560ccff1ec5e02a42793c8106796598c736727d01b15531dfdf38b"
+    },
+    {
+      "id": "T6_0acc86ecee298170aba60891",
+      "source_id": "osbooks-biology-bundle|m66484|fs-id1407827",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "a2120f94cc9d590b01a90aab3a1731bdc62a8dcb4b430aefb0d2930fd2877a41",
+      "question_sha256": "f250dab629030e8588d984243bf83abdc8b51c6333ada03da34ab8c8c21cb990",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_f05aeacdb583f394d16932ec",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134060263",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "3577e6992f947ae4c88ffd28cdc1faac8e506665d1d3529586fdcb56a091bf07",
+      "question_sha256": "8d12d825801378c8a615d5c83b503ef8f1a2f4a47a9930b039c3f9b8ba96d727",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_728382ab38ad154d51b62090",
+      "source_id": "osbooks-college-physics-bundle|m42654|fs-id2604752",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42654/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "1841c9165c85bddcde591543b5b5377a5d29f84584ff14029afbcba2382bae27",
+      "question_sha256": "77fc51b438d25b03354c8f0de4ac62b57c49e70ffe24171e1028f3bd588880b0",
+      "source_sha256": "3e8908415193979b43ade661ad662122728eb136a4d190a101419d34e49f58be"
+    },
+    {
+      "id": "T6_51553898ad42851cb3335588",
+      "source_id": "osbooks-biology-bundle|m66399|fs-idp302333520",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66399/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "ca908a69fb37a03c13d6ce7c4d3aacbfe9813990d8418d6adc57369903d6a3c4",
+      "question_sha256": "e0de4d0c2d9c19d331ca1534460c83eb1cf3d528da1d8e9b8d95a65237a994f4",
+      "source_sha256": "b61c542e7f11e2d8073e6592d3e9f8c901739188d148881199fbb00d703365e4"
+    },
+    {
+      "id": "T6_2ee52210645286fd5fb21ee2",
+      "source_id": "osbooks-college-algebra-bundle|m49412|fs-id1165134430440",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49412/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "927777c139d46b00c3b0e4cabf3ce179e312d0bf7e1cdb009c9f966d46e6968c",
+      "question_sha256": "2025f4d491211f578bfdf931ba28d29f30a7db2cec6984fb3efc762b8df88c1b",
+      "source_sha256": "16760071707bb1be77d13d3f5545b9debdbd31e0902fcbed0a0e3332900ff5ae"
+    },
+    {
+      "id": "T6_746cd3044283a4a8683097f2",
+      "source_id": "osbooks-college-physics-bundle|m42654|fs-id3103805",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42654/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "30298c54c8da16692c04a67dab215e9a837037db94612372fac057bf39bd3f25",
+      "question_sha256": "63bf134432b11417e3b20ada91c17fa814ca77692d85159ce80e33a3f54668a5",
+      "source_sha256": "3e8908415193979b43ade661ad662122728eb136a4d190a101419d34e49f58be"
+    },
+    {
+      "id": "T6_eed36545e5c67cc903d41f45",
+      "source_id": "osbooks-biology-bundle|m66399|eip-109",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66399/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Biological Diversity/Invertebrates"
+      ],
+      "normalized_sha256": "d0770eb8fe69309dcdef9f8a43c6f66c8975730978bf5ccbacf99c0366388acb",
+      "question_sha256": "743bf72b23da8eae11c0d623a1f0ed18df49d5f84519170d3687a484f5b2c1e6",
+      "source_sha256": "b61c542e7f11e2d8073e6592d3e9f8c901739188d148881199fbb00d703365e4"
+    },
+    {
+      "id": "T6_fb1535a94446a93db77e1cf2",
+      "source_id": "osbooks-contemporary-mathematics|m00073|prob-00005",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00073/index.cnxml",
+      "chapter_ids": [
+        "osbooks-contemporary-mathematics|Metric Measurement"
+      ],
+      "normalized_sha256": "14ab11e72b1447f0c71249b42b50e9a1886ec1dbd2a7e06714dfe33f373aacd5",
+      "question_sha256": "a8ecd60eaca869b485f4a990a0338588a5e575ee59dd1edaebc237f0e46b2045",
+      "source_sha256": "14e96d6ec314d1f0946b62834dabc963a6fda4db37c570192ead14e5b418cd82"
+    },
+    {
+      "id": "T6_29994d8b475ccb987596fc9b",
+      "source_id": "osbooks-physics|m54131|fs-idp36142160",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "617f4e0292f89de01e89d3217107c497b36cfdb4c980296a796a35907c3b29ad",
+      "question_sha256": "fb437006b055ed23c534ee3d00d178b931b5fb50e32ed5d408d769013b02431b",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_902bf1520f6bacf7838e4b24",
+      "source_id": "osbooks-biology-bundle|m66484|fs-idp25765968",
+      "subject": "biology",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-biology-bundle/4460012626ee747bdb9db8c4418317798fbc67ce/modules/m66484/index.cnxml",
+      "chapter_ids": [
+        "osbooks-biology-bundle|Biology 2e|Genetics/Meiosis and Sexual Reproduction"
+      ],
+      "normalized_sha256": "72e78b2c6f996fe64447a560f77474bdc13cb1548f9a88311deaed992aad1507",
+      "question_sha256": "7470ea21fc4873a8612c78d4104bb3824903ab4e9c9f6cec65645d5b90e6c9c7",
+      "source_sha256": "d550935a2cfbefa66a547d431829c6ad988a25ffc0993844b1b944c09412cc71"
+    },
+    {
+      "id": "T6_2c56353925134413b06855a6",
+      "source_id": "osbooks-college-algebra-bundle|m49405|fs-id1165133340982",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49405/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "87df465a597f62d4f7510253ae1238d999d524bf7e4604c0e719148cf6ce29ef",
+      "question_sha256": "112c69bc8faaa281c25f0a3854de2231302cc870a8c7d1596b38bae3af2d4e4c",
+      "source_sha256": "87f7460e0454b6046dbae9b7a7875cae995ab65c0f8b2c02a9341d66fd0e56ce"
+    },
+    {
+      "id": "T6_4b3952d31c15177eaf55fd82",
+      "source_id": "osbooks-physics|m54181|fs-id1167062408012",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54181/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Circular and Rotational Motion"
+      ],
+      "normalized_sha256": "b4315070f4bfa60bcc1efcee41e763de053b91cacc097278729c2069acbf233f",
+      "question_sha256": "1a80c5c9f7410c8d084d8bea867069b311bde3295e582525de322b9abf9a6679",
+      "source_sha256": "8eada1c5086fa9c3492aa47c29fb47226bd924b9d219be288b5af0c2e71854f6"
+    },
+    {
+      "id": "T6_929738dc31c26eb6b31d544b",
+      "source_id": "osbooks-college-algebra-bundle|m49409|fs-id1165137596334",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49409/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "5262d2e9f620cd06d79e63eec89b79d407b1c879952c28aa98310ee5aaf24825",
+      "question_sha256": "d6d0d6b2cceeb16be739a3213026e9b47b8cbd89d62e2209a4acd8933dd4f829",
+      "source_sha256": "f18aba1f87276e229883ce3786c474b0f11ba870792615e9be3988d6d3323516"
+    },
+    {
+      "id": "T6_e29b7ce72f1a590e45f7a0bb",
+      "source_id": "osbooks-college-physics-bundle|m42174|fs-id2809890",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42174/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "c5b61d0e676de12f920e9ea59a7d9d1d1785528d5a7e61348f65c56d4805fe13",
+      "question_sha256": "399f71116b958f774e10bd09061ce4748c4199a1681ee631afb012fe8ef8b954",
+      "source_sha256": "3da1b42fcbf52c030be3c8621027e2e825894a0317c212a69072b782dc3c6648"
+    },
+    {
+      "id": "T6_deeb90246d3d83e9e5eedc78",
+      "source_id": "osbooks-college-algebra-bundle|m49408|fs-id1165135586379",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49408/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "e310f01a9c6bf43b0b48cec55b5391c86e2e3dbab2e73290dfb3bfaf499e7a3b",
+      "question_sha256": "9a34dbbfce4acaabee6159f0cde75e984d0d32fb68d4da9d4f6c9e51a03551a1",
+      "source_sha256": "a12116e77556f3093bb3b66fccdb6be69aafa32421860627468625fdbb48ac82"
+    },
+    {
+      "id": "T6_9f8dd82a9c707efb2e3f0e91",
+      "source_id": "osbooks-college-physics-bundle|m42665|fs-id2599762",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42665/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "6a03464bc93495bc646c8a0dd932eb84dbdc00d77579fc1c90fc822ec383a9a0",
+      "question_sha256": "ba1221bfb644445c91ca7b3a26e771a9c3e99d3547ad73e2d6e833e73f84c661",
+      "source_sha256": "87ef5f0955e1bd0ded58616e91c1c806403c7bb438b92096f53c3d972d66d8b0"
+    },
+    {
+      "id": "T6_956c07ed438da0a4de2c5a4b",
+      "source_id": "osbooks-college-algebra-bundle|m49406|fs-id1165132973460",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49406/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Further Applications of Trigonometry"
+      ],
+      "normalized_sha256": "09394584b6a0f31640e2ee43b301d70b160bfa896c00f80cabea1f104be5f725",
+      "question_sha256": "0b8fd6549862f1d0169e774f23e9bc3f199e400fa663d00ac35c6f91941a9d42",
+      "source_sha256": "eaef72d753e625134090d8c3ce02e20f2b1da15a282696c47da281b7452a0765"
+    },
+    {
+      "id": "T6_9775b7cd31b16179964a462d",
+      "source_id": "osbooks-physics|m54131|fs-id1167065863396",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-physics/dfb731c737e5056750e792643fe6377425b0a067/modules/m54131/index.cnxml",
+      "chapter_ids": [
+        "osbooks-physics|Physics|Forces and Newton’s Laws of Motion"
+      ],
+      "normalized_sha256": "d6cdc17a5e4fdbfb1dd2f6e63a7c4b1519df2b91d34bf48e73d272eee953d25c",
+      "question_sha256": "f990793136307d2685e850994c3703cfc08185123d882df6fa612cb6ab7a69e7",
+      "source_sha256": "255cca5b620792b2e57b340d62abc7eeaa04b2303e3366336b5a6f605a7f9fda"
+    },
+    {
+      "id": "T6_0ed732b719e9f28018fb7be3",
+      "source_id": "osbooks-college-algebra-bundle|m49372|fs-id1165135663292",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49372/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "c3195e29561307709ffd60a3985d558e010daf7605a454ad886a6b1212781ec6",
+      "question_sha256": "bde9043da683c69a1727144ff249035e0db8c74778a484b15557d5cd73ca0aa1",
+      "source_sha256": "c077229b183cf61abf2c57229dbc284c052ca20081cfe6ac618b19c8a86c6996"
+    },
+    {
+      "id": "T6_02275ea3f9f345231f9a7786",
+      "source_id": "osbooks-college-physics-bundle|m42173|eip-6",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42173/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Statics and Torque"
+      ],
+      "normalized_sha256": "9e89d23096707b76c63b6a1738b351b1150cf35bee879645e4e8608447dbc4b7",
+      "question_sha256": "728d7858415221dec77442ba410ee4ad46e13b3ae5944a3746ac27322cc44a8a",
+      "source_sha256": "c074800764b20b0801fabafd8bd403f895b6705ac3856a7c61b52bfa1e484e59"
+    },
+    {
+      "id": "T6_7133909513e13b35ea039f82",
+      "source_id": "osbooks-college-algebra-bundle|m49371|fs-id1165135692147",
+      "subject": "mathematics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-algebra-bundle/6bf6de6f5eecb1abb757c6a14223346b3cbf81e2/modules/m49371/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-algebra-bundle|Trigonometric Functions"
+      ],
+      "normalized_sha256": "fcaa0662d8785a62ce633ff991f25ea341a1d681fad9f7a81ae3c7d45ed015b4",
+      "question_sha256": "fb9c7a29da79e934f10bee1cd9bf849946f8d5696880192d89c03f294ae74f60",
+      "source_sha256": "31046acf69387e0fb6d60728c892e87c44da242f96bb482251312d0864a29365"
+    },
+    {
+      "id": "T6_221372609c9cd6a2de9b9ded",
+      "source_id": "osbooks-college-physics-bundle|m42662|fs-id3094760",
+      "subject": "physics",
+      "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42662/index.cnxml",
+      "chapter_ids": [
+        "osbooks-college-physics-bundle|College Physics 2e|Medical Applications of Nuclear Physics"
+      ],
+      "normalized_sha256": "419f2cb487b2b9b95e12ce8dc73fec609a3bdc4c1e1b279669bf464360402024",
+      "question_sha256": "25f2a76a0ce9083c4e7f0093060c8a9128674be298006b9075df1b75a50ec4a3",
+      "source_sha256": "99a0a7addd1c4a5ad00170e1c7fbf094fd48a850cd31430b0f6d715dbad2434e"
+    }
+  ]
+}

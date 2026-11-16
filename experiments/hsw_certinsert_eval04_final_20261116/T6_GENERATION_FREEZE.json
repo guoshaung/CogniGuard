@@ -1,0 +1,30 @@
+{
+  "input_manifest_sha256": "e6c963652197419053f76206d49a1c725b27b52fead9959444a707a88e8f5d21",
+  "input_local_sha256": "cddaad272fe216392bbf20a8fd21d37942a32508de1b64e00fbfc19010985da7",
+  "model_sha256": "1270d22c0fbb3d092fb725d4d96c457b7b687a5f5a715abe1e818da303e562b6",
+  "server_sha256": "00d50686815af38249d0218c91558fbd0e9093ac8c074bac86196907f4305e31",
+  "code_sha256": "2f192ccd4a250febb69549b6081768d40a434b8047ac59388fac46ca1cdc2226",
+  "questions": {
+    "physics": 69,
+    "biology": 63,
+    "mathematics": 68
+  },
+  "chemistry_exclusion": {
+    "reserved_modules_fetched": 93,
+    "problem_nodes": 566,
+    "eligible": 0,
+    "reason": "All below eight rendered English words under frozen extraction; short items were not repaired."
+  },
+  "prompt": "Write a complete textbook-style English explanation for the following problem. Preserve the given values and conditions. Include a Solution heading, derivation, units and applicability assumptions. Return only the explanation.\n\nPROBLEM:\n",
+  "runtime": {
+    "host": "127.0.0.1",
+    "port": 11706,
+    "slots": 2,
+    "context": 6144,
+    "gpu_layers": 20
+  },
+  "planned": 200,
+  "no_retry": true,
+  "model_api_cost": 0,
+  "next_gate": "Freeze all generation statuses and output hashes before embedding."
+}
