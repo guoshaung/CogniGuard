@@ -1,0 +1,29 @@
+{
+  "prereg_sha256": "66406c0a48413d88d5b9cdc5cb20597b69daf9645f69d776196450dcceb6f74c",
+  "files_sha256": {
+    "var/results/hsw-st/certinsert_eval04_20261113/stage0/CHAPTER_ALLOCATION.json": "ddb0621a2859551caf7d0ec327bed0e80262e702d467c2d75036a48f4dc1e9a1",
+    "var/results/hsw-st/certinsert_eval04_20261113/stage0/RAG_CORPUS_MANIFEST.json": "3964079af608ccb40cabfecc76164bd375a1e0e40f05858a0a3a11dccc1b6d9a",
+    "var/results/hsw-st/certinsert_eval04_20261113/stage0/R_GENERATION_QUESTIONS.json": "0e44537e5d7965f108600f581f8fe6be6bbd327e893bd7e1b970149cb7835638",
+    "experiments/hsw_certinsert_eval04_matching_20261115/M_PREREG.md": "4dc057ca101f08f9ca407947d1721fda829fef0da8699a8d71fa035ac6b3414e",
+    "experiments/hsw_certinsert_eval04_matching_20261115/M_FREEZE.json": "be040484d53dae3d34f6d072cecb47982f5774bf6f8185dca35b20919d24d2fd",
+    "experiments/hsw_certinsert_eval04_matching_20261115/M_DEV_RESULT.md": "b7e3a44ba91d431d4d457f0c9e7877a5cde30633d83f3ba876c2c960eda2225b",
+    "experiments/hsw_certinsert_eval04_matching_20261115/run_m.py": "8ae4ac31a5ce963e838fdabe07713c7e8865dbaca32a9e7096e77b7dcbab2b7d",
+    "experiments/hsw_certinsert_eval04_matching_20261115/optimizer.py": "e01207595c731a9dc1a9947d21045302b136c05c9014db5837d9d7c73da5c4f8",
+    "experiments/hsw_certinsert_eval04_matching_20261115/gpu.py": "805ef9e52dae4e53c3243d9a718e9c5e82326fdb7b647f0f554063da78b9c844",
+    "experiments/hsw_insertion_feasibility_20261109_01/run08_long_prepare.py": "d81cd4967c4ce46f0ea3aa441d6a93d1acb3afe26e644748e40a5defc39f4883",
+    "experiments/hsw_certinsert_eval03_lite_20261112/EVAL_FREEZE.json": "a50f08df466c35a1c07177e14f05305389299bea3288158fb62c31ed0180c001",
+    "experiments/hsw_certinsert_eval04_final_20261116/t6_sources.py": "cdbbd956f0006adcc728eb5ed2ad6e37591554d2621e3b9152029893233bf983",
+    "experiments/hsw_certinsert_eval04_final_20261116/t6_generate.py": "2f192ccd4a250febb69549b6081768d40a434b8047ac59388fac46ca1cdc2226",
+    "experiments/hsw_certinsert_eval04_final_20261116/MODEL_CHOICE.md": "16e8994cd97ebb17f52594abbe728a5f01777cf5587465c73db2a7eabeb36d1e"
+  },
+  "gguf_sha256": "1270d22c0fbb3d092fb725d4d96c457b7b687a5f5a715abe1e818da303e562b6",
+  "gguf_bytes": 4372812000,
+  "m_commit": "14ca3402055f3daf2dc1b887019fade3af34b921",
+  "data_stage": "BEFORE_T6_CONTENT_FETCH",
+  "planned": 200,
+  "embedding_arms": [
+    "OPT",
+    "GREEDY-dyn"
+  ],
+  "kgw_unigram_admission": "union_of_independently_verified_successes"
+}
