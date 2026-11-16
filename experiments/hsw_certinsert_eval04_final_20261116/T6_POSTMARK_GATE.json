@@ -1,0 +1,8 @@
+{
+  "calibration_sha256": "177f25d6d822417666a5508684a14986a521f222a762e7f7e06dcdb4ec396de1",
+  "threshold": 0.25,
+  "empirical_fp": 7,
+  "scorable": 893,
+  "planned_insertion": 200,
+  "strictly_greater": true
+}

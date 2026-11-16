@@ -111,11 +111,17 @@ class Detector:
             ids=self.tokenizer.encode(text,add_special_tokens=False).ids
             if method=="KGW":
                 n=max(0,len(ids)-4)
-                k=sum(int(ids[i] in self.kgw.indices(ids[i-4:i])) for i in range(4,len(ids)))
+                k=0
+                for i in range(4,len(ids)):
+                    indices=self.kgw.indices(ids[i-4:i])
+                    j=int(np.searchsorted(indices,ids[i]))
+                    k+=int(j<len(indices) and indices[j]==ids[i])
+                gamma=.25
             else:
                 n=len(ids)
                 k=sum(t in self.mask for t in ids)
-            z=(k-.25*n)/math.sqrt(.25*.75*n) if n else None
+                gamma=.5
+            z=(k-gamma*n)/math.sqrt(gamma*(1-gamma)*n) if n else None
             row.update(z=z,token_denominator=n,token_hits=k,detected=(z>(3 if method=="KGW" else 4)) if z is not None else None,
                        scorable=z is not None)
         elif method=="PostMark":

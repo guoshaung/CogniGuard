@@ -5,6 +5,7 @@ import collections
 import json
 import re
 import sys
+from functools import lru_cache
 
 from t6_sources import HERE, OUT, ROOT, load, rank, sha, write
 
@@ -80,7 +81,8 @@ def main():
     module=[node for node in tree.body if isinstance(node,ast.FunctionDef) and node.name in ("spans","prefixes")]
     scope={"nlp":nlp,"re":re}
     exec(compile(ast.Module(body=module,type_ignores=[]),str(LEGACY),"exec"),scope)
-    spans=scope["spans"]
+    spans=lru_cache(maxsize=4096)(scope["spans"])
+    scope["spans"]=spans
     prefixes=scope["prefixes"]
     block=set("then thus so therefore hence however next now first finally".split())
     b=load(BASE/"LEARNING_BACKGROUND.json")
