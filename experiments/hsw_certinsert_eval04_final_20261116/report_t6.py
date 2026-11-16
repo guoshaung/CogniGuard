@@ -2,6 +2,8 @@
 import argparse
 import csv
 import json
+import random
+import statistics
 from collections import Counter
 from pathlib import Path
 
@@ -34,6 +36,22 @@ def pct(cell):
         return "NOT_RUN"
     k,n=cell["k"],cell["n"]
     return f"{k}/{n}（{k/n:.2%}）" if n else "N/A"
+
+
+def paired_cost(arms):
+    rows=[(r["arms"]["GREEDY-dyn"],r["arms"]["OPT"]) for r in arms
+          if all(a["success"] and a.get("dynamic_total_cost") is not None for a in r["arms"].values())]
+    changes=[a["dynamic_total_cost"]-b["dynamic_total_cost"] for a,b in rows]
+    if not rows:
+        return None
+    rng=random.Random(20261116)
+    bootstrap=sorted(statistics.fmean(rng.choices(changes,k=len(rows))) for _ in range(2000))
+    reference=statistics.fmean(a["dynamic_total_cost"] for a,_ in rows)
+    return {"n":len(rows),"mean_saving":statistics.fmean(changes),
+            "relative_saving":statistics.fmean(changes)/reference if reference>0 else None,
+            "ci95":[bootstrap[49],bootstrap[1949]],
+            "mean_insertions":dict(zip(("GREEDY-dyn","OPT"),
+                (statistics.fmean(pair[i]["insertions"] for pair in rows) for i in (0,1)),strict=True))}
 
 
 def coverage(rows,method):
@@ -104,6 +122,11 @@ def result_doc(x):
             "对照、盲评、误报和频率学习沿用冻结的补充协议。词表规模曲线和 D-multi 的状态为 NOT_AVAILABLE。",
             "",
             "逐项记录包含真实检测分数、插入证书检查、自然度分数、失败状态与来源分母。缺失指标保留空值。"]
+    if x["paired_dynamic_cost"]:
+        a=x["paired_dynamic_cost"]
+        share=f"{a['relative_saving']:.2%}" if a['relative_saving'] is not None else "N/A"
+        lines+=["",f"共同成功的 {a['n']} 篇中，OPT 的动态复评代价平均降低 {a['mean_saving']:.3f} log-prob 单位"
+                     f"（相对降幅 {share}，差值 95% 区间 [{a['ci95'][0]:.3f}, {a['ci95'][1]:.3f}]）。"]
     if x["pending"]:
         lines+=["","## 待完成项",""]
         lines+=["- "+item for item in x["pending"]]
@@ -168,6 +191,7 @@ def main():
         "generation":{"planned":200,"finish_reasons":dict(Counter(str(r.get("finish_reason")) for r in b["rows"]))},
         "coverage":{m:coverage(arms,m) for m in ("OPT","GREEDY-dyn")},
         "coverage_by_subject":source_counts,"coverage_by_length":coverage_by_length,
+        "paired_dynamic_cost":paired_cost(arms),
         "success_overlap":{"common":primary_manifest["common_success"],"union":primary_manifest["union"]},
         "method_status":by_method,"detection":metrics,"human_review":human,"pending":missing,
         "fpr":fpr["counts"] if fpr else None,

@@ -1,0 +1,64 @@
+{
+  "attack_manifest_sha256": "7d1ba07d99486a130d167030b484c2d55cb74d9048132a20fc98324c5dd1b48f",
+  "attack_inputs_sha256": "defa1a6ad39a87df59025434c09d02b92292094215836228961563408e588736",
+  "conditions": {
+    "GREEDY-dyn": {
+      "10": {
+        "available": 176,
+        "requested": 10,
+        "status": "AVAILABLE",
+        "observe_sha256": "13c5d1726c80a79f539a14e2c9523ca7b2f0b054436e344fff7c17245300fabf"
+      },
+      "50": {
+        "available": 176,
+        "requested": 50,
+        "status": "AVAILABLE",
+        "observe_sha256": "2a052781229f627bdca2f9e8aa7563dda78fab4145619863a2a8e7522215d4da"
+      },
+      "200": {
+        "available": 176,
+        "requested": 200,
+        "status": "NOT_AVAILABLE"
+      }
+    },
+    "OPT": {
+      "10": {
+        "available": 176,
+        "requested": 10,
+        "status": "AVAILABLE",
+        "observe_sha256": "22bf176867bceb7377d112570ee95b808386091673790615644b43d5298b4bf8"
+      },
+      "50": {
+        "available": 176,
+        "requested": 50,
+        "status": "AVAILABLE",
+        "observe_sha256": "f8f238ab5bcc3cd4d118a5d5052090fb0b0e6707482ae9f95388ddbe587e490c"
+      },
+      "200": {
+        "available": 176,
+        "requested": 200,
+        "status": "NOT_AVAILABLE"
+      }
+    },
+    "RC": {
+      "10": {
+        "available": 49,
+        "requested": 10,
+        "status": "AVAILABLE",
+        "observe_sha256": "50e17359ddf50dc472d3abc1da48467957851c346157c74673dcc93fe85eee3c"
+      },
+      "50": {
+        "available": 49,
+        "requested": 50,
+        "status": "NOT_AVAILABLE"
+      },
+      "200": {
+        "available": 49,
+        "requested": 200,
+        "status": "NOT_AVAILABLE"
+      }
+    }
+  },
+  "planned": 3246,
+  "before_attack_score": true
+}
