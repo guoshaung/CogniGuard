@@ -1,0 +1,126 @@
+{
+  "experiment": "MMFOPD-A Gate 0",
+  "phase": "A",
+  "dataset": "OULAD",
+  "license": "CC BY 4.0",
+  "source_note": "Open University Learning Analytics Dataset. Hashes are of the seven raw CSV files in data/oulad_raw.",
+  "files": [
+    {
+      "name": "courses.csv",
+      "bytes": 526,
+      "sha256": "4f16eee7454b15e109b0a21a0e43be820e6846ed6f9301bb7feb5ab5ad737a75"
+    },
+    {
+      "name": "assessments.csv",
+      "bytes": 8200,
+      "sha256": "8cc738fb88ad760571d6f2a23059bfee0ffcae3bcd830514c9cbd5c6d5a046f1"
+    },
+    {
+      "name": "vle.csv",
+      "bytes": 260126,
+      "sha256": "d1b28303dea802ad87b4484e1196e878e06824850b9a4fe8aa34693439fe87e9"
+    },
+    {
+      "name": "studentInfo.csv",
+      "bytes": 3461652,
+      "sha256": "7e6f3e474a5eee00639d2a414a6c7e928745823c2d2c2563ca1780145f99b0d6"
+    },
+    {
+      "name": "studentRegistration.csv",
+      "bytes": 1109984,
+      "sha256": "0d32676285372aaf2e7a80304e5b274b4fba24313e2ca4c04317225e1ec90170"
+    },
+    {
+      "name": "studentAssessment.csv",
+      "bytes": 5690310,
+      "sha256": "fd5320786328d05af841ee7dd4b5871b9dada3b9fe9d6a3642b2f42635510a6e"
+    },
+    {
+      "name": "studentVle.csv",
+      "bytes": 453836331,
+      "sha256": "52668253d876c5becbcb72185977152700cecab2942aca807fecc3dd54b937f0"
+    }
+  ],
+  "cohort": {
+    "presentation": "2014J",
+    "selection_rule": "Among code_presentation = 2014J, take the 3 code_module values with the most studentRegistration rows. Ties break by code_module ascending. Do not consult labels or models.",
+    "rows": 7155,
+    "distinct_students": 7019,
+    "students_in_two_modules": 136,
+    "module_presentations": [
+      {
+        "code_module": "CCC",
+        "code_presentation": "2014J",
+        "n_registration": 2498,
+        "module_presentation_length": 269
+      },
+      {
+        "code_module": "FFF",
+        "code_presentation": "2014J",
+        "n_registration": 2365,
+        "module_presentation_length": 269
+      },
+      {
+        "code_module": "BBB",
+        "code_presentation": "2014J",
+        "n_registration": 2292,
+        "module_presentation_length": 262
+      }
+    ]
+  },
+  "split": {
+    "unit": "id_student",
+    "train_if": "int(sha256(ascii(str(id_student))), 16) % 10 < 6",
+    "expected_ratio": "6:4 train:test"
+  },
+  "labels": {
+    "disability_y": "1 if disability == 'Y' else 0",
+    "imd_low": "1 if imd_band in {'0-10%', '10-20'} ; missing imd_band is excluded",
+    "age_55": "1 if age_band == '55<=' else 0"
+  },
+  "resource_activity_types": [
+    "dataplus",
+    "dualpane",
+    "forumng",
+    "glossary",
+    "homepage",
+    "htmlactivity",
+    "oucollaborate",
+    "oucontent",
+    "ouwiki",
+    "page",
+    "questionnaire",
+    "quiz",
+    "repeatactivity",
+    "resource",
+    "subpage",
+    "url"
+  ],
+  "constants": {
+    "low_score": 40,
+    "high_score": 80,
+    "share_deviation": 0.2,
+    "min_weekly_clicks": 10,
+    "tree_max_depth": 3,
+    "bootstrap_draws": 1000,
+    "bootstrap_seed_note": "AUC interval is percentile based; label shuffle seeds are 20261116 for train and 20261117 for test",
+    "model_seed": 20261116
+  },
+  "runtime": {
+    "python": "3.13.18",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "pyarrow": "26.0.1"
+  },
+  "documents": {
+    "FIELD_TABLE.md": {
+      "sha256": "fc94057af43502ff5817305e6ad59bc885a45fad9baf6b69d7d767c6e908e605"
+    },
+    "REQUEST_RULES.md": {
+      "sha256": "67d06bd7af8b2280fbfc21d3081d3580b00cd58c13a8e171dac62a6c8b069310"
+    }
+  }
+}
