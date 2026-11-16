@@ -84,6 +84,24 @@ def score_counts(rows,method,planned):
     return result
 
 
+def planned_records(result,folder):
+    if result is not None:
+        return result
+    path=folder/"records"
+    return [load(f) for f in sorted(path.glob("T6_*.json")) if not f.name.endswith(".attempt.json")]
+
+
+def fixed_fpr(data):
+    if not data:
+        return None
+    grouped={}
+    for row in data["rows"]:
+        key=row["dataset"]+"|"+row["method"]
+        grouped.setdefault(key,[]).append(row)
+    return {key:k_n(sum(x["detected"] is True for x in rows),
+                     sum(isinstance(x.get("detected"),bool) for x in rows)) for key,rows in grouped.items()}
+
+
 def frequency(data):
     groups={}
     for r in data["rows"]:
@@ -147,6 +165,8 @@ def main():
     p1=optional(S/"all_frequency.json") or optional(S/"primary_frequency.json")
     baselines=optional(D/"baseline/RESULT.json")
     post=optional(P/"RESULT.json")
+    model_rows=planned_records(baselines["results"] if baselines else None,D/"baseline")
+    post_rows=planned_records(post["rows"] if post else None,P)
     human=optional(A/"human_review.json",{"status":"NOT_RUN","labels_collected":0})
     rc=optional(A/"rc.json",{"coverage":k_n(0,0)})
     known=load(HERE/"T6_BASELINE_UNION.json")
@@ -156,11 +176,9 @@ def main():
     by_method["RC"]={"planned":200,"completed":rc["coverage"]["k"]}
     by_method["Fingerprint"]={"planned":200,"completed":sum(x["status"]=="COMPLETED" for x in b["rows"])}
     for m in ("KGW","Unigram"):
-        recorded=(baselines or {"results":[]})["results"]
         by_method[m]={"planned":known["planned_per_method"],
-                      "completed":sum(r.get("method")==m and r["status"]=="COMPLETED" for r in recorded)}
-    by_method["PostMark"]={"planned":200,"completed":sum(r["status"]=="COMPLETED"
-                                                       for r in (post or {"rows":[]})["rows"])}
+                      "completed":sum(r.get("method")==m and r["status"]=="COMPLETED" for r in model_rows)}
+    by_method["PostMark"]={"planned":200,"completed":sum(r["status"]=="COMPLETED" for r in post_rows)}
     source_counts={}
     for subject in sorted({r["subject"] for r in arms}):
         selected=[r for r in arms if r["subject"]==subject]
@@ -195,8 +213,7 @@ def main():
         "success_overlap":{"common":primary_manifest["common_success"],"union":primary_manifest["union"]},
         "method_status":by_method,"detection":metrics,"human_review":human,"pending":missing,
         "fpr":fpr["counts"] if fpr else None,
-        "baseline_fpr":dict(Counter((r["dataset"]+"|"+r["method"]) for r in baselines_fpr["rows"] if r["detected"]))
-          if baselines_fpr else None,"frequency":frequency(p1) if p1 else None,
+        "baseline_fpr":fixed_fpr(baselines_fpr),"frequency":frequency(p1) if p1 else None,
         "lexicon_size_curve":"NOT_AVAILABLE","detection_multi":"NOT_AVAILABLE",
     }
     suffix="_CHECKPOINT" if args.checkpoint else ""
