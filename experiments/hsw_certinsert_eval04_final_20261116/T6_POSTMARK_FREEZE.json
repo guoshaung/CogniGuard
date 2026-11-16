@@ -1,0 +1,111 @@
+{
+  "files_sha256": {
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/filtered_data_100k_unique_250w_sentbound_nomic_embs.pkl": "959abb19f856b9e005acc007c1429ef01bee8c71d9b21b2c4feb5e3d82a37219",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/paragram_xxl.pkl": "28175ea328b6189fa3fa62a0c1ce2deb77948da80822ba412646ceb4ebff0c60",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/wikitext_freq.json": "1a03e83bf097d333f2146c80ac2f71a51be024a3d2c564d4e27504bfce744d4e",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/paragram_xxl_words.json": "b7a23fe79464a8275291fe93e05e54e0bb23cf62582e468dc23fe37974ea9647",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/valid_wtmk_words_in_wiki_base-only-f1000.pkl": "37455b6f37e8580e61aa19aaa448beccdcffa97b20cc1f25e2c70fddb617fbe7",
+    "assets/models/hsw-t6-postmark-nomic/model.safetensors": "47e396424a085a613034450cd4bf9e8acfb568b19089ae1c5c4e7051ae286877",
+    "assets/models/hsw-t6-postmark-nomic/config.json": "913351bb022df8c2b332dc955145dea342380b162d532af756b3bdba3b3a1cfb",
+    "assets/models/hsw-t6-postmark-nomic/configuration_hf_nomic_bert.py": "f7871694b8de3d3df4ac6640313d5799ce323261a0fb90c5cc567ecc34a0039e",
+    "assets/models/hsw-t6-postmark-nomic/modeling_hf_nomic_bert.py": "3b24a366c4cc31b869466ccfb7bbb8879e138c97f8de06c83d4fa1e31a21f149",
+    "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/config.json": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+    "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/tokenizer.json": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+    "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/tokenizer_config.json": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+    "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+    "experiments/hsw_certinsert_eval04_final_20261116/t6_postmark.py": "6d60a57f00283390fa0edb7ae80d3a4c4001f33c04d8d0c0af051164585cf19c",
+    "experiments/hsw_certinsert_eval04_final_20261116/t6_model_arms.py": "d73f228d89bf38a879e1f534163735ec3446f7ae3e9b69fc57da5b20e5d9962f",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/insert.txt": "e1a451d845d7b38c03a2d7beec48ca0cf66c20192098624c3cdd20ffb23889f0",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/models.py": "04a9fcb2f733d9c543b796e45b960a528164c22b8dfaf184bdc88d2b46aa0091",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/utils.py": "dce9a776d2444a8d2e390c1b30dd5b9966e9e567ab2b5afe8a8fc361041d3fc9"
+  },
+  "upstream_assets": [
+    {
+      "path": "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/filtered_data_100k_unique_250w_sentbound_nomic_embs.pkl",
+      "url": "https://huggingface.co/datasets/yapeichang/PostMark/resolve/9f213facd1f234e405791d29b8033f54826c4fa3/filtered_data_100k_unique_250w_sentbound_nomic_embs.pkl",
+      "sha256": "959abb19f856b9e005acc007c1429ef01bee8c71d9b21b2c4feb5e3d82a37219",
+      "bytes": 335245311
+    },
+    {
+      "path": "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/paragram_xxl.pkl",
+      "url": "https://huggingface.co/datasets/yapeichang/PostMark/resolve/9f213facd1f234e405791d29b8033f54826c4fa3/paragram_xxl.pkl",
+      "sha256": "28175ea328b6189fa3fa62a0c1ce2deb77948da80822ba412646ceb4ebff0c60",
+      "bytes": 2044133208
+    },
+    {
+      "path": "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/wikitext_freq.json",
+      "url": "https://raw.githubusercontent.com/lilakk/PostMark/347f15966d468014f4fb00274bb4ff1ad7ef3747/wikitext_freq.json",
+      "sha256": "1a03e83bf097d333f2146c80ac2f71a51be024a3d2c564d4e27504bfce744d4e",
+      "bytes": 33198099
+    },
+    {
+      "path": "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/paragram_xxl_words.json",
+      "url": "https://raw.githubusercontent.com/lilakk/PostMark/347f15966d468014f4fb00274bb4ff1ad7ef3747/paragram_xxl_words.json",
+      "sha256": "b7a23fe79464a8275291fe93e05e54e0bb23cf62582e468dc23fe37974ea9647",
+      "bytes": 35254548
+    },
+    {
+      "path": "var/results/hsw-st/certinsert_eval04_final_20261116/postmark_reference/valid_wtmk_words_in_wiki_base-only-f1000.pkl",
+      "url": "https://raw.githubusercontent.com/lilakk/PostMark/347f15966d468014f4fb00274bb4ff1ad7ef3747/valid_wtmk_words_in_wiki_base-only-f1000.pkl",
+      "sha256": "37455b6f37e8580e61aa19aaa448beccdcffa97b20cc1f25e2c70fddb617fbe7",
+      "bytes": 31968
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/model.safetensors",
+      "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v1/resolve/3ac47f125a41961d13b397d0332866be2f9152e1/model.safetensors",
+      "sha256": "47e396424a085a613034450cd4bf9e8acfb568b19089ae1c5c4e7051ae286877",
+      "bytes": 546938168
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/config.json",
+      "url": "https://huggingface.co/nomic-ai/nomic-embed-text-v1/resolve/3ac47f125a41961d13b397d0332866be2f9152e1/config.json",
+      "sha256": "913351bb022df8c2b332dc955145dea342380b162d532af756b3bdba3b3a1cfb",
+      "bytes": 2029
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/configuration_hf_nomic_bert.py",
+      "url": "https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/7710840340a098cfb869c4f65e87cf2b1b70caca/configuration_hf_nomic_bert.py",
+      "sha256": "f7871694b8de3d3df4ac6640313d5799ce323261a0fb90c5cc567ecc34a0039e",
+      "bytes": 1958
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/modeling_hf_nomic_bert.py",
+      "url": "https://huggingface.co/nomic-ai/nomic-bert-2048/resolve/7710840340a098cfb869c4f65e87cf2b1b70caca/modeling_hf_nomic_bert.py",
+      "sha256": "3b24a366c4cc31b869466ccfb7bbb8879e138c97f8de06c83d4fa1e31a21f149",
+      "bytes": 103563
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/config.json",
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/config.json",
+      "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "bytes": 570
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/tokenizer.json",
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer.json",
+      "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "bytes": 466062
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/tokenizer_config.json",
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json",
+      "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10",
+      "bytes": 48
+    },
+    {
+      "path": "assets/models/hsw-t6-postmark-nomic/bert_tokenizer/vocab.txt",
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "bytes": 231508
+    }
+  ],
+  "table_seed": 20261116,
+  "insertion_ratio": 0.12,
+  "word_similarity_threshold": 0.7,
+  "upstream_prompt": true,
+  "insertion_max_tokens_per_call": 600,
+  "mistral_sha256": "1270d22c0fbb3d092fb725d4d96c457b7b687a5f5a715abe1e818da303e562b6",
+  "server_sha256": "00d50686815af38249d0218c91558fbd0e9093ac8c074bac86196907f4305e31",
+  "calibration": "R_calib only",
+  "postmark_paid_api": 0
+}
