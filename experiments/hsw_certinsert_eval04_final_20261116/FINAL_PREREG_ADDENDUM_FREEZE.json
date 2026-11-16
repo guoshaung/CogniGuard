@@ -1,0 +1,30 @@
+{
+  "phase": "T6_AFTER_SOURCE_GENERATION_BEFORE_EMBEDDING",
+  "baseline_prereg_commit": "6c0d4cac3e9538515bad51bd76b309a44c5b9470",
+  "files_sha256": {
+    "experiments/hsw_certinsert_eval04_final_20261116/FINAL_PREREG.md": "66406c0a48413d88d5b9cdc5cb20597b69daf9645f69d776196450dcceb6f74c",
+    "experiments/hsw_certinsert_eval04_final_20261116/FINAL_PREREG_ADDENDUM.md": "1c724481eba34a2fc01cb3cb9bd6d3a033501846ada67b67dd8bcc2d3cf72d33",
+    "experiments/hsw_certinsert_eval04_final_20261116/T6_INPUT_MANIFEST.json": "e6c963652197419053f76206d49a1c725b27b52fead9959444a707a88e8f5d21",
+    "experiments/hsw_certinsert_eval04_final_20261116/T6_GENERATION_FREEZE.json": "d2d71447cac243962b1aaf67e71d3646cdfdd7daf6c30f5ef5697ed96c558d0a",
+    "var/results/hsw-st/certinsert_eval04_final_20261116/stage_b_generation/RESULT.json": "2396707229ed0a26c1e4446bb9f3a9c6d8212b67fe0032a39d614cbe409f0a51",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/prepare_t5.py": "e64cee3b0c7464c51eeff1311acedb820c98a7cf7e084b79ff67bb42159c1918",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/insert_t5.py": "0700ccda0ac8ab33bc320aa82f133a2e9575e05e0e08abf504ccd78aabd97e66",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/evaluate_t5.py": "f68c25895384006bc510c47f0cc9799a6e84c3fe541bf0fed1eed1cc28a13cbc",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/prepare_attacks.py": "4cfe1c19c004c54be4c109278b0b5c91be07e04459cd15e838726f6d9ca26864",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/prepare_expanded_attacks.py": "5bf953589feb23f1e6abc35dd3a7c8923cd7d52c250660420b882df1c30db5e7",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/stress_p6.py": "600ea75a4768f031d2250f8a8471ae5d754571aae9e81bbc4788c37b4c1a5ad8",
+    "experiments/hsw_certinsert_eval03_batch2_adjusted_20261112/P6_STRESS_FREEZE.json": "002823e2532267099895805ba5062feebd004b2495de9a594be29acc8a2cb713",
+    "var/results/hsw-st/certinsert_eval03_lite_20261112/run01/batch02_adjusted/data/LEARNING_BACKGROUND.json": "1144053a6691c5138cc6afc84191e6e876a79436b721cfc513b5a21340710427",
+    "var/results/hsw-st/certinsert_eval03_lite_20261112/run01/batch02_adjusted/data/P6_BACKGROUND.json": "2821fd02f9910b765bab783ed4cef9eabdcc8b8bfe8b9ad6a3c23497a376bd64",
+    "var/results/hsw-st/certinsert_eval03_lite_20261112/run01/batch02_adjusted/data/SPOOF_TARGETS.json": "09fb56cb565dd32f0639bbebfbbf3f956b56491bba4237259c667c5a17e89de6",
+    "var/results/hsw-st/english_replication_20261110_01/e1_guarded/attack_three_seed_round01/FINGERPRINT_FREEZE.json": "7ab411b842f0e9067c5d2a652b4d07fd5d45e7fa42a84bcffaeed29758dbd2d9",
+    "var/results/hsw-st/english_replication_20261110_01/e1_guarded/attack_three_seed_round01/FINGERPRINT_CORPUS.json": "f207e9cbe36c373d3474e7c3881e1f0a385b67929eb50c73a2c32418d1934594",
+    "experiments/hsw_certinsert_eval03_lite_20261112/KEY_STRESS_FREEZE.json": "6f1e1122f7aeab3d23ef2b2734effe26e3da22c54021dcf59e326d5a0001ed32"
+  },
+  "postmark_revision": "347f15966d468014f4fb00274bb4ff1ad7ef3747",
+  "nomic_revision": "3ac47f125a41961d13b397d0332866be2f9152e1",
+  "source_generated": 200,
+  "source_eos": 193,
+  "source_length_limited": 7,
+  "t6_embedding_started": false
+}
