@@ -1,0 +1,21 @@
+{
+  "registry_sha256": "f7ea342d5874e886828af5598063821df9c1176438d74a8e7bb87f465dce773e",
+  "planned": {
+    "Fingerprint": 200,
+    "GREEDY-dyn": 176,
+    "KGW": 174,
+    "OPT": 176,
+    "PostMark": 200,
+    "RC": 49,
+    "Unigram": 176
+  },
+  "code_sha256": {
+    "t6_registry.py": "3ed514edbf7fa1a61e340d658f1c7c856dd17b3e6780ca6e0ceb3f36aaa194f4",
+    "t6_metrics.py": "d4fbbc86aafa017b0fc0e23d376823c6da0c0ee59ca4c3914a80bf426dd99a97",
+    "t6_ocr.py": "5a42e6af80bd14ba7768466bdd0e60883a928400fcccc4cba2335fb8cb37c417",
+    "t6_frequency.py": "74acc68cc22359f9afc74e3623c950465501f79831ee40aadcd11ec81276ea08"
+  },
+  "crop_policy": "first/middle/last100 and first/middle200 when available",
+  "ocr": "EVAL03 CPU reuse",
+  "planned_compressions": 1151
+}
