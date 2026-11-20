@@ -11,7 +11,7 @@
     "common.py": "f45bc5635e0dec88995e92f3e4470fd3bb5d5e65f187239da55fc52832373c97",
     "knowledge_pairs.py": "bf22021a751b537ebeda7f0a401d42ac4961cdcdbe206f3f4845ff3194c88929",
     "prepare_data.py": "e1a0462130e6a105ee739ca27a5f5809e9d67e1f329de357ab9deb61bafb4fc3",
-    "run_stage1.py": "5afd5022c38cab824c35c253968a780ecef42e7d9eb55eba7f8a298f9a61058e",
+    "run_stage1.py": "4279383777e545cc2e0c751fe1585c805f2aeccecb73d8a33fbc2856085a4aa1",
     "test_knowledge_pairs.py": "985a058621838f78596a6c71a553e3ad3913e639ea9e0e6aef3a6fb5781e5ff8"
   },
   "component_sha256": {

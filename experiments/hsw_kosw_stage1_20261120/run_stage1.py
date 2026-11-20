@@ -172,7 +172,9 @@ def analyze(sentences,pairs):
     by_rule={}
     for kind in ['K-formula','K-number','K-unit','K-term','K-polarity']:
         mask=np.concatenate([np.array([r['type']==kind for r in krows]),np.ones(len(yh)-len(krows),dtype=bool)])
-        by_rule[kind]=dict(n=sum(r['type']==kind for r in krows),auc=float(roc_auc_score(yh[mask],scores[mask])) if any(r['type']==kind for r in krows) else None
+        by_rule[kind]=(dict(n=sum(r['type']==kind for r in krows),
+            auc=float(roc_auc_score(yh[mask],scores[mask])))
+            if any(r['type']==kind for r in krows) else None)
     def rho(D):
         return float(((D@UC)**2).sum(1).mean()/16/((D*D).sum(1).mean()/768))
     ratios={k:rho(deltas['heldout',k]) for k in ['K','S','P']}
