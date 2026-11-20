@@ -2,6 +2,22 @@
 
 日期：2026-11-20。
 
+## V3 状态（当前有效）
+
+链路：DeepSeek-V3.2 已下架，严格复现不可行 → 用户指示改用 grok-4.7 做冒烟 → 标价外推约 290 元，超过 150 元上限，满量停止 → 用户选择方案 B。
+
+方案 B：只换骨干模型，做换模型的重复（replication with a different backbone）。代码、基准、评分、样本量按原文。端点只允许 DeepSeek 官方 API `https://api.deepseek.com`。不得使用 Grok、聊天订阅额度或 CLI 会话代理。
+
+Grok 冒烟只作存档，不参与任何判定。存档文件是 `BUDGET_STOP_GROK.md`、`R_RESULT.md` 里带存档标记的烟雾表，以及 `artifacts/no_mem/`、`artifacts/ace/`。
+
+EvoMemBench 分支：
+
+- `codex/mmfopd-repro` 已回到上游原始提交 `3efc221fd8d5f4de7c2dc2022357e600d26325c7`
+- Grok 客户端改动 `5670db5` 与请求头改动 `647bbef` 在分支 `grok-smoke` 上。当前工作树没有 `cli-chat-proxy` 代码
+- 没有推送到 `DSAIL-Memory/EvoMemBench`。文档仓没有用户 remote
+
+方法尚未选定。Table 6 抄录之后停下等确认。下面 D-001R 至 D-010 是 Grok 路径的历史记录，不是方案 B 的偏差清单。
+
 ## D-001R 模型换成 xAI Grok
 
 原文与仓库默认是火山方舟批量 + DeepSeek-V3.2。本次按用户要求改走 xAI。结果必须标注 *same-code / same-benchmark / different-model*。

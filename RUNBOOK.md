@@ -1,5 +1,9 @@
 # RUNBOOK — 本机用 xAI Grok 跑 MM-FOPD-R
 
+> **存档。** 方案 B 禁止再跑这条 Grok 路径。`scripts/run_crossep_tool_phase1.sh` 现在会直接退出。方法选定之前不要开评测。
+
+
+
 工作目录：`/Users/MBP/Exp/RSILab`。不要把 key 或 CLI token 贴进对话，也不要提交。
 
 ## 0. 已完成

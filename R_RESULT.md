@@ -1,5 +1,7 @@
 # R_RESULT — MM-FOPD-R
 
+> **存档。** 本文件是 grok-4.7 冒烟和 150 元预算停止的记录。方案 B 尚未开跑，这里的数字不参与 MM-FOPD 判定。最终决定不以本文件为准。
+>
 > 日期：2026-11-20
 > 标注：*same-code / same-benchmark / different-model (grok-4.7 via Grok CLI proxy)*
 > *not same-model strict repro*

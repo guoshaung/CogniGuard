@@ -13,6 +13,11 @@
 #   bash scripts/run_crossep_tool_phase1.sh full ace
 set -euo pipefail
 
+# v3 plan B forbids this driver. It is the archived Grok CLI path.
+# Do not point it at DeepSeek and do not spend CLI quota.
+echo "archived Grok driver: plan B uses the DeepSeek official API only. Method is not selected yet." >&2
+exit 2
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOL="${ROOT}/EvoMemBench/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL"
 MODE="${1:-}"

@@ -1,132 +1,102 @@
-# R_PREREG — MM-FOPD-R 预注册
+# R_PREREG — MM-FOPD-R v3（方案 B）
 
-> 状态：**模型与端点已锁定。烟雾已跑。满量因 150 元门禁停止。**
-> 修订日期：2026-11-20
-> 执行者：Grok CLI
-> 协议：same-code / same-benchmark / different-model (Grok via xAI)。*not same-model strict repro*。
-
----
-
-## 0. 一句话目标
-
-在同一套 EvoMemBench 代码、同一 CrossEp-Tool 第一阶段（4 环境 × 50 = 200）上，用 xAI Grok 跑 NO-MEM 与 ACE，看 ACE − NO-MEM 的成功率增益方向是否与原文一致。
+> 状态：**Table 6 已从 arXiv v3 抄录。方法未选定。评测未开跑。**
+> 日期：2026-11-20。本版任务书时限 7 天，到 2026-11-27。
+> 协议：换模型的重复（replication with a different backbone）。不得称为复现。
+> 代码：`mmfopd-repro/EvoMemBench` @ `3efc221fd8d5f4de7c2dc2022357e600d26325c7`
 
 ---
 
-## 1. 复现对象
+## 0. 这一步停在哪里
 
-| 项 | 内容 |
-|---|---|
-| 基准 | EvoMemBench，arXiv:2605.18421v2（2026-06-15 修订） |
-| 代码 | `https://github.com/DSAIL-Memory/EvoMemBench` |
-| 本地路径 | `mmfopd-repro/EvoMemBench` |
-| 上游 commit | `3efc221fd8d5f4de7c2dc2022357e600d26325c7`（短 SHA `3efc221`，与任务书参考一致） |
-| 本地分支 | `codex/mmfopd-repro`。客户端提交 `5670db5`（xAI 路由）与 `647bbef`（CLI 会话头）。评分脚本未改 |
-| 提交说明 | 上游：Update README with dataset information，2026-11-03 +0800 |
-| 子任务 | `CROSSEP-TOOL` 第一阶段。id 文件各 50 条：`gorilla_fs`、`vehicle_control`、`trading_bot`、`travel_api` |
-| 不做 | 12 对跨环境；MAS-Lab / A-Evolve；`reflexion/` |
+原文骨干 DeepSeek-V3.2 已下架。用户选择方案 B：代码、基准、评分、样本量按原文，只把骨干换成 DeepSeek 官方 API 上的当前模型。
 
-### 1.1 两组
+CrossEp-Tool 第一阶段（同环境）的原文表已抄完。ACE 相对无记忆 DeepSeek-V3.2 的四环境等权成功率低 2.0 个百分点。按任务书，这里停下，等用户选定方法。不改适配层，不调用 API，不冒烟。
 
-| 组 | 官方入口 | 本次实际调用 |
-|---|---|---|
-| NO-MEM | `Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/scripts/run_eval_no_memory_inenv_fc.sh` | 该脚本。`--memory-type none`，`--mode FC`。只做 4 个环境 |
-| ACE | `scripts/run_eval_ace_inenv_allcrossenv_fc.sh` | **只用其中 Phase 1** 的同一对命令：`run_batch_generate --memory-type ace --mode FC`，再 `run_batch_evaluate`。不跑脚本后半的 12 对 |
+密钥在本地 `mmfopd-repro/.env`，已 gitignore。模型名留空，开跑当天再从官方文档锁定。
 
-评分脚本 `run_batch_evaluate.py` 未改。
-
-### 1.2 原文数字（arXiv HTML v2 抄录）
-
-出处：<https://arxiv.org/html/2605.18421v2>，§5.2.4，**Table 6**（Success rate %，CrossEp-Tool / Web / Emb）。Tool Using 四列依次是 Gorilla File System、Vehicle Control、Trading Bots、Travel Booking，其后是 **Avg. Rank**（名次，不是成功率）。
-
-论文没有名为 NO-MEM 的行。无记忆对照是 Long-Context LLM 下的 **DeepSeek-V3.2**。记忆方法的骨干也是 DeepSeek-V3.2。ACE 行存在，不改用 SkillWeaver。
-
-| 环境 | DeepSeek-V3.2（无记忆） | ACE |
-|---|---:|---:|
-| Gorilla File System | 64.0 | 68.0 |
-| Vehicle Control | 36.0 | 56.0 |
-| Trading Bots | 54.0 | 14.0 |
-| Travel Booking | 26.0 | 34.0 |
-| Avg. Rank（越小越好） | 13.5 | 9.8 |
-
-表内没有四环境平均成功率。按四个成功率做等权平均（每个环境 50 条，与本仓库 id 文件一致）得到：
-
-| 派生量 | DeepSeek-V3.2 | ACE | ACE − DeepSeek-V3.2 |
-|---|---:|---:|---:|
-| 四环境等权成功率 | 45.0 | 43.0 | **−2.0 个百分点** |
-
-分环境方向：File System +4.0，Vehicle +20.0，Trading **−40.0**，Travel +8.0。三个环境 ACE 更高，Trading Bots 大幅更低，等权总体 ACE 略低。
-
-**原文增益方向（预注册锁定）**：CrossEp-Tool 第一阶段的等权成功率上，ACE 没有高于无记忆 DeepSeek-V3.2。这是「总体不增益」。
-
-同页 Table 10（CrossEp-Tool 平均步数，越低越好）：
-
-| 环境 | DeepSeek-V3.2 | ACE |
-|---|---:|---:|
-| Gorilla File System | 14.82 | 18.62 |
-| Vehicle Control | 13.44 | 16.02 |
-| Trading Bots | 10.40 | 7.94 |
-| Travel Booking | 10.90 | 10.60 |
-| Average | 12.39 | 13.30 |
-
-同页 Table 11（CrossEp-Tool token，越低越好）：
-
-| 环境 | DeepSeek-V3.2 | ACE |
-|---|---:|---:|
-| Gorilla File System | 67664 | 139608 |
-| Vehicle Control | 60192 | 127034 |
-| Trading Bots | 39266 | 67865 |
-| Travel Booking | 56026 | 102581 |
-| Average | 55787 | 109272 |
-
----
-
-## 2. 模型与端点（烟雾时锁定）
+## 1. 出处
 
 | 项 | 值 |
 |---|---|
-| 模型 id | `grok-4.7` |
-| Base URL | `https://cli-chat-proxy.grok.com/v1` |
-| 鉴权 | 用户授权使用本机 Grok CLI 会话额度。驱动在 `mmfopd-repro/.env` 缺失时读取 `~/.grok/auth.json`，不把 token 打进日志或 git |
-| CLI | `grok 1.0.89`。请求头：`X-XAI-Token-Auth: xai-grok-cli`，`x-grok-model-override`，`x-grok-client-version: 1.0.89`，`User-Agent: grok-cli/1.0.89` |
-| 代码 | `EvoMemBench/.../bfcl_eval/memory/ark_client.py`，本地提交 `647bbef` |
-| 解码 | 不改仓库载荷。`chat_completions` 只传 `model`、`messages`、可选 `tools`。运行器构造 handler 时写了 `temperature=0`，但 Ark 客户端本来就不把 temperature / max_tokens 发给端点。xAI 分支保持这一行为 |
-| 未采用 | 控制台 `xai-...` key、`https://api.x.ai/v1`、`grok-2-latest`、为了压预算改用 `grok-4.7-build-fast` |
+| 论文 | EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective |
+| 版本 | arXiv:2605.18421v3，2026-10-30 修订。abs 页写明 v1 为 2026-05-18，v2 为 2026-06-15，v3 为 2026-10-30 |
+| PDF | <https://arxiv.org/pdf/2605.18421>，文件元数据 `/arXivID` 为 `https://arxiv.org/abs/2605.18421v3`，33 页 |
+| 表 | **Table 6**，PDF 印刷页 **9**，节 **5.2.4 Cross-Episode Execution Evolution** |
+| HTML | <https://arxiv.org/html/2605.18421v3>，`figure id="S5.T6"` |
+| 截图 | `artifacts/paper/table6_v3_crop.png`（表本身），`artifacts/paper/table6_v3_page9.png`（整页） |
+| 同环境协议 | PDF 印刷页 **6**：跨 episode 时，记忆在同一环境的后续 episode 里复用，换到新的独立环境组时重置。跨环境迁移是另做的：先在源环境建记忆，再在目标环境冻结评估。Table 6 是各环境成功率。Figure 3 才是 CROSSEP-TOOL 的跨环境迁移 |
 
-`.env.example` 里曾经的 `grok-2-latest` 不在 2026-11-20 公开模型列表上。驱动脚本拒绝空模型和 `grok-2-latest`。CLI 回退路径把缺省模型写成 `grok-4.7`。
+表题原文：Success rate (%) comparison across CROSSEP-TOOL, CROSSEP-WEB and CROSSEP-EMB. Best results among memory methods are bolded, and runner-up results are underlined. All memory-augmented methods use DeepSeek-V3.2 as the backbone.
 
----
+无记忆对照在表里叫 Long-Context LLM 的 **DeepSeek-V3.2**，没有名为 NO-MEM 的行。每个工具环境 50 条，见 PDF 第 5 页 Table 2：CROSSEP-TOOL，BFCL-MultiTurn-Base，Gorilla File System (50)、Vehicle Control (50)、Trading Bots (50)、Travel Booking (50)。
 
-## 3. 冒烟与预算（冻结）
+数字同时从 PDF 文本和 HTML 表解析核对，与截图一致。
 
-1. NO-MEM：`--limit-per-subset 1`（4 条）。已跑，目录 `xai_smoke_nomem_20261120_175202_no_memory_20261120_175203`
-2. ACE Phase 1：`--limit-per-subset 2`（8 条）。已跑，目录 `xai_smoke_ace_20261120_175420`
-3. 用冒烟汇总里的 token，按 grok-4.7 标价外推 200 × 2 组，单位人民币
-4. 硬顶 **150 元人民币**。外推超过则停，不砍样本、不改温度、不换模型
+## 2. Table 6 的 Tool Using 列（成功率 %）
 
-汇率：Frankfurter，2026-11-19，1 USD = 6.6667 CNY。150 元 = 22.50 美元。
+Avg. Rank 是名次，不是成功率，越小越好。等权平均是四个成功率的算术平均，表内没有这一格，标为派生。增益 = 方法 − DeepSeek-V3.2，也是派生。
 
-外推（输入 $2/1M、输出 $6/1M，不计缓存）：NO-MEM 107.36 元，ACE 182.49 元，合计 **289.85 元**。ACE 只算输入已是 166.58 元。满量未开跑。算式见 `R_RESULT.md` §4。
+| 类别 | 方法 | Gorilla | Vehicle | Trading | Travel | Avg. Rank | 等权平均 | 相对 V3.2 |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Long-Context LLM | Gemini-3-Flash | 74.0 | 62.0 | 88.0 | 54.0 | 3.0 | 69.5 | +24.5 |
+| Long-Context LLM | GPT-5-mini | 50.0 | 50.0 | 72.0 | 44.0 | 9.5 | 54.0 | +9.0 |
+| Long-Context LLM | DeepSeek-V3.2 | 64.0 | 36.0 | 54.0 | 26.0 | 13.5 | **45.0** | 0 |
+| Retrieval | BM25 | 68.0 | 88.0 | 66.0 | 32.0 | 5.8 | 63.5 | +18.5 |
+| Retrieval | Qwen3-Emb-4B | 68.0 | 82.0 | 78.0 | 34.0 | 4.0 | 65.5 | +20.5 |
+| Retrieval | GraphRAG | 66.0 | 68.0 | 72.0 | 40.0 | 6.5 | 61.5 | +16.5 |
+| General long-term | Mem0 | 76.0 | 58.0 | 48.0 | 30.0 | 8.5 | 53.0 | +8.0 |
+| General long-term | A-MEM | 68.0 | 62.0 | 70.0 | 26.0 | 8.8 | 56.5 | +11.5 |
+| General long-term | MemOS | 72.0 | 60.0 | 36.0 | 28.0 | 9.8 | 49.0 | +4.0 |
+| General long-term | MemoryOS | 72.0 | 72.0 | 56.0 | 36.0 | 5.8 | 59.0 | +14.0 |
+| Procedural | AWM | 64.0 | 56.0 | 74.0 | 24.0 | 11.0 | 54.5 | +9.5 |
+| Procedural | SkillWeaver | 66.0 | 48.0 | 44.0 | 28.0 | 12.3 | 46.5 | +1.5 |
+| Procedural | AgentKB | 62.0 | 71.4 | 74.0 | 30.0 | 8.3 | 59.35 | +14.35 |
+| Procedural | ACE | 68.0 | 56.0 | 14.0 | 34.0 | 9.8 | 43.0 | **−2.0** |
+| Procedural | ReasoningBank | 64.0 | 82.0 | 86.0 | 42.0 | 4.8 | 68.5 | +23.5 |
+| Meta-evolution | MemEvolve | 66.0 | 70.0 | 66.0 | 28.0 | 8.8 | 57.5 | +12.5 |
 
----
+ACE 分环境差：File System +4.0，Vehicle +20.0，Trading −40.0，Travel +8.0。等权 −2.0 个百分点。AgentKB 的 Vehicle Control 印刷值是 **71.4**，不是 2 的倍数。按 50 条计，一条样本是 2.0 个百分点。这个格子按印刷值保留。
 
-## 4. 必须报告
+Web Search 与 Embodied AI 列在截图里，不列入本次选择。本次任务只做 CrossEp-Tool 第一阶段。
 
-1. 两组成功率（总 + 4 环境）+ 样本 bootstrap 95% CI
-2. 与上表并列
-3. ACE − NO-MEM 方向：本次 vs 原文等权 −2.0 pp
-4. `per_item.csv` 四分类：`both_win` / `only_ace` / `only_no_mem` / `both_fail`
-5. 10 条 ACE playbook，各 2–4 句
-6. token（agent vs memory）、费用、墙钟
+## 3. 嵌入依赖（供选方法，来自该 commit 的代码，不是论文表内的字）
 
-第 6 项的烟雾实测已写入 `R_RESULT.md`。第 1–5 项的 200 条研究没有数字：`per_item.csv` 仍只有表头。烟雾 4/4 与 8/8 全部成功，不拿来填这五项。
+论文印刷页 6 写：除非方法自带嵌入模型，默认嵌入后端是 DashScope 的 `text-embedding-v4`。CROSSEP-TOOL 在 `3efc221` 的实现更细：
 
----
+| 方法 | 仓库入口 | 嵌入 |
+|---|---|---|
+| ACE | `bfcl_eval/memory/ace_backend.py` | 文件写明无嵌入、无 top-k，整本 playbook 注入。只需 LLM |
+| SkillWeaver | `skillweaver_memory.py` | 按技能名和 docstring 做关键词匹配。生成技能要用 LLM。无 DashScope |
+| BM25 | `bm25_backend.py` | 文件写明无 LLM、无嵌入 API |
+| AWM | `agent_workflow_memory.py` | 本地 sentence-transformer 余弦，不是 DashScope API |
+| AgentKB | `agent_kb_memory.py` | 本地 TF-IDF + sentence-transformer，不是 DashScope API |
+| ReasoningBank | `reasoning_bank_backend.py` | 检索要 DashScope `text-embedding-v4` |
+| Mem0、A-MEM、MemOS、MemoryOS、GraphRAG、Qwen3-Emb | 各自 backend | DashScope 或同类嵌入端点 |
+| MemEvolve | 论文有这一行 | `factory.py` 没有这个 `memory_type`。现有代码跑不了 |
 
-## 5. 判定规则（冻结）
+预定规则（任务书，供决定）：在这一列里选相对 DeepSeek-V3.2 增益最大、且只需 LLM 密钥、不需要 DashScope 嵌入的方法。需要嵌入则另行讨论。
 
-- **严格同模型复现**：不适用
-- **Grok 迁移信号成功**：全流程跑通且未改评分，并且 ACE − NO-MEM 的等权成功率方向与原文一致（原文为负，−2.0 pp）
-- **部分**：只满足一条
-- **失败**：跑不通或没有合法 per-sample；或增益方向与原文相反
-- 预算门禁在烟雾之后停掉满量：有合法的烟雾 per-sample，没有 200 条方向。不记成方法失败，也不记成迁移成功。教学任务迁移仍然不做
+按这条规则能直接排出来的事实：
+
+- ACE 的等权增益是 −2.0 pp。任务书认为这种情况下重复 ACE 没有意义。
+- 程序记忆里、增益最大、又不调用 DashScope 的是 **AgentKB（+14.35 pp）**。它要本地句向量模型，不是第二个 API 密钥。
+- 若连本地嵌入模型也不引入，程序记忆里只剩 **SkillWeaver（+1.5 pp）** 和增益为负的 ACE。
+- 整列里不需要 DashScope、增益更高的还有 **BM25（+18.5 pp）**。它是检索，不是程序记忆，而且不用 LLM。
+- **ReasoningBank（+23.5 pp）** 是这一列程序记忆里最大的增益，代码路径要求 DashScope 嵌入。按任务书要另行讨论，不能直接开跑。
+
+方法选定之前，判定规则里的「原文增益」无法锁定。
+
+## 4. 方案 B 的判定规则（方法选定后才生效）
+
+换了模型，绝对成功率不与原文比。只看增益是否在新模型上重现：
+
+- 增益重现：方法 − NO-MEM 的配对增益 ≥ 原文增益的一半，且配对 bootstrap 95% 区间下界 > 0
+- 增益未重现：区间包含 0，或点估计 ≤ 0
+- 绝对成功率与原文的差距只描述，不参与判定
+
+不得换方法、换子任务、改参数后重跑来凑结果。样本量保持每环境 50，共 200。预算 150 元。超过则停，不缩样本。
+
+## 5. 还没做
+
+模型名与价目表、适配层 diff、冒烟、费用外推、200 条结果、`per_item.csv` 数据行、`final_decision.md`。这些都等方法确认之后。
