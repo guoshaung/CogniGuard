@@ -40,6 +40,46 @@ def stop(reason,counts=None):
 
 
 def build_knowledge(sentences,nlp,anchors):
+    sibling_path=OUT/'term_siblings.json'
+    if sibling_path.exists():
+        siblings=load(sibling_path)
+    else:
+        siblings=build_siblings(sentences,nlp)
+    progress=OUT/'knowledge_progress.jsonl'
+    completed={}
+    if progress.exists():
+        for line in progress.read_text(encoding='utf8').splitlines():
+            record=json.loads(line)
+            completed[(record['split'],record['sentence_id'])]=record['pairs']
+    pairs={}
+    for split,rows in sentences.items():
+        result=[]
+        for index,row in enumerate(rows,1):
+            key=(split,row['id'])
+            if key not in completed:
+                (OUT/'K_CURRENT.json').write_text(json.dumps(dict(split=split,index=index,
+                    sentence_id=row['id'],status='STARTED')),encoding='utf8')
+                items=[dict(sentence_id=row['id'],**item) for item in
+                       variants(row,siblings,random.Random(seed('K',row['id'])),anchors)]
+                with progress.open('a',encoding='utf8') as handle:
+                    handle.write(json.dumps(dict(split=split,sentence_id=row['id'],pairs=items),
+                                            ensure_ascii=False)+'\n')
+                completed[key]=items
+            result.extend(completed[key])
+            if index%100==0:
+                print('K progress',split,index,'/',len(rows),'pairs',len(result),flush=True)
+        pairs[split]=result
+        path=OUT/('K_'+split+'.json')
+        if path.exists():
+            assert load(path)==result
+        else:
+            dump(path,result)
+    (OUT/'K_CURRENT.json').write_text(json.dumps(dict(status='COMPLETE',
+        counts={k:len(v) for k,v in pairs.items()})),encoding='utf8')
+    return pairs
+
+
+def build_siblings(sentences,nlp):
     model=get_model()
     subject_terms=defaultdict(set)
     for row in sentences['train']:
@@ -62,15 +102,7 @@ def build_knowledge(sentences,nlp,anchors):
     del model;gc.collect()
     import torch
     torch.cuda.empty_cache()
-    pairs={}
-    for split,rows in sentences.items():
-        result=[]
-        for row in rows:
-            for item in variants(row,siblings,random.Random(seed('K',row['id'])),anchors):
-                result.append(dict(sentence_id=row['id'],**item))
-        pairs[split]=result
-        dump(OUT/('K_'+split+'.json'),result)
-    return pairs
+    return siblings
 
 
 def generate(sentences,anchors):

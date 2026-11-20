@@ -24,3 +24,14 @@ def test_term_replacement_preserves_other_text():
 
 def test_anchorless_source_produces_no_knowledge_pairs():
     assert variants({'text':'This increases slowly.', 'anchors':[], 'subject':'physics'}, {},random.Random(0),lambda _:())==[]
+
+
+def test_formula_validation_does_not_call_extra_equals_solver(monkeypatch):
+    import sympy as sp
+    def forbidden(*args, **kwargs):
+        raise AssertionError('Unregistered equals solver invoked')
+    monkeypatch.setattr(sp.Expr, 'equals', forbidden)
+    source={'text':r'The relationship is \(x y\).',
+            'anchors':['F:xy'],'subject':'physics'}
+    rows=variants(source,{},random.Random(0),lambda _:())
+    assert any(row['type']=='K-formula' for row in rows)

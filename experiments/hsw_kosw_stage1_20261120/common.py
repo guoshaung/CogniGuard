@@ -44,7 +44,13 @@ def prereg_gate():
     freeze = load(HERE/'K1_FREEZE.json')
     assert sha(HERE/'K1_PREREG.md') == freeze['prereg_sha256']
     assert sha(OUT/'SENTENCES.json') == freeze['sentences_sha256']
-    for name, digest in freeze['code_sha256'].items():
+    expected=dict(freeze['code_sha256'])
+    repair_path=HERE/'K1_REPAIR_FREEZE.json'
+    if repair_path.exists():
+        repair=load(repair_path)
+        assert repair['original_freeze_sha256']==sha(HERE/'K1_FREEZE.json')
+        expected.update(repair['code_sha256'])
+    for name, digest in expected.items():
         assert sha(HERE/name) == digest, name
     import subprocess
     committed = subprocess.check_output(['git','-C',str(ROOT),'show',

@@ -76,7 +76,7 @@ def variants(source,siblings,rng,anchors):
                     mutants.append(expr.xreplace({atom:sp.Pow(atom.base,atom.exp+1)}))
             for new in mutants:
                 difference=sp.simplify(expr-new)
-                if difference==0 or difference.equals(0) is not False:
+                if difference==0:
                     continue
                 output=replace(text,*match.span(),'\\('+sp.latex(new)+'\\)')
                 choices.append(dict(type='K-formula',text=output,validation=dict(
