@@ -1,0 +1,76 @@
+diff --git a/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/bfcl_eval/memory/ark_client.py b/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/bfcl_eval/memory/ark_client.py
+index 781c01d..aeed82d 100644
+--- a/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/bfcl_eval/memory/ark_client.py
++++ b/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/bfcl_eval/memory/ark_client.py
+@@ -6,6 +6,8 @@ logic.
+ """
+ from __future__ import annotations
+ 
++import json
++import os
+ import threading
+ import time
+ from typing import Any
+@@ -53,18 +55,59 @@ class ArkBatchClient:
+     def _sdk_client(self):
+         client = getattr(self._tls, "client", None)
+         if client is None:
+-            from volcenginesdkarkruntime import Ark  # optional dependency
+-            client = Ark(api_key=self._api_key, timeout=self._timeout)
++            backend = os.environ.get("LLM_BACKEND", "").strip().lower()
++            if backend == "deepseek":
++                from openai import OpenAI
++
++                base_url = os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/")
++                client = OpenAI(api_key=self._api_key, base_url=base_url, timeout=self._timeout)
++                self._tls.backend = "deepseek"
++            else:
++                from volcenginesdkarkruntime import Ark  # optional dependency
++
++                client = Ark(api_key=self._api_key, timeout=self._timeout)
++                self._tls.backend = "ark"
+             self._tls.client = client
+         return client
+ 
++    def _record_usage(self, resp: Any) -> None:
++        """Token counts only. No prompts, no keys. Scoring does not read this file."""
++        path = os.environ.get("DEEPSEEK_USAGE_LOG", "").strip()
++        if not path:
++            return
++        usage = getattr(resp, "usage", None)
++        raw = usage.model_dump() if hasattr(usage, "model_dump") else {}
++        if not isinstance(raw, dict):
++            raw = {}
++        details = raw.get("completion_tokens_details") or {}
++        if not isinstance(details, dict):
++            details = {}
++        row = {
++            "prompt_tokens": raw.get("prompt_tokens"),
++            "completion_tokens": raw.get("completion_tokens"),
++            "prompt_cache_hit_tokens": raw.get("prompt_cache_hit_tokens"),
++            "prompt_cache_miss_tokens": raw.get("prompt_cache_miss_tokens"),
++            "total_tokens": raw.get("total_tokens"),
++            "reasoning_tokens": details.get("reasoning_tokens"),
++        }
++        try:
++            with open(path, "a", encoding="utf-8") as handle:
++                handle.write(json.dumps(row, ensure_ascii=True) + "\n")
++        except OSError:
++            return
++
+     def _call_impl(self, model: str, messages: list[dict], tools: list | None = None) -> tuple[Any, float]:
+         client = self._sdk_client()
+         t0 = time.time()
++        # Same fields the Ark client sent. Do not add temperature or max_tokens.
+         kwargs: dict = {"model": model, "messages": messages}
+         if tools:
+             kwargs["tools"] = tools
+-        resp = client.batch.chat.completions.create(**kwargs)
++        if getattr(self._tls, "backend", "ark") == "deepseek":
++            resp = client.chat.completions.create(**kwargs)
++            self._record_usage(resp)
++        else:
++            resp = client.batch.chat.completions.create(**kwargs)
+         return resp, time.time() - t0
+ 
+     # ------------------------------------------------------------------ #

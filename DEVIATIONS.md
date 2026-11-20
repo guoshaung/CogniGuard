@@ -16,7 +16,19 @@ EvoMemBench 分支：
 - Grok 客户端改动 `5670db5` 与请求头改动 `647bbef` 在分支 `grok-smoke` 上。当前工作树没有 `cli-chat-proxy` 代码
 - 没有推送到 `DSAIL-Memory/EvoMemBench`。文档仓没有用户 remote
 
-方法尚未选定。Table 6 抄录之后停下等确认。下面 D-001R 至 D-010 是 Grok 路径的历史记录，不是方案 B 的偏差清单。
+用户于 2026-11-20 选定 ReasoningBank（只跑第一阶段）对照 NO-MEM。判定门槛写入 `R_PREREG.md` §6：配对增益 ≥ 11.75 pp，且配对 bootstrap 95% 区间下界 > 0。
+
+## D-011 没有 DashScope 密钥，备选 AgentKB 同样起不来
+
+`text-embedding-v4` 没有下架。阿里云帮助页 2026-11-18 仍列出它，北京价 0.0005 元/千输入 token。截图在 `artifacts/paper/dashscope_embedding_20261120.png`。
+
+本地没有 `DASHSCOPE_API_KEY`：不在 `mmfopd-repro/.env`，不在进程环境，不在 shell 启动文件。本机不能替用户开通百炼。按任务书应改选 AgentKB。
+
+`3efc221` 的 AgentKB 不能作为这个备选跑起来。`EvolveLab/providers/agent_kb_provider.py` 在 `AgenticKnowledgeBase.__init__` 里执行 `DashScopeEmbedder()`。该类在没有 `DASHSCOPE_API_KEY` 时抛出 `ValueError`，默认模型还是 `text-embedding-v3`。`AgentKBProvider.initialize` 捕获异常后返回 `False`。官方 shell 注释写「不需要 DashScope」，和会执行的代码不一致。
+
+因此没有改嵌入实现，没有把 AgentKB 换成别的方法，没有冒烟，没有满量，没有伪造 per-sample。DeepSeek 适配层补丁已写好，见 `adapters/ark_client_deepseek.patch`，评分代码未改。
+
+下面 D-001R 至 D-010 是 Grok 路径的历史记录，不是方案 B 的偏差清单。
 
 ## D-001R 模型换成 xAI Grok
 

@@ -1,6 +1,16 @@
 # R_RESULT — MM-FOPD-R
 
-> **存档。** 本文件是 grok-4.7 冒烟和 150 元预算停止的记录。方案 B 尚未开跑，这里的数字不参与 MM-FOPD 判定。最终决定不以本文件为准。
+## V3 方案 B（2026-11-20）
+
+**没有样本，没有成功率，没有费用外推。** 用户选定 ReasoningBank 对 NO-MEM，只做第一阶段。门槛已写入 `R_PREREG.md` §6（≥ 11.75 pp，配对区间下界 > 0）。
+
+阻塞：DashScope `text-embedding-v4` 仍在售，本地没有密钥。备选 AgentKB 的代码同样依赖 `DASHSCOPE_API_KEY`，初始化会失败。详见 `DEVIATIONS.md` D-011。`per_item.csv` 仍只有表头。
+
+DeepSeek 当天可用模型是 `deepseek-flash`（DeepSeek-V4.1-Flash-1017）和 `deepseek-v4-pro`。通用模型锁定为 `deepseek-flash`。价目截图在 `artifacts/paper/`。适配层在 `adapters/ark_client_deepseek.patch`。没有调用聊天补全，所以没有产生 DeepSeek 账单。
+
+## Grok 冒烟存档
+
+> 以下是 grok-4.7 冒烟和 150 元预算停止的记录。不参与方案 B 的判定。
 >
 > 日期：2026-11-20
 > 标注：*same-code / same-benchmark / different-model (grok-4.7 via Grok CLI proxy)*
