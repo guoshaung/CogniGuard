@@ -1,0 +1,16 @@
+{
+  "python": "3.11",
+  "conda_root": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\kosw_stage1_20261120\\conda",
+  "torch": "2.5.1+cu121",
+  "cuda_available": true,
+  "gpu": "RTX 4070 Laptop",
+  "sentence_transformers": "3.4.1",
+  "transformers": "4.48.3",
+  "spacy": "3.7.5",
+  "spacy_model": "en_core_web_sm3.7.1",
+  "pip_check": "No broken requirements found",
+  "torch_wheel_sha256": "4bcee18f00c43c815efad8efaa3bca584ffdc8d2cd35ef4c44c814f2739d9191",
+  "installer_sha256": "c147ac9b3ec8af9c1f5de8e99f9326064f1af3451fda0dab07f273eccbb74f1c",
+  "embedding_asset_sha256": "da06e65e14e6a374eafbe4d144c9bbbc1a557beb36cd0819bf35a75e50ad5f15",
+  "ollama_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e"
+}

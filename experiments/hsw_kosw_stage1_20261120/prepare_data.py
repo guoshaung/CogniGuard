@@ -50,7 +50,7 @@ def main():
             pools[document_split[row['id']]].append(dict(
                 id=hashlib.sha256((row['id'] + '|sentence|' + str(index)).encode()).hexdigest(),
                 document_id=row['id'],subject=row['subject'],text=text,
-                text_sha256=hashlib.sha256(text.encode()).hexdigest(),anchors=list(anchors(text))))
+                text_sha256=hashlib.sha256(text.encode()).hexdigest()))
     counts = {s: len(v) for s, v in pools.items()}
     targets = {'train':3000,'heldout':1000}
     shortage = {s:counts[s] for s in targets if counts[s] < targets[s]}
@@ -67,6 +67,11 @@ def main():
         raise RuntimeError('Required sentence counts unavailable; stop')
     selected={s:random.Random(SEED+i).sample(pools[s],targets[s])
               for i,s in enumerate(['train','heldout'])}
+    for split, rows in selected.items():
+        for i, row in enumerate(rows, 1):
+            row['anchors'] = list(anchors(row['text']))
+            if i % 250 == 0:
+                print('Prepared anchors', split, i, len(rows), flush=True)
     (OUT/'SENTENCES.json').write_text(json.dumps(selected,ensure_ascii=False,indent=2),encoding='utf8')
     print(json.dumps({'available':counts,'selected':targets,'document_train':boundary,
                       'document_heldout':len(build)-boundary}))

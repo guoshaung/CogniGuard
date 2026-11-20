@@ -1,0 +1,38 @@
+{
+  "status": "BEFORE_STAGE3",
+  "prereg_sha256": "1936b02a3722540327a61672737878f7c4141c84ada72d80f7f5b1c7720eddfc",
+  "sentences_sha256": "b4116ddef28e96f7c15b443fbb6d83d3528d6a47afce039e7c497c1eacba4c02",
+  "data_preparation_sha256": "747a4891abd9ad6373ad07c2d0c6a2f65acea1f84f3547ca2ba8e1701cf34d85",
+  "embedding_asset_sha256": "da06e65e14e6a374eafbe4d144c9bbbc1a557beb36cd0819bf35a75e50ad5f15",
+  "embedding_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "ollama_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "code_sha256": {
+    "acquire_embedding.py": "14078c2d0d8473b1d6c3c4b20200d5a0265844b3665d5630d0d978d437ff3e2f",
+    "common.py": "f45bc5635e0dec88995e92f3e4470fd3bb5d5e65f187239da55fc52832373c97",
+    "knowledge_pairs.py": "bf22021a751b537ebeda7f0a401d42ac4961cdcdbe206f3f4845ff3194c88929",
+    "prepare_data.py": "e1a0462130e6a105ee739ca27a5f5809e9d67e1f329de357ab9deb61bafb4fc3",
+    "run_stage1.py": "5afd5022c38cab824c35c253968a780ecef42e7d9eb55eba7f8a298f9a61058e",
+    "test_knowledge_pairs.py": "985a058621838f78596a6c71a553e3ad3913e639ea9e0e6aef3a6fb5781e5ff8"
+  },
+  "component_sha256": {
+    "sentence_splitter": "0e7993f7247abd8d1a1cd8fa4506cf4238cca01f4efb7e92883c88316255efcb",
+    "anchors": "eec35e11921459c81e59b920ffc8842b031d94038a698cd66dfbb5d45854f9b9",
+    "structure": "844d9c3095cad8615f0d4e225d311d9f23c5b77545324833524130e7ae4fec49"
+  },
+  "gates": {
+    "G1_auc": 0.9,
+    "G1_improvement": 0.05,
+    "G2_lambda": 2,
+    "G2_count": 8,
+    "G3_rhoS": 0.5,
+    "G3_ratio": 2,
+    "G4_rhoK": 0.5,
+    "G5_nstar": 10,
+    "G6_KS_p_gt": 0.01,
+    "G6_fpr": [
+      0.01,
+      0.001
+    ]
+  },
+  "test_contents_read": false
+}
