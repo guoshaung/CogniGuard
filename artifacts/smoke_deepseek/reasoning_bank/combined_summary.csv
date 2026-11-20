@@ -1,0 +1,7 @@
+phase,setting,n,n_failed,success_rate,progress_score,avg_step_count,avg_latency_s_inference,avg_input_tokens_inference,avg_output_tokens_inference,avg_total_tokens_inference,avg_latency_s_memory,avg_input_tokens_memory,avg_output_tokens_memory,avg_total_tokens_memory,avg_embedding_tokens,avg_latency_s_total,avg_input_tokens_total,avg_output_tokens_total,avg_total_tokens_total
+1,gorilla_fs,2,0,1.0,1.0,21.5,23.6287,93077.5,1582.5,94660.0,11.194,3332.0,1310.5,4642.5,1649.5,34.8226,96409.5,2893.0,99302.5
+1,trading_bot,2,0,1.0,1.0,6.0,10.3357,20733.5,1197.5,21931.0,15.8624,2836.0,1376.0,4212.0,2462.5,26.198,23569.5,2573.5,26143.0
+1,travel_api,2,0,0.5,0.75,9.5,18.3842,48791.5,2238.5,51030.0,13.5759,3848.5,1600.5,5449.0,3523.5,31.9601,52640.0,3839.0,56479.0
+1,vehicle_control,2,0,1.0,1.0,10.0,15.2553,47510.5,1283.0,48793.5,11.6047,3001.0,1463.0,4464.0,3045.5,26.8601,50511.5,2746.0,53257.5
+1,aggregate,8,0,0.875,0.9375,11.75,16.901,52528.25,1575.38,54103.62,13.0593,3254.38,1437.5,4691.88,2670.25,29.9602,55782.62,3012.88,58795.5
+overall,aggregate,8,0,0.875,0.9375,11.75,16.901,52528.25,1575.38,54103.62,13.0593,3254.38,1437.5,4691.88,2670.25,29.9602,55782.62,3012.88,58795.5

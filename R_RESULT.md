@@ -2,11 +2,15 @@
 
 ## V3 方案 B（2026-11-20）
 
-**没有样本，没有成功率，没有费用外推。** 用户选定 ReasoningBank 对 NO-MEM，只做第一阶段。门槛已写入 `R_PREREG.md` §6（≥ 11.75 pp，配对区间下界 > 0）。
+方法是 ReasoningBank，对照 NO-MEM，只做第一阶段。门槛仍是配对增益 ≥ 11.75 pp，且配对 bootstrap 95% 区间下界 > 0。
 
-阻塞：DashScope `text-embedding-v4` 仍在售，本地没有密钥。备选 AgentKB 的代码同样依赖 `DASHSCOPE_API_KEY`，初始化会失败。详见 `DEVIATIONS.md` D-011。`per_item.csv` 仍只有表头。
+冒烟已经由官方评分跑完。NO-MEM 4 条成功率 1.0000，ReasoningBank 8 条成功率 0.8750。这不是研究结果。费用外推见 `R_PREREG.md` §9：合计空闲 6.29 元、高峰 12.30 元，低于 150 元。
 
-DeepSeek 当天可用模型是 `deepseek-flash`（DeepSeek-V4.1-Flash-1017）和 `deepseek-v4-pro`。通用模型锁定为 `deepseek-flash`。价目截图在 `artifacts/paper/`。适配层在 `adapters/ark_client_deepseek.patch`。没有调用聊天补全，所以没有产生 DeepSeek 账单。
+NO-MEM 满量已完成，目录 `artifacts/full_deepseek/no_memory/`。200 条，API/runtime 失败 0。官方成功率 0.7300；四个环境 80.0 / 80.0 / 88.0 / 44.0。原文 DeepSeek-V3.2 同一列是 64 / 36 / 54 / 26，等权 45.0。骨干不同，绝对值只作对照，不参与判定。这次 NO-MEM 的 DeepSeek token 是输入 11,897,396（缓存命中 11,025,152，未命中 872,244）、输出 358,995。按当天价目，空闲 2.53 元，高峰 5.06 元。开跑时是周五 21:03 CST，空闲时段。
+
+ReasoningBank 满量还在跑。配对增益、bootstrap 和 `per_item.csv` 还没有。
+
+DeepSeek 模型是 `deepseek-flash`（DeepSeek-V4.1-Flash-1017）。嵌入是 DashScope `text-embedding-v4`。密钥只在本地 `.env`。适配层在 `adapters/ark_client_deepseek.patch`。没有推到 `DSAIL-Memory`。
 
 ## Grok 冒烟存档
 

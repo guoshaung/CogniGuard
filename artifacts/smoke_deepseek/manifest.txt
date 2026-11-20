@@ -1,0 +1,12 @@
+mode=smoke
+which=both
+started_epoch=1795179642
+started_local=2026-11-20 21:00:42 CST
+no_memory_exit=0
+no_memory_started_epoch=1795179642
+no_memory_ended_epoch=1795179671
+no_memory_usage=/Users/MBP/Exp/RSILab/mmfopd-repro/artifacts/usage/ds_smoke_nomem_20261120_210042.jsonl
+reasoning_bank_exit=0
+reasoning_bank_started_epoch=1795179671
+reasoning_bank_ended_epoch=1795179745
+reasoning_bank_usage=/Users/MBP/Exp/RSILab/mmfopd-repro/artifacts/usage/ds_smoke_rb_20261120_210042.jsonl

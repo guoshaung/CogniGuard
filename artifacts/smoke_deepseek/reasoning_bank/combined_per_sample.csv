@@ -1,0 +1,9 @@
+phase,setting,id,category,success,progress,step_count,error,latency_s_inference,input_tokens_inference,output_tokens_inference,total_tokens_inference,latency_s_memory,input_tokens_memory,output_tokens_memory,total_tokens_memory,embedding_tokens,latency_s_total,input_tokens_total,output_tokens_total,total_tokens_total
+1,gorilla_fs,multi_turn_ours_0,gorilla_fs,1,1.0,26,,25.0689,123684,1211,124895,9.4041,3066,1310,4376,15,34.473,126750,2521,129271
+1,gorilla_fs,multi_turn_ours_1,gorilla_fs,1,1.0,17,,22.1885,62471,1954,64425,12.9838,3598,1311,4909,3284,35.1723,66069,3265,69334
+1,trading_bot,multi_turn_ours_100,trading_bot,1,1.0,5,,8.3651,13030,917,13947,9.9435,2006,1483,3489,34,18.3086,15036,2400,17436
+1,trading_bot,multi_turn_ours_101,trading_bot,1,1.0,7,,12.3062,28437,1478,29915,21.7813,3666,1269,4935,4891,34.0875,32103,2747,34850
+1,travel_api,multi_turn_ours_150,travel_api,1,1.0,7,,8.9916,24064,824,24888,9.9744,1851,1303,3154,68,18.966,25915,2127,28042
+1,travel_api,multi_turn_ours_151,travel_api,0,0.5,12,,27.7768,73519,3653,77172,17.1774,5846,1898,7744,6979,44.9542,79365,5551,84916
+1,vehicle_control,multi_turn_ours_50,vehicle_control,1,1.0,2,,2.4943,5957,229,6186,6.254,1076,647,1723,77,8.7483,7033,876,7909
+1,vehicle_control,multi_turn_ours_51,vehicle_control,1,1.0,18,,28.0163,89064,2337,91401,16.9555,4926,2279,7205,6014,44.9718,93990,4616,98606

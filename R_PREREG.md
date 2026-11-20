@@ -1,6 +1,6 @@
 # R_PREREG — MM-FOPD-R v3（方案 B）
 
-> 状态：**方法已定为 ReasoningBank。DashScope 密钥缺失，冒烟和满量都没有开跑。**
+> 状态：**方法仍是 ReasoningBank。冒烟已完成，外推合计低于 150 元，满量第一阶段已在 2026-11-20 21:03 CST 开跑。满量结果尚未出来。**
 > 日期：2026-11-20。本版任务书时限 7 天，到 2026-11-27。
 > 协议：换模型的重复（replication with a different backbone）。不得称为复现。
 > 代码：`mmfopd-repro/EvoMemBench` @ `3efc221fd8d5f4de7c2dc2022357e600d26325c7`
@@ -11,9 +11,13 @@
 
 原文骨干 DeepSeek-V3.2 已下架。用户选择方案 B：代码、基准、评分、样本量按原文，只把骨干换成 DeepSeek 官方 API 上的当前模型。
 
-用户已选定 ReasoningBank，对照组 NO-MEM，只做第一阶段。判定门槛已写入 §6。2026-11-20 核对价目后没有开跑：`text-embedding-v4` 仍在售，但本地没有 `DASHSCOPE_API_KEY`，本机无法开通百炼。任务书规定的备选 AgentKB 在 `3efc221` 里同样会构造 `DashScopeEmbedder`，没有密钥会在初始化时失败。没有改嵌入实现，没有冒烟，没有满量。
+用户已选定 ReasoningBank，对照组 NO-MEM，只做第一阶段。判定门槛在 §6。2026-11-20 晚些时候用户提供了百炼密钥。密钥只写入 gitignore 的 `mmfopd-repro/.env`（权限 600），没有进入提交、补丁或本文。嵌入模型保持代码默认 `text-embedding-v4`、1024 维。当天 20:55 CST 用一句 `ping` 打通嵌入接口，返回模型名 `text-embedding-v4`、维度 1024、`prompt_tokens=2`。同一时刻 `GET /models` 仍只有 `deepseek-flash` 和 `deepseek-v4-pro`。价目页仍写着 DeepSeek-V4.1-Flash-1017。没有改选 AgentKB。
 
-DeepSeek 密钥在本地 `mmfopd-repro/.env`，已 gitignore。DashScope 密钥不在该文件，也不在环境变量里。
+冒烟于 21:00:42 CST 开始，两臂退出码都是 0，没有 Phase 2 目录。NO-MEM 每环境 1 条，29 秒；ReasoningBank 每环境 2 条，74 秒。官方评分的 API/runtime 失败数都是 0。日志里有官方原句 “Failed to decode the model response. Proceed to next turn.”（NO-MEM 13 行，ReasoningBank 35 行）。没有另写解析器。
+
+按冒烟实际 token 和当天价目外推到每臂 200 条：DeepSeek 空闲 6.02 元、高峰 12.04 元；DashScope 0.27 元。合计空闲 6.29 元，高峰 12.30 元。即使把全部输入都按缓存未命中计，高峰合计约 46 元。两者都低于 150 元，所以 21:03 CST 直接开跑满量，没有再等确认。冒烟的 100% 和 87.5% 不是研究结果。
+
+NO-MEM 满量 200 条已在同一轮跑完，API/runtime 失败 0，官方成功率 0.7300。实际 DeepSeek 账单按上述价目是空闲 2.53 元、高峰 5.06 元。ReasoningBank 满量还在跑，增益还没有算。
 
 ## 1. 出处
 
@@ -99,7 +103,7 @@ Web Search 与 Embodied AI 列在截图里，不列入本次选择。本次任�
 
 ## 5. 还没做
 
-冒烟、费用外推、200 条结果、`per_item.csv` 数据行、`final_decision.md`。阻塞是 DashScope 密钥，不是预算。
+满量 200 条的成功率、配对 bootstrap、`per_item.csv` 数据行、10 条记忆抽查、`final_decision.md`。冒烟和外推已经完成，见 §9。阻塞已经解除。
 
 ## 6. 已锁定的方法与判定门槛
 
@@ -134,3 +138,23 @@ DashScope `text-embedding-v4` 仍在售。截图 `artifacts/paper/dashscope_embe
 `adapters/ark_client_deepseek.patch`。`LLM_BACKEND=deepseek` 时，`ArkBatchClient` 改打 `https://api.deepseek.com` 的 `chat.completions`。请求体仍是 `model`、`messages`、可选 `tools`。评分脚本未改。这个补丁已在本地工作树应用，没有提交到 EvoMemBench，也没有推送到 `DSAIL-Memory`。
 
 可选环境变量 `DEEPSEEK_USAGE_LOG` 只追加 token 计数，供缓存命中和外推使用。评测 CSV 不读它。
+
+## 9. 冒烟外推（2026-11-20 21:00 CST，空闲时段）
+
+驱动是 `scripts/run_plan_b_phase1.sh`。它只调用官方 Phase 1 的 python 模块，不调用官方脚本里的 Phase 2。NO-MEM 仍走官方 `run_eval_no_memory_inenv_fc.sh`（默认每子集 25 个 worker）。ReasoningBank 每子集 `--num-workers 1`。摘要在 `artifacts/smoke_deepseek/`。
+
+| 臂 | 条数 | prompt | 缓存命中 | 缓存未命中 | completion | 其中 reasoning | 嵌入 token |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| NO-MEM | 4 | 176113 | 155520 | 20593 | 3342 | 449 | 0 |
+| ReasoningBank | 8 | 446261 | 383744 | 62517 | 24103 | 13688 | 21362 |
+
+reasoning token 没有超出 completion，按输出价计一次。缩放到每环境 50 条后：
+
+| 项 | 空闲（元） | 高峰（元） |
+|---|---:|---:|
+| DeepSeek，NO-MEM | 1.85 | 3.71 |
+| DeepSeek，ReasoningBank | 4.17 | 8.33 |
+| DashScope `text-embedding-v4` | 0.27 | 0.27 |
+| 合计 | 6.29 | 12.30 |
+
+判定使用观察到的缓存拆分。全部输入改按未命中计的高峰上界约 46 元。上限 150 元。满量已开跑。

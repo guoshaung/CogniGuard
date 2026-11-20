@@ -1,0 +1,48 @@
+==========================================================================================
+BFCL multi_turn_ours cross-episode evaluation (ReasoningBank | in-env phase 1 only)
+Run dir:        ds_smoke_rb_20261120_210042_reasoning_bank_20261120_210112
+Total samples:  8    Failed (api/runtime): 0
+==========================================================================================
+
+OVERALL (8 samples)
+------------------------------------------------------------------------------------------
+success_rate                    : 0.8750
+progress_score                  : 0.9375
+avg_step_count                  : 11.75
+
+  -- Total (inference + memory) --
+  avg_latency_s                 : 29.96
+  avg_total_tokens              : 58795.5
+  avg_input_tokens              : 55782.6
+  avg_output_tokens             : 3012.9
+
+  -- Inference --
+  avg_latency_s                 : 16.90
+  avg_total_tokens              : 54103.6
+  avg_input_tokens              : 52528.2
+  avg_output_tokens             : 1575.4
+
+  -- Memory --
+  avg_latency_s                 : 13.06
+  avg_total_tokens              : 4691.9
+  avg_input_tokens              : 3254.4
+  avg_output_tokens             : 1437.5
+  avg_embedding_tokens          : 2670.2
+
+PHASE 1 — in-env, per subset
+------------------------------------------------------------------------------------------
+metric                        gorilla_fs  vehicle_control   trading_bot    travel_api
+n                                      2                2             2             2
+n_failed                               0                0             0             0
+success_rate                      1.0000           1.0000        1.0000        0.5000
+progress_score                    1.0000           1.0000        1.0000        0.7500
+avg_step_count                     21.50            10.00          6.00          9.50
+avg_latency_s [total]              34.82            26.86         26.20         31.96
+avg_total_tokens [total]         99302.5          53257.5       26143.0       56479.0
+avg_latency_s [infer]              23.63            15.26         10.34         18.38
+avg_total_tokens [infer]         94660.0          48793.5       21931.0       51030.0
+avg_latency_s [mem]                11.19            11.60         15.86         13.58
+avg_total_tokens [mem]            4642.5           4464.0        4212.0        5449.0
+avg_embedding_tokens              1649.5           3045.5        2462.5        3523.5
+
+==========================================================================================

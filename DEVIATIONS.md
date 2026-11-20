@@ -14,7 +14,7 @@ EvoMemBench 分支：
 
 - `codex/mmfopd-repro` 已回到上游原始提交 `3efc221fd8d5f4de7c2dc2022357e600d26325c7`
 - Grok 客户端改动 `5670db5` 与请求头改动 `647bbef` 在分支 `grok-smoke` 上。当前工作树没有 `cli-chat-proxy` 代码
-- 没有推送到 `DSAIL-Memory/EvoMemBench`。文档仓没有用户 remote
+- 没有推送到 `DSAIL-Memory/EvoMemBench`。文档仓 remote 是 `https://github.com/guoshaung/CogniGuard.git`，分支 `codex/mmfopd-repro`
 
 用户于 2026-11-20 选定 ReasoningBank（只跑第一阶段）对照 NO-MEM。判定门槛写入 `R_PREREG.md` §6：配对增益 ≥ 11.75 pp，且配对 bootstrap 95% 区间下界 > 0。
 
@@ -26,7 +26,9 @@ EvoMemBench 分支：
 
 `3efc221` 的 AgentKB 不能作为这个备选跑起来。`EvolveLab/providers/agent_kb_provider.py` 在 `AgenticKnowledgeBase.__init__` 里执行 `DashScopeEmbedder()`。该类在没有 `DASHSCOPE_API_KEY` 时抛出 `ValueError`，默认模型还是 `text-embedding-v3`。`AgentKBProvider.initialize` 捕获异常后返回 `False`。官方 shell 注释写「不需要 DashScope」，和会执行的代码不一致。
 
-因此没有改嵌入实现，没有把 AgentKB 换成别的方法，没有冒烟，没有满量，没有伪造 per-sample。DeepSeek 适配层补丁已写好，见 `adapters/ark_client_deepseek.patch`，评分代码未改。
+因此当时没有改嵌入实现，没有把 AgentKB 换成别的方法，没有冒烟，没有满量，没有伪造 per-sample。DeepSeek 适配层补丁已写好，见 `adapters/ark_client_deepseek.patch`，评分代码未改。
+
+同日用户补交了百炼密钥。D-011 的阻塞解除。方法保持 ReasoningBank，没有改去 AgentKB，嵌入实现也没有改。密钥只在本地 `.env`。随后的冒烟和外推见 `R_PREREG.md` §9。合计高峰外推 12.30 元，低于 150 元，满量第一阶段已开跑。
 
 下面 D-001R 至 D-010 是 Grok 路径的历史记录，不是方案 B 的偏差清单。
 
