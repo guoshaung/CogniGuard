@@ -1,0 +1,48 @@
+==========================================================================================
+BFCL multi_turn_ours cross-episode evaluation (no memory | in-env)
+Run dir:        xai_smoke_nomem_20261120_175202_no_memory_20261120_175203
+Total samples:  4    Failed (api/runtime): 0
+==========================================================================================
+
+OVERALL (4 samples)
+------------------------------------------------------------------------------------------
+success_rate                    : 1.0000
+progress_score                  : 1.0000
+avg_step_count                  : 8.50
+
+  -- Total (inference + memory) --
+  avg_latency_s                 : 12.99
+  avg_total_tokens              : 39849.0
+  avg_input_tokens              : 39644.5
+  avg_output_tokens             : 204.5
+
+  -- Inference --
+  avg_latency_s                 : 12.99
+  avg_total_tokens              : 39849.0
+  avg_input_tokens              : 39644.5
+  avg_output_tokens             : 204.5
+
+  -- Memory --
+  avg_latency_s                 : 0.00
+  avg_total_tokens              : 0.0
+  avg_input_tokens              : 0.0
+  avg_output_tokens             : 0.0
+  avg_embedding_tokens          : 0.0
+
+PHASE 1 — in-env, per subset
+------------------------------------------------------------------------------------------
+metric                        gorilla_fs  vehicle_control   trading_bot    travel_api
+n                                      1                1             1             1
+n_failed                               0                0             0             0
+success_rate                      1.0000           1.0000        1.0000        1.0000
+progress_score                    1.0000           1.0000        1.0000        1.0000
+avg_step_count                     18.00             2.00          7.00          7.00
+avg_latency_s [total]              24.29             4.32         13.23         10.10
+avg_total_tokens [total]         97260.0           7784.0       23986.0       30366.0
+avg_latency_s [infer]              24.29             4.32         13.23         10.10
+avg_total_tokens [infer]         97260.0           7784.0       23986.0       30366.0
+avg_latency_s [mem]                 0.00             0.00          0.00          0.00
+avg_total_tokens [mem]               0.0              0.0           0.0           0.0
+avg_embedding_tokens                 0.0              0.0           0.0           0.0
+
+==========================================================================================

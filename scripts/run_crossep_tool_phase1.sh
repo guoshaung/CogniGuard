@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Phase-1 only driver for CROSSEP-TOOL (NO-MEM and ACE).
 # Does not run the 12 cross-environment pairs.
-# Reads the key from mmfopd-repro/.env and never prints it.
+# Reads XAI_API_KEY from mmfopd-repro/.env. If that file is absent, uses the
+# Grok CLI session in ~/.grok/auth.json against cli-chat-proxy.grok.com.
+# Never prints the key. Removes the materialized CROSSEP-TOOL/.env on exit.
 #
 # Usage:
 #   bash scripts/run_crossep_tool_phase1.sh ping
@@ -15,6 +17,10 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TOOL="${ROOT}/EvoMemBench/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL"
 MODE="${1:-}"
 WHICH="${2:-}"
+cleanup_tool_env() {
+  rm -f "${TOOL}/.env"
+}
+trap cleanup_tool_env EXIT
 
 if [[ -z "${MODE}" ]]; then
   echo "usage: $0 ping|smoke|full [no_memory|ace]" >&2
@@ -22,16 +28,17 @@ if [[ -z "${MODE}" ]]; then
 fi
 
 python3 - "${ROOT}" "${TOOL}" << 'PY'
-import os, sys
+import json, os, sys
 from pathlib import Path
 root = Path(sys.argv[1])
 tool = Path(sys.argv[2])
 env_path = root / ".env"
-if not env_path.exists():
-    print("MISSING_ENV_FILE", file=sys.stderr)
-    sys.exit(3)
 vals = {}
-for raw in env_path.read_text().splitlines():
+if not env_path.exists():
+    raw_lines = []
+else:
+    raw_lines = env_path.read_text().splitlines()
+for raw in raw_lines:
     line = raw.strip()
     if not line or line.startswith("#") or "=" not in line:
         continue
@@ -39,7 +46,23 @@ for raw in env_path.read_text().splitlines():
     vals[k.strip()] = v.strip().strip('"').strip("'")
 key = vals.get("XAI_API_KEY") or os.environ.get("XAI_API_KEY") or ""
 model = vals.get("XAI_MODEL") or os.environ.get("XAI_MODEL") or ""
-base = (vals.get("XAI_BASE_URL") or os.environ.get("XAI_BASE_URL") or "https://api.x.ai/v1").rstrip("/")
+base = (vals.get("XAI_BASE_URL") or os.environ.get("XAI_BASE_URL") or "").rstrip("/")
+cli_version = vals.get("XAI_CLI_VERSION") or os.environ.get("XAI_CLI_VERSION") or "1.0.89"
+if not key:
+    auth_path = Path.home() / ".grok" / "auth.json"
+    if auth_path.is_file():
+        blob = json.loads(auth_path.read_text())
+        for item in blob.values():
+            if isinstance(item, dict) and item.get("key"):
+                key = item["key"]
+                break
+        if key and not base:
+            base = "https://cli-chat-proxy.grok.com/v1"
+        if key and not model:
+            model = "grok-4.7"
+        print("using_cli_session", "yes" if key else "no")
+if not base:
+    base = "https://api.x.ai/v1"
 if not key:
     print("MISSING_KEY", file=sys.stderr)
     sys.exit(3)
@@ -54,6 +77,7 @@ out.write_text(
             f"XAI_API_KEY={key}",
             f"XAI_BASE_URL={base}",
             f"XAI_MODEL={model}",
+            f"XAI_CLI_VERSION={cli_version}",
             f"DEEPSEEK_API_KEY={key}",
             f"DEEPSEEK_BASE_URL={base}",
             f"BATCH_MODEL={model}",

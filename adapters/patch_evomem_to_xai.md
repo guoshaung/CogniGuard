@@ -6,21 +6,32 @@
 
 `EvoMemBench/Cross-Episode-Execution/Tool-Using/CROSSEP-TOOL/bfcl_eval/memory/ark_client.py`
 
-`ArkBatchClient` 在 `LLM_BACKEND=xai` 时用 OpenAI SDK 打 `XAI_BASE_URL`（默认 `https://api.x.ai/v1`）的 `chat.completions.create`。否则仍走火山方舟 `batch.chat.completions`。
+`ArkBatchClient` 在 `LLM_BACKEND=xai` 时用 OpenAI SDK 打 `XAI_BASE_URL` 的 `chat.completions.create`。否则仍走火山方舟 `batch.chat.completions`。
+
+本地提交：`5670db5`（路由）、`647bbef`（CLI 代理头）。上游仍是 `3efc221`。
 
 FC 推理（`ArkBatchFCHandler`）和 ACE reflector/curator 都调用这个类。`run_batch_evaluate.py` 没动。
 
 请求体保持调用方原来的字段：`model`、`messages`、可选 `tools`。不补 temperature，不补 max_tokens。
 
+当 `XAI_BASE_URL` 含 `cli-chat-proxy.grok.com` 时，额外带上：
+
+- `X-XAI-Token-Auth: xai-grok-cli`
+- `x-grok-model-override: <model>`
+- `x-grok-client-version: <XAI_CLI_VERSION>`（缺省 `1.0.89`）
+- `User-Agent: grok-cli/<version>`
+
+少了版本头，代理返回 HTTP 426。
+
 ## 密钥
 
-只写 `mmfopd-repro/.env`。运行：
+`mmfopd-repro/.env` 里的 `XAI_API_KEY` 优先。文件不存在时，驱动读取 `~/.grok/auth.json`，端点用 `https://cli-chat-proxy.grok.com/v1`，模型用 `grok-4.7`。
 
 ```bash
 bash mmfopd-repro/scripts/run_crossep_tool_phase1.sh ping
 ```
 
-该脚本把 `XAI_API_KEY` 映射为评测脚本要求的 `DEEPSEEK_API_KEY`，把 `XAI_MODEL` 映射为 `BATCH_MODEL`，写入已被 gitignore 的 `CROSSEP-TOOL/.env`。
+脚本把 key 映射为 `DEEPSEEK_API_KEY`，把模型映射为 `BATCH_MODEL`，写入 `CROSSEP-TOOL/.env`，退出时删除。不要把 token 提交或贴进对话。
 
 ## 第一阶段
 
@@ -30,4 +41,4 @@ ACE 不走 `run_eval_ace_inenv_allcrossenv_fc.sh` 全文，因为那个脚本会
 
 ## 预算
 
-冒烟 token 外推 200×2。超过 150 元人民币就停。
+2026-11-20 的烟雾外推约 290 元，高于 150 元。满量未跑。数字在 `R_RESULT.md`。

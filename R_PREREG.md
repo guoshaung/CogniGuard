@@ -1,9 +1,9 @@
 # R_PREREG — MM-FOPD-R 预注册
 
-> 状态：**代码与论文数字已冻结；正式评测未开跑（缺 `XAI_API_KEY`）**
+> 状态：**模型与端点已锁定。烟雾已跑。满量因 150 元门禁停止。**
 > 修订日期：2026-11-20
 > 执行者：Grok CLI
-> 协议：same-code / same-benchmark / different-model (Grok via xAI)。不是同模型严格复现。
+> 协议：same-code / same-benchmark / different-model (Grok via xAI)。*not same-model strict repro*。
 
 ---
 
@@ -20,8 +20,9 @@
 | 基准 | EvoMemBench，arXiv:2605.18421v2（2026-06-15 修订） |
 | 代码 | `https://github.com/DSAIL-Memory/EvoMemBench` |
 | 本地路径 | `mmfopd-repro/EvoMemBench` |
-| commit | `3efc221fd8d5f4de7c2dc2022357e600d26325c7`（短 SHA `3efc221`，与任务书参考一致） |
-| 提交说明 | Update README with dataset information，2026-11-03 +0800 |
+| 上游 commit | `3efc221fd8d5f4de7c2dc2022357e600d26325c7`（短 SHA `3efc221`，与任务书参考一致） |
+| 本地分支 | `codex/mmfopd-repro`。客户端提交 `5670db5`（xAI 路由）与 `647bbef`（CLI 会话头）。评分脚本未改 |
+| 提交说明 | 上游：Update README with dataset information，2026-11-03 +0800 |
 | 子任务 | `CROSSEP-TOOL` 第一阶段。id 文件各 50 条：`gorilla_fs`、`vehicle_control`、`trading_bot`、`travel_api` |
 | 不做 | 12 对跨环境；MAS-Lab / A-Evolve；`reflexion/` |
 
@@ -56,7 +57,7 @@
 
 分环境方向：File System +4.0，Vehicle +20.0，Trading **−40.0**，Travel +8.0。三个环境 ACE 更高，Trading Bots 大幅更低，等权总体 ACE 略低。
 
-**原文增益方向（预注册锁定）**：CrossEp-Tool 第一阶段的等权成功率上，ACE 没有高于无记忆 DeepSeek-V3.2。这是「总体不增益」，不是「总体正增益」。
+**原文增益方向（预注册锁定）**：CrossEp-Tool 第一阶段的等权成功率上，ACE 没有高于无记忆 DeepSeek-V3.2。这是「总体不增益」。
 
 同页 Table 10（CrossEp-Tool 平均步数，越低越好）：
 
@@ -80,29 +81,32 @@
 
 ---
 
-## 2. 模型与端点
+## 2. 模型与端点（烟雾时锁定）
 
 | 项 | 值 |
 |---|---|
-| 后端 | `LLM_BACKEND=xai` 时，`ArkBatchClient` 改走 `https://api.x.ai/v1` 的 `chat.completions` |
-| 代码 | `EvoMemBench/.../bfcl_eval/memory/ark_client.py` |
-| Base URL | `XAI_BASE_URL`，默认 `https://api.x.ai/v1` |
-| 模型 id | **未锁定**。`mmfopd-repro/.env` 不存在。开跑前把控制台精确 id 写入 `XAI_MODEL` |
-| 密钥 | 只放 `mmfopd-repro/.env` 的 `XAI_API_KEY`。禁止入仓、禁止写入聊天 |
+| 模型 id | `grok-4.7` |
+| Base URL | `https://cli-chat-proxy.grok.com/v1` |
+| 鉴权 | 用户授权使用本机 Grok CLI 会话额度。驱动在 `mmfopd-repro/.env` 缺失时读取 `~/.grok/auth.json`，不把 token 打进日志或 git |
+| CLI | `grok 1.0.89`。请求头：`X-XAI-Token-Auth: xai-grok-cli`，`x-grok-model-override`，`x-grok-client-version: 1.0.89`，`User-Agent: grok-cli/1.0.89` |
+| 代码 | `EvoMemBench/.../bfcl_eval/memory/ark_client.py`，本地提交 `647bbef` |
 | 解码 | 不改仓库载荷。`chat_completions` 只传 `model`、`messages`、可选 `tools`。运行器构造 handler 时写了 `temperature=0`，但 Ark 客户端本来就不把 temperature / max_tokens 发给端点。xAI 分支保持这一行为 |
+| 未采用 | 控制台 `xai-...` key、`https://api.x.ai/v1`、`grok-2-latest`、为了压预算改用 `grok-4.7-build-fast` |
 
-`.env.example` 里曾经的 `grok-2-latest` 不在 2026-11-20 公开模型列表上。驱动脚本拒绝空模型和 `grok-2-latest`。
+`.env.example` 里曾经的 `grok-2-latest` 不在 2026-11-20 公开模型列表上。驱动脚本拒绝空模型和 `grok-2-latest`。CLI 回退路径把缺省模型写成 `grok-4.7`。
 
 ---
 
 ## 3. 冒烟与预算（冻结）
 
-1. NO-MEM：`--limit-per-subset 1`（4 条）
-2. ACE Phase 1：`--limit-per-subset 2`（8 条）
-3. 用冒烟日志里的 token 外推 200 × 2 组，单位人民币
-4. 硬顶 **150 元人民币**。外推超过则停，不砍样本、不改温度
+1. NO-MEM：`--limit-per-subset 1`（4 条）。已跑，目录 `xai_smoke_nomem_20261120_175202_no_memory_20261120_175203`
+2. ACE Phase 1：`--limit-per-subset 2`（8 条）。已跑，目录 `xai_smoke_ace_20261120_175420`
+3. 用冒烟汇总里的 token，按 grok-4.7 标价外推 200 × 2 组，单位人民币
+4. 硬顶 **150 元人民币**。外推超过则停，不砍样本、不改温度、不换模型
 
-本次没有冒烟日志，因此**没有**费用外推，也没有开满量。论文 token 量级只作风险提示，不代替这条门。见 `R_RESULT.md`。
+汇率：Frankfurter，2026-11-19，1 USD = 6.6667 CNY。150 元 = 22.50 美元。
+
+外推（输入 $2/1M、输出 $6/1M，不计缓存）：NO-MEM 107.36 元，ACE 182.49 元，合计 **289.85 元**。ACE 只算输入已是 166.58 元。满量未开跑。算式见 `R_RESULT.md` §4。
 
 ---
 
@@ -115,7 +119,7 @@
 5. 10 条 ACE playbook，各 2–4 句
 6. token（agent vs memory）、费用、墙钟
 
-以上 1–6 都还没有实测数字。
+第 6 项的烟雾实测已写入 `R_RESULT.md`。第 1–5 项的 200 条研究没有数字：`per_item.csv` 仍只有表头。烟雾 4/4 与 8/8 全部成功，不拿来填这五项。
 
 ---
 
@@ -125,4 +129,4 @@
 - **Grok 迁移信号成功**：全流程跑通且未改评分，并且 ACE − NO-MEM 的等权成功率方向与原文一致（原文为负，−2.0 pp）
 - **部分**：只满足一条
 - **失败**：跑不通或没有合法 per-sample；或增益方向与原文相反
-- 缺密钥导致未开跑：**不记成方法失败**。记为阻塞。教学任务迁移仍然不做
+- 预算门禁在烟雾之后停掉满量：有合法的烟雾 per-sample，没有 200 条方向。不记成方法失败，也不记成迁移成功。教学任务迁移仍然不做
