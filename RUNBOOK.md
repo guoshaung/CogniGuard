@@ -9,7 +9,7 @@
 # 客户端已改：LLM_BACKEND=xai 时走 api.x.ai
 ```
 
-依赖安装见 `/tmp/mmfopd_conda_install.log`。环境名：`CROSSEP-TOOL` 与 `bfcl`（同一套包）。conda 在 `$HOME/miniconda3`。
+依赖已装好。Miniforge 在 `$HOME/miniconda3`。环境 `CROSSEP-TOOL` 和 `bfcl` 都是 Python 3.11.18。日志 `/tmp/mmfopd_conda_install.log` 以 `DONE 2026-11-20T09:34:47Z` 结束。
 
 ## 1. 密钥
 

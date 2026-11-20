@@ -58,7 +58,12 @@ NO-MEM 仍调用官方 `run_eval_no_memory_inenv_fc.sh`（它本身没有 Phase 
 
 ## D-007 依赖安装
 
-按 `CROSSEP-TOOL` README：Miniconda + Python 3.11 环境 `CROSSEP-TOOL`，再 clone 出 `bfcl`。本机原先没有 conda，也没有 Python 3.11（只有系统 Python 3.14）。安装日志：`/tmp/mmfopd_conda_install.log`。完成与否以该日志末尾的 `DONE` 或报错为准，不在本文里提前写成已成功。
+本机原先没有 conda，也没有 Python 3.11。已装 Miniforge 到 `$HOME/miniconda3`（官方 Anaconda 源过慢，改从 GitHub 的 Miniforge 安装）。
+
+- 环境 `CROSSEP-TOOL` 与 `bfcl`：Python 3.11.18，`pip install -e .` 已完成
+- 日志末尾：`DONE 2026-11-20T09:34:47Z`，`import_ok`
+- 本地检查：`LLM_BACKEND=xai` 时客户端指向 `https://api.x.ai/v1`，且不把 temperature 放进构造参数；`run_batch_generate` / `run_batch_evaluate` / `ace_backend` 可以导入
+- 没有对 xAI 发请求
 
 ## D-008 Git
 
