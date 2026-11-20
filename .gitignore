@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+EvoMemBench/
+__pycache__/
+*.pyc
+.DS_Store
