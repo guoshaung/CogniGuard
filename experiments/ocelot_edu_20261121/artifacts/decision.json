@@ -1,0 +1,875 @@
+{
+  "G1": {
+    "cost_model_identity": {
+      "by_k": {
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "n": 100
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.2857142857142857,
+            "low": 0.20714285714285716,
+            "high": 0.36428571428571427
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.2857142857142857,
+            "low": 0.20714285714285716,
+            "high": 0.36428571428571427
+          },
+          "n": 140
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.4444444444444444,
+            "low": 0.37222222222222223,
+            "high": 0.5166666666666667
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.4444444444444444,
+            "low": 0.37222222222222223,
+            "high": 0.5166666666666667
+          },
+          "n": 180
+        }
+      },
+      "raw_assignable_by_k": {
+        "1": {
+          "model": {
+            "n": 60,
+            "mean": 0.6666666666666666,
+            "low": 0.55,
+            "high": 0.7833333333333333
+          },
+          "oracle": {
+            "n": 60,
+            "mean": 0.6666666666666666,
+            "low": 0.55,
+            "high": 0.7833333333333333
+          }
+        },
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.31,
+            "high": 0.5
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.31,
+            "high": 0.5
+          }
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.5714285714285714,
+            "low": 0.4857142857142857,
+            "high": 0.6571428571428571
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.5714285714285714,
+            "low": 0.4857142857142857,
+            "high": 0.6571428571428571
+          }
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.6666666666666666,
+            "low": 0.5944444444444444,
+            "high": 0.7333333333333333
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.6666666666666666,
+            "low": 0.5944444444444444,
+            "high": 0.7333333333333333
+          }
+        }
+      },
+      "exceedance": {
+        "n": 100,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdicts": {
+        "2": "不支持",
+        "3": "支持",
+        "5": "支持"
+      },
+      "verdict": "支持"
+    },
+    "prompt": {
+      "by_k": {
+        "2": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "n": 0
+        },
+        "3": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "n": 0
+        },
+        "5": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "n": 0
+        }
+      },
+      "raw_assignable_by_k": {
+        "1": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          }
+        },
+        "2": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          }
+        },
+        "3": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          }
+        },
+        "5": {
+          "model": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          },
+          "oracle": {
+            "n": 0,
+            "mean": null,
+            "low": null,
+            "high": null
+          }
+        }
+      },
+      "exceedance": {
+        "n": 0,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdicts": {
+        "2": "无法判定",
+        "3": "无法判定",
+        "5": "无法判定"
+      },
+      "verdict": "无法判定"
+    },
+    "ocelot_minus": {
+      "by_k": {
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "n": 100
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "n": 140
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "n": 180
+        }
+      },
+      "raw_assignable_by_k": {
+        "1": {
+          "model": {
+            "n": 60,
+            "mean": 0.6666666666666666,
+            "low": 0.55,
+            "high": 0.7833333333333333
+          },
+          "oracle": {
+            "n": 60,
+            "mean": 0.6666666666666666,
+            "low": 0.55,
+            "high": 0.7833333333333333
+          }
+        },
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.31,
+            "high": 0.5
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.31,
+            "high": 0.5
+          }
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.2857142857142857,
+            "low": 0.21428571428571427,
+            "high": 0.36428571428571427
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.2857142857142857,
+            "low": 0.21428571428571427,
+            "high": 0.36428571428571427
+          }
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.2222222222222222,
+            "low": 0.16111111111111112,
+            "high": 0.2833333333333333
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.2222222222222222,
+            "low": 0.16111111111111112,
+            "high": 0.2833333333333333
+          }
+        }
+      },
+      "exceedance": {
+        "n": 100,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdicts": {
+        "2": "不支持",
+        "3": "不支持",
+        "5": "不支持"
+      },
+      "verdict": "不支持"
+    },
+    "none": {
+      "by_k": {
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.24,
+            "low": 0.16,
+            "high": 0.32
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.3,
+            "high": 0.5
+          },
+          "n": 100
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.22857142857142856,
+            "low": 0.16428571428571428,
+            "high": 0.3
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.5714285714285714,
+            "low": 0.4857142857142857,
+            "high": 0.65
+          },
+          "n": 140
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.1,
+            "low": 0.06111111111111111,
+            "high": 0.14444444444444443
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.6666666666666666,
+            "low": 0.6,
+            "high": 0.7333333333333333
+          },
+          "n": 180
+        }
+      },
+      "raw_assignable_by_k": {
+        "1": {
+          "model": {
+            "n": 60,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 60,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.6,
+            "low": 0.51,
+            "high": 0.7
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.4,
+            "low": 0.3142857142857143,
+            "high": 0.4785714285714286
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.15,
+            "low": 0.1,
+            "high": 0.20555555555555555
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        }
+      },
+      "exceedance": {
+        "n": 0,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdicts": {
+        "2": "无法判定",
+        "3": "无法判定",
+        "5": "无法判定"
+      },
+      "verdict": "无法判定"
+    },
+    "nemo": {
+      "by_k": {
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.16,
+            "low": 0.09,
+            "high": 0.23
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.3,
+            "high": 0.5
+          },
+          "n": 100
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.11428571428571428,
+            "low": 0.06428571428571428,
+            "high": 0.16428571428571428
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 0.5714285714285714,
+            "low": 0.4857142857142857,
+            "high": 0.65
+          },
+          "n": 140
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.1,
+            "low": 0.06111111111111111,
+            "high": 0.14444444444444443
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 0.6666666666666666,
+            "low": 0.6,
+            "high": 0.7333333333333333
+          },
+          "n": 180
+        }
+      },
+      "raw_assignable_by_k": {
+        "1": {
+          "model": {
+            "n": 60,
+            "mean": 0.0,
+            "low": 0.0,
+            "high": 0.0
+          },
+          "oracle": {
+            "n": 60,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "2": {
+          "model": {
+            "n": 100,
+            "mean": 0.4,
+            "low": 0.3,
+            "high": 0.5
+          },
+          "oracle": {
+            "n": 100,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "3": {
+          "model": {
+            "n": 140,
+            "mean": 0.2,
+            "low": 0.1357142857142857,
+            "high": 0.2642857142857143
+          },
+          "oracle": {
+            "n": 140,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        },
+        "5": {
+          "model": {
+            "n": 180,
+            "mean": 0.15,
+            "low": 0.1,
+            "high": 0.20555555555555555
+          },
+          "oracle": {
+            "n": 180,
+            "mean": 1.0,
+            "low": 1.0,
+            "high": 1.0
+          }
+        }
+      },
+      "exceedance": {
+        "n": 0,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdicts": {
+        "2": "无法判定",
+        "3": "无法判定",
+        "5": "无法判定"
+      },
+      "verdict": "无法判定"
+    }
+  },
+  "G2": {
+    "cost_model_identity": {
+      "contrast_model": {
+        "n": 5000,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "contrast_oracle": {
+        "n": 5000,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "order2_model": {
+        "n": 10,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order_ge3_model": {
+        "n": 20,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "verdict": "支持"
+    },
+    "prompt": {
+      "contrast_model": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "contrast_oracle": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "order2_model": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "order_ge3_model": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "verdict": "无法判定"
+    },
+    "ocelot_minus": {
+      "contrast_model": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "contrast_oracle": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order2_model": {
+        "n": 10,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order_ge3_model": {
+        "n": 20,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdict": "不支持"
+    },
+    "none": {
+      "contrast_model": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "contrast_oracle": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order2_model": {
+        "n": 10,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order_ge3_model": {
+        "n": 20,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdict": "不支持"
+    },
+    "nemo": {
+      "contrast_model": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "contrast_oracle": {
+        "n": 5000,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order2_model": {
+        "n": 10,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "order_ge3_model": {
+        "n": 20,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "verdict": "不支持"
+    }
+  },
+  "G3": {
+    "ocelot_minus": {
+      "recall": {
+        "n": 40,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "contribution": {
+        "n": 40,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "none_protected_rate_attack": {
+        "n": 40,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "none_protected_rate_all": {
+        "n": 530,
+        "mean": 0.07547169811320754,
+        "low": 0.05471698113207547,
+        "high": 0.09811320754716982
+      },
+      "lowcost_release_rate": {
+        "n": 40,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "verdict": "支持",
+      "recall_verdict": "支持",
+      "contribution_verdict": "支持"
+    },
+    "prompt": {
+      "recall": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "contribution": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "none_protected_rate_attack": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "none_protected_rate_all": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "lowcost_release_rate": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "verdict": "无法判定",
+      "recall_verdict": "无法判定",
+      "contribution_verdict": "无法判定"
+    },
+    "cost_model_identity": {
+      "recall": {
+        "n": 40,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "contribution": {
+        "n": 40,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "none_protected_rate_attack": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "none_protected_rate_all": {
+        "n": 490,
+        "mean": 0.0,
+        "low": 0.0,
+        "high": 0.0
+      },
+      "lowcost_release_rate": {
+        "n": 40,
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "verdict": "不支持",
+      "recall_verdict": "不支持",
+      "contribution_verdict": "不支持"
+    }
+  },
+  "overall": {
+    "G1": "支持",
+    "G2": "支持",
+    "G3": "支持"
+  },
+  "utility": {
+    "cost_model_identity": {
+      "n_normal": 490,
+      "utility": 1.0,
+      "over_refusal": 0.0
+    },
+    "nemo": {
+      "n_normal": 490,
+      "utility": 1.0,
+      "over_refusal": 0.0
+    },
+    "none": {
+      "n_normal": 490,
+      "utility": 1.0,
+      "over_refusal": 0.0
+    },
+    "ocelot_minus": {
+      "n_normal": 490,
+      "utility": 1.0,
+      "over_refusal": 0.0
+    }
+  },
+  "prompt_arm_status": {
+    "status": "not_run",
+    "reason": "dashscope_arrearage",
+    "detail": "qwen3.5-flash returned Arrearage before the prompt arm could be completed. Cached calls are not used as a partial arm."
+  }
+}

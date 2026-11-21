@@ -1,0 +1,14 @@
+{
+  "prompt": {
+    "status": "not_run",
+    "reason": "dashscope_arrearage",
+    "detail": "qwen3.5-flash returned Arrearage before the prompt arm could be completed. Cached calls are not used as a partial arm."
+  },
+  "attacker": {
+    "prompt_tokens": 191517,
+    "completion_tokens": 37139,
+    "calls": 248,
+    "model": "deepseek-flash"
+  },
+  "qwen_model": "qwen3.5-flash"
+}
