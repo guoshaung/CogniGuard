@@ -1,0 +1,23 @@
+models: []
+
+# NeMo owns these generic input/output checks. Domain authorization, private
+# data, resource budgets and provenance remain CogniGuard's responsibilities.
+rails:
+  config:
+    regex_detection:
+      input:
+        patterns:
+          - '(?i)ignore\s+(all\s+)?(previous|prior)\s+(instructions|rules)'
+          - '(?i)(reveal|print|show)\s+(the\s+)?(system|developer)\s+prompt'
+          - '(忽略|无视).{0,12}(之前|上面|系统).{0,12}(指令|规则|提示)'
+          - '(显示|泄露|输出).{0,10}(系统提示词|开发者指令)'
+      output:
+        patterns:
+          - '(?i)-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
+          - '(?i)\bsk-[a-z0-9_-]{20,}\b'
+  input:
+    flows:
+      - regex check input
+  output:
+    flows:
+      - regex check output

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from backend.app.compliance import (
+from cogniguard.compliance import (
     build_compliance_state,
     build_data_categories,
     evaluate_compliance_policy,
@@ -35,7 +35,7 @@ class SystemVariant:
     fopd: bool
     c2rag: bool
     hswst: bool
-    tpcs: bool = False
+    cg: bool = False
 
 
 SYSTEM_VARIANTS = [
@@ -46,8 +46,8 @@ SYSTEM_VARIANTS = [
     SystemVariant("FOPD+C2RAG", True, True, False),
     SystemVariant("FOPD+HSWST", True, False, True),
     SystemVariant("C2RAG+HSWST", False, True, True),
-    SystemVariant("Full CogniGuard w/o TPCS", True, True, True, False),
-    SystemVariant("Full CogniGuard+TPCS", True, True, True, True),
+    SystemVariant("Full CogniGuard w/o CG", True, True, True, False),
+    SystemVariant("Full CogniGuard+CG", True, True, True, True),
 ]
 
 
@@ -75,6 +75,12 @@ def _clamp01(value: float) -> float:
     return max(0.0, min(1.0, float(value)))
 
 
+def _mean01(values: list[float]) -> float:
+    if not values:
+        return 0.0
+    return _clamp01(sum(_clamp01(value) for value in values) / len(values))
+
+
 def _all_selected(profile: Any) -> list[ScoredProfileRecord]:
     return [
         ScoredProfileRecord(record=record, score=1.0, components={"raw_profile": 1.0})
@@ -96,10 +102,22 @@ def _raw_profile_card(profile: Any, task: Any) -> str:
     return "\n".join(lines)
 
 
-def _choose_resource(resources: list[TeacherResource], task: Any) -> TeacherResource:
+def _choose_resource(
+    resources: list[TeacherResource],
+    task: Any,
+    *,
+    request_row: dict[str, Any] | None = None,
+    round_idx: int = 0,
+) -> TeacherResource:
+    target_resource_id = str((request_row or {}).get("target_resource_id", ""))
+    if target_resource_id:
+        for resource in resources:
+            if resource.resource_id == target_resource_id:
+                return resource
     matching = [resource for resource in resources if resource.knowledge == task.knowledge]
     candidates = matching or resources
-    return max(candidates, key=lambda resource: resource.copyright_level)
+    candidates = sorted(candidates, key=lambda resource: (-resource.copyright_level, resource.resource_id))
+    return candidates[round_idx % len(candidates)]
 
 
 def _privacy_indicators(profile: Any, card: str, raw_profile_sent: bool) -> dict[str, float]:
@@ -136,7 +154,7 @@ def _context_with_or_without_fopd(
         "allowed_fields": [],
         "third_party_model_policy": "not_applied",
     }
-    if variant.tpcs:
+    if variant.cg:
         payload = {
             "student_name": f"student-{profile.student_id}",
             "student_id": profile.student_id,
@@ -230,15 +248,15 @@ def _audit_state(variant: SystemVariant) -> dict[str, float]:
             "TamperUndetected": 1.0,
             "TraceBindRate": 0.0,
         }
-    trace_completeness = 0.45
-    if variant.fopd:
-        trace_completeness += 0.20
-    if variant.c2rag:
-        trace_completeness += 0.25
-    if variant.tpcs:
-        trace_completeness += 0.10
-    trace_completeness = _clamp01(trace_completeness)
-    tamper_undetected = 0.10 if not variant.tpcs else 0.05
+    trace_completeness = _mean01(
+        [
+            float(variant.hswst),
+            float(variant.fopd),
+            float(variant.c2rag),
+            float(variant.cg),
+        ]
+    )
+    tamper_undetected = 1.0 - _mean01([float(variant.hswst), float(variant.cg)])
     return {
         "TraceCompleteness": trace_completeness,
         "AuditFailure": 1.0 - trace_completeness,
@@ -256,32 +274,42 @@ def _risk_and_utility(
     audit: dict[str, float],
     variant: SystemVariant,
 ) -> dict[str, float]:
-    privacy_leak = _clamp01(
-        0.55 * float(fopd_metrics["PER"])
-        + 0.20 * float(fopd_metrics["SensitiveLeakFlag"])
-        + 0.10 * privacy_flags["PIILeak"]
-        + 0.10 * privacy_flags["IndirectLeak"]
-        + 0.15 * privacy_flags["RawProfileSent"]
+    privacy_leak = _mean01(
+        [
+            float(fopd_metrics["PER"]),
+            float(fopd_metrics["SensitiveLeakFlag"]),
+            privacy_flags["PIILeak"],
+            privacy_flags["IndirectLeak"],
+            privacy_flags["RawProfileSent"],
+        ]
     )
-    unauthorized_access = 0.0 if variant.tpcs or variant.fopd else 1.0
-    joint_risk = _clamp01(
-        0.25 * privacy_leak
-        + 0.25 * copyright_leak
-        + 0.20 * audit["AuditFailure"]
-        + 0.15 * unauthorized_access
-        + 0.15 * audit["TamperUndetected"]
+    unauthorized_access = 0.0 if variant.cg or variant.fopd else 1.0
+    cg_control_leak = _mean01([unauthorized_access, float(audit["TamperUndetected"])])
+    privacy_axis_risk = _mean01([privacy_leak, cg_control_leak])
+    copyright_axis_risk = _mean01([copyright_leak, cg_control_leak])
+    audit_axis_risk = _mean01([audit["AuditFailure"], cg_control_leak])
+    joint_risk = _mean01(
+        [
+            privacy_axis_risk,
+            copyright_axis_risk,
+            audit_axis_risk,
+        ]
     )
     task_coverage = float(fopd_metrics["TaskCoverage"])
-    answer_quality = _clamp01(
-        0.50 * task_coverage
-        + 0.40 * float(teach_available)
-        + 0.10 * audit["TraceCompleteness"]
-        - 0.10 * copyright_leak
+    answer_quality = _mean01(
+        [
+            task_coverage,
+            float(teach_available),
+            audit["TraceCompleteness"],
+            1.0 - copyright_leak,
+        ]
     )
-    utility = _clamp01(
-        0.40 * task_coverage
-        + 0.35 * float(teach_available)
-        + 0.25 * answer_quality
+    utility = _mean01(
+        [
+            task_coverage,
+            float(teach_available),
+            answer_quality,
+        ]
     )
     return {
         "PrivacyLeak": privacy_leak,
@@ -289,6 +317,10 @@ def _risk_and_utility(
         "AuditFailure": audit["AuditFailure"],
         "UnauthorizedAccess": unauthorized_access,
         "TamperUndetected": audit["TamperUndetected"],
+        "CGControlLeak": cg_control_leak,
+        "PrivacyAxisRisk": privacy_axis_risk,
+        "CopyrightAxisRisk": copyright_axis_risk,
+        "AuditAxisRisk": audit_axis_risk,
         "JointRisk": joint_risk,
         "TaskCoverage": task_coverage,
         "TeachAvailability": float(teach_available),
@@ -300,15 +332,25 @@ def _risk_and_utility(
 def evaluate(
     config_path: str | Path = DEFAULT_CONFIG,
     results_root: str | Path = DEFAULT_RESULTS,
+    student_data_root: str | Path | None = None,
+    teacher_data_root: str | Path | None = None,
 ) -> dict[str, Any]:
     config_path = Path(config_path)
     results_root = Path(results_root)
     config = load_config(config_path)
-    student_root = config_path.resolve().parent.parent
-    teacher_root = PROJECT_ROOT / "protection" / "teacher_resource"
-    profiles = load_profiles(student_root / "data" / "profiles.jsonl")
-    questions = read_jsonl(student_root / "data" / "student_questions.jsonl")
-    resources = load_resources(teacher_root / "data" / "teacher_resources.jsonl")
+    student_data_dir = (
+        Path(student_data_root)
+        if student_data_root
+        else PROJECT_ROOT / "protection" / "student_profile" / "data"
+    )
+    teacher_data_dir = (
+        Path(teacher_data_root)
+        if teacher_data_root
+        else PROJECT_ROOT / "protection" / "teacher_resource" / "data"
+    )
+    profiles = load_profiles(student_data_dir / "profiles.jsonl")
+    questions = read_jsonl(student_data_dir / "student_questions.jsonl")
+    resources = load_resources(teacher_data_dir / "teacher_resources.jsonl")
     selector = ProfileSelector(config)
     budgets = {variant.method: ExposureBudget(config) for variant in SYSTEM_VARIANTS}
 
@@ -316,7 +358,7 @@ def evaluate(
     for round_idx, qrow in enumerate(questions):
         task = parse_task(qrow)
         profile = profiles[task.student_id]
-        resource = _choose_resource(resources, task)
+        resource = _choose_resource(resources, task, request_row=qrow, round_idx=round_idx)
         for variant in SYSTEM_VARIANTS:
             card, selected, context_meta = _context_with_or_without_fopd(
                 variant=variant,
@@ -358,7 +400,7 @@ def evaluate(
                     "fopd_enabled": int(variant.fopd),
                     "c2rag_enabled": int(variant.c2rag),
                     "hswst_enabled": int(variant.hswst),
-                    "tpcs_enabled": int(variant.tpcs),
+                    "cg_enabled": int(variant.cg),
                     "return_mode": resource_result["return_mode"],
                     "selected_profile_records": [item.record.record_id for item in selected],
                     "CardLen": fopd_metrics["CardLen"],
@@ -387,8 +429,10 @@ def evaluate(
             "avg_PrivacyLeak": sum(float(row["PrivacyLeak"]) for row in subset) / n,
             "avg_CopyrightLeak": sum(float(row["CopyrightLeak"]) for row in subset) / n,
             "avg_AuditFailure": sum(float(row["AuditFailure"]) for row in subset) / n,
-            "avg_UnauthorizedAccess": sum(float(row["UnauthorizedAccess"]) for row in subset) / n,
-            "avg_TamperUndetected": sum(float(row["TamperUndetected"]) for row in subset) / n,
+            "avg_CGControlLeak": sum(float(row["CGControlLeak"]) for row in subset) / n,
+            "avg_PrivacyAxisRisk": sum(float(row["PrivacyAxisRisk"]) for row in subset) / n,
+            "avg_CopyrightAxisRisk": sum(float(row["CopyrightAxisRisk"]) for row in subset) / n,
+            "avg_AuditAxisRisk": sum(float(row["AuditAxisRisk"]) for row in subset) / n,
             "avg_JointRisk": sum(float(row["JointRisk"]) for row in subset) / n,
             "avg_Utility": sum(float(row["Utility"]) for row in subset) / n,
             "avg_TraceBindRate": sum(float(row["TraceBindRate"]) for row in subset) / n,
@@ -400,8 +444,8 @@ def evaluate(
     pair_methods = ["FOPD+C2RAG", "FOPD+HSWST", "C2RAG+HSWST"]
     best_single = min(single_methods, key=lambda method: float(summary[method]["avg_JointRisk"]))
     best_pair = min(pair_methods, key=lambda method: float(summary[method]["avg_JointRisk"]))
-    full = "Full CogniGuard+TPCS"
-    full_no_tpcs = "Full CogniGuard w/o TPCS"
+    full = "Full CogniGuard+CG"
+    full_no_cg = "Full CogniGuard w/o CG"
     risk_reduction_rows = []
     for method, values in summary.items():
         risk = float(values["avg_JointRisk"])
@@ -421,10 +465,10 @@ def evaluate(
         "best_single_joint_risk": summary[best_single]["avg_JointRisk"],
         "best_pair_method": best_pair,
         "best_pair_joint_risk": summary[best_pair]["avg_JointRisk"],
-        "full_without_tpcs_joint_risk": summary[full_no_tpcs]["avg_JointRisk"],
-        "full_with_tpcs_joint_risk": summary[full]["avg_JointRisk"],
+        "full_without_cg_joint_risk": summary[full_no_cg]["avg_JointRisk"],
+        "full_with_cg_joint_risk": summary[full]["avg_JointRisk"],
         "synergy_gain_vs_best_pair": summary[best_pair]["avg_JointRisk"] - summary[full]["avg_JointRisk"],
-        "tpcs_gain": summary[full_no_tpcs]["avg_JointRisk"] - summary[full]["avg_JointRisk"],
+        "cg_gain": summary[full_no_cg]["avg_JointRisk"] - summary[full]["avg_JointRisk"],
         "full_beats_best_pair": summary[full]["avg_JointRisk"] < summary[best_pair]["avg_JointRisk"],
     }
 
@@ -434,8 +478,9 @@ def evaluate(
         "synergy": synergy,
         "risk_reduction": risk_reduction_rows,
         "note": (
-            "Joint synergy evaluates coupled privacy, copyright, and audit/tamper risks "
-            "under single-module, two-module, full, and TPCS-governed configurations."
+            "JointRisk uses architecture-aligned equal aggregation: three mechanism axes "
+            "(Privacy, Copyright, Audit) are averaged, and each axis equally averages its "
+            "core leak with the horizontal CG control leak."
         ),
     }
     write_json(results_root / "joint_synergy_results.json", payload)
@@ -453,8 +498,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Evaluate CogniGuard three-mechanism joint synergy.")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--results-root", type=Path, default=DEFAULT_RESULTS)
+    parser.add_argument("--student-data-root", type=Path)
+    parser.add_argument("--teacher-data-root", type=Path)
     args = parser.parse_args()
-    print(evaluate(args.config, args.results_root))
+    print(
+        evaluate(
+            args.config,
+            args.results_root,
+            student_data_root=args.student_data_root,
+            teacher_data_root=args.teacher_data_root,
+        )
+    )
 
 
 if __name__ == "__main__":

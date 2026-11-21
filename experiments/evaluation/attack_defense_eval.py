@@ -12,15 +12,16 @@ from datetime import datetime
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from backend.app.agents.agent_orchestrator import TPCSController
-from backend.app.agents.base_agent import AgentValidationError
+from cogniguard.agents.agent_orchestrator import CGController
+from cogniguard.agents.base_agent import AgentValidationError
+from experiments.common.sequential_suite_graph import run_sequential_suite
 
 
 class AttackDefenseEvaluator:
     """攻击防御评估器"""
     
     def __init__(self):
-        self.tpcs = TPCSController(
+        self.cg = CGController(
             max_disclosure_score=1.0,
             cumulative_privacy_budget=0.5
         )
@@ -66,7 +67,7 @@ class AttackDefenseEvaluator:
         context_card = self.create_context_card()
         
         try:
-            result = self.tpcs.handle_user_request(
+            result = self.cg.handle_user_request(
                 attack["prompt"],
                 context_card=context_card,
                 round_id=attack["id"]
@@ -81,7 +82,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": success,
-                "tpcs_decision": result.get("decision", "unknown"),
+                "cg_decision": result.get("decision", "unknown"),
                 "approved": result.get("approved", True),
                 "reason": result.get("reason", "")
             }
@@ -93,7 +94,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": True,
-                "tpcs_decision": "validation_error",
+                "cg_decision": "validation_error",
                 "approved": False,
                 "reason": str(e)
             }
@@ -103,7 +104,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": False,
-                "tpcs_decision": "error",
+                "cg_decision": "error",
                 "approved": True,
                 "reason": f"Error: {e}"
             }
@@ -120,7 +121,7 @@ class AttackDefenseEvaluator:
         }
         
         try:
-            result = self.tpcs.handle_user_request(
+            result = self.cg.handle_user_request(
                 attack["prompt"],
                 context_card=context_card,
                 round_id=attack["id"]
@@ -134,7 +135,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": success,
-                "tpcs_decision": result.get("decision", "unknown"),
+                "cg_decision": result.get("decision", "unknown"),
                 "approved": result.get("approved", True),
                 "reason": result.get("reason", "")
             }
@@ -145,7 +146,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": True,
-                "tpcs_decision": "blocked",
+                "cg_decision": "blocked",
                 "approved": False,
                 "reason": str(e)
             }
@@ -155,7 +156,7 @@ class AttackDefenseEvaluator:
         context_card = self.create_context_card()
         
         try:
-            result = self.tpcs.handle_user_request(
+            result = self.cg.handle_user_request(
                 attack["prompt"],
                 context_card=context_card,
                 round_id=attack["id"]
@@ -169,7 +170,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": success,
-                "tpcs_decision": result.get("decision", "unknown"),
+                "cg_decision": result.get("decision", "unknown"),
                 "approved": result.get("approved", True),
                 "reason": result.get("reason", "")
             }
@@ -180,7 +181,7 @@ class AttackDefenseEvaluator:
                 "attack_type": attack["type"],
                 "severity": attack["severity"],
                 "defense_success": True,
-                "tpcs_decision": "blocked",
+                "cg_decision": "blocked",
                 "approved": False,
                 "reason": str(e)
             }
@@ -204,7 +205,7 @@ class AttackDefenseEvaluator:
             "permission": []
         }
         
-        for i, attack in enumerate(attacks, 1):
+        def evaluate_case(i, attack):
             print(f"[{i}/{len(attacks)}] 测试 {attack['id']} ({attack['type']})...", end=" ")
             
             # 根据攻击ID前缀判断类型
@@ -219,7 +220,7 @@ class AttackDefenseEvaluator:
                 results_by_type["permission"].append(result)
             else:
                 print("❓ 未知类型")
-                continue
+                return None
             
             self.results.append(result)
             
@@ -228,6 +229,11 @@ class AttackDefenseEvaluator:
                 print("✅ 防御成功")
             else:
                 print("❌ 防御失败")
+
+        run_sequential_suite([
+            (f"attack-{i}", lambda i=i, attack=attack: evaluate_case(i, attack))
+            for i, attack in enumerate(attacks, 1)
+        ])
         
         # 计算统计数据
         stats = self.calculate_statistics(results_by_type)

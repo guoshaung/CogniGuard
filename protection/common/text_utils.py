@@ -105,16 +105,18 @@ def cosine_text(a: str, b: str) -> float:
 def lcs_length(a: str, b: str) -> int:
     if not a or not b:
         return 0
-    prev = [0] * (len(b) + 1)
-    for ca in a:
-        cur = [0]
-        for j, cb in enumerate(b, start=1):
-            if ca == cb:
-                cur.append(prev[j - 1] + 1)
-            else:
-                cur.append(max(prev[j], cur[-1]))
-        prev = cur
-    return prev[-1]
+    # Exact bit-parallel LCS. Python's arbitrary-width integers execute the
+    # row transition in C, avoiding the quadratic Python loop used previously.
+    char_masks: dict[str, int] = {}
+    for index, char in enumerate(a):
+        char_masks[char] = char_masks.get(char, 0) | (1 << index)
+    state = 0
+    for char in b:
+        matches_or_state = char_masks.get(char, 0) | state
+        state = matches_or_state & ~(
+            matches_or_state - ((state << 1) | 1)
+        )
+    return state.bit_count()
 
 
 def lcs_ratio(a: str, b: str) -> float:

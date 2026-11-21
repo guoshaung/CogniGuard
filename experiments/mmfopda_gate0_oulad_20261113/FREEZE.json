@@ -1,0 +1,34 @@
+{
+  "salt": "mmfopda-gate0-20261113-v1",
+  "pairs": [
+    [
+      "BBB",
+      "2014J"
+    ],
+    [
+      "DDD",
+      "2014J"
+    ],
+    [
+      "FFF",
+      "2014J"
+    ]
+  ],
+  "student_rows": 6449,
+  "split_counts": {
+    "train": 3911,
+    "test": 2538
+  },
+  "source_sha256": "90dda45037939953f979072fa70a809ebe07e90ec783c408762af7698a3825ec",
+  "split_sha256": "f898a01da5e09cbe35bb87bd85afea4bf7f8d473ce37b4b62ce923edceab5aca",
+  "files": {
+    "REQUEST_RULES.md": "53c3ab0e9c978f16c1e6c0c6e2a237c5410ce2ced79072dcec10c67254cff33d",
+    "PROTOCOL.md": "2e5b511856be0abd52d671b0a0b05bae92346f8f5c12b86d3ef3a91bb06c4208",
+    "FIELD_TABLE.md": "f72af88095ad26a9879f8cc05802d257c5a5f0572a1811eacb8a0181486c630a",
+    "DATA_AUDIT.json": "1d50e06cd4b399ad9c3380d007ccf1f927e571759221a12e4889cb347178f24f",
+    "run_gate0.py": "d5cb603edacc3ddd8d757965145fbf2cac2d8a8b3402c2fcde82ad97ffc86b6f"
+  },
+  "python": "3.12.10",
+  "numpy": "2.4.4",
+  "pandas": "2.3.3"
+}

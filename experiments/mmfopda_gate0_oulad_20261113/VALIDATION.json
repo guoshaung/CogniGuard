@@ -1,0 +1,14 @@
+{
+  "frozen_source_rules_split_and_archive_hashes_match": true,
+  "students_disjoint_and_unique": true,
+  "request_payloads_contain_only_request_name": true,
+  "serialized_requests_reconstruct_feature_tensor_exactly": true,
+  "request_count": 140976,
+  "prediction_rows": 965376,
+  "prediction_configs": 384,
+  "all_prediction_aucs_and_balanced_accuracies_recomputed": true,
+  "project_launcher_tests_passed": 3,
+  "ruff": "Unavailable in both existing venvs; no packages installed.",
+  "individual_output_path": "D:\\pycharm\\CogniGuard\\var\\results\\mmfopda_gate0_oulad_20261113\\per_student.csv",
+  "individual_output_sha256": "aa3be87ad7d51be44d12fddfbd474c5aec5cffb0d3087b1b0da8fb22c580baa7"
+}

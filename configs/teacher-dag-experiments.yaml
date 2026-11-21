@@ -1,0 +1,9 @@
+# Offline engineering matrix: not a trust-chain attack efficacy evaluation.
+schema_version: 1
+jobs:
+  - adapter: teacher_dag
+    teams: [solo, serial_coaching, dual_teachers, committee, differentiated, cross_checked]
+    trust_modes: [enforce, observe_only]
+    seeds: [20261013]
+    dry_run: false
+    workers: 4

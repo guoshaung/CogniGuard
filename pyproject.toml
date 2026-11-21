@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cogniguard"
+version = "0.1.0.dev0"
+description = "Composable governance primitives and research integrations for protected agents"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.optional-dependencies]
+runtime = [
+    "langgraph==1.2.14",
+    "langsmith==0.14.7",
+    "langchain-core==1.6.10",
+    "PyYAML==6.0.3",
+]
+nemo = [
+    "nemoguardrails==0.24.1",
+]
+
+# Supported installation: pip install -e . from a source checkout. Research
+# integrations still consume checkout-local configs, fixtures and model assets;
+# the metadata does not promise a self-contained research wheel.
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+namespaces = true
+include = ["cogniguard", "cogniguard.*", "core", "core.*", "protection", "protection.*"]
+exclude = [
+    "*.tests", "*.tests.*", "*.test", "*.test.*",
+    "*.*_tests", "*.*_tests.*",
+    "*.data", "*.data.*", "*.configs", "*.configs.*",
+    "*.outputs", "*.outputs.*", "*.archive", "*.archive.*",
+    "*.results", "*.results.*", "*.__pycache__", "*.__pycache__.*",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+cache-dir = "var/cache/ruff"
+extend-exclude = [
+    ".tmp", ".venv-langgraph", "artifacts", "third_party", "assets", "var",
+    "experiments/external_data", "cogniguard/api/legacy", "tools/video",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+norecursedirs = [
+    "third_party", "var", "assets", ".git", ".venv", ".venv-langgraph",
+    ".cache", ".tmp", "node_modules", ".bundle", ".python_deps", "artifacts",
+    "experiments/results",
+]
+cache_dir = "var/cache/pytest"

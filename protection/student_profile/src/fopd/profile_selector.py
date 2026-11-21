@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
+import re
 
 from protection.common.schemas import ProfileRecord, StudentProfile, Task
 from protection.common.text_utils import SimpleTfidfVectorizer, clamp01, cosine_sparse
@@ -35,6 +36,7 @@ class ProfileSelector:
         self.use_orthogonal = bool(components.get("use_orthogonal", True))
         self.use_task_attention = bool(components.get("use_task_attention", True))
         self.use_bottleneck = bool(components.get("use_bottleneck", True))
+        self.unit_budget = fopd.get("unit_budget", {})
 
         if self.use_enhanced:
             if self.use_orthogonal:
@@ -108,8 +110,12 @@ class ProfileSelector:
         baseline_scores = self.score_records(profile, task)
         baseline_by_id = {item.record.record_id: item for item in baseline_scores}
 
+        ortho_projection: dict[int, float] = {}
         if self.use_orthogonal:
-            self.orthogonal_decoder.decompose(records)
+            representation = self.orthogonal_decoder.decompose(records)
+            task_embedding = [(hash(f"{task.knowledge}:{token}") % 1000) / 1000.0 for token in task.text().lower().split()]
+            projected = self.orthogonal_decoder.project_to_task(representation, task_embedding)
+            ortho_projection = {idx: value for idx, value in enumerate(projected[:len(records)])}
 
         if self.use_task_attention:
             attention_scores = self.attention_selector.compute_attention(task, records)
@@ -120,6 +126,9 @@ class ProfileSelector:
                 if item.record.record_id in record_index
             ]
         attention_by_index = {idx: weight for idx, weight in attention_scores}
+        if self.use_orthogonal:
+            attention_scores = sorted(attention_scores, key=lambda pair: pair[1] + 0.35 * ortho_projection.get(pair[0], 0.0), reverse=True)
+            attention_by_index = {idx: weight for idx, weight in attention_scores}
         top_indices = [
             idx
             for idx, _ in attention_scores
@@ -144,6 +153,7 @@ class ProfileSelector:
                 {
                     "attention": weight if self.use_task_attention else 0.0,
                     "orthogonal": float(self.use_orthogonal),
+                    "orthogonal_projection": ortho_projection.get(idx, 0.0),
                     "bottleneck": float(self.use_bottleneck),
                 }
             )
@@ -166,6 +176,70 @@ class ProfileSelector:
                 or item.components.get("rel", 0.0) >= 0.05
             )
         ]
+        if self.use_bottleneck:
+            distinct_types = set(self.unit_budget.get("distinct_requested_types", ()))
+            if distinct_types:
+                # Opt-in task schema alignment. Distinct explicitly requested
+                # observations (e.g. two grade periods) must not collapse merely
+                # because both have the same broad semantic type. Never bypass
+                # the sensitivity, relevance, allowed-type or release gates.
+                allowed = set(self.unit_budget.get("allowed", ("mastery", "error_pattern", "preference")))
+                cap = max(0, min(self.top_k, int(self.unit_budget.get("max_units", self.top_k))))
+                safe = [x for x in baseline_relevant
+                        if x.record.sensitivity <= self.sensitivity_threshold
+                        and x.record.type in allowed]
+                reserved = [x for x in safe if x.record.type in distinct_types
+                            and re.search(r"(?<!\w)" + re.escape(x.record.record_id) + r"(?!\w)",
+                                          task.text(), flags=re.IGNORECASE)]
+                safe_ids = {x.record.record_id for x in safe}
+                ordered = [*reserved, *(x for x in result if x.record.record_id in safe_ids), *safe]
+                aligned = {}
+                for item in ordered:
+                    if len(aligned) >= cap:
+                        break
+                    aligned.setdefault(item.record.record_id, item)
+                return list(aligned.values())
+            # Keep a minimum two-record teaching card when two relevant records
+            # fit the gate; this preserves basic task utility without restoring
+            # the old unconditional Top-K refill.
+            for item in baseline_relevant:
+                if len(result) >= min(2, self.top_k):
+                    break
+                if item.record.record_id not in {x.record.record_id for x in result}:
+                    result.append(item)
+            # Allocate the release budget by semantic information unit instead
+            # of allowing several low-value state/behavior records to crowd out
+            # the three complementary teaching facts.
+            unit_priority = {
+                "mastery": 0,
+                "error_pattern": 1,
+                "preference": 2,
+                "learning_state": 3,
+                "multimodal_summary": 4,
+                "behavior_aggregate": 5,
+            }
+            best_by_unit: dict[str, ScoredProfileRecord] = {}
+            for item in [*result, *baseline_relevant]:
+                if item.record.knowledge != task.knowledge:
+                    continue
+                unit = item.record.type
+                current = best_by_unit.get(unit)
+                if current is None or item.score > current.score:
+                    best_by_unit[unit] = item
+            budget_units = self.unit_budget
+            allowed_units = set(budget_units.get("allowed", ("mastery", "error_pattern", "preference")))
+            max_units = int(budget_units.get("max_units", self.top_k))
+            unit_candidates = [item for unit, item in best_by_unit.items() if unit in allowed_units]
+            unit_candidates.sort(key=lambda item: (unit_priority.get(item.record.type, 9), -item.score))
+            selected_ids = {item.record.record_id for item in result}
+            for item in unit_candidates:
+                if len(result) >= max_units:
+                    break
+                if item.record.record_id not in selected_ids:
+                    result.append(item)
+                    selected_ids.add(item.record.record_id)
+            return sorted(result, key=lambda x: x.score, reverse=True)
+
         for item in baseline_relevant:
             if len(result) >= self.top_k:
                 break

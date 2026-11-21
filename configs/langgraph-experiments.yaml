@@ -1,0 +1,21 @@
+# Versioned orchestration plan. No secrets, expected labels or oracle fields.
+schema_version: 1
+jobs:
+  - adapter: pipeline
+    variants: [graph_default]
+    seeds: [20261013]
+    dry_run: false
+  - adapter: pipeline
+    variants: [enhanced_full, enhanced_without_orthogonal, enhanced_without_attention, enhanced_without_bottleneck]
+    seeds: [20261013]
+    dry_run: false
+  - adapter: teaching
+    dry_run: true
+    limit: 2
+  - adapter: multiagent
+    dry_run: true
+    limit: 2
+  - adapter: toolgov
+    dry_run: true
+  - adapter: memorypoison
+    dry_run: true

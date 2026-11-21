@@ -61,7 +61,10 @@ class InformationBottleneck:
     
     def __init__(self, config: dict):
         cfg = config.get("fopd", {}).get("bottleneck", {})
-        self.max_bits = float(cfg.get("max_mutual_info_bits", 3.0))
+        # Three complementary task facts (mastery/error/preference) should fit
+        # in the default card; 3 bits made the bottleneck reject useful records
+        # on small profiles and artificially depressed recall.
+        self.max_bits = float(cfg.get("max_mutual_info_bits", 6.0))
         self.privacy_lambda = float(cfg.get("privacy_lambda", 0.5))
     
     def compress(self, selected_records: list[ProfileRecord], attention_weights: list[float]) -> list[ProfileRecord]:

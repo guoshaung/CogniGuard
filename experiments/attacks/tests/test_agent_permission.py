@@ -2,17 +2,20 @@ from __future__ import annotations
 
 import pytest
 
-from backend.app.agents.agent_orchestrator import TPCSController
-from backend.app.agents.base_agent import AgentValidationError
-from backend.app.agents.profile_diagnosis_agent import ProfileDiagnosisAgent
+from cogniguard.agents.agent_orchestrator import CGController
+from cogniguard.agents.base_agent import AgentValidationError
+from cogniguard.agents.profile_diagnosis_agent import ProfileDiagnosisAgent
 
 
 def test_teaching_agent_cannot_request_full_profile_from_profile_agent() -> None:
-    tpcs = TPCSController()
+    cg = CGController()
     profile_agent = ProfileDiagnosisAgent()
 
-    with pytest.raises(AgentValidationError, match="route denied"):
-        tpcs.dispatch(
+    with pytest.raises(
+        AgentValidationError,
+        match=r"CG denied message \(cg\.v2\.unauthorized_route\):",
+    ):
+        cg.dispatch(
             sender="pedagogical_teaching_agent",
             receiver=profile_agent,
             message_type="full_profile_request",
@@ -28,11 +31,11 @@ def test_teaching_agent_cannot_request_full_profile_from_profile_agent() -> None
 
 
 def test_forbidden_full_student_profile_payload_is_blocked_even_on_allowed_route() -> None:
-    tpcs = TPCSController()
+    cg = CGController()
     profile_agent = ProfileDiagnosisAgent()
 
-    with pytest.raises(AgentValidationError, match="forbidden payload"):
-        tpcs.dispatch(
+    with pytest.raises(AgentValidationError, match="raw student profiles"):
+        cg.dispatch(
             sender="MM-FOPD",
             receiver=profile_agent,
             message_type="diagnosis_request",

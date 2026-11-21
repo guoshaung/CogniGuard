@@ -1,0 +1,3 @@
+# Optional public Parquet benchmark ingestion. No dataset scripts or weights.
+-r runtime.txt
+pyarrow==26.0.0

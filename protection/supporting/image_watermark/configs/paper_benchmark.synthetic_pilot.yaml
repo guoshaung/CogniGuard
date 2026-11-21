@@ -1,0 +1,61 @@
+# Local/server pilot using only the reproducible CogniGuard-EduFig subset.
+# This validates the pipeline and is not the final cross-dataset thesis table.
+experiment:
+  name: cogniguard_image_watermark_synthetic_pilot
+  strict_paper_mode: true
+  fail_fast: true
+  split: test
+  seeds: [20260802, 20260803, 20260804]
+  api_timeout_seconds: 900
+  bootstrap_iterations: 2000
+  bootstrap_seed: 20260802
+  output_root: ../../../var/outputs/image_watermark_pilot
+
+manifest:
+  path: ../../../var/outputs/image_watermark_manifests/paper_core.jsonl
+  verify_hashes: true
+
+data_requirements:
+  minimum_test_samples: 200
+  minimum_datasets: 1
+  minimum_domains: 9
+
+metrics:
+  require_reference_ssim: false
+  lpips:
+    enabled: false
+    required: false
+
+datasets:
+  - name: cogniguard_edufig
+    enabled: true
+    root: ../../../data/image_watermark/cogniguard_edufig
+
+methods:
+  - id: editguard_wrapper
+    kind: sce_locguard_api
+    base_url: http://127.0.0.1:8010
+    enabled: true
+
+attacks:
+  traditional:
+    - name: clean
+      family: clean
+    - name: jpeg
+      family: compression
+      grid: [{quality: 90}, {quality: 70}, {quality: 50}]
+    - name: resize
+      family: geometry
+      grid: [{scale: 0.50}, {scale: 0.75}]
+    - name: random_crop
+      family: geometry
+      grid: [{keep: 0.90}, {keep: 0.75}]
+    - name: gaussian_blur
+      family: degradation
+      grid: [{radius: 0.5}, {radius: 1.0}]
+    - name: gaussian_noise
+      family: degradation
+      grid: [{sigma: 2.0}, {sigma: 5.0}]
+  aigc:
+    enabled: false
+    specs: []

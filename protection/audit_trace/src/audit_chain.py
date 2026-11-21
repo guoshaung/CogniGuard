@@ -151,9 +151,11 @@ class AuditChain:
         return hashlib.sha256(content.encode()).hexdigest()[:16]
     
     def _verify_watermark(self, text: str, watermark_info: dict) -> bool:
-        """验证水印存在性（简化）"""
-        # 实际应该调用hybrid_watermark的detect方法
-        return watermark_info.get("confidence", 0.0) > 0.5
+        """Verify exact output binding; this is not blind KGW detection."""
+        expected = watermark_info.get("watermarked_text_sha256")
+        marker = watermark_info.get("semantic_marker")
+        return bool(expected and marker and marker in text
+                    and hashlib.sha256(text.encode("utf-8")).hexdigest() == expected)
     
     def _verify_source_binding(self, binding_hash: str, chain_id: str, resource_id: str) -> bool:
         """验证源绑定哈希"""

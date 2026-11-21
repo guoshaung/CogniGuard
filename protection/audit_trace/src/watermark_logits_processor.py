@@ -62,6 +62,37 @@ class KGWLogitsProcessor(LogitsProcessor):
         return scores
 
 
+class ConfidenceGatedKGWLogitsProcessor(KGWLogitsProcessor):
+    """Internal KGW confidence-gate variant, not a SWEET reproduction."""
+    def __init__(self, *args, confidence_threshold: float = 0.25, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.confidence_threshold = float(confidence_threshold)
+
+    def __call__(self, input_ids, scores):
+        if input_ids.dim() == 1:
+            input_ids = input_ids.unsqueeze(0); scores = scores.unsqueeze(0); squeeze = True
+        else: squeeze = False
+        for b in range(input_ids.shape[0]):
+            if float(torch.softmax(scores[b], dim=-1).max()) < self.confidence_threshold:
+                continue
+            row_ids = input_ids[b].tolist(); ctx = row_ids[-self.window_size:] if len(row_ids) >= self.window_size else row_ids
+            scores[b, self._greenlist(ctx)] += self.delta
+        return scores.squeeze(0) if squeeze else scores
+
+
+class EntropyScaledKGWLogitsProcessor(KGWLogitsProcessor):
+    """Internal entropy-scaled KGW variant, not a SIR reproduction."""
+    def __call__(self, input_ids, scores):
+        if input_ids.dim() == 1:
+            input_ids = input_ids.unsqueeze(0); scores = scores.unsqueeze(0); squeeze = True
+        else: squeeze = False
+        for b in range(input_ids.shape[0]):
+            row_ids = input_ids[b].tolist(); ctx = row_ids[-self.window_size:] if len(row_ids) >= self.window_size else row_ids
+            entropy = float(-(torch.softmax(scores[b], dim=-1) * torch.log_softmax(scores[b], dim=-1)).sum())
+            scores[b, self._greenlist(ctx)] += self.delta * (0.65 + min(0.35, entropy / 20.0))
+        return scores.squeeze(0) if squeeze else scores
+
+
 def greenlist_for_prefix(
     prefix_ids: list[int],
     vocab_size: int,

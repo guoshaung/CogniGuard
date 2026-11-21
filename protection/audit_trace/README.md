@@ -62,6 +62,30 @@ python src/main.py --config configs/config.yaml --mode demo
 
 # 完整实验（按 config 中 data.num_samples）
 python src/main.py --config configs/config.yaml --mode experiment
+
+## 长文本分层实验
+
+生成分层教学数据集（30 个唯一题目 × short/medium/long 三档）：
+
+```bash
+python scripts/build_expanded_dataset.py
+```
+
+产物：
+
+- `data/expanded_edu_dataset.jsonl`
+- `data/expanded_clean_baseline.jsonl`
+
+服务器 pilot 配置：
+
+- `configs/config.remote_qwen7b_long12.yaml`
+- `configs/config.remote_qwen14b_long12.yaml`
+- `configs/config.remote_qwen14b_moderate12.yaml`（当前最优）
+- `configs/config.remote_qwen14b_moderate_mild12.yaml`（低强度对照）
+
+这些配置均只选择 `length_tier=long` 的前 12 个不同题目，并把改写预算提升到 1024 tokens。当前长文本草稿约 800--1000 个汉字，包含题目分析、知识要点、逐步求解、易错点、变式、课堂提问与分层练习，避免用模板重复样本虚增实验规模。
+
+2026-08-16 的 14B 对照显示：最小改动提示会使模型过度复写草稿，WDR 仅 0.083。启用 `experiment.rewrite_style: moderate` 后，要求连接词、句式和解释性表述发生 15%--30% 变化，同时冻结公式/数字/术语占位符。当前最优设置为 `delta=2.25`、`rewrite_temperature=0.60`，12 条 long 样本达到 WDR/FPR/TKR/FKR/NKR/PlaceholderPass = `1.0/0.0/1.0/1.0/1.0/1.0`，ADR=`0.833`，AvgZ=`9.48`。低强度 `delta=1.5` 同样保真全通过，但 ADR=`0.817`、AvgZ=`5.76`，鲁棒性略弱。
 ```
 
 Windows 也可双击或运行 `scripts\run_demo.bat`。

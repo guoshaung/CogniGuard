@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 import json
 from pathlib import Path
 from typing import Dict, List
-from backend.app.agents.orchestrator import MultiAgentOrchestrator
+from cogniguard.agents.orchestrator import MultiAgentOrchestrator
 from protection.common.schemas import StudentProfile, ProfileRecord, TeacherResource
 
 class SystemEvaluator:

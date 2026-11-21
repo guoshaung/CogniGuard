@@ -8,7 +8,7 @@
 
 1. **隐私保护**：不直接传递原始学生画像或教师原文
 2. **最小化原则**：只传递完成任务所需的最小必要信息
-3. **策略治理**：通过TPCS决策控制层间数据流动
+3. **策略治理**：通过CG决策控制层间数据流动
 4. **可审计性**：所有交互均可追踪和审计
 
 ## 数据流向
@@ -18,11 +18,11 @@
   ↓
 [第1层] Student Profile (MM-FOPD) 
   ↓ MinimalContextCard
-[TPCS] 策略决策 (allow/sanitize/degrade/refuse)
+[CG] 策略决策 (allow/sanitize/degrade/refuse)
   ↓
 [第2层] Teacher Resource (C2-RAG)
   ↓ Answer + ResourceFeedback
-[TPCS] 策略决策
+[CG] 策略决策
   ↓
 [第3层] Audit Trace (HSW-ST)
   ↓ AuditSignal + AuditRecord
@@ -120,14 +120,14 @@ record = AuditRecord(
 record.audit_hash = record.compute_hash()
 ```
 
-### 5. TPCSDecision (横向治理层)
+### 5. CGDecision (横向治理层)
 
-TPCS策略决策，控制层间数据流动。
+CG策略决策，控制层间数据流动。
 
 ```python
-from backend.app.contrasts.closed_loop import TPCSDecision
+from backend.app.contrasts.closed_loop import CGDecision
 
-decision = TPCSDecision(
+decision = CGDecision(
     decision_id="decision_001",
     sender_layer="layer1_student_profile",
     receiver_layer="layer2_teacher_resource",
@@ -148,18 +148,18 @@ decision = TPCSDecision(
 ```python
 from backend.app.contrasts.closed_loop import ClosedLoopInterface
 
-# TPCS决策
-tpcs_decision = TPCSDecision(...)
+# CG决策
+cg_decision = CGDecision(...)
 
 # 传递上下文卡片
 data = ClosedLoopInterface.layer1_to_layer2(
     context_card=context_card,
-    tpcs_decision=tpcs_decision
+    cg_decision=cg_decision
 )
 
 if data is None:
     # 请求被阻断
-    print("请求被TPCS策略阻断")
+    print("请求被CG策略阻断")
 else:
     # 第2层可以使用这些数据进行资源检索
     print(f"知识点: {data['knowledge_point']}")
@@ -172,7 +172,7 @@ else:
 data = ClosedLoopInterface.layer2_to_layer3(
     answer="这是生成的答案...",
     resource_feedback=feedback,
-    tpcs_decision=tpcs_decision
+    cg_decision=cg_decision
 )
 
 if data:
@@ -187,7 +187,7 @@ if data:
 # 审计结果反馈到第2层
 data = ClosedLoopInterface.layer3_feedback_to_layer2(
     audit_signal=signal,
-    tpcs_decision=tpcs_decision
+    cg_decision=cg_decision
 )
 
 if data:
@@ -202,7 +202,7 @@ if data:
 # 资源使用反馈到第1层
 data = ClosedLoopInterface.layer2_feedback_to_layer1(
     resource_feedback=feedback,
-    tpcs_decision=tpcs_decision
+    cg_decision=cg_decision
 )
 
 if data:
@@ -219,8 +219,8 @@ from backend.app.contrasts.closed_loop import *
 # 步骤1: 第1层生成最小化上下文卡片
 context_card = MinimalContextCard(...)
 
-# 步骤2: TPCS决策 (第1层 → 第2层)
-tpcs_decision_1to2 = TPCSDecision(
+# 步骤2: CG决策 (第1层 → 第2层)
+cg_decision_1to2 = CGDecision(
     decision_id="dec_001",
     sender_layer="layer1_student_profile",
     receiver_layer="layer2_teacher_resource",
@@ -230,7 +230,7 @@ tpcs_decision_1to2 = TPCSDecision(
 
 # 步骤3: 传递到第2层
 layer2_input = ClosedLoopInterface.layer1_to_layer2(
-    context_card, tpcs_decision_1to2
+    context_card, cg_decision_1to2
 )
 
 if layer2_input:
@@ -238,8 +238,8 @@ if layer2_input:
     answer = "生成的答案..."
     feedback = ResourceFeedback(...)
     
-    # 步骤5: TPCS决策 (第2层 → 第3层)
-    tpcs_decision_2to3 = TPCSDecision(
+    # 步骤5: CG决策 (第2层 → 第3层)
+    cg_decision_2to3 = CGDecision(
         decision_id="dec_002",
         sender_layer="layer2_teacher_resource",
         receiver_layer="layer3_audit_trace",
@@ -249,7 +249,7 @@ if layer2_input:
     
     # 步骤6: 传递到第3层
     layer3_input = ClosedLoopInterface.layer2_to_layer3(
-        answer, feedback, tpcs_decision_2to3
+        answer, feedback, cg_decision_2to3
     )
     
     if layer3_input:
@@ -261,20 +261,20 @@ if layer2_input:
         # 步骤8: 闭环反馈
         # 第3层 → 第2层
         audit_feedback = ClosedLoopInterface.layer3_feedback_to_layer2(
-            signal, tpcs_decision
+            signal, cg_decision
         )
         
         # 第2层 → 第1层
         resource_feedback_to_layer1 = ClosedLoopInterface.layer2_feedback_to_layer1(
-            feedback, tpcs_decision
+            feedback, cg_decision
         )
 ```
 
-## TPCS策略决策场景
+## CG策略决策场景
 
 ### 场景1: 正常通过
 ```python
-decision = TPCSDecision(
+decision = CGDecision(
     decision_id="dec_001",
     sender_layer="layer1",
     receiver_layer="layer2",
@@ -286,7 +286,7 @@ decision = TPCSDecision(
 
 ### 场景2: 需要脱敏
 ```python
-decision = TPCSDecision(
+decision = CGDecision(
     decision_id="dec_002",
     sender_layer="layer1",
     receiver_layer="layer2",
@@ -299,7 +299,7 @@ decision = TPCSDecision(
 
 ### 场景3: 降级服务
 ```python
-decision = TPCSDecision(
+decision = CGDecision(
     decision_id="dec_003",
     sender_layer="layer2",
     receiver_layer="layer3",
@@ -312,7 +312,7 @@ decision = TPCSDecision(
 
 ### 场景4: 拒绝请求
 ```python
-decision = TPCSDecision(
+decision = CGDecision(
     decision_id="dec_004",
     sender_layer="layer1",
     receiver_layer="layer2",
@@ -367,8 +367,8 @@ decision = TPCSDecision(
 - 使用 `previous_hash` 形成区块链式审计链
 - 持久化存储所有 `AuditRecord`
 
-### 4. TPCS策略
-- 在每次层间交互前都要进行TPCS决策
+### 4. CG策略
+- 在每次层间交互前都要进行CG决策
 - 根据决策结果进行相应的处理（脱敏/降级/拒绝）
 - 记录决策理由便于审计
 
@@ -446,4 +446,4 @@ python backend/app/contrasts/closed_loop.py
 - `protection/student_profile/` - 第1层实现
 - `protection/teacher_resource/` - 第2层实现
 - `protection/audit_trace/` - 第3层实现
-- `protection/tpcs_guardrails/` - TPCS治理层实现
+- `protection/supporting/cg_guardrails/` - CG治理层实现

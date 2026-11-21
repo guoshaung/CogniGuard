@@ -5,7 +5,7 @@ import random
 import re
 from typing import Any
 
-from backend.app.compliance import build_compliance_state, build_data_categories, evaluate_compliance_policy
+from cogniguard.compliance import build_compliance_state, build_data_categories, evaluate_compliance_policy
 from protection.common.schemas import StudentProfile, Task
 from protection.student_profile.src.fopd.context_card import build_context_card
 from protection.student_profile.src.fopd.profile_selector import ProfileSelector, ScoredProfileRecord

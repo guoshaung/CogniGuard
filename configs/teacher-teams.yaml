@@ -1,0 +1,67 @@
+schema_version: 1
+teams:
+  solo:
+    nodes:
+      - {id: concept, teacher: concept, prompt: v1, view_fields: [question, knowledge, difficulty]}
+    edges: []
+    output: concept
+  serial_coaching:
+    nodes:
+      - {id: concept, teacher: concept, prompt: v1, view_fields: [question, knowledge, difficulty]}
+      - {id: worked, teacher: procedure, prompt: v1, view_fields: [question, knowledge, difficulty, resource_mode, resource_text]}
+      - {id: synthesize, teacher: synthesis, prompt: v1, view_fields: [question, knowledge, difficulty]}
+    edges:
+      - {source: concept, target: worked, max_chars: 1800}
+      - {source: worked, target: synthesize, max_chars: 2400}
+    output: synthesize
+  dual_teachers:
+    nodes:
+      - {id: concept, teacher: concept, prompt: v2, view_fields: [question, knowledge, difficulty]}
+      - {id: coach, teacher: socratic, prompt: v1, view_fields: [question, knowledge, difficulty]}
+      - {id: synthesize, teacher: synthesis, prompt: v2, view_fields: [question, knowledge, difficulty]}
+    edges:
+      - {source: concept, target: synthesize, max_chars: 1800}
+      - {source: coach, target: synthesize, max_chars: 1800}
+    output: synthesize
+  committee:
+    nodes:
+      - {id: concept, teacher: concept, prompt: v1, view_fields: [question, knowledge, difficulty]}
+      - {id: visual, teacher: visual, prompt: v1, view_fields: [question, knowledge, difficulty]}
+      - {id: worked, teacher: procedure, prompt: v1, view_fields: [question, knowledge, difficulty, resource_mode, resource_text]}
+      - {id: diagnose, teacher: misconception, prompt: v1, view_fields: [question, knowledge, difficulty, context_card]}
+      - {id: review, teacher: critic, prompt: v2, view_fields: [question, knowledge, difficulty], max_output_chars: 4000}
+      - {id: synthesize, teacher: synthesis, prompt: v2, view_fields: [question, knowledge, difficulty], max_output_chars: 4000}
+    edges:
+      - {source: concept, target: review, max_chars: 1800}
+      - {source: visual, target: review, max_chars: 1800}
+      - {source: worked, target: review, max_chars: 2400}
+      - {source: diagnose, target: review, max_chars: 1800}
+      - {source: review, target: synthesize, max_chars: 4000}
+    output: synthesize
+  differentiated:
+    nodes:
+      - {id: diagnose, teacher: misconception, prompt: v2, view_fields: [question, knowledge, difficulty, context_card]}
+      - {id: coach, teacher: socratic, prompt: v2, view_fields: [question, knowledge, difficulty]}
+      - {id: adapt, teacher: adaptive, prompt: v1, view_fields: [question, knowledge, difficulty, context_card]}
+      - {id: assess, teacher: assessment, prompt: v1, view_fields: [question, knowledge, difficulty], max_output_chars: 3600}
+      - {id: synthesize, teacher: synthesis, prompt: v1, view_fields: [question, knowledge, difficulty], max_output_chars: 4000}
+    edges:
+      - {source: diagnose, target: coach, max_chars: 1800}
+      - {source: diagnose, target: adapt, max_chars: 1800}
+      - {source: coach, target: assess, max_chars: 1800}
+      - {source: adapt, target: assess, max_chars: 1800}
+      - {source: assess, target: synthesize, max_chars: 3600}
+    output: synthesize
+  cross_checked:
+    nodes:
+      - {id: concept, teacher: concept, prompt: v2, view_fields: [question, knowledge, difficulty]}
+      - {id: worked, teacher: procedure, prompt: v2, view_fields: [question, knowledge, difficulty, resource_mode, resource_text]}
+      - {id: verify, teacher: proof, prompt: v1, view_fields: [question, knowledge, difficulty]}
+      - {id: review, teacher: critic, prompt: v1, view_fields: [question, knowledge, difficulty], max_output_chars: 3600}
+      - {id: synthesize, teacher: synthesis, prompt: v2, view_fields: [question, knowledge, difficulty], max_output_chars: 4000}
+    edges:
+      - {source: worked, target: verify, max_chars: 2400}
+      - {source: concept, target: review, max_chars: 1800}
+      - {source: verify, target: review, max_chars: 2400}
+      - {source: review, target: synthesize, max_chars: 3600}
+    output: synthesize

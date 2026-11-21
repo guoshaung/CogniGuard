@@ -1,0 +1,43 @@
+# One-sample local-weight wiring check only; never report as research performance.
+model:
+  provider: "huggingface"
+  local_model_name: "D:/pycharm/CogniGuard/assets/models/qwen2.5-0.5b-instruct-7ae55760"
+  device: "cuda"
+  dtype: "float32"
+  max_new_tokens: 640
+  rewrite_max_new_tokens: 512
+  temperature: 0.7
+  rewrite_temperature: 0.55
+  repetition_penalty: 1.04
+  top_p: 0.92
+watermark:
+  key: "development_key_not_for_deployment"
+  key_id: "key_langgraph_migration_smoke"
+  gamma: 0.25
+  delta: 1.75
+  window_size: 4
+  z_threshold: 2.85
+  local_window_tokens: 160
+  local_window_stride: 40
+data:
+  dataset_path: "data/expanded_edu_dataset.jsonl"
+  clean_baseline_path: "data/expanded_clean_baseline.jsonl"
+  terms_path: "data/protected_terms_math.txt"
+  length_tier: "long"
+  num_samples: 1
+  num_clean_baselines: 1
+experiment:
+  rewrite_style: "moderate"
+  run_attacks: true
+  use_sentence_embedding: false
+  random_seed: 20261013
+  ablation: "full"
+  content_fidelity:
+    enabled: true
+    max_attempts: 1
+    max_draft_similarity: 0.995
+    min_term_coverage: 0.8
+    fallback_to_draft_on_drift: true
+paths:
+  output_dir: "D:/pycharm/CogniGuard/experiments/results/hsw_langgraph_smoke_20261013"
+  output_run_subdir: true

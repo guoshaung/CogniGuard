@@ -16,6 +16,32 @@ def _mastery_phrase(value: object) -> str:
     return "掌握较稳定"
 
 
+def _error_summary(value: object) -> str:
+    text = str(value)
+    rules = (
+        ("对称轴", "对称轴识别需检查"),
+        ("局部", "局部与整体性质需区分"),
+        ("符号", "代数符号需复核"),
+        ("公式", "公式选择需复核"),
+        ("边界", "边界条件需检查"),
+    )
+    for token, summary in rules:
+        if token in text:
+            return summary
+    return "关键步骤需针对性检查"
+
+
+def _preference_category(value: object) -> str:
+    text = str(value).lower()
+    if "visual" in text or "图像" in text:
+        return "visual_support"
+    if "socratic" in text or "提问" in text:
+        return "guided_questions"
+    if "worked" in text or "示例" in text:
+        return "worked_example"
+    return "concise_stepwise"
+
+
 def build_context_card(
     profile: StudentProfile,
     task: Task,
@@ -31,9 +57,9 @@ def build_context_card(
         if record.type == "mastery":
             mastery.append(_mastery_phrase(record.value))
         elif record.type == "error_pattern":
-            errors.append(str(record.value))
+            errors.append(_error_summary(record.value))
         elif record.type == "preference":
-            preferences.append(str(record.value))
+            preferences.append(_preference_category(record.value))
         else:
             other.append(f"{record.type}:{record.knowledge}")
 

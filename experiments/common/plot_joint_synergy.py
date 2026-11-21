@@ -21,8 +21,8 @@ METHOD_ORDER = [
     "FOPD+C2RAG",
     "FOPD+HSWST",
     "C2RAG+HSWST",
-    "Full CogniGuard w/o TPCS",
-    "Full CogniGuard+TPCS",
+    "Full CogniGuard w/o CG",
+    "Full CogniGuard+CG",
 ]
 
 METHOD_LABELS = {
@@ -33,16 +33,18 @@ METHOD_LABELS = {
     "FOPD+C2RAG": "FOPD+C2",
     "FOPD+HSWST": "FOPD+HSW",
     "C2RAG+HSWST": "C2+HSW",
-    "Full CogniGuard w/o TPCS": "Full w/o TPCS",
-    "Full CogniGuard+TPCS": "Full+TPCS",
+    "Full CogniGuard w/o CG": "Full w/o CG",
+    "Full CogniGuard+CG": "Full+CG",
 }
 
 RISK_COMPONENTS = [
     ("avg_PrivacyLeak", "Privacy"),
     ("avg_CopyrightLeak", "Copyright"),
     ("avg_AuditFailure", "Audit"),
-    ("avg_UnauthorizedAccess", "Unauthorized"),
-    ("avg_TamperUndetected", "Tamper"),
+    ("avg_CGControlLeak", "CG control"),
+    ("avg_PrivacyAxisRisk", "Privacy axis"),
+    ("avg_CopyrightAxisRisk", "Copyright axis"),
+    ("avg_AuditAxisRisk", "Audit axis"),
     ("avg_JointRisk", "JointRisk"),
     ("avg_Utility", "Utility"),
 ]
@@ -135,7 +137,7 @@ def plot_joint_risk_utility(summary_rows: list[dict[str, str]], out_dir: Path) -
     ax.text(
         len(rows) - 1.55,
         0.12,
-        "Full+TPCS\nlowest risk",
+        "Full+CG\nlowest risk",
         color="#0a7c59",
         fontsize=10,
         weight="bold",
@@ -179,15 +181,15 @@ def plot_synergy_gain(summary_rows: list[dict[str, str]], gain_rows: list[dict[s
         "None",
         best_single,
         best_pair,
-        "Full CogniGuard w/o TPCS",
-        "Full CogniGuard+TPCS",
+        "Full CogniGuard w/o CG",
+        "Full CogniGuard+CG",
     ]
     labels = [
         "None",
         f"Best single\n{METHOD_LABELS.get(best_single, best_single)}",
         f"Best pair\n{METHOD_LABELS.get(best_pair, best_pair)}",
-        "Full\nw/o TPCS",
-        "Full\n+TPCS",
+        "Full\nw/o CG",
+        "Full\n+CG",
     ]
     values = [_to_float(by_method[method]["avg_JointRisk"]) for method in path_methods]
     x = np.arange(len(path_methods))
@@ -206,7 +208,7 @@ def plot_synergy_gain(summary_rows: list[dict[str, str]], gain_rows: list[dict[s
         ax.text(xi, value + 0.035, f"{value:.3f}", ha="center", va="bottom", fontsize=9)
 
     synergy_gain = _to_float(gain.get("synergy_gain_vs_best_pair"))
-    tpcs_gain = _to_float(gain.get("tpcs_gain"))
+    cg_gain = _to_float(gain.get("cg_gain"))
     ax.annotate(
         f"Synergy gain vs best pair = {synergy_gain:.3f}",
         xy=(4, values[-1]),
@@ -217,7 +219,7 @@ def plot_synergy_gain(summary_rows: list[dict[str, str]], gain_rows: list[dict[s
         weight="bold",
     )
     ax.annotate(
-        f"TPCS gain = {tpcs_gain:.3f}",
+        f"CG gain = {cg_gain:.3f}",
         xy=(4, values[-1]),
         xytext=(3.08, values[-2] + 0.12),
         arrowprops={"arrowstyle": "->", "color": "#9a6700", "lw": 1.2},
@@ -247,7 +249,8 @@ def plot_risk_reduction(risk_rows: list[dict[str, str]], out_dir: Path) -> list[
     return _save(fig, out_dir, "joint_risk_reduction_bar")
 
 
-def generate_figures(results_root: Path = DEFAULT_RESULTS, output_dir: Path = DEFAULT_OUTPUT) -> list[str]:
+def generate_figures(results_root: Path = DEFAULT_RESULTS, output_dir: Path | None = None) -> list[str]:
+    output_dir = output_dir or results_root / "figures"
     _style()
     summary_rows = _read_csv(results_root / "joint_synergy_summary.csv")
     risk_rows = _read_csv(results_root / "joint_risk_reduction.csv")
@@ -263,7 +266,7 @@ def generate_figures(results_root: Path = DEFAULT_RESULTS, output_dir: Path = DE
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate paper-ready figures for joint synergy results.")
     parser.add_argument("--results-root", type=Path, default=DEFAULT_RESULTS)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
     written = generate_figures(args.results_root, args.output_dir)
     print("\n".join(written))

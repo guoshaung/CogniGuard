@@ -3,7 +3,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from backend.app.agents.orchestrator import MultiAgentOrchestrator
+from cogniguard.agents.orchestrator import MultiAgentOrchestrator
 from protection.common.schemas import StudentProfile, ProfileRecord, TeacherResource
 
 def create_demo_config() -> dict:
@@ -68,56 +68,35 @@ def create_demo_config() -> dict:
 
 def create_demo_student_profile() -> StudentProfile:
     """创建演示学生画像"""
-    records = [
-        ProfileRecord(
-            knowledge="一元二次方程",
-            content="学生擅长使用判别式求解",
-            confidence=0.85,
-            sensitivity=0.60,
-            updated_at="2026-06-01T10:00:00"
-        ),
-        ProfileRecord(
-            knowledge="函数图像",
-            content="对二次函数顶点式理解较好",
-            confidence=0.75,
-            sensitivity=0.45,
-            updated_at="2026-06-05T14:30:00"
-        ),
-        ProfileRecord(
-            knowledge="几何证明",
-            content="学生经常在辅助线构造上遇到困难",
-            confidence=0.65,
-            sensitivity=0.80,  # 高敏感：暴露弱点
-            updated_at="2026-05-20T09:15:00"
-        )
-    ]
+    records = [ProfileRecord.from_dict(item) for item in [
+        {"record_id": "demo_p1", "type": "knowledge_state", "knowledge": "一元二次方程",
+         "value": "学生擅长使用判别式求解", "confidence": 0.85, "sensitivity": 0.60,
+         "updated_at": "2026-06-01T10:00:00"},
+        {"record_id": "demo_p2", "type": "knowledge_state", "knowledge": "函数图像",
+         "value": "对二次函数顶点式理解较好", "confidence": 0.75, "sensitivity": 0.45,
+         "updated_at": "2026-06-05T14:30:00"},
+        {"record_id": "demo_p3", "type": "error_pattern", "knowledge": "几何证明",
+         "value": "学生经常在辅助线构造上遇到困难", "confidence": 0.65, "sensitivity": 0.80,
+         "updated_at": "2026-05-20T09:15:00"},
+    ]]
     return StudentProfile(student_id="demo_student_001", profile_records=records)
 
 def create_demo_teacher_resources() -> list[TeacherResource]:
     """创建演示教师资源"""
-    return [
-        TeacherResource(
-            resource_id="res_001",
-            knowledge="一元二次方程",
-            content="对于方程 ax²+bx+c=0，判别式 Δ=b²-4ac 决定根的性质",
-            copyright_level=0.3,  # 低版权：公式
-            chunk_text="判别式公式及应用"
-        ),
-        TeacherResource(
-            resource_id="res_002",
-            knowledge="一元二次方程",
-            content="【名师精讲】某知名教辅中的例题：已知方程 x²-5x+6=0，求解并分析...",
-            copyright_level=0.9,  # 高版权：名师内容
-            chunk_text="版权例题"
-        ),
-        TeacherResource(
-            resource_id="res_003",
-            knowledge="函数",
-            content="二次函数 y=a(x-h)²+k 的顶点坐标为 (h,k)",
-            copyright_level=0.4,
-            chunk_text="顶点式公式"
-        )
-    ]
+    return [TeacherResource.from_dict(item) for item in [
+        {"resource_id": "res_001", "chunk_id": "chunk_001", "knowledge": "一元二次方程",
+         "content": "对于方程 ax²+bx+c=0，判别式 Δ=b²-4ac 决定根的性质",
+         "difficulty": "basic", "cognitive_level": "understand", "resource_type": "formula",
+         "copyright_level": 0.3},
+        {"resource_id": "res_002", "chunk_id": "chunk_002", "knowledge": "一元二次方程",
+         "content": "【名师精讲】某知名教辅中的例题：已知方程 x²-5x+6=0，求解并分析...",
+         "difficulty": "basic", "cognitive_level": "apply", "resource_type": "worked_example",
+         "copyright_level": 0.9},
+        {"resource_id": "res_003", "chunk_id": "chunk_003", "knowledge": "函数",
+         "content": "二次函数 y=a(x-h)²+k 的顶点坐标为 (h,k)",
+         "difficulty": "basic", "cognitive_level": "understand", "resource_type": "formula",
+         "copyright_level": 0.4},
+    ]]
 
 def main():
     print("=" * 80)
@@ -168,7 +147,7 @@ def main():
     print("\n" + "=" * 80)
     print("【Agent 3: HSW-ST - 水印审计】")
     print(f"审计链ID: {result['audit_chain_id']}")
-    print(f"水印置信度: {result['metadata'].get('watermark_confidence', 0.0):.3f}")
+    print(f"水印参数 gamma: {result['metadata'].get('watermark_confidence', 0.0):.3f}")
     
     print("\n" + "=" * 80)
     print("【生成答案】")
@@ -185,7 +164,7 @@ def main():
     # 生成审计报告
     print("\n" + "=" * 80)
     print("【审计报告】")
-    report = orchestrator.get_audit_report(result['audit_chain_id'])
+    report = orchestrator.get_audit_report(result['metadata']['answer_id'])
     print(f"总曝光量: {report.get('total_exposure', 0.0):.3f}")
     print(f"高版权资源数: {report.get('high_copyright_sources', 0)}")
     print(f"合规性得分: {report.get('compliance_score', 0.0):.3f}")

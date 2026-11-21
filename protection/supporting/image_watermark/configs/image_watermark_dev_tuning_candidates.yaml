@@ -1,0 +1,92 @@
+schema_version: cogniguard_image_watermark_tuning_candidates_v1
+run_class: dev_tuning_candidates_not_executed
+enabled: false
+paper_eligible: false
+selection_split: dev
+source_dataset: cogniguard_edufig
+expected_samples: 117
+forbidden_inputs:
+  - pilot_test
+  - golden_test
+  - formal_test
+
+# The first dev_tuning run must finish before any candidate below is enabled.
+# Candidate selection must remain development-only; the final selected setting
+# is frozen once and evaluated once on the untouched test split.
+candidate_attack_grid:
+  clean: [{}]
+  jpeg: [{quality: 50}, {quality: 70}, {quality: 90}]
+  gaussian_noise: [{sigma: 2.0}, {sigma: 5.0}, {sigma: 10.0}]
+
+baseline:
+  decoder_mode: identity_single_view
+  registry_hamming_radius: 1
+
+candidates:
+  - candidate_id: multiview3_r1
+    enabled: false
+    decoder_mode: deterministic_multiview
+    registry_hamming_radius: 1
+    views: [identity, gaussian_blur_3x3_sigma_0.5, median_filter_3x3]
+    aggregation: mean_raw_logits_then_single_zero_threshold
+  - candidate_id: multiview5_r1
+    enabled: false
+    decoder_mode: deterministic_multiview
+    registry_hamming_radius: 1
+    views:
+      - identity
+      - gaussian_blur_3x3_sigma_0.5
+      - median_filter_3x3
+      - bicubic_roundtrip_448_to_512
+      - bicubic_roundtrip_576_to_512
+    aggregation: mean_raw_logits_then_single_zero_threshold
+  - candidate_id: identity_r2
+    enabled: false
+    decoder_mode: identity_single_view
+    registry_hamming_radius: 2
+  - candidate_id: identity_r3
+    enabled: false
+    decoder_mode: identity_single_view
+    registry_hamming_radius: 3
+  - candidate_id: identity_r4
+    enabled: false
+    decoder_mode: identity_single_view
+    registry_hamming_radius: 4
+  - candidate_id: multiview3_r2
+    enabled: false
+    decoder_mode: deterministic_multiview
+    registry_hamming_radius: 2
+    views: [identity, gaussian_blur_3x3_sigma_0.5, median_filter_3x3]
+    aggregation: mean_raw_logits_then_single_zero_threshold
+  - candidate_id: multiview3_r3
+    enabled: false
+    decoder_mode: deterministic_multiview
+    registry_hamming_radius: 3
+    views: [identity, gaussian_blur_3x3_sigma_0.5, median_filter_3x3]
+    aggregation: mean_raw_logits_then_single_zero_threshold
+  - candidate_id: multiview3_r4
+    enabled: false
+    decoder_mode: deterministic_multiview
+    registry_hamming_radius: 4
+    views: [identity, gaussian_blur_3x3_sigma_0.5, median_filter_3x3]
+    aggregation: mean_raw_logits_then_single_zero_threshold
+
+acceptance_constraints:
+  aggregate_views_before_registry_lookup: true
+  registry_lookups_per_image: 1
+  ground_truth_or_attack_label_may_select_view: false
+  unique_registry_candidate_required: true
+  ambiguity_policy: reject
+  report_raw_and_corrected_separately: true
+  minimum_code_distance_rule: d_min_at_least_2r_plus_1
+  random_output_false_acceptance_upper_bound_max: 2.3283064365386963e-10  # 2^-32
+  permitted_selection_radii: [1, 2, 3, 4]
+  radius_5_status: ablation_only_never_select
+  negative_controls_required_before_freeze: true
+  maximum_clean_exact_drop: 0.01
+  maximum_any_attack_cell_drop: 0.05
+  primary_metric: nine_domain_equal_weight_macro_corrected_source_match
+  paired_bootstrap_rule: retain_r1_unless_improvement_ci_lower_bound_is_positive
+  one_standard_error_tiebreak: [smaller_radius, fewer_views, lower_p95_latency]
+  raw_word_definition: aggregated_64_bits_before_registry_correction
+  corrected_codeword_must_not_overwrite_raw_word: true

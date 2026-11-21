@@ -1,7 +1,7 @@
 """提示注入攻击实现"""
 from __future__ import annotations
 from typing import List, Dict
-from backend.app.agents.agent_orchestrator import TPCSController
+from cogniguard.agents.agent_orchestrator import CGController
 
 class PromptInjectionAttacker:
     """提示注入攻击器：尝试通过恶意提示绕过保护机制"""
@@ -21,7 +21,7 @@ class PromptInjectionAttacker:
         
         Args:
             target: 攻击目标（如"学生成绩"、"完整画像"）
-            context_card: 上下文卡片（用于TPCS验证）
+            context_card: 上下文卡片（用于CG验证）
         
         Returns:
             成功率 [0-1]，越高表示攻击越成功
@@ -44,9 +44,9 @@ class PromptInjectionAttacker:
     def _test_injection(self, prompt: str, context_card: dict) -> bool:
         """测试单个注入是否成功"""
         try:
-            # 使用TPCS控制器验证
-            tpcs = TPCSController()
-            result = tpcs.handle_user_request(
+            # 使用CG控制器验证
+            cg = CGController()
+            result = cg.handle_user_request(
                 prompt,
                 context_card=context_card,
                 round_id="injection_test"

@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from experiments.common.sequential_suite_graph import run_sequential_suite
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -42,7 +43,7 @@ def run_suite(
 
     with tempfile.TemporaryDirectory(prefix="cogniguard-ablation-") as temp_dir:
         temp_root = Path(temp_dir)
-        for ablation in ABLATION_MODES:
+        def execute_ablation(ablation):
             generated_config = build_ablation_config(
                 base_config,
                 ablation,
@@ -65,6 +66,12 @@ def run_suite(
             print(f"[ablation:{ablation}] {' '.join(command)}")
             if not dry_run:
                 subprocess.run(command, cwd=PROJECT_ROOT, check=True)
+            return command
+
+        run_sequential_suite([
+            (ablation, lambda ablation=ablation: execute_ablation(ablation))
+            for ablation in ABLATION_MODES
+        ])
 
     return commands
 

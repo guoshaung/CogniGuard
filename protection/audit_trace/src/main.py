@@ -18,6 +18,11 @@ if str(_SRC) not in sys.path:
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
+# HSW-ST's KGW path imports torch/transformers at module load. Reuse the
+# preserved local model environment explicitly, without mutating its packages.
+from core.langgraph_runtime.model_site import enable_existing_model_environment
+enable_existing_model_environment(_PROJECT_ROOT)
+
 from experiments.attacks.watermark_attacks import run_all_attacks
 from data_builder import ensure_data_files
 from evaluator import aggregate_and_write_csv, final_summary_stats
@@ -36,6 +41,7 @@ from utils import (
 )
 from watermark_detector import detect_by_windows, detect_full_text
 from watermark_rewriter import rewrite_sample
+from watermark_policy import WatermarkEvidence, WatermarkPolicy
 
 
 def load_config(config_path: Path) -> dict:
@@ -59,6 +65,11 @@ def _get_tokenizer_for_detect(rw: dict, cfg: dict):
 
 
 def run_pipeline(cfg: dict, mode: str) -> None:
+    from protection.audit_trace.src.watermark_graph import run_watermark_graph
+    run_watermark_graph(cfg, mode)
+
+
+def _watermark_steps(cfg: dict, mode: str):
     root = project_root()
     mm_before = str((cfg.get("model") or {}).get("device", "auto")).strip().lower()
     resolve_model_device_dtype(cfg)
@@ -112,7 +123,16 @@ def run_pipeline(cfg: dict, mode: str) -> None:
     extra_terms = _load_terms(terms_path)
 
     samples = read_jsonl(ds_path)
-    limit = 8 if mode == "demo" else len(samples)
+    requested_tier = str(data_cfg.get("length_tier") or "").strip().lower()
+    if requested_tier:
+        samples = [s for s in samples if str(s.get("length_tier") or "").lower() == requested_tier]
+    configured_limit = int(data_cfg.get("num_samples") or 0)
+    if mode == "demo":
+        limit = 8
+    elif configured_limit > 0:
+        limit = configured_limit
+    else:
+        limit = len(samples)
     samples = samples[:limit]
 
     clean_baselines = [r["text"] for r in read_jsonl(clean_path) if r.get("text")]
@@ -132,6 +152,11 @@ def run_pipeline(cfg: dict, mode: str) -> None:
     fkr_l: list[float] = []
     nkr_l: list[float] = []
     attack_detected: list[bool] = []
+    watermark_policy = WatermarkPolicy(
+        clean_delta=float(wm_cfg.get("delta", 1.5)),
+        elevated_delta=float(wm_cfg.get("delta", 1.75)),
+        high_delta=max(float(wm_cfg.get("delta", 2.0)), 2.0),
+    )
 
     emb_model = None
     if use_emb:
@@ -141,6 +166,8 @@ def run_pipeline(cfg: dict, mode: str) -> None:
             emb_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
         except Exception:
             emb_model = None
+
+    yield ("prepare", len(samples))
 
     for idx, sample in enumerate(samples):
         sid = sample["sample_id"]
@@ -159,6 +186,7 @@ def run_pipeline(cfg: dict, mode: str) -> None:
         )
         y_wm = rw["watermarked_answer"]
         tok = _get_tokenizer_for_detect(rw, cfg)
+        yield "rewrite"
 
         d_full = detect_full_text(
             y_wm,
@@ -179,6 +207,7 @@ def run_pipeline(cfg: dict, mode: str) -> None:
             int(wm_cfg.get("local_window_tokens", 80)),
             int(wm_cfg.get("local_window_stride", 20)),
         )
+        yield "detect"
 
         model_name = (cfg.get("model") or {}).get("openai_model") if (cfg.get("model") or {}).get(
             "provider"
@@ -195,15 +224,18 @@ def run_pipeline(cfg: dict, mode: str) -> None:
         )
         st_log = build_source_trace_log(answer_id, sid, sample.get("source_trace") or [], watermark_id=wmid)
         unified_log = build_unified_trace_log(wm_log, st_log, y_wm)
-
         wm_answers.append(
             {
                 "answer_id": answer_id,
                 "sample_id": sid,
                 "watermark_id": wmid,
                 "question": sample.get("question"),
+                "length_tier": sample.get("length_tier", ""),
                 "draft_answer": sample.get("draft_answer"),
+                "target_generated_tokens": sample.get("target_generated_tokens"),
                 "watermarked_answer": y_wm,
+                "draft_token_count": len(tok.encode(str(sample.get("draft_answer") or ""), add_special_tokens=False)) if tok else None,
+                "watermarked_token_count": len(tok.encode(y_wm, add_special_tokens=False)) if tok else None,
                 "z_score": d_full["z_score"],
                 "max_z_window": d_loc["max_z"],
                 "ablation": ablation,
@@ -211,6 +243,9 @@ def run_pipeline(cfg: dict, mode: str) -> None:
                 "fidelity_violations": rw.get("fidelity_violations", []),
                 "used_draft_fallback": rw.get("used_draft_fallback", False),
                 "rewrite_attempts_used": rw.get("rewrite_attempts_used", 0),
+                "selective_protected_channel": rw.get("selective_protected_channel", False),
+                "repaired_placeholder_count": rw.get("repaired_placeholder_count", 0),
+                "repaired_placeholders": rw.get("repaired_placeholders", []),
             }
         )
         wm_logs.append(wm_log)
@@ -226,6 +261,20 @@ def run_pipeline(cfg: dict, mode: str) -> None:
         tkr = rate_kept(terms)
         fkr = rate_kept(formulas)
         nkr = rate_kept(numbers)
+        watermark_policy.register(
+            WatermarkEvidence(
+                watermark_id=wmid,
+                detected=bool(d_full["is_watermarked"]),
+                z_score=float(d_full["z_score"]),
+                term_keeping_rate=tkr,
+                formula_keeping_rate=fkr,
+                number_keeping_rate=nkr,
+                trace_binding_id=str(st_log.get("trace_binding_id", "")),
+                repaired_placeholder_count=int(rw.get("repaired_placeholder_count", 0)),
+            ),
+            answer_hash=str(unified_log.get("watermarked_answer_sha256", "")),
+            sources=list(st_log.get("sources") or []),
+        )
         tkr_l.append(tkr)
         fkr_l.append(fkr)
         nkr_l.append(nkr)
@@ -263,6 +312,7 @@ def run_pipeline(cfg: dict, mode: str) -> None:
             "SSR": ssr,
         }
         summary_rows.append(row)
+        yield "audit"
 
         if run_attacks:
             clean_snip = clean_baselines[idx % len(clean_baselines)] if clean_baselines else "干净对照文本。"
@@ -286,6 +336,7 @@ def run_pipeline(cfg: dict, mode: str) -> None:
                         "is_watermarked": dd["is_watermarked"],
                     }
                 )
+        yield "attack"
 
     # FPR：干净基线
     clean_flags: list[bool] = []
@@ -301,6 +352,8 @@ def run_pipeline(cfg: dict, mode: str) -> None:
             float(wm_cfg.get("z_threshold", 4.0)),
         )
         clean_flags.append(bool(dd["is_watermarked"]))
+
+    yield "clean_eval"
 
     agg = final_summary_stats(
         watermarked_flags,
