@@ -1,4 +1,5 @@
 """Opt-in synthetic-only consent demonstration; not an identity provider."""
+
 from __future__ import annotations
 
 from cogniguard.integrations.education import (
@@ -16,16 +17,22 @@ from cogniguard.runtime.sessions import InvalidSessionToken
 
 _SUBJECT = "synthetic-consent-demo-student"
 _POLICY = ProfileConsentPolicy(
-    "synthetic-demo-v1", "teaching-agent", "personalized_tutoring",
+    "synthetic-demo-v1",
+    "teaching-agent",
+    "personalized_tutoring",
     {"mastery": "automatic", "preference": "ask"},
 )
 
 
 def _profile():
-    return StudentProfile(_SUBJECT, {}, [
-        ProfileRecord("demo-mastery", "mastery", "一元一次方程", 0.4, 1, 0.1),
-        ProfileRecord("demo-preference", "preference", "一元一次方程", "visual", 1, 0.1),
-    ])
+    return StudentProfile(
+        _SUBJECT,
+        {},
+        [
+            ProfileRecord("demo-mastery", "mastery", "一元一次方程", 0.4, 1, 0.1),
+            ProfileRecord("demo-preference", "preference", "一元一次方程", "visual", 1, 0.1),
+        ],
+    )
 
 
 def turn(message):
@@ -33,10 +40,16 @@ def turn(message):
         raise ValueError("请输入不超过 500 字的教学问题")
     pipeline = ProtectionPipeline({"fopd": {"use_enhanced_fopd": False}}, [])
     return run_protected_education(
-        pipeline, _profile(),
-        {"student_id": _SUBJECT, "question": message, "expected_knowledge": "一元一次方程",
-         "need_resource": False},
-        access=AccessScope(_SUBJECT), consent_policy=_POLICY,
+        pipeline,
+        _profile(),
+        {
+            "student_id": _SUBJECT,
+            "question": message,
+            "expected_knowledge": "一元一次方程",
+            "need_resource": False,
+        },
+        access=AccessScope(_SUBJECT),
+        consent_policy=_POLICY,
     )
 
 
@@ -54,8 +67,9 @@ def decision(payload):
         request_id = payload.get("request_id")
         if not isinstance(request_id, str) or not request_id:
             raise ValueError("Missing consent request ID")
-        resolve_profile_consent(session, request_id, verified_student_id=_SUBJECT,
-                                approve=action == "approve")
+        resolve_profile_consent(
+            session, request_id, verified_student_id=_SUBJECT, approve=action == "approve"
+        )
     else:
         raise ValueError("Invalid demonstration decision")
     return {"success": True, "simulation": True, "decision": action}

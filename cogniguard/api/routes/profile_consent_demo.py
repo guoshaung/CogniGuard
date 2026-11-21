@@ -1,4 +1,5 @@
 """Local opt-in routes for fixed synthetic data only."""
+
 from __future__ import annotations
 
 import ipaddress

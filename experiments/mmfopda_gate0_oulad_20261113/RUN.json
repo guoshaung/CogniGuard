@@ -1,0 +1,31 @@
+{
+  "counts": {
+    "disability": {
+      "train_n": 3911,
+      "train_positive": 424,
+      "test_n": 2538,
+      "test_positive": 238,
+      "missing": 0
+    },
+    "imd_low20": {
+      "train_n": 3790,
+      "train_positive": 859,
+      "test_n": 2466,
+      "test_positive": 575,
+      "missing": 193
+    },
+    "age55plus": {
+      "train_n": 3911,
+      "train_positive": 17,
+      "test_n": 2538,
+      "test_positive": 15,
+      "missing": 0
+    }
+  },
+  "sklearn": "1.9.0",
+  "api_calls": 0,
+  "gpu_used": false,
+  "bootstrap": 1000,
+  "feature_sha256": "c55d2dabe3a3aeca2e4eae5917afd906e3ebb9b177be19bf695c9a5ffbeb00a4",
+  "request_sha256": "c193e607f7251caf7cb290144790b68454f8c82a89bcf831c2f9b2ecd42cd724"
+}

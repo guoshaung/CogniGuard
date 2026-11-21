@@ -1,4 +1,5 @@
 """Opt-in, loopback-only synthetic login routes."""
+
 from __future__ import annotations
 
 from http.cookies import CookieError, SimpleCookie

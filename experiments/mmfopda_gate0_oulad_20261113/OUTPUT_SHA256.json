@@ -1,0 +1,21 @@
+{
+  ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+  "collusion_delta.csv": "c821cd7c5df3e232ed0460fba1723b10242ec509a9e1dc7b0f39b5392ac9a35b",
+  "course_diagnostics.csv": "26547a15ab979f19d805243b240d17799b1137f322f4fe9e7d8eecf5ec91361f",
+  "DATA_AUDIT.json": "1d50e06cd4b399ad9c3380d007ccf1f927e571759221a12e4889cb347178f24f",
+  "DECISION.json": "7f76f042d61baddeb28e2a62ed397300ae5e39d9c426b3c07898e0218aed7ad4",
+  "feature_schema.json": "c873ddcedec2bbb162e3457441b38dff6211613f7a0db21f6e61960aeb78ff3b",
+  "FIELD_TABLE.md": "f72af88095ad26a9879f8cc05802d257c5a5f0572a1811eacb8a0181486c630a",
+  "finalize_evidence.py": "3c23ca8d7c6f6dfbd5903e335855d7d7d243685fd921c2dea91628f215f20887",
+  "final_decision.md": "5ebc2ef26b16ef12bec9a1129a7d27de1e54aed729f836a61224610dede27dd8",
+  "FREEZE.json": "b174d73b3d1b613cfd01b0d6330b718bd9dde9bcf2effed77639745911ff1a70",
+  "metrics.csv": "469d017992d6254600fad3cb3ba48d2e82707ccfe7113ef20867a2341ccea8b4",
+  "PROTOCOL.md": "2e5b511856be0abd52d671b0a0b05bae92346f8f5c12b86d3ef3a91bb06c4208",
+  "README.md": "7213036185deae110b0ecb653e050aa8428ea16a93883e947c52fc790598d384",
+  "REQUEST_RULES.md": "53c3ab0e9c978f16c1e6c0c6e2a237c5410ce2ced79072dcec10c67254cff33d",
+  "RESULT.md": "407401fd30046029bb8dac2823e5ad3e5b3bc7c6d8e1ae94d8255789a6558194",
+  "RUN.json": "ea2d45c508c03834b2adfef9f5992f0d2b8ca46550a57f3e2873c41601376426",
+  "run_gate0.py": "d5cb603edacc3ddd8d757965145fbf2cac2d8a8b3402c2fcde82ad97ffc86b6f",
+  "test_gate0.py": "d1a0a4fad2d7a6f258f6b76141bd13ce690454b9d4b15ae3b476c98e69461d15",
+  "VALIDATION.json": "f6a98175049f8ae3a24fc2f2d797631c36f2848f34c2062319e8b02b0ab7bf2f"
+}

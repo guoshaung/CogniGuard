@@ -1,0 +1,342 @@
+{
+  "archive": "D:\\pycharm\\CogniGuard\\.cache\\oulad-author-v1\\anonymisedData.zip",
+  "sha256": "90dda45037939953f979072fa70a809ebe07e90ec783c408762af7698a3825ec",
+  "tables": {
+    "studentInfo": {
+      "rows": 32593,
+      "columns": {
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_student": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "gender": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        },
+        "region": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        },
+        "highest_education": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        },
+        "imd_band": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.03408707391157611,
+          "role": "敏感标签：0-10%、10-20=1；缺失排除本标签"
+        },
+        "age_band": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "敏感标签：55<= =1"
+        },
+        "num_of_prev_attempts": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        },
+        "studied_credits": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        },
+        "disability": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "敏感标签：Y=1"
+        },
+        "final_result": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        }
+      }
+    },
+    "studentAssessment": {
+      "rows": 173912,
+      "columns": {
+        "id_assessment": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_student": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "date_submitted": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "请求：已发生提交；模拟分数可用时间"
+        },
+        "is_banked": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "过滤：不使用结转成绩"
+        },
+        "score": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.0009947559685358112,
+          "role": "请求：模拟已公布分数"
+        }
+      }
+    },
+    "assessments": {
+      "rows": 206,
+      "columns": {
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_assessment": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "assessment_type": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "过滤：仅 TMA/CMA"
+        },
+        "date": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.05339805825242718,
+          "role": "请求：截止日；无截止日不触发"
+        },
+        "weight": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.0,
+          "role": "禁止使用"
+        }
+      }
+    },
+    "studentVle": {
+      "rows": 10655280,
+      "columns": {
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_student": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_site": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "date": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "请求：截至当周已发生点击"
+        },
+        "sum_click": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "请求：资源占比"
+        }
+      }
+    },
+    "vle": {
+      "rows": 6364,
+      "columns": {
+        "id_site": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "activity_type": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "请求：资源类型"
+        },
+        "week_from": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.823852922690132,
+          "role": "禁止使用"
+        },
+        "week_to": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.823852922690132,
+          "role": "禁止使用"
+        }
+      }
+    },
+    "studentRegistration": {
+      "rows": 32593,
+      "columns": {
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "id_student": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "date_registration": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.0013806645598748197,
+          "role": "资格：截止时已注册"
+        },
+        "date_unregistration": {
+          "types": [
+            "float64"
+          ],
+          "missing_rate": 0.6909765900653515,
+          "role": "资格：截止时已退课则不发新请求"
+        }
+      }
+    },
+    "courses": {
+      "rows": 22,
+      "columns": {
+        "code_module": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "code_presentation": {
+          "types": [
+            "object"
+          ],
+          "missing_rate": 0.0,
+          "role": "仅内部联结/队列/划分；禁止进入外发和攻击特征"
+        },
+        "module_presentation_length": {
+          "types": [
+            "int64"
+          ],
+          "missing_rate": 0.0,
+          "role": "日历：全学期观察终点"
+        }
+      }
+    }
+  }
+}

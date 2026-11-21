@@ -1,0 +1,26 @@
+{
+  "decision": "PARTIAL",
+  "passing_configurations": [],
+  "partial_configurations": [
+    {
+      "label": "age55plus",
+      "observer": "resource",
+      "week": "full",
+      "model": "LR",
+      "control": "actual",
+      "train_n": 3911,
+      "train_positive": 17,
+      "test_n": 2538,
+      "test_positive": 15,
+      "missing": 0,
+      "auc": 0.6815827718324745,
+      "auc_low": 0.5052943722895611,
+      "auc_high": 0.8361812416039721,
+      "balanced_accuracy": 0.7028933808957589,
+      "ba_low": 0.5702593032462391,
+      "ba_high": 0.8256136183689629,
+      "bootstrap_valid": 1000
+    }
+  ],
+  "gate1_executed": false
+}
