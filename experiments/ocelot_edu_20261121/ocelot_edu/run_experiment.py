@@ -900,7 +900,7 @@ def yuan(tokens_in: int, tokens_out: int, price: dict) -> float:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("phase", choices=["local", "smoke", "full", "decide"])
+    parser.add_argument("phase", choices=["local", "smoke", "full", "local_attack", "decide"])
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
     ART.mkdir(parents=True, exist_ok=True)
@@ -946,6 +946,38 @@ def main() -> None:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         if not report["within_budget"]:
             raise SystemExit(2)
+        return
+    if args.phase == "local_attack":
+        smoke = json.loads((ART / "smoke.json").read_text())
+        if not smoke.get("within_budget"):
+            raise SystemExit("smoke extrapolation is over budget; attacker run blocked")
+        env = load_env()
+        local = local_arms(turns)
+        _jsonl(ART / "releases.jsonl", local)
+        arms = ["none", "nemo", "ocelot_minus", "cost_model_identity"]
+        jobs = attack_views(local, coals, arms)
+        uniq = {}
+        for job in jobs:
+            uniq.setdefault((job["arm"], job["view"]), job)
+        attacks, attack_usage = run_attacker(list(uniq.values()), env, args.workers)
+        full_attacks = fan_out_attacks(jobs, attacks)
+        _jsonl(ART / "attacks.jsonl", full_attacks)
+        prompt_status = {
+            "status": "not_run",
+            "reason": "dashscope_arrearage",
+            "detail": "qwen3.5-flash returned Arrearage before the prompt arm could be completed. Cached calls are not used as a partial arm.",
+        }
+        _write(ART / "api_usage.json", {"prompt": prompt_status, "attacker": attack_usage, "qwen_model": smoke.get("qwen_model")})
+        ev = evaluate(local, full_attacks, coals, turns)
+        _jsonl(ART / "per_coal.jsonl", ev["per_coal"])
+        _jsonl(ART / "emergent.jsonl", ev["emergent"])
+        _jsonl(ART / "g2.jsonl", ev["g2"])
+        _jsonl(ART / "g3_atoms.jsonl", ev["g3"])
+        decision = decide(ev, local)
+        decision["utility"] = utility_table(local, turns)
+        decision["prompt_arm_status"] = prompt_status
+        _write(ART / "decision.json", decision)
+        print(json.dumps(decision["overall"], ensure_ascii=False))
         return
     if args.phase == "full":
         smoke = json.loads((ART / "smoke.json").read_text())

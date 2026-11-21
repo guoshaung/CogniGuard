@@ -98,11 +98,11 @@ def write() -> None:
     model = usage.get("qwen_model", "")
     reasons = _recover_reasons(turns, model) if model else {}
 
-    qwen_rmb = yuan(
-        usage["prompt"]["prompt_tokens"],
-        usage["prompt"]["completion_tokens"],
-        QWEN_FLASH_PRICE,
-    )
+    prompt_usage = usage.get("prompt") or {}
+    if "prompt_tokens" in prompt_usage:
+        qwen_rmb = yuan(prompt_usage["prompt_tokens"], prompt_usage["completion_tokens"], QWEN_FLASH_PRICE)
+    else:
+        qwen_rmb = 0.0
     deep_rmb = yuan(
         usage["attacker"]["prompt_tokens"],
         usage["attacker"]["completion_tokens"],
@@ -365,10 +365,21 @@ def _result(decision, usage, smoke, reasons, qwen_rmb, deep_rmb) -> str:
     else:
         lines.append("- 没有逐轮原因。")
     lines.append("")
-    lines.append("聚合计数（运行时）：" + json.dumps(usage.get("prompt", {}).get("reasons", {}), ensure_ascii=False))
+    lines.append("聚合计数（运行时）：" + json.dumps((usage.get("prompt") or {}).get("reasons", {}), ensure_ascii=False))
+    if (usage.get("prompt") or {}).get("status") == "not_run":
+        lines.append("")
+        lines.append("上面的逐轮来源来自中断前的缓存，只作描述。提示词臂没有进入判定，因为 DashScope 返回欠费，缓存不构成完整的一臂。")
     lines.extend(["", "## 费用", ""])
-    lines.append(f"- Qwen 调用 {usage['prompt']['calls']} 次，输入 {usage['prompt']['prompt_tokens']}，输出 {usage['prompt']['completion_tokens']}，按 flash 标价 {qwen_rmb:.4f} 元。")
-    lines.append(f"- DeepSeek 调用 {usage['attacker']['calls']} 次，输入 {usage['attacker']['prompt_tokens']}，输出 {usage['attacker']['completion_tokens']}，按高峰价 {deep_rmb:.4f} 元。")
+    prompt_usage = usage.get("prompt") or {}
+    if "prompt_tokens" in prompt_usage:
+        lines.append(
+            f"- Qwen 调用 {prompt_usage['calls']} 次，输入 {prompt_usage['prompt_tokens']}，输出 {prompt_usage['completion_tokens']}，按 flash 标价 {qwen_rmb:.4f} 元。"
+        )
+    else:
+        lines.append("- Qwen 提示词臂没有跑完。" + json.dumps(prompt_usage, ensure_ascii=False))
+    lines.append(
+        f"- DeepSeek 调用 {usage['attacker']['calls']} 次，输入 {usage['attacker']['prompt_tokens']}，输出 {usage['attacker']['completion_tokens']}，按高峰价 {deep_rmb:.4f} 元。"
+    )
     lines.append(f"- 合计 {qwen_rmb + deep_rmb:.4f} 元。冒烟外推是 {smoke.get('extrapolated_total_rmb')} 元。上限 100 元。")
     lines.append("")
     lines.append("DeepSeek 若开了思考模式，输出 token 会高一个数量级。本次输出 token 与输入的比例没有出现这种情况。")
@@ -462,6 +473,8 @@ def _decision(decision, reasons, usage) -> str:
     id_g2 = decision["G2"]["cost_model_identity"]["verdict"]
     pr_g2 = decision["G2"]["prompt"]["verdict"]
     lines.append(f"分臂：诊断臂 G1 为 {id_g1}，提示词臂 G1 为 {pr_g1}；诊断臂 G2 为 {id_g2}，提示词臂 G2 为 {pr_g2}。")
+    if (decision.get("prompt_arm_status") or {}).get("status") == "not_run":
+        lines.append("提示词臂没有跑完。DashScope 对 qwen3.5-flash 返回欠费（Arrearage），9B 权重本身也没有访问权限。该臂记为无法判定，不把中断前的缓存当作完整一臂。DeepSeek 仍评价了本地四臂。cost_model_identity 仍是 G1 和 G2 的主臂之一。")
     lines.append("诊断臂使用正确字段和 IDENTITY 提案，测的是替代代价表加真实验证器。它不是部署系统，也不是官方 OCELOT。支持若来自这一臂，含义是成对账本对顺序层收费为 0，单条轨迹不超支，多名学生把输出放在一起后可以拼回单元。这不是官方未发表代价表上的测量。")
     lines.append("")
     lines.append(f"提示词臂逐轮标注来源：{dict(counts)}。其中模型自己通过两轮一致性的有 {counts.get('model', 0)} 轮，回退或其他原因 {fallback} 轮，缓存缺失 {counts.get('cache_miss', 0)} 轮。官方模型经过 GRPO，未微调的 `{usage.get('qwen_model')}` 没有这个训练。高回退按协议不改判成无法判定。")

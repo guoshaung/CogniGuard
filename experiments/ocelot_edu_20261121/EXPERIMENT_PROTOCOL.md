@@ -164,3 +164,5 @@ python3 -m experiments.ocelot_edu_20261121.ocelot_edu.run_experiment decide
 ```
 
 `local` 不调用 API。`full` 在没有“外推未超预算”的 `artifacts/smoke.json` 时拒绝运行。`decide` 只重算已有产物。
+
+执行记录：冒烟外推约 1 元，低于 100 元。正式跑在 Qwen 调用中途被 DashScope 以 Arrearage（账户欠费）拒绝，`qwen3.5-9b` 也是 access denied。提示词臂因此没有完整结果，判定按无法判定处理，不使用残缺缓存。`local_attack` 只对 none、nemo、ocelot_minus、cost_model_identity 调用 DeepSeek。判定线没有改。
