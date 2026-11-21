@@ -5,7 +5,7 @@
   "code_sha256": {
     "common.py": "026cc2224dce2cce244cce4886115f41673a989ad0a3815c0a278f085fc15ba0",
     "knowledge_pairs.py": "f61158237678bc33b617f352ccecd10c888b698fe3fdcf20e707e790e3d169c1",
-    "run_stage1.py": "ad0bc1f182bbae336186c17bb45a6ca7d6788dd903d7fecd09d479acfeca3333",
+    "run_stage1.py": "81691c79be1aaba1996c00af8c8c81eab4f7cee968c0a035a70172e3fb602271",
     "test_knowledge_pairs.py": "436b80301d0a4259d4d3b816ae374cb2fbac3781ce6273ad75aa74ed56e35c9a"
   },
   "reused_term_siblings_sha256": "4946dce49213305891aea520c91fe57e7666a95f09f20ca92e92c9cf12527f88",
@@ -13,5 +13,6 @@
   "blocked_case_validation_sha256": "c2547a5f42cc91ee7a224b499a4b447ab8de26cefafdd492bf0328347417e297",
   "tests": "4 passed",
   "no_llm_calls_yet": true,
-  "scientific_gates_changed": false
+  "scientific_gates_changed": false,
+  "analysis_repair": "Import ROOT before G6 R_calib read; reuse saved pairs, same formulas and keys"
 }

@@ -10,7 +10,7 @@ from collections import Counter,defaultdict
 
 import numpy as np
 import requests
-from common import HERE,OUT,EMBED,SEED,load,dump,sha,seed,frozen_components,prereg_gate
+from common import ROOT,HERE,OUT,EMBED,SEED,load,dump,sha,seed,frozen_components,prereg_gate
 from knowledge_pairs import variants
 
 PROMPTS={
