@@ -153,7 +153,7 @@ def normalize_placeholder_tokens(text: str, placeholder_map: PlaceholderMap) -> 
         if not m:
             continue
         prefix, idx = m.group(1), m.group(2)
-        pat = re.compile(rf"<\s*{prefix}\s*_\s*{re.escape(idx)}\s*>", re.IGNORECASE)
+        pat = re.compile(rf"<\s*{prefix}\s*_\s*{re.escape(idx)}\s*[>}}\]]", re.IGNORECASE)
         t = pat.sub(ph, t)
     for ph in placeholder_map.all_placeholders():
         m = re.match(r"^<([A-Z]+)_(\d+)>$", ph)
@@ -179,20 +179,35 @@ def placeholders_intact(text: str, placeholder_map: PlaceholderMap) -> bool:
     return True
 
 
+def restore_missing_placeholders(text: str, placeholder_map: PlaceholderMap) -> tuple[str, list[str]]:
+    """Append omitted protected spans through an auditable non-generative channel."""
+    normalized = normalize_placeholder_tokens(text, placeholder_map)
+    missing = [placeholder for placeholder in placeholder_map.all_placeholders() if placeholder not in normalized]
+    if not missing:
+        return normalized, []
+    return normalized.rstrip() + "\n\n【关键内容校验】" + "；".join(missing), missing
+
+
 def extract_protected_spans(
     sample: dict[str, Any],
     extra_terms_file: list[str] | None = None,
 ) -> tuple[list[str], list[str], list[str]]:
     """合并样例字段、术语表与从题干/草稿中抽取的数字。"""
-    terms = list(sample.get("protected_terms") or [])
-    formulas = list(sample.get("protected_formulas") or [])
-    numbers = list(sample.get("protected_numbers") or [])
-    if extra_terms_file:
-        terms.extend(extra_terms_file)
     q = sample.get("question") or ""
     d = sample.get("draft_answer") or ""
+    # Metrics must only require spans visible in the source being rewritten.
+    terms = [x for x in (sample.get("protected_terms") or []) if x in q or x in d]
+    formulas = [x for x in (sample.get("protected_formulas") or []) if x in q or x in d]
+    numbers = [x for x in (sample.get("protected_numbers") or []) if x in q or x in d]
+    if extra_terms_file:
+        # A global terminology file is useful for recognizing spans, but it must
+        # not become the denominator of term-keeping metrics.  Only terms that
+        # actually occur in this question or draft are protected for evaluation.
+        terms.extend(t for t in extra_terms_file if t in q or t in d)
     for m in _NUMBER_RE.finditer(q):
-        numbers.append(m.group(0))
+        value = m.group(0)
+        if value in d:
+            numbers.append(value)
     # 去重保持顺序
     def uniq(xs: list[str]) -> list[str]:
         out: list[str] = []

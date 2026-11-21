@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from backend.app.agents.agent_orchestrator import TPCSController
-from backend.app.agents.learning_assessment_agent import LearningAssessmentAgent
+from cogniguard.agents.agent_orchestrator import CGController
+from cogniguard.agents.learning_assessment_agent import LearningAssessmentAgent
 
 
 class MalformedEvidenceClient:
@@ -33,7 +33,7 @@ def _profile_encoding() -> dict:
 
 def test_self_reported_mastery_cannot_directly_update_profile() -> None:
     agent = LearningAssessmentAgent()
-    tpcs = TPCSController()
+    cg = CGController()
 
     assessment = agent.generate(
         {
@@ -47,12 +47,12 @@ def test_self_reported_mastery_cannot_directly_update_profile() -> None:
     )
 
     evidence = assessment["profile_update_evidence"]
-    decision = tpcs.approve_profile_update_evidence(
+    decision = cg.approve_profile_update_evidence(
         evidence,
         round_id="attack_profile_pollution",
     )
 
-    assert evidence["requires_tpcs_approval"] is True
+    assert evidence["requires_cg_approval"] is True
     assert evidence["direct_profile_update_requested"] is True
     assert "assessment_result" in evidence
     assert decision["approved_for_profile_update_review"] is False
@@ -74,6 +74,6 @@ def test_malformed_llm_evidence_uses_safe_fallback_structure() -> None:
 
     evidence = assessment["profile_update_evidence"]
     assert isinstance(evidence, dict)
-    assert evidence["requires_tpcs_approval"] is True
+    assert evidence["requires_cg_approval"] is True
     assert evidence["mastery_score"] == 0.6
     assert assessment["confidence_score"] == 0.7

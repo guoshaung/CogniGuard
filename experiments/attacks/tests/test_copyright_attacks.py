@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.app.agents.copyright_aware_resource_agent import (
+from cogniguard.agents.copyright_aware_resource_agent import (
     CopyrightAwareResourceAgent,
 )
 

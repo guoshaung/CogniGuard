@@ -1,0 +1,9 @@
+# Native InjecAgent protocol: official tool-response fields, prompts, scorer.
+# No actual model or external tools execute in this default plan.
+schema_version: 1
+jobs:
+  - adapter: injecagent
+    dry_run: true
+    limit: 1  # Maps to the original runner's --per-kind.
+    seeds: [20261013]
+    workers: 2

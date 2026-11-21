@@ -6,7 +6,7 @@ import copy
 from pathlib import Path
 from typing import Any
 
-from backend.app.compliance import (
+from cogniguard.compliance import (
     build_compliance_state,
     build_data_categories,
     evaluate_compliance_policy,
@@ -102,7 +102,7 @@ def _run_fopd_method(
     )
 
 
-def _run_tpcs_policy_row(
+def _run_cg_policy_row(
     config: dict[str, Any],
     profile: Any,
     task: Any,
@@ -140,7 +140,7 @@ def _run_tpcs_policy_row(
     sanitized_payload = sanitize_context_card(payload, categories)
     sanitized_card = str(sanitized_payload.get("context_card", ""))
     return _metric_row(
-        "EnhancedFOPD+TPCS",
+        "EnhancedFOPD+CG",
         profile,
         task,
         sanitized_card,
@@ -154,15 +154,24 @@ def _run_tpcs_policy_row(
     )
 
 
-def evaluate(config_path: str | Path) -> dict[str, Any]:
+def evaluate(
+    config_path: str | Path,
+    student_data_root: str | Path | None = None,
+    results_root: str | Path | None = None,
+) -> dict[str, Any]:
     config = load_config(config_path)
-    root = Path(config_path).resolve().parent.parent
     project_root = Path(__file__).resolve().parents[2]
-    output_root = project_root / "experiments" / "results" / "evaluation"
-    ablation_root = project_root / "experiments" / "results" / "ablation"
-    baselines_root = project_root / "experiments" / "results" / "baselines"
-    profiles = load_profiles(root / "data/profiles.jsonl")
-    questions = read_jsonl(root / "data/student_questions.jsonl")
+    if student_data_root is None:
+        student_data_root = Path(config_path).resolve().parent.parent / "data"
+    student_data_root = Path(student_data_root)
+    if results_root is None:
+        output_root = project_root / "experiments" / "results" / "evaluation"
+        ablation_root = project_root / "experiments" / "results" / "ablation"
+        baselines_root = project_root / "experiments" / "results" / "baselines"
+    else:
+        output_root = ablation_root = baselines_root = Path(results_root)
+    profiles = load_profiles(student_data_root / "profiles.jsonl")
+    questions = read_jsonl(student_data_root / "student_questions.jsonl")
     rows: list[dict[str, Any]] = []
 
     fopd_methods = [
@@ -256,7 +265,7 @@ def evaluate(config_path: str | Path) -> dict[str, Any]:
 
         for method, method_config in fopd_methods:
             rows.append(_run_fopd_method(method, method_config, profile, task))
-        rows.append(_run_tpcs_policy_row(_variant_config(config, use_enhanced=True), profile, task))
+        rows.append(_run_cg_policy_row(_variant_config(config, use_enhanced=True), profile, task))
 
     summary: dict[str, Any] = {}
     for method in sorted({r["method"] for r in rows}):
@@ -280,7 +289,7 @@ def evaluate(config_path: str | Path) -> dict[str, Any]:
         "summary": summary,
         "ablation_note": (
             "EnhancedFOPD-Full is compared with orthogonal privacy gating, task attention, "
-            "information bottleneck, and TPCS compliance policy ablations."
+            "information bottleneck, and CG compliance policy ablations."
         ),
         "baseline_note": (
             "External privacy baselines include PII-Redaction, PresidioStyle-PII-Masking, "
@@ -304,8 +313,10 @@ def main() -> None:
         "--config",
         default="protection/student_profile/configs/default.yaml",
     )
+    ap.add_argument("--student-data-root", type=Path)
+    ap.add_argument("--results-root", type=Path)
     args = ap.parse_args()
-    print(evaluate(args.config))
+    print(evaluate(args.config, args.student_data_root, args.results_root))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,5 @@
+# Optional historical model / watermark experiments.
+-r runtime.txt
+-r ../protection/audit_trace/requirements.txt
+-r ../protection/supporting/image_watermark/requirements.txt
+Pillow>=10.0.0

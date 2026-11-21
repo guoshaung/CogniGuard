@@ -1,0 +1,49 @@
+model:
+  provider: "huggingface"
+  local_model_name: "/root/autodl-tmp/models/qwen25-7b-instruct-bnb4"
+  device: "cuda"
+  dtype: "float16"
+  max_new_tokens: 1280
+  rewrite_max_new_tokens: 1024
+  temperature: 0.7
+  rewrite_temperature: 0.32
+  repetition_penalty: 1.04
+  top_p: 0.92
+
+watermark:
+  key: "demo_secret_key"
+  key_id: "key_long_7b"
+  gamma: 0.25
+  delta: 2.25
+  window_size: 4
+  z_threshold: 2.85
+  local_window_tokens: 160
+  local_window_stride: 40
+
+data:
+  dataset_path: "data/expanded_edu_dataset.jsonl"
+  teacher_resources_path: "data/teacher_resources.jsonl"
+  clean_baseline_path: "data/expanded_clean_baseline.jsonl"
+  terms_path: "data/protected_terms_math.txt"
+  length_tier: "long"
+  num_samples: 12
+  num_clean_baselines: 20
+  subject: "math"
+  random_seed: 42
+
+experiment:
+  run_attacks: true
+  use_sentence_embedding: false
+  save_intermediate: true
+  random_seed: 42
+  ablation: "full"
+  content_fidelity:
+    enabled: true
+    max_attempts: 3
+    max_draft_similarity: 0.995
+    min_term_coverage: 0.8
+    fallback_to_draft_on_drift: true
+
+paths:
+  output_dir: "outputs/expanded_long"
+  output_run_subdir: true

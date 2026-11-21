@@ -1,0 +1,4 @@
+# Run from the CogniGuard root with: pip install -r requirements.txt
+-r protection/audit_trace/requirements.txt
+-r dfg_locguard/requirements.txt
+Pillow>=10.0.0

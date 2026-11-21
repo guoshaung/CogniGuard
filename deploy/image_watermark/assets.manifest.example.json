@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "hash_algorithm": "sha256",
+  "description": "Expected hashes for the checkpoint files present in the CogniGuard development workspace on 2026-08-02. Recompute deliberately if an approved asset changes.",
+  "assets": [
+    {
+      "path": "assets/checkpoints/clean.pth",
+      "role": "EditGuard clean inference checkpoint used by the API",
+      "required": true,
+      "size_bytes": 37760088,
+      "sha256": "b967b91b94a464ab73f82db63a57ee818e6fc5d99d7ae6aa094a1777cac977d5"
+    },
+    {
+      "path": "assets/checkpoints/degrade.pth",
+      "role": "Optional EditGuard degraded-condition checkpoint",
+      "required": false,
+      "size_bytes": 37760088,
+      "sha256": "771d0418aae3926c953782a61c064fa6b49b52dba839ed1b7fd3583ffb467983"
+    },
+    {
+      "path": "assets/checkpoints/sam_vit_b_01ec64.pth",
+      "role": "Optional SAM ViT-B proposal checkpoint for semantic experiments",
+      "required": false,
+      "size_bytes": 375042383,
+      "sha256": "ec2df62732614e57411cdcf32a23ffdf28910380d03139ee0f4fcbe91eb8c912"
+    }
+  ]
+}
+

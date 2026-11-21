@@ -1,0 +1,42 @@
+{
+  "status": "TEMPLATE_NOT_EXECUTION_READY",
+  "source_api": {
+    "base_url": "https://YOUR_APPROVED_API/v1",
+    "model": "gpt-6.1-sol",
+    "credential_channel": "controller process memory only; never sent to worker"
+  },
+  "remote": {
+    "host": "REPLACE_ME",
+    "port": 22,
+    "username": "REPLACE_ME",
+    "host_fingerprint": "SHA256:REPLACE_FROM_READONLY_PREFLIGHT",
+    "python": "/absolute/path/to/approved/python3",
+    "workdir": "/absolute/path/to/approved/hsw-workspace",
+    "model_dir": "/absolute/path/to/already-approved/Qwen2.5-7B-Instruct",
+    "model_manifest": "/absolute/path/to/frozen-model-manifest.json"
+  },
+  "worker_engine": {
+    "prepared": "transformers-torch_musa-internal",
+    "precision": "fp16",
+    "strictly_same_model_as_R18_GGUF": false,
+    "device": "musa:0",
+    "concurrency": 1,
+    "vllm_musa": "BLOCKED_UNTIL_INSTALLED_VERSION_AND_V1_CALLBACK_ADAPTER_VALIDATED"
+  },
+  "kgw": {
+    "gamma": 0.25,
+    "delta": 2.0,
+    "window": 4,
+    "vocab_size": 151643,
+    "threshold": 3.0,
+    "comparison": "strict z > 3",
+    "key": "DO_NOT_PUT_LITERAL_HERE",
+    "key_provision": "worker per-process secret CG_HSW_KGW_KEY; separate from API/SSH credentials"
+  },
+  "execution": {
+    "submit_default": "PLAN_ONLY",
+    "generations_authorized_in_R19": 0,
+    "auto_retry": false,
+    "concurrency_benchmark": "BLOCKED_UNTIL_ALL_REMOTE_GATES_PASS"
+  }
+}

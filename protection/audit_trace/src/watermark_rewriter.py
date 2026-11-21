@@ -22,8 +22,9 @@ from semantic_protector import (
     placeholders_intact,
     protect_spans,
     restore_spans,
+    restore_missing_placeholders,
 )
-from watermark_logits_processor import KGWLogitsProcessor
+from watermark_logits_processor import KGWLogitsProcessor, ConfidenceGatedKGWLogitsProcessor, EntropyScaledKGWLogitsProcessor
 
 # 最小改动 + KGW：自由改写易破坏公式/占位符且稀释统计水印；应用「顺连接词、保骨架」
 REWRITE_SYSTEM = (
@@ -34,6 +35,7 @@ REWRITE_SYSTEM = (
     "· 整体结构、论证顺序与原文一致；仅允许替换少量连接词（如因此↔所以、此外↔另外），不要改写成代码说明体；\n"
     "· 禁止用反引号 ` 包裹中文或公式；禁止「表达式 `…`」这种 Markdown；\n"
     "· 禁止重新推算、改写或编造任何等式与数值；若原文已有 Δ=…、根为… 等，必须与原文结论一致；\n"
+    "· 长文本按原有段落和【标题】结构逐段润色，禁止压缩、删段或只输出摘要；\n"
     "· 禁止客服话术（当然可以、请提供、以下是）；禁止 ### 标题与多轮对话。\n"
     "输出：一段连续正文，从第一句就是教学内容。"
 )
@@ -307,11 +309,14 @@ def rewrite_with_hf(
     use_kgw: bool,
     repetition_penalty: float = 1.08,
     extra_system: str = "",
+    system_prompt: str = "",
+    watermark_variant: str = "kgw",
 ) -> tuple[str, Any]:
     model, tok = get_or_load_hf(model_name, device, dtype_str)
 
     user_body = (protected_draft or "").strip() or "（无正文）"
-    sys_msg = REWRITE_SYSTEM + (("\n\n" + extra_system.strip()) if extra_system.strip() else "")
+    base_system = system_prompt.strip() or REWRITE_SYSTEM
+    sys_msg = base_system + (("\n\n" + extra_system.strip()) if extra_system.strip() else "")
     messages = [
         {"role": "system", "content": sys_msg},
         {"role": "user", "content": user_body},
@@ -355,7 +360,7 @@ def rewrite_with_hf(
     lp_list = LogitsProcessorList()
     if use_kgw and delta != 0:
         lp_list.append(
-            KGWLogitsProcessor(
+            {"confidence_gated_kgw": ConfidenceGatedKGWLogitsProcessor, "entropy_scaled_kgw": EntropyScaledKGWLogitsProcessor}.get(watermark_variant, KGWLogitsProcessor)(
                 vocab_size=tok.vocab_size,
                 gamma=gamma,
                 delta=delta,
@@ -373,7 +378,7 @@ def rewrite_with_hf(
 
     with torch.no_grad():
         gen_kw: dict[str, Any] = {
-            "max_new_tokens": min(max_new_tokens, 384),
+            "max_new_tokens": min(max_new_tokens, 1280),
             "do_sample": temperature > 0,
             "logits_processor": lp_list,
             "pad_token_id": tok.eos_token_id,
@@ -453,10 +458,12 @@ def rewrite_sample(
     fidelity_violations_last: list[str] = []
     used_draft_fallback = False
     rewrite_attempts_used = 0
+    repaired_placeholders: list[str] = []
 
     hf_name = mm.get("local_model_name", "Qwen/Qwen2.5-3B-Instruct")
     tok_budget = _rewrite_token_budget(mm)
     wm_cfg = cfg.get("watermark") or {}
+    watermark_variant = str((cfg.get("experiment") or {}).get("watermark_variant", "kgw")).lower()
     wm_key = wm_cfg.get("key", "demo_secret_key")
     gamma = float(wm_cfg.get("gamma", 0.25))
     delta_kgw = float(wm_cfg.get("delta", 2.0)) if use_kgw else 0.0
@@ -465,6 +472,13 @@ def rewrite_sample(
     base_temp = float(mm.get("rewrite_temperature", mm.get("temperature", 0.55)))
     rp_base = float(mm.get("repetition_penalty", 1.06))
     extra_constraints = build_extra_system_constraints(question, draft_answer, terms)
+    rewrite_style = str(((cfg.get("experiment") or {}).get("rewrite_style") or "minimal").lower())
+    moderate_system = (
+        "你是中文教学文本改写器。请对输入做中等强度改写：连接词、句式和解释性表述应有15%-30%变化；"
+        "保留原意、原结论、段落顺序和【标题】。所有 <FORMULA_n>、<TERM_n>、<NUM_n> 占位符必须逐字原样保留，"
+        "禁止删除、重排或改成其他形式。不得重新计算公式或编造数值。输出完整改写文本，禁止解释、摘要或省略。"
+    )
+    selected_system = moderate_system if rewrite_style == "moderate" else ""
 
     if provider == "openai":
         raw_gen = rewrite_with_openai(
@@ -525,6 +539,8 @@ def rewrite_sample(
                 use_kgw,
                 rpen,
                 extra_system=extra_sys,
+                system_prompt=selected_system,
+                watermark_variant=watermark_variant,
             )
 
         n_attempts = fc.max_attempts if fc.enabled else 1
@@ -576,7 +592,8 @@ def rewrite_sample(
 
         if use_protect and pmap and (pmap.terms or pmap.formulas or pmap.numbers):
             if not placeholders_intact(raw_gen, pmap):
-                failed_ph = True
+                raw_gen, repaired_placeholders = restore_missing_placeholders(raw_gen, pmap)
+            failed_ph = not placeholders_intact(raw_gen, pmap)
 
         restored_pre = restore_spans(raw_gen, pmap) if use_protect else raw_gen
         fidelity_violations_last = (
@@ -609,4 +626,7 @@ def rewrite_sample(
         "fidelity_violations": fidelity_violations_last,
         "used_draft_fallback": used_draft_fallback,
         "rewrite_attempts_used": rewrite_attempts_used,
+        "selective_protected_channel": bool(use_kgw and use_protect),
+        "repaired_placeholders": repaired_placeholders,
+        "repaired_placeholder_count": len(repaired_placeholders),
     }

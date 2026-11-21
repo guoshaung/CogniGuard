@@ -1,0 +1,212 @@
+/* Warm, paper-like surfaces keep orange and terracotta as restrained accents. */
+:root {
+  color-scheme: light;
+  --bg: #f7f2ed;
+  --bg-elevated: #fffaf5;
+  --bg-soft: #f5ebe3;
+  --card: #fffdfb;
+  --border: rgba(114, 69, 49, .16);
+  --text: #302522;
+  --muted: #75645b;
+  --blue: #b85639;
+  --green: #35735e;
+  --amber: #a86628;
+  --red: #b74538;
+  --shadow: 0 18px 44px rgba(103, 68, 46, .09);
+}
+body { background: var(--bg); color: var(--text); }
+::-webkit-scrollbar-track { background: #f1e9e2; }
+::-webkit-scrollbar-thumb { background: #cfb9ac; }
+::-webkit-scrollbar-thumb:hover { background: #b77b65; }
+.interactive-background {
+  background: radial-gradient(ellipse at 16% 7%, rgba(241, 177, 141, .22), transparent 32%),
+    radial-gradient(ellipse at 84% 28%, rgba(230, 143, 126, .12), transparent 34%),
+    linear-gradient(165deg, #fcf8f3, #f6eee7 58%, #faf7f2);
+}
+/* A few translucent surfaces retain the soft glass effect without blurring the full page. */
+.tab-list, .case-modal-overlay {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.content-panel, .experiment-section, .classroom-hero, .classroom-attack-dock {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.site-header { border-color: rgba(112, 70, 51, .12); }
+.brand-mark { background: #fae9de; border-color: #efd2c2; color: #b9543a; }
+.language-toggle, .tab-list { background: rgba(255, 253, 250, .8); border-color: var(--border); color: #745548; }
+.tab-button { color: #74665f; }
+.tab-button:hover, .tab-button.active { background: #f8e4d8; color: #933e2b; box-shadow: inset 0 0 0 1px #efcbb9; }
+.landing-intro h1 {
+  color: #382822;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .75), 0 8px 22px rgba(118, 69, 49, .09);
+  animation: none;
+}
+.landing-intro h1 span {
+  background: linear-gradient(110deg, #a84c37 0%, #c65d40 30%, #da7a56 45%,
+    #e89b70 50%, #d87450 55%, #b95039 74%, #a84c37 100%);
+  background-size: 240% 100%;
+  background-position: 100% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 1px rgba(164, 80, 53, .18));
+  animation: warm-glass-reflection 11s ease-in-out infinite;
+}
+@keyframes warm-glass-reflection {
+  0%, 20% { background-position: 100% 50%; }
+  65%, 100% { background-position: 0% 50%; }
+}
+.landing-intro p { color: #75675f; }
+.primary-button { background: linear-gradient(135deg, #cc6545, #e39462); color: #fff; box-shadow: 0 8px 20px rgba(176, 82, 50, .16); }
+.ghost-button, .inline-button { background: #fffaf7; color: var(--text); border-color: var(--border); }
+.workspace-shell { background: #fffdfa; border-color: #ebdcd1; box-shadow: 0 25px 65px rgba(105, 69, 48, .1); }
+.workspace-shell::before { display: none; }
+.workspace-header { background: #fffdfa; border-color: var(--border); }
+.workspace-header span, .global-status-bar span { color: #967d70; }
+.workspace-header strong, .global-status-bar strong { color: #3c2b24; }
+.workspace-status span { color: #826a5d; background: #f9f1eb; border-color: var(--border); }
+.global-status-bar { background: #eee2d9; border-color: #eee2d9; }
+.global-status-bar div { background: #faf5f0; }
+.content-panel { background: #fffcf9; }
+.experiment-section { background: #fffdfa; border-color: #eee0d7; box-shadow: none; }
+.experiment-page-stack > .experiment-section:nth-child(3n + 2) {
+  background: linear-gradient(125deg, #fffaf6, #fdf0e7);
+  border-color: #ecd9cb;
+}
+.experiment-page-stack > .experiment-section:nth-child(3n) {
+  background: linear-gradient(145deg, #fffefd, #faf6f0);
+  box-shadow: inset 3px 0 0 #e3c3ad;
+}
+.experiment-page-stack > .experiment-section:nth-child(3n + 2) .experiment-section-kicker {
+  color: #a95b40;
+}
+.experiment-page-stack > .experiment-section:nth-child(3n) .experiment-section-kicker {
+  color: #88705c;
+}
+.experiment-section-kicker { color: #b85639; }
+.experiment-section-header p { color: #796a61; }
+.experiment-status-card, .round-flow-card, .resource-card-grid article,
+.attack-validation-grid article, .comparison-grid article, .protection-collapsible-grid details,
+.compliance-grid div, .compliance-policy-grid article, .compliance-events {
+  background: #faf5f0; border-color: #eee1d8;
+}
+.experiment-status-card span, .compliance-grid span, .compliance-policy-grid span { color: #927d70; }
+.experiment-status-card strong, .round-flow-card header strong, .compliance-grid strong { color: #43332c; }
+.experiment-status-card em, .round-flow-card p, .compliance-policy-grid p { color: #74665e; }
+.experiment-status-card:nth-child(3n + 2) { background: #fff9f5; }
+.experiment-status-card:nth-child(3n) { background: #f8f4ed; }
+.round-flow-card p { padding: 7px 10px; border-radius: 8px; }
+.round-flow-card p:nth-of-type(3n + 1) { background: #fffaf7; }
+.round-flow-card p:nth-of-type(3n + 2) { background: #f8ece5; }
+.round-flow-card p:nth-of-type(3n) { border-left: 2px solid #d8b8a4; }
+.round-flow-card b, .protection-collapsible-grid pre { color: #a65339; }
+.round-flow-card header span { color: #a4513b; background: #f9e8df; }
+.protection-collapsible-grid summary { color: #46362f; }
+.fallback-badge { color: #8a6331; background: #fff3df; border-color: #edd8b9; }
+.consent-demo { color: #47372f; background: linear-gradient(120deg, #fffaf6, #fff3ec); border-color: #ead1c1; }
+.consent-demo button { color: #fff; background: #ba654a; border-color: #b65f45; }
+.consent-demo-request { background: #fffaf5; border-color: #d79a6d; }
+.demo-login-form, .demo-login-row { display: flex; align-items: end; flex-wrap: wrap; gap: .75rem; margin: .8rem 0; }
+.demo-login-form label { display: grid; gap: .3rem; flex: 1 1 12rem; }
+.demo-login-form input { width: 100%; }
+.demo-login-form button, .demo-login-row button { min-height: 42px; }
+.demo-login code { font-weight: 700; }
+.case-modal-container { background: #fffaf6; color: var(--text); }
+.case-card, .case-preview-panel { background: #f9f2ec; color: var(--text); border-color: var(--border); }
+.case-preview-panel dd { color: #493932; }
+.case-preview-inject { color: #fff; background: linear-gradient(135deg, #c96043, #e79a68); }
+.mini-trend-card { background: #faf5f0; border-color: #eee1d8; }
+.mini-trend-card span { color: #826d61; }
+.mini-trend-card strong { color: #49372e; }
+.protection-collapsible-grid pre { background: #f7eee8; }
+.classroom-hero, .classroom-role-column, .classroom-control-column,
+.classroom-conversation-panel, .classroom-attack-dock {
+  background: #fff9f4 !important; border-color: #eadbd0 !important;
+  box-shadow: 0 12px 28px rgba(110, 69, 45, .06) !important;
+}
+.classroom-hero p, .classroom-lab :is(p, small, label) { color: #75645c; }
+.classroom-lab :is(h2, h3, h4, strong) { color: #45342c; }
+.classroom-primary-button { color: #fff !important; background: linear-gradient(135deg, #c15b3e, #df9165) !important; box-shadow: none !important; }
+.classroom-secondary-button { color: #a54b34 !important; border-color: #e8c7b6 !important; background: #fffaf6 !important; }
+.classroom-lab :is(.learning-dynamics-strip, .attack-group, .attack-dock-card,
+  .classroom-role-card, .classroom-message-list, .teacher-copyright-panel) {
+  background: #fbf3ed !important; border-color: #eadbd0 !important; box-shadow: none !important;
+}
+.learning-dynamics-strip > div { background: #fffaf6; }
+.learning-dynamics-strip span, .learning-dynamics-strip p { color: #806c60; }
+.learning-dynamics-strip strong { color: #45342c; }
+.attack-dock-header strong { color: #45342c !important; }
+.attack-dock-icon { color: #bd6448 !important; background: #fae9df !important; border-color: #eed2c2 !important; }
+.attack-dock-actions button, .attack-group .attack-group-header { background: #fffaf7 !important; border-color: #eadbd0 !important; color: #765348 !important; }
+.attack-group-header strong, .attack-dock-card strong { color: #51392f !important; }
+.attack-dock-card > span { color: #51392f; }
+.attack-dock-card > small, .attack-group-header small { color: #78675e; }
+.attack-group-toolbar > button, .attack-dock-actions button { color: #765348 !important; background: #fffaf7 !important; border-color: #eadbd0 !important; }
+.attack-group-summary b, .attack-group-summary em { color: #ad684e; }
+.attack-dock-actions em { color: #b35b40 !important; }
+
+/* Orbit headings and status labels need contrast against the warm light page. */
+.cg-orbit-heading h1 { color: #3c2a25; }
+.cg-orbit-kicker { color: #a95339; }
+.cg-orbit-heading p { color: #68574e; }
+.orbit-summary-card, .orbit-agent-status {
+  background: #fffaf6; border-color: #ead7ca;
+}
+.orbit-summary-card > span, .orbit-agent-status div span { color: #79665b; }
+.orbit-summary-card > strong, .orbit-agent-status strong { color: #47342b; }
+.orbit-summary-card p { color: #6f5c52; }
+.orbit-agent-status.docked { background: #f4f3e8; border-color: #d5dfca; }
+.orbit-agent-status b { color: #a75539; }
+.orbit-agent-status.docked b { color: #427c58; }
+.orbit-summary-bar { background: #eadfd6; }
+.orbit-summary-bar i { background: linear-gradient(90deg, #c2694b, #e4a06f); }
+
+/* Give adjacent attack groups distinct but understated warm surfaces. */
+.classroom-lab .attack-groups > .attack-group:nth-child(4n + 1) {
+  background: linear-gradient(130deg, #fff9f5, #f9e9df) !important;
+}
+.classroom-lab .attack-groups > .attack-group:nth-child(4n + 2) {
+  background: linear-gradient(130deg, #fffaf6, #f7efe5) !important;
+}
+.classroom-lab .attack-groups > .attack-group:nth-child(4n + 3) {
+  background: linear-gradient(130deg, #fffaf8, #f9e9e7) !important;
+}
+.classroom-lab .attack-groups > .attack-group:nth-child(4n) {
+  background: linear-gradient(130deg, #fffcf8, #f2efe4) !important;
+}
+.classroom-lab .attack-group .attack-group-header {
+  background: rgba(255, 253, 250, .55) !important;
+}
+.classroom-lab .attack-dock-card {
+  background: rgba(255, 253, 250, .72) !important;
+  display: flex;
+  flex-direction: column;
+}
+.classroom-lab .attack-card-actions { margin-top: auto; padding-top: 16px; gap: 9px; }
+.classroom-lab .attack-card-actions button {
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.25;
+  border-radius: 10px;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.classroom-lab .attack-card-actions button:last-child {
+  background: linear-gradient(135deg, #c9694a, #db9069) !important;
+  border-color: #c96d51 !important;
+  color: #fff !important;
+}
+.classroom-lab .attack-card-actions button:hover:not(:disabled) {
+  box-shadow: 0 5px 14px rgba(143, 82, 58, .16) !important;
+}
+.classroom-lab .attack-card-actions button:focus-visible {
+  outline: 3px solid #a24b35;
+  outline-offset: 2px;
+}
+/* Keep useful state indicators, but remove perpetual decorative paint animations. */
+.classroom-lab :is(.classroom-hero, .attack-dock-card, .classroom-role-card)::before { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-intro h1 span { animation: none; background-position: 72% 50%; }
+}

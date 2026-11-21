@@ -25,15 +25,23 @@ class CopyrightAwareRetriever:
             str(ag2_request.get(k, ""))
             for k in ["question", "knowledge", "difficulty", "teaching_goal", "resource_type"]
         )
+        relevance_scores = self.index.similarities(query)
+        context_scores = (
+            self.index.similarities(context_card)
+            if context_card
+            else [0.0] * len(self.resources)
+        )
         scored: list[RetrievedResource] = []
-        for resource in self.resources:
-            rel = self.index.similarity(query, resource)
+        for resource, rel, context_rel in zip(
+            self.resources, relevance_scores, context_scores
+        ):
             fit = 1.0 if resource.knowledge == ag2_request.get("knowledge") else 0.0
             pedfit = difficulty_match(str(ag2_request.get("difficulty", task.difficulty)), resource.difficulty)
             exposure = self.budget.get(resource.chunk_id)
             focus = self.budget.focus(resource.chunk_id)
             score = (
                 float(self.weights.get("rel", 0.45)) * rel
+                + float(self.weights.get("context", 0.08)) * context_rel
                 + float(self.weights.get("fit", 0.20)) * fit
                 + float(self.weights.get("pedfit", 0.10)) * pedfit
                 - float(self.weights.get("copyright", 0.15)) * resource.copyright_level
@@ -46,6 +54,7 @@ class CopyrightAwareRetriever:
                     score=score,
                     components={
                         "rel": rel,
+                        "context": context_rel,
                         "fit": fit,
                         "pedfit": pedfit,
                         "copyright": resource.copyright_level,

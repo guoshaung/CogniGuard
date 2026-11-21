@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *.pyo
+*.egg-info/
+/build/
+/dist/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -19,8 +22,8 @@ env/
 # Logs
 *.log
 *.err
-logs/
-!logs/.gitkeep
+/var/*
+!/var/README.md
 
 # Local secrets and environment overrides
 .env
@@ -35,8 +38,9 @@ experiments/results/*
 
 # Model and dataset caches
 .cache/
-models/
-checkpoints/
+/assets/models/
+/assets/checkpoints/
+data/image_watermark/
 *.pt
 *.pth
 *.safetensors
@@ -47,3 +51,18 @@ Thumbs.db
 
 # Research scratch notes
 .research_notes/
+
+# Isolated environment used to verify the focused entry point
+/.tmp/focused-check/
+
+# Temporary local work and generated dependency/build trees
+/.tmp/
+/.playwright-mcp/
+node_modules/
+**/.python_deps/
+**/.bundle/
+**/dist/
+
+# Optional LangGraph runtime; keep historical .venv untouched.
+/.venv-langgraph/
+/.venv-nemo/

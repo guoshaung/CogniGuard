@@ -1,0 +1,18 @@
+"""Run FIRST. Establish protocol, frozen old source and preservation hashes."""
+from pathlib import Path
+import json,hashlib,shutil,sys
+P=Path(__file__).parent;ROOT=P.parents[1];sys.path.insert(0,str(P))
+from aligned_selector import ROLE_ALIASES,DEFAULT
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+if (P/'protocol.json').exists():raise RuntimeError('refuse overwrite')
+source=['profile_selector.py','orthogonal_decoder.py','task_attention.py']
+frozen={}
+for name in source:
+ p=ROOT/'protection/student_profile/src/fopd'/name;dest=P/'frozen_original'/name;dest.parent.mkdir(exist_ok=True);shutil.copyfile(p,dest);frozen[str(p.relative_to(ROOT))]=sha(p)
+old=[]
+for name in ['strong_evidence_20261019_01','final_key_evidence_20261019_01']:
+ m=ROOT/'experiments'/name/'evidence_manifest.json';z=json.loads(m.read_text(encoding='utf8'));old.append({'directory':name,'manifest_sha256':sha(m),'files':z['files']})
+(P/'preservation.json').write_text(json.dumps({'core':frozen,'previous':old},indent=2),encoding='utf8')
+protocol={'status':'FROZEN_EXPLORATORY_REPAIR_AND_DEV_CONTENT_RISK','seed':20261019,'K':3,'sensitivity_threshold':.7,'token_cap':32,'shared_encoding':ROLE_ALIASES,'mathematics':'P_t=diag(binary task role mask); symmetric/idempotent coordinate projector. Not learned sensitive decomposition, statistical independence or MI removal.','attention':'TFIDF cosine on public record metadata; softmax/max-softmax yields [0,1] relative weights. Cost lambda*sensitivity has comparable bounded scale.','bottleneck':'budgeted subset optimizer with semantic-role duplication penalty, no MI claim','TaskSlot':'bounded .08 score bonus to explicitly requested mastery IDs, no forced reservation/refill','methods':['Original-commonpool','TaskSlot-commonpool','SafeTaskTopK','TrainMI','Repaired-Full','Repaired-no-projection','Repaired-no-attention','Repaired-no-bottleneck','Repaired-no-taskslot'],'eligibility':'all methods use same safe candidate IDs; legacy actual source preserved, common hard safety/K/token adapter plus complete attention candidate coverage; original native outputs separately historical only','tuning_grid':[{'projection_weight':w,'temperature':t} for w in [.25,.5,.75] for t in [.25,.5,1.]],'fixed_other_config':DEFAULT,'tuning':'Math/Portuguese previous frozen TRAIN/DEV only; choose mean dev grade MAE; then freeze config before any old test recheck or new synthetic heldout evaluation','UCI':'previous splits reused; old data development/recheck only, never blind','new_tasks':'400 fictional profiles; 10 new task families, 200train/40dev/160heldout(4 families). Necessary operands frozen by authored task expression; no test adaptation. Independent synthetic IDs, not real-student independent blind evidence.','predictor':'Ridge alpha1/10/100 dev selection; attribute LR and RF fixed train-only; test once after selected config lock','privacy':'canonical actual selected raw fields; target and presence-mask removed from attacker inputs; per-target BA/AUC, no privacy claim from projected norm','conditional_risk':'development assets only, R=indicator at least one policy relation is derivable from visible evidence; delta=R(seen union new)-R(seen); all arms receive same protected relation policy, no hidden coefficient/answer oracle in detector','C2_information':'all release methods same public fragments, schema, policy, Btokens; executable gold used only by evaluator. ordinary shared-set closure baseline required; no novelty from combination risk','no_CGC_implementation':True,'paid_API':False,'large_downloads':False,'source_hashes':frozen,'repair_source_sha256':sha(P/'aligned_selector.py')}
+(P/'protocol.json').write_text(json.dumps(protocol,ensure_ascii=False,indent=2),encoding='utf8')
+print('FROZEN')

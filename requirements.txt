@@ -1,3 +1,2 @@
-# Run from the CogniGuard root with: pip install -r requirements.txt
--r protection/audit_trace/requirements.txt
-Pillow>=10.0.0
+# Canonical CogniGuard runtime (LangGraph-based).
+-r requirements/runtime.txt

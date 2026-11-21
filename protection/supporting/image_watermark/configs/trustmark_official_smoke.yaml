@@ -1,0 +1,30 @@
+# Real-runtime staging check only. This file can never produce paper-eligible
+# output and deliberately uses one development image, one seed, and four
+# inherited attacks before the full frozen formal grid is attempted.
+
+experiment:
+  name: trustmark_official_native_smoke
+  mode: smoke
+  strict_fail_closed: true
+  attack_scope: traditional_only
+  source_benchmark_config: paper_benchmark.yaml
+  split: dev
+  seeds: [20260802]
+  max_samples: 1
+  attack_ids:
+    - clean
+    - jpeg__quality-70
+    - gaussian_noise__sigma-5.0
+    - erasing__area_ratio-0.15
+  save_attacked_images: false
+  max_inference_failure_rate: 0.0
+  output_root: ../../../var/outputs/trustmark_official_smoke
+
+method:
+  model_variant: Q
+  ecc_schema: BCH_5
+  strength: 1.0
+  device: auto
+  concentrate_wm_region: 1.0
+  required_package_version: 0.9.0
+  required_source_commit: 0ed40cbe8188f664fd9cbbeacd969807de27440a

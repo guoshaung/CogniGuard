@@ -1,0 +1,14 @@
+# Install only into a dedicated TrustMark baseline venv. The exact Adobe VCS
+# commit is enforced again at runtime through PEP 610 direct_url.json.
+trustmark @ git+https://github.com/adobe/trustmark.git@0ed40cbe8188f664fd9cbbeacd969807de27440a#subdirectory=python
+
+# The official package requires NumPy <2 and documents this Torch pair for its
+# Python implementation. These pins isolate it from CogniGuard's production env.
+numpy==1.26.4
+torch==2.1.2
+torchvision==0.16.2
+Pillow==10.4.0
+PyYAML==6.0.2
+scikit-image==0.24.0
+lpips==0.1.4
+

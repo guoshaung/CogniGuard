@@ -46,7 +46,7 @@
       <rect x="224" width="96" height="28" rx="14" fill="#2563EB" fill-opacity="0.23" stroke="#93C5FD" stroke-opacity="0.52"/>
       <text x="242" y="19" fill="#DBEAFE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">HSW-ST</text>
       <rect x="332" width="76" height="28" rx="14" fill="#CA8A04" fill-opacity="0.23" stroke="#FDE68A" stroke-opacity="0.52"/>
-      <text x="352" y="19" fill="#FEF3C7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">TPCS</text>
+      <text x="352" y="19" fill="#FEF3C7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">CG</text>
     </g>
   </g>
 </svg>

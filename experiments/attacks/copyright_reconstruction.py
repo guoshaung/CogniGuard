@@ -102,6 +102,9 @@ def _append_row(
     rows.append(
         {
             "round": round_idx + 1,
+            "resource_id": resource.resource_id,
+            "chunk_id": resource.chunk_id,
+            "knowledge": resource.knowledge,
             "attack_id": attack.get("attack_id", f"atk_{round_idx + 1:03d}"),
             "prompt": attack.get("prompt", ""),
             "method": method,
@@ -149,31 +152,55 @@ def _summarize_method(rows: list[dict[str, Any]]) -> dict[str, float]:
     }
 
 
-def simulate(config_path: str | Path) -> dict[str, Any]:
+def simulate(
+    config_path: str | Path,
+    teacher_data_root: str | Path | None = None,
+    results_root: str | Path | None = None,
+    max_resources: int | None = None,
+) -> dict[str, Any]:
     config = load_config(config_path)
     project_root = Path(__file__).resolve().parents[2]
-    teacher_root = project_root / "protection" / "teacher_resource"
     experiment_root = project_root / "experiments"
-    resources = load_resources(teacher_root / "data/teacher_resources.jsonl")
+    if teacher_data_root is None:
+        teacher_data_root = project_root / "protection" / "teacher_resource" / "data"
+    teacher_data_root = Path(teacher_data_root)
+    resources = load_resources(teacher_data_root / "teacher_resources.jsonl")
     attacks = read_jsonl(
         experiment_root / "attacks" / "data" / "copyright_attack_cases.jsonl"
     )
-    resource = max(resources, key=lambda r: r.copyright_level)
-    resource_no_variant = _resource_with_policy(resource, allow_variant=False)
-    full_budget = ExposureBudget(config)
-    no_variant_budget = ExposureBudget(config)
+    selected_resources = sorted(
+        (resource for resource in resources if resource.copyright_level >= 0.70),
+        key=lambda resource: (-resource.copyright_level, resource.resource_id),
+    ) or sorted(resources, key=lambda resource: resource.resource_id)
+    if max_resources is not None and max_resources > 0:
+        selected_resources = selected_resources[:max_resources]
+    resource_no_variant = {
+        resource.resource_id: _resource_with_policy(resource, allow_variant=False)
+        for resource in selected_resources
+    }
+    full_budgets = {
+        resource.resource_id: ExposureBudget(config) for resource in selected_resources
+    }
+    no_variant_budgets = {
+        resource.resource_id: ExposureBudget(config) for resource in selected_resources
+    }
     rows: list[dict[str, Any]] = []
 
-    for idx, attack in enumerate(attacks):
-        plain = plain_rag_response(resource, idx)
+    attack_resource_pairs = [
+        (resource, attack_idx, attack)
+        for resource in selected_resources
+        for attack_idx, attack in enumerate(attacks)
+    ]
+    for resource, attack_idx, attack in attack_resource_pairs:
+        plain = plain_rag_response(resource, attack_idx)
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="PlainRAG",
             return_mode="quote",
             output=plain,
-            exposure=float(idx + 1),
+            exposure=float(attack_idx + 1),
             resource=resource,
             baseline_family="weak_baseline",
             baseline_note="Unprotected RAG returns increasingly large source excerpts.",
@@ -182,7 +209,7 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
         truncated = resource.content[: resource.policy.max_quote_len]
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="RAG-Truncation",
             return_mode="quote",
@@ -196,7 +223,7 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
         summary_text, _ = render_controlled_resource(resource, "summary", config)
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="RAG-SummaryOnly",
             return_mode="summary",
@@ -210,12 +237,12 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
         guardrail_text, guardrail_mode = _guardrail_only_response(
             resource,
             str(attack.get("prompt", "")),
-            idx,
+            attack_idx,
             config,
         )
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="GuardrailOnly",
             return_mode=guardrail_mode,
@@ -229,13 +256,13 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
         for baseline in build_copyright_external_baselines(
             resource=resource,
             attack=attack,
-            round_idx=idx,
+            round_idx=attack_idx,
             candidate_plain_output=plain,
             config=config,
         ):
             _append_row(
                 rows,
-                round_idx=idx,
+                round_idx=attack_idx,
                 attack=attack,
                 method=baseline.method,
                 return_mode=baseline.return_mode,
@@ -249,7 +276,7 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
         no_budget = produce_controlled_resource(resource, ExposureBudget(config), config)
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="C2RAG-w/o-Budget",
             return_mode=no_budget.mode,
@@ -261,10 +288,14 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
             baseline_note="C2-RAG without cumulative exposure memory.",
         )
 
-        no_variant = produce_controlled_resource(resource_no_variant, no_variant_budget, config)
+        no_variant = produce_controlled_resource(
+            resource_no_variant[resource.resource_id],
+            no_variant_budgets[resource.resource_id],
+            config,
+        )
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="C2RAG-w/o-Variant",
             return_mode=no_variant.mode,
@@ -276,10 +307,14 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
             baseline_note="C2-RAG without protected variant generation.",
         )
 
-        controlled = produce_controlled_resource(resource, full_budget, config)
+        controlled = produce_controlled_resource(
+            resource,
+            full_budgets[resource.resource_id],
+            config,
+        )
         _append_row(
             rows,
-            round_idx=idx,
+            round_idx=attack_idx,
             attack=attack,
             method="C2RAG-full",
             return_mode=controlled.mode,
@@ -291,7 +326,11 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
             baseline_note="Full C2-RAG with exposure budget, controlled return, variants, and resource provenance.",
         )
 
-    output_root = experiment_root / "results" / "attacks"
+    output_root = (
+        Path(results_root)
+        if results_root is not None
+        else experiment_root / "results" / "attacks"
+    )
     out_csv = output_root / "copyright_reconstruction.csv"
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     with out_csv.open("w", encoding="utf-8", newline="") as f:
@@ -305,13 +344,25 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
     }
     summary = {
         "methods": method_summary,
+        "resources_evaluated": len(selected_resources),
+        "resource_ids": [resource.resource_id for resource in selected_resources],
         "plain_avg_leakage": method_summary["PlainRAG"]["avg_leakage"],
         "c2rag_avg_leakage": method_summary["C2RAG-full"]["avg_leakage"],
         "c2rag_modes": [r["return_mode"] for r in rows if r["method"] == "C2RAG-full"],
     }
     write_json(output_root / "copyright_reconstruction_summary.json", summary)
+    ablation_root = (
+        Path(results_root)
+        if results_root is not None
+        else experiment_root / "results" / "ablation"
+    )
+    baselines_root = (
+        Path(results_root)
+        if results_root is not None
+        else experiment_root / "results" / "baselines"
+    )
     write_json(
-        experiment_root / "results" / "ablation" / "c2rag_component_ablation.json",
+        ablation_root / "c2rag_component_ablation.json",
         {
             "rows": rows,
             "summary": method_summary,
@@ -321,8 +372,6 @@ def simulate(config_path: str | Path) -> dict[str, Any]:
             ),
         },
     )
-    ablation_root = experiment_root / "results" / "ablation"
-    baselines_root = experiment_root / "results" / "baselines"
     write_json(
         baselines_root / "copyright_baseline_comparison.json",
         {
@@ -353,8 +402,22 @@ def main() -> None:
         "--config",
         default="protection/student_profile/configs/default.yaml",
     )
+    ap.add_argument("--teacher-data-root", type=Path)
+    ap.add_argument("--results-root", type=Path)
+    ap.add_argument(
+        "--max-resources",
+        type=int,
+        help="Optional cap for smoke runs; by default all high-protection resources are evaluated.",
+    )
     args = ap.parse_args()
-    print(simulate(args.config))
+    print(
+        simulate(
+            args.config,
+            args.teacher_data_root,
+            args.results_root,
+            args.max_resources,
+        )
+    )
 
 
 if __name__ == "__main__":

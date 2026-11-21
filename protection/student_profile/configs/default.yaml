@@ -13,6 +13,12 @@ fopd:
     confidence: 0.15
     recency: 0.10
     sens_gate: 0.20
+  bottleneck:
+    max_mutual_info_bits: 6.0
+    privacy_lambda: 0.5
+  unit_budget:
+    max_units: 3
+    allowed: [mastery, error_pattern, preference]
 
 c2rag:
   top_k_resources: 3
@@ -27,6 +33,7 @@ c2rag:
     variant: 0.60
   score_weights:
     rel: 0.45
+    context: 0.08
     fit: 0.20
     pedfit: 0.10
     copyright: 0.15

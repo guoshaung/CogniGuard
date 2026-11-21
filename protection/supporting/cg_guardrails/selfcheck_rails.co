@@ -1,0 +1,17 @@
+import nemoguardrails.library.self_check.input_check
+import nemoguardrails.library.self_check.output_check
+
+define flow self check input
+  $allowed = execute self_check_input
+  if not $allowed
+    bot refuse protected data
+    stop
+
+define flow self check output
+  $allowed = execute self_check_output
+  if not $allowed
+    bot refuse protected data
+    stop
+
+define bot refuse protected data
+  "I cannot help with that request, but I can provide a safe educational explanation."

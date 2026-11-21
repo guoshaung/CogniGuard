@@ -7,14 +7,19 @@ from protection.common.text_utils import SimpleTfidfVectorizer, cosine_sparse
 class ResourceIndex:
     def __init__(self, resources: list[TeacherResource]) -> None:
         self.resources = resources
+        self._position_by_identity = {id(resource): idx for idx, resource in enumerate(resources)}
         self.vectorizer = SimpleTfidfVectorizer()
         self.texts = [f"{r.content} {r.knowledge} {r.difficulty}" for r in resources]
         self.vectors = self.vectorizer.fit_transform(self.texts)
 
     def similarity(self, query: str, resource: TeacherResource) -> float:
-        try:
-            idx = self.resources.index(resource)
-        except ValueError:
+        idx = self._position_by_identity.get(id(resource))
+        if idx is None:
             return 0.0
         q_vec = self.vectorizer.transform_one(query)
         return cosine_sparse(q_vec, self.vectors[idx])
+
+    def similarities(self, query: str) -> list[float]:
+        """Score one query against the complete index with a single vectorization."""
+        q_vec = self.vectorizer.transform_one(query)
+        return [cosine_sparse(q_vec, vector) for vector in self.vectors]

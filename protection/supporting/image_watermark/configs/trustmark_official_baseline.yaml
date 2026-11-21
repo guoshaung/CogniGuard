@@ -1,0 +1,28 @@
+# Optional official baseline. This file does not enable TrustMark inside the
+# production 64-bit HMAC-registry API. It drives the independent native runner.
+
+experiment:
+  name: trustmark_official_native_comparison
+  mode: formal
+  strict_fail_closed: true
+  attack_scope: traditional_only
+  source_benchmark_config: paper_benchmark.yaml
+  # Formal mode derives split=test, all selected sample IDs, and the complete
+  # three-seed grid directly from paper_benchmark.yaml. Overrides are rejected.
+  save_attacked_images: false
+  # Per-image official encode/decode exceptions remain failure rows scored 0,
+  # but any infrastructure inference failure invalidates paper eligibility.
+  # This matches the WAM and primary-method formal gates.
+  max_inference_failure_rate: 0.0
+  output_root: ../../../var/outputs/trustmark_official_baseline
+
+method:
+  # Official CONFIG.md describes Q/1.0/BCH_5 as the default general-purpose
+  # setting. The capacities below are validated by code, not trusted from YAML.
+  model_variant: Q
+  ecc_schema: BCH_5
+  strength: 1.0
+  device: auto
+  concentrate_wm_region: 1.0
+  required_package_version: 0.9.0
+  required_source_commit: 0ed40cbe8188f664fd9cbbeacd969807de27440a

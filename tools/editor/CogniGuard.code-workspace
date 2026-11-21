@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": "../..",
+      "name": "CogniGuard（完整源码）"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      ".git": true,
+      ".cache": true,
+      ".idea": true,
+      ".sixth": true,
+      ".tmp": true,
+      ".playwright-mcp": true,
+      ".venv": true,
+      ".venv-langgraph": true,
+      "**/__pycache__": true,
+      "**/node_modules": true,
+      "**/.bundle": true,
+      "**/.python_deps": true,
+      "**/dist": true,
+      "var/cache": true,
+      "var/tmp": true
+    }
+  }
+}
