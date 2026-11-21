@@ -183,9 +183,9 @@ def mediate_passthrough(turns: list[dict], arm: str, release_fn) -> list[dict]:
 
 
 def nemo_adapter():
-    from backend.app.protection.tpcs.nemo_guardrails_adapter import NeMoGuardrailsAdapter
+    from cogniguard.protection.cg.nemo_guardrails_adapter import NeMoGuardrailsAdapter
 
-    config = ROOT / "protection" / "tpcs_guardrails" / "config.yml"
+    config = ROOT / "configs" / "nemo" / "semantic" / "config.yml"
     return NeMoGuardrailsAdapter(str(config), enabled=True)
 
 

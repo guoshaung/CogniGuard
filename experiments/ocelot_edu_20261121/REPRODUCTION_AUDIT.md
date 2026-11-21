@@ -106,4 +106,4 @@ NONE 的代价是 0，五种算子里的 REDACT 和 DROP 也是 0。验证器不
 
 ## 13. 对照臂里的 NeMo
 
-现有 CGC 的输出轨只拦截英文的原始档案和题库原文模式。中文讲义会通过。这是现有系统的真实行为，不另写一套中文规则。
+现有 CG 输出轨在 `cogniguard.protection.cg.nemo_guardrails_adapter`。仓库同步之后，旧路径 `backend.app.protection.tpcs` 已经不在。输出轨仍只拦截英文的原始档案和题库原文模式。中文讲义会通过。这是现有系统的真实行为，不另写一套中文规则。配置文件只用来满足构造函数，适配器不会执行其中的 Colang。
