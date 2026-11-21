@@ -1,0 +1,231 @@
+{
+  "afk_stage0": {
+    "status": "QUICK_GATE_EVALUATED",
+    "capacity_quantiles": {
+      "min": 0.0,
+      "p25": 0.0,
+      "median": 1.0,
+      "p75": 2.146240625180289,
+      "max": 13.509775004326936
+    },
+    "capacity_by_subject": {
+      "astronomy": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          0.0,
+          1.792481250360578,
+          3.481203125901445,
+          7.754887502163468
+        ]
+      },
+      "biology": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          4.0
+        ]
+      },
+      "contemporary-mathematics": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          0.0,
+          1.0,
+          2.0,
+          11.0
+        ]
+      },
+      "mathematics": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.0,
+          1.584962500721156,
+          7.0
+        ]
+      },
+      "physics": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          1.584962500721156,
+          2.877443751081734,
+          4.169925001442312,
+          13.509775004326936
+        ]
+      },
+      "statistics": {
+        "n": 50,
+        "quantiles": [
+          0.0,
+          0.0,
+          0.5,
+          1.438721875540867,
+          5.584962500721156
+        ]
+      }
+    },
+    "capacity_by_length": {
+      "<100": {
+        "n": 0,
+        "quantiles": null
+      },
+      "100-200": {
+        "n": 44,
+        "quantiles": [
+          0.0,
+          0.0,
+          1.0,
+          1.584962500721156,
+          5.0
+        ]
+      },
+      "201-400": {
+        "n": 176,
+        "quantiles": [
+          0.0,
+          0.0,
+          1.0,
+          2.146240625180289,
+          13.509775004326936
+        ]
+      },
+      ">400": {
+        "n": 80,
+        "quantiles": [
+          0.0,
+          0.0,
+          1.0,
+          3.042481250360578,
+          9.754887502163468
+        ]
+      }
+    },
+    "survival": {
+      "C1": {
+        "variant": {
+          "retained": 98,
+          "n": 153,
+          "eligible_documents": 19,
+          "not_applicable_documents": 0,
+          "rate": 0.6405228758169934
+        },
+        "connective": {
+          "retained": 4,
+          "n": 55,
+          "eligible_documents": 29,
+          "not_applicable_documents": 1,
+          "rate": 0.07272727272727272
+        },
+        "equivalent_parenthesis": {
+          "retained": 1,
+          "n": 2,
+          "eligible_documents": 2,
+          "not_applicable_documents": 28,
+          "rate": 0.5
+        },
+        "intermediate_arithmetic": {
+          "retained": 0,
+          "n": 2,
+          "eligible_documents": 1,
+          "not_applicable_documents": 29,
+          "rate": 0.0
+        },
+        "unit_substitution": {
+          "retained": 0,
+          "n": 0,
+          "eligible_documents": 0,
+          "not_applicable_documents": 30,
+          "rate": null
+        },
+        "dimension_check": {
+          "retained": 0,
+          "n": 0,
+          "eligible_documents": 0,
+          "not_applicable_documents": 30,
+          "rate": null
+        }
+      },
+      "C2": {
+        "variant": {
+          "retained": 121,
+          "n": 153,
+          "eligible_documents": 19,
+          "not_applicable_documents": 0,
+          "rate": 0.7908496732026143
+        },
+        "connective": {
+          "retained": 0,
+          "n": 55,
+          "eligible_documents": 29,
+          "not_applicable_documents": 1,
+          "rate": 0.0
+        },
+        "equivalent_parenthesis": {
+          "retained": 0,
+          "n": 2,
+          "eligible_documents": 2,
+          "not_applicable_documents": 28,
+          "rate": 0.0
+        },
+        "intermediate_arithmetic": {
+          "retained": 0,
+          "n": 2,
+          "eligible_documents": 1,
+          "not_applicable_documents": 29,
+          "rate": 0.0
+        },
+        "unit_substitution": {
+          "retained": 0,
+          "n": 0,
+          "eligible_documents": 0,
+          "not_applicable_documents": 30,
+          "rate": null
+        },
+        "dimension_check": {
+          "retained": 0,
+          "n": 0,
+          "eligible_documents": 0,
+          "not_applicable_documents": 30,
+          "rate": null
+        }
+      }
+    },
+    "contributions": {
+      "C1": {
+        "capacity_median": 1.0,
+        "variant_retention": 0.6405228758169934,
+        "original_surviving_bits": 0.6405228758169934,
+        "inserted_surviving_bits_median": 0.0,
+        "total": 0.6405228758169934,
+        "passed": false
+      },
+      "C2": {
+        "capacity_median": 1.0,
+        "variant_retention": 0.7908496732026143,
+        "original_surviving_bits": 0.7908496732026143,
+        "inserted_surviving_bits_median": 0.0,
+        "total": 0.7908496732026143,
+        "passed": false
+      }
+    },
+    "gate_bits": 7,
+    "passed": false,
+    "human_A0": "AWAITING_50_USER_LABELS",
+    "paid_API_calls": 0,
+    "H2_calls": 0,
+    "stage3_started": false,
+    "stage1_started": false,
+    "limitations": [
+      "Parser/validation coverage documented in VARIANT_TABLE and CPU_CAPACITY.",
+      "Literal insertion survival is distinguished from equivalently rewritten content.",
+      "No applicable source-backed unit-substitution or dimension-check insertion was constructed in the fixed 30-source sample; these cells are unavailable, not a measured 0% survival.",
+      "Groups newly appearing in separate insertion arms can overlap; summing their bits is an optimistic diagnostic bound, not simultaneous independent capacity."
+    ]
+  }
+}

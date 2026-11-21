@@ -1,0 +1,425 @@
+compressor,id,kind,dimension,canonical,state,retained,inserted,survival_definition
+C1,A0_000156d3b059d653645e111b,variant,large_number,1600,VARIANT_RETAINED,True,,
+C1,A0_000156d3b059d653645e111b,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_000156d3b059d653645e111b,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_00522756499a17480e727e39,variant,small_count,2|event,REWRITTEN,False,,
+C1,A0_00522756499a17480e727e39,variant,small_count,2|event,REWRITTEN,False,,
+C1,A0_00522756499a17480e727e39,variant,small_count,2|allele,REWRITTEN,False,,
+C1,A0_00522756499a17480e727e39,variant,percentage,50,VARIANT_RETAINED,True,,
+C1,A0_00522756499a17480e727e39,variant,small_count,1|event,REWRITTEN,False,,
+C1,A0_00522756499a17480e727e39,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_00522756499a17480e727e39,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_00b638e6bf11ac351ce567f9,variant,small_count,7|system,VARIANT_RETAINED,True,,
+C1,A0_00b638e6bf11ac351ce567f9,variant,small_count,2|digit,DISAPPEARED,False,,
+C1,A0_00b638e6bf11ac351ce567f9,variant,small_count,7|table,VARIANT_RETAINED,True,,
+C1,A0_00b638e6bf11ac351ce567f9,variant,small_count,2|table,VARIANT_RETAINED,True,,
+C1,A0_00b638e6bf11ac351ce567f9,connective,,,,True,"Here,",literal inserted surface retained
+C1,A0_00b638e6bf11ac351ce567f9,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_04398efcaedd01ac27f4aa12,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_04398efcaedd01ac27f4aa12,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|class,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|distribution,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,variant,small_count,2|class,VARIANT_RETAINED,True,,
+C1,A0_05147a590acf2e79d903e399,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_05147a590acf2e79d903e399,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,REWRITTEN,False,,
+C1,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,REWRITTEN,False,,
+C1,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,REWRITTEN,False,,
+C1,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,REWRITTEN,False,,
+C1,A0_059aa1036e0e834c151855de,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_059aa1036e0e834c151855de,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_059aa1036e0e834c151855de,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,large_number,400000,VARIANT_RETAINED,True,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_06f6e49dcb4f4838c819e0d1,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_06f6e49dcb4f4838c819e0d1,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0927498f4b44be221006c988,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0927498f4b44be221006c988,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0927498f4b44be221006c988,intermediate_arithmetic,,,,False,Intermediate step: \(A = -2 = -2\).,literal inserted surface retained
+C1,A0_0927498f4b44be221006c988,intermediate_arithmetic,,,,False,Intermediate step: \(A = -2 = -2\).,literal inserted surface retained
+C1,A0_09fe00e84f6cdf456aa0315f,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_09fe00e84f6cdf456aa0315f,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0b6a259272d56f7c56f7c021,variant,unit_spelling,ampere,REWRITTEN,False,,
+C1,A0_0b6a259272d56f7c56f7c021,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0b6a259272d56f7c56f7c021,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,second,DISAPPEARED,False,,
+C1,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,second,DISAPPEARED,False,,
+C1,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,meter,DISAPPEARED,False,,
+C1,A0_0cc75a46210547431f8bdb85,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0cc75a46210547431f8bdb85,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C1,A0_0cd4803da90af4a583a1c03e,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0d2eb45d6d92f1d7572aface,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,2|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,3|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,2|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C1,A0_0d3fde50faf0e1b6d37f97c5,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0d3fde50faf0e1b6d37f97c5,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0de9f7020720895f5146341e,variant,small_count,2|number,DISAPPEARED,False,,
+C1,A0_0de9f7020720895f5146341e,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0de9f7020720895f5146341e,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0e68dc526b7763aa247d821c,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0e68dc526b7763aa247d821c,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0ffa2617fb45878883e35742,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_0ffa2617fb45878883e35742,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_0ffa2617fb45878883e35742,equivalent_parenthesis,,,,True,"(equivalently, \(K = E - U\))",literal inserted surface retained
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,1176,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,kilogram,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,1764,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,4200,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,REWRITTEN,False,,
+C1,A0_10c2a8525ffff26134c46223,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_10c2a8525ffff26134c46223,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C1,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C1,A0_113fd12a9b0b0fd312e15789,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_113fd12a9b0b0fd312e15789,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_113fd12a9b0b0fd312e15789,equivalent_parenthesis,,,,False,"(equivalently, \(a = - H b + R\))",literal inserted surface retained
+C1,A0_13c3abb67e5c8e538758900b,variant,large_number,5500,REWRITTEN,False,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,hour,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,large_number,3600,REWRITTEN,False,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,second,DISAPPEARED,False,,
+C1,A0_13c3abb67e5c8e538758900b,variant,large_number,86400,REWRITTEN,False,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,joule,REWRITTEN,False,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C1,A0_13c3abb67e5c8e538758900b,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_13c3abb67e5c8e538758900b,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1762058745890b1d1939bdd3,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1762058745890b1d1939bdd3,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_17dbef867652ba3c40a35a79,variant,small_count,2|place,VARIANT_RETAINED,True,,
+C1,A0_17dbef867652ba3c40a35a79,connective,,,,True,"Here,",literal inserted surface retained
+C1,A0_17dbef867652ba3c40a35a79,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1b0b6654c933e0031ec7a201,connective,,,,True,"Here,",literal inserted surface retained
+C1,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,2|gene,VARIANT_RETAINED,True,,
+C1,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,1|chromosome,VARIANT_RETAINED,True,,
+C1,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,1|chromosome,VARIANT_RETAINED,True,,
+C1,A0_1bdf2eb5158ea26ca18069a5,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1bdf2eb5158ea26ca18069a5,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C1,A0_1c086638f790746fec8dabe5,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1c086638f790746fec8dabe5,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|break,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|bulb,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|bulb,VARIANT_RETAINED,True,,
+C1,A0_1c2d8b756327e5ad73e4b0c2,connective,,,,True,"Here,",literal inserted surface retained
+C1,A0_1c2d8b756327e5ad73e4b0c2,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1c6b2d8a310f1687e058747c,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1c6b2d8a310f1687e058747c,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1c7d8edae0ee852d6bf0cddd,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1c7d8edae0ee852d6bf0cddd,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1f6b862d2ea25f39febcad12,connective,,,,False,"Here,",literal inserted surface retained
+C1,A0_1f6b862d2ea25f39febcad12,connective,,,,False,"In this case,",literal inserted surface retained
+C1,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C1,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C1,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_000156d3b059d653645e111b,variant,large_number,1600,VARIANT_RETAINED,True,,
+C2,A0_000156d3b059d653645e111b,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_000156d3b059d653645e111b,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_00522756499a17480e727e39,variant,small_count,2|event,VARIANT_RETAINED,True,,
+C2,A0_00522756499a17480e727e39,variant,small_count,2|event,VARIANT_RETAINED,True,,
+C2,A0_00522756499a17480e727e39,variant,small_count,2|allele,DISAPPEARED,False,,
+C2,A0_00522756499a17480e727e39,variant,percentage,50,DISAPPEARED,False,,
+C2,A0_00522756499a17480e727e39,variant,small_count,1|event,DISAPPEARED,False,,
+C2,A0_00522756499a17480e727e39,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_00522756499a17480e727e39,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_00b638e6bf11ac351ce567f9,variant,small_count,7|system,DISAPPEARED,False,,
+C2,A0_00b638e6bf11ac351ce567f9,variant,small_count,2|digit,DISAPPEARED,False,,
+C2,A0_00b638e6bf11ac351ce567f9,variant,small_count,7|table,VARIANT_RETAINED,True,,
+C2,A0_00b638e6bf11ac351ce567f9,variant,small_count,2|table,VARIANT_RETAINED,True,,
+C2,A0_00b638e6bf11ac351ce567f9,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_00b638e6bf11ac351ce567f9,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_04398efcaedd01ac27f4aa12,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_04398efcaedd01ac27f4aa12,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|class,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|distribution,DISAPPEARED,False,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|sample,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,variant,small_count,2|class,VARIANT_RETAINED,True,,
+C2,A0_05147a590acf2e79d903e399,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_05147a590acf2e79d903e399,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,VARIANT_RETAINED,True,,
+C2,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,VARIANT_RETAINED,True,,
+C2,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,VARIANT_RETAINED,True,,
+C2,A0_059aa1036e0e834c151855de,variant,unit_spelling,joule,VARIANT_RETAINED,True,,
+C2,A0_059aa1036e0e834c151855de,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_059aa1036e0e834c151855de,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_059aa1036e0e834c151855de,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,kilogram,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,large_number,400000,DISAPPEARED,False,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,kilogram,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_06f6e49dcb4f4838c819e0d1,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_06f6e49dcb4f4838c819e0d1,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0927498f4b44be221006c988,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0927498f4b44be221006c988,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0927498f4b44be221006c988,intermediate_arithmetic,,,,False,Intermediate step: \(A = -2 = -2\).,literal inserted surface retained
+C2,A0_0927498f4b44be221006c988,intermediate_arithmetic,,,,False,Intermediate step: \(A = -2 = -2\).,literal inserted surface retained
+C2,A0_09fe00e84f6cdf456aa0315f,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_09fe00e84f6cdf456aa0315f,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0b6a259272d56f7c56f7c021,variant,unit_spelling,ampere,DISAPPEARED,False,,
+C2,A0_0b6a259272d56f7c56f7c021,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0b6a259272d56f7c56f7c021,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,kilogram,VARIANT_RETAINED,True,,
+C2,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,kilogram,VARIANT_RETAINED,True,,
+C2,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,second,DISAPPEARED,False,,
+C2,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,second,DISAPPEARED,False,,
+C2,A0_0cc75a46210547431f8bdb85,variant,unit_spelling,meter,DISAPPEARED,False,,
+C2,A0_0cc75a46210547431f8bdb85,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0cc75a46210547431f8bdb85,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,variant,large_number,1400,VARIANT_RETAINED,True,,
+C2,A0_0cd4803da90af4a583a1c03e,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0d2eb45d6d92f1d7572aface,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,2|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,3|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,2|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,variant,small_count,1|score,REWRITTEN,False,,
+C2,A0_0d3fde50faf0e1b6d37f97c5,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0d3fde50faf0e1b6d37f97c5,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0de9f7020720895f5146341e,variant,small_count,2|number,DISAPPEARED,False,,
+C2,A0_0de9f7020720895f5146341e,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0de9f7020720895f5146341e,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0e68dc526b7763aa247d821c,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0e68dc526b7763aa247d821c,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0ffa2617fb45878883e35742,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_0ffa2617fb45878883e35742,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_0ffa2617fb45878883e35742,equivalent_parenthesis,,,,False,"(equivalently, \(K = E - U\))",literal inserted surface retained
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,kilogram,DISAPPEARED,False,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,1176,DISAPPEARED,False,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,kilogram,DISAPPEARED,False,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,1764,DISAPPEARED,False,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,4200,DISAPPEARED,False,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,large_number,6000,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,meter,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_10c2a8525ffff26134c46223,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_10c2a8525ffff26134c46223,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1500,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,1600,VARIANT_RETAINED,True,,
+C2,A0_113fd12a9b0b0fd312e15789,variant,large_number,2019,REWRITTEN,False,,
+C2,A0_113fd12a9b0b0fd312e15789,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_113fd12a9b0b0fd312e15789,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_113fd12a9b0b0fd312e15789,equivalent_parenthesis,,,,False,"(equivalently, \(a = - H b + R\))",literal inserted surface retained
+C2,A0_13c3abb67e5c8e538758900b,variant,large_number,5500,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,hour,DISAPPEARED,False,,
+C2,A0_13c3abb67e5c8e538758900b,variant,large_number,3600,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,large_number,86400,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,joule,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,variant,unit_spelling,kelvin,VARIANT_RETAINED,True,,
+C2,A0_13c3abb67e5c8e538758900b,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_13c3abb67e5c8e538758900b,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1762058745890b1d1939bdd3,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1762058745890b1d1939bdd3,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_17dbef867652ba3c40a35a79,variant,small_count,2|place,VARIANT_RETAINED,True,,
+C2,A0_17dbef867652ba3c40a35a79,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_17dbef867652ba3c40a35a79,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1b0b6654c933e0031ec7a201,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,2|gene,VARIANT_RETAINED,True,,
+C2,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,1|chromosome,DISAPPEARED,False,,
+C2,A0_1bdf2eb5158ea26ca18069a5,variant,small_count,1|chromosome,DISAPPEARED,False,,
+C2,A0_1bdf2eb5158ea26ca18069a5,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1bdf2eb5158ea26ca18069a5,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,10000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,18000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,variant,large_number,13000,VARIANT_RETAINED,True,,
+C2,A0_1c086638f790746fec8dabe5,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1c086638f790746fec8dabe5,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|break,DISAPPEARED,False,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|bulb,DISAPPEARED,False,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,unit_spelling,volt,VARIANT_RETAINED,True,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,variant,small_count,1|bulb,DISAPPEARED,False,,
+C2,A0_1c2d8b756327e5ad73e4b0c2,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1c2d8b756327e5ad73e4b0c2,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1c6b2d8a310f1687e058747c,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1c6b2d8a310f1687e058747c,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1c7d8edae0ee852d6bf0cddd,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1c7d8edae0ee852d6bf0cddd,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1f6b862d2ea25f39febcad12,connective,,,,False,"Here,",literal inserted surface retained
+C2,A0_1f6b862d2ea25f39febcad12,connective,,,,False,"In this case,",literal inserted surface retained
+C2,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,
+C2,A0_1f76686c009b7fa644bde541,variant,unit_spelling,second,VARIANT_RETAINED,True,,

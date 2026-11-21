@@ -1,0 +1,11 @@
+{
+  "status": "QUICK_GATE_COMPLETE_STAGE0_NOT_FULL_EVALUATION",
+  "public_sha256": {
+    "A0_RESULT.md": "29ac89ebbda8ad4d6896e47b380d04a7783fd9267e84b38ee80180cc47048b83",
+    "per_anchor.csv": "20caa153a7bbb9aeb457fa77e844a81aef44e7ea063cb3100209f8512db351bb",
+    "figure_counts.json": "a6658ff60f270be7500b3519de9d5585f59a4d607bbb0aef03f482c672919460"
+  },
+  "local_result_sha256": "8716139896ae0f821d0c02b65be659909db208487ef33811a20f10c53707fcbd",
+  "paid_calls": 0,
+  "H2_calls": 0
+}
