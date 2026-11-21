@@ -1,0 +1,15 @@
+{
+  "status": "PREPARATION_ONLY",
+  "task_sha256": "84a02020aa397b949990e7ede7b99c0755147a6ac8ca395a5fabd9138f204dce",
+  "corpus_sha256": "612af82f42d24f63844c66025229407e7d2f1c1f40db55a9d48c0efd49635387",
+  "build_documents": 3568,
+  "calib_documents": 893,
+  "generated_documents": 300,
+  "external_inference_calls": 0,
+  "test_contents_read": false,
+  "pending": [
+    "Relay model ID",
+    "Relay role: replace C2 or add held-out compressor",
+    "Whether relay charges are authorized and budget cap"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "stage": "BEFORE_COMPRESSION",
+  "prereg_sha256": "6fa199d35fcc0792a27c9db21af50cf37b8f4a6572786cb0928238c16f32407a",
+  "task_sha256": "cf74c1630a59bc3e53091dfdc5f2ef16bbbde875c3d4eb60e45938fc987ebc6c",
+  "paid_stage0_calls": 0,
+  "H2_budget_CNY": 15,
+  "H2_training_use": false
+}
