@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import subprocess
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -29,7 +30,7 @@ def load_env() -> dict[str, str]:
     return env
 
 
-def _post(url: str, key: str, payload: dict, timeout: int = 180) -> dict:
+def _post_once(url: str, key: str, payload: dict, timeout: int) -> dict:
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         url,
@@ -63,6 +64,39 @@ def _post(url: str, key: str, payload: dict, timeout: int = 180) -> dict:
             err = proc.stderr.decode("utf-8", errors="replace")[:500]
             raise RuntimeError(f"curl failed: {err}")
         return json.loads(proc.stdout.decode("utf-8"))
+
+
+def _transient(exc: Exception) -> bool:
+    msg = str(exc).lower()
+    needles = (
+        "timed out",
+        "timeout",
+        "couldn't connect",
+        "could not connect",
+        "connection",
+        "curl: (28)",
+        "curl: (35)",
+        "curl: (52)",
+        "curl: (56)",
+        "reset",
+        "temporarily",
+    )
+    return any(needle in msg for needle in needles)
+
+
+def _post(url: str, key: str, payload: dict, timeout: int = 60) -> dict:
+    last: Exception | None = None
+    for attempt in range(5):
+        try:
+            return _post_once(url, key, payload, timeout)
+        except Exception as exc:
+            last = exc
+            if not _transient(exc) or attempt == 4:
+                raise
+            time.sleep(min(20, 2 ** attempt))
+    if last is not None:
+        raise last
+    raise RuntimeError("request failed")
 
 
 def chat(base_url: str, key: str, model: str, messages: list[dict], max_tokens: int, extra: dict | None = None) -> dict:
