@@ -1,0 +1,26 @@
+{
+  "status": "STAGE1_COMPLETE_GATES_FAILED",
+  "stage2_started": false,
+  "files": {
+    "RESULT.json": "eefebf2621a995e3d9485281b63bde0fbf5b51b3ab41f5bed66e504d55707316",
+    "CAPACITY.json": "830cd9d372ac4e840e56ba67ee5aca357d08872cff5aa13ac70065dfdeaa1756",
+    "pairs_train.jsonl": "4b3c1ba8e4a1384f8eb351ea417854035b614670c580fa24ef9e8f9e5a5b80eb",
+    "pairs_heldout.jsonl": "67c02d418eb0c27de41ce807bcc51c49f7fc04d384a490227da679821014b3cd",
+    "UK.npy": "66e5d4c41fefbec550e02c623fbe1ed95e2997bc35bf495beab47c7163376bf2",
+    "UC.npy": "00ff0399e9fb6a4523e16cd71d2c561e3c81567c5ca6c2f7febbb6d8278fdacd",
+    "lamK.npy": "aef2728dd45f7ca4549c883c85f5097f054b51dc9b1a52b160add3d6c7379f99",
+    "lamC.npy": "3e64117e750903143fd7457aa492759d001d912f1d0c48a53cf0292210d998fc",
+    "term_siblings.json": "4946dce49213305891aea520c91fe57e7666a95f09f20ca92e92c9cf12527f88",
+    "SENTENCES.json": "b4116ddef28e96f7c15b443fbb6d83d3528d6a47afce039e7c497c1eacba4c02"
+  },
+  "report_sha256": "06db3bd7beba1b72fbc1164ff06045fc58f71b63b5efea5f5d9282fffe0e7547",
+  "all_passed": false,
+  "gates": {
+    "G1": false,
+    "G2": true,
+    "G3": false,
+    "G4": true,
+    "G5": false,
+    "G6": false
+  }
+}
