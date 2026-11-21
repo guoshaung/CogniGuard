@@ -1,0 +1,29 @@
+{
+  "qwen_model": "qwen3.5-flash",
+  "probe_errors": [
+    "qwen3.5-9b: {\"message\": \"Access denied\", \"type\": \"access_denied\", \"param\": null, \"code\": \"access_denied\"}",
+    "qwen3.5-9b-instruct: {\"message\": \"The model `qwen3.5-9b-instruct` does not exist or you do not have access to it.\", \"type\": \"invalid_request_error\", \"param\": null, \"code\": \"model_not_found\"}"
+  ],
+  "smoke_qwen_usage": {
+    "prompt_tokens": 2682,
+    "completion_tokens": 562,
+    "calls": 4,
+    "reasons": {
+      "pass2_inconsistent": 2
+    },
+    "model": "qwen3.5-flash"
+  },
+  "smoke_attacker_usage": {
+    "prompt_tokens": 79,
+    "completion_tokens": 6,
+    "calls": 1,
+    "model": "deepseek-flash"
+  },
+  "planned_prompt_calls": 2000,
+  "planned_attack_calls": 1000,
+  "extrapolated_qwen_rmb": 0.8302,
+  "extrapolated_deepseek_rmb_peak": 0.206,
+  "extrapolated_total_rmb": 1.0362,
+  "budget_rmb": 100.0,
+  "within_budget": true
+}
