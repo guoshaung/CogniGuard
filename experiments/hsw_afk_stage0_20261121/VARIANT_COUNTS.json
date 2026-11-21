@@ -1,0 +1,1643 @@
+{
+  "angle|*": {
+    "symbol": {
+      "documents": 54,
+      "occurrences": 114,
+      "share": 0.8837209302325582,
+      "passed": true,
+      "examples": [
+        "360°",
+        "360°",
+        "100°"
+      ]
+    },
+    "word": {
+      "documents": 13,
+      "occurrences": 15,
+      "share": 0.11627906976744186,
+      "passed": false,
+      "examples": [
+        "30 degrees",
+        "15 degrees",
+        "15 degrees"
+      ]
+    }
+  },
+  "approximation|*": {
+    "word": {
+      "documents": 67,
+      "occurrences": 82,
+      "share": 0.8367346938775511,
+      "passed": true,
+      "examples": [
+        "approximately",
+        "approximately",
+        "approximately"
+      ]
+    },
+    "symbol": {
+      "documents": 13,
+      "occurrences": 16,
+      "share": 0.16326530612244897,
+      "passed": false,
+      "examples": [
+        "≈",
+        "≈",
+        "≈"
+      ]
+    }
+  },
+  "fraction_coefficient|Integer(250)": {
+    "trailing_division": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(750 / 3\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Mul(Rational(1, 2), Symbol('A'), Symbol('C_{drho}'), Pow(Symbol('v_{t}'), Integer(2)))|EQ|Mul(Symbol('g'), Symbol('m'))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ \\frac{1}{2} C_d \\rho A v_t^2 = m g \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Mul(Rational(1, 2), Symbol('m'), Pow(Symbol('v'), Integer(2)))": {
+    "latex_fraction": {
+      "documents": 2,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{2}mv^{2}\\)",
+        "\\(\\frac{1}{2}mv^{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(2), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 5,
+      "occurrences": 10,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( \\frac{1}{2} \\)",
+        "\\(\\frac{1}{2}\\)",
+        "\\(\\frac{1}{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(3), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 4,
+      "occurrences": 7,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\n \n \\frac{1}{3}\n\n \n\\)",
+        "\\(\n \n \\frac{1}{3}\n\n \n\\)",
+        "\\( \\frac{1}{3} \\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(4), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 2,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{4}\\)",
+        "\\(\n \n \\frac{1}{4}\n\n \n\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(5), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 2,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{5}\\)",
+        "\\(\\frac{1}{5}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(7), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\n \n \\frac{1}{7}\n\n \n\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(8), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 2,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{8}\\)",
+        "\\(\n\n(\n\n\\frac{1}{8}\n\n)\n\n\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Integer(9), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 3,
+      "occurrences": 3,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( \\frac{1}{9} \\)",
+        "\\(\\frac{1}{9}\\)",
+        "\\(\n \n \\frac{1}{9}\n\n \n\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Pow(Integer(2), Integer(-1)), Integer(2))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\((\\frac{1}{2})^{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Pow(Integer(3), Integer(-1)), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\n\n\\frac{1}{\n(\n\n\\frac{1}{3}\n\n)\n}\n\n\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Pow(Integer(3), Integer(-1)), Integer(2))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\((\\frac{1}{3})^{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Pow(Symbol('e'), Mul(Integer(-1), Symbol('b'), Symbol('t_{1}')))|EQ|Pow(Integer(2), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ e^{-bt_1} = \\frac{1}{2} \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Rational(1, 2)|EQ|Pow(Integer(2), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{2} \\times 1 \\times 1 = \\frac{1}{2}\\)",
+        "\\(\\frac{1}{2} \\times 1 \\times 1 = \\frac{1}{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Rational(3, 5)": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(3\\frac{1}{5}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('A')|EQ|Mul(Float('0.24499999999999997', precision=53), Symbol('pi'))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ A = \\frac{1}{2} (0.7)^2 \\pi \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('A')|EQ|Mul(Float('0.245', precision=53), Symbol('pi'))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ A = \\frac{1}{2} \\times 0.49 \\times \\pi \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('A')|EQ|Mul(Rational(1, 2), Pow(Symbol('r'), Integer(2)), Symbol('theta'))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ A = \\frac{1}{2} r^2 \\theta \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('E')|EQ|Mul(Rational(1, 2), Symbol('m'), Pow(Symbol('v'), Integer(2)))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(E=\\frac{1}{2}mv^{2}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('F_{d}')|EQ|Mul(Rational(1, 2), Symbol('A'), Symbol('C_{drho}'), Pow(Symbol('v_{t}'), Integer(2)))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ F_d = \\frac{1}{2} C_d \\rho A v_t^2 \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('S_{7}')|EQ|Rational(299593, 16384)": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\nS_7 = 16 \\frac{1-\\left(\\frac{1}{8}\\right)^7}{1-\\frac{1}{8}}\n\\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('V')|EQ|Mul(Rational(1, 3), Symbol('h'), Symbol('pi'), Pow(Symbol('r'), Integer(2)))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ V = \\frac{1}{3} \\pi r^2 h \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('h')|EQ|Mul(Rational(1, 2), Symbol('g'), Pow(Symbol('t'), Integer(2)))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ h = \\frac{1}{2} g t^2 \\]"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('p')|EQ|Pow(Integer(9), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( p = \\frac{1}{9} \\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('r')|EQ|Pow(Integer(8), Integer(-1))": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(r = \\frac{1}{8}\\)",
+        "\\(r = \\frac{1}{8}\\)"
+      ]
+    }
+  },
+  "fraction_coefficient|Symbol('r')|EQ|Rational(-1, 4)": {
+    "latex_fraction": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ r = -\\frac{1}{4} \\]"
+      ]
+    }
+  },
+  "increment|*": {
+    "delta": {
+      "documents": 24,
+      "occurrences": 61,
+      "share": 1.0,
+      "passed": true,
+      "examples": [
+        "ΔG",
+        "ΔG",
+        "ΔG"
+      ]
+    }
+  },
+  "large_number|*": {
+    "plain": {
+      "documents": 267,
+      "occurrences": 582,
+      "share": 0.6546681664791901,
+      "passed": true,
+      "examples": [
+        "1450",
+        "1450",
+        "1450"
+      ]
+    },
+    "comma": {
+      "documents": 130,
+      "occurrences": 307,
+      "share": 0.34533183352080987,
+      "passed": true,
+      "examples": [
+        "10,000",
+        "12,500",
+        "785,061"
+      ]
+    }
+  },
+  "multiplication|Add(Mul(Integer(-1), Integer(2), Symbol('k'), Symbol('pi')), Mul(Rational(19, 4), Symbol('pi')))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{19\\pi}{4} - k \\cdot \\frac{8\\pi}{4}\\)"
+      ]
+    }
+  },
+  "multiplication|Add(Mul(Integer(-1), Integer(2), Symbol('k'), Symbol('pi')), Mul(Rational(19, 4), Symbol('pi')))|EQ|Add(Mul(Integer(-1), Integer(2), Symbol('k'), Symbol('pi')), Mul(Rational(19, 4), Symbol('pi')))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n   \\frac{19\\pi}{4} - k \\cdot \\frac{8\\pi}{4} = \\frac{(19 - 8k)\\pi}{4}\n   \\]"
+      ]
+    }
+  },
+  "multiplication|Float('-9.67e+20', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 3,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( -9.67 \\times 10^{20} \\)",
+        "\\( -9.67 \\times 10^{20} \\)",
+        "\\( -9.67 \\times 10^{20} \\)"
+      ]
+    }
+  },
+  "multiplication|Float('1.45', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 1.45 \\times 10^0 \\)"
+      ]
+    }
+  },
+  "multiplication|Float('1.9890000000000002e+30', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(1.989 \\times 10^{30}\\)"
+      ]
+    }
+  },
+  "multiplication|Float('1230.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 3,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(12.3 \\times 10^2\\)",
+        "\\(12.3 \\times 10^2\\)",
+        "\\(12.3 \\times 10^2\\)"
+      ]
+    }
+  },
+  "multiplication|Float('149600000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 1.496 \\times 10^{11} \\)"
+      ]
+    }
+  },
+  "multiplication|Float('2.5e+18', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(2.5 \\times 10^{18}\\)"
+      ]
+    }
+  },
+  "multiplication|Float('2.9962200000000001e-16', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 2.99622 \\times 10^{-16} \\)"
+      ]
+    }
+  },
+  "multiplication|Float('2260000000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 2.26 \\times 10^{12} \\)",
+        "\\( 2.26 \\times 10^{12} \\)"
+      ]
+    }
+  },
+  "multiplication|Float('29970000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(2.997 \\times 10^7\\)"
+      ]
+    }
+  },
+  "multiplication|Float('31540000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(3.154 \\times 10^7\\)"
+      ]
+    }
+  },
+  "multiplication|Float('325000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(3.25 \\times 10^8\\)"
+      ]
+    }
+  },
+  "multiplication|Float('430000000000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(4.3 \\times 10^{14}\\)"
+      ]
+    }
+  },
+  "multiplication|Float('6366000000000.0', precision=53)|EQ|Mul(Float('1.202876835480971e+36', precision=53), Pow(Symbol('M_{E}'), Integer(-1)))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n6.366 \\times 10^{12} = \\frac{80.28 \\times 10^{24}}{6.674 \\times 10^{-11} \\times M_E}\n\\]"
+      ]
+    }
+  },
+  "multiplication|Float('6366000000000.0', precision=53)|EQ|Mul(Float('2.5600000000000002e+25', precision=53), Pow(Symbol('G'), Integer(-1)), Pow(Symbol('M_{E}'), Integer(-1)), Pow(Symbol('pi'), Integer(2)))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n6.366 \\times 10^{12} = \\frac{4\\pi^2 \\times 6.4 \\times 10^{24}}{G M_E}\n\\]"
+      ]
+    }
+  },
+  "multiplication|Float('6366000000000.0', precision=53)|EQ|Mul(Float('8.0280000000000007e+35', precision=53), Pow(Symbol('M_{E}'), Integer(-1)))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n6.366 \\times 10^{12} = \\frac{8.028 \\times 10^{35}}{M_E}\n\\]"
+      ]
+    }
+  },
+  "multiplication|Float('750000000000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(7.5 \\times 10^{14}\\)"
+      ]
+    }
+  },
+  "multiplication|Float('7674000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(7.674 \\times 10^9\\)"
+      ]
+    }
+  },
+  "multiplication|Float('9461000000000.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(9.461 \\times 10^{12}\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(-30)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 5,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(4 + 2 \\times (3^2 - (2 + 5)^2 \\times 4) / (3 + 8)\\)",
+        "\\(4 + 2 \\times (9 - 49 \\times 4) / (3 + 8)\\)",
+        "\\(4 + 2 \\times (9 - 196) / (3 + 8)\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(-374)|EQ|Integer(-374)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(2 \\times (-187) = -374\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(0)|EQ|Integer(0)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 0 \\cdot 343 = 0 \\)"
+      ]
+    }
+  },
+  "multiplication|Integer(120)|EQ|Integer(120)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 5 = 120\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(140)|EQ|Integer(140)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n  140 = 11 \\times 12^1 + 8 \\times 12^0\n  \\]"
+      ]
+    }
+  },
+  "multiplication|Integer(144)|EQ|Integer(144)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 6 = 144\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(168)|EQ|Integer(168)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 7 = 168\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(180)|EQ|Integer(180)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 2 = 180\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(192)|EQ|Integer(192)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 8 = 192\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(196)|EQ|Integer(196)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(49 \\times 4 = 196\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(216)|EQ|Integer(216)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 9 = 216\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(24)|EQ|Integer(24)": {
+    "latex_times": {
+      "documents": 2,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 1 = 24\\)",
+        "\\(24 = 2^3 \\times 3\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(240)|EQ|Integer(240)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 10 = 240\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(2548)|EQ|Integer(2548)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n     2,548 = 2^2 \\times 7^2 \\times 13\n     \\]"
+      ]
+    }
+  },
+  "multiplication|Integer(264)|EQ|Integer(264)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 11 = 264\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(270)|EQ|Integer(270)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 3 = 270\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(288)|EQ|Integer(288)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 12 = 288\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(30)|EQ|Integer(30)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(30 = 2 \\times 3 \\times 5\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(312)|EQ|Integer(312)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 13 = 312\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(336)|EQ|Integer(336)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 14 = 336\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(360)|EQ|Integer(360)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 15 = 360\\)",
+        "\\(90 \\times 4 = 360\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(392)|EQ|Integer(392)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 8 \\cdot 49 = 392 \\)"
+      ]
+    }
+  },
+  "multiplication|Integer(4000000)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(4 \\times 10^6\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(42)|EQ|Integer(42)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(42 = 2 \\times 3 \\times 7\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(450)|EQ|Integer(450)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 5 = 450\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(48)|EQ|Integer(48)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 2 = 48\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(4802)|EQ|Integer(4802)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 2 \\cdot 2401 = 4802 \\)"
+      ]
+    }
+  },
+  "multiplication|Integer(5208)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ 2 \\cdot 7^4 + 0 \\cdot 7^3 + 8 \\cdot 7^2 + 1 \\cdot 7^1 + 7 \\cdot 7^0 \\]"
+      ]
+    }
+  },
+  "multiplication|Integer(540)|EQ|Integer(540)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 6 = 540\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(54108198377272584130510593262881)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(21^9 \\times 21^{15}\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(54108198377272584130510593262881)|EQ|Pow(Integer(21), Integer(24))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[21^9 \\times 21^{15} = 21^{24}\\]"
+      ]
+    }
+  },
+  "multiplication|Integer(600)|EQ|Integer(600)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n600 = 2^3 \\times 3^1 \\times 5^2\n\\]"
+      ]
+    }
+  },
+  "multiplication|Integer(630)|EQ|Integer(630)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 7 = 630\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(7)|EQ|Integer(7)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 1 \\cdot 7 = 7 \\)",
+        "\\( 7 \\cdot 1 = 7 \\)"
+      ]
+    }
+  },
+  "multiplication|Integer(72)|EQ|Integer(72)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 3 = 72\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(720)|EQ|Integer(720)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 8 = 720\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(784)|EQ|Integer(784)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n784 = 2^4 \\times 7^2\n\\]"
+      ]
+    }
+  },
+  "multiplication|Integer(8000000000)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 3,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(5^9 \\times 8^4\\)",
+        "\\(5^9 \\times 8^4\\)",
+        "\\[5^9 \\times 8^4\\]"
+      ]
+    }
+  },
+  "multiplication|Integer(810)|EQ|Integer(810)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 9 = 810\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(90)|EQ|Integer(90)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 1 = 90\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(900)|EQ|Integer(900)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(90 \\times 10 = 900\\)"
+      ]
+    }
+  },
+  "multiplication|Integer(96)|EQ|Integer(96)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(24 \\times 4 = 96\\)"
+      ]
+    }
+  },
+  "multiplication|Mul(Float('0.76968954999999994', precision=53), Symbol('A'), Symbol('approx'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ A \\approx 0.245 \\times 3.14159 \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Float('0.80000000000000004', precision=53), Symbol('u_{e}'))|EQ|Float('5.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ 0.200 \\times 4.00u_e = 5.00 \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Float('14.700000000000001', precision=53), Pow(Integer(3), Rational(1, 2)))|EQ|Mul(Float('14.699999999999999', precision=53), Pow(Integer(3), Rational(1, 2)))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n4.9 \\cdot 3\\sqrt{3} = 14.7\\sqrt{3}\n\\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Float('6350.0', precision=53), Symbol('r'))|EQ|Integer(254)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ 2300r + 2700 \\times 1.5r = 254 \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Float('80.376766091051806', precision=53), Symbol('approx'), Symbol('h'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ h \\approx \\frac{(32,000)^2}{2 \\times 6.37 \\times 10^6} \\]",
+        "\\[ h \\approx \\frac{1,024,000,000}{12.74 \\times 10^6} \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Integer(14), Pow(Integer(13), Rational(1, 2)))|EQ|Mul(Integer(14), Pow(Integer(13), Rational(1, 2)))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n     \\sqrt{2,548} = \\sqrt{2^2 \\times 7^2 \\times 13}\n     \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Integer(800), Symbol('u'))|EQ|Integer(401)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ 2 \\times 400u = 401 \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Pow(Integer(10), Symbol('b')), Symbol('a'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ a \\times 10^b \\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Pow(Symbol('a'), Symbol('m')), Pow(Symbol('a'), Symbol('n')))|EQ|Pow(Symbol('a'), Add(Symbol('m'), Symbol('n')))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[a^m \\times a^n = a^{m+n}\\]"
+      ]
+    }
+  },
+  "multiplication|Mul(Symbol('C'), Symbol('R'))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 5,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(R \\cdot C\\)",
+        "\\(R \\cdot C\\)",
+        "\\(R \\cdot C\\)"
+      ]
+    }
+  },
+  "multiplication|Mul(Symbol('m'), Symbol('n'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( m \\times n \\)",
+        "\\( m \\times n \\)"
+      ]
+    }
+  },
+  "multiplication|Mul(Symbol('m'), Symbol('p'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( m \\times p \\)",
+        "\\( m \\times p \\)"
+      ]
+    }
+  },
+  "multiplication|Mul(Symbol('n'), Symbol('p'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( n \\times p \\)",
+        "\\( n \\times p \\)"
+      ]
+    }
+  },
+  "multiplication|Pow(Symbol('chi'), Integer(2))|EQ|Add(Pow(Symbol('X_{1}'), Integer(2)), Pow(Symbol('X_{2}'), Integer(2)), Pow(Symbol('X_{n}'), Integer(2)), Symbol('cdots'))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ \\chi^2 = X_1^2 + X_2^2 + \\cdots + X_n^2 \\]"
+      ]
+    }
+  },
+  "multiplication|Pow(Symbol('n'), Integer(2))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( n \\times n \\)",
+        "\\( n \\times n \\)"
+      ]
+    }
+  },
+  "multiplication|Pow(Symbol('v'), Integer(2))|EQ|Mul(Float('0.64100000000000001', precision=53), Pow(Symbol('c'), Integer(2)))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ v^2 = 0.641 \\times c^2 \\]"
+      ]
+    }
+  },
+  "multiplication|Pow(Symbol('v_{0}'), Integer(2))|EQ|Float('313600.0', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ v_0^2 = 32,000 \\times 9.8 \\]"
+      ]
+    }
+  },
+  "multiplication|Rational(1, 2)|EQ|Pow(Integer(2), Integer(-1))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 2,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(\\frac{1}{2} \\times 1 \\times 1 = \\frac{1}{2}\\)",
+        "\\(\\frac{1}{2} \\times 1 \\times 1 = \\frac{1}{2}\\)"
+      ]
+    }
+  },
+  "multiplication|Rational(29, 20000000)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 3,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( 145 \\times 10^{-8} \\)",
+        "\\( 145 \\times 10^{-8} \\)",
+        "\\( 145 \\times 10^{-8} \\)"
+      ]
+    }
+  },
+  "multiplication|Symbol('A')|EQ|Mul(Float('0.245', precision=53), Symbol('pi'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ A = \\frac{1}{2} \\times 0.49 \\times \\pi \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('E')|EQ|Mul(Symbol('Delta'), Pow(Symbol('c'), Integer(2)), Symbol('m'))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\(E = \\Delta m \\cdot c^2\\)"
+      ]
+    }
+  },
+  "multiplication|Symbol('H')|EQ|Float('7999.9999999999991', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ H = \\frac{(560)^2}{4 \\times 9.8} \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('I')|EQ|Mul(Symbol('P'), Symbol('r'), Symbol('t'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\( I = P \\times r \\times t \\)"
+      ]
+    }
+  },
+  "multiplication|Symbol('I_{1}')|EQ|Mul(Integer(2300), Symbol('r'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ I_1 = 2300 \\times r \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('I_{2}')|EQ|Mul(Float('4050.0', precision=53), Symbol('r'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ I_2 = 2700 \\times 1.5r \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('P')|EQ|Add(Mul(Rational(1, 100), Symbol('k'), Symbol('n')), Mul(Rational(1, 100), Symbol('k')))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ P = \\frac{k}{100} \\times (n + 1) \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('P')|EQ|Mul(Rational(1, 100), Symbol('k'), Symbol('n'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n   P = k \\times \\left( \\frac{n}{100} \\right)\n   \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('P')|EQ|Mul(Rational(1, 100), Symbol('n'), Symbol('p'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ P = \\frac{p}{100} \\times n \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('P_{0.900000000000000}')|EQ|Add(Mul(Float('0.099999999999999978', precision=53), Symbol('a')), Mul(Float('0.90000000000000002', precision=53), Symbol('b')))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\nP_{0.90} = a + (b - a) \\times 0.90\n\\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('S')|EQ|Integer(18446744073709551615)": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ S = 1 \\cdot \\frac{2^{64} - 1}{2 - 1} \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('a_{60}')|EQ|Integer(785)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ a_{60} = 18 + 59 \\times 13 \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('beta')|EQ|Add(Mul(Integer(-1), Integer(2), Symbol('k'), Symbol('pi')), Mul(Rational(19, 4), Symbol('pi')))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n   \\beta = \\frac{19\\pi}{4} - 2\\pi \\cdot k\n   \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('delta')|EQ|Mul(Pow(Symbol('A'), Integer(-1)), Symbol('F'), Pow(Symbol('G'), Integer(-1)), Symbol('L'))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\n\\delta = \\frac{F \\cdot L}{A \\cdot G}\n\\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('h')|EQ|Float('27.400000000000002', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ h = 500 \\times 0.0548 \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('h')|EQ|Float('460.39999999999998', precision=53)": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\nh = 400 \\times 0.7265 + 400 \\times 0.4245\n\\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('v')|EQ|Mul(Float('0.80000000000000004', precision=53), Symbol('c'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ v = 0.800 \\times c \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('v')|EQ|Mul(Float('0.80062475604992378', precision=53), Symbol('c'))": {
+    "latex_times": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[ v = \\sqrt{0.641} \\times c \\]"
+      ]
+    }
+  },
+  "multiplication|Symbol('x')|EQ|Mul(Rational(3, 4), Symbol('pm'))": {
+    "latex_cdot": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 1.0,
+      "passed": false,
+      "examples": [
+        "\\[\nx = \\frac{-(-3) \\pm \\sqrt{(-3)^2 - 4 \\cdot 2 \\cdot 1}}{2 \\cdot 2}\n\\]"
+      ]
+    }
+  },
+  "percentage|*": {
+    "word": {
+      "documents": 39,
+      "occurrences": 64,
+      "share": 0.16080402010050251,
+      "passed": true,
+      "examples": [
+        "80 percent",
+        "50 percent",
+        "50 percent"
+      ]
+    },
+    "symbol": {
+      "documents": 164,
+      "occurrences": 334,
+      "share": 0.8391959798994975,
+      "passed": true,
+      "examples": [
+        "10%",
+        "25%",
+        "50%"
+      ]
+    }
+  },
+  "small_count|*": {
+    "word": {
+      "documents": 1393,
+      "occurrences": 2257,
+      "share": 0.8472222222222222,
+      "passed": true,
+      "examples": [
+        "five",
+        "one",
+        "three"
+      ]
+    },
+    "digit": {
+      "documents": 264,
+      "occurrences": 407,
+      "share": 0.1527777777777778,
+      "passed": true,
+      "examples": [
+        "10",
+        "1",
+        "1"
+      ]
+    }
+  },
+  "unit_spelling|*": {
+    "plain_symbol": {
+      "documents": 281,
+      "occurrences": 573,
+      "share": 0.49782797567332754,
+      "passed": true,
+      "examples": [
+        "kg",
+        "kg",
+        "s"
+      ]
+    },
+    "latex_wrapped_symbol": {
+      "documents": 55,
+      "occurrences": 339,
+      "share": 0.2945264986967854,
+      "passed": true,
+      "examples": [
+        "\\text{ kg}",
+        "\\text{ m}",
+        "\\text{ m}"
+      ]
+    },
+    "word_unit": {
+      "documents": 73,
+      "occurrences": 141,
+      "share": 0.12250217202432667,
+      "passed": true,
+      "examples": [
+        "centimeters",
+        "centimeters",
+        "second"
+      ]
+    },
+    "solidus": {
+      "documents": 13,
+      "occurrences": 32,
+      "share": 0.02780191138140747,
+      "passed": false,
+      "examples": [
+        "m/s",
+        "m/s",
+        "m/s"
+      ]
+    },
+    "latex_solidus": {
+      "documents": 22,
+      "occurrences": 59,
+      "share": 0.051259774109470024,
+      "passed": false,
+      "examples": [
+        "\\text{m/s}",
+        "\\text{m/s}",
+        "\\text{ m/s}"
+      ]
+    },
+    "words": {
+      "documents": 6,
+      "occurrences": 6,
+      "share": 0.005212858384013901,
+      "passed": false,
+      "examples": [
+        "meters per second",
+        "meters per second squared",
+        "meters per second"
+      ]
+    },
+    "solidus_unicode": {
+      "documents": 1,
+      "occurrences": 1,
+      "share": 0.0008688097306689834,
+      "passed": false,
+      "examples": [
+        "m/s²"
+      ]
+    }
+  }
+}

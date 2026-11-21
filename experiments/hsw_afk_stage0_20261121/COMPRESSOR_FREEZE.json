@@ -1,0 +1,49 @@
+{
+  "status": "BEFORE_QUICK_COMPRESSION",
+  "C1": {
+    "model": "D:\\pycharm\\CogniGuard\\assets\\models\\qwen2.5-7b-instruct-q4_k_m-official\\qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+    "parts": {
+      "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+      "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+    },
+    "server": "D:\\pycharm\\CogniGuard-worktrees\\hsw-st\\var\\results\\hsw-st\\insertion_feasibility_20261109_01\\run05\\v3_gpu\\runtime\\llama-server.exe",
+    "server_sha256": "00d50686815af38249d0218c91558fbd0e9093ac8c074bac86196907f4305e31",
+    "imported_adapter": "experiments/hsw_certinsert_eval04_final_20261116/t6_model_arms.py",
+    "adapter_sha256": "d73f228d89bf38a879e1f534163735ec3446f7ae3e9b69fc57da5b20e5d9962f"
+  },
+  "C2": {
+    "model": "llama3.1:8b",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+        "llama"
+      ],
+      "parameter_size": "8.0B",
+      "quantization_level": "Q4_K_M"
+    },
+    "ollama_version": {
+      "version": "0.24.0"
+    }
+  },
+  "prompt": "Preserve all formulas, numerical values, units, assumptions, applicability conditions, reasoning results and scientific meaning. Remove decorative wording, redundant explanations and unnecessary transitions. Aim for 70% of the input word count. Do not solve a different problem. Return only the revised text.",
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "top_k": 40,
+  "repeat_penalty": 1,
+  "max_new_tokens": 1024,
+  "tasks": 62,
+  "planned_per_compressor": 62,
+  "paid_API": 0,
+  "scenarios_sha256": "9155a76710b91480e14da89f621aa248c669e22f7c6c0fd95e0b41dbfeb6d4ff",
+  "code_sha256": {
+    "corpus_stats.py": "5015ea6f8f5595163b9c45eb10e6140d98fbbd96b52740a323c96e436e9e8d9b",
+    "forms.py": "0e7fe169a2f1e03d69a02b8e4d90d16012073ef5c3ecd2daa4bbf1510b33a928",
+    "prepare_insertions.py": "f779de9c38719aa288765168feff343fbfec12f2b25cb5b4f019745d73a081cb",
+    "prepare_quick.py": "c87dc3eaac1467d1b0317c1def2522b23072fdede6abe9a189aeaae35e8821e6",
+    "quick_compress.py": "1ccf339278395f56f2417592beb7a7686f8d980b9ff4fa49da5ac526c8cca1e7",
+    "test_forms.py": "908e3627a2717ab9a431857d8e66f5f7ad048938ef953409f8ef14e8ad347e40"
+  }
+}

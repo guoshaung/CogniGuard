@@ -1,0 +1,13 @@
+{
+  "status": "QUICK_INSERTIONS_FROZEN_BEFORE_COMPRESSION",
+  "inputs_sha256": "9155a76710b91480e14da89f621aa248c669e22f7c6c0fd95e0b41dbfeb6d4ff",
+  "eligible_by_kind": {
+    "variant": 19,
+    "connective": 29,
+    "equivalent_parenthesis": 2,
+    "intermediate_arithmetic": 1,
+    "unit_substitution": 0,
+    "dimension_check": 0
+  },
+  "rule": "At most2 each; only source-backed symbolic/pint proof; no substitute fabricated data"
+}

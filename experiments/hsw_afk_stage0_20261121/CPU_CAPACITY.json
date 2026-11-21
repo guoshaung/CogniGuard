@@ -1,0 +1,70 @@
+{
+  "reference_documents": 4407,
+  "R_generated": 300,
+  "unique_formulas": 4332,
+  "formula_parse_status": {
+    "UNSUPPORTED": 2725,
+    "PARSED": 1607
+  },
+  "adopted_groups": {
+    "large_number|*": [
+      "comma",
+      "plain"
+    ],
+    "percentage|*": [
+      "symbol",
+      "word"
+    ],
+    "small_count|*": [
+      "digit",
+      "word"
+    ],
+    "unit_spelling|*": [
+      "latex_wrapped_symbol",
+      "plain_symbol",
+      "word_unit"
+    ]
+  },
+  "style_consistency": {
+    "large_number": {
+      "consistent_documents": 97,
+      "eligible_documents": 130,
+      "rate": 0.7461538461538462,
+      "document_style": false
+    },
+    "percentage": {
+      "consistent_documents": 78,
+      "eligible_documents": 79,
+      "rate": 0.9873417721518988,
+      "document_style": true
+    },
+    "small_count": {
+      "consistent_documents": 432,
+      "eligible_documents": 538,
+      "rate": 0.8029739776951673,
+      "document_style": false
+    },
+    "unit_spelling": {
+      "consistent_documents": 40,
+      "eligible_documents": 72,
+      "rate": 0.5555555555555556,
+      "document_style": false
+    }
+  },
+  "capacity_quantiles": {
+    "min": 0.0,
+    "p25": 0.0,
+    "median": 1.0,
+    "p75": 2.146240625180289,
+    "max": 13.509775004326936
+  },
+  "documents_with_any_group": 169,
+  "test_content_reads": 0,
+  "paid_calls": 0,
+  "limitations": [
+    "Small-count recognizer uses frozen spaCy count nouns and excludes pint-recognized units.",
+    "Formula parsing limited to arithmetic without functions or long expressions; rejected formulas separately recorded.",
+    "Unit spellings cover listed SI symbols, word units, LaTeX wrappers and velocity/acceleration templates; unsupported units are not silently asserted equivalent."
+  ],
+  "status": "INITIAL_ATTESTATION_REQUIRES_COVERAGE_REVIEW"
+}

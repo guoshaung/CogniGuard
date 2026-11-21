@@ -1,0 +1,12 @@
+{
+  "status": "VARIANT_TABLE_FROZEN_BEFORE_COMPRESSION",
+  "table_sha256": "dc0c49adb4fb6d16e7870956849b3b7ad6e5f84ddcb915aa244884db4d5eb8d3",
+  "counts_sha256": "7b3a4ae0b8ed2d4f0901d6663efeb16870d8f339b6f8ed17fb5a9a040980f059",
+  "quick_inputs_sha256": "2b433a8eee0895ad621bf35f118c97e9cf52c5375216fb3c137a36baa48f3dce",
+  "selected_sources": 30,
+  "selected_sources_with_usable_edits": 19,
+  "corpus_sha256": "612af82f42d24f63844c66025229407e7d2f1c1f40db55a9d48c0efd49635387",
+  "capacity_file_sha256": "970d6ee597a5b2f6ad5c336faeb44273da25b6bd5669134372155f2e6a50e2dd",
+  "human_labels_received": 0,
+  "paid_calls": 0
+}
