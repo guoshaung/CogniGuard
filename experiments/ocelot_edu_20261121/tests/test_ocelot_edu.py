@@ -14,6 +14,7 @@ from experiments.ocelot_edu_20261121.ocelot_edu.constants import B_STAR, EPSILON
 from experiments.ocelot_edu_20261121.ocelot_edu.defenders import static_labels
 from experiments.ocelot_edu_20261121.ocelot_edu.llm import extract_json
 from experiments.ocelot_edu_20261121.ocelot_edu.run_experiment import (
+    attack_views,
     decide,
     evaluate,
     fan_out_attacks,
@@ -21,6 +22,7 @@ from experiments.ocelot_edu_20261121.ocelot_edu.run_experiment import (
     labels_from_model,
     local_arms,
     nemo_adapter,
+    prompt_messages,
 )
 from experiments.ocelot_edu_20261121.ocelot_edu.score import (
     bootstrap_ci,
@@ -259,6 +261,30 @@ class ScoringTest(unittest.TestCase):
         labels, reason = labels_from_model(turn, pass1, json.dumps({"answers": consistent}))
         self.assertEqual(reason, "model")
         self.assertTrue(all(lab["field"] == "NONE" for lab in labels))
+
+    def test_attacker_view_hides_turn_ids_and_pass2_has_no_planted_label(self):
+        turns = build_streams()
+        turn = next(t for t in turns if t["marker"])
+        release = {
+            "arm": "ocelot_minus",
+            "turn_id": turn["turn_id"],
+            "released": "公共讲解，没有编号。",
+        }
+        coal = {
+            "coalition_id": "c",
+            "pack_id": turn["pack_id"],
+            "k": 1,
+            "purpose": "g1",
+            "members": [turn["student_id"]],
+            "turn_ids": [turn["turn_id"]],
+        }
+        view = attack_views([release], [coal], ["ocelot_minus"])[0]["view"]
+        self.assertNotIn(turn["marker"], view)
+        self.assertNotIn(turn["turn_id"], view)
+        self.assertIn("公共讲解", view)
+        pass2 = prompt_messages(turn, [{"id": "c0", "index": 0, "ask": "field and operator of span 0"}])
+        self.assertNotIn('"field":"NONE"', pass2[0]["content"])
+        self.assertNotIn('"op":"identity"', pass2[0]["content"])
 
     def test_extract_json_from_a_fence(self):
         obj = extract_json('note\n```json\n{"quotes":["quad_vertex-field-F1"]}\n```')

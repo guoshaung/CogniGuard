@@ -245,8 +245,9 @@ def prompt_messages(turn: dict, challenges: list[dict] | None) -> list[dict]:
         user = {"pass": 2, "action_id": turn["turn_id"], "spans": spans, "challenges": challenges}
         instruction = (
             FIGURE8
-            + "\nPASS 2 only. Answer each challenge with the field and operator for that span index. "
-            "Return one JSON object: {\"answers\":[{\"id\":\"c0\",\"field\":\"NONE\",\"op\":\"identity\"}]}."
+            + "\nPASS 2 only. For each challenge, label that span's field and operator "
+            "with the same rule as Pass 1. Return one JSON object whose answers array "
+            "has objects with keys id, field, and op. Do not reuse a placeholder value."
         )
     return [
         {"role": "system", "content": instruction},
@@ -395,7 +396,9 @@ def attack_views(releases: list[dict], coals: list[dict], arms: list[str]) -> li
             parts = []
             for tid in coal["turn_ids"]:
                 text = by_key.get((arm, tid), "")
-                parts.append(f"[{tid}]\n{text}")
+                # Turn ids embed the marker. The student did not receive the id,
+                # so the attacker view is only the released text.
+                parts.append(text)
             view = "\n".join(parts)
             jobs.append({**coal, "arm": arm, "view": view})
     return jobs
