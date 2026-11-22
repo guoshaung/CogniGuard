@@ -15,7 +15,12 @@ from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
 from cogniguard.governance.capability import CapabilityGrant, CapabilityPolicy
 from cogniguard.governance.lifecycle import LifecycleGuard
 from cogniguard.governance.principals import AssetOwnership, Membership
+from cogniguard.protection.cg.nemo_guardrails_adapter import NeMoGuardrailsAdapter
+from cogniguard.protection.text_provenance import TextProvenanceService
 from cogniguard.runtime.disclosure_store import DisclosureStore
+from cogniguard.runtime.gateway import ProtectionGateway
+from cogniguard.runtime.protection_context import register_profile_context
+from cogniguard.runtime.sessions import SessionStore
 from cogniguard.workflows.pipeline import ProtectedText
 from core.access import AccessScope
 from core.pipeline import ProtectionPipeline, load_inputs
@@ -232,3 +237,92 @@ def test_without_disclosure_store_matches_the_previous_result() -> None:
     assert _released(default) == _released(explicit)
     assert default.controlled.resource.resource_id == allowed.resource_id
     assert explicit.controlled.resource.chunk_id == allowed.chunk_id
+
+
+_GATEWAY_KEY = b"test-only-signing-key-not-for-deploy" * 2
+_SAFE_ANSWER = "先识别题目的已知条件。"
+_PRIVATE_VALUE = "SERVER-ONLY-IDENTITY-928341"
+
+
+def _gateway(tmp_path):
+    return ProtectionGateway(
+        store=SessionStore(
+            tmp_path / "sessions.sqlite3",
+            limits={"requests": 1000, "privacy": 100, "copyright": 100},
+        ),
+        provenance=TextProvenanceService(_GATEWAY_KEY, required=True),
+        adapter=NeMoGuardrailsAdapter("", enabled=True),
+    )
+
+
+def _run_gateway(gateway, pipeline, profile, question, answer: str, *, private: str | None):
+    def operation(frame):
+        released = pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        if private is not None:
+            register_profile_context(private_values=[private])
+        return {"answer": answer, "released": released.controlled is not None}
+
+    return gateway.run("case", {}, operation, request_id="disclosure-delivery")
+
+
+def test_gateway_delivery_commits_the_receipt(disclosure_store: DisclosureStore, tmp_path) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "gateway_released_resource"
+    resource.chunk_id = "gateway_released_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    result = _run_gateway(
+        _gateway(tmp_path), pipeline, profile, question, _SAFE_ANSWER, private=None
+    )
+
+    assert result["output_validation"]["allowed"] is True
+    assert result["released"] is True
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert history[0].resource_id == resource.resource_id
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "delivered"
+
+
+def test_gateway_output_validation_cancels_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "gateway_blocked_resource"
+    resource.chunk_id = "gateway_blocked_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    result = _run_gateway(
+        _gateway(tmp_path),
+        pipeline,
+        profile,
+        question,
+        f"答案里包含 {_PRIVATE_VALUE}",
+        private=_PRIVATE_VALUE,
+    )
+
+    assert result["output_validation"]["allowed"] is False
+    assert disclosure_store.history(profile.student_id) == []
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
+    assert rows[0]["unit_id"] == resource.chunk_id
+
+
+def test_direct_pipeline_commits_without_gateway(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "direct_released_resource"
+    resource.chunk_id = "direct_released_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    pipeline.run(profile, question, access=AccessScope(profile.student_id))
+
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert history[0].resource_id == resource.resource_id
+    rows = _rows(disclosure_store)
+    assert rows[0]["status"] == "delivered"

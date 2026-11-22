@@ -30,6 +30,7 @@ from cogniguard.observability.telemetry import (
 )
 from cogniguard.protection.retrieval import inspect_candidate_resources
 from cogniguard.runtime.protection_context import (
+    active_protection,
     charge_domain_budget,
     register_profile_context,
     register_retrieval_context,
@@ -367,6 +368,23 @@ def _commit_disclosures(f) -> None:
     f.disclosure_settled = True
 
 
+def _handoff_disclosures(f) -> bool:
+    """Register reserved receipts with the active gateway scope instead of committing."""
+    context = active_protection()
+    store = f.owner.disclosure_store
+    if context is None or store is None or f.disclosure_settled:
+        return False
+    context.disclosure_store = store
+    registered = getattr(context, "disclosure_receipt_ids", None)
+    if not isinstance(registered, list):
+        registered = []
+        context.disclosure_receipt_ids = registered
+    registered.extend(f.disclosure_receipt_ids)
+    # The gateway now owns settlement. Pipeline cancel must not run again.
+    f.disclosure_settled = True
+    return True
+
+
 def _cancel_disclosures(f) -> None:
     store = f.owner.disclosure_store
     if store is None or f.disclosure_settled:
@@ -398,8 +416,10 @@ def finalize(f, state):
     f.result = result_type(
         f.task, f.card, f.selected, f.controlled, f.answer, f.privacy, f.teaching
     )
-    # govern_output has already passed. This is the completed delivery.
-    _commit_disclosures(f)
+    # Direct pipeline calls commit here. Inside a gateway scope, delivery is
+    # still ahead, so the receipts stay reserved for gateway.finalize.
+    if not _handoff_disclosures(f):
+        _commit_disclosures(f)
     return {"completed": True}
 
 
