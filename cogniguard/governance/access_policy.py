@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, replace
+from threading import Lock
 
 from cogniguard.governance.principals import AssetOwnership, Membership
 
@@ -91,3 +92,19 @@ class AccessRegistry:
             else:
                 ownerships.append(ownership)
         return AccessRegistry(ownerships, list(self._memberships), list(self._grants))
+
+
+class RegistryHolder:
+    """Thread-safe handle for the registry a teacher can replace while requests run."""
+
+    def __init__(self, registry: AccessRegistry) -> None:
+        self._lock = Lock()
+        self._registry = registry
+
+    def current(self) -> AccessRegistry:
+        with self._lock:
+            return self._registry
+
+    def replace(self, new_registry: AccessRegistry) -> None:
+        with self._lock:
+            self._registry = new_registry

@@ -12,11 +12,12 @@ import pytest
 
 pymysql = pytest.importorskip("pymysql")
 
-from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
+from cogniguard.governance.access_policy import AccessGrant, AccessRegistry, RegistryHolder
 from cogniguard.governance.principals import AssetOwnership, Membership
 from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
 from cogniguard.runtime.disclosure_store import DisclosureStore
 from cogniguard.runtime.release_gate import (
+    CommitContext,
     GateDecision,
     ReleaseGate,
     ReleaseRequest,
@@ -150,7 +151,7 @@ def test_authorization_allows_a_granted_release_and_rejects_the_rest(store: Disc
 def test_reconstruction_writes_no_receipt(store: DisclosureStore) -> None:
     setup = ReleaseGate(store)
     held = setup.evaluate_and_reserve(_request(_STUDENT_A, "u1"))
-    setup.commit(held)
+    assert setup.commit(held, 10.0) is True
     gate = ReleaseGate(store, target_registry=_witness_registry(), coalition_k=2)
 
     denied = gate.evaluate_and_reserve(_request(_STUDENT_B, "u2"))
@@ -176,7 +177,7 @@ def test_commit_and_cancel_set_the_receipt_status(store: DisclosureStore) -> Non
     first = gate.evaluate_and_reserve(_request(_STUDENT_A, "u1"))
     assert [row["status"] for row in _rows(store)] == ["reserved"]
 
-    gate.commit(first)
+    assert gate.commit(first, 10.0) is True
 
     assert [row["status"] for row in _rows(store)] == ["delivered"]
     assert len(store.history(_STUDENT_A)) == 1
@@ -456,3 +457,65 @@ def test_exception_inside_the_section_releases_the_named_lock(store: DisclosureS
     assert decision.reason == "ok"
     assert len(decision.receipt_ids) == 1
     assert [row["status"] for row in _rows(store)] == ["reserved"]
+
+
+def _holder_registry(*grants: AccessGrant, versions: dict[str, int] | None = None) -> AccessRegistry:
+    versions = versions or {}
+    resource_ids = sorted({grant.resource_id for grant in grants})
+    return AccessRegistry(
+        [
+            AssetOwnership(resource_id, "teacher-a", "school", versions.get(resource_id, 3))
+            for resource_id in resource_ids
+        ],
+        [
+            Membership(_STUDENT_B, "school", "student"),
+            Membership("teacher-a", "school", "teacher"),
+        ],
+        list(grants),
+    )
+
+
+def test_commit_cancels_when_the_holder_changes_or_the_grant_expires(store: DisclosureStore) -> None:
+    grants = (
+        AccessGrant(_STUDENT_B, "doc", "tutoring", 3),
+        AccessGrant(_STUDENT_B, "notes", "tutoring", 3),
+    )
+    registry = _holder_registry(*grants)
+    holder = RegistryHolder(registry)
+    gate = ReleaseGate(store, registry_holder=holder)
+    both = ReleaseRequest(
+        recipient_principal_id=_STUDENT_B,
+        acting_org_id="school",
+        agent_principal_id="agent-1",
+        session_id="session-1",
+        purpose="tutoring",
+        units=(UnitRelease("doc", "u1", "text-u1"), UnitRelease("notes", "u2", "text-u2")),
+        now=10.0,
+    )
+    reserved = gate.evaluate_and_reserve(both)
+    assert reserved.unit_versions == (("doc", 3), ("notes", 3))
+    assert reserved.commit_context == CommitContext(_STUDENT_B, "tutoring", "school")
+    holder.replace(registry.with_policy_version("doc", 4))
+
+    assert gate.commit(reserved, 10.0) is False
+    assert {(row["unit_id"], row["status"]) for row in _rows(store)} == {
+        ("u1", "cancelled"),
+        ("u2", "cancelled"),
+    }
+    assert store.history(_STUDENT_B) == []
+
+    kept = ReleaseGate(store, registry_holder=holder).evaluate_and_reserve(
+        _request(_STUDENT_B, "u3", resource_id="notes")
+    )
+    holder.replace(registry)
+    assert gate.commit(kept, 10.0) is True
+    assert {row["unit_id"]: row["status"] for row in _rows(store)}["u3"] == "delivered"
+    assert [receipt.unit_id for receipt in store.history(_STUDENT_B)] == ["u3"]
+
+    expiring = _holder_registry(AccessGrant(_STUDENT_B, "doc", "tutoring", 3, expires_at=100.0))
+    expiry_holder = RegistryHolder(expiring)
+    expiry_gate = ReleaseGate(store, registry_holder=expiry_holder)
+    expired = expiry_gate.evaluate_and_reserve(_request(_STUDENT_B, "u4"))
+    assert expiry_gate.commit(expired, 100.0) is False
+    assert {row["unit_id"]: row["status"] for row in _rows(store)}["u4"] == "cancelled"
+    assert [receipt.unit_id for receipt in store.history(_STUDENT_B)] == ["u3"]

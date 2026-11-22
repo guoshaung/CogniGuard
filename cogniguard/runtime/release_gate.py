@@ -46,11 +46,23 @@ class ReleaseRequest:
 
 
 @dataclass(frozen=True)
+class CommitContext:
+    """Who the commit-time authorization check is for. No unit text."""
+
+    recipient_principal_id: str
+    purpose: str
+    acting_org_id: str
+
+
+@dataclass(frozen=True)
 class GateDecision:
     allowed: bool
     reason: Literal["ok", "unauthorized", "reconstruction", "busy"]
     receipt_ids: tuple[str, ...]
     evidence: dict
+    # (resource_id, policy_version) captured for each reserved unit, same order.
+    unit_versions: tuple[tuple[str, int], ...] = ()
+    commit_context: CommitContext | None = None
 
 
 def _targets_for_release(registry, release: frozenset):
@@ -75,41 +87,75 @@ class ReleaseGate:
         access_registry=None,
         target_registry=None,
         coalition_k=None,
+        registry_holder=None,
     ) -> None:
         self.store = store
         self.access_registry = access_registry
         self.target_registry = target_registry
         self.coalition_k = coalition_k
+        self.registry_holder = registry_holder
         self._lock = _lock_for_store(store)
 
     def evaluate_and_reserve(self, req: ReleaseRequest) -> GateDecision:
         with self._lock:
             try:
                 with self.store.release_section():
-                    denied = self._authorization(req)
+                    registry = self._registry()
+                    denied = self._authorization(req, registry)
                     if denied is not None:
                         return denied
                     evidence, denied = self._reconstruction(req)
                     if denied is not None:
                         return denied
-                    receipt_ids = tuple(self._reserve_unit(req, unit) for unit in req.units)
-                    return GateDecision(True, "ok", receipt_ids, evidence)
+                    unit_versions = tuple(
+                        (unit.resource_id, _policy_version(registry, unit.resource_id))
+                        for unit in req.units
+                    )
+                    receipt_ids = tuple(
+                        self._reserve_unit(req, unit, version)
+                        for unit, (_, version) in zip(req.units, unit_versions)
+                    )
+                    return GateDecision(
+                        True,
+                        "ok",
+                        receipt_ids,
+                        evidence,
+                        unit_versions,
+                        CommitContext(
+                            req.recipient_principal_id,
+                            req.purpose,
+                            req.acting_org_id,
+                        ),
+                    )
             except ReleaseBusy:
                 return GateDecision(False, "busy", (), {})
 
-    def commit(self, decision: GateDecision) -> None:
-        for receipt_id in decision.receipt_ids:
-            self.store.commit(receipt_id)
+    def commit(self, decision: GateDecision, now: float) -> bool:
+        with self._lock:
+            with self.store.release_section():
+                registry = self._registry()
+                if registry is not None and not _still_authorized(registry, decision, now):
+                    for receipt_id in decision.receipt_ids:
+                        self.store.cancel(receipt_id)
+                    return False
+                for receipt_id in decision.receipt_ids:
+                    self.store.commit(receipt_id)
+                return True
 
     def cancel(self, decision: GateDecision) -> None:
         for receipt_id in decision.receipt_ids:
             self.store.cancel(receipt_id)
 
-    def _authorization(self, req: ReleaseRequest) -> GateDecision | None:
-        if self.access_registry is None:
+    def _registry(self):
+        if self.registry_holder is not None:
+            return self.registry_holder.current()
+        return self.access_registry
+
+    def _authorization(self, req: ReleaseRequest, registry) -> GateDecision | None:
+        if registry is None:
             return None
         for unit in req.units:
-            if not self.access_registry.is_authorized(
+            if not registry.is_authorized(
                 req.recipient_principal_id,
                 unit.resource_id,
                 req.purpose,
@@ -145,7 +191,7 @@ class ReleaseGate:
             return evidence, GateDecision(False, "reconstruction", (), evidence)
         return evidence, None
 
-    def _reserve_unit(self, req: ReleaseRequest, unit: UnitRelease) -> str:
+    def _reserve_unit(self, req: ReleaseRequest, unit: UnitRelease, policy_version: int) -> str:
         return self.store.reserve(
             resource_id=unit.resource_id,
             unit_id=unit.unit_id,
@@ -153,16 +199,36 @@ class ReleaseGate:
             acting_org_id=req.acting_org_id,
             agent_principal_id=req.agent_principal_id,
             session_id=req.session_id,
-            policy_version=self._policy_version(unit.resource_id),
+            policy_version=policy_version,
             content=unit.content,
             created_at=req.now,
             exposure_delta=unit.exposure_delta,
         )
 
-    def _policy_version(self, resource_id: str) -> int:
-        if self.access_registry is None:
-            return 0
-        ownership = self.access_registry.owner_of(resource_id)
-        if ownership is None:
-            return 0
-        return int(ownership.policy_version)
+
+def _policy_version(registry, resource_id: str) -> int:
+    if registry is None:
+        return 0
+    ownership = registry.owner_of(resource_id)
+    if ownership is None:
+        return 0
+    return int(ownership.policy_version)
+
+
+def _still_authorized(registry, decision: GateDecision, now: float) -> bool:
+    context = decision.commit_context
+    if context is None or len(decision.unit_versions) != len(decision.receipt_ids):
+        return not decision.receipt_ids
+    for resource_id, policy_version in decision.unit_versions:
+        ownership = registry.owner_of(resource_id)
+        if ownership is None or int(ownership.policy_version) != int(policy_version):
+            return False
+        if not registry.is_authorized(
+            context.recipient_principal_id,
+            resource_id,
+            context.purpose,
+            context.acting_org_id,
+            now,
+        ):
+            return False
+    return True

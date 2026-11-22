@@ -232,6 +232,7 @@ def _make_release_gate(f) -> ReleaseGate:
         access_registry=f.access.registry,
         target_registry=f.owner.target_registry,
         coalition_k=f.owner.coalition_k,
+        registry_holder=f.owner.registry_holder,
     )
 
 
@@ -493,7 +494,20 @@ def _decision_for(f, receipt_ids: tuple[str, ...]) -> GateDecision:
     decision = f.release_decision
     if decision is None:
         return GateDecision(True, "ok", receipt_ids, {})
-    return GateDecision(decision.allowed, decision.reason, receipt_ids, decision.evidence)
+    if receipt_ids == decision.receipt_ids:
+        return decision
+    versions = {
+        receipt_id: version
+        for receipt_id, version in zip(decision.receipt_ids, decision.unit_versions)
+    }
+    return GateDecision(
+        decision.allowed,
+        decision.reason,
+        receipt_ids,
+        decision.evidence,
+        tuple(versions[receipt_id] for receipt_id in receipt_ids),
+        decision.commit_context,
+    )
 
 
 def _reserve_disclosures(f, released: list[dict]) -> None:
@@ -509,8 +523,10 @@ def _commit_disclosures(f) -> None:
         return
     pending = _pending_receipts(f)
     if pending and f.release_gate is not None:
-        f.release_gate.commit(_decision_for(f, pending))
-        f.disclosure_committed.extend(pending)
+        if f.release_gate.commit(_decision_for(f, pending), time.time()):
+            f.disclosure_committed.extend(pending)
+        else:
+            f.disclosure_cancelled.extend(pending)
     f.disclosure_settled = True
 
 
@@ -632,6 +648,7 @@ class LangGraphProtectionPipeline(DomainServices):
         disclosure_store=None,
         target_registry=None,
         coalition_k=None,
+        registry_holder=None,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
@@ -639,6 +656,7 @@ class LangGraphProtectionPipeline(DomainServices):
         self.disclosure_store = disclosure_store
         self.target_registry = target_registry
         self.coalition_k = coalition_k
+        self.registry_holder = registry_holder
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()

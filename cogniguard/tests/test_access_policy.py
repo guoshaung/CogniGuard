@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
+from cogniguard.governance.access_policy import AccessGrant, AccessRegistry, RegistryHolder
 from cogniguard.governance.principals import AssetOwnership, Membership
 
 
@@ -194,3 +194,14 @@ def test_swapped_membership_order_keeps_the_same_decisions() -> None:
 
     assert forward_results == backward_results
     assert forward_results == [True, True, False, False, True, True]
+
+
+def test_holder_replace_is_what_current_returns() -> None:
+    registry = _registry()
+    holder = RegistryHolder(registry)
+    revised = registry.with_policy_version("r1", 2)
+
+    assert holder.current() is registry
+    holder.replace(revised)
+    assert holder.current() is revised
+    assert registry.is_authorized("s1", "r1", "study", "school", now=0.0) is True

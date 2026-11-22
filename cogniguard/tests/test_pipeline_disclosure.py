@@ -13,7 +13,7 @@ import pytest
 
 pymysql = pytest.importorskip("pymysql")
 
-from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
+from cogniguard.governance.access_policy import AccessGrant, AccessRegistry, RegistryHolder
 from cogniguard.governance.capability import CapabilityGrant, CapabilityPolicy
 from cogniguard.governance.lifecycle import LifecycleGuard
 from cogniguard.governance.principals import AssetOwnership, Membership
@@ -453,6 +453,52 @@ def test_direct_pipeline_commits_without_gateway(disclosure_store: DisclosureSto
     assert history[0].resource_id == resource.resource_id
     rows = _rows(disclosure_store)
     assert rows[0]["status"] == "delivered"
+
+
+def test_gateway_revoked_authorization_withholds_the_delivery(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "revoked_resource"
+    resource.chunk_id = "revoked_chunk"
+    registry = AccessRegistry(
+        [AssetOwnership(resource.resource_id, "teacher-a", "school", 1)],
+        [
+            Membership(profile.student_id, "school", "student"),
+            Membership("teacher-a", "school", "teacher"),
+        ],
+        [AccessGrant(profile.student_id, resource.resource_id, "tutoring", 1)],
+    )
+    holder = RegistryHolder(registry)
+    pipeline = ProtectionPipeline(
+        config,
+        [resource],
+        disclosure_store=disclosure_store,
+        registry_holder=holder,
+    )
+
+    def operation(frame):
+        pipeline.run(
+            profile,
+            question,
+            access=AccessScope(profile.student_id, acting_org_id="school"),
+        )
+        holder.replace(registry.with_policy_version(resource.resource_id, 2))
+        return {"answer": _SAFE_ANSWER}
+
+    result = _gateway(tmp_path).run(
+        "case", {}, operation, request_id="authorization-revoked"
+    )
+
+    assert result["authorization_revoked"] is True
+    assert SAFE_OUTPUT_REPLACEMENT in result["answer"]
+    assert disclosure_store.history(profile.student_id) == []
+    rows = [
+        row for row in _rows(disclosure_store) if row["unit_id"] == resource.chunk_id
+    ]
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
 
 
 _STUDENT_A = "student-a-holds-u1"

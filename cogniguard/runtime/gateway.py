@@ -8,6 +8,7 @@ import json
 import os
 import secrets
 import tempfile
+import time
 from copy import deepcopy
 from pathlib import Path
 from threading import RLock
@@ -61,24 +62,27 @@ def _output_intercepted(result: dict) -> bool:
     return isinstance(answer, str) and SAFE_OUTPUT_REPLACEMENT in answer
 
 
-def _settle_registered_disclosures(frame, *, cancel: bool) -> None:
+def _settle_registered_disclosures(frame, *, cancel: bool) -> bool:
     settlements = getattr(frame, "release_settlements", None)
     if not isinstance(settlements, list):
-        return
+        return True
+    now = time.time()
+    accepted = True
     while settlements:
         gate, decision = settlements[0]
         if cancel:
             gate.cancel(decision)
-        else:
-            gate.commit(decision)
+        elif not gate.commit(decision, now):
+            accepted = False
         del settlements[0]
     receipt_ids = getattr(frame, "disclosure_receipt_ids", None)
     if isinstance(receipt_ids, list):
         del receipt_ids[:]
+    return accepted
 
 
-def _commit_registered_disclosures(frame) -> None:
-    _settle_registered_disclosures(frame, cancel=False)
+def _commit_registered_disclosures(frame) -> bool:
+    return _settle_registered_disclosures(frame, cancel=False)
 
 
 def _cancel_registered_disclosures(frame) -> None:
@@ -320,6 +324,21 @@ class ProtectionGateway:
                                 "trace_id": recorder.run_id,
                                 "content_policy": "metrics_only",
                             }
+                            # Settle before the dialogue and final_deliveries are written.
+                            # A revoked commit replaces the answer those records keep.
+                            if _output_intercepted(result):
+                                _cancel_registered_disclosures(frame)
+                            elif not _commit_registered_disclosures(frame):
+                                observability = result["observability"]
+                                result = self._deliver(
+                                    {
+                                        "success": True,
+                                        "answer": SAFE_OUTPUT_REPLACEMENT,
+                                        "authorization_revoked": True,
+                                    },
+                                    frame,
+                                )
+                                result["observability"] = observability
                             with recorder.span("gateway.finalize"):
                                 self._save_dialogue(frame, payload, result)
                             deliveries = state.setdefault("final_deliveries", [])
@@ -337,10 +356,6 @@ class ProtectionGateway:
                                 }
                             )
                             state["final_deliveries"] = deliveries[-20:]
-                            if _output_intercepted(result):
-                                _cancel_registered_disclosures(frame)
-                            else:
-                                _commit_registered_disclosures(frame)
                         except Exception:
                             _cancel_registered_disclosures(frame)
                             raise
