@@ -22,6 +22,7 @@ from cogniguard.governance.evidence import (
     Principal,
     Purpose,
 )
+from cogniguard.governance.reconstruction import check_release
 from cogniguard.observability.telemetry import (
     LangSmithMonitor,
     SafeTelemetry,
@@ -38,11 +39,17 @@ from cogniguard.runtime.protection_context import (
 from core.access import AccessScope
 from core.domain import DomainServices, ProtectionResult
 from core.teaching import build_teaching_input, generate_offline_answer
+from protection.common.schemas import ControlledResource
 from protection.student_profile.src.fopd.context_card import build_context_card
 from protection.student_profile.src.fopd.task_parser import parse_task
 from protection.student_profile.src.pipeline.ag2_simulator import build_ag2_request
 from protection.teacher_resource.src.c2rag.retriever import CopyrightAwareRetriever
-from protection.teacher_resource.src.c2rag.return_policy import produce_controlled_resource
+from protection.teacher_resource.src.c2rag.return_policy import (
+    explain_return_policy,
+    produce_controlled_resource,
+    render_controlled_resource,
+)
+from protection.teacher_resource.src.c2rag.source_trace import build_source_trace
 
 
 @dataclass
@@ -167,10 +174,106 @@ def retrieve(f, state):
     return {"candidate_count": len(f.retrieved)}
 
 
+def _targets_for_release(registry, release: frozenset):
+    found = {}
+    for unit in release:
+        for target in registry.targets_for_unit(unit):
+            found.setdefault(target.target_id, target)
+    return tuple(found[target_id] for target_id in sorted(found))
+
+
+def _revert_unreleased_charge(budget, controlled) -> None:
+    chunk_id = controlled.resource.chunk_id
+    before = controlled.exposure_before
+    if before == 0.0:
+        budget.values.pop(chunk_id, None)
+    else:
+        budget.values[chunk_id] = before
+    if budget.recent_hits and budget.recent_hits[-1] == chunk_id:
+        budget.recent_hits.pop()
+
+
+def _replace_controlled_with_refusal(f, retrieval_trace) -> None:
+    """Rebuild f.controlled the way C²-RAG records a refusal. No substitute text."""
+    controlled = f.controlled
+    resource = controlled.resource
+    budget = f.owner.budget
+    # produce_controlled_resource already charged the quote. Put that back so
+    # the refusal is the only ledger update.
+    _revert_unreleased_charge(budget, controlled)
+    config = f.owner.config
+    exposure_before = budget.get(resource.chunk_id)
+    text, extra = render_controlled_resource(resource, "refuse", config)
+    explanation = explain_return_policy(resource, exposure_before, "refuse", config)
+    exposure_info = budget.update(resource, text)
+    trace = build_source_trace(
+        resource=resource,
+        mode="refuse",
+        exposure_before=exposure_before,
+        exposure_after=exposure_info["after"],
+        extra=extra,
+        controlled_text=text,
+        retrieval_trace=retrieval_trace,
+        policy_reason=str(explanation["policy_reason"]),
+        decision_factors=explanation,
+    )
+    f.controlled = ControlledResource(
+        mode="refuse",
+        text=text,
+        resource=resource,
+        exposure_before=exposure_before,
+        exposure_after=exposure_info["after"],
+        source_trace=trace,
+    )
+
+
+def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
+    """Refuse a release that lets a coalition of size coalition_k finish a witness.
+
+    The check runs only when a target registry, a coalition size, and a
+    disclosure store are all configured. Evidence keeps counts only.
+    """
+    owner = f.owner
+    controlled = f.controlled
+    if (
+        owner.target_registry is None
+        or owner.coalition_k is None
+        or owner.disclosure_store is None
+        or controlled is None
+        or controlled.mode == "refuse"
+    ):
+        return None
+    resource = controlled.resource
+    release = frozenset({(resource.resource_id, resource.chunk_id)})
+    targets = _targets_for_release(owner.target_registry, release)
+    units: set[tuple[str, str]] = set()
+    for target in targets:
+        for witness in target.witness_sets:
+            units.update(witness)
+    knowledge = owner.disclosure_store.holders_of(units)
+    verdict = check_release(
+        owner.target_registry,
+        f.profile.student_id,
+        release,
+        knowledge,
+        owner.coalition_k,
+    )
+    evidence = {
+        "target_count": len(targets),
+        "violation_count": len(verdict.violations),
+        "decision": "release" if verdict.safe else "refuse",
+    }
+    if not verdict.safe:
+        _replace_controlled_with_refusal(f, retrieval_trace)
+    f.controlled.source_trace["coalition_check"] = evidence
+    return evidence
+
+
 @stage("control_resource")
 def control_resource(f, state):
+    retrieval_trace: list[dict] = []
     if f.retrieved:
-        trace = [
+        retrieval_trace = [
             {
                 "rank": rank,
                 "resource_id": item.resource.resource_id,
@@ -181,8 +284,12 @@ def control_resource(f, state):
             for rank, item in enumerate(f.retrieved, 1)
         ]
         f.controlled = produce_controlled_resource(
-            f.retrieved[0].resource, f.owner.budget, f.owner.config, retrieval_trace=trace
+            f.retrieved[0].resource,
+            f.owner.budget,
+            f.owner.config,
+            retrieval_trace=retrieval_trace,
         )
+    coalition_evidence = _refuse_reconstructable_release(f, retrieval_trace)
     released = []
     if f.controlled is not None and f.controlled.mode != "refuse":
         charge_domain_budget(
@@ -196,11 +303,14 @@ def control_resource(f, state):
                 "return_mode": f.controlled.mode,
             }
         )
+    evidence = f.retrieval_evidence
+    if coalition_evidence is not None:
+        evidence = {**dict(f.retrieval_evidence), "coalition_check": coalition_evidence}
     register_retrieval_context(
         protected_resources=f.owner.resources,
         approved_chunks=released,
         approved_source_ids=[item["resource_id"] for item in released],
-        evidence=f.retrieval_evidence,
+        evidence=evidence,
     )
     if f.owner.disclosure_store is not None:
         _reserve_disclosures(f, released)
@@ -491,11 +601,15 @@ class LangGraphProtectionPipeline(DomainServices):
         monitor: LangSmithMonitor | None = None,
         retrieval_guard=None,
         disclosure_store=None,
+        target_registry=None,
+        coalition_k=None,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
         self.retrieval_guard = retrieval_guard
         self.disclosure_store = disclosure_store
+        self.target_registry = target_registry
+        self.coalition_k = coalition_k
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()

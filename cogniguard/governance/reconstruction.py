@@ -1,4 +1,4 @@
-"""Coalition reconstruction check. Not wired into the protection pipeline."""
+"""Coalition reconstruction check for a release that would complete a witness."""
 
 from __future__ import annotations
 
@@ -29,6 +29,8 @@ def check_release(
     max_free_units: int = 20,
 ) -> ReconstructionVerdict:
     """Return whether some coalition of size at most k that includes recipient can finish a witness."""
+    if k < 1:
+        raise ValueError("coalition size must be at least 1")
     release = frozenset(release_units)
     known = {name: frozenset(units) for name, units in knowledge.items()}
     held = known.get(recipient, frozenset()) | release
@@ -70,6 +72,8 @@ def residual_distance(
     k: int,
 ) -> dict[str, int]:
     """Units still missing for the closest coalition of size at most k, per affected target."""
+    if k < 1:
+        raise ValueError("coalition size must be at least 1")
     release = frozenset(release_units)
     known = {name: frozenset(units) for name, units in knowledge.items()}
     held = known.get(recipient, frozenset()) | release

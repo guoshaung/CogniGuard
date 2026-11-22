@@ -16,6 +16,7 @@ from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
 from cogniguard.governance.capability import CapabilityGrant, CapabilityPolicy
 from cogniguard.governance.lifecycle import LifecycleGuard
 from cogniguard.governance.principals import AssetOwnership, Membership
+from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
 from cogniguard.protection.cg.nemo_guardrails_adapter import NeMoGuardrailsAdapter
 from cogniguard.protection.output_validation import SAFE_OUTPUT_REPLACEMENT
 from cogniguard.protection.text_provenance import TextProvenanceService
@@ -450,3 +451,170 @@ def test_direct_pipeline_commits_without_gateway(disclosure_store: DisclosureSto
     assert history[0].resource_id == resource.resource_id
     rows = _rows(disclosure_store)
     assert rows[0]["status"] == "delivered"
+
+
+_STUDENT_A = "student-a-holds-u1"
+_STUDENT_B = "student-b-requests-u2"
+
+
+def _pack_unit(resource, chunk_id: str):
+    item = deepcopy(resource)
+    item.resource_id = "pack"
+    item.chunk_id = chunk_id
+    return item
+
+
+def _witness_registry() -> TargetRegistry:
+    witness = frozenset({("pack", "u1"), ("pack", "u2")})
+    return TargetRegistry([ProtectedTarget("witness", "owner", "org", (witness,))])
+
+
+def _deliver_u1(config, profile, question, resource, store: DisclosureStore):
+    student, ask = _student(profile, question, _STUDENT_A)
+    pipeline = ProtectionPipeline(
+        config, [_pack_unit(resource, "u1")], disclosure_store=store
+    )
+    pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+
+def _run_b(config, profile, question, resource, store: DisclosureStore, **kwargs):
+    student, ask = _student(profile, question, _STUDENT_B)
+    unit = _pack_unit(resource, "u2")
+    pipeline = ProtectionPipeline(
+        config, [unit], disclosure_store=store, **kwargs
+    )
+    result = pipeline.run(student, ask, access=AccessScope(student.student_id))
+    return pipeline, result, unit
+
+
+def _evidence_blob(pipeline, result) -> str:
+    return json.dumps(
+        {
+            "trace": pipeline.last_trace,
+            "state": pipeline.last_state,
+            "result": result.to_dict(),
+        },
+        ensure_ascii=False,
+        default=str,
+    )
+
+
+def test_k_of_two_refuses_the_unit_that_completes_the_witness(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=2,
+    )
+
+    assert result.controlled.mode == "refuse"
+    assert result.controlled.text.startswith("该资料当前不适合")
+    assert unit.content not in result.controlled.text
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"] == []
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 1,
+        "decision": "refuse",
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_k_of_one_still_releases_the_second_unit(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=1,
+    )
+    _unchecked, unchecked, _same = _run_b(
+        config, profile, question, resource, disclosure_store
+    )
+
+    assert result.controlled.mode != "refuse"
+    assert _released(result) == _released(unchecked)
+    rows = [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"]
+    assert len(rows) == 2
+    assert {row["status"] for row in rows} == {"delivered"}
+    assert {row["recipient_principal_id"] for row in rows} == {_STUDENT_B}
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 0,
+        "decision": "release",
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_reserved_receipt_is_enough_to_refuse(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    disclosure_store.reserve(
+        resource_id="pack",
+        unit_id="u1",
+        recipient_principal_id=_STUDENT_A,
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="reserved-u1",
+        created_at=1.0,
+    )
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=2,
+    )
+
+    assert result.controlled.mode == "refuse"
+    rows = _rows(disclosure_store)
+    assert [row for row in rows if row["unit_id"] == "u2"] == []
+    assert [(row["unit_id"], row["status"]) for row in rows] == [("u1", "reserved")]
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_without_target_registry_the_release_is_unchanged(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+    student, ask = _student(profile, question, _STUDENT_B)
+    unit = _pack_unit(resource, "u2")
+
+    def run(**kwargs):
+        pipeline = ProtectionPipeline(
+            config, [deepcopy(unit)], disclosure_store=disclosure_store, **kwargs
+        )
+        return pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+    baseline = run()
+    without_registry = run(coalition_k=2)
+    without_k = run(target_registry=_witness_registry())
+
+    assert _released(without_registry) == _released(baseline)
+    assert _released(without_k) == _released(baseline)
+    assert "coalition_check" not in without_registry.controlled.source_trace
+    assert "coalition_check" not in without_k.controlled.source_trace
+    delivered = [
+        row
+        for row in _rows(disclosure_store)
+        if row["unit_id"] == "u2" and row["status"] == "delivered"
+    ]
+    assert len(delivered) == 3
+    assert all(row["recipient_principal_id"] == _STUDENT_B for row in delivered)

@@ -156,6 +156,33 @@ class DisclosureStore:
         )
         return frozenset((row["resource_id"], row["unit_id"]) for row in rows)
 
+    def holders_of(self, units: set[tuple[str, str]]) -> dict[str, frozenset[tuple[str, str]]]:
+        """Units each recipient already holds among `units`.
+
+        Reserved receipts count as held. An in-flight release is treated as
+        already disclosed so a concurrent coalition is not under-counted.
+        """
+        if not units:
+            return {}
+        ordered = tuple(sorted(units))
+        placeholders = ", ".join(["(%s, %s)"] * len(ordered))
+        params = tuple(part for unit in ordered for part in unit)
+        rows = self._read(
+            f"""
+            SELECT recipient_principal_id, resource_id, unit_id
+            FROM disclosure_receipt
+            WHERE status IN ('reserved', 'delivered')
+              AND (resource_id, unit_id) IN ({placeholders})
+            """,
+            params,
+        )
+        held: dict[str, set[tuple[str, str]]] = {}
+        for row in rows:
+            held.setdefault(row["recipient_principal_id"], set()).add(
+                (row["resource_id"], row["unit_id"])
+            )
+        return {name: frozenset(pairs) for name, pairs in held.items()}
+
     def exposure_by_recipient(self, resource_id: str, unit_id: str) -> dict[str, float]:
         rows = self._read(
             """

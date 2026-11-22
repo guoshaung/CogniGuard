@@ -103,6 +103,56 @@ def test_coalition_units_are_the_delivered_union(store: DisclosureStore) -> None
     assert pending
 
 
+def test_holders_of_counts_reserved_and_delivered(store: DisclosureStore) -> None:
+    delivered = _reserve(
+        store,
+        recipient_principal_id="student-a",
+        resource_id="pack",
+        unit_id="u1",
+        created_at=1.0,
+    )
+    store.commit(delivered)
+    _reserve(
+        store,
+        recipient_principal_id="student-a",
+        resource_id="pack",
+        unit_id="u1",
+        created_at=1.5,
+    )
+    _reserve(
+        store,
+        recipient_principal_id="student-b",
+        resource_id="pack",
+        unit_id="u2",
+        created_at=2.0,
+    )
+    cancelled = _reserve(
+        store,
+        recipient_principal_id="student-c",
+        resource_id="pack",
+        unit_id="u1",
+        created_at=3.0,
+    )
+    store.cancel(cancelled)
+    _reserve(
+        store,
+        recipient_principal_id="student-d",
+        resource_id="other",
+        unit_id="u9",
+        created_at=4.0,
+    )
+
+    assert store.holders_of(set()) == {}
+    held = store.holders_of({("pack", "u1"), ("pack", "u2")})
+
+    assert held == {
+        "student-a": frozenset({("pack", "u1")}),
+        "student-b": frozenset({("pack", "u2")}),
+    }
+    assert "student-c" not in held
+    assert "student-d" not in held
+
+
 def test_second_commit_raises(store: DisclosureStore) -> None:
     receipt_id = _reserve(store)
     store.commit(receipt_id)

@@ -5,6 +5,8 @@ from __future__ import annotations
 import random
 from itertools import combinations
 
+import pytest
+
 from cogniguard.governance.reconstruction import check_release, residual_distance
 from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
 
@@ -20,6 +22,18 @@ def _target(target_id: str, *groups: set[str]) -> ProtectedTarget:
 
 def _knowledge(**held: set[str]) -> dict[str, frozenset]:
     return {name: frozenset(_unit(unit) for unit in units) for name, units in held.items()}
+
+
+def test_coalition_size_below_one_is_rejected() -> None:
+    registry = TargetRegistry([_target("goal", {"a", "b"})])
+    knowledge = _knowledge(r={"a"})
+    release = frozenset({_unit("b")})
+
+    for limit in (0, -1):
+        with pytest.raises(ValueError, match="at least 1"):
+            check_release(registry, "r", release, knowledge, limit)
+        with pytest.raises(ValueError, match="at least 1"):
+            residual_distance(registry, "r", release, knowledge, limit)
 
 
 def test_recipient_who_already_holds_the_rest_is_alone_enough() -> None:
