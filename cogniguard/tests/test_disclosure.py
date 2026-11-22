@@ -6,40 +6,42 @@ import os
 import uuid
 from threading import Lock, Thread
 
-import pymysql
 import pytest
 
-from cogniguard.governance.disclosure import DisclosureStore
+pymysql = pytest.importorskip("pymysql")
+
+from cogniguard.runtime.disclosure_store import DisclosureStore
 
 _SECRET = "ORIGINAL_TEXT_SHOULD_NOT_BE_STORED"
+_CONNECT_TIMEOUT = 3
 
 
-def _mysql_kwargs(database: str) -> dict:
+def _server_settings() -> dict:
     return {
         "host": os.environ.get("COGNIGUARD_MYSQL_HOST", "127.0.0.1"),
         "port": int(os.environ.get("COGNIGUARD_MYSQL_PORT", "3306")),
         "user": os.environ.get("COGNIGUARD_MYSQL_USER", "root"),
         "password": os.environ.get("COGNIGUARD_MYSQL_PASSWORD", ""),
-        "database": database,
     }
 
 
 @pytest.fixture
 def store():
+    settings = _server_settings()
+    try:
+        probe = pymysql.connect(**settings, connect_timeout=_CONNECT_TIMEOUT)
+    except (pymysql.Error, OSError) as exc:
+        pytest.skip(f"MySQL is not reachable: {exc}")
+    else:
+        probe.close()
+
     database = "cg_disclosure_" + uuid.uuid4().hex[:16]
-    kwargs = _mysql_kwargs(database)
-    opened = DisclosureStore(**kwargs)
+    opened = DisclosureStore(**settings, database=database)
     try:
         yield opened
     finally:
         opened.close()
-        admin = pymysql.connect(
-            host=kwargs["host"],
-            port=kwargs["port"],
-            user=kwargs["user"],
-            password=kwargs["password"],
-            autocommit=True,
-        )
+        admin = pymysql.connect(**settings, autocommit=True, connect_timeout=_CONNECT_TIMEOUT)
         try:
             with admin.cursor() as cursor:
                 cursor.execute(f"DROP DATABASE IF EXISTS `{database}`")
@@ -144,21 +146,24 @@ def test_ten_threads_commit_exactly_ten_receipts(store: DisclosureStore) -> None
 
 
 def test_table_has_no_column_for_original_text(store: DisclosureStore) -> None:
-    kwargs = _mysql_kwargs(store._database)
+    settings = _server_settings()
     receipt_id = _reserve(store, content=_SECRET, created_at=7.0)
     store.commit(receipt_id)
     admin = pymysql.connect(
-        host=kwargs["host"],
-        port=kwargs["port"],
-        user=kwargs["user"],
-        password=kwargs["password"],
-        database=kwargs["database"],
+        **settings,
+        database=store._database,
         cursorclass=pymysql.cursors.DictCursor,
+        connect_timeout=_CONNECT_TIMEOUT,
     )
     try:
         with admin.cursor() as cursor:
             cursor.execute("SHOW COLUMNS FROM disclosure_receipt")
             columns = [row["Field"] for row in cursor.fetchall()]
+            cursor.execute("SHOW INDEX FROM disclosure_receipt")
+            index_columns = [
+                (row["Key_name"], row["Seq_in_index"], row["Column_name"])
+                for row in cursor.fetchall()
+            ]
             cursor.execute("SELECT * FROM disclosure_receipt")
             rows = cursor.fetchall()
     finally:
@@ -178,5 +183,37 @@ def test_table_has_no_column_for_original_text(store: DisclosureStore) -> None:
         "created_at",
     ]
     assert "content" not in columns
+    assert ("idx_disclosure_recipient_status", 1, "recipient_principal_id") in index_columns
+    assert ("idx_disclosure_recipient_status", 2, "status") in index_columns
     stored = " ".join(str(value) for row in rows for value in row.values())
     assert _SECRET not in stored
+
+
+def test_restarted_store_reserves_the_same_parameters_again(store: DisclosureStore) -> None:
+    fields = {
+        "resource_id": "r-restart",
+        "unit_id": "u-restart",
+        "recipient_principal_id": "s-restart",
+        "acting_org_id": "school",
+        "agent_principal_id": "agent-1",
+        "session_id": "session-1",
+        "policy_version": 1,
+        "content": _SECRET,
+        "created_at": 42.0,
+    }
+    first = store.reserve(**fields)
+    restarted = DisclosureStore(
+        host=store._host,
+        port=store._port,
+        user=store._user,
+        password=store._password,
+        database=store._database,
+    )
+    try:
+        second = restarted.reserve(**fields)
+        restarted.commit(second)
+    finally:
+        restarted.close()
+
+    assert first != second
+    assert {item.receipt_id for item in store.history("s-restart")} == {second}

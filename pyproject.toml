@@ -22,6 +22,9 @@ runtime = [
 nemo = [
     "nemoguardrails==0.24.1",
 ]
+mysql = [
+    "pymysql>=1.1",
+]
 
 # Supported installation: pip install -e . from a source checkout. Research
 # integrations still consume checkout-local configs, fixtures and model assets;
