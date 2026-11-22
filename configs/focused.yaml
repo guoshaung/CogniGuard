@@ -37,6 +37,20 @@ c2rag:
     ngram: 0.25
     sem: 0.30
     focus: 0.10
+  # 待实验校准的默认值。每种回应方式是否把该单元记为已透露。
+  disclosure_rule:
+    quote: true
+    summary: true
+    outline: true
+    variant: true
+    refuse: false
+  # 待实验校准的默认值。外部任务效用，供距离定价比较。
+  candidate_utility:
+    quote: 1.0
+    summary: 0.8
+    outline: 0.6
+    variant: 0.6
+    refuse: 0.0
 variant:
   max_lcs_ratio: 0.45
   max_surface_sim: 0.65

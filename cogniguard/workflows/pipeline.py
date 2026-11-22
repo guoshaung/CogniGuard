@@ -22,6 +22,7 @@ from cogniguard.governance.evidence import (
     Principal,
     Purpose,
 )
+from cogniguard.governance.reconstruction import check_release
 from cogniguard.observability.telemetry import (
     LangSmithMonitor,
     SafeTelemetry,
@@ -36,6 +37,7 @@ from cogniguard.runtime.protection_context import (
     register_retrieval_context,
 )
 from cogniguard.runtime.release_gate import (
+    Candidate,
     GateDecision,
     ReleaseGate,
     ReleaseRequest,
@@ -266,11 +268,50 @@ def _remember_release(f, gate: ReleaseGate, decision: GateDecision) -> None:
         f.disclosure_receipt_ids.extend(decision.receipt_ids)
 
 
+def _mode_discloses(config: dict, mode: str) -> bool:
+    rules = config.get("c2rag", {}).get("disclosure_rule") or {}
+    if mode in rules:
+        return bool(rules[mode])
+    return mode != "refuse"
+
+
+def _mode_utility(config: dict, mode: str) -> float:
+    utilities = config.get("c2rag", {}).get("candidate_utility") or {}
+    if mode in utilities:
+        return float(utilities[mode])
+    return {"quote": 1.0, "summary": 0.8, "outline": 0.6, "variant": 0.6}.get(mode, 0.0)
+
+
+def _coalition_counts(f, units: tuple[UnitRelease, ...]) -> dict:
+    """Count affected targets and violations for the disclosing candidate only."""
+    release = frozenset((unit.resource_id, unit.unit_id) for unit in units)
+    if not release:
+        return {"target_count": 0, "violation_count": 0}
+    registry = f.owner.target_registry
+    targets = {}
+    witness_units: set[tuple[str, str]] = set()
+    for unit in release:
+        for target in registry.targets_for_unit(unit):
+            targets.setdefault(target.target_id, target)
+    for target in targets.values():
+        for witness in target.witness_sets:
+            witness_units.update(witness)
+    knowledge = f.owner.disclosure_store.holders_of(witness_units) if witness_units else {}
+    verdict = check_release(
+        registry,
+        f.profile.student_id,
+        release,
+        knowledge,
+        f.owner.coalition_k,
+    )
+    return {"target_count": len(targets), "violation_count": len(verdict.violations)}
+
+
 def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
-    """Refuse a release that lets a coalition of size coalition_k finish a witness.
+    """Price the C²-RAG mode against refusal when coalition checks are enabled.
 
     The check runs only when a target registry, a coalition size, and a
-    disclosure store are all configured. Evidence keeps counts only.
+    disclosure store are all configured. Evidence keeps a mode name and counts.
     """
     owner = f.owner
     controlled = f.controlled
@@ -283,28 +324,41 @@ def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
     ):
         return None
     resource = controlled.resource
-    gate = _make_release_gate(f)
-    decision = gate.evaluate_and_reserve(
-        _release_request(
-            f,
-            [
-                {
-                    "resource_id": resource.resource_id,
-                    "chunk_id": resource.chunk_id,
-                    "content": controlled.text,
-                }
-            ],
+    mode = controlled.mode
+    units = (
+        (
+            UnitRelease(
+                resource.resource_id,
+                resource.chunk_id,
+                controlled.text,
+                _exposure_delta(f),
+            ),
         )
+        if _mode_discloses(owner.config, mode)
+        else ()
+    )
+    candidates = (
+        Candidate(mode, units, _mode_utility(owner.config, mode)),
+        Candidate("refuse", (), 0.0),
+    )
+    counts = _coalition_counts(f, units)
+    gate = _make_release_gate(f)
+    chosen, decision = gate.select_and_reserve(
+        _release_request(f, []),
+        candidates,
+        price_lambda=owner.price_lambda,
+        decay=owner.price_decay,
     )
     _remember_release(f, gate, decision)
-    if decision.reason != "ok":
+    kept = chosen is not None and chosen.name != "refuse"
+    if not kept:
         _replace_controlled_with_refusal(f, retrieval_trace)
-    if "target_count" not in decision.evidence:
-        return None
     evidence = {
-        "target_count": decision.evidence["target_count"],
-        "violation_count": decision.evidence["violation_count"],
-        "decision": "release" if decision.reason == "ok" else "refuse",
+        "target_count": counts["target_count"],
+        "violation_count": counts["violation_count"],
+        "decision": "release" if kept else "refuse",
+        "selected": decision.evidence.get("selected", ""),
+        "accepted_count": decision.evidence.get("accepted_count", 0),
     }
     f.controlled.source_trace["coalition_check"] = evidence
     return evidence
@@ -511,7 +565,13 @@ def _decision_for(f, receipt_ids: tuple[str, ...]) -> GateDecision:
 
 
 def _reserve_disclosures(f, released: list[dict]) -> None:
-    if f.owner.disclosure_store is None or not released or f.disclosure_receipt_ids:
+    # A priced decision, including one that discloses nothing, is already settled.
+    if (
+        f.owner.disclosure_store is None
+        or not released
+        or f.disclosure_receipt_ids
+        or f.release_decision is not None
+    ):
         return
     gate = _make_release_gate(f)
     decision = gate.evaluate_and_reserve(_release_request(f, released))
@@ -649,6 +709,8 @@ class LangGraphProtectionPipeline(DomainServices):
         target_registry=None,
         coalition_k=None,
         registry_holder=None,
+        price_lambda: float = 1.0,
+        price_decay: float = 1.0,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
@@ -657,6 +719,8 @@ class LangGraphProtectionPipeline(DomainServices):
         self.target_registry = target_registry
         self.coalition_k = coalition_k
         self.registry_holder = registry_holder
+        self.price_lambda = price_lambda
+        self.price_decay = price_decay
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()

@@ -571,6 +571,8 @@ def test_k_of_two_refuses_the_unit_that_completes_the_witness(
         "target_count": 1,
         "violation_count": 1,
         "decision": "refuse",
+        "selected": "refuse",
+        "accepted_count": 1,
     }
     assert _STUDENT_A not in _evidence_blob(pipeline, result)
 
@@ -602,6 +604,8 @@ def test_k_of_one_still_releases_the_second_unit(disclosure_store: DisclosureSto
         "target_count": 1,
         "violation_count": 0,
         "decision": "release",
+        "selected": result.controlled.mode,
+        "accepted_count": 2,
     }
     assert _STUDENT_A not in _evidence_blob(pipeline, result)
 
@@ -730,3 +734,111 @@ def test_two_pipelines_sharing_a_store_release_only_one_unit(
     ]
     assert len(rows) == 1
     assert rows[0]["status"] == "delivered"
+
+
+def _three_unit_registry() -> TargetRegistry:
+    witness = frozenset({("pack", "u1"), ("pack", "u2"), ("pack", "u3")})
+    return TargetRegistry([ProtectedTarget("witness", "owner", "org", (witness,))])
+
+
+def test_large_price_refuses_before_the_witness_is_complete(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_three_unit_registry(),
+        coalition_k=2,
+        price_lambda=10,
+    )
+
+    assert result.controlled.mode == "refuse"
+    assert result.controlled.text.startswith("该资料当前不适合")
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"] == []
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 0,
+        "decision": "refuse",
+        "selected": "refuse",
+        "accepted_count": 2,
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_zero_price_releases_the_incomplete_witness(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_three_unit_registry(),
+        coalition_k=2,
+        price_lambda=0,
+    )
+    _unchecked, unchecked, _same = _run_b(
+        config, profile, question, resource, disclosure_store
+    )
+
+    assert result.controlled.mode != "refuse"
+    assert _released(result) == _released(unchecked)
+    rows = [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"]
+    assert len(rows) == 2
+    assert {row["status"] for row in rows} == {"delivered"}
+    assert {row["recipient_principal_id"] for row in rows} == {_STUDENT_B}
+    assert result.controlled.source_trace["coalition_check"]["selected"] == result.controlled.mode
+    assert result.controlled.source_trace["coalition_check"]["decision"] == "release"
+    assert result.controlled.source_trace["coalition_check"]["violation_count"] == 0
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_outline_marked_not_disclosed_writes_no_receipt(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    config = deepcopy(config)
+    c2 = config["c2rag"]
+    c2["thresholds"] = {
+        **c2["thresholds"],
+        "quote": -1.0,
+        "summary": -1.0,
+        "variant": -1.0,
+        "outline": 1.0,
+    }
+    c2["high_copyright_threshold"] = 2.0
+    c2["quote_copyright_threshold"] = 0.0
+    c2["disclosure_rule"] = {**c2["disclosure_rule"], "outline": False}
+    unit = _pack_unit(resource, "outline-unit")
+    unit.policy.allow_quote = False
+    unit.policy.allow_summary = False
+    unit.policy.allow_variant = False
+    unit.policy.allow_outline = True
+    witness = frozenset({("pack", "outline-unit")})
+    registry = TargetRegistry([ProtectedTarget("outline-target", "owner", "org", (witness,))])
+    student, ask = _student(profile, question, "student-outline")
+    pipeline = ProtectionPipeline(
+        config,
+        [unit],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+
+    result = pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+    assert result.controlled.mode == "outline"
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "outline-unit"] == []
+    assert result.controlled.source_trace["coalition_check"]["selected"] == "outline"
+    assert result.controlled.source_trace["coalition_check"]["decision"] == "release"
+    assert result.controlled.source_trace["coalition_check"]["accepted_count"] == 2
