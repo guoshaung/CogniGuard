@@ -6,6 +6,7 @@ No checkpointing or automatic retries: domain budget commits are side effects.
 
 from __future__ import annotations
 
+import time
 from copy import deepcopy
 from dataclasses import dataclass, field
 from threading import RLock
@@ -139,10 +140,15 @@ def minimize_profile(f, state):
 
 @stage("retrieve")
 def retrieve(f, state):
-    retriever = f.owner.retriever
-    if f.access.resource_ids is not None:
-        allowed = [r for r in f.owner.resources if r.resource_id in f.access.resource_ids]
+    if f.access.registry is not None:
+        now = time.time()
+        allowed = [r for r in f.owner.resources if f.access.permits(r.resource_id, now)]
         retriever = CopyrightAwareRetriever(allowed, f.owner.budget, f.owner.config)
+    else:
+        retriever = f.owner.retriever
+        if f.access.resource_ids is not None:
+            allowed = [r for r in f.owner.resources if r.resource_id in f.access.resource_ids]
+            retriever = CopyrightAwareRetriever(allowed, f.owner.budget, f.owner.config)
     retrieved = retriever.retrieve(build_ag2_request(f.task, f.card), f.task, f.card)
     inspection = inspect_candidate_resources(
         [item.resource for item in retrieved], guard=f.owner.retrieval_guard
