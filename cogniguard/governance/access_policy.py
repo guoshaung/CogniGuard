@@ -25,6 +25,11 @@ class AccessRegistry:
         memberships: list[Membership],
         grants: list[AccessGrant],
     ) -> None:
+        seen: set[str] = set()
+        for ownership in ownerships:
+            if ownership.resource_id in seen:
+                raise ValueError(ownership.resource_id)
+            seen.add(ownership.resource_id)
         self._ownerships = tuple(ownerships)
         self._memberships = tuple(memberships)
         self._grants = tuple(grants)
@@ -36,17 +41,24 @@ class AccessRegistry:
         return None
 
     def org_of(self, principal_id: str) -> str | None:
+        # 主体属于多个组织时，它只返回其中一个，不能用于授权判断。
         for membership in self._memberships:
             if membership.principal_id == principal_id:
                 return membership.org_id
         return None
 
+    def orgs_of(self, principal_id: str) -> frozenset[str]:
+        return frozenset(
+            membership.org_id
+            for membership in self._memberships
+            if membership.principal_id == principal_id
+        )
+
     def is_authorized(self, principal_id: str, resource_id: str, purpose: str, now: float) -> bool:
         ownership = self.owner_of(resource_id)
         if ownership is None:
             return False
-        org_id = self.org_of(principal_id)
-        if org_id is None or org_id != ownership.org_id:
+        if ownership.org_id not in self.orgs_of(principal_id):
             return False
         if principal_id == ownership.owner_principal_id:
             return True

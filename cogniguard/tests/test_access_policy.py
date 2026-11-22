@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import pytest
+
 from cogniguard.governance.access_policy import AccessGrant, AccessRegistry
 from cogniguard.governance.principals import AssetOwnership, Membership
 
@@ -97,3 +99,51 @@ def test_purpose_mismatch_is_denied() -> None:
     registry = _registry()
 
     assert registry.is_authorized("s1", "r1", "grade", now=0.0) is False
+
+
+def test_duplicate_resource_registration_is_rejected() -> None:
+    with pytest.raises(ValueError):
+        AccessRegistry(
+            [
+                AssetOwnership("r1", "t1", "school", 1),
+                AssetOwnership("r1", "t2", "school", 1),
+            ],
+            [Membership("t1", "school", "teacher")],
+            [],
+        )
+
+
+def _two_org_registry(memberships: list[Membership]) -> AccessRegistry:
+    return AccessRegistry(
+        [
+            AssetOwnership("r-school", "t-school", "school", 1),
+            AssetOwnership("r-lab", "t-lab", "lab", 1),
+        ],
+        memberships,
+        [
+            AccessGrant("s", "r-school", "study", 1),
+            AccessGrant("s", "r-lab", "study", 1),
+        ],
+    )
+
+
+def test_student_in_two_orgs_can_use_each_granted_resource() -> None:
+    first = [
+        Membership("s", "school", "student"),
+        Membership("s", "lab", "student"),
+        Membership("t-school", "school", "teacher"),
+        Membership("t-lab", "lab", "teacher"),
+    ]
+    swapped = [
+        Membership("s", "lab", "student"),
+        Membership("s", "school", "student"),
+        Membership("t-lab", "lab", "teacher"),
+        Membership("t-school", "school", "teacher"),
+    ]
+    ahead = _two_org_registry(first)
+    behind = _two_org_registry(swapped)
+
+    assert ahead.orgs_of("s") == frozenset({"school", "lab"})
+    for registry in (ahead, behind):
+        assert registry.is_authorized("s", "r-school", "study", now=0.0) is True
+        assert registry.is_authorized("s", "r-lab", "study", now=0.0) is True
