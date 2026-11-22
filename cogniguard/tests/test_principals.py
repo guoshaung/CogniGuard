@@ -50,7 +50,7 @@ def test_teacher_resource_old_format_leaves_owner_and_org_empty() -> None:
         }
     )
 
-    assert resource.owner_id is None
+    assert resource.owner_principal_id is None
     assert resource.org_id is None
 
 
@@ -65,10 +65,10 @@ def test_teacher_resource_new_format_reads_owner_and_org() -> None:
             "cognitive_level": "remember",
             "resource_type": "note",
             "copyright_level": 0.2,
-            "owner_id": "p-1",
+            "owner_principal_id": "p-1",
             "org_id": "org-1",
         }
     )
 
-    assert resource.owner_id == "p-1"
+    assert resource.owner_principal_id == "p-1"
     assert resource.org_id == "org-1"

@@ -84,6 +84,7 @@ class ResourcePolicy:
 
 @dataclass(slots=True)
 class TeacherResource:
+    # owner_principal_id 和 org_id 只是元数据，不得用作授权依据；授权以后端构建的 AssetOwnership 登记为准。
     resource_id: str
     chunk_id: str
     content: str
@@ -93,7 +94,7 @@ class TeacherResource:
     resource_type: str
     copyright_level: float
     policy: ResourcePolicy
-    owner_id: str | None = None
+    owner_principal_id: str | None = None
     org_id: str | None = None
 
     @classmethod
@@ -108,8 +109,8 @@ class TeacherResource:
             resource_type=str(data.get("resource_type", "")),
             copyright_level=float(data.get("copyright_level", 0.0)),
             policy=ResourcePolicy.from_dict(data.get("policy")),
-            owner_id=data["owner_id"] if "owner_id" in data else None,
-            org_id=data["org_id"] if "org_id" in data else None,
+            owner_principal_id=None if data.get("owner_principal_id") is None else str(data["owner_principal_id"]),
+            org_id=None if data.get("org_id") is None else str(data["org_id"]),
         )
 
 
