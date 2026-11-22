@@ -94,6 +94,10 @@ class Frame:
     answer: str = ""
     protected: ProtectedText | None = None
     result: ProtectionResult | None = None
+    disclosure_receipt_ids: list = field(default_factory=list)
+    disclosure_committed: list = field(default_factory=list)
+    disclosure_cancelled: list = field(default_factory=list)
+    disclosure_settled: bool = False
 
 
 @dataclass
@@ -197,6 +201,8 @@ def control_resource(f, state):
         approved_source_ids=[item["resource_id"] for item in released],
         evidence=f.retrieval_evidence,
     )
+    if f.owner.disclosure_store is not None:
+        _reserve_disclosures(f, released)
     return {"resource_exposure": float(f.controlled.exposure_after) if f.controlled else 0.0}
 
 
@@ -323,9 +329,65 @@ def govern_output(f, state):
     return {"blocked": decision.action != "allow", "decision_code": codes[decision.action]}
 
 
+def _policy_version(f, resource_id: str) -> int:
+    registry = f.access.registry
+    if registry is None:
+        return 0
+    ownership = registry.owner_of(resource_id)
+    if ownership is None:
+        return 0
+    return ownership.policy_version
+
+
+def _reserve_disclosures(f, released: list[dict]) -> None:
+    store = f.owner.disclosure_store
+    acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
+    for item in released:
+        receipt_id = store.reserve(
+            resource_id=item["resource_id"],
+            unit_id=item["chunk_id"],
+            recipient_principal_id=f.profile.student_id,
+            acting_org_id=acting_org_id,
+            agent_principal_id="graph-runtime",
+            session_id=f.owner.session_id,
+            policy_version=_policy_version(f, item["resource_id"]),
+            content=item["content"],
+            created_at=time.time(),
+        )
+        f.disclosure_receipt_ids.append(receipt_id)
+
+
+def _commit_disclosures(f) -> None:
+    store = f.owner.disclosure_store
+    if store is None or f.disclosure_settled:
+        return
+    for receipt_id in f.disclosure_receipt_ids:
+        store.commit(receipt_id)
+        f.disclosure_committed.append(receipt_id)
+    f.disclosure_settled = True
+
+
+def _cancel_disclosures(f) -> None:
+    store = f.owner.disclosure_store
+    if store is None or f.disclosure_settled:
+        return
+    committed = set(f.disclosure_committed)
+    pending = [
+        receipt_id
+        for receipt_id in f.disclosure_receipt_ids
+        if receipt_id not in committed and receipt_id not in f.disclosure_cancelled
+    ]
+    for receipt_id in pending:
+        store.cancel(receipt_id)
+        f.disclosure_cancelled.append(receipt_id)
+    f.disclosure_settled = True
+
+
 @stage("finalize")
 def finalize(f, state):
     if state.get("blocked"):
+        # Output or input governance refused delivery. Drop the reserved receipts.
+        _cancel_disclosures(f)
         # Do not return a diagnostic ProtectionResult with rejected content.
         return {"completed": False}
     result_type = (
@@ -336,6 +398,8 @@ def finalize(f, state):
     f.result = result_type(
         f.task, f.card, f.selected, f.controlled, f.answer, f.privacy, f.teaching
     )
+    # govern_output has already passed. This is the completed delivery.
+    _commit_disclosures(f)
     return {"completed": True}
 
 
@@ -399,10 +463,12 @@ class LangGraphProtectionPipeline(DomainServices):
         generator: Callable | None = None,
         monitor: LangSmithMonitor | None = None,
         retrieval_guard=None,
+        disclosure_store=None,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
         self.retrieval_guard = retrieval_guard
+        self.disclosure_store = disclosure_store
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()
@@ -427,6 +493,10 @@ class LangGraphProtectionPipeline(DomainServices):
                 if frame.result is None:
                     raise PermissionError("Governance blocked delivery")
                 return frame.result
+            except Exception:
+                # A node failed before finalize could settle the reserved receipts.
+                _cancel_disclosures(frame)
+                raise
             finally:
                 self.last_trace = recorder.to_dict()
                 if outer is None:
