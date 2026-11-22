@@ -170,3 +170,27 @@ def test_acting_as_another_org_is_denied_even_for_a_member() -> None:
     assert "school" in registry.orgs_of("s")
     assert registry.is_authorized("s", "r-school", "study", "lab", now=0.0) is False
     assert registry.is_authorized("s", "r-school", "study", "school", now=0.0) is True
+
+
+def test_swapped_membership_order_keeps_the_same_decisions() -> None:
+    memberships = [
+        Membership("s", "school", "student"),
+        Membership("s", "lab", "student"),
+        Membership("t-school", "school", "teacher"),
+        Membership("t-lab", "lab", "teacher"),
+    ]
+    probes = [
+        ("s", "r-school", "study", "school"),
+        ("s", "r-lab", "study", "lab"),
+        ("s", "r-school", "study", "lab"),
+        ("s", "r-lab", "study", "school"),
+        ("t-school", "r-school", "grade", "school"),
+        ("t-lab", "r-lab", "study", "lab"),
+    ]
+    forward = _two_org_registry(memberships)
+    backward = _two_org_registry(list(reversed(memberships)))
+    forward_results = [forward.is_authorized(*probe, now=0.0) for probe in probes]
+    backward_results = [backward.is_authorized(*probe, now=0.0) for probe in probes]
+
+    assert forward_results == backward_results
+    assert forward_results == [True, True, False, False, True, True]
