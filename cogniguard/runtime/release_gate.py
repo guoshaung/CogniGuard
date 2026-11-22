@@ -2,11 +2,27 @@
 
 from __future__ import annotations
 
+import weakref
 from dataclasses import dataclass
 from threading import Lock
 from typing import Literal
 
 from cogniguard.governance.reconstruction import check_release
+
+# One lock per store object. Every gate that shares that object must take it,
+# including gates created by different pipelines. The guard lock only protects
+# the table itself.
+_store_locks: weakref.WeakKeyDictionary = weakref.WeakKeyDictionary()
+_store_locks_guard = Lock()
+
+
+def _lock_for_store(store) -> Lock:
+    with _store_locks_guard:
+        lock = _store_locks.get(store)
+        if lock is None:
+            lock = Lock()
+            _store_locks[store] = lock
+        return lock
 
 
 @dataclass(frozen=True)
@@ -45,10 +61,10 @@ def _targets_for_release(registry, release: frozenset):
 
 
 class ReleaseGate:
-    """Authorize, check reconstruction, and reserve under one lock.
+    """Authorize, check reconstruction, and reserve under the store's lock.
 
-    The lock covers the whole check so two concurrent releases cannot both
-    pass a coalition test against the same witness.
+    Gates constructed for the same store object share that lock, so two
+    pipelines cannot both pass a coalition test against the same witness.
     """
 
     def __init__(
@@ -62,7 +78,7 @@ class ReleaseGate:
         self.access_registry = access_registry
         self.target_registry = target_registry
         self.coalition_k = coalition_k
-        self._lock = Lock()
+        self._lock = _lock_for_store(store)
 
     def evaluate_and_reserve(self, req: ReleaseRequest) -> GateDecision:
         with self._lock:

@@ -7,6 +7,7 @@ import json
 import os
 import uuid
 from copy import deepcopy
+from threading import Barrier, Thread
 
 import pytest
 
@@ -22,6 +23,7 @@ from cogniguard.protection.output_validation import SAFE_OUTPUT_REPLACEMENT
 from cogniguard.protection.text_provenance import TextProvenanceService
 from cogniguard.runtime.disclosure_store import DisclosureStore
 from cogniguard.runtime.gateway import ProtectionGateway
+from cogniguard.runtime.release_gate import ReleaseGate
 from cogniguard.runtime.protection_context import register_profile_context
 from cogniguard.runtime.sessions import SessionStore
 from cogniguard.workflows.pipeline import ProtectedText
@@ -618,3 +620,67 @@ def test_without_target_registry_the_release_is_unchanged(
     ]
     assert len(delivered) == 3
     assert all(row["recipient_principal_id"] == _STUDENT_B for row in delivered)
+
+
+def test_two_pipelines_sharing_a_store_release_only_one_unit(
+    disclosure_store: DisclosureStore, monkeypatch
+) -> None:
+    config, profile, question, resource = _case()
+    registry = _witness_registry()
+    student_a, ask_a = _student(profile, question, "student-a-concurrent")
+    student_b, ask_b = _student(profile, question, "student-b-concurrent")
+    pipeline_a = ProtectionPipeline(
+        config,
+        [_pack_unit(resource, "u1")],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+    pipeline_b = ProtectionPipeline(
+        config,
+        [_pack_unit(resource, "u2")],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+    barrier = Barrier(2)
+    original = ReleaseGate.evaluate_and_reserve
+
+    def synchronized(self, req):
+        barrier.wait(60)
+        return original(self, req)
+
+    monkeypatch.setattr(ReleaseGate, "evaluate_and_reserve", synchronized)
+    found: dict[str, object] = {}
+    errors: list[BaseException] = []
+
+    def run(name: str, pipeline, student, ask) -> None:
+        try:
+            found[name] = pipeline.run(student, ask, access=AccessScope(student.student_id))
+        except BaseException as exc:
+            errors.append(exc)
+
+    threads = [
+        Thread(target=run, args=("a", pipeline_a, student_a, ask_a)),
+        Thread(target=run, args=("b", pipeline_b, student_b, ask_b)),
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join(60)
+        assert not thread.is_alive()
+
+    assert errors == [], errors
+    released = [
+        name
+        for name, result in found.items()
+        if result.controlled is not None and result.controlled.mode != "refuse"
+    ]
+    assert released == ["a"] or released == ["b"]
+    rows = [
+        row
+        for row in _rows(disclosure_store)
+        if row["unit_id"] in {"u1", "u2"} and row["status"] != "cancelled"
+    ]
+    assert len(rows) == 1
+    assert rows[0]["status"] == "delivered"
