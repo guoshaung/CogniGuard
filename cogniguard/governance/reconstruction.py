@@ -70,8 +70,13 @@ def residual_distance(
     release_units: Iterable[tuple[str, str]],
     knowledge: dict[str, frozenset],
     k: int,
+    max_free_units: int = 20,
 ) -> dict[str, int]:
-    """Units still missing for the closest coalition of size at most k, per affected target."""
+    """Units still missing for the closest coalition of size at most k, per affected target.
+
+    A missing set larger than max_free_units is not searched. Its distance is 0,
+    the same conservative direction as check_release treating that set as exposed.
+    """
     if k < 1:
         raise ValueError("coalition size must be at least 1")
     release = frozenset(release_units)
@@ -83,7 +88,7 @@ def residual_distance(
         best: int | None = None
         for witness in target.witness_sets:
             missing = witness - held
-            if not missing:
+            if not missing or len(missing) > max_free_units:
                 distance = 0
             else:
                 covered = _maximum_covered(missing, known, recipient, helpers)

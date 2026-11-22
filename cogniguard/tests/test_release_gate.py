@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import os
 import time
 import uuid
@@ -17,6 +18,7 @@ from cogniguard.governance.principals import AssetOwnership, Membership
 from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
 from cogniguard.runtime.disclosure_store import DisclosureStore
 from cogniguard.runtime.release_gate import (
+    Candidate,
     CommitContext,
     GateDecision,
     ReleaseGate,
@@ -519,3 +521,114 @@ def test_commit_cancels_when_the_holder_changes_or_the_grant_expires(store: Disc
     assert expiry_gate.commit(expired, 100.0) is False
     assert {row["unit_id"]: row["status"] for row in _rows(store)}["u4"] == "cancelled"
     assert [receipt.unit_id for receipt in store.history(_STUDENT_B)] == ["u3"]
+
+
+def _base(recipient: str = _STUDENT_A) -> ReleaseRequest:
+    return ReleaseRequest(
+        recipient_principal_id=recipient,
+        acting_org_id="school",
+        agent_principal_id="agent-1",
+        session_id="session-1",
+        purpose="tutoring",
+        units=(),
+        now=10.0,
+    )
+
+
+def _unit(unit_id: str, resource_id: str = "doc") -> UnitRelease:
+    return UnitRelease(resource_id, unit_id, f"text-{unit_id}")
+
+
+def _goal(*unit_ids: str, value: float = 1.0) -> TargetRegistry:
+    witness = frozenset(("doc", unit_id) for unit_id in unit_ids)
+    return TargetRegistry([ProtectedTarget("goal", "owner", "org", (witness,), value)])
+
+
+def _reserved_units(store: DisclosureStore) -> set[str]:
+    return {row["unit_id"] for row in _rows(store) if row["status"] == "reserved"}
+
+
+def test_unsafe_original_loses_to_a_lower_utility_rewrite(store: DisclosureStore) -> None:
+    gate = ReleaseGate(store, target_registry=_goal("u1", "u2"), coalition_k=2)
+    original = Candidate("original", (_unit("u1"), _unit("u2")), utility=5.0)
+    rewrite = Candidate("rewrite", (_unit("u1"),), utility=1.0)
+
+    chosen, decision = gate.select_and_reserve(_base(), [original, rewrite])
+
+    assert chosen is rewrite
+    assert decision.allowed is True
+    assert decision.reason == "ok"
+    assert decision.evidence == {
+        "candidate_count": 2,
+        "accepted_count": 1,
+        "selected": "rewrite",
+    }
+    assert _reserved_units(store) == {"u1"}
+
+
+def test_farther_safe_candidate_wins_on_price(store: DisclosureStore) -> None:
+    # k = 1, value = 1, lambda = 1, decay = 1.
+    # close releases a,b: distance 2, score 1 - exp(-2).
+    # far releases a,x: distance 3, score 0.95 - exp(-3). Both disclose two units.
+    score_close = 1.0 - math.exp(-2)
+    score_far = 0.95 - math.exp(-3)
+    assert score_far > score_close
+    gate = ReleaseGate(store, target_registry=_goal("a", "b", "c", "d"), coalition_k=1)
+    close = Candidate("close", (_unit("a"), _unit("b")), utility=1.0)
+    far = Candidate("far", (_unit("a"), _unit("x")), utility=0.95)
+
+    chosen, decision = gate.select_and_reserve(_base(), [close, far])
+
+    assert chosen is far
+    assert decision.reason == "ok"
+    assert decision.evidence["accepted_count"] == 2
+    assert decision.evidence["selected"] == "far"
+    assert _reserved_units(store) == {"a", "x"}
+
+
+def test_empty_candidate_is_selected_when_it_is_the_only_safe_one(store: DisclosureStore) -> None:
+    gate = ReleaseGate(store, target_registry=_goal("u1", "u2"), coalition_k=1)
+    full = Candidate("full", (_unit("u1"), _unit("u2")), utility=10.0)
+    public = Candidate("public", (), utility=0.0)
+
+    chosen, decision = gate.select_and_reserve(_base(), [full, public])
+
+    assert chosen is public
+    assert decision.reason == "ok"
+    assert decision.receipt_ids == ()
+    assert decision.evidence["selected"] == "public"
+    assert decision.evidence["accepted_count"] == 1
+    assert _rows(store) == []
+
+
+def test_no_safe_candidate_writes_no_receipt(store: DisclosureStore) -> None:
+    gate = ReleaseGate(store, target_registry=_goal("u1", "u2"), coalition_k=1)
+    first = Candidate("first", (_unit("u1"), _unit("u2")), utility=3.0)
+    second = Candidate("second", (_unit("u2"), _unit("u1")), utility=4.0)
+
+    chosen, decision = gate.select_and_reserve(_base(), [first, second])
+
+    assert chosen is None
+    assert decision == GateDecision(
+        False,
+        "no_safe_candidate",
+        (),
+        {"candidate_count": 2, "accepted_count": 0, "selected": ""},
+    )
+    assert _rows(store) == []
+
+
+def test_zero_price_lambda_picks_the_highest_utility_safe_candidate(store: DisclosureStore) -> None:
+    gate = ReleaseGate(store, target_registry=_goal("a", "b", "c", "d"), coalition_k=1)
+    close = Candidate("close", (_unit("a"), _unit("b")), utility=1.0)
+    far = Candidate("far", (_unit("a"), _unit("x")), utility=0.95)
+
+    chosen, decision = gate.select_and_reserve(_base(), [far, close], price_lambda=0.0)
+
+    assert chosen is close
+    assert decision.evidence == {
+        "candidate_count": 2,
+        "accepted_count": 2,
+        "selected": "close",
+    }
+    assert _reserved_units(store) == {"a", "b"}

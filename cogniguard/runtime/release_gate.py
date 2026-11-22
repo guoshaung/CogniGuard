@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import math
 import weakref
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from threading import Lock
 from typing import Literal
 
-from cogniguard.governance.reconstruction import check_release
+from cogniguard.governance.reconstruction import check_release, residual_distance
 from cogniguard.runtime.disclosure_store import ReleaseBusy
 
 # One lock per store object. Every gate that shares that object must take it,
@@ -35,6 +36,15 @@ class UnitRelease:
 
 
 @dataclass(frozen=True)
+class Candidate:
+    """One way to answer. units may be empty when nothing protected is disclosed."""
+
+    name: str
+    units: tuple[UnitRelease, ...]
+    utility: float
+
+
+@dataclass(frozen=True)
 class ReleaseRequest:
     recipient_principal_id: str
     acting_org_id: str
@@ -57,7 +67,7 @@ class CommitContext:
 @dataclass(frozen=True)
 class GateDecision:
     allowed: bool
-    reason: Literal["ok", "unauthorized", "reconstruction", "busy"]
+    reason: Literal["ok", "unauthorized", "reconstruction", "busy", "no_safe_candidate"]
     receipt_ids: tuple[str, ...]
     evidence: dict
     # (resource_id, policy_version) captured for each reserved unit, same order.
@@ -130,6 +140,23 @@ class ReleaseGate:
             except ReleaseBusy:
                 return GateDecision(False, "busy", (), {})
 
+    def select_and_reserve(
+        self,
+        req_base: ReleaseRequest,
+        candidates,
+        price_lambda: float = 1.0,
+        decay: float = 1.0,
+    ) -> tuple[Candidate | None, GateDecision]:
+        """Pick the highest-scoring safe candidate and reserve only that one."""
+        with self._lock:
+            try:
+                with self.store.release_section():
+                    return self._select_and_reserve(
+                        req_base, tuple(candidates), price_lambda, decay
+                    )
+            except ReleaseBusy:
+                return None, GateDecision(False, "busy", (), {})
+
     def commit(self, decision: GateDecision, now: float) -> bool:
         with self._lock:
             with self.store.release_section():
@@ -145,6 +172,94 @@ class ReleaseGate:
     def cancel(self, decision: GateDecision) -> None:
         for receipt_id in decision.receipt_ids:
             self.store.cancel(receipt_id)
+
+    def _select_and_reserve(
+        self,
+        req_base: ReleaseRequest,
+        candidates: tuple[Candidate, ...],
+        price_lambda: float,
+        decay: float,
+    ) -> tuple[Candidate | None, GateDecision]:
+        registry = self._registry()
+        authorized: list[tuple[Candidate, ReleaseRequest]] = []
+        for candidate in candidates:
+            req = replace(req_base, units=candidate.units)
+            if self._authorization(req, registry) is not None:
+                continue
+            authorized.append((candidate, req))
+        knowledge = self._knowledge_for(req for _, req in authorized)
+        accepted: list[tuple[float, int, str, Candidate, ReleaseRequest]] = []
+        for candidate, req in authorized:
+            if not self._coalition_allows(req, knowledge):
+                continue
+            score = candidate.utility - price_lambda * self._release_price(req, knowledge, decay)
+            accepted.append((score, len(candidate.units), candidate.name, candidate, req))
+        evidence = {
+            "candidate_count": len(candidates),
+            "accepted_count": len(accepted),
+            "selected": "",
+        }
+        if not accepted:
+            return None, GateDecision(False, "no_safe_candidate", (), evidence)
+        accepted.sort(key=lambda item: (-item[0], item[1], item[2]))
+        _score, _count, _name, candidate, req = accepted[0]
+        evidence["selected"] = candidate.name
+        unit_versions = tuple(
+            (unit.resource_id, _policy_version(registry, unit.resource_id)) for unit in req.units
+        )
+        receipt_ids = tuple(
+            self._reserve_unit(req, unit, version)
+            for unit, (_, version) in zip(req.units, unit_versions)
+        )
+        return candidate, GateDecision(
+            True,
+            "ok",
+            receipt_ids,
+            evidence,
+            unit_versions,
+            CommitContext(req.recipient_principal_id, req.purpose, req.acting_org_id),
+        )
+
+    def _knowledge_for(self, requests) -> dict:
+        if self.target_registry is None or self.coalition_k is None:
+            return {}
+        units: set[tuple[str, str]] = set()
+        for req in requests:
+            release = frozenset((unit.resource_id, unit.unit_id) for unit in req.units)
+            for target in _targets_for_release(self.target_registry, release):
+                for witness in target.witness_sets:
+                    units.update(witness)
+        return self.store.holders_of(units)
+
+    def _coalition_allows(self, req: ReleaseRequest, knowledge: dict) -> bool:
+        if self.target_registry is None or self.coalition_k is None:
+            return True
+        release = frozenset((unit.resource_id, unit.unit_id) for unit in req.units)
+        verdict = check_release(
+            self.target_registry,
+            req.recipient_principal_id,
+            release,
+            knowledge,
+            self.coalition_k,
+        )
+        return verdict.safe
+
+    def _release_price(self, req: ReleaseRequest, knowledge: dict, decay: float) -> float:
+        if self.target_registry is None or self.coalition_k is None:
+            return 0.0
+        release = frozenset((unit.resource_id, unit.unit_id) for unit in req.units)
+        distances = residual_distance(
+            self.target_registry,
+            req.recipient_principal_id,
+            release,
+            knowledge,
+            self.coalition_k,
+        )
+        total = 0.0
+        for target_id, distance in distances.items():
+            value = float(self.target_registry.get(target_id).value)
+            total += value * math.exp(-decay * distance)
+        return total
 
     def _registry(self):
         if self.registry_holder is not None:

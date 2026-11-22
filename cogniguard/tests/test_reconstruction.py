@@ -148,6 +148,17 @@ def test_oversized_free_set_is_a_conservative_violation() -> None:
     assert verdict.violations[0].coalition == ("r",)
 
 
+def test_residual_distance_above_the_free_unit_cap_is_zero() -> None:
+    registry = TargetRegistry([_target("goal", {"a", "b", "c", "d"})])
+    knowledge = _knowledge(r=set())
+    release = frozenset({_unit("a")})
+
+    assert residual_distance(registry, "r", release, knowledge, k=1) == {"goal": 3}
+    assert residual_distance(
+        registry, "r", release, knowledge, k=1, max_free_units=2
+    ) == {"goal": 0}
+
+
 def test_brute_force_matches_on_three_hundred_small_instances() -> None:
     rng = random.Random(0)
     safe_count = 0
