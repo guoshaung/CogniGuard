@@ -41,7 +41,7 @@ class AccessRegistry:
         return None
 
     def org_of(self, principal_id: str) -> str | None:
-        # 主体属于多个组织时，它只返回其中一个，不能用于授权判断。
+        # 主体属于多个组织时它只返回其中一个，不能用于授权。
         for membership in self._memberships:
             if membership.principal_id == principal_id:
                 return membership.org_id
@@ -54,11 +54,20 @@ class AccessRegistry:
             if membership.principal_id == principal_id
         )
 
-    def is_authorized(self, principal_id: str, resource_id: str, purpose: str, now: float) -> bool:
+    def is_authorized(
+        self,
+        principal_id: str,
+        resource_id: str,
+        purpose: str,
+        acting_org_id: str,
+        now: float,
+    ) -> bool:
         ownership = self.owner_of(resource_id)
         if ownership is None:
             return False
-        if ownership.org_id not in self.orgs_of(principal_id):
+        if acting_org_id not in self.orgs_of(principal_id):
+            return False
+        if acting_org_id != ownership.org_id:
             return False
         if principal_id == ownership.owner_principal_id:
             return True

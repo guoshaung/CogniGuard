@@ -38,26 +38,26 @@ def _registry() -> AccessRegistry:
 def test_one_teacher_resource_is_granted_to_several_students() -> None:
     registry = _registry()
 
-    assert registry.is_authorized("t1", "r1", "study", now=0.0) is True
-    assert registry.is_authorized("s1", "r1", "study", now=0.0) is True
-    assert registry.is_authorized("s2", "r1", "study", now=0.0) is True
-    assert registry.is_authorized("s3", "r1b", "study", now=0.0) is False
+    assert registry.is_authorized("t1", "r1", "study", "school", now=0.0) is True
+    assert registry.is_authorized("s1", "r1", "study", "school", now=0.0) is True
+    assert registry.is_authorized("s2", "r1", "study", "school", now=0.0) is True
+    assert registry.is_authorized("s3", "r1b", "study", "school", now=0.0) is False
 
 
 def test_two_teachers_resources_do_not_cross() -> None:
     registry = _registry()
 
-    assert registry.is_authorized("t1", "r2", "study", now=0.0) is False
-    assert registry.is_authorized("t2", "r1", "study", now=0.0) is False
-    assert registry.is_authorized("s1", "r2", "study", now=0.0) is False
+    assert registry.is_authorized("t1", "r2", "study", "school", now=0.0) is False
+    assert registry.is_authorized("t2", "r1", "study", "school", now=0.0) is False
+    assert registry.is_authorized("s1", "r2", "study", "school", now=0.0) is False
 
 
 def test_one_student_can_hold_partial_grants_from_two_teachers() -> None:
     registry = _registry()
 
-    assert registry.is_authorized("s3", "r1", "study", now=0.0) is True
-    assert registry.is_authorized("s3", "r2", "study", now=0.0) is True
-    assert registry.is_authorized("s3", "r1b", "study", now=0.0) is False
+    assert registry.is_authorized("s3", "r1", "study", "school", now=0.0) is True
+    assert registry.is_authorized("s3", "r2", "study", "school", now=0.0) is True
+    assert registry.is_authorized("s3", "r1b", "study", "school", now=0.0) is False
 
 
 def test_cross_org_access_is_denied_even_with_a_grant() -> None:
@@ -65,40 +65,40 @@ def test_cross_org_access_is_denied_even_with_a_grant() -> None:
 
     assert registry.org_of("s-other") == "other"
     assert registry.owner_of("r1").org_id == "school"
-    assert registry.is_authorized("s-other", "r1", "study", now=0.0) is False
-    assert registry.is_authorized("t1", "r-cross", "study", now=0.0) is False
+    assert registry.is_authorized("s-other", "r1", "study", "other", now=0.0) is False
+    assert registry.is_authorized("t1", "r-cross", "study", "school", now=0.0) is False
 
 
 def test_expired_grant_is_denied() -> None:
     registry = _registry()
 
-    assert registry.is_authorized("s1", "r-exp", "study", now=99.0) is True
-    assert registry.is_authorized("s1", "r-exp", "study", now=100.0) is False
+    assert registry.is_authorized("s1", "r-exp", "study", "school", now=99.0) is True
+    assert registry.is_authorized("s1", "r-exp", "study", "school", now=100.0) is False
 
 
 def test_policy_version_change_leaves_the_original_registry_unchanged() -> None:
     registry = _registry()
     revised = registry.with_policy_version("r1", 2)
 
-    assert revised.is_authorized("s1", "r1", "study", now=0.0) is False
+    assert revised.is_authorized("s1", "r1", "study", "school", now=0.0) is False
     assert revised.owner_of("r1").policy_version == 2
-    assert registry.is_authorized("s1", "r1", "study", now=0.0) is True
+    assert registry.is_authorized("s1", "r1", "study", "school", now=0.0) is True
     assert registry.owner_of("r1").policy_version == 1
-    assert registry.is_authorized("t1", "r1", "grade", now=0.0) is True
+    assert registry.is_authorized("t1", "r1", "grade", "school", now=0.0) is True
 
 
 def test_unregistered_resource_is_denied() -> None:
     registry = _registry()
 
     assert registry.owner_of("missing") is None
-    assert registry.is_authorized("s1", "missing", "study", now=0.0) is False
-    assert registry.is_authorized("nobody", "r1", "study", now=0.0) is False
+    assert registry.is_authorized("s1", "missing", "study", "school", now=0.0) is False
+    assert registry.is_authorized("nobody", "r1", "study", "school", now=0.0) is False
 
 
 def test_purpose_mismatch_is_denied() -> None:
     registry = _registry()
 
-    assert registry.is_authorized("s1", "r1", "grade", now=0.0) is False
+    assert registry.is_authorized("s1", "r1", "grade", "school", now=0.0) is False
 
 
 def test_duplicate_resource_registration_is_rejected() -> None:
@@ -145,5 +145,28 @@ def test_student_in_two_orgs_can_use_each_granted_resource() -> None:
 
     assert ahead.orgs_of("s") == frozenset({"school", "lab"})
     for registry in (ahead, behind):
-        assert registry.is_authorized("s", "r-school", "study", now=0.0) is True
-        assert registry.is_authorized("s", "r-lab", "study", now=0.0) is True
+        assert registry.is_authorized("s", "r-school", "study", "school", now=0.0) is True
+        assert registry.is_authorized("s", "r-lab", "study", "lab", now=0.0) is True
+        assert registry.is_authorized("s", "r-school", "study", "lab", now=0.0) is False
+
+
+def test_same_org_without_a_grant_is_denied() -> None:
+    registry = _registry()
+
+    assert registry.is_authorized("s1", "r2", "study", "school", now=0.0) is False
+    assert registry.is_authorized("t2", "r2", "study", "school", now=0.0) is True
+
+
+def test_acting_as_another_org_is_denied_even_for_a_member() -> None:
+    registry = _two_org_registry(
+        [
+            Membership("s", "school", "student"),
+            Membership("s", "lab", "student"),
+            Membership("t-school", "school", "teacher"),
+            Membership("t-lab", "lab", "teacher"),
+        ]
+    )
+
+    assert "school" in registry.orgs_of("s")
+    assert registry.is_authorized("s", "r-school", "study", "lab", now=0.0) is False
+    assert registry.is_authorized("s", "r-school", "study", "school", now=0.0) is True
