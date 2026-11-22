@@ -45,6 +45,9 @@ data/image_watermark/
 *.pth
 *.safetensors
 
+# OCELOT experiment model-call response cache (kept locally, not committed)
+experiments/ocelot_edu_*/artifacts/cache/
+
 # OS files
 .DS_Store
 Thumbs.db
