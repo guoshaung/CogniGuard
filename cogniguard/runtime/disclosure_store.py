@@ -6,6 +6,7 @@ import hashlib
 import os
 import re
 import uuid
+from contextlib import contextmanager
 from threading import Lock
 
 import pymysql
@@ -15,6 +16,10 @@ from cogniguard.governance.disclosure import DisclosureReceipt
 
 _DATABASE_NAME = re.compile(r"^[A-Za-z0-9_]+$")
 _CONNECT_TIMEOUT = 3
+
+
+class ReleaseBusy(Exception):
+    """Another connection still holds this database's release lock."""
 
 
 class DisclosureStore:
@@ -215,6 +220,30 @@ class DisclosureStore:
         exposure = rows[0]["exposure"] if rows else None
         return 0.0 if exposure is None else float(exposure)
 
+    @contextmanager
+    def release_section(self, timeout: float = 10.0):
+        """Hold this database's release lock on the store's own connection.
+
+        GET_LOCK is per connection. The store lock is not held across the
+        section, because holders_of and reserve take that same lock.
+        """
+        name = f"cogniguard_release_{self._database}"
+        with self._lock:
+            got = self._select_value_unlocked(
+                "SELECT GET_LOCK(%s, %s) AS release_lock",
+                (name, timeout),
+            )
+        if got is None or int(got) != 1:
+            raise ReleaseBusy(name)
+        try:
+            yield
+        finally:
+            with self._lock:
+                self._select_value_unlocked(
+                    "SELECT RELEASE_LOCK(%s) AS release_lock",
+                    (name,),
+                )
+
     def close(self) -> None:
         with self._lock:
             self._conn.close()
@@ -301,6 +330,20 @@ class DisclosureStore:
         except Exception:
             self._conn.rollback()
             raise
+
+    def _select_value_unlocked(self, sql: str, params: tuple):
+        try:
+            self._conn.begin()
+            with self._conn.cursor() as cursor:
+                cursor.execute(sql, params)
+                row = cursor.fetchone()
+            self._conn.commit()
+        except Exception:
+            self._conn.rollback()
+            raise
+        if row is None:
+            return None
+        return next(iter(row.values()))
 
     def _read(self, sql: str, params: tuple) -> list[dict]:
         with self._lock:

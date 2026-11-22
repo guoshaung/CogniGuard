@@ -8,6 +8,7 @@ from threading import Lock
 from typing import Literal
 
 from cogniguard.governance.reconstruction import check_release
+from cogniguard.runtime.disclosure_store import ReleaseBusy
 
 # One lock per store object. Every gate that shares that object must take it,
 # including gates created by different pipelines. The guard lock only protects
@@ -47,7 +48,7 @@ class ReleaseRequest:
 @dataclass(frozen=True)
 class GateDecision:
     allowed: bool
-    reason: Literal["ok", "unauthorized", "reconstruction"]
+    reason: Literal["ok", "unauthorized", "reconstruction", "busy"]
     receipt_ids: tuple[str, ...]
     evidence: dict
 
@@ -61,10 +62,11 @@ def _targets_for_release(registry, release: frozenset):
 
 
 class ReleaseGate:
-    """Authorize, check reconstruction, and reserve under the store's lock.
+    """Authorize, check reconstruction, and reserve under two locks.
 
-    Gates constructed for the same store object share that lock, so two
-    pipelines cannot both pass a coalition test against the same witness.
+    Gates for the same store object share a process lock. Inside that lock,
+    a MySQL named lock covers every connection to the same database, so two
+    store objects cannot both pass a coalition test against the same witness.
     """
 
     def __init__(
@@ -82,14 +84,18 @@ class ReleaseGate:
 
     def evaluate_and_reserve(self, req: ReleaseRequest) -> GateDecision:
         with self._lock:
-            denied = self._authorization(req)
-            if denied is not None:
-                return denied
-            evidence, denied = self._reconstruction(req)
-            if denied is not None:
-                return denied
-            receipt_ids = tuple(self._reserve_unit(req, unit) for unit in req.units)
-            return GateDecision(True, "ok", receipt_ids, evidence)
+            try:
+                with self.store.release_section():
+                    denied = self._authorization(req)
+                    if denied is not None:
+                        return denied
+                    evidence, denied = self._reconstruction(req)
+                    if denied is not None:
+                        return denied
+                    receipt_ids = tuple(self._reserve_unit(req, unit) for unit in req.units)
+                    return GateDecision(True, "ok", receipt_ids, evidence)
+            except ReleaseBusy:
+                return GateDecision(False, "busy", (), {})
 
     def commit(self, decision: GateDecision) -> None:
         for receipt_id in decision.receipt_ids:

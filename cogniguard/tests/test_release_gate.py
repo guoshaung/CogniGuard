@@ -305,3 +305,154 @@ def test_shared_store_lock_closes_the_race_an_unlocked_gate_still_shows(store: D
         f"control a={control['a']} b={control['b']} both={control['both']}; "
         f"experiment a={experiment['a']} b={experiment['b']} both={experiment['both']}"
     )
+
+
+class _ProcessLockOnly(_SlowHolders):
+    """Keep the per-object lock and skip the database lock."""
+
+    def release_section(self, timeout: float = 10.0):
+        return nullcontext()
+
+
+def _bind_release_env(monkeypatch, store: DisclosureStore) -> None:
+    monkeypatch.setenv("COGNIGUARD_MYSQL_HOST", store._host)
+    monkeypatch.setenv("COGNIGUARD_MYSQL_PORT", str(store._port))
+    monkeypatch.setenv("COGNIGUARD_MYSQL_USER", store._user)
+    monkeypatch.setenv("COGNIGUARD_MYSQL_PASSWORD", store._password)
+    monkeypatch.setenv("COGNIGUARD_MYSQL_DATABASE", store._database)
+
+
+def _named_lock_available(store: DisclosureStore) -> int:
+    """1 when this call acquires the release lock, else 0. An acquire is released."""
+    name = f"cogniguard_release_{store._database}"
+    conn = pymysql.connect(
+        host=store._host,
+        port=store._port,
+        user=store._user,
+        password=store._password,
+        database=store._database,
+        autocommit=True,
+        connect_timeout=_CONNECT_TIMEOUT,
+    )
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT GET_LOCK(%s, %s)", (name, 0))
+            got = cursor.fetchone()[0]
+            if got == 1:
+                cursor.execute("SELECT RELEASE_LOCK(%s)", (name,))
+        return 0 if got is None else int(got)
+    finally:
+        conn.close()
+
+
+def test_named_lock_closes_the_cross_object_race_a_process_lock_does_not(
+    store: DisclosureStore, monkeypatch
+) -> None:
+    _bind_release_env(monkeypatch, store)
+    left = DisclosureStore.from_env()
+    try:
+        right = DisclosureStore.from_env()
+        try:
+            assert left is not right
+            assert left._database == right._database == store._database
+            registry = _witness_registry()
+            control = {
+                _STUDENT_A: ReleaseGate(
+                    _ProcessLockOnly(left), target_registry=registry, coalition_k=2
+                ),
+                _STUDENT_B: ReleaseGate(
+                    _ProcessLockOnly(right), target_registry=registry, coalition_k=2
+                ),
+            }
+            experiment = {
+                _STUDENT_A: ReleaseGate(
+                    _SlowHolders(left), target_registry=registry, coalition_k=2
+                ),
+                _STUDENT_B: ReleaseGate(
+                    _SlowHolders(right), target_registry=registry, coalition_k=2
+                ),
+            }
+            assert type(control[_STUDENT_A]._lock) is Lock
+            assert type(control[_STUDENT_B]._lock) is Lock
+            assert control[_STUDENT_A]._lock is not control[_STUDENT_B]._lock
+            assert experiment[_STUDENT_A]._lock is not experiment[_STUDENT_B]._lock
+
+            control_counts = _run_race_group(store, control)
+            experiment_counts = _run_race_group(store, experiment)
+
+            assert control_counts["both"] >= 1
+            assert experiment_counts["a"] + experiment_counts["b"] == 20
+            assert experiment_counts["both"] == 0
+            assert experiment_counts["none"] == 0
+            print(
+                f"control a={control_counts['a']} b={control_counts['b']} "
+                f"both={control_counts['both']}; "
+                f"experiment a={experiment_counts['a']} b={experiment_counts['b']} "
+                f"both={experiment_counts['both']}"
+            )
+        finally:
+            right.close()
+    finally:
+        left.close()
+
+
+def test_busy_when_another_connection_holds_the_release_lock(
+    store: DisclosureStore, monkeypatch
+) -> None:
+    name = f"cogniguard_release_{store._database}"
+    original = DisclosureStore.release_section
+
+    def fast(self, timeout: float = 10.0):
+        return original(self, 0.2)
+
+    monkeypatch.setattr(DisclosureStore, "release_section", fast)
+    holder = pymysql.connect(
+        host=store._host,
+        port=store._port,
+        user=store._user,
+        password=store._password,
+        database=store._database,
+        autocommit=True,
+        connect_timeout=_CONNECT_TIMEOUT,
+    )
+    try:
+        with holder.cursor() as cursor:
+            cursor.execute("SELECT GET_LOCK(%s, %s)", (name, 0))
+            assert cursor.fetchone()[0] == 1
+        decision = ReleaseGate(store).evaluate_and_reserve(_request(_STUDENT_A, "u1"))
+        assert decision == GateDecision(False, "busy", (), {})
+        assert _rows(store) == []
+    finally:
+        with holder.cursor() as cursor:
+            cursor.execute("SELECT RELEASE_LOCK(%s)", (name,))
+        holder.close()
+
+
+class _FailWhileLockHeld:
+    """The named lock is held, then the section fails before reserve."""
+
+    def __init__(self, inner: DisclosureStore) -> None:
+        self._inner = inner
+
+    def holders_of(self, units):
+        assert _named_lock_available(self._inner) == 0
+        raise RuntimeError("section failed")
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+
+def test_exception_inside_the_section_releases_the_named_lock(store: DisclosureStore) -> None:
+    gate = ReleaseGate(
+        _FailWhileLockHeld(store), target_registry=_witness_registry(), coalition_k=2
+    )
+    with pytest.raises(RuntimeError, match="section failed"):
+        gate.evaluate_and_reserve(_request(_STUDENT_A, "u1"))
+
+    assert _rows(store) == []
+    assert _named_lock_available(store) == 1
+    decision = ReleaseGate(store).evaluate_and_reserve(_request(_STUDENT_A, "u1"))
+    assert decision.allowed is True
+    assert decision.reason == "ok"
+    assert len(decision.receipt_ids) == 1
+    assert [row["status"] for row in _rows(store)] == ["reserved"]
