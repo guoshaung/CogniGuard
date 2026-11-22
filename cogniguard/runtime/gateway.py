@@ -61,30 +61,28 @@ def _output_intercepted(result: dict) -> bool:
     return isinstance(answer, str) and SAFE_OUTPUT_REPLACEMENT in answer
 
 
-def _registered_receipt_ids(frame) -> tuple[object, list]:
-    store = getattr(frame, "disclosure_store", None)
+def _settle_registered_disclosures(frame, *, cancel: bool) -> None:
+    settlements = getattr(frame, "release_settlements", None)
+    if not isinstance(settlements, list):
+        return
+    while settlements:
+        gate, decision = settlements[0]
+        if cancel:
+            gate.cancel(decision)
+        else:
+            gate.commit(decision)
+        del settlements[0]
     receipt_ids = getattr(frame, "disclosure_receipt_ids", None)
-    if store is None or not receipt_ids:
-        return None, []
-    return store, receipt_ids
+    if isinstance(receipt_ids, list):
+        del receipt_ids[:]
 
 
 def _commit_registered_disclosures(frame) -> None:
-    store, receipt_ids = _registered_receipt_ids(frame)
-    if store is None:
-        return
-    while receipt_ids:
-        store.commit(receipt_ids[0])
-        del receipt_ids[0]
+    _settle_registered_disclosures(frame, cancel=False)
 
 
 def _cancel_registered_disclosures(frame) -> None:
-    store, receipt_ids = _registered_receipt_ids(frame)
-    if store is None:
-        return
-    while receipt_ids:
-        store.cancel(receipt_ids[0])
-        del receipt_ids[0]
+    _settle_registered_disclosures(frame, cancel=True)
 
 
 def _signing_key() -> bytes:

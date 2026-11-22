@@ -22,7 +22,6 @@ from cogniguard.governance.evidence import (
     Principal,
     Purpose,
 )
-from cogniguard.governance.reconstruction import check_release
 from cogniguard.observability.telemetry import (
     LangSmithMonitor,
     SafeTelemetry,
@@ -35,6 +34,12 @@ from cogniguard.runtime.protection_context import (
     charge_domain_budget,
     register_profile_context,
     register_retrieval_context,
+)
+from cogniguard.runtime.release_gate import (
+    GateDecision,
+    ReleaseGate,
+    ReleaseRequest,
+    UnitRelease,
 )
 from core.access import AccessScope
 from core.domain import DomainServices, ProtectionResult
@@ -106,6 +111,8 @@ class Frame:
     disclosure_committed: list = field(default_factory=list)
     disclosure_cancelled: list = field(default_factory=list)
     disclosure_settled: bool = False
+    release_gate: ReleaseGate | None = None
+    release_decision: GateDecision | None = None
 
 
 @dataclass
@@ -174,14 +181,6 @@ def retrieve(f, state):
     return {"candidate_count": len(f.retrieved)}
 
 
-def _targets_for_release(registry, release: frozenset):
-    found = {}
-    for unit in release:
-        for target in registry.targets_for_unit(unit):
-            found.setdefault(target.target_id, target)
-    return tuple(found[target_id] for target_id in sorted(found))
-
-
 def _revert_unreleased_charge(budget, controlled) -> None:
     chunk_id = controlled.resource.chunk_id
     before = controlled.exposure_before
@@ -227,6 +226,45 @@ def _replace_controlled_with_refusal(f, retrieval_trace) -> None:
     )
 
 
+def _make_release_gate(f) -> ReleaseGate:
+    return ReleaseGate(
+        f.owner.disclosure_store,
+        access_registry=f.access.registry,
+        target_registry=f.owner.target_registry,
+        coalition_k=f.owner.coalition_k,
+    )
+
+
+def _exposure_delta(f) -> float:
+    if f.controlled is None:
+        return 0.0
+    return max(0.0, f.controlled.exposure_after - f.controlled.exposure_before)
+
+
+def _release_request(f, released: list[dict]) -> ReleaseRequest:
+    acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
+    delta = _exposure_delta(f)
+    return ReleaseRequest(
+        recipient_principal_id=f.profile.student_id,
+        acting_org_id=acting_org_id,
+        agent_principal_id="graph-runtime",
+        session_id=f.owner.session_id,
+        purpose=f.access.purpose,
+        units=tuple(
+            UnitRelease(item["resource_id"], item["chunk_id"], item["content"], delta)
+            for item in released
+        ),
+        now=time.time(),
+    )
+
+
+def _remember_release(f, gate: ReleaseGate, decision: GateDecision) -> None:
+    f.release_gate = gate
+    f.release_decision = decision
+    if decision.reason == "ok":
+        f.disclosure_receipt_ids.extend(decision.receipt_ids)
+
+
 def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
     """Refuse a release that lets a coalition of size coalition_k finish a witness.
 
@@ -244,27 +282,29 @@ def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
     ):
         return None
     resource = controlled.resource
-    release = frozenset({(resource.resource_id, resource.chunk_id)})
-    targets = _targets_for_release(owner.target_registry, release)
-    units: set[tuple[str, str]] = set()
-    for target in targets:
-        for witness in target.witness_sets:
-            units.update(witness)
-    knowledge = owner.disclosure_store.holders_of(units)
-    verdict = check_release(
-        owner.target_registry,
-        f.profile.student_id,
-        release,
-        knowledge,
-        owner.coalition_k,
+    gate = _make_release_gate(f)
+    decision = gate.evaluate_and_reserve(
+        _release_request(
+            f,
+            [
+                {
+                    "resource_id": resource.resource_id,
+                    "chunk_id": resource.chunk_id,
+                    "content": controlled.text,
+                }
+            ],
+        )
     )
-    evidence = {
-        "target_count": len(targets),
-        "violation_count": len(verdict.violations),
-        "decision": "release" if verdict.safe else "refuse",
-    }
-    if not verdict.safe:
+    _remember_release(f, gate, decision)
+    if decision.reason != "ok":
         _replace_controlled_with_refusal(f, retrieval_trace)
+    if "target_count" not in decision.evidence:
+        return None
+    evidence = {
+        "target_count": decision.evidence["target_count"],
+        "violation_count": decision.evidence["violation_count"],
+        "decision": "release" if decision.reason == "ok" else "refuse",
+    }
     f.controlled.source_trace["coalition_check"] = evidence
     return evidence
 
@@ -440,48 +480,37 @@ def govern_output(f, state):
     return {"blocked": decision.action != "allow", "decision_code": codes[decision.action]}
 
 
-def _policy_version(f, resource_id: str) -> int:
-    registry = f.access.registry
-    if registry is None:
-        return 0
-    ownership = registry.owner_of(resource_id)
-    if ownership is None:
-        return 0
-    return ownership.policy_version
+def _pending_receipts(f) -> tuple[str, ...]:
+    committed = set(f.disclosure_committed)
+    return tuple(
+        receipt_id
+        for receipt_id in f.disclosure_receipt_ids
+        if receipt_id not in committed and receipt_id not in f.disclosure_cancelled
+    )
+
+
+def _decision_for(f, receipt_ids: tuple[str, ...]) -> GateDecision:
+    decision = f.release_decision
+    if decision is None:
+        return GateDecision(True, "ok", receipt_ids, {})
+    return GateDecision(decision.allowed, decision.reason, receipt_ids, decision.evidence)
 
 
 def _reserve_disclosures(f, released: list[dict]) -> None:
-    store = f.owner.disclosure_store
-    acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
-    if f.controlled is None:
-        exposure_delta = 0.0
-    else:
-        exposure_delta = max(
-            0.0, f.controlled.exposure_after - f.controlled.exposure_before
-        )
-    for item in released:
-        receipt_id = store.reserve(
-            resource_id=item["resource_id"],
-            unit_id=item["chunk_id"],
-            recipient_principal_id=f.profile.student_id,
-            acting_org_id=acting_org_id,
-            agent_principal_id="graph-runtime",
-            session_id=f.owner.session_id,
-            policy_version=_policy_version(f, item["resource_id"]),
-            content=item["content"],
-            created_at=time.time(),
-            exposure_delta=exposure_delta,
-        )
-        f.disclosure_receipt_ids.append(receipt_id)
+    if f.owner.disclosure_store is None or not released or f.disclosure_receipt_ids:
+        return
+    gate = _make_release_gate(f)
+    decision = gate.evaluate_and_reserve(_release_request(f, released))
+    _remember_release(f, gate, decision)
 
 
 def _commit_disclosures(f) -> None:
-    store = f.owner.disclosure_store
-    if store is None or f.disclosure_settled:
+    if f.owner.disclosure_store is None or f.disclosure_settled:
         return
-    for receipt_id in f.disclosure_receipt_ids:
-        store.commit(receipt_id)
-        f.disclosure_committed.append(receipt_id)
+    pending = _pending_receipts(f)
+    if pending and f.release_gate is not None:
+        f.release_gate.commit(_decision_for(f, pending))
+        f.disclosure_committed.extend(pending)
     f.disclosure_settled = True
 
 
@@ -497,24 +526,24 @@ def _handoff_disclosures(f) -> bool:
         registered = []
         context.disclosure_receipt_ids = registered
     registered.extend(f.disclosure_receipt_ids)
+    if f.release_gate is not None and f.release_decision is not None and f.release_decision.receipt_ids:
+        settlements = getattr(context, "release_settlements", None)
+        if not isinstance(settlements, list):
+            settlements = []
+            context.release_settlements = settlements
+        settlements.append((f.release_gate, f.release_decision))
     # The gateway now owns settlement. Pipeline cancel must not run again.
     f.disclosure_settled = True
     return True
 
 
 def _cancel_disclosures(f) -> None:
-    store = f.owner.disclosure_store
-    if store is None or f.disclosure_settled:
+    if f.owner.disclosure_store is None or f.disclosure_settled:
         return
-    committed = set(f.disclosure_committed)
-    pending = [
-        receipt_id
-        for receipt_id in f.disclosure_receipt_ids
-        if receipt_id not in committed and receipt_id not in f.disclosure_cancelled
-    ]
-    for receipt_id in pending:
-        store.cancel(receipt_id)
-        f.disclosure_cancelled.append(receipt_id)
+    pending = _pending_receipts(f)
+    if pending and f.release_gate is not None:
+        f.release_gate.cancel(_decision_for(f, pending))
+        f.disclosure_cancelled.extend(pending)
     f.disclosure_settled = True
 
 
