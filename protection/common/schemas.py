@@ -93,6 +93,8 @@ class TeacherResource:
     resource_type: str
     copyright_level: float
     policy: ResourcePolicy
+    owner_id: str | None = None
+    org_id: str | None = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TeacherResource":
@@ -106,6 +108,8 @@ class TeacherResource:
             resource_type=str(data.get("resource_type", "")),
             copyright_level=float(data.get("copyright_level", 0.0)),
             policy=ResourcePolicy.from_dict(data.get("policy")),
+            owner_id=data["owner_id"] if "owner_id" in data else None,
+            org_id=data["org_id"] if "org_id" in data else None,
         )
 
 
