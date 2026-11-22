@@ -47,23 +47,18 @@ from cogniguard.runtime.sessions import InvalidSessionToken, SessionStore
 from core.paths import CG_GUARDRAILS_DIR, RUNTIME_DIR
 
 
-_PROTECTED_REMOVAL = "[受保护内容已移除]"
-
-
-def _contains_protected_removal(value) -> bool:
-    if isinstance(value, str):
-        return _PROTECTED_REMOVAL in value
-    if isinstance(value, dict):
-        return any(_contains_protected_removal(item) for item in value.values())
-    if isinstance(value, (list, tuple)):
-        return any(_contains_protected_removal(item) for item in value)
-    return False
-
-
 def _output_intercepted(result: dict) -> bool:
+    # Cancel only when the whole answer was withheld. A nested field scrubbed to
+    # "[受保护内容已移除]" still delivers the main answer. input_blocked and
+    # semantic_output_blocked replace that answer with SAFE_OUTPUT_REPLACEMENT.
+    # 不确定时按已交付记账，宁可高估泄露，不能低估。
     validation = result.get("output_validation")
-    allowed = isinstance(validation, dict) and validation.get("allowed") is True
-    return not allowed or _contains_protected_removal(result)
+    if not (isinstance(validation, dict) and validation.get("allowed") is True):
+        return True
+    if result.get("input_blocked") or result.get("semantic_output_blocked"):
+        return True
+    answer = result.get("answer")
+    return isinstance(answer, str) and SAFE_OUTPUT_REPLACEMENT in answer
 
 
 def _registered_receipt_ids(frame) -> tuple[object, list]:

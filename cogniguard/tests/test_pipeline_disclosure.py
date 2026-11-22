@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import uuid
 from copy import deepcopy
@@ -16,6 +17,7 @@ from cogniguard.governance.capability import CapabilityGrant, CapabilityPolicy
 from cogniguard.governance.lifecycle import LifecycleGuard
 from cogniguard.governance.principals import AssetOwnership, Membership
 from cogniguard.protection.cg.nemo_guardrails_adapter import NeMoGuardrailsAdapter
+from cogniguard.protection.output_validation import SAFE_OUTPUT_REPLACEMENT
 from cogniguard.protection.text_provenance import TextProvenanceService
 from cogniguard.runtime.disclosure_store import DisclosureStore
 from cogniguard.runtime.gateway import ProtectionGateway
@@ -310,6 +312,59 @@ def test_gateway_output_validation_cancels_the_receipt(
     assert rows[0]["status"] == "cancelled"
     assert rows[0]["resource_id"] == resource.resource_id
     assert rows[0]["unit_id"] == resource.chunk_id
+
+
+def test_partial_scrub_still_commits_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "partial_scrub_resource"
+    resource.chunk_id = "partial_scrub_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    def operation(frame):
+        released = pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        register_profile_context(private_values=[_PRIVATE_VALUE])
+        return {
+            "answer": _SAFE_ANSWER,
+            "notes": _PRIVATE_VALUE,
+            "released": released.controlled is not None,
+        }
+
+    result = _gateway(tmp_path).run("case", {}, operation, request_id="partial-scrub")
+    serialized = json.dumps(result, ensure_ascii=False)
+
+    assert result["output_validation"]["allowed"] is True
+    assert result["released"] is True
+    assert "[受保护内容已移除]" in serialized
+    assert _PRIVATE_VALUE not in serialized
+    assert SAFE_OUTPUT_REPLACEMENT not in result["answer"]
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert _rows(disclosure_store)[0]["status"] == "delivered"
+
+
+def test_safe_replacement_cancels_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "replacement_resource"
+    resource.chunk_id = "replacement_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    def operation(frame):
+        pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        return {"answer": SAFE_OUTPUT_REPLACEMENT}
+
+    result = _gateway(tmp_path).run("case", {}, operation, request_id="safe-replacement")
+
+    assert SAFE_OUTPUT_REPLACEMENT in result["answer"]
+    assert disclosure_store.history(profile.student_id) == []
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
 
 
 def test_direct_pipeline_commits_without_gateway(disclosure_store: DisclosureStore) -> None:
