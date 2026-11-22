@@ -91,6 +91,7 @@ class DisclosureStore:
         policy_version: int,
         content: str | bytes,
         created_at: float,
+        exposure_delta: float = 0.0,
     ) -> str:
         payload = content.encode() if isinstance(content, str) else content
         content_sha256 = hashlib.sha256(payload).hexdigest()
@@ -101,8 +102,8 @@ class DisclosureStore:
                 INSERT INTO disclosure_receipt (
                     receipt_id, resource_id, unit_id, recipient_principal_id,
                     acting_org_id, agent_principal_id, session_id, policy_version,
-                    status, content_sha256, created_at
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'reserved', %s, %s)
+                    status, content_sha256, created_at, exposure_delta
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'reserved', %s, %s, %s)
                 """,
                 (
                     receipt_id,
@@ -115,6 +116,7 @@ class DisclosureStore:
                     policy_version,
                     content_sha256,
                     created_at,
+                    float(exposure_delta),
                 ),
             )
             return receipt_id
@@ -130,7 +132,7 @@ class DisclosureStore:
             """
             SELECT receipt_id, resource_id, unit_id, recipient_principal_id,
                    acting_org_id, agent_principal_id, session_id, policy_version,
-                   status, content_sha256, created_at
+                   status, content_sha256, created_at, exposure_delta
             FROM disclosure_receipt
             WHERE recipient_principal_id = %s AND status = 'delivered'
             ORDER BY created_at, receipt_id
@@ -154,6 +156,38 @@ class DisclosureStore:
         )
         return frozenset((row["resource_id"], row["unit_id"]) for row in rows)
 
+    def exposure_by_recipient(self, resource_id: str, unit_id: str) -> dict[str, float]:
+        rows = self._read(
+            """
+            SELECT recipient_principal_id, SUM(exposure_delta) AS exposure
+            FROM disclosure_receipt
+            WHERE resource_id = %s AND unit_id = %s AND status = 'delivered'
+            GROUP BY recipient_principal_id
+            """,
+            (resource_id, unit_id),
+        )
+        return {
+            row["recipient_principal_id"]: float(row["exposure"] or 0.0) for row in rows
+        }
+
+    def coalition_exposure(
+        self, resource_id: str, unit_id: str, recipient_ids: list[str]
+    ) -> float:
+        if not recipient_ids:
+            return 0.0
+        placeholders = ", ".join(["%s"] * len(recipient_ids))
+        rows = self._read(
+            f"""
+            SELECT SUM(exposure_delta) AS exposure
+            FROM disclosure_receipt
+            WHERE resource_id = %s AND unit_id = %s AND status = 'delivered'
+              AND recipient_principal_id IN ({placeholders})
+            """,
+            (resource_id, unit_id, *recipient_ids),
+        )
+        exposure = rows[0]["exposure"] if rows else None
+        return 0.0 if exposure is None else float(exposure)
+
     def close(self) -> None:
         with self._lock:
             self._conn.close()
@@ -173,10 +207,28 @@ class DisclosureStore:
                 status VARCHAR(16) NOT NULL,
                 content_sha256 CHAR(64) NOT NULL,
                 created_at DOUBLE NOT NULL,
+                exposure_delta DOUBLE NOT NULL DEFAULT 0,
                 KEY idx_disclosure_recipient_status (recipient_principal_id, status)
             )
             """
         )
+        columns = self._read(
+            """
+            SELECT COLUMN_NAME AS column_name
+            FROM information_schema.COLUMNS
+            WHERE TABLE_SCHEMA = %s
+              AND TABLE_NAME = 'disclosure_receipt'
+              AND COLUMN_NAME = 'exposure_delta'
+            """,
+            (self._database,),
+        )
+        if not columns:
+            self._write(
+                """
+                ALTER TABLE disclosure_receipt
+                ADD COLUMN exposure_delta DOUBLE NOT NULL DEFAULT 0
+                """
+            )
 
     def _transition(self, receipt_id: str, status: str) -> None:
         with self._lock:
@@ -250,4 +302,5 @@ def _receipt(row: dict) -> DisclosureReceipt:
         status=row["status"],
         content_sha256=row["content_sha256"],
         created_at=float(row["created_at"]),
+        exposure_delta=float(row["exposure_delta"]),
     )

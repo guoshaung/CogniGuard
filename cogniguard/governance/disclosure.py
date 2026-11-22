@@ -19,3 +19,4 @@ class DisclosureReceipt:
     status: Literal["reserved", "delivered", "cancelled"]
     content_sha256: str
     created_at: float
+    exposure_delta: float = 0.0

@@ -222,6 +222,75 @@ def test_coalition_units_are_the_union_of_two_students(disclosure_store: Disclos
     )
 
 
+def _exposure_delta(result) -> float:
+    controlled = result.controlled
+    return max(0.0, controlled.exposure_after - controlled.exposure_before)
+
+
+def test_exposure_is_summed_per_recipient_for_one_unit(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "shared_resource"
+    resource.chunk_id = "shared_unit"
+    first_profile, first_question = _student(profile, question, "student-one")
+    second_profile, second_question = _student(profile, question, "student-two")
+    first = ProtectionPipeline(config, [deepcopy(resource)], disclosure_store=disclosure_store)
+    second = ProtectionPipeline(config, [deepcopy(resource)], disclosure_store=disclosure_store)
+    first_result = first.run(
+        first_profile, first_question, access=AccessScope(first_profile.student_id)
+    )
+    second_result = second.run(
+        second_profile, second_question, access=AccessScope(second_profile.student_id)
+    )
+    first_delta = _exposure_delta(first_result)
+    second_delta = _exposure_delta(second_result)
+    disclosure_store.reserve(
+        resource_id=resource.resource_id,
+        unit_id=resource.chunk_id,
+        recipient_principal_id="student-reserved",
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="reserved",
+        created_at=1.0,
+        exposure_delta=9.0,
+    )
+    cancelled = disclosure_store.reserve(
+        resource_id=resource.resource_id,
+        unit_id=resource.chunk_id,
+        recipient_principal_id="student-cancelled",
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="cancelled",
+        created_at=2.0,
+        exposure_delta=8.0,
+    )
+    disclosure_store.cancel(cancelled)
+
+    exposure = disclosure_store.exposure_by_recipient(resource.resource_id, resource.chunk_id)
+
+    assert exposure.keys() == {"student-one", "student-two"}
+    assert exposure["student-one"] == pytest.approx(first_delta)
+    assert exposure["student-two"] == pytest.approx(second_delta)
+    assert disclosure_store.history("student-one")[0].exposure_delta == pytest.approx(first_delta)
+    assert disclosure_store.coalition_exposure(
+        resource.resource_id, resource.chunk_id, ["student-one", "student-two"]
+    ) == pytest.approx(first_delta + second_delta)
+    assert disclosure_store.coalition_exposure(
+        resource.resource_id,
+        resource.chunk_id,
+        ["student-one", "student-two", "student-reserved", "student-cancelled"],
+    ) == pytest.approx(first_delta + second_delta)
+    assert (
+        disclosure_store.coalition_exposure(
+            resource.resource_id, resource.chunk_id, ["student-reserved", "student-cancelled"]
+        )
+        == 0.0
+    )
+
+
 def test_without_disclosure_store_matches_the_previous_result() -> None:
     config, profile, question, resource = _case()
     allowed = deepcopy(resource)

@@ -343,6 +343,12 @@ def _policy_version(f, resource_id: str) -> int:
 def _reserve_disclosures(f, released: list[dict]) -> None:
     store = f.owner.disclosure_store
     acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
+    if f.controlled is None:
+        exposure_delta = 0.0
+    else:
+        exposure_delta = max(
+            0.0, f.controlled.exposure_after - f.controlled.exposure_before
+        )
     for item in released:
         receipt_id = store.reserve(
             resource_id=item["resource_id"],
@@ -354,6 +360,7 @@ def _reserve_disclosures(f, released: list[dict]) -> None:
             policy_version=_policy_version(f, item["resource_id"]),
             content=item["content"],
             created_at=time.time(),
+            exposure_delta=exposure_delta,
         )
         f.disclosure_receipt_ids.append(receipt_id)
 

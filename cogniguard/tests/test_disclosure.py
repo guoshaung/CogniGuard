@@ -181,6 +181,7 @@ def test_table_has_no_column_for_original_text(store: DisclosureStore) -> None:
         "status",
         "content_sha256",
         "created_at",
+        "exposure_delta",
     ]
     assert "content" not in columns
     assert ("idx_disclosure_recipient_status", 1, "recipient_principal_id") in index_columns
@@ -217,3 +218,87 @@ def test_restarted_store_reserves_the_same_parameters_again(store: DisclosureSto
 
     assert first != second
     assert {item.receipt_id for item in store.history("s-restart")} == {second}
+
+
+def test_old_table_gains_exposure_delta_without_losing_rows() -> None:
+    settings = _server_settings()
+    try:
+        probe = pymysql.connect(**settings, connect_timeout=_CONNECT_TIMEOUT)
+    except (pymysql.Error, OSError) as exc:
+        pytest.skip(f"MySQL is not reachable: {exc}")
+    else:
+        probe.close()
+
+    database = "cg_disclosure_old_" + uuid.uuid4().hex[:12]
+    content_sha256 = "ab" * 32
+    admin = pymysql.connect(**settings, autocommit=True, connect_timeout=_CONNECT_TIMEOUT)
+    try:
+        with admin.cursor() as cursor:
+            cursor.execute(
+                f"CREATE DATABASE `{database}` CHARACTER SET utf8mb4"
+            )
+            cursor.execute(f"USE `{database}`")
+            cursor.execute(
+                """
+                CREATE TABLE disclosure_receipt (
+                    receipt_id VARCHAR(64) NOT NULL PRIMARY KEY,
+                    resource_id VARCHAR(255) NOT NULL,
+                    unit_id VARCHAR(255) NOT NULL,
+                    recipient_principal_id VARCHAR(255) NOT NULL,
+                    acting_org_id VARCHAR(255) NOT NULL,
+                    agent_principal_id VARCHAR(255) NOT NULL,
+                    session_id VARCHAR(255) NOT NULL,
+                    policy_version INT NOT NULL,
+                    status VARCHAR(16) NOT NULL,
+                    content_sha256 CHAR(64) NOT NULL,
+                    created_at DOUBLE NOT NULL,
+                    KEY idx_disclosure_recipient_status (recipient_principal_id, status)
+                )
+                """
+            )
+            cursor.execute(
+                """
+                INSERT INTO disclosure_receipt (
+                    receipt_id, resource_id, unit_id, recipient_principal_id,
+                    acting_org_id, agent_principal_id, session_id, policy_version,
+                    status, content_sha256, created_at
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'delivered', %s, %s)
+                """,
+                (
+                    "old-receipt",
+                    "r-old",
+                    "u-old",
+                    "s-old",
+                    "school",
+                    "agent-1",
+                    "session-1",
+                    4,
+                    content_sha256,
+                    3.5,
+                ),
+            )
+    finally:
+        admin.close()
+
+    opened = DisclosureStore(**settings, database=database)
+    try:
+        history = opened.history("s-old")
+        assert len(history) == 1
+        receipt = history[0]
+        assert receipt.receipt_id == "old-receipt"
+        assert receipt.resource_id == "r-old"
+        assert receipt.unit_id == "u-old"
+        assert receipt.policy_version == 4
+        assert receipt.status == "delivered"
+        assert receipt.content_sha256 == content_sha256
+        assert receipt.created_at == 3.5
+        assert receipt.exposure_delta == 0.0
+        assert opened.exposure_by_recipient("r-old", "u-old") == {"s-old": 0.0}
+    finally:
+        opened.close()
+        admin = pymysql.connect(**settings, autocommit=True, connect_timeout=_CONNECT_TIMEOUT)
+        try:
+            with admin.cursor() as cursor:
+                cursor.execute(f"DROP DATABASE IF EXISTS `{database}`")
+        finally:
+            admin.close()
