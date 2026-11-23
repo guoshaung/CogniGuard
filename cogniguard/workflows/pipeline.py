@@ -22,6 +22,7 @@ from cogniguard.governance.evidence import (
     Principal,
     Purpose,
 )
+from cogniguard.governance.meter import DisclosureMeter
 from cogniguard.governance.reconstruction import check_release
 from cogniguard.observability.telemetry import (
     LangSmithMonitor,
@@ -115,6 +116,8 @@ class Frame:
     disclosure_settled: bool = False
     release_gate: ReleaseGate | None = None
     release_decision: GateDecision | None = None
+    metered: tuple[UnitRelease, ...] | None = None
+    meter_info: dict | None = None
 
 
 @dataclass
@@ -229,6 +232,7 @@ def _replace_controlled_with_refusal(f, retrieval_trace) -> None:
 
 
 def _make_release_gate(f) -> ReleaseGate:
+    # Units are already metered. Passing the meter again would count the text twice.
     return ReleaseGate(
         f.owner.disclosure_store,
         access_registry=f.access.registry,
@@ -244,21 +248,67 @@ def _exposure_delta(f) -> float:
     return max(0.0, f.controlled.exposure_after - f.controlled.exposure_before)
 
 
-def _release_request(f, released: list[dict]) -> ReleaseRequest:
+def _release_request(
+    f, released: list[dict], units: tuple[UnitRelease, ...] | None = None
+) -> ReleaseRequest:
     acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
-    delta = _exposure_delta(f)
+    if units is None:
+        delta = _exposure_delta(f)
+        units = tuple(
+            UnitRelease(item["resource_id"], item["chunk_id"], item["content"], delta)
+            for item in released
+        )
     return ReleaseRequest(
         recipient_principal_id=f.profile.student_id,
         acting_org_id=acting_org_id,
         agent_principal_id="graph-runtime",
         session_id=f.owner.session_id,
         purpose=f.access.purpose,
-        units=tuple(
-            UnitRelease(item["resource_id"], item["chunk_id"], item["content"], delta)
-            for item in released
-        ),
+        units=units,
         now=time.time(),
     )
+
+
+def _metered_units(f) -> tuple[UnitRelease, ...] | None:
+    """Units disclosed by the configured meter. None means the rule path stays in charge.
+
+    A refusal, a missing answer, or no meter skips measurement. One run measures once.
+    """
+    if f.owner.meter is None or f.controlled is None or f.controlled.mode == "refuse":
+        return None
+    if f.metered is not None:
+        return f.metered
+    scope = {
+        (item.resource.resource_id, item.resource.chunk_id) for item in f.retrieved
+    }
+    measured = f.owner.meter.measure(f.controlled.text, candidate_units=frozenset(scope))
+    text = f.controlled.text
+    delta = _exposure_delta(f)
+    units = tuple(
+        UnitRelease(resource_id, unit_id, text, delta)
+        for resource_id, unit_id in sorted(measured.units)
+    )
+    f.metered = units
+    f.meter_info = {
+        "meter_method": measured.method,
+        "metered_unit_count": len(measured.units),
+    }
+    return units
+
+
+def _record_meter_error(f, retrieval_trace) -> dict:
+    """Refuse the answer and record the failure. No receipt is reserved here."""
+    _replace_controlled_with_refusal(f, retrieval_trace)
+    evidence = {
+        "target_count": 0,
+        "violation_count": 0,
+        "decision": "refuse",
+        "selected": "",
+        "accepted_count": 0,
+        "meter_error": True,
+    }
+    f.controlled.source_trace["coalition_check"] = evidence
+    return evidence
 
 
 def _remember_release(f, gate: ReleaseGate, decision: GateDecision) -> None:
@@ -325,18 +375,24 @@ def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
         return None
     resource = controlled.resource
     mode = controlled.mode
-    units = (
-        (
-            UnitRelease(
-                resource.resource_id,
-                resource.chunk_id,
-                controlled.text,
-                _exposure_delta(f),
-            ),
+    if owner.meter is not None:
+        try:
+            units = _metered_units(f) or ()
+        except Exception:
+            return _record_meter_error(f, retrieval_trace)
+    else:
+        units = (
+            (
+                UnitRelease(
+                    resource.resource_id,
+                    resource.chunk_id,
+                    controlled.text,
+                    _exposure_delta(f),
+                ),
+            )
+            if _mode_discloses(owner.config, mode)
+            else ()
         )
-        if _mode_discloses(owner.config, mode)
-        else ()
-    )
     candidates = (
         Candidate(mode, units, _mode_utility(owner.config, mode)),
         Candidate("refuse", (), 0.0),
@@ -360,6 +416,9 @@ def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
         "selected": decision.evidence.get("selected", ""),
         "accepted_count": decision.evidence.get("accepted_count", 0),
     }
+    if owner.meter is not None and f.meter_info is not None:
+        evidence["meter_method"] = f.meter_info["meter_method"]
+        evidence["metered_unit_count"] = f.meter_info["metered_unit_count"]
     f.controlled.source_trace["coalition_check"] = evidence
     return evidence
 
@@ -573,8 +632,18 @@ def _reserve_disclosures(f, released: list[dict]) -> None:
         or f.release_decision is not None
     ):
         return
+    if f.owner.meter is None:
+        request = _release_request(f, released)
+    else:
+        try:
+            units = _metered_units(f) or ()
+        except Exception:
+            trace = list((f.controlled.source_trace or {}).get("retrieval_trace") or [])
+            _record_meter_error(f, trace)
+            return
+        request = _release_request(f, released, units)
     gate = _make_release_gate(f)
-    decision = gate.evaluate_and_reserve(_release_request(f, released))
+    decision = gate.evaluate_and_reserve(request)
     _remember_release(f, gate, decision)
 
 
@@ -711,6 +780,7 @@ class LangGraphProtectionPipeline(DomainServices):
         registry_holder=None,
         price_lambda: float = 1.0,
         price_decay: float = 1.0,
+        meter: DisclosureMeter | None = None,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
@@ -721,6 +791,7 @@ class LangGraphProtectionPipeline(DomainServices):
         self.registry_holder = registry_holder
         self.price_lambda = price_lambda
         self.price_decay = price_decay
+        self.meter = meter
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()
