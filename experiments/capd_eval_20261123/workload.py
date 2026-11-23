@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import random
+from collections.abc import Iterable
 from dataclasses import dataclass
 
-from cogniguard.governance.targets import TargetRegistry
+from cogniguard.governance.targets import ProtectedTarget
 from cogniguard.runtime.release_gate import Candidate, UnitRelease
 
 
@@ -19,27 +20,33 @@ class Request:
 
 
 def generate_requests(
-    registry: TargetRegistry,
+    targets: Iterable[ProtectedTarget],
     *,
     student_count: int,
     coalition_sizes: tuple[int, ...],
     seed: int,
-    normal_requests: int = 2,
+    normal_requests: int = 4,
+    complete_ratio: float = 0.0,
 ) -> tuple[Request, ...]:
-    """Normal students sample units. Each coalition group splits one witness.
+    """Build one shuffled stream.
 
-    `coalition_sizes` is the size of each colluding group, in student order.
-    Remaining students are the normal population.
+    Coalition groups split one witness. Of the remaining students, the
+    leading fraction `complete_ratio` (c) each request one whole witness.
+    Every other remaining student is an ordinary learner and draws
+    `normal_requests` (r) units. The default r is 4.
     """
     if student_count < 1:
         raise ValueError("student_count must be at least 1")
     if normal_requests < 1:
         raise ValueError("normal_requests must be at least 1")
+    if complete_ratio < 0 or complete_ratio > 1:
+        raise ValueError("complete_ratio must be between 0 and 1")
     if any(size < 1 for size in coalition_sizes):
         raise ValueError("coalition groups must be non-empty")
     if sum(coalition_sizes) > student_count:
         raise ValueError("coalition groups exceed student_count")
-    units = _units(registry)
+    catalog = tuple(sorted(targets, key=lambda target: target.target_id))
+    units = _units(catalog)
     if not units:
         raise ValueError("registry has no units")
 
@@ -50,8 +57,12 @@ def generate_requests(
     for group_index, size in enumerate(coalition_sizes):
         members = students[cursor : cursor + size]
         cursor += size
-        pending.extend(_coalition_requests(registry, members, f"group-{group_index}", rng))
-    for recipient in students[cursor:]:
+        pending.extend(_coalition_requests(catalog, members, f"group-{group_index}", rng))
+    remaining = students[cursor:]
+    complete_count = int(round(len(remaining) * complete_ratio))
+    for recipient in remaining[:complete_count]:
+        pending.extend(_complete_requests(catalog, recipient, rng))
+    for recipient in remaining[complete_count:]:
         for _ in range(normal_requests):
             unit = units[rng.randrange(len(units))]
             pending.append(_request(recipient, "normal", None, unit))
@@ -59,11 +70,9 @@ def generate_requests(
     return tuple(pending)
 
 
-def _coalition_requests(registry, members, group_id: str, rng: random.Random) -> list[Request]:
-    targets = [registry._by_id[key] for key in sorted(registry._by_id)]
-    target = targets[rng.randrange(len(targets))]
-    witnesses = list(target.witness_sets)
-    witness = witnesses[rng.randrange(len(witnesses))]
+def _coalition_requests(catalog, members, group_id: str, rng: random.Random) -> list[Request]:
+    target = catalog[rng.randrange(len(catalog))]
+    witness = target.witness_sets[rng.randrange(len(target.witness_sets))]
     assigned: dict[str, list[tuple[str, str]]] = {member: [] for member in members}
     for index, unit in enumerate(sorted(witness)):
         assigned[members[index % len(members)]].append(unit)
@@ -72,6 +81,12 @@ def _coalition_requests(registry, members, group_id: str, rng: random.Random) ->
         for unit in assigned[member]:
             requests.append(_request(member, "coalition", group_id, unit))
     return requests
+
+
+def _complete_requests(catalog, recipient: str, rng: random.Random) -> list[Request]:
+    target = catalog[rng.randrange(len(catalog))]
+    witness = target.witness_sets[rng.randrange(len(target.witness_sets))]
+    return [_request(recipient, "complete", None, unit) for unit in sorted(witness)]
 
 
 def _request(recipient: str, role: str, group_id: str | None, unit: tuple[str, str]) -> Request:
@@ -86,9 +101,9 @@ def _request(recipient: str, role: str, group_id: str | None, unit: tuple[str, s
     return Request(recipient, role, group_id, unit, (full, summary, refuse))
 
 
-def _units(registry: TargetRegistry) -> tuple[tuple[str, str], ...]:
+def _units(catalog: tuple[ProtectedTarget, ...]) -> tuple[tuple[str, str], ...]:
     found: set[tuple[str, str]] = set()
-    for target in registry._by_id.values():
+    for target in catalog:
         for witness in target.witness_sets:
             found.update(witness)
     return tuple(sorted(found))
