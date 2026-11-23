@@ -177,3 +177,14 @@ def test_student_attribute_target_can_be_constructed() -> None:
     assert target.kind == "student_attribute"
     assert target.domain_size == 2
     assert target.value_commitment is None
+
+
+def test_unknown_kind_is_rejected() -> None:
+    with pytest.raises(ValueError):
+        ProtectedTarget(
+            "goal",
+            "owner-a",
+            "org-a",
+            (frozenset({("resource", "u")}),),
+            kind="not-a-kind",
+        )

@@ -51,6 +51,8 @@ class ProtectedTarget:
         object.__setattr__(self, "witness_sets", _minimal_witness_sets(self.witness_sets))
         if self.domain_size is not None and self.domain_size < 2:
             raise ValueError("domain_size must be at least 2")
+        if self.kind not in ("teaching_asset", "student_attribute"):
+            raise ValueError("kind must be teaching_asset or student_attribute")
 
 
 class TargetRegistry:
