@@ -32,3 +32,27 @@ The full output directory is private experiment material.
 
 Run `python3 -m pytest experiments/datasets -q` for the exhaustive structural,
 text-label, commitment, reproducibility, and fixture checks.
+
+## Offline field audits
+
+Run `python3 -m experiments.datasets.eedi_exam.audit` or
+`python3 -m experiments.datasets.sumleaks.audit` from this checkout.
+Inputs are `eedi/` and `sumleaks/` under `COGNIGUARD_RAW_DIR` (default
+`../cogniguard_raw/`). Each writes AUDIT.json and a SHA-256 MANIFEST.json
+under `COGNIGUARD_DATA_DIR/audits/` (default `../cogniguard_data/audits/`).
+
+The Eedi audit counts distinct misconception IDs per question. Numeric
+answers include exact integers, decimals and fractions, including simple
+LaTeX fractions. Stem counts use occurrences of signed decimal tokens.
+The pilot uses seed 2026 and samples 30 annotated question IDs without
+replacement independently for each K. It covers the rarest clues first
+with a random suitable neighbor, reuses covered clues, then samples remaining
+questions from the target subject. All target clues must have a neighbor.
+The leakage check uses at most 12 retained clues and up to 50 redraws after
+the initial draw. Trial groups exist only in memory.
+
+For Sum Leaks, a full defense match means every name in the final recognized
+list matches a table. Free prose with exact table-name mentions is partial.
+The audit lists same-name columns and cross-name Jaccard overlap on distinct
+non-null values. Suffixes and within-table uniqueness flag candidates for
+manual review. Each scenario records its column names and row counts.
