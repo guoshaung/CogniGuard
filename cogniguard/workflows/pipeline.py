@@ -118,6 +118,7 @@ class Frame:
     release_decision: GateDecision | None = None
     metered: tuple[UnitRelease, ...] | None = None
     meter_info: dict | None = None
+    meter_failed: bool = False
 
 
 @dataclass
@@ -363,6 +364,9 @@ def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
     The check runs only when a target registry, a coalition size, and a
     disclosure store are all configured. Evidence keeps a mode name and counts.
     """
+    if f.meter_failed:
+        # Refusal is already recorded. A later mode check would drop that evidence.
+        return f.controlled.source_trace["coalition_check"]
     owner = f.owner
     controlled = f.controlled
     if (
@@ -443,6 +447,16 @@ def control_resource(f, state):
             f.owner.config,
             retrieval_trace=retrieval_trace,
         )
+        if (
+            f.owner.meter is not None
+            and f.controlled is not None
+            and f.controlled.mode != "refuse"
+        ):
+            try:
+                _metered_units(f)
+            except Exception:
+                _record_meter_error(f, retrieval_trace)
+                f.meter_failed = True
     coalition_evidence = _refuse_reconstructable_release(f, retrieval_trace)
     released = []
     if f.controlled is not None and f.controlled.mode != "refuse":
@@ -625,6 +639,8 @@ def _decision_for(f, receipt_ids: tuple[str, ...]) -> GateDecision:
 
 def _reserve_disclosures(f, released: list[dict]) -> None:
     # A priced decision, including one that discloses nothing, is already settled.
+    if f.meter_failed:
+        return
     if (
         f.owner.disclosure_store is None
         or not released
@@ -635,12 +651,7 @@ def _reserve_disclosures(f, released: list[dict]) -> None:
     if f.owner.meter is None:
         request = _release_request(f, released)
     else:
-        try:
-            units = _metered_units(f) or ()
-        except Exception:
-            trace = list((f.controlled.source_trace or {}).get("retrieval_trace") or [])
-            _record_meter_error(f, trace)
-            return
+        units = _metered_units(f) or ()
         request = _release_request(f, released, units)
     gate = _make_release_gate(f)
     decision = gate.evaluate_and_reserve(request)

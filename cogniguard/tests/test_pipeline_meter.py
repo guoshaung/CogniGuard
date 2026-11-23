@@ -9,6 +9,8 @@ import pytest
 
 from cogniguard.governance.meter import Measurement
 from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
+from cogniguard.runtime.protection_context import ProtectionContext, protection_scope
+from cogniguard.runtime.sessions import SessionStore
 from cogniguard.workflows.pipeline import LangGraphProtectionPipeline
 from core.access import AccessScope
 from core.pipeline import load_inputs
@@ -374,3 +376,31 @@ def test_reserve_uses_metered_units_when_no_witness_is_registered(case) -> None:
     assert "metered-secret-unit" not in evidence
     assert "visible-chunk" not in evidence
     assert resource.content not in evidence
+
+
+def test_meter_failure_refuses_before_budget_or_approval(case, tmp_path) -> None:
+    config, profile, question, resource = case
+    config, resource = _prepare(config, resource, mode="quote", chunk_id="quoted-unit")
+    resource.content = "CHUNK-SECRET-9f3a"
+    resource.policy.max_quote_len = len(resource.content)
+    store = MemoryReceiptStore()
+    meter = FakeMeter(fail=True)
+    session = SessionStore(
+        tmp_path / "meter-fail.sqlite3",
+        limits={"privacy": 100, "copyright": 10},
+    ).get_or_create()
+    context = ProtectionContext(session, "meter-fail", "test", {})
+    copyright_before = session.budget("copyright")
+    pipeline = LangGraphProtectionPipeline(
+        config, [resource], disclosure_store=store, meter=meter
+    )
+    student, ask = _student(profile, question, "student-early-refuse")
+    with protection_scope(context):
+        result = pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+    assert store.receipts == []
+    assert resource.content not in result.controlled.text
+    assert resource.content not in result.answer
+    assert context.approved_chunks == []
+    assert session.budget("copyright") == copyright_before
+    assert result.controlled.source_trace["coalition_check"]["meter_error"] is True
