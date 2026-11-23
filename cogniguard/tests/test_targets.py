@@ -4,10 +4,17 @@ from __future__ import annotations
 
 import json
 import os
+from dataclasses import fields
 
 import pytest
 
-from cogniguard.governance.targets import ProtectedTarget, TargetRegistry, load_asset_pack_targets
+from cogniguard.governance.targets import (
+    ProtectedTarget,
+    TargetRegistry,
+    commit_value,
+    load_asset_pack_targets,
+    verify_commitment,
+)
 
 
 def _target(target_id: str, *witnesses: frozenset[tuple[str, str]]) -> ProtectedTarget:
@@ -88,6 +95,9 @@ def test_load_asset_pack_targets_reads_a_small_pack(tmp_path) -> None:
     assert loaded[0].owner_principal_id == "teacher-a"
     assert loaded[0].org_id == "school"
     assert loaded[0].value == 1.0
+    assert loaded[0].kind == "teaching_asset"
+    assert loaded[0].domain_size is None
+    assert loaded[0].value_commitment is None
     assert loaded[0].witness_sets == (frozenset({("pkg-a", "u1"), ("pkg-a", "u2")}),)
     assert loaded[1].target_id == "pkg-a/two"
     assert loaded[1].witness_sets == (frozenset({("pkg-a", "u2")}),)
@@ -107,3 +117,74 @@ def test_real_asset_pack_has_five_packages_and_fifteen_targets() -> None:
 
     assert len(packages) == 5
     assert len(loaded) == 15
+    assert {target.kind for target in loaded} == {"teaching_asset"}
+    assert all(target.domain_size is None and target.value_commitment is None for target in loaded)
+
+
+def test_old_construction_keeps_the_previous_defaults() -> None:
+    target = ProtectedTarget("goal", "owner-a", "org-a", (frozenset({("resource", "u")}),))
+
+    assert target.kind == "teaching_asset"
+    assert target.domain_size is None
+    assert target.value_commitment is None
+    assert target.value == 1.0
+
+
+def test_domain_size_below_two_is_rejected() -> None:
+    witness = (frozenset({("resource", "u")}),)
+    for size in (1, 0, -3):
+        with pytest.raises(ValueError):
+            ProtectedTarget("goal", "owner-a", "org-a", witness, domain_size=size)
+    accepted = ProtectedTarget("goal", "owner-a", "org-a", witness, domain_size=2)
+    assert accepted.domain_size == 2
+
+
+def test_value_commitment_checks_the_salted_secret_without_storing_it() -> None:
+    secret = "needs-step-free-access"
+    salt = "salt-kept-outside-the-target"
+    commitment = commit_value(secret, salt)
+    target = ProtectedTarget(
+        "goal",
+        "owner-a",
+        "org-a",
+        (frozenset({("profile", "signal")}),),
+        domain_size=2,
+        value_commitment=commitment,
+    )
+
+    assert verify_commitment(secret, salt, target.value_commitment)
+    assert not verify_commitment("does-not-need-support", salt, target.value_commitment)
+    assert not verify_commitment(secret, "different-salt", target.value_commitment)
+    stored = " ".join(repr(getattr(target, field.name)) for field in fields(target))
+    assert secret not in stored
+    assert salt not in stored
+
+
+def test_commitment_splits_salt_and_value_at_the_boundary() -> None:
+    assert commit_value("c", "ab") != commit_value("bc", "a")
+
+
+def test_student_attribute_target_can_be_constructed() -> None:
+    target = ProtectedTarget(
+        "access-need",
+        "owner-a",
+        "org-a",
+        (frozenset({("profile", "request")}),),
+        kind="student_attribute",
+        domain_size=2,
+    )
+
+    assert target.kind == "student_attribute"
+    assert target.domain_size == 2
+    assert target.value_commitment is None
+
+
+def test_unknown_kind_is_rejected() -> None:
+    with pytest.raises(ValueError):
+        ProtectedTarget(
+            "goal",
+            "owner-a",
+            "org-a",
+            (frozenset({("resource", "u")}),),
+            kind="not-a-kind",
+        )
