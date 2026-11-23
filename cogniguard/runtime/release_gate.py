@@ -8,6 +8,7 @@ from dataclasses import dataclass, replace
 from threading import Lock
 from typing import Literal
 
+from cogniguard.governance.meter import DisclosureMeter
 from cogniguard.governance.reconstruction import check_release, residual_distance
 from cogniguard.runtime.disclosure_store import ReleaseBusy
 
@@ -42,6 +43,8 @@ class Candidate:
     name: str
     units: tuple[UnitRelease, ...]
     utility: float
+    text: str | None = None
+    meter_scope: frozenset[tuple[str, str]] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -53,6 +56,8 @@ class ReleaseRequest:
     purpose: str
     units: tuple[UnitRelease, ...]
     now: float
+    text: str | None = None
+    meter_scope: frozenset[tuple[str, str]] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -67,7 +72,9 @@ class CommitContext:
 @dataclass(frozen=True)
 class GateDecision:
     allowed: bool
-    reason: Literal["ok", "unauthorized", "reconstruction", "busy", "no_safe_candidate"]
+    reason: Literal[
+        "ok", "unauthorized", "reconstruction", "busy", "no_safe_candidate", "meter_error"
+    ]
     receipt_ids: tuple[str, ...]
     evidence: dict
     # (resource_id, policy_version) captured for each reserved unit, same order.
@@ -98,23 +105,60 @@ class ReleaseGate:
         target_registry=None,
         coalition_k=None,
         registry_holder=None,
+        *,
+        meter: DisclosureMeter | None = None,
     ) -> None:
         self.store = store
         self.access_registry = access_registry
         self.target_registry = target_registry
         self.coalition_k = coalition_k
         self.registry_holder = registry_holder
+        self.meter = meter
         self._lock = _lock_for_store(store)
 
+    def _expand(
+        self,
+        units: tuple[UnitRelease, ...],
+        text: str | None,
+        scope: frozenset[tuple[str, str]],
+    ) -> tuple[tuple[UnitRelease, ...], dict]:
+        """Union declared units with units the meter discloses.
+
+        Declared units stay in place. Newly disclosed units are appended in
+        `(resource_id, unit_id)` order. Measurement uses only the text, so
+        callers run this before taking the store lock.
+        """
+        if self.meter is None or text is None:
+            return units, {}
+        declared = frozenset((unit.resource_id, unit.unit_id) for unit in units)
+        measured = self.meter.measure(text, candidate_units=scope | declared)
+        extra = sorted(measured.units - declared)
+        if extra:
+            units = units + tuple(
+                UnitRelease(resource_id, unit_id, content=text, exposure_delta=1.0)
+                for resource_id, unit_id in extra
+            )
+        return units, {"meter_method": measured.method, "metered_unit_count": len(measured.units)}
+
     def evaluate_and_reserve(self, req: ReleaseRequest) -> GateDecision:
+        try:
+            units, meter_info = self._expand(req.units, req.text, req.meter_scope)
+        except Exception:
+            return GateDecision(False, "meter_error", (), {})
+        if units is not req.units:
+            req = replace(req, units=units)
         with self._lock:
             try:
                 with self.store.release_section():
                     registry = self._registry()
                     denied = self._authorization(req, registry)
                     if denied is not None:
+                        if meter_info:
+                            denied.evidence.update(meter_info)
                         return denied
                     evidence, denied = self._reconstruction(req)
+                    if meter_info:
+                        evidence.update(meter_info)
                     if denied is not None:
                         return denied
                     unit_versions = tuple(
@@ -148,14 +192,37 @@ class ReleaseGate:
         decay: float = 1.0,
     ) -> tuple[Candidate | None, GateDecision]:
         """Pick the highest-scoring safe candidate and reserve only that one."""
+        offered = tuple(candidates)
+        expanded: list[Candidate] = []
+        meter_info: dict[int, dict] = {}
+        errors = 0
+        for candidate in offered:
+            try:
+                units, info = self._expand(candidate.units, candidate.text, candidate.meter_scope)
+            except Exception:
+                errors += 1
+                continue
+            if units is not candidate.units:
+                candidate = replace(candidate, units=units)
+            expanded.append(candidate)
+            if info:
+                meter_info[id(candidate)] = info
         with self._lock:
             try:
                 with self.store.release_section():
-                    return self._select_and_reserve(
-                        req_base, tuple(candidates), price_lambda, decay
+                    chosen, decision = self._select_and_reserve(
+                        req_base, tuple(expanded), price_lambda, decay
                     )
             except ReleaseBusy:
                 return None, GateDecision(False, "busy", (), {})
+        if errors:
+            decision.evidence["meter_error_count"] = errors
+            decision.evidence["candidate_count"] = len(offered)
+        if chosen is not None:
+            info = meter_info.get(id(chosen))
+            if info:
+                decision.evidence.update(info)
+        return chosen, decision
 
     def commit(self, decision: GateDecision, now: float) -> bool:
         with self._lock:
