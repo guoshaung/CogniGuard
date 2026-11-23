@@ -97,6 +97,10 @@ class TeacherResource:
     owner_principal_id: str | None = None
     org_id: str | None = None
 
+    @property
+    def confidentiality_level(self) -> float:
+        return self.copyright_level
+
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TeacherResource":
         return cls(
