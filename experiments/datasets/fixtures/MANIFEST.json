@@ -1,0 +1,36 @@
+{
+  "dataset": "synthetic",
+  "seed": 2026,
+  "sub_seed_format": "{seed}/{K}/{slot}/{attempt}",
+  "K": [
+    8
+  ],
+  "slots_per_K": 5,
+  "F": 6,
+  "V": 3,
+  "max_redraws": 50,
+  "raw_file_sha256": {},
+  "scope": "All conclusions apply only to the retained universe.",
+  "prior_scope": "Uniform reference prior on candidate IDs before observing units.",
+  "by_K": {
+    "8": {
+      "accepted": 5,
+      "discarded": 0,
+      "redraws": 4,
+      "redraw_histogram": {
+        "0": 2,
+        "1": 2,
+        "2": 1
+      },
+      "rejected_draws": {
+        "a": 4
+      },
+      "discarded_by_last_reason": {},
+      "witness_sizes": {
+        "2": 22,
+        "3": 7
+      },
+      "units_truncated": 0
+    }
+  }
+}
