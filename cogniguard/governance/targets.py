@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 
 UnitRef = tuple[str, str]
@@ -40,9 +42,14 @@ class ProtectedTarget:
     org_id: str
     witness_sets: tuple[frozenset[UnitRef], ...]
     value: float = 1.0
+    kind: Literal["teaching_asset", "student_attribute"] = "teaching_asset"
+    domain_size: int | None = None
+    value_commitment: str | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "witness_sets", _minimal_witness_sets(self.witness_sets))
+        if self.domain_size is not None and self.domain_size < 2:
+            raise ValueError("domain_size must be at least 2")
 
 
 class TargetRegistry:
@@ -74,6 +81,15 @@ class TargetRegistry:
         return self._by_id[target_id]
 
 
+def commit_value(value: str, salt: str) -> str:
+    """Hash a secret without storing it. The digest is sha256(salt + value)."""
+    return hashlib.sha256(f"{salt}{value}".encode("utf-8")).hexdigest()
+
+
+def verify_commitment(value: str, salt: str, commitment: str) -> bool:
+    return commit_value(value, salt) == commitment
+
+
 def load_asset_pack_targets(
     path, *, owner_principal_id: str, org_id: str
 ) -> tuple[ProtectedTarget, ...]:
@@ -94,6 +110,7 @@ def load_asset_pack_targets(
                         owner_principal_id=owner_principal_id,
                         org_id=org_id,
                         witness_sets=(frozenset(units),),
+                        kind="teaching_asset",
                     )
                 )
     return tuple(loaded)
