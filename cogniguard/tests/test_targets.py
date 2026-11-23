@@ -160,6 +160,10 @@ def test_value_commitment_checks_the_salted_secret_without_storing_it() -> None:
     assert salt not in stored
 
 
+def test_commitment_splits_salt_and_value_at_the_boundary() -> None:
+    assert commit_value("c", "ab") != commit_value("bc", "a")
+
+
 def test_student_attribute_target_can_be_constructed() -> None:
     target = ProtectedTarget(
         "access-need",

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import hmac
 import json
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -82,12 +83,12 @@ class TargetRegistry:
 
 
 def commit_value(value: str, salt: str) -> str:
-    """Hash a secret without storing it. The digest is sha256(salt + value)."""
-    return hashlib.sha256(f"{salt}{value}".encode("utf-8")).hexdigest()
+    """Hash a secret without storing it. The digest is HMAC-SHA256 with the salt as the key."""
+    return hmac.new(salt.encode(), value.encode(), hashlib.sha256).hexdigest()
 
 
 def verify_commitment(value: str, salt: str, commitment: str) -> bool:
-    return commit_value(value, salt) == commitment
+    return hmac.compare_digest(commit_value(value, salt), commitment)
 
 
 def load_asset_pack_targets(
