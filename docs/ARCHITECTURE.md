@@ -55,6 +55,10 @@
 
 `cogniguard/applications/code/` 用标准库把一个 Python 文件拆成顶层函数、类和常量。函数的签名和文档字符串是公开摘要，不算透露单元。`show_function` 的三个候选是完整函数体（效用 1.0）、公开摘要（效用 0.4）和拒绝（效用 0）。`explain_api` 只有公开摘要，不写回执。旁挂 JSON 用单元名列出见证集。`CodeAssistant` 选出候选后直接 `commit`，返回值就是交付。示例是 `examples/code_domain_demo.py`。
 
+`TeacherResource` 的 `owner_principal_id`、`org_id` 只是资源元数据，不能作为授权依据；授权一律以后端构建的 `AssetOwnership` 和 `AccessRegistry` 为准。
+
+MySQL 是可选依赖，用 `pip install -e ".[mysql]"` 安装，连接参数从 `COGNIGUARD_MYSQL_*` 环境变量读取；没有 MySQL 时，披露相关的测试会跳过，所以汇报测试结果时要同时报告跳过的数量。
+
 ## 现行目录
 
 | 层 | 路径 | 可以放什么 |
