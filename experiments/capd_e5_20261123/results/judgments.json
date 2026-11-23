@@ -1,0 +1,252 @@
+{
+  "H1": {
+    "verdict": "支持",
+    "groups": 720,
+    "violations": 0
+  },
+  "H2": {
+    "verdict": "支持",
+    "by_k": {
+      "2.0": {
+        "verdict": "支持",
+        "w2": 172,
+        "w2_violations": 0,
+        "w3plus": 188,
+        "w3plus_violation_rate": 0.973404255319149
+      },
+      "3.0": {
+        "verdict": "支持",
+        "w2": 172,
+        "w2_violations": 0,
+        "w3plus": 188,
+        "w3plus_violation_rate": 0.973404255319149
+      },
+      "4.0": {
+        "verdict": "支持",
+        "w2": 172,
+        "w2_violations": 0,
+        "w3plus": 188,
+        "w3plus_violation_rate": 0.973404255319149
+      }
+    }
+  },
+  "H3": {
+    "verdict": "支持",
+    "by_baseline": {
+      "per_recipient_bits": {
+        "verdict": "支持",
+        "cells": {
+          "K=8,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "6.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=8,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "6.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          }
+        }
+      },
+      "global_bits": {
+        "verdict": "支持",
+        "cells": {
+          "K=8,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.7833333,
+                "ci_lower": 0.7166667999999999
+              },
+              "0.95": {
+                "mean_diff": 0.8666665,
+                "ci_lower": 0.7999999
+              },
+              "0.98": {
+                "mean_diff": 0.9499999000000001,
+                "ci_lower": 0.8999998
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=8,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.8166665999999999,
+                "ci_lower": 0.7166667
+              },
+              "0.95": {
+                "mean_diff": 0.9666665999999999,
+                "ci_lower": 0.9166665
+              },
+              "0.98": {
+                "mean_diff": 0.9666665999999999,
+                "ci_lower": 0.9166665
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.7833332000000001,
+                "ci_lower": 0.7333334
+              },
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.8333332
+              },
+              "0.98": {
+                "mean_diff": 0.9333332000000001,
+                "ci_lower": 0.8833331
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.7333334,
+                "ci_lower": 0.6166667
+              },
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.7833333
+              },
+              "0.98": {
+                "mean_diff": 0.9666665999999999,
+                "ci_lower": 0.9166665
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.8333332
+              },
+              "0.98": {
+                "mean_diff": 0.9833333,
+                "ci_lower": 0.9499999000000001
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.95": {
+                "mean_diff": 0.9166665999999999,
+                "ci_lower": 0.8333335
+              },
+              "0.98": {
+                "mean_diff": 0.9666665999999999,
+                "ci_lower": 0.9166665
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
