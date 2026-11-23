@@ -59,6 +59,27 @@
 
 MySQL 是可选依赖，用 `pip install -e ".[mysql]"` 安装，连接参数从 `COGNIGUARD_MYSQL_*` 环境变量读取；没有 MySQL 时，披露相关的测试会跳过，所以汇报测试结果时要同时报告跳过的数量。
 
+## 保密模型
+
+本系统保护的是**未公开内容的保密性**，不是著作权：著作权只保护表达，换一种说法就不算侵权；保密保护的是信息本身，换一种说法推出了同一个取值，仍然算泄露。根据公开知识独立推出的内容不算泄露。法律依据中的具体条文和判例待核实。
+
+受保护对象统一为**离散秘密**，教师资产和学生属性用同一套类型、同一个闸门：
+
+| 概念 | 代码位置 | 说明 |
+|---|---|---|
+| 离散秘密 | `cogniguard/governance/targets.py` 的 `ProtectedTarget` | `kind` 为 `teaching_asset` 或 `student_attribute`；`domain_size` 是候选取值个数；`value_commitment` 是 HMAC-SHA256 承诺（`commit_value`、`verify_commitment`）。真实取值和盐不进入目标对象 |
+| 推导集 | 同上，`witness_sets` | 凑齐其中任一个单元集合，就能把秘密推到阈值以上 |
+| 计量器 | 接口在 `cogniguard/governance/meter.py`，实现在 `cogniguard/runtime/meters.py` | 把非结构化文本翻译成"透露了哪些单元"。`LexicalMeter` 是词面基线；`CalibratedMeter` 等校准实验完成后再实现。原文只放在 `UnitContentStore`，不写日志，也不进回执 |
+| 学生属性 | `protection/student_profile/src/fopd/secret_targets.py` 的 `attribute_target` | 单元是画像记录，推导集是"凑齐就能推出属性"的记录组合 |
+
+计量器只许多算、不许漏算。闸门的候选可以带 `text` 和 `meter_scope`：配置了计量器时，声明的单元与计量器判出的单元取并集；计量在加锁之前完成；计量出错时，`evaluate_and_reserve` 返回 `meter_error`，`select_and_reserve` 跳过该候选。evidence 只记计量方法名和单元数量。
+
+教育流程（`LangGraphProtectionPipeline(meter=...)`）在得到 C²-RAG 的回应后计量一次，用判出的单元取代 `disclosure_rule`，作为显式声明的单元交给闸门（不再让闸门重复计量）。计量失败时，在扣预算和登记 `approved_chunks` 之前就改为拒绝。不配置计量器时，行为和以前完全一致。
+
+`TeacherResource.confidentiality_level` 是 `copyright_level` 的只读别名，新代码用前者。
+
+形式化定义（g-泄露、相对先验的增量泄露、推导集与引理、保证成立所需的四条假设）不在本文件，以随论文发布的定义为准。
+
 ## 现行目录
 
 | 层 | 路径 | 可以放什么 |
