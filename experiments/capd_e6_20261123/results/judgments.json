@@ -1,0 +1,272 @@
+{
+  "H1": {
+    "verdict": "支持",
+    "groups": 720,
+    "violations": 0
+  },
+  "H2": {
+    "verdict": "支持",
+    "by_k": {
+      "2.0": {
+        "verdict": "支持",
+        "w2": 332,
+        "w2_violations": 0,
+        "w3plus": 28,
+        "w3plus_violation_rate": 0.9285714285714286
+      },
+      "3.0": {
+        "verdict": "支持",
+        "w2": 332,
+        "w2_violations": 0,
+        "w3plus": 28,
+        "w3plus_violation_rate": 0.9285714285714286
+      },
+      "4.0": {
+        "verdict": "支持",
+        "w2": 332,
+        "w2_violations": 0,
+        "w3plus": 28,
+        "w3plus_violation_rate": 0.9285714285714286
+      }
+    }
+  },
+  "H3": {
+    "verdict": "支持",
+    "by_baseline": {
+      "per_recipient_bits": {
+        "verdict": "支持",
+        "cells": {
+          "K=8,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "6.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=8,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "6.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "8.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "12.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              },
+              "16.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          }
+        }
+      },
+      "global_bits": {
+        "verdict": "支持",
+        "cells": {
+          "K=8,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.75,
+                "ci_lower": 0.6666667000000001
+              },
+              "0.95": {
+                "mean_diff": 0.9166665,
+                "ci_lower": 0.8666664000000001
+              },
+              "0.98": {
+                "mean_diff": 0.9666665999999999,
+                "ci_lower": 0.9166665
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=8,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.8166665999999999,
+                "ci_lower": 0.6833332000000001
+              },
+              "0.95": {
+                "mean_diff": 0.9,
+                "ci_lower": 0.8166667000000001
+              },
+              "0.98": {
+                "mean_diff": 0.9499999000000001,
+                "ci_lower": 0.8999998
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.75,
+                "ci_lower": 0.6333332
+              },
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.8333332
+              },
+              "0.98": {
+                "mean_diff": 0.95,
+                "ci_lower": 0.8666668
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=16,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.7666667,
+                "ci_lower": 0.6833332999999999
+              },
+              "0.95": {
+                "mean_diff": 0.8833332,
+                "ci_lower": 0.8166665
+              },
+              "0.98": {
+                "mean_diff": 0.9166665999999999,
+                "ci_lower": 0.8499997
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.0": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.75,
+                "ci_lower": 0.6166668
+              },
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.8333332
+              },
+              "0.98": {
+                "mean_diff": 0.9333332999999999,
+                "ci_lower": 0.8500000999999999
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          },
+          "K=32,c=0.2": {
+            "verdict": "支持",
+            "eligible": {
+              "0.9": {
+                "mean_diff": 0.75,
+                "ci_lower": 0.6166668
+              },
+              "0.95": {
+                "mean_diff": 0.8999999000000001,
+                "ci_lower": 0.8333330999999999
+              },
+              "0.98": {
+                "mean_diff": 0.9333332999999999,
+                "ci_lower": 0.8500000999999999
+              },
+              "1.0": {
+                "mean_diff": 1.0,
+                "ci_lower": 1.0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
