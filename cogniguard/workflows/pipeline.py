@@ -6,6 +6,7 @@ No checkpointing or automatic retries: domain budget commits are side effects.
 
 from __future__ import annotations
 
+import time
 from copy import deepcopy
 from dataclasses import dataclass, field
 from threading import RLock
@@ -21,6 +22,7 @@ from cogniguard.governance.evidence import (
     Principal,
     Purpose,
 )
+from cogniguard.governance.reconstruction import check_release
 from cogniguard.observability.telemetry import (
     LangSmithMonitor,
     SafeTelemetry,
@@ -29,18 +31,32 @@ from cogniguard.observability.telemetry import (
 )
 from cogniguard.protection.retrieval import inspect_candidate_resources
 from cogniguard.runtime.protection_context import (
+    active_protection,
     charge_domain_budget,
     register_profile_context,
     register_retrieval_context,
 )
+from cogniguard.runtime.release_gate import (
+    Candidate,
+    GateDecision,
+    ReleaseGate,
+    ReleaseRequest,
+    UnitRelease,
+)
 from core.access import AccessScope
 from core.domain import DomainServices, ProtectionResult
 from core.teaching import build_teaching_input, generate_offline_answer
+from protection.common.schemas import ControlledResource
 from protection.student_profile.src.fopd.context_card import build_context_card
 from protection.student_profile.src.fopd.task_parser import parse_task
 from protection.student_profile.src.pipeline.ag2_simulator import build_ag2_request
 from protection.teacher_resource.src.c2rag.retriever import CopyrightAwareRetriever
-from protection.teacher_resource.src.c2rag.return_policy import produce_controlled_resource
+from protection.teacher_resource.src.c2rag.return_policy import (
+    explain_return_policy,
+    produce_controlled_resource,
+    render_controlled_resource,
+)
+from protection.teacher_resource.src.c2rag.source_trace import build_source_trace
 
 
 @dataclass
@@ -93,6 +109,12 @@ class Frame:
     answer: str = ""
     protected: ProtectedText | None = None
     result: ProtectionResult | None = None
+    disclosure_receipt_ids: list = field(default_factory=list)
+    disclosure_committed: list = field(default_factory=list)
+    disclosure_cancelled: list = field(default_factory=list)
+    disclosure_settled: bool = False
+    release_gate: ReleaseGate | None = None
+    release_decision: GateDecision | None = None
 
 
 @dataclass
@@ -139,10 +161,15 @@ def minimize_profile(f, state):
 
 @stage("retrieve")
 def retrieve(f, state):
-    retriever = f.owner.retriever
-    if f.access.resource_ids is not None:
-        allowed = [r for r in f.owner.resources if r.resource_id in f.access.resource_ids]
+    if f.access.registry is not None:
+        now = time.time()
+        allowed = [r for r in f.owner.resources if f.access.permits(r.resource_id, now)]
         retriever = CopyrightAwareRetriever(allowed, f.owner.budget, f.owner.config)
+    else:
+        retriever = f.owner.retriever
+        if f.access.resource_ids is not None:
+            allowed = [r for r in f.owner.resources if r.resource_id in f.access.resource_ids]
+            retriever = CopyrightAwareRetriever(allowed, f.owner.budget, f.owner.config)
     retrieved = retriever.retrieve(build_ag2_request(f.task, f.card), f.task, f.card)
     inspection = inspect_candidate_resources(
         [item.resource for item in retrieved], guard=f.owner.retrieval_guard
@@ -156,10 +183,192 @@ def retrieve(f, state):
     return {"candidate_count": len(f.retrieved)}
 
 
+def _revert_unreleased_charge(budget, controlled) -> None:
+    chunk_id = controlled.resource.chunk_id
+    before = controlled.exposure_before
+    if before == 0.0:
+        budget.values.pop(chunk_id, None)
+    else:
+        budget.values[chunk_id] = before
+    if budget.recent_hits and budget.recent_hits[-1] == chunk_id:
+        budget.recent_hits.pop()
+
+
+def _replace_controlled_with_refusal(f, retrieval_trace) -> None:
+    """Rebuild f.controlled the way C²-RAG records a refusal. No substitute text."""
+    controlled = f.controlled
+    resource = controlled.resource
+    budget = f.owner.budget
+    # produce_controlled_resource already charged the quote. Put that back so
+    # the refusal is the only ledger update.
+    _revert_unreleased_charge(budget, controlled)
+    config = f.owner.config
+    exposure_before = budget.get(resource.chunk_id)
+    text, extra = render_controlled_resource(resource, "refuse", config)
+    explanation = explain_return_policy(resource, exposure_before, "refuse", config)
+    exposure_info = budget.update(resource, text)
+    trace = build_source_trace(
+        resource=resource,
+        mode="refuse",
+        exposure_before=exposure_before,
+        exposure_after=exposure_info["after"],
+        extra=extra,
+        controlled_text=text,
+        retrieval_trace=retrieval_trace,
+        policy_reason=str(explanation["policy_reason"]),
+        decision_factors=explanation,
+    )
+    f.controlled = ControlledResource(
+        mode="refuse",
+        text=text,
+        resource=resource,
+        exposure_before=exposure_before,
+        exposure_after=exposure_info["after"],
+        source_trace=trace,
+    )
+
+
+def _make_release_gate(f) -> ReleaseGate:
+    return ReleaseGate(
+        f.owner.disclosure_store,
+        access_registry=f.access.registry,
+        target_registry=f.owner.target_registry,
+        coalition_k=f.owner.coalition_k,
+        registry_holder=f.owner.registry_holder,
+    )
+
+
+def _exposure_delta(f) -> float:
+    if f.controlled is None:
+        return 0.0
+    return max(0.0, f.controlled.exposure_after - f.controlled.exposure_before)
+
+
+def _release_request(f, released: list[dict]) -> ReleaseRequest:
+    acting_org_id = "legacy" if f.access.acting_org_id is None else f.access.acting_org_id
+    delta = _exposure_delta(f)
+    return ReleaseRequest(
+        recipient_principal_id=f.profile.student_id,
+        acting_org_id=acting_org_id,
+        agent_principal_id="graph-runtime",
+        session_id=f.owner.session_id,
+        purpose=f.access.purpose,
+        units=tuple(
+            UnitRelease(item["resource_id"], item["chunk_id"], item["content"], delta)
+            for item in released
+        ),
+        now=time.time(),
+    )
+
+
+def _remember_release(f, gate: ReleaseGate, decision: GateDecision) -> None:
+    f.release_gate = gate
+    f.release_decision = decision
+    if decision.reason == "ok":
+        f.disclosure_receipt_ids.extend(decision.receipt_ids)
+
+
+def _mode_discloses(config: dict, mode: str) -> bool:
+    rules = config.get("c2rag", {}).get("disclosure_rule") or {}
+    if mode in rules:
+        return bool(rules[mode])
+    return mode != "refuse"
+
+
+def _mode_utility(config: dict, mode: str) -> float:
+    utilities = config.get("c2rag", {}).get("candidate_utility") or {}
+    if mode in utilities:
+        return float(utilities[mode])
+    return {"quote": 1.0, "summary": 0.8, "outline": 0.6, "variant": 0.6}.get(mode, 0.0)
+
+
+def _coalition_counts(f, units: tuple[UnitRelease, ...]) -> dict:
+    """Count affected targets and violations for the disclosing candidate only."""
+    release = frozenset((unit.resource_id, unit.unit_id) for unit in units)
+    if not release:
+        return {"target_count": 0, "violation_count": 0}
+    registry = f.owner.target_registry
+    targets = {}
+    witness_units: set[tuple[str, str]] = set()
+    for unit in release:
+        for target in registry.targets_for_unit(unit):
+            targets.setdefault(target.target_id, target)
+    for target in targets.values():
+        for witness in target.witness_sets:
+            witness_units.update(witness)
+    knowledge = f.owner.disclosure_store.holders_of(witness_units) if witness_units else {}
+    verdict = check_release(
+        registry,
+        f.profile.student_id,
+        release,
+        knowledge,
+        f.owner.coalition_k,
+    )
+    return {"target_count": len(targets), "violation_count": len(verdict.violations)}
+
+
+def _refuse_reconstructable_release(f, retrieval_trace) -> dict | None:
+    """Price the C²-RAG mode against refusal when coalition checks are enabled.
+
+    The check runs only when a target registry, a coalition size, and a
+    disclosure store are all configured. Evidence keeps a mode name and counts.
+    """
+    owner = f.owner
+    controlled = f.controlled
+    if (
+        owner.target_registry is None
+        or owner.coalition_k is None
+        or owner.disclosure_store is None
+        or controlled is None
+        or controlled.mode == "refuse"
+    ):
+        return None
+    resource = controlled.resource
+    mode = controlled.mode
+    units = (
+        (
+            UnitRelease(
+                resource.resource_id,
+                resource.chunk_id,
+                controlled.text,
+                _exposure_delta(f),
+            ),
+        )
+        if _mode_discloses(owner.config, mode)
+        else ()
+    )
+    candidates = (
+        Candidate(mode, units, _mode_utility(owner.config, mode)),
+        Candidate("refuse", (), 0.0),
+    )
+    counts = _coalition_counts(f, units)
+    gate = _make_release_gate(f)
+    chosen, decision = gate.select_and_reserve(
+        _release_request(f, []),
+        candidates,
+        price_lambda=owner.price_lambda,
+        decay=owner.price_decay,
+    )
+    _remember_release(f, gate, decision)
+    kept = chosen is not None and chosen.name != "refuse"
+    if not kept:
+        _replace_controlled_with_refusal(f, retrieval_trace)
+    evidence = {
+        "target_count": counts["target_count"],
+        "violation_count": counts["violation_count"],
+        "decision": "release" if kept else "refuse",
+        "selected": decision.evidence.get("selected", ""),
+        "accepted_count": decision.evidence.get("accepted_count", 0),
+    }
+    f.controlled.source_trace["coalition_check"] = evidence
+    return evidence
+
+
 @stage("control_resource")
 def control_resource(f, state):
+    retrieval_trace: list[dict] = []
     if f.retrieved:
-        trace = [
+        retrieval_trace = [
             {
                 "rank": rank,
                 "resource_id": item.resource.resource_id,
@@ -170,8 +379,12 @@ def control_resource(f, state):
             for rank, item in enumerate(f.retrieved, 1)
         ]
         f.controlled = produce_controlled_resource(
-            f.retrieved[0].resource, f.owner.budget, f.owner.config, retrieval_trace=trace
+            f.retrieved[0].resource,
+            f.owner.budget,
+            f.owner.config,
+            retrieval_trace=retrieval_trace,
         )
+    coalition_evidence = _refuse_reconstructable_release(f, retrieval_trace)
     released = []
     if f.controlled is not None and f.controlled.mode != "refuse":
         charge_domain_budget(
@@ -185,12 +398,17 @@ def control_resource(f, state):
                 "return_mode": f.controlled.mode,
             }
         )
+    evidence = f.retrieval_evidence
+    if coalition_evidence is not None:
+        evidence = {**dict(f.retrieval_evidence), "coalition_check": coalition_evidence}
     register_retrieval_context(
         protected_resources=f.owner.resources,
         approved_chunks=released,
         approved_source_ids=[item["resource_id"] for item in released],
-        evidence=f.retrieval_evidence,
+        evidence=evidence,
     )
+    if f.owner.disclosure_store is not None:
+        _reserve_disclosures(f, released)
     return {"resource_exposure": float(f.controlled.exposure_after) if f.controlled else 0.0}
 
 
@@ -317,9 +535,99 @@ def govern_output(f, state):
     return {"blocked": decision.action != "allow", "decision_code": codes[decision.action]}
 
 
+def _pending_receipts(f) -> tuple[str, ...]:
+    committed = set(f.disclosure_committed)
+    return tuple(
+        receipt_id
+        for receipt_id in f.disclosure_receipt_ids
+        if receipt_id not in committed and receipt_id not in f.disclosure_cancelled
+    )
+
+
+def _decision_for(f, receipt_ids: tuple[str, ...]) -> GateDecision:
+    decision = f.release_decision
+    if decision is None:
+        return GateDecision(True, "ok", receipt_ids, {})
+    if receipt_ids == decision.receipt_ids:
+        return decision
+    versions = {
+        receipt_id: version
+        for receipt_id, version in zip(decision.receipt_ids, decision.unit_versions)
+    }
+    return GateDecision(
+        decision.allowed,
+        decision.reason,
+        receipt_ids,
+        decision.evidence,
+        tuple(versions[receipt_id] for receipt_id in receipt_ids),
+        decision.commit_context,
+    )
+
+
+def _reserve_disclosures(f, released: list[dict]) -> None:
+    # A priced decision, including one that discloses nothing, is already settled.
+    if (
+        f.owner.disclosure_store is None
+        or not released
+        or f.disclosure_receipt_ids
+        or f.release_decision is not None
+    ):
+        return
+    gate = _make_release_gate(f)
+    decision = gate.evaluate_and_reserve(_release_request(f, released))
+    _remember_release(f, gate, decision)
+
+
+def _commit_disclosures(f) -> None:
+    if f.owner.disclosure_store is None or f.disclosure_settled:
+        return
+    pending = _pending_receipts(f)
+    if pending and f.release_gate is not None:
+        if f.release_gate.commit(_decision_for(f, pending), time.time()):
+            f.disclosure_committed.extend(pending)
+        else:
+            f.disclosure_cancelled.extend(pending)
+    f.disclosure_settled = True
+
+
+def _handoff_disclosures(f) -> bool:
+    """Register reserved receipts with the active gateway scope instead of committing."""
+    context = active_protection()
+    store = f.owner.disclosure_store
+    if context is None or store is None or f.disclosure_settled:
+        return False
+    context.disclosure_store = store
+    registered = getattr(context, "disclosure_receipt_ids", None)
+    if not isinstance(registered, list):
+        registered = []
+        context.disclosure_receipt_ids = registered
+    registered.extend(f.disclosure_receipt_ids)
+    if f.release_gate is not None and f.release_decision is not None and f.release_decision.receipt_ids:
+        settlements = getattr(context, "release_settlements", None)
+        if not isinstance(settlements, list):
+            settlements = []
+            context.release_settlements = settlements
+        settlements.append((f.release_gate, f.release_decision))
+    # The gateway now owns settlement. Pipeline cancel must not run again.
+    f.disclosure_settled = True
+    return True
+
+
+def _cancel_disclosures(f) -> None:
+    if f.owner.disclosure_store is None or f.disclosure_settled:
+        return
+    pending = _pending_receipts(f)
+    if pending and f.release_gate is not None:
+        f.release_gate.cancel(_decision_for(f, pending))
+        f.disclosure_cancelled.extend(pending)
+    f.disclosure_settled = True
+
+
 @stage("finalize")
 def finalize(f, state):
     if state.get("blocked"):
+        # Output or input governance refused delivery. Drop the reserved receipts.
+        _cancel_disclosures(f)
         # Do not return a diagnostic ProtectionResult with rejected content.
         return {"completed": False}
     result_type = (
@@ -330,6 +638,10 @@ def finalize(f, state):
     f.result = result_type(
         f.task, f.card, f.selected, f.controlled, f.answer, f.privacy, f.teaching
     )
+    # Direct pipeline calls commit here. Inside a gateway scope, delivery is
+    # still ahead, so the receipts stay reserved for gateway.finalize.
+    if not _handoff_disclosures(f):
+        _commit_disclosures(f)
     return {"completed": True}
 
 
@@ -393,10 +705,22 @@ class LangGraphProtectionPipeline(DomainServices):
         generator: Callable | None = None,
         monitor: LangSmithMonitor | None = None,
         retrieval_guard=None,
+        disclosure_store=None,
+        target_registry=None,
+        coalition_k=None,
+        registry_holder=None,
+        price_lambda: float = 1.0,
+        price_decay: float = 1.0,
     ):
         super().__init__(deepcopy(config), list(resources))
         self.guard, self.watermark = guard, watermark
         self.retrieval_guard = retrieval_guard
+        self.disclosure_store = disclosure_store
+        self.target_registry = target_registry
+        self.coalition_k = coalition_k
+        self.registry_holder = registry_holder
+        self.price_lambda = price_lambda
+        self.price_decay = price_decay
         self.generator = generator
         self.monitor = monitor or LangSmithMonitor()
         self.graph = build_graph()
@@ -421,6 +745,10 @@ class LangGraphProtectionPipeline(DomainServices):
                 if frame.result is None:
                     raise PermissionError("Governance blocked delivery")
                 return frame.result
+            except Exception:
+                # A node failed before finalize could settle the reserved receipts.
+                _cancel_disclosures(frame)
+                raise
             finally:
                 self.last_trace = recorder.to_dict()
                 if outer is None:

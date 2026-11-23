@@ -1,8 +1,12 @@
 """可信调用方授予范围；文本输入不能修改这些权限。"""
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 import math
 
 from protection.common.schemas import StudentProfile, Task
+
+if TYPE_CHECKING:
+    from cogniguard.governance.access_policy import AccessRegistry
 
 
 @dataclass(frozen=True)
@@ -12,6 +16,9 @@ class AccessScope:
     student_id: str
     allow_resources: bool = True
     resource_ids: frozenset[str] | None = None
+    registry: "AccessRegistry | None" = None
+    acting_org_id: str | None = None
+    purpose: str = "tutoring"
 
     def __post_init__(self):
         if self.resource_ids is not None:
@@ -26,6 +33,20 @@ class AccessScope:
             raise PermissionError("当前会话无权读取教师资源")
         if task.need_resource and self.resource_ids == frozenset():
             raise PermissionError("当前会话没有获准读取的教师资源")
+        if self.registry is not None and self.acting_org_id is None:
+            raise PermissionError("当前会话没有声明代行的组织")
+
+    def permits(self, resource_id: str, now: float) -> bool:
+        listed = self.resource_ids is None or resource_id in self.resource_ids
+        if self.registry is None:
+            return listed
+        return listed and self.registry.is_authorized(
+            self.student_id,
+            resource_id,
+            self.purpose,
+            self.acting_org_id,
+            now,
+        )
 
 
 class ProfileReadPolicy:

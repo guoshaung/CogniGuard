@@ -1,0 +1,844 @@
+"""Pipeline delivery commits disclosure receipts. MySQL failures skip these cases."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import uuid
+from copy import deepcopy
+from threading import Barrier, Thread
+
+import pytest
+
+pymysql = pytest.importorskip("pymysql")
+
+from cogniguard.governance.access_policy import AccessGrant, AccessRegistry, RegistryHolder
+from cogniguard.governance.capability import CapabilityGrant, CapabilityPolicy
+from cogniguard.governance.lifecycle import LifecycleGuard
+from cogniguard.governance.principals import AssetOwnership, Membership
+from cogniguard.governance.targets import ProtectedTarget, TargetRegistry
+from cogniguard.protection.cg.nemo_guardrails_adapter import NeMoGuardrailsAdapter
+from cogniguard.protection.output_validation import SAFE_OUTPUT_REPLACEMENT
+from cogniguard.protection.text_provenance import TextProvenanceService
+from cogniguard.runtime.disclosure_store import DisclosureStore
+from cogniguard.runtime.gateway import ProtectionGateway
+from cogniguard.runtime.release_gate import ReleaseGate
+from cogniguard.runtime.protection_context import register_profile_context
+from cogniguard.runtime.sessions import SessionStore
+from cogniguard.workflows.pipeline import ProtectedText
+from core.access import AccessScope
+from core.pipeline import ProtectionPipeline, load_inputs
+from core.tests.test_focused import INPUTS
+
+_CONNECT_TIMEOUT = 3
+
+
+def _server_settings() -> dict:
+    return {
+        "host": os.environ.get("COGNIGUARD_MYSQL_HOST", "127.0.0.1"),
+        "port": int(os.environ.get("COGNIGUARD_MYSQL_PORT", "3306")),
+        "user": os.environ.get("COGNIGUARD_MYSQL_USER", "root"),
+        "password": os.environ.get("COGNIGUARD_MYSQL_PASSWORD", ""),
+    }
+
+
+@pytest.fixture
+def disclosure_store():
+    settings = _server_settings()
+    try:
+        probe = pymysql.connect(**settings, connect_timeout=_CONNECT_TIMEOUT)
+    except (pymysql.Error, OSError) as exc:
+        pytest.skip(f"MySQL is not reachable: {exc}")
+    else:
+        probe.close()
+
+    database = "cg_pipeline_disclosure_" + uuid.uuid4().hex[:12]
+    opened = DisclosureStore(**settings, database=database)
+    try:
+        yield opened
+    finally:
+        opened.close()
+        admin = pymysql.connect(**settings, autocommit=True, connect_timeout=_CONNECT_TIMEOUT)
+        try:
+            with admin.cursor() as cursor:
+                cursor.execute(f"DROP DATABASE IF EXISTS `{database}`")
+        finally:
+            admin.close()
+
+
+def _case():
+    config, profiles, questions, resources = load_inputs(*INPUTS)
+    question = next(item for item in questions if item["need_resource"])
+    profile = deepcopy(profiles[question["student_id"]])
+    baseline = ProtectionPipeline(config, resources).run(
+        profile, question, access=AccessScope(profile.student_id)
+    )
+    resource = deepcopy(baseline.controlled.resource)
+    return config, profile, question, resource
+
+
+def _student(profile, question, student_id: str):
+    profile = deepcopy(profile)
+    question = deepcopy(question)
+    profile.student_id = student_id
+    question["student_id"] = student_id
+    return profile, question
+
+
+def _released(result):
+    controlled = result.controlled
+    return (
+        None if controlled is None or controlled.resource is None else controlled.resource.resource_id,
+        None if controlled is None else controlled.text,
+        result.answer,
+    )
+
+
+def _rows(store: DisclosureStore) -> list[dict]:
+    admin = pymysql.connect(
+        host=store._host,
+        port=store._port,
+        user=store._user,
+        password=store._password,
+        database=store._database,
+        cursorclass=pymysql.cursors.DictCursor,
+        connect_timeout=_CONNECT_TIMEOUT,
+    )
+    try:
+        with admin.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT receipt_id, resource_id, unit_id, recipient_principal_id, status
+                FROM disclosure_receipt
+                """
+            )
+            return list(cursor.fetchall())
+    finally:
+        admin.close()
+
+
+def _output_guard() -> LifecycleGuard:
+    return LifecycleGuard(
+        CapabilityPolicy(
+            [
+                CapabilityGrant("service", target, frozenset({"education"}))
+                for target in ("teaching", "delivery")
+            ]
+        )
+    )
+
+
+def test_delivered_unit_appears_in_history(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "released_resource"
+    resource.chunk_id = "released_chunk"
+    registry = AccessRegistry(
+        [AssetOwnership(resource.resource_id, "teacher-a", "school", 3)],
+        [
+            Membership(profile.student_id, "school", "student"),
+            Membership("teacher-a", "school", "teacher"),
+        ],
+        [AccessGrant(profile.student_id, resource.resource_id, "tutoring", 3)],
+    )
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+    result = pipeline.run(
+        profile,
+        question,
+        access=AccessScope(
+            profile.student_id, registry=registry, acting_org_id="school"
+        ),
+    )
+    history = disclosure_store.history(profile.student_id)
+
+    assert len(history) == 1
+    receipt = history[0]
+    assert receipt.resource_id == resource.resource_id
+    assert receipt.unit_id == resource.chunk_id
+    assert receipt.recipient_principal_id == profile.student_id
+    assert receipt.acting_org_id == "school"
+    assert receipt.agent_principal_id == "graph-runtime"
+    assert receipt.session_id == pipeline.session_id
+    assert receipt.policy_version == 3
+    assert receipt.status == "delivered"
+    assert receipt.content_sha256 == hashlib.sha256(result.controlled.text.encode()).hexdigest()
+
+
+def test_blocked_output_cancels_the_receipt(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "blocked_resource"
+    resource.chunk_id = "blocked_chunk"
+    pipeline = ProtectionPipeline(
+        config,
+        [resource],
+        disclosure_store=disclosure_store,
+        guard=_output_guard(),
+        watermark=lambda answer, task, sources: ProtectedText(answer, provenance_valid=False),
+    )
+
+    with pytest.raises(PermissionError):
+        pipeline.run(profile, question, access=AccessScope(profile.student_id))
+
+    stages = [event["stage"] for event in pipeline.last_trace["events"]]
+    assert "govern_output" in stages
+    assert disclosure_store.history(profile.student_id) == []
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
+    assert rows[0]["unit_id"] == resource.chunk_id
+
+
+def test_coalition_units_are_the_union_of_two_students(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    first_resource = deepcopy(resource)
+    first_resource.resource_id = "resource_one"
+    first_resource.chunk_id = "unit_one"
+    second_resource = deepcopy(resource)
+    second_resource.resource_id = "resource_two"
+    second_resource.chunk_id = "unit_two"
+    first_profile, first_question = _student(profile, question, "student-one")
+    second_profile, second_question = _student(profile, question, "student-two")
+    first = ProtectionPipeline(
+        config, [first_resource, second_resource], disclosure_store=disclosure_store
+    )
+    second = ProtectionPipeline(
+        config, [first_resource, second_resource], disclosure_store=disclosure_store
+    )
+
+    first.run(
+        first_profile,
+        first_question,
+        access=AccessScope(first_profile.student_id, resource_ids=frozenset({first_resource.resource_id})),
+    )
+    second.run(
+        second_profile,
+        second_question,
+        access=AccessScope(second_profile.student_id, resource_ids=frozenset({second_resource.resource_id})),
+    )
+
+    assert disclosure_store.coalition_units(["student-one", "student-two"]) == frozenset(
+        {
+            (first_resource.resource_id, first_resource.chunk_id),
+            (second_resource.resource_id, second_resource.chunk_id),
+        }
+    )
+
+
+def _exposure_delta(result) -> float:
+    controlled = result.controlled
+    return max(0.0, controlled.exposure_after - controlled.exposure_before)
+
+
+def test_exposure_is_summed_per_recipient_for_one_unit(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "shared_resource"
+    resource.chunk_id = "shared_unit"
+    first_profile, first_question = _student(profile, question, "student-one")
+    second_profile, second_question = _student(profile, question, "student-two")
+    first = ProtectionPipeline(config, [deepcopy(resource)], disclosure_store=disclosure_store)
+    second = ProtectionPipeline(config, [deepcopy(resource)], disclosure_store=disclosure_store)
+    first_result = first.run(
+        first_profile, first_question, access=AccessScope(first_profile.student_id)
+    )
+    second_result = second.run(
+        second_profile, second_question, access=AccessScope(second_profile.student_id)
+    )
+    first_delta = _exposure_delta(first_result)
+    second_delta = _exposure_delta(second_result)
+    disclosure_store.reserve(
+        resource_id=resource.resource_id,
+        unit_id=resource.chunk_id,
+        recipient_principal_id="student-reserved",
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="reserved",
+        created_at=1.0,
+        exposure_delta=9.0,
+    )
+    cancelled = disclosure_store.reserve(
+        resource_id=resource.resource_id,
+        unit_id=resource.chunk_id,
+        recipient_principal_id="student-cancelled",
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="cancelled",
+        created_at=2.0,
+        exposure_delta=8.0,
+    )
+    disclosure_store.cancel(cancelled)
+
+    exposure = disclosure_store.exposure_by_recipient(resource.resource_id, resource.chunk_id)
+
+    assert exposure.keys() == {"student-one", "student-two"}
+    assert exposure["student-one"] == pytest.approx(first_delta)
+    assert exposure["student-two"] == pytest.approx(second_delta)
+    assert disclosure_store.history("student-one")[0].exposure_delta == pytest.approx(first_delta)
+    assert disclosure_store.coalition_exposure(
+        resource.resource_id, resource.chunk_id, ["student-one", "student-two"]
+    ) == pytest.approx(first_delta + second_delta)
+    assert disclosure_store.coalition_exposure(
+        resource.resource_id,
+        resource.chunk_id,
+        ["student-one", "student-two", "student-reserved", "student-cancelled"],
+    ) == pytest.approx(first_delta + second_delta)
+    assert (
+        disclosure_store.coalition_exposure(
+            resource.resource_id, resource.chunk_id, ["student-reserved", "student-cancelled"]
+        )
+        == 0.0
+    )
+
+
+def test_without_disclosure_store_matches_the_previous_result() -> None:
+    config, profile, question, resource = _case()
+    allowed = deepcopy(resource)
+    allowed.resource_id = "allowed_resource"
+    allowed.chunk_id = "allowed_chunk"
+    denied = deepcopy(resource)
+    denied.resource_id = "denied_resource"
+    denied.chunk_id = "denied_chunk"
+    scope = AccessScope(profile.student_id, resource_ids=frozenset({allowed.resource_id}))
+    default = ProtectionPipeline(config, [denied, allowed]).run(profile, question, access=scope)
+    explicit = ProtectionPipeline(config, [denied, allowed], disclosure_store=None).run(
+        profile, question, access=scope
+    )
+
+    assert _released(default) == _released(explicit)
+    assert default.controlled.resource.resource_id == allowed.resource_id
+    assert explicit.controlled.resource.chunk_id == allowed.chunk_id
+
+
+_GATEWAY_KEY = b"test-only-signing-key-not-for-deploy" * 2
+_SAFE_ANSWER = "先识别题目的已知条件。"
+_PRIVATE_VALUE = "SERVER-ONLY-IDENTITY-928341"
+
+
+def _gateway(tmp_path):
+    return ProtectionGateway(
+        store=SessionStore(
+            tmp_path / "sessions.sqlite3",
+            limits={"requests": 1000, "privacy": 100, "copyright": 100},
+        ),
+        provenance=TextProvenanceService(_GATEWAY_KEY, required=True),
+        adapter=NeMoGuardrailsAdapter("", enabled=True),
+    )
+
+
+def _run_gateway(gateway, pipeline, profile, question, answer: str, *, private: str | None):
+    def operation(frame):
+        released = pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        if private is not None:
+            register_profile_context(private_values=[private])
+        return {"answer": answer, "released": released.controlled is not None}
+
+    return gateway.run("case", {}, operation, request_id="disclosure-delivery")
+
+
+def test_gateway_delivery_commits_the_receipt(disclosure_store: DisclosureStore, tmp_path) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "gateway_released_resource"
+    resource.chunk_id = "gateway_released_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    result = _run_gateway(
+        _gateway(tmp_path), pipeline, profile, question, _SAFE_ANSWER, private=None
+    )
+
+    assert result["output_validation"]["allowed"] is True
+    assert result["released"] is True
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert history[0].resource_id == resource.resource_id
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "delivered"
+
+
+def test_gateway_output_validation_cancels_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "gateway_blocked_resource"
+    resource.chunk_id = "gateway_blocked_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    result = _run_gateway(
+        _gateway(tmp_path),
+        pipeline,
+        profile,
+        question,
+        f"答案里包含 {_PRIVATE_VALUE}",
+        private=_PRIVATE_VALUE,
+    )
+
+    assert result["output_validation"]["allowed"] is False
+    assert disclosure_store.history(profile.student_id) == []
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
+    assert rows[0]["unit_id"] == resource.chunk_id
+
+
+def test_partial_scrub_still_commits_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "partial_scrub_resource"
+    resource.chunk_id = "partial_scrub_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    def operation(frame):
+        released = pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        register_profile_context(private_values=[_PRIVATE_VALUE])
+        return {
+            "answer": _SAFE_ANSWER,
+            "notes": _PRIVATE_VALUE,
+            "released": released.controlled is not None,
+        }
+
+    result = _gateway(tmp_path).run("case", {}, operation, request_id="partial-scrub")
+    serialized = json.dumps(result, ensure_ascii=False)
+
+    assert result["output_validation"]["allowed"] is True
+    assert result["released"] is True
+    assert "[受保护内容已移除]" in serialized
+    assert _PRIVATE_VALUE not in serialized
+    assert SAFE_OUTPUT_REPLACEMENT not in result["answer"]
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert _rows(disclosure_store)[0]["status"] == "delivered"
+
+
+def test_safe_replacement_cancels_the_receipt(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "replacement_resource"
+    resource.chunk_id = "replacement_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    def operation(frame):
+        pipeline.run(profile, question, access=AccessScope(profile.student_id))
+        return {"answer": SAFE_OUTPUT_REPLACEMENT}
+
+    result = _gateway(tmp_path).run("case", {}, operation, request_id="safe-replacement")
+
+    assert SAFE_OUTPUT_REPLACEMENT in result["answer"]
+    assert disclosure_store.history(profile.student_id) == []
+    rows = _rows(disclosure_store)
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
+
+
+def test_direct_pipeline_commits_without_gateway(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "direct_released_resource"
+    resource.chunk_id = "direct_released_chunk"
+    pipeline = ProtectionPipeline(config, [resource], disclosure_store=disclosure_store)
+
+    pipeline.run(profile, question, access=AccessScope(profile.student_id))
+
+    history = disclosure_store.history(profile.student_id)
+    assert len(history) == 1
+    assert history[0].status == "delivered"
+    assert history[0].resource_id == resource.resource_id
+    rows = _rows(disclosure_store)
+    assert rows[0]["status"] == "delivered"
+
+
+def test_gateway_revoked_authorization_withholds_the_delivery(
+    disclosure_store: DisclosureStore, tmp_path
+) -> None:
+    config, profile, question, resource = _case()
+    resource.resource_id = "revoked_resource"
+    resource.chunk_id = "revoked_chunk"
+    registry = AccessRegistry(
+        [AssetOwnership(resource.resource_id, "teacher-a", "school", 1)],
+        [
+            Membership(profile.student_id, "school", "student"),
+            Membership("teacher-a", "school", "teacher"),
+        ],
+        [AccessGrant(profile.student_id, resource.resource_id, "tutoring", 1)],
+    )
+    holder = RegistryHolder(registry)
+    pipeline = ProtectionPipeline(
+        config,
+        [resource],
+        disclosure_store=disclosure_store,
+        registry_holder=holder,
+    )
+
+    def operation(frame):
+        pipeline.run(
+            profile,
+            question,
+            access=AccessScope(profile.student_id, acting_org_id="school"),
+        )
+        holder.replace(registry.with_policy_version(resource.resource_id, 2))
+        return {"answer": _SAFE_ANSWER}
+
+    result = _gateway(tmp_path).run(
+        "case", {}, operation, request_id="authorization-revoked"
+    )
+
+    assert result["authorization_revoked"] is True
+    assert SAFE_OUTPUT_REPLACEMENT in result["answer"]
+    assert disclosure_store.history(profile.student_id) == []
+    rows = [
+        row for row in _rows(disclosure_store) if row["unit_id"] == resource.chunk_id
+    ]
+    assert len(rows) == 1
+    assert rows[0]["status"] == "cancelled"
+    assert rows[0]["resource_id"] == resource.resource_id
+
+
+_STUDENT_A = "student-a-holds-u1"
+_STUDENT_B = "student-b-requests-u2"
+
+
+def _pack_unit(resource, chunk_id: str):
+    item = deepcopy(resource)
+    item.resource_id = "pack"
+    item.chunk_id = chunk_id
+    return item
+
+
+def _witness_registry() -> TargetRegistry:
+    witness = frozenset({("pack", "u1"), ("pack", "u2")})
+    return TargetRegistry([ProtectedTarget("witness", "owner", "org", (witness,))])
+
+
+def _deliver_u1(config, profile, question, resource, store: DisclosureStore):
+    student, ask = _student(profile, question, _STUDENT_A)
+    pipeline = ProtectionPipeline(
+        config, [_pack_unit(resource, "u1")], disclosure_store=store
+    )
+    pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+
+def _run_b(config, profile, question, resource, store: DisclosureStore, **kwargs):
+    student, ask = _student(profile, question, _STUDENT_B)
+    unit = _pack_unit(resource, "u2")
+    pipeline = ProtectionPipeline(
+        config, [unit], disclosure_store=store, **kwargs
+    )
+    result = pipeline.run(student, ask, access=AccessScope(student.student_id))
+    return pipeline, result, unit
+
+
+def _evidence_blob(pipeline, result) -> str:
+    return json.dumps(
+        {
+            "trace": pipeline.last_trace,
+            "state": pipeline.last_state,
+            "result": result.to_dict(),
+        },
+        ensure_ascii=False,
+        default=str,
+    )
+
+
+def test_k_of_two_refuses_the_unit_that_completes_the_witness(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=2,
+    )
+
+    assert result.controlled.mode == "refuse"
+    assert result.controlled.text.startswith("该资料当前不适合")
+    assert unit.content not in result.controlled.text
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"] == []
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 1,
+        "decision": "refuse",
+        "selected": "refuse",
+        "accepted_count": 1,
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_k_of_one_still_releases_the_second_unit(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=1,
+    )
+    _unchecked, unchecked, _same = _run_b(
+        config, profile, question, resource, disclosure_store
+    )
+
+    assert result.controlled.mode != "refuse"
+    assert _released(result) == _released(unchecked)
+    rows = [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"]
+    assert len(rows) == 2
+    assert {row["status"] for row in rows} == {"delivered"}
+    assert {row["recipient_principal_id"] for row in rows} == {_STUDENT_B}
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 0,
+        "decision": "release",
+        "selected": result.controlled.mode,
+        "accepted_count": 2,
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_reserved_receipt_is_enough_to_refuse(disclosure_store: DisclosureStore) -> None:
+    config, profile, question, resource = _case()
+    disclosure_store.reserve(
+        resource_id="pack",
+        unit_id="u1",
+        recipient_principal_id=_STUDENT_A,
+        acting_org_id="legacy",
+        agent_principal_id="graph-runtime",
+        session_id="pending",
+        policy_version=0,
+        content="reserved-u1",
+        created_at=1.0,
+    )
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_witness_registry(),
+        coalition_k=2,
+    )
+
+    assert result.controlled.mode == "refuse"
+    rows = _rows(disclosure_store)
+    assert [row for row in rows if row["unit_id"] == "u2"] == []
+    assert [(row["unit_id"], row["status"]) for row in rows] == [("u1", "reserved")]
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_without_target_registry_the_release_is_unchanged(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+    student, ask = _student(profile, question, _STUDENT_B)
+    unit = _pack_unit(resource, "u2")
+
+    def run(**kwargs):
+        pipeline = ProtectionPipeline(
+            config, [deepcopy(unit)], disclosure_store=disclosure_store, **kwargs
+        )
+        return pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+    baseline = run()
+    without_registry = run(coalition_k=2)
+    without_k = run(target_registry=_witness_registry())
+
+    assert _released(without_registry) == _released(baseline)
+    assert _released(without_k) == _released(baseline)
+    assert "coalition_check" not in without_registry.controlled.source_trace
+    assert "coalition_check" not in without_k.controlled.source_trace
+    delivered = [
+        row
+        for row in _rows(disclosure_store)
+        if row["unit_id"] == "u2" and row["status"] == "delivered"
+    ]
+    assert len(delivered) == 3
+    assert all(row["recipient_principal_id"] == _STUDENT_B for row in delivered)
+
+
+def test_two_pipelines_sharing_a_store_release_only_one_unit(
+    disclosure_store: DisclosureStore, monkeypatch
+) -> None:
+    config, profile, question, resource = _case()
+    registry = _witness_registry()
+    student_a, ask_a = _student(profile, question, "student-a-concurrent")
+    student_b, ask_b = _student(profile, question, "student-b-concurrent")
+    pipeline_a = ProtectionPipeline(
+        config,
+        [_pack_unit(resource, "u1")],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+    pipeline_b = ProtectionPipeline(
+        config,
+        [_pack_unit(resource, "u2")],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+    barrier = Barrier(2)
+    original = ReleaseGate.evaluate_and_reserve
+
+    def synchronized(self, req):
+        barrier.wait(60)
+        return original(self, req)
+
+    monkeypatch.setattr(ReleaseGate, "evaluate_and_reserve", synchronized)
+    found: dict[str, object] = {}
+    errors: list[BaseException] = []
+
+    def run(name: str, pipeline, student, ask) -> None:
+        try:
+            found[name] = pipeline.run(student, ask, access=AccessScope(student.student_id))
+        except BaseException as exc:
+            errors.append(exc)
+
+    threads = [
+        Thread(target=run, args=("a", pipeline_a, student_a, ask_a)),
+        Thread(target=run, args=("b", pipeline_b, student_b, ask_b)),
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join(60)
+        assert not thread.is_alive()
+
+    assert errors == [], errors
+    released = [
+        name
+        for name, result in found.items()
+        if result.controlled is not None and result.controlled.mode != "refuse"
+    ]
+    assert released == ["a"] or released == ["b"]
+    rows = [
+        row
+        for row in _rows(disclosure_store)
+        if row["unit_id"] in {"u1", "u2"} and row["status"] != "cancelled"
+    ]
+    assert len(rows) == 1
+    assert rows[0]["status"] == "delivered"
+
+
+def _three_unit_registry() -> TargetRegistry:
+    witness = frozenset({("pack", "u1"), ("pack", "u2"), ("pack", "u3")})
+    return TargetRegistry([ProtectedTarget("witness", "owner", "org", (witness,))])
+
+
+def test_large_price_refuses_before_the_witness_is_complete(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_three_unit_registry(),
+        coalition_k=2,
+        price_lambda=10,
+    )
+
+    assert result.controlled.mode == "refuse"
+    assert result.controlled.text.startswith("该资料当前不适合")
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"] == []
+    assert result.controlled.source_trace["coalition_check"] == {
+        "target_count": 1,
+        "violation_count": 0,
+        "decision": "refuse",
+        "selected": "refuse",
+        "accepted_count": 2,
+    }
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_zero_price_releases_the_incomplete_witness(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    _deliver_u1(config, profile, question, resource, disclosure_store)
+
+    pipeline, result, _unit = _run_b(
+        config,
+        profile,
+        question,
+        resource,
+        disclosure_store,
+        target_registry=_three_unit_registry(),
+        coalition_k=2,
+        price_lambda=0,
+    )
+    _unchecked, unchecked, _same = _run_b(
+        config, profile, question, resource, disclosure_store
+    )
+
+    assert result.controlled.mode != "refuse"
+    assert _released(result) == _released(unchecked)
+    rows = [row for row in _rows(disclosure_store) if row["unit_id"] == "u2"]
+    assert len(rows) == 2
+    assert {row["status"] for row in rows} == {"delivered"}
+    assert {row["recipient_principal_id"] for row in rows} == {_STUDENT_B}
+    assert result.controlled.source_trace["coalition_check"]["selected"] == result.controlled.mode
+    assert result.controlled.source_trace["coalition_check"]["decision"] == "release"
+    assert result.controlled.source_trace["coalition_check"]["violation_count"] == 0
+    assert _STUDENT_A not in _evidence_blob(pipeline, result)
+
+
+def test_outline_marked_not_disclosed_writes_no_receipt(
+    disclosure_store: DisclosureStore,
+) -> None:
+    config, profile, question, resource = _case()
+    config = deepcopy(config)
+    c2 = config["c2rag"]
+    c2["thresholds"] = {
+        **c2["thresholds"],
+        "quote": -1.0,
+        "summary": -1.0,
+        "variant": -1.0,
+        "outline": 1.0,
+    }
+    c2["high_copyright_threshold"] = 2.0
+    c2["quote_copyright_threshold"] = 0.0
+    c2["disclosure_rule"] = {**c2["disclosure_rule"], "outline": False}
+    unit = _pack_unit(resource, "outline-unit")
+    unit.policy.allow_quote = False
+    unit.policy.allow_summary = False
+    unit.policy.allow_variant = False
+    unit.policy.allow_outline = True
+    witness = frozenset({("pack", "outline-unit")})
+    registry = TargetRegistry([ProtectedTarget("outline-target", "owner", "org", (witness,))])
+    student, ask = _student(profile, question, "student-outline")
+    pipeline = ProtectionPipeline(
+        config,
+        [unit],
+        disclosure_store=disclosure_store,
+        target_registry=registry,
+        coalition_k=2,
+    )
+
+    result = pipeline.run(student, ask, access=AccessScope(student.student_id))
+
+    assert result.controlled.mode == "outline"
+    assert [row for row in _rows(disclosure_store) if row["unit_id"] == "outline-unit"] == []
+    assert result.controlled.source_trace["coalition_check"]["selected"] == "outline"
+    assert result.controlled.source_trace["coalition_check"]["decision"] == "release"
+    assert result.controlled.source_trace["coalition_check"]["accepted_count"] == 2

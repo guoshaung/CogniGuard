@@ -8,6 +8,7 @@ import json
 import os
 import secrets
 import tempfile
+import time
 from copy import deepcopy
 from pathlib import Path
 from threading import RLock
@@ -45,6 +46,47 @@ from cogniguard.runtime.protection_context import (
 )
 from cogniguard.runtime.sessions import InvalidSessionToken, SessionStore
 from core.paths import CG_GUARDRAILS_DIR, RUNTIME_DIR
+
+
+def _output_intercepted(result: dict) -> bool:
+    # Cancel only when the whole answer was withheld. A nested field scrubbed to
+    # "[受保护内容已移除]" still delivers the main answer. input_blocked and
+    # semantic_output_blocked replace that answer with SAFE_OUTPUT_REPLACEMENT.
+    # 不确定时按已交付记账，宁可高估泄露，不能低估。
+    validation = result.get("output_validation")
+    if not (isinstance(validation, dict) and validation.get("allowed") is True):
+        return True
+    if result.get("input_blocked") or result.get("semantic_output_blocked"):
+        return True
+    answer = result.get("answer")
+    return isinstance(answer, str) and SAFE_OUTPUT_REPLACEMENT in answer
+
+
+def _settle_registered_disclosures(frame, *, cancel: bool) -> bool:
+    settlements = getattr(frame, "release_settlements", None)
+    if not isinstance(settlements, list):
+        return True
+    now = time.time()
+    accepted = True
+    while settlements:
+        gate, decision = settlements[0]
+        if cancel:
+            gate.cancel(decision)
+        elif not gate.commit(decision, now):
+            accepted = False
+        del settlements[0]
+    receipt_ids = getattr(frame, "disclosure_receipt_ids", None)
+    if isinstance(receipt_ids, list):
+        del receipt_ids[:]
+    return accepted
+
+
+def _commit_registered_disclosures(frame) -> bool:
+    return _settle_registered_disclosures(frame, cancel=False)
+
+
+def _cancel_registered_disclosures(frame) -> None:
+    _settle_registered_disclosures(frame, cancel=True)
 
 
 def _signing_key() -> bytes:
@@ -197,107 +239,126 @@ class ProtectionGateway:
                 with session.transaction() as state:
                     frame = ProtectionContext(session, request_id, surface, state, nemo_colang=self.colang_gates)
                     with protection_scope(frame):
-                        text = str(payload.get("message") or payload.get("student_message") or "")
-                        recorder = active_recorder()
-                        with recorder.span("gateway.input") as metrics:
-                            nemo_allowed = (
-                                self.native_guard.check_input(text) if self.native_guard else True
-                            )
-                            semantic_allowed = (
-                                self.semantic_guard.check_input(text)
-                                if self.semantic_guard and nemo_allowed and text else nemo_allowed
-                            )
-                            dialog_allowed = (
-                                self.colang_gates.check("dialog", text)
-                                if self.colang_gates and semantic_allowed else semantic_allowed
-                            )
-                            check = (
-                                self.adapter.check_user_input(
-                                    text,
-                                    {"surface": surface, "policy_owner": "CGC"},
-                                    _skip_policy_ids=DOMAIN_REQUEST_POLICY_IDS,
+                        try:
+                            text = str(payload.get("message") or payload.get("student_message") or "")
+                            recorder = active_recorder()
+                            with recorder.span("gateway.input") as metrics:
+                                nemo_allowed = (
+                                    self.native_guard.check_input(text) if self.native_guard else True
                                 )
-                                if dialog_allowed
-                                else {"decision": "block"}
-                            )
-                            metrics["blocked"] = check.get("decision") not in {"allow", "disabled"}
-                        if self.native_guard:
-                            frame.evidence.append(
-                                {"stage": "nemo_input", "decision": "allow" if nemo_allowed else "block"}
-                            )
-                        if self.semantic_guard and nemo_allowed and text:
-                            frame.evidence.append(
-                                {"stage": "nemo_semantic_input", "decision":
-                                 "allow" if semantic_allowed else "block"}
-                            )
-                        if self.colang_gates and semantic_allowed:
-                            frame.evidence.append(
-                                {"stage": "nemo_dialog", "decision": "allow" if dialog_allowed else "block"}
-                            )
-                        frame.evidence.append(
-                            {"stage": "input", "decision": check.get("decision"), "owner": "CGC"}
-                        )
-                        if check.get("decision") not in {"allow", "disabled"}:
-                            result = {
-                                "success": True,
-                                "answer": SAFE_OUTPUT_REPLACEMENT,
-                                "input_blocked": True,
-                            }
-                        else:
-                            with recorder.span("gateway.operation"):
-                                result = operation(frame)
-                        with recorder.span("gateway.delivery") as metrics:
-                            result = self._deliver(deepcopy(result), frame)
-                            if self.semantic_guard:
-                                # A blocked input never reaches the operation. Its output is
-                                # the server-owned refusal plus trusted delivery metadata.
-                                # Review the watermarked refusal itself; including control
-                                # metadata can make a model misclassify a safe refusal.
-                                semantic_text = (
-                                    result["answer"]
-                                    if check.get("decision") not in {"allow", "disabled"}
-                                    else json.dumps(result, ensure_ascii=False, default=str)
+                                semantic_allowed = (
+                                    self.semantic_guard.check_input(text)
+                                    if self.semantic_guard and nemo_allowed and text else nemo_allowed
                                 )
-                                if not self.semantic_guard.check_output(semantic_text):
-                                    frame.evidence.append(
-                                        {"stage": "nemo_semantic_output", "decision": "block"}
+                                dialog_allowed = (
+                                    self.colang_gates.check("dialog", text)
+                                    if self.colang_gates and semantic_allowed else semantic_allowed
+                                )
+                                check = (
+                                    self.adapter.check_user_input(
+                                        text,
+                                        {"surface": surface, "policy_owner": "CGC"},
+                                        _skip_policy_ids=DOMAIN_REQUEST_POLICY_IDS,
                                     )
-                                    result = self._deliver(
-                                        {"success": True, "answer": SAFE_OUTPUT_REPLACEMENT,
-                                         "semantic_output_blocked": True}, frame
+                                    if dialog_allowed
+                                    else {"decision": "block"}
+                                )
+                                metrics["blocked"] = check.get("decision") not in {"allow", "disabled"}
+                            if self.native_guard:
+                                frame.evidence.append(
+                                    {"stage": "nemo_input", "decision": "allow" if nemo_allowed else "block"}
+                                )
+                            if self.semantic_guard and nemo_allowed and text:
+                                frame.evidence.append(
+                                    {"stage": "nemo_semantic_input", "decision":
+                                     "allow" if semantic_allowed else "block"}
+                                )
+                            if self.colang_gates and semantic_allowed:
+                                frame.evidence.append(
+                                    {"stage": "nemo_dialog", "decision": "allow" if dialog_allowed else "block"}
+                                )
+                            frame.evidence.append(
+                                {"stage": "input", "decision": check.get("decision"), "owner": "CGC"}
+                            )
+                            if check.get("decision") not in {"allow", "disabled"}:
+                                result = {
+                                    "success": True,
+                                    "answer": SAFE_OUTPUT_REPLACEMENT,
+                                    "input_blocked": True,
+                                }
+                            else:
+                                with recorder.span("gateway.operation"):
+                                    result = operation(frame)
+                            with recorder.span("gateway.delivery") as metrics:
+                                result = self._deliver(deepcopy(result), frame)
+                                if self.semantic_guard:
+                                    # A blocked input never reaches the operation. Its output is
+                                    # the server-owned refusal plus trusted delivery metadata.
+                                    # Review the watermarked refusal itself; including control
+                                    # metadata can make a model misclassify a safe refusal.
+                                    semantic_text = (
+                                        result["answer"]
+                                        if check.get("decision") not in {"allow", "disabled"}
+                                        else json.dumps(result, ensure_ascii=False, default=str)
                                     )
-                                    if not self.semantic_guard.check_output(
-                                        json.dumps(result, ensure_ascii=False, default=str)
-                                    ):
-                                        raise NativeNeMoUnavailable(
-                                            "Semantic replacement failed output check"
+                                    if not self.semantic_guard.check_output(semantic_text):
+                                        frame.evidence.append(
+                                            {"stage": "nemo_semantic_output", "decision": "block"}
                                         )
-                                result["protection"]["evidence"].append(
-                                    {"stage": "nemo_semantic_output", "decision": "allow"}
-                                )
-                            metrics["watermark_verified"] = True
-                            metrics["blocked"] = not result["output_validation"]["allowed"]
-                        result["observability"] = {
-                            "trace_id": recorder.run_id,
-                            "content_policy": "metrics_only",
-                        }
-                        with recorder.span("gateway.finalize"):
-                            self._save_dialogue(frame, payload, result)
-                        deliveries = state.setdefault("final_deliveries", [])
-                        deliveries.append(
-                            {
-                                key: deepcopy(result[key])
-                                for key in (
-                                    "session_id",
-                                    "round_id",
-                                    "text_watermark",
-                                    "output_validation",
-                                    "protection",
-                                )
-                                if key in result
+                                        result = self._deliver(
+                                            {"success": True, "answer": SAFE_OUTPUT_REPLACEMENT,
+                                             "semantic_output_blocked": True}, frame
+                                        )
+                                        if not self.semantic_guard.check_output(
+                                            json.dumps(result, ensure_ascii=False, default=str)
+                                        ):
+                                            raise NativeNeMoUnavailable(
+                                                "Semantic replacement failed output check"
+                                            )
+                                    result["protection"]["evidence"].append(
+                                        {"stage": "nemo_semantic_output", "decision": "allow"}
+                                    )
+                                metrics["watermark_verified"] = True
+                                metrics["blocked"] = not result["output_validation"]["allowed"]
+                            result["observability"] = {
+                                "trace_id": recorder.run_id,
+                                "content_policy": "metrics_only",
                             }
-                        )
-                        state["final_deliveries"] = deliveries[-20:]
+                            # Settle before the dialogue and final_deliveries are written.
+                            # A revoked commit replaces the answer those records keep.
+                            if _output_intercepted(result):
+                                _cancel_registered_disclosures(frame)
+                            elif not _commit_registered_disclosures(frame):
+                                observability = result["observability"]
+                                result = self._deliver(
+                                    {
+                                        "success": True,
+                                        "answer": SAFE_OUTPUT_REPLACEMENT,
+                                        "authorization_revoked": True,
+                                    },
+                                    frame,
+                                )
+                                result["observability"] = observability
+                            with recorder.span("gateway.finalize"):
+                                self._save_dialogue(frame, payload, result)
+                            deliveries = state.setdefault("final_deliveries", [])
+                            deliveries.append(
+                                {
+                                    key: deepcopy(result[key])
+                                    for key in (
+                                        "session_id",
+                                        "round_id",
+                                        "text_watermark",
+                                        "output_validation",
+                                        "protection",
+                                    )
+                                    if key in result
+                                }
+                            )
+                            state["final_deliveries"] = deliveries[-20:]
+                        except Exception:
+                            _cancel_registered_disclosures(frame)
+                            raise
                 request.complete(result)
         result["session_token"] = session.token
         return result
