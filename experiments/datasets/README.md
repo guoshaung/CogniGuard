@@ -56,3 +56,15 @@ list matches a table. Free prose with exact table-name mentions is partial.
 The audit lists same-name columns and cross-name Jaccard overlap on distinct
 non-null values. Suffixes and within-table uniqueness flag candidates for
 manual review. Each scenario records its column names and row counts.
+
+## Eedi "which question will be set" (revision 2.1)
+
+Run `python3 -m experiments.datasets.eedi_exam.generate` after the field audit.
+Questions are real Eedi questions; which one is set is a sampled construct.
+Two rules were added after the audit and approved by the project owner:
+a unit whose value is held by only one question in the whole bank is a direct
+identifier and is left out of the universe (counted per secret in the
+manifest), and candidates are filled from the same subject, then from questions
+sharing a retained unit, then from the whole bank (counts per tier in the
+manifest). Targets per K are 300; shortfalls are reported, not filled. The
+set-gain variant (three questions, K=16) is not generated yet.
