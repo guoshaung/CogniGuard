@@ -6,7 +6,7 @@
 
 ## 公共治理与教育接入
 
-- [cogniguard/governance/](../cogniguard/governance/)：证据、能力、上下文、生命周期、审计和信任；只依赖标准库。
+- [cogniguard/governance/](../cogniguard/governance/)：证据、能力、上下文、生命周期、审计、信任，以及多主体放行原语；只依赖标准库。
 - [包根](../cogniguard/__init__.py) 导出公开治理原语；最小调用见 [quickstart](../examples/quickstart.py)。
 - [integrations/education.py](../cogniguard/integrations/education.py)：教育场景入口与可信访问范围。
   `run_protected_education()` 进入统一交付边界；`ProtectionPipeline.run()` 仍可作为可信应用或离线研究组合点使用。
@@ -14,6 +14,22 @@
   教育接入的服务端执行、学生绑定及同意状态与网关协调；SDK 重导出同一函数。
 - [runtime/gateway.py](../cogniguard/runtime/gateway.py)：服务器会话、幂等、领域成本、最终校验与交付绑定。
 - [runtime/sessions.py](../cogniguard/runtime/sessions.py)：SQLite 状态与跨请求预算；不负责证明用户身份。
+
+## 多主体放行
+
+领域准备候选，闸门决定预留哪一个。教育在线交付由 gateway 提交或取消；代码助手在返回前自行提交。
+
+- [principals.py](../cogniguard/governance/principals.py)：组织、成员和资源归属。
+- [access_policy.py](../cogniguard/governance/access_policy.py)：不可变授权登记。代行组织必须是该主体加入的组织，且等于资源组织。
+- [targets.py](../cogniguard/governance/targets.py)：保护目标与最小见证集。单元是 `(resource_id, unit_id)`。
+- [reconstruction.py](../cogniguard/governance/reconstruction.py)：`check_release` 与 `residual_distance`。距离越短，价格越高。
+- [disclosure.py](../cogniguard/governance/disclosure.py)：回执字段。内容本身不入库。
+- [disclosure_store.py](../cogniguard/runtime/disclosure_store.py)：MySQL 回执日志。`reserved` 与 `delivered` 计入持有，`cancelled` 不计。
+- [release_gate.py](../cogniguard/runtime/release_gate.py)：`select_and_reserve` 比较候选，`commit` 在交付前复核授权和策略版本。
+- [pipeline.py](../cogniguard/workflows/pipeline.py)：目标登记、`coalition_k` 和回执库都存在时，把 C²-RAG 的回应方式与空拒绝交给闸门。规则和效用来自 [focused.yaml](../configs/focused.yaml) 的 `c2rag.disclosure_rule`、`c2rag.candidate_utility`。
+- [gateway.py](../cogniguard/runtime/gateway.py)：保存对话和最终交付之前提交或取消回执。提交失败则不交付原文。
+- [applications/code/](../cogniguard/applications/code/)：拆分 Python 单元、读取旁挂见证，并用 `show_function` / `explain_api` 提交候选。公开摘要的单元为空。
+- [code_domain_demo.py](../examples/code_domain_demo.py)：同一组织内，第三人再取函数体时的最小示例。
 
 ## 应用、角色和模型接入
 
