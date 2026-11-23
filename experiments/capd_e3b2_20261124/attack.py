@@ -39,11 +39,14 @@ def views_for(item, paraphrases) -> list[dict]:
     return views
 
 
-def run(items_name: str, cap: float) -> None:
+RETRY_ERROR = "Access denied, please make sure your account is in good standing"
+
+
+def run(items_name: str, cap: float, retry_denied: bool = False) -> None:
     items = {i["target_id"]: i for i in read_jsonl(out_dir() / f"{items_name}.jsonl")}
     paraphrases = {(r["text_id"], r["paraphraser"]): r["text"]
                    for r in read_jsonl(out_dir() / f"{items_name}_paraphrases.jsonl") if r["ok"]}
-    client = Client(ATTACKER)
+    client = Client(ATTACKER, retry_error=RETRY_ERROR if retry_denied else None)
     rows, done, stopped = [], [], None
     per_call = None
     for tid in attack_order(items.values()):
@@ -85,8 +88,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--items", default="items")
     parser.add_argument("--cap", type=float, default=CAP_YUAN)
+    parser.add_argument("--retry-denied", action="store_true",
+                        help="call again only where the account was suspended (overdue)")
     args = parser.parse_args()
-    run(args.items, args.cap)
+    run(args.items, args.cap, args.retry_denied)
 
 
 if __name__ == "__main__":

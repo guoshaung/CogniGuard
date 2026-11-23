@@ -62,7 +62,7 @@ def _env() -> dict:
 class Client:
     """At most `workers` requests in flight per model; exponential backoff, 5 retries."""
 
-    def __init__(self, model: str, workers: int = 8) -> None:
+    def __init__(self, model: str, workers: int = 8, retry_error: str | None = None) -> None:
         self.model = model
         self.base, key_name, self.extra = MODELS[model]
         self._key = _env()[key_name]
@@ -73,6 +73,8 @@ class Client:
         if self.cache_path.exists():
             for line in self.cache_path.read_text(encoding="utf-8").splitlines():
                 row = json.loads(line)
+                if retry_error and not row["ok"] and retry_error in (row.get("error") or ""):
+                    continue  # an outage, not a model failure: call again (DEVIATIONS.md)
                 self.cache[row["key"]] = row
         self._write = threading.Lock()
 
