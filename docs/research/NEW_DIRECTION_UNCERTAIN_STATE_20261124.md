@@ -88,6 +88,23 @@ E3b-v2 显示：真实改写下，计量漏判约 40%；谓词超标约 36%。�
 | 证据驱动降低不确定预算（f − d） | 本轮没有找到 | — | 核心闭环候选 |
 | 按组合风险分配水印容量 | 本轮没有找到；经典背包算法不算原创 | — | 拓展一候选 |
 
+
+### 4.1 补充查新（修订 2）
+
+| 工作 | 已核实到的程度 | 与本研究的关系 |
+|---|---|---|
+| Krishna et al., Paraphrasing evades detectors of AI-generated text, but retrieval is an effective defense, NeurIPS 2023（arXiv 2303.13408） | [A] 改写会让包括水印在内的检测器失效；但如果由 API 提供方维护一个历史生成文本库并做检索，就能识别 80%–97% 的改写文本 | **直接支持"内容检索可以替代水印"的风险**。Gate W0 中的 F3–F6 就是这条路线 |
+| Cohen, Hoover, Schoenbach, Watermarking Language Models for Many Adaptive Users（arXiv 2405.11109；记录显示发表于 IEEE S&P 2025） | [A] 多用户水印，能把文本追溯到单个用户或**合谋用户群体**，在用户自适应提示的情况下也成立；鲁棒性的定义是：只要编辑后的文本"近似足够多的块"，就能检出 | 用户级、抗合谋的追踪已经有理论工作，所以"水印追溯到接收者"本身不是新贡献 |
+| Colophon（SSRN 7287199） | [待] 本环境检索不到 | 按用户提供的信息，作为抗改写、用户级归因的强基线候选 |
+| Biskup 等的 Controlled Interaction Execution 与 inference-usability confinement（DBSec 2012；ESSoS 2014；arXiv 1707.08482） | [A] ESSoS 2014 那篇的目标被描述为"保护一个主体自身的知识，防止**相互合作的主体**进行推断"；它刷新的是其他客户端的视图 | **与"多主体知识状态 + 推断控制"的重叠风险很高**，需要读全文确认：它是否处理未被观测的传播，是否对合作主体的数量设了上界 |
+
+更新后的判断：
+- "内容内的来源证据"（Chronology、多用户水印、检索防御）；
+- "来源参与安全决策"（PROVISO）；
+- "知识状态驱动的推断控制"（Biskup 等）；
+
+这三条都已有先例。新闭环能主张的，只剩它们之间的**特定组合**：有界的未记录传播预算，加上只用可信事件证明来扣减预算、只把持有证据加入状态的安全规则（理论第 4 节）。这个组合能否成立，取决于 Gate 1B 和 Gate 2。
+
 全文还没有核对：Chronology、OCELOT、FlowSeal、NeuroTaint、PROVISO、Biskup 等。arXiv 在本环境中被代理拦截，需要在本机读取。
 
 ## 5. 可以复用的代码和实验
