@@ -1,0 +1,412 @@
+{
+  "domain": "student",
+  "resource_id": "profile:stu",
+  "purpose": "advise",
+  "org_id": "school",
+  "now": 50.0,
+  "targets": [
+    {
+      "target_id": "stu/support",
+      "kind": "student_attribute",
+      "owner_principal_id": "stu",
+      "witness_sets": [
+        [
+          [
+            "profile:stu",
+            "a"
+          ],
+          [
+            "profile:stu",
+            "b"
+          ],
+          [
+            "profile:stu",
+            "c"
+          ]
+        ],
+        [
+          [
+            "profile:stu",
+            "c"
+          ],
+          [
+            "profile:stu",
+            "d"
+          ],
+          [
+            "profile:stu",
+            "e"
+          ],
+          [
+            "profile:stu",
+            "f"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "stu/family",
+      "kind": "student_attribute",
+      "owner_principal_id": "stu",
+      "witness_sets": [
+        [
+          [
+            "profile:stu",
+            "a"
+          ],
+          [
+            "profile:stu",
+            "e"
+          ],
+          [
+            "profile:stu",
+            "g"
+          ]
+        ],
+        [
+          [
+            "profile:stu",
+            "b"
+          ],
+          [
+            "profile:stu",
+            "d"
+          ],
+          [
+            "profile:stu",
+            "g"
+          ],
+          [
+            "profile:stu",
+            "h"
+          ],
+          [
+            "profile:stu",
+            "i"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "stu/placement",
+      "kind": "student_attribute",
+      "owner_principal_id": "stu",
+      "witness_sets": [
+        [
+          [
+            "profile:stu",
+            "p"
+          ],
+          [
+            "profile:stu",
+            "q"
+          ],
+          [
+            "profile:stu",
+            "r"
+          ],
+          [
+            "profile:stu",
+            "x"
+          ],
+          [
+            "profile:stu",
+            "z"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "stu/mobility",
+      "kind": "student_attribute",
+      "owner_principal_id": "stu",
+      "witness_sets": [
+        [
+          [
+            "profile:stu",
+            "h"
+          ],
+          [
+            "profile:stu",
+            "m"
+          ],
+          [
+            "profile:stu",
+            "u"
+          ],
+          [
+            "profile:stu",
+            "v"
+          ],
+          [
+            "profile:stu",
+            "y"
+          ]
+        ]
+      ]
+    }
+  ],
+  "receipts": {
+    "c1": [
+      [
+        "profile:stu",
+        "a"
+      ],
+      [
+        "profile:stu",
+        "b"
+      ],
+      [
+        "profile:stu",
+        "u"
+      ],
+      [
+        "profile:stu",
+        "z"
+      ]
+    ],
+    "h5": [
+      [
+        "profile:stu",
+        "q"
+      ],
+      [
+        "profile:stu",
+        "r"
+      ],
+      [
+        "profile:stu",
+        "x"
+      ],
+      [
+        "profile:stu",
+        "y"
+      ]
+    ],
+    "k1": [
+      [
+        "profile:stu",
+        "h"
+      ]
+    ],
+    "n1": [
+      [
+        "profile:stu",
+        "f"
+      ]
+    ],
+    "t1": [
+      [
+        "profile:stu",
+        "c"
+      ],
+      [
+        "profile:stu",
+        "v"
+      ]
+    ]
+  },
+  "evidence": [
+    {
+      "evidence_id": "student-1",
+      "evidence_type": "watermark",
+      "artifact_id": "art-student-1",
+      "candidate_issuance_ids": [
+        "iss-student-1"
+      ],
+      "matched_knowledge_units": [
+        [
+          "profile:stu",
+          "d"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "c1"
+    },
+    {
+      "evidence_id": "student-2",
+      "evidence_type": "watermark",
+      "artifact_id": "art-student-2",
+      "candidate_issuance_ids": [
+        "iss-student-2"
+      ],
+      "matched_knowledge_units": [
+        [
+          "profile:stu",
+          "e"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "t1"
+    },
+    {
+      "evidence_id": "student-3",
+      "evidence_type": "trusted_log",
+      "artifact_id": "art-student-3",
+      "candidate_issuance_ids": [
+        "iss-student-3"
+      ],
+      "matched_knowledge_units": [
+        [
+          "profile:stu",
+          "g"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": "evt-student-3",
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "t1"
+    },
+    {
+      "evidence_id": "student-4",
+      "evidence_type": "watermark",
+      "artifact_id": "art-student-4",
+      "candidate_issuance_ids": [
+        "iss-student-4"
+      ],
+      "matched_knowledge_units": [
+        [
+          "profile:stu",
+          "i"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "k1"
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "r1",
+      "principal_id": "c1",
+      "release_units": [
+        [
+          "profile:stu",
+          "c"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r2",
+      "principal_id": "n1",
+      "release_units": [
+        [
+          "profile:stu",
+          "c"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r3",
+      "principal_id": "c1",
+      "release_units": [
+        [
+          "profile:stu",
+          "g"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r4",
+      "principal_id": "t1",
+      "release_units": [
+        [
+          "profile:stu",
+          "a"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r5",
+      "principal_id": "n1",
+      "release_units": [
+        [
+          "profile:stu",
+          "h"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r6",
+      "principal_id": "sx",
+      "release_units": [
+        [
+          "profile:stu",
+          "a"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r7",
+      "principal_id": "k1",
+      "release_units": [
+        [
+          "profile:stu",
+          "b"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r8",
+      "principal_id": "c1",
+      "release_units": [
+        [
+          "profile:stu",
+          "e"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r9",
+      "principal_id": "h8",
+      "release_units": [
+        [
+          "profile:stu",
+          "p"
+        ]
+      ],
+      "purpose": "advise"
+    },
+    {
+      "request_id": "r10",
+      "principal_id": "n1",
+      "release_units": [
+        [
+          "profile:stu",
+          "m"
+        ]
+      ],
+      "purpose": "advise"
+    }
+  ],
+  "admission": {
+    "receipts": "recorded holdings only",
+    "trusted_event": "SourceEvidence.is_trusted_event, trusted_log or ideal with a holder",
+    "all_candidates": "comparison view: every verified holding, including watermark"
+  },
+  "notes": [
+    "Safety labels are not in this file.",
+    "all_candidates is not written into source_state.py."
+  ]
+}

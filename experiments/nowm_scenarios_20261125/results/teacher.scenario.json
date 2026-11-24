@@ -1,0 +1,408 @@
+{
+  "domain": "teacher",
+  "resource_id": "lesson",
+  "purpose": "teach",
+  "org_id": "school",
+  "now": 50.0,
+  "targets": [
+    {
+      "target_id": "design",
+      "kind": "teaching_asset",
+      "owner_principal_id": "lead",
+      "witness_sets": [
+        [
+          [
+            "lesson",
+            "a"
+          ],
+          [
+            "lesson",
+            "b"
+          ],
+          [
+            "lesson",
+            "c"
+          ]
+        ],
+        [
+          [
+            "lesson",
+            "c"
+          ],
+          [
+            "lesson",
+            "d"
+          ],
+          [
+            "lesson",
+            "e"
+          ],
+          [
+            "lesson",
+            "f"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "rubric",
+      "kind": "teaching_asset",
+      "owner_principal_id": "lead",
+      "witness_sets": [
+        [
+          [
+            "lesson",
+            "a"
+          ],
+          [
+            "lesson",
+            "e"
+          ],
+          [
+            "lesson",
+            "g"
+          ]
+        ],
+        [
+          [
+            "lesson",
+            "b"
+          ],
+          [
+            "lesson",
+            "d"
+          ],
+          [
+            "lesson",
+            "g"
+          ],
+          [
+            "lesson",
+            "h"
+          ],
+          [
+            "lesson",
+            "i"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "placement",
+      "kind": "teaching_asset",
+      "owner_principal_id": "lead",
+      "witness_sets": [
+        [
+          [
+            "lesson",
+            "a"
+          ],
+          [
+            "lesson",
+            "p"
+          ],
+          [
+            "lesson",
+            "q"
+          ],
+          [
+            "lesson",
+            "r"
+          ],
+          [
+            "lesson",
+            "x"
+          ]
+        ]
+      ]
+    },
+    {
+      "target_id": "lab",
+      "kind": "teaching_asset",
+      "owner_principal_id": "lead",
+      "witness_sets": [
+        [
+          [
+            "lesson",
+            "h"
+          ],
+          [
+            "lesson",
+            "m"
+          ],
+          [
+            "lesson",
+            "u"
+          ],
+          [
+            "lesson",
+            "v"
+          ],
+          [
+            "lesson",
+            "y"
+          ]
+        ]
+      ]
+    }
+  ],
+  "receipts": {
+    "s1": [
+      [
+        "lesson",
+        "a"
+      ],
+      [
+        "lesson",
+        "b"
+      ],
+      [
+        "lesson",
+        "u"
+      ]
+    ],
+    "s2": [
+      [
+        "lesson",
+        "c"
+      ],
+      [
+        "lesson",
+        "v"
+      ]
+    ],
+    "s3": [
+      [
+        "lesson",
+        "f"
+      ]
+    ],
+    "s4": [
+      [
+        "lesson",
+        "h"
+      ]
+    ],
+    "s5": [
+      [
+        "lesson",
+        "q"
+      ],
+      [
+        "lesson",
+        "r"
+      ],
+      [
+        "lesson",
+        "x"
+      ],
+      [
+        "lesson",
+        "y"
+      ]
+    ]
+  },
+  "evidence": [
+    {
+      "evidence_id": "teacher-1",
+      "evidence_type": "watermark",
+      "artifact_id": "art-teacher-1",
+      "candidate_issuance_ids": [
+        "iss-teacher-1"
+      ],
+      "matched_knowledge_units": [
+        [
+          "lesson",
+          "d"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "s1"
+    },
+    {
+      "evidence_id": "teacher-2",
+      "evidence_type": "watermark",
+      "artifact_id": "art-teacher-2",
+      "candidate_issuance_ids": [
+        "iss-teacher-2"
+      ],
+      "matched_knowledge_units": [
+        [
+          "lesson",
+          "e"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "s2"
+    },
+    {
+      "evidence_id": "teacher-3",
+      "evidence_type": "trusted_log",
+      "artifact_id": "art-teacher-3",
+      "candidate_issuance_ids": [
+        "iss-teacher-3"
+      ],
+      "matched_knowledge_units": [
+        [
+          "lesson",
+          "g"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": "evt-teacher-3",
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "s2"
+    },
+    {
+      "evidence_id": "teacher-4",
+      "evidence_type": "watermark",
+      "artifact_id": "art-teacher-4",
+      "candidate_issuance_ids": [
+        "iss-teacher-4"
+      ],
+      "matched_knowledge_units": [
+        [
+          "lesson",
+          "i"
+        ]
+      ],
+      "confidence": 1.0,
+      "verification_status": "verified",
+      "trusted_event_id": null,
+      "policy_version": 1,
+      "holdings_asserted": true,
+      "holder_principal_id": "s4"
+    }
+  ],
+  "requests": [
+    {
+      "request_id": "r1",
+      "principal_id": "s1",
+      "release_units": [
+        [
+          "lesson",
+          "c"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r2",
+      "principal_id": "s3",
+      "release_units": [
+        [
+          "lesson",
+          "c"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r3",
+      "principal_id": "s1",
+      "release_units": [
+        [
+          "lesson",
+          "g"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r4",
+      "principal_id": "s2",
+      "release_units": [
+        [
+          "lesson",
+          "a"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r5",
+      "principal_id": "s3",
+      "release_units": [
+        [
+          "lesson",
+          "h"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r6",
+      "principal_id": "sx",
+      "release_units": [
+        [
+          "lesson",
+          "a"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r7",
+      "principal_id": "s4",
+      "release_units": [
+        [
+          "lesson",
+          "b"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r8",
+      "principal_id": "s1",
+      "release_units": [
+        [
+          "lesson",
+          "e"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r9",
+      "principal_id": "s8",
+      "release_units": [
+        [
+          "lesson",
+          "p"
+        ]
+      ],
+      "purpose": "teach"
+    },
+    {
+      "request_id": "r10",
+      "principal_id": "s3",
+      "release_units": [
+        [
+          "lesson",
+          "m"
+        ]
+      ],
+      "purpose": "teach"
+    }
+  ],
+  "admission": {
+    "receipts": "recorded holdings only",
+    "trusted_event": "SourceEvidence.is_trusted_event, trusted_log or ideal with a holder",
+    "all_candidates": "comparison view: every verified holding, including watermark"
+  },
+  "notes": [
+    "Safety labels are not in this file.",
+    "all_candidates is not written into source_state.py."
+  ]
+}
