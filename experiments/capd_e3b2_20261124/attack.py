@@ -14,8 +14,8 @@ from experiments.capd_e3b2_20261124 import prompts as P
 from experiments.capd_e3b2_20261124.budget import CAP_YUAN, call_cost, total_spent
 from experiments.capd_e3b2_20261124.common import Client, out_dir, read_jsonl, write_jsonl
 
-ATTACKER = "kimi-k3"
-ATTACKER_TEMPERATURE = None  # kimi-k3 rejects 0.7 on Bailian; the platform default is used
+ATTACKER = "glm-5.2"  # replaces kimi-k3 after the account outage (DEVIATIONS.md)
+ATTACKER_TEMPERATURE = 0.7
 VIEW_SOURCE = "deepseek-flash"  # P1 paraphrases are the attacked views
 ORDER_SEED = "2026/attack-order"
 SAFETY_YUAN = 1.0
@@ -78,7 +78,7 @@ def run(items_name: str, cap: float, retry_denied: bool = False) -> None:
                 "consistent": view["consistent"],
             })
         done.append(tid)
-    write_jsonl(out_dir() / f"{items_name}_attack.jsonl", rows)
+    write_jsonl(out_dir() / f"{items_name}_attack.jsonl", rows)  # analyze.py reads this file
     print(f"{items_name}: attacked {len(done)} secrets, {len(rows)} samples, "
           f"{sum(not r['valid'] for r in rows)} invalid; stopped before {stopped}; "
           f"spent {total_spent():.2f} yuan")

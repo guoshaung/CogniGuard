@@ -19,6 +19,7 @@ PRICES = {
     "qwen3.7-flash": (0.5, 5.0),
     "glm-5.3": (8.0, 32.0),
     "kimi-k3": (20.0, 100.0),
+    "glm-5.2": (0.0, 0.0),  # token plan: prepaid package, no per-call charge against the cap
 }
 
 

@@ -45,6 +45,9 @@ MODELS = {
                 {"enable_thinking": False}),
     "kimi-k3": ("https://dashscope.aliyuncs.com/compatible-mode/v1", "ALIGENIE_API_KEY",
                 {"enable_thinking": False}),
+    # Bailian token plan (prepaid package), used after the pay-as-you-go account went overdue.
+    "glm-5.2": ("https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+                "BAILIAN_TOKEN_PLAN_API_KEY", {"enable_thinking": False}),
 }
 
 
