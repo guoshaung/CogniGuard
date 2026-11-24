@@ -1,0 +1,5 @@
+# CPU smoke validated on Python 3.12.10 with torch 2.5.1+cu121.
+torch==2.5.1
+transformers==4.57.1
+peft==0.18.0
+accelerate==1.13.0

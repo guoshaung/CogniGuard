@@ -1,0 +1,174 @@
+{
+  "official_code_revision": "7439ecee8891c6e8226f02fa8c1a650d3e10aaff",
+  "assets": {
+    "data/c4-len128-test.json": {
+      "bytes": 5260243,
+      "sha256": "610c942875ad3642f45588cc3cf81d6db006eeeae58d3e6323681854a1868ca6",
+      "cached_sha256": "610c942875ad3642f45588cc3cf81d6db006eeeae58d3e6323681854a1868ca6",
+      "cache_bytes_match": true,
+      "rows": 10000,
+      "fields": [
+        "text"
+      ]
+    },
+    "data/c4-len128-train.json": {
+      "bytes": 84212642,
+      "sha256": "59b79179b843a202b64a5b07b710b92987efc0a35c04d14b24e51ba3f1c61757",
+      "cached_sha256": "59b79179b843a202b64a5b07b710b92987efc0a35c04d14b24e51ba3f1c61757",
+      "cache_bytes_match": true,
+      "rows": 160000,
+      "fields": [
+        "text"
+      ]
+    },
+    "data/c4-paraphrase-morepegasus-lengthfilter.json": {
+      "bytes": 10008437,
+      "sha256": "76ba643c7b350b76cd9e474cc7dc309fb2389f7c68b61ecf50acde019c5b8b36",
+      "cached_sha256": "76ba643c7b350b76cd9e474cc7dc309fb2389f7c68b61ecf50acde019c5b8b36",
+      "cache_bytes_match": true,
+      "rows": 10115,
+      "fields": [
+        "ori",
+        "para"
+      ]
+    },
+    "ckpt/WatermarkDecoder-v_head.pt": {
+      "bytes": 4524,
+      "sha256": "41fc586b054ab18b8a22a0930d5334e33eee1da748af246d804727fa870d91aa",
+      "cached_sha256": "41fc586b054ab18b8a22a0930d5334e33eee1da748af246d804727fa870d91aa",
+      "cache_bytes_match": true
+    },
+    "watermark_test_text.txt": {
+      "bytes": 1808,
+      "sha256": "e4c7dc4cfe3c93d1c1cedf44bbb8d41822a2220977bd1e6a304a663f24289ac4",
+      "cached_sha256": "06e08801897999b2acd52b01bedd9982be6b5996ad45a7f185951b63dd9544fe",
+      "cache_bytes_match": false
+    },
+    "requirements.txt": {
+      "bytes": 1426,
+      "sha256": "dcaeb557255d87dc0858164f488dc8be99c587d154268b6f0d7f5b051ed10d44",
+      "cached_sha256": "edb66c142cb816c08dd7cf59bbe324d1e24526fa2b762c1b479c7f1eb28035b2",
+      "cache_bytes_match": false
+    }
+  },
+  "normalized_train_test_unique_overlap": 0,
+  "normalized_original_para_test_overlap": {
+    "ori": 0,
+    "para": 0
+  },
+  "tinyllama_base_assets": {
+    "actor": {
+      "repo_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "revision": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
+      "cache": "var/icml-multibit/asset_a/actor",
+      "files": {
+        "config.json": {
+          "bytes": 608,
+          "state": "cached",
+          "sha256": "486bedda3a6988332e60d9638a09ca4b260d34ebcf1b19e22cf3b140b63d8fe9"
+        },
+        "generation_config.json": {
+          "bytes": 124,
+          "state": "cached",
+          "sha256": "18046d04f5bd8b4998095ecabdd17a1bf0053d9acdccead4a05be4a3575f3c5c"
+        },
+        "model.safetensors": {
+          "bytes": 2200119864,
+          "state": "public_base_weight_not_downloaded",
+          "expected_sha256": "6e6001da2106d4757498752a021df6c2bdc332c650aae4bae6b0c004dcf14933"
+        },
+        "special_tokens_map.json": {
+          "bytes": 551,
+          "state": "cached",
+          "sha256": "82d96d7a9e6ced037f12394b7ea6a5b02e6ca87e0d11edaa8d60d9be857ce7db"
+        },
+        "tokenizer.json": {
+          "bytes": 1842767,
+          "state": "cached",
+          "sha256": "bcd04f0eadf90287bd26e1a183ac487d8a141b09b06aecb7725bbdd343640f2e"
+        },
+        "tokenizer.model": {
+          "bytes": 499723,
+          "state": "cached",
+          "expected_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+          "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+        },
+        "tokenizer_config.json": {
+          "bytes": 1289,
+          "state": "cached",
+          "sha256": "7b41ba7d0eb91e77914ca3dafde559ea3e19878769b7e68409e89bed5222e77a"
+        }
+      }
+    },
+    "reward_base": {
+      "repo_id": "TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T",
+      "revision": "59f6f375b26bde864a6ca194a9a3044570490064",
+      "cache": "var/icml-multibit/asset_a/reward_base",
+      "files": {
+        "config.json": {
+          "bytes": 560,
+          "state": "cached",
+          "sha256": "7ef24df4204405995b8a3936355171b0d80f64fc3bc0ca5991158eaa5c75de50"
+        },
+        "generation_config.json": {
+          "bytes": 129,
+          "state": "cached",
+          "sha256": "eb2d264819d797a5ccbd6bb45430d9017d38a4e21c54ca8400851aa0a6f1e9c4"
+        },
+        "model.safetensors": {
+          "bytes": 4400216536,
+          "state": "public_base_weight_not_downloaded",
+          "expected_sha256": "9dc1c1a8c6b29e153dea7aaf2ed6c4d242163489add0e7c14c23889745437be4"
+        },
+        "special_tokens_map.json": {
+          "bytes": 414,
+          "state": "cached",
+          "sha256": "6fa06efa2785e450051989a6f8fb4416b10149ded485ddd3f127a40734f5cfd0"
+        },
+        "tokenizer.json": {
+          "bytes": 1842767,
+          "state": "cached",
+          "sha256": "bcd04f0eadf90287bd26e1a183ac487d8a141b09b06aecb7725bbdd343640f2e"
+        },
+        "tokenizer.model": {
+          "bytes": 499723,
+          "state": "cached",
+          "expected_sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347",
+          "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+        },
+        "tokenizer_config.json": {
+          "bytes": 776,
+          "state": "cached",
+          "sha256": "f514e7c3008881b6ba7e6a0cdb44c71ce47dc335920dac143ae7bc788197e53a"
+        }
+      }
+    }
+  },
+  "trained_tinyllama_watermark_checkpoints_state": "no_public_revision_located",
+  "official_author_checkpoint_release_confirmation": "https://github.com/xiaojunxu/multi-bit-text-watermark/issues/1#issuecomment-3080276330",
+  "verified_official_training_dependency_wheels": {
+    "datasets-3.1.0-py3-none-any.whl": {
+      "bytes": 480554,
+      "sha256": "dc8808a6d17838fe05e13b39aa7ac3ea0fd0806ed7004eaf4d4eb2c2a356bc61",
+      "cache": "var/icml-multibit/asset_a/wheels/datasets-3.1.0-py3-none-any.whl",
+      "digest_reference": "PyPI release metadata"
+    },
+    "peft-0.8.1-py3-none-any.whl": {
+      "bytes": 183371,
+      "sha256": "544cac3cbc7805ba8fb7720be7dfbad5a4e55eefb859b34d200166998ab7896b",
+      "cache": "var/icml-multibit/asset_a/wheels/peft-0.8.1-py3-none-any.whl",
+      "digest_reference": "PyPI release metadata"
+    }
+  },
+  "openstax_accepted": {
+    "rows": 38,
+    "sha256": "ae85857bf1511dd57addbb01cf217fe06537686a5d359b3545d169b506233813",
+    "cache_worktree_relative": "hsw-st/var/results/hsw-st/openstax_quality_20261123/ACCEPTED.json"
+  },
+  "mpnet": {
+    "state": "verified_windows_cache",
+    "bytes": 437971872,
+    "sha256": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+    "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130"
+  }
+}

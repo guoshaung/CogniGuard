@@ -1,0 +1,44 @@
+{
+  "distill": {
+    "steps": 1,
+    "examples": 2,
+    "target_tokens": 5,
+    "losses": [
+      1.7275093793869019
+    ],
+    "trainable_parameters": 3632,
+    "train_seconds": 0.3349544000229798,
+    "scope": "cpu_synthetic_smoke",
+    "seed": 61126,
+    "mode": "distill",
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.1",
+    "peft": "0.18.0",
+    "reload_cpu_forward_pass": true
+  },
+  "lora": {
+    "steps": 1,
+    "examples": 2,
+    "target_tokens": 5,
+    "losses": [
+      3.4494330883026123
+    ],
+    "trainable_parameters": 128,
+    "train_seconds": 0.01930230000289157,
+    "scope": "cpu_synthetic_smoke",
+    "seed": 61126,
+    "mode": "lora",
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.1",
+    "peft": "0.18.0",
+    "reload_cpu_forward_pass": true
+  },
+  "split_validation": {
+    "positive_examples_by_split": [
+      1,
+      1,
+      1
+    ],
+    "cross_split_normalized_duplicate_rejected": true
+  }
+}

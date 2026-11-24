@@ -1,0 +1,20 @@
+{
+  "c4_train": {
+    "rows": 160000,
+    "sha256": "59b79179b843a202b64a5b07b710b92987efc0a35c04d14b24e51ba3f1c61757",
+    "unique": 159993
+  },
+  "c4_test": {
+    "rows": 10000,
+    "sha256": "610c942875ad3642f45588cc3cf81d6db006eeeae58d3e6323681854a1868ca6"
+  },
+  "openstax_exclusion": {
+    "rows": 38,
+    "sha256": "ae85857bf1511dd57addbb01cf217fe06537686a5d359b3545d169b506233813"
+  },
+  "overlap_normalized_exact": {
+    "c4_test": 0,
+    "native_24": 0,
+    "openstax_38": 0
+  }
+}
