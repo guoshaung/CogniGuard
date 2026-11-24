@@ -1,0 +1,12 @@
+{
+  "development": [
+    "sequence",
+    "resistance",
+    "area",
+    "density",
+    "probability",
+    "speed"
+  ],
+  "confirmatory": [],
+  "prior_pilot": "Historical diagnostic only. Never used as an independent RKW test."
+}

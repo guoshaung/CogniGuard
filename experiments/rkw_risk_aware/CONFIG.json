@@ -1,0 +1,24 @@
+{
+  "seed": 61124,
+  "model": "qwen2.5:7b-instruct",
+  "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+  "num_ctx": 1024,
+  "num_predict": 108,
+  "temperature": 0,
+  "thread_limit": 4,
+  "max_calls": 90,
+  "max_wall_seconds": 1800,
+  "max_sites": 5,
+  "max_word_edits": 6,
+  "max_abs_length_change": 6,
+  "op": {
+    "summary": "Write a concise, accurate English summary in your own words. Keep the numerical results and units. Return only the summary.",
+    "strong": "Rewrite as a different textbook author. Reorder information and use fresh wording rather than copying sentences. Preserve every factual statement, number, unit, and condition. Return only the rewrite.",
+    "light": "Lightly rephrase the teaching explanation without changing its meaning. Keep all numbers, units and conditions. Return only the rewritten explanation.",
+    "fusion": "Combine both explanations into one concise teaching passage. Keep each topic's core claims, numerical results, and units. Do not quote the input. Return only the combined passage."
+  },
+  "min_primary_exact": 0.3,
+  "max_negative_rate": 0.05,
+  "min_primary_knowledge": 0.65,
+  "max_primary_exact_oracle_for_stop": 0.1
+}

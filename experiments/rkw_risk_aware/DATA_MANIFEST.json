@@ -1,0 +1,281 @@
+{
+  "provenance": "Self-authored teaching snippets derived from public OpenStax concepts. The examples and source pairs are authored experimental fixtures, not copied textbook passages or claims of two independent textbook editions.",
+  "families": [
+    {
+      "family": "sequence",
+      "reference": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/13-2-arithmetic-sequences",
+      "sites": [
+        {
+          "frame": "This arithmetic sequence {} at 7.",
+          "symbols": [
+            "begins",
+            "starts"
+          ],
+          "plain": "commences"
+        },
+        {
+          "frame": "Successive terms are {} by adding 5 to the preceding term.",
+          "symbols": [
+            "formed",
+            "generated"
+          ],
+          "plain": "obtained"
+        },
+        {
+          "frame": "The common difference {} 5.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        },
+        {
+          "frame": "The second term is {} by adding 5 to 7.",
+          "symbols": [
+            "obtained",
+            "found"
+          ],
+          "plain": "computed"
+        },
+        {
+          "frame": "The second term {} 12.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        }
+      ]
+    },
+    {
+      "family": "resistance",
+      "reference": "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "sites": [
+        {
+          "frame": "The ideal resistor has a {} resistance of 3 ohms.",
+          "symbols": [
+            "constant",
+            "fixed"
+          ],
+          "plain": "unchanging"
+        },
+        {
+          "frame": "A potential difference of 6 volts is {} across the resistor.",
+          "symbols": [
+            "applied",
+            "established"
+          ],
+          "plain": "maintained"
+        },
+        {
+          "frame": "For this resistor, Ohm's law {} current to voltage and resistance.",
+          "symbols": [
+            "relates",
+            "links"
+          ],
+          "plain": "connects"
+        },
+        {
+          "frame": "The current is {} by dividing 6 volts by 3 ohms.",
+          "symbols": [
+            "calculated",
+            "computed"
+          ],
+          "plain": "determined"
+        },
+        {
+          "frame": "The resulting current {} 2 amperes.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "reference": "https://openstax.org/books/elementary-algebra-2e/pages/9-3-use-properties-of-angles-triangles-and-the-pythagorean-theorem",
+      "sites": [
+        {
+          "frame": "The rectangle {} 9 meters in length.",
+          "symbols": [
+            "measures",
+            "spans"
+          ],
+          "plain": "runs"
+        },
+        {
+          "frame": "Its width {} 4 meters.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "measures"
+        },
+        {
+          "frame": "The area of a rectangle can be {} by multiplying length by width.",
+          "symbols": [
+            "found",
+            "calculated"
+          ],
+          "plain": "computed"
+        },
+        {
+          "frame": "For this figure, multiply 9 by 4 to {} the area.",
+          "symbols": [
+            "obtain",
+            "find"
+          ],
+          "plain": "compute"
+        },
+        {
+          "frame": "The area {} 36 square meters.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        }
+      ]
+    },
+    {
+      "family": "density",
+      "reference": "https://openstax.org/books/chemistry-2e/pages/1-4-measurements",
+      "sites": [
+        {
+          "frame": "The mass of the uniform sample {} 18 grams.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        },
+        {
+          "frame": "The sample {} 6 cubic centimeters.",
+          "symbols": [
+            "occupies",
+            "fills"
+          ],
+          "plain": "takes up"
+        },
+        {
+          "frame": "Density can be {} by dividing mass by volume.",
+          "symbols": [
+            "found",
+            "calculated"
+          ],
+          "plain": "computed"
+        },
+        {
+          "frame": "For this sample, division of 18 grams by 6 cubic centimeters {} its density.",
+          "symbols": [
+            "gives",
+            "yields"
+          ],
+          "plain": "provides"
+        },
+        {
+          "frame": "Its density {} 3 grams per cubic centimeter.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        }
+      ]
+    },
+    {
+      "family": "probability",
+      "reference": "https://openstax.org/books/introductory-statistics-2e/pages/3-2-independent-and-mutually-exclusive-events",
+      "sites": [
+        {
+          "frame": "The two fair coin tosses are {} of each other.",
+          "symbols": [
+            "independent",
+            "statistically independent"
+          ],
+          "plain": "mutually independent"
+        },
+        {
+          "frame": "On each toss, the chance of heads {} one half.",
+          "symbols": [
+            "is",
+            "equals"
+          ],
+          "plain": "totals"
+        },
+        {
+          "frame": "The joint probability of independent events is {} by multiplying their individual probabilities.",
+          "symbols": [
+            "obtained",
+            "found"
+          ],
+          "plain": "computed"
+        },
+        {
+          "frame": "Multiply one half by one half to {} the probability of two heads.",
+          "symbols": [
+            "obtain",
+            "get"
+          ],
+          "plain": "calculate"
+        },
+        {
+          "frame": "The probability of two heads {} one quarter.",
+          "symbols": [
+            "equals",
+            "is"
+          ],
+          "plain": "totals"
+        }
+      ]
+    },
+    {
+      "family": "speed",
+      "reference": "https://openstax.org/books/college-physics-2e/pages/2-3-time-velocity-and-speed",
+      "sites": [
+        {
+          "frame": "The cyclist {} a distance of 120 meters.",
+          "symbols": [
+            "covers",
+            "travels"
+          ],
+          "plain": "traverses"
+        },
+        {
+          "frame": "The trip {} 20 seconds.",
+          "symbols": [
+            "takes",
+            "lasts"
+          ],
+          "plain": "requires"
+        },
+        {
+          "frame": "Average speed is {} by dividing total distance by elapsed time.",
+          "symbols": [
+            "found",
+            "calculated"
+          ],
+          "plain": "computed"
+        },
+        {
+          "frame": "Dividing 120 meters by 20 seconds {} the average speed.",
+          "symbols": [
+            "gives",
+            "yields"
+          ],
+          "plain": "provides"
+        },
+        {
+          "frame": "The average speed {} 6 meters per second.",
+          "symbols": [
+            "is",
+            "equals"
+          ],
+          "plain": "totals"
+        }
+      ]
+    }
+  ]
+}
