@@ -1,0 +1,24 @@
+{
+  "queries": 180,
+  "predictions": 1260,
+  "methods": [
+    "active_variants",
+    "bge",
+    "bge_rerank",
+    "bm25",
+    "issuance_lookup",
+    "minhash",
+    "sha256"
+  ],
+  "cases_sha256": "a77ddce6ac7a3299e5cf1f893e8ab7ba26a8217905955789212fbceef1943646",
+  "frozen_configuration_sha256": "73b0f093c2b8c030ef28d313dbbf387cb50a108e3f8ff36904c027205748fce4",
+  "input_policy": "Raw endpoint UTF-8 text exactly as presented to watermark decoder. Zero carrier removal.",
+  "cpu_threads": 3,
+  "gpu_hours": 0,
+  "paid_api_calls": 0,
+  "model_loading_seconds": 9.757997899956536,
+  "embedding_preprocessing_seconds": 99.56274480000138,
+  "execution_seconds": 130.98808189999545,
+  "per_case_timing_policy": "BGE includes amortized batch encoding. Cross-encoder time is allocated over its evaluated pairs.",
+  "deliberate_abstention": "Report ledger candidates separately. Identical release text can produce ambiguous candidates."
+}

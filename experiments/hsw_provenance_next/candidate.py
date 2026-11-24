@@ -16,7 +16,7 @@ sys.path.insert(0, str(PILOT))
 from propagation.build import replay_marked
 
 METHODS = ("M1", "M2", "M3", "M1+source")
-# Two surface words per event for every arm. Public research codebook.
+# Two variable words plus "that" per event. Public research codebook.
 VOCAB = tuple(f"{a} {b}" for a, b in itertools.product(
     ("Specifically","Notably","Indeed","Here","Thus","Accordingly","Overall","Conceptually","Mathematically","Practically"),
     ("consider","note","observe","recall","recognize","remember","see","check","verify","notice")))
@@ -159,8 +159,12 @@ def main():
         dump(args.out/f"{method}_releases.json",encoded)
         tagged = {r["release_id"] for r in encoded if r["carrier_events"]>0}
         reverse = {word.casefold():label for label,word in codec.codebook(method).items()}
-        observations = [(c,codec.inspect(c["text"])) for c in replay_marked(cases,releases,encoded)]
-        dev = [(c,x) for c,x in observations if c["partition"]=="calibration"]
+        observations = []
+        for c in replay_marked(cases,releases,encoded):
+            tick = time.perf_counter()
+            observed = codec.inspect(c["text"])
+            observations.append((c, observed, time.perf_counter()-tick))
+        dev = [(c,x) for c,x,_ in observations if c["partition"]=="calibration"]
         # Calibrate only against non-owners of facts in dev. Include a mismatched
         # carrier paired with each dev passage as a negative for the gate.
         thresholds = (.35,.45,.55,.65,.75,.85,.95)
@@ -181,7 +185,7 @@ def main():
             return (2*tp/max(1,2*tp+fp+fn),t)
         threshold = max(map(calibrate,thresholds))[1]
         rows=[]
-        for c,obs in observations:
+        for c,obs,inspection_seconds in observations:
             if c["partition"]=="calibration":
                 continue
             start_decode=time.perf_counter()
@@ -191,7 +195,7 @@ def main():
                              pred_source=sorted({codec.releases[r]["source_id"] for r in pred}),
                              gold_source=c["retained_source_ids"],pred_fact=sorted(facts),gold_fact=c["retained_fact_ids"],
                              eligible_release=sorted(tagged&set(c["retained_release_ids"])),
-                             seconds=time.perf_counter()-start_decode))
+                             seconds=inspection_seconds+time.perf_counter()-start_decode))
         stress = orphan_cases(codec,method,threshold,reverse)
         dump(args.out/f"{method}_stress.json",stress)
         summary[method] = dict(total=metrics(rows), thresholds=dict(selected=threshold,candidates=thresholds,

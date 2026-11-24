@@ -1,0 +1,16 @@
+{
+  "mode": "gate",
+  "chains": 15,
+  "generations": 15,
+  "endpoints": 15,
+  "tokens": 2004,
+  "batch_seconds": 13.369038950651884,
+  "gpu_hours": 0.0037136219307366343,
+  "tokens_per_second": 149.89858339086396,
+  "median_amortized_sample_seconds": 0.9530875204751889,
+  "finish_reason_counts": {
+    "eos": 14,
+    "limit": 1
+  },
+  "paid_api_calls": 0
+}

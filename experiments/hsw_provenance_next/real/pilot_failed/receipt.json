@@ -1,0 +1,18 @@
+{
+  "mode": "pilot",
+  "chains": 15,
+  "generations": 300,
+  "endpoints": 180,
+  "tokens": 57600,
+  "batch_seconds": 84.08311212435365,
+  "gpu_hours": 0.02335642003454268,
+  "tokens_per_second": 685.0364900244559,
+  "actual_model_calls": 180,
+  "median_amortized_sample_seconds": 0.46074308501556516,
+  "finish_reason_counts": {
+    "limit": 180,
+    "deterministic_prefix_cut": 60,
+    "deterministic_forward": 60
+  },
+  "paid_api_calls": 0
+}

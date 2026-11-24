@@ -1,0 +1,212 @@
+[
+  {
+    "chain_id": "gate-f1-forward",
+    "fusion": 1,
+    "transform": "forward",
+    "depth": 1,
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f1-summary",
+    "fusion": 1,
+    "transform": "summary",
+    "depth": 1,
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f1-light_rewrite",
+    "fusion": 1,
+    "transform": "light_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f1-strong_rewrite",
+    "fusion": 1,
+    "transform": "strong_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f1-truncate",
+    "fusion": 1,
+    "transform": "truncate",
+    "depth": 1,
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f2-forward",
+    "fusion": 2,
+    "transform": "forward",
+    "depth": 1,
+    "input_source_ids": [
+      "math-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f2-summary",
+    "fusion": 2,
+    "transform": "summary",
+    "depth": 1,
+    "input_source_ids": [
+      "math-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-05:issue:issuer-a",
+      "statistics-04:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f2-light_rewrite",
+    "fusion": 2,
+    "transform": "light_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "math-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f2-strong_rewrite",
+    "fusion": 2,
+    "transform": "strong_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "math-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-05:issue:issuer-a",
+      "statistics-04:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f2-truncate",
+    "fusion": 2,
+    "transform": "truncate",
+    "depth": 1,
+    "input_source_ids": [
+      "math-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f3-forward",
+    "fusion": 3,
+    "transform": "forward",
+    "depth": 1,
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-02"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-02:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f3-summary",
+    "fusion": 3,
+    "transform": "summary",
+    "depth": 1,
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-02"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-b",
+      "physics-05:issue:issuer-a",
+      "statistics-02:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f3-light_rewrite",
+    "fusion": 3,
+    "transform": "light_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-02"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-02:issue:issuer-a"
+    ]
+  },
+  {
+    "chain_id": "gate-f3-strong_rewrite",
+    "fusion": 3,
+    "transform": "strong_rewrite",
+    "depth": 1,
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-02"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-b",
+      "physics-05:issue:issuer-a",
+      "statistics-02:issue:issuer-b"
+    ]
+  },
+  {
+    "chain_id": "gate-f3-truncate",
+    "fusion": 3,
+    "transform": "truncate",
+    "depth": 1,
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-02"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-02:issue:issuer-a"
+    ]
+  }
+]

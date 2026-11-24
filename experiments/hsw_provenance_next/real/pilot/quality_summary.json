@@ -1,0 +1,542 @@
+{
+  "n": 180,
+  "methodology": "Independent Codex review of all rewrite and summary endpoints, with exact matching for controls. Counts measure core facts, with units, quantities and material conditions checked.",
+  "results": {
+    "plain": {
+      "forward": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "light_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.9629629629629629,
+          "quality_counts": {
+            "UNDERSTANDABLE": 2,
+            "MATERIAL_KNOWLEDGE_CHANGE": 1
+          },
+          "instruction_pass": 2
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.9629629629629629,
+          "quality_counts": {
+            "UNDERSTANDABLE": 2,
+            "MATERIAL_KNOWLEDGE_CHANGE": 1
+          },
+          "instruction_pass": 2
+        }
+      },
+      "strong_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.8333333333333334,
+          "quality_counts": {
+            "MATERIAL_KNOWLEDGE_CHANGE": 1,
+            "UNDERSTANDABLE": 2
+          },
+          "instruction_pass": 1
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.8333333333333334,
+          "quality_counts": {
+            "MATERIAL_KNOWLEDGE_CHANGE": 1,
+            "UNDERSTANDABLE": 2
+          },
+          "instruction_pass": 1
+        }
+      },
+      "summary": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.6666666666666666,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.6666666666666666,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.611111111111111,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "truncate": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.37037037037037035,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      }
+    },
+    "M1": {
+      "forward": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "light_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.9629629629629629,
+          "quality_counts": {
+            "UNDERSTANDABLE": 2,
+            "MATERIAL_KNOWLEDGE_CHANGE": 1
+          },
+          "instruction_pass": 2
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.9629629629629629,
+          "quality_counts": {
+            "UNDERSTANDABLE": 2,
+            "MATERIAL_KNOWLEDGE_CHANGE": 1
+          },
+          "instruction_pass": 2
+        }
+      },
+      "strong_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.8888888888888888,
+          "quality_counts": {
+            "MATERIAL_KNOWLEDGE_CHANGE": 1,
+            "UNDERSTANDABLE": 2
+          },
+          "instruction_pass": 2
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.8333333333333334,
+          "quality_counts": {
+            "MATERIAL_KNOWLEDGE_CHANGE": 1,
+            "UNDERSTANDABLE": 2
+          },
+          "instruction_pass": 1
+        }
+      },
+      "summary": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.7407407407407407,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.537037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 1
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.4074074074074074,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "truncate": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.37037037037037035,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      }
+    },
+    "M2": {
+      "forward": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "light_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "strong_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.8888888888888888,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 2
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.7407407407407407,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.7407407407407407,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "summary": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.6666666666666666,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.6666666666666666,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.611111111111111,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "truncate": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.37037037037037035,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      }
+    },
+    "M3": {
+      "forward": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "light_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      },
+      "strong_rewrite": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 1.0,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.7962962962962963,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.7962962962962963,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "summary": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.6296296296296297,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.5740740740740741,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.5740740740740741,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 0
+        }
+      },
+      "truncate": {
+        "1": {
+          "n": 3,
+          "mean_fact_fidelity": 0.37037037037037035,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "3": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        },
+        "5": {
+          "n": 3,
+          "mean_fact_fidelity": 0.2037037037037037,
+          "quality_counts": {
+            "UNDERSTANDABLE": 3
+          },
+          "instruction_pass": 3
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "n": 414,
+  "metrics": {
+    "source": {
+      "tp": 602,
+      "fp": 0,
+      "fn": 55,
+      "precision": 1.0,
+      "recall": 0.9162861491628614,
+      "f1": 0.9563145353455124
+    },
+    "release": {
+      "tp": 439,
+      "fp": 0,
+      "fn": 218,
+      "orphan_labels": 0,
+      "non_inherited_labels": 0,
+      "case_exact": 277,
+      "precision": 1.0,
+      "recall": 0.6681887366818874,
+      "f1": 0.801094890510949
+    }
+  },
+  "by_transform": {
+    "forward": {
+      "source": {
+        "tp": 162,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "release": {
+        "tp": 162,
+        "fp": 0,
+        "fn": 0,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 81,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "light_rewrite": {
+      "source": {
+        "tp": 153,
+        "fp": 0,
+        "fn": 9,
+        "precision": 1.0,
+        "recall": 0.9444444444444444,
+        "f1": 0.9714285714285714
+      },
+      "release": {
+        "tp": 91,
+        "fp": 0,
+        "fn": 71,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 37,
+        "precision": 1.0,
+        "recall": 0.5617283950617284,
+        "f1": 0.7193675889328063
+      }
+    },
+    "null_control": {
+      "source": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "release": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "strong_rewrite": {
+      "source": {
+        "tp": 116,
+        "fp": 0,
+        "fn": 46,
+        "precision": 1.0,
+        "recall": 0.7160493827160493,
+        "f1": 0.8345323741007195
+      },
+      "release": {
+        "tp": 40,
+        "fp": 0,
+        "fn": 122,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 12,
+        "precision": 1.0,
+        "recall": 0.24691358024691357,
+        "f1": 0.39603960396039606
+      }
+    },
+    "summary": {
+      "source": {
+        "tp": 92,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "release": {
+        "tp": 77,
+        "fp": 0,
+        "fn": 15,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 67,
+        "precision": 1.0,
+        "recall": 0.8369565217391305,
+        "f1": 0.9112426035502958
+      }
+    },
+    "truncate": {
+      "source": {
+        "tp": 79,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "release": {
+        "tp": 69,
+        "fp": 0,
+        "fn": 10,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 71,
+        "precision": 1.0,
+        "recall": 0.8734177215189873,
+        "f1": 0.9324324324324325
+      }
+    }
+  },
+  "by_depth": {
+    "1": {
+      "source": {
+        "tp": 267,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.9888888888888889,
+        "f1": 0.994413407821229
+      },
+      "release": {
+        "tp": 242,
+        "fp": 0,
+        "fn": 28,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 117,
+        "precision": 1.0,
+        "recall": 0.8962962962962963,
+        "f1": 0.9453125
+      }
+    },
+    "3": {
+      "source": {
+        "tp": 193,
+        "fp": 0,
+        "fn": 23,
+        "precision": 1.0,
+        "recall": 0.8935185185185185,
+        "f1": 0.9437652811735942
+      },
+      "release": {
+        "tp": 124,
+        "fp": 0,
+        "fn": 92,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 78,
+        "precision": 1.0,
+        "recall": 0.5740740740740741,
+        "f1": 0.7294117647058823
+      }
+    },
+    "5": {
+      "source": {
+        "tp": 142,
+        "fp": 0,
+        "fn": 29,
+        "precision": 1.0,
+        "recall": 0.8304093567251462,
+        "f1": 0.9073482428115016
+      },
+      "release": {
+        "tp": 73,
+        "fp": 0,
+        "fn": 98,
+        "orphan_labels": 0,
+        "non_inherited_labels": 0,
+        "case_exact": 82,
+        "precision": 1.0,
+        "recall": 0.4269005847953216,
+        "f1": 0.5983606557377049
+      }
+    }
+  },
+  "median_endpoint_seconds": 0.00033095001708716154,
+  "events_per_release": 2,
+  "added_utf8_bytes_per_release_mean": 184,
+  "transport": "Prior controlled original-line replay. Paraphrased lines carry no tag.",
+  "scope": "Visible synthetic keyed MAC. Controlled no-replay propagation plus separate orphan replay checks.",
+  "cases_sha256": "5a8e50ce986253be8d56c038e276716c28fc11a34f3c5df63133a7bab3cf069e"
+}

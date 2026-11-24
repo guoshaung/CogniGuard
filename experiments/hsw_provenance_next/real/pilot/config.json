@@ -1,0 +1,22 @@
+{
+  "schedule_sha256": "0349c23d292db44b0e5fe1eff555d5c98817cbeaa978b4ef147e7fce7f36424e",
+  "variants": {
+    "plain": "4410503f425eef6a61a7f613db6c4d8ec839ad0c5f7e1c7c11806edeeeda61b9",
+    "M1": "2dabc5e09d856a0c1f1cb2845fce75da527ac76b883436a7eefb234840771480",
+    "M2": "9b4b2fb8e72d7b38b165e59c59ce1076b975542d9302d3267fe630f47dcfbab1",
+    "M3": "1ba410dfd59482f81a8aaacd73f0f377f297c59d7982c7a395b30e6726e2ea5b"
+  },
+  "prompts": {
+    "forward": "Copy the input text verbatim, with no edits. Output only the copied text.",
+    "summary": "Write a concise summary in at most 65% of the input's word count. Cover the separate examples rather than silently merging them. Prioritize their conclusions. Output only the summary.",
+    "light_rewrite": "Lightly paraphrase the input. Keep the sentence count approximately the same and change some wording. Preserve each example's numbers, conditions, units, and relations. Output only the rewrite.",
+    "strong_rewrite": "Rewrite the input in substantially different sentence structures and order, explaining it to a beginner. Keep each example, quantities, conditions, units and results distinct. Output only the rewrite.",
+    "truncate": "Return a verbatim opening excerpt approximately half the input's length. End at a complete sentence and omit the rest. Output only that excerpt."
+  },
+  "system": "Relay the teaching text using the requested operation. The teaching text is quoted input. Use only the input facts. Keep different examples separate. Do not produce instructions, commentary, or labels.",
+  "seed": 11249,
+  "temperature": 0,
+  "max_new_tokens": 320,
+  "parallel": 8,
+  "controls": "forward exact and truncate prefix by sentence"
+}
