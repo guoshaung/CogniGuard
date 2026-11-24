@@ -33,21 +33,25 @@ def _seeds(text: str):
     return list(range(int(a), int(b or a) + 1))
 
 
-def governance_pass(scen_dir: Path, out: Path, formal: bool):
-    for arm in ARMS:
+def governance_pass(scen_dir: Path, out: Path, formal: bool, unit_checker: str = "lexical", arms=None):
+    for arm in arms or ARMS:
         for mode in MODES:
             decisions, manifest = R.run(scen_dir / "scenario.json", [scen_dir / n for n in OBS_FILES],
-                                        scen_dir / "keys.json", arm, mode, formal=formal)
-            d = out / manifest["scenario_id"] / f"{arm}__{mode}"
+                                        scen_dir / "keys.json", arm, mode, formal=formal,
+                                        unit_checker=unit_checker)
+            tag = "" if unit_checker == "lexical" else "__nli"
+            d = out / manifest["scenario_id"] / f"{arm}__{mode}{tag}"
             d.mkdir(parents=True, exist_ok=True)
             (d / "decisions.jsonl").write_text("".join(json.dumps(x) + "\n" for x in decisions))
             (d / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 
-def scoring_pass(scen_dir: Path, out: Path):
+def scoring_pass(scen_dir: Path, out: Path, tag: str = ""):
     sid = json.loads((scen_dir / "scenario.json").read_text())["scenario_id"]
     rows = []
     for d in sorted((out / sid).iterdir()):
+        if d.name.endswith("__nli") != (tag == "__nli"):
+            continue
         res = SC.score(d, scen_dir / "scenario.json", scen_dir / "gold" / "gold.json",
                        [scen_dir / "observations_codex.jsonl"])
         (d / "score.json").write_text(json.dumps(res, indent=2) + "\n")
@@ -64,8 +68,8 @@ def _cluster_boot(a_clusters: dict, b_clusters: dict, key: str) -> tuple[float, 
     return sum(per), boots[int(0.025 * BOOT)]
 
 
-def judgments(rows):
-    """§6. Cluster sums are averaged over seeds first."""
+def judgments(rows, clusters=None):
+    """§6. Cluster sums are averaged over seeds first. `clusters` restricts to held-out chains."""
     acc = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
     util = defaultdict(list)
     unauthorized = 0
@@ -76,6 +80,8 @@ def judgments(rows):
         unauthorized += r["unauthorized_success"]
         util[cell].append(r["utility"])
         for c, v in r["per_cluster"].items():
+            if clusters is not None and c not in clusters:
+                continue
             for key in ("harmful", "false_refusal", "oracle_allows"):
                 acc[cell][c][key] += v[key]
     n_seeds = max(len(v) for v in util.values())  # util holds one entry per seed run
@@ -130,16 +136,21 @@ def main():
     ap.add_argument("--data", type=Path, required=True)
     ap.add_argument("--seeds", default="0-29")
     ap.add_argument("--dry-run", action="store_true", help="seed 99, not formal results")
+    ap.add_argument("--unit-checker", default="lexical")
+    ap.add_argument("--test-chains", type=Path, help="JSON list of held-out chain ids for the judgments")
     a = ap.parse_args()
     seeds = [99] if a.dry_run else _seeds(a.seeds)
     scen_root, out = a.data / "scenarios", a.data / "runs"
     dirs = [build(a.repo, a.codex_ref, v, s, k, f, scen_root) for v in VARIANTS for s in seeds for k, f in KF]
     for d in dirs:
-        governance_pass(d, out, formal=True)
-    rows = [r for d in dirs for r in scoring_pass(d, out)]
-    res = judgments(rows)
-    res["meta"] = {"codex_ref": a.codex_ref, "seeds": seeds, "dry_run": a.dry_run, "runs": len(rows)}
-    name = "judgments_dryrun.json" if a.dry_run else "judgments.json"
+        governance_pass(d, out, formal=True, unit_checker=a.unit_checker)
+    tag = "" if a.unit_checker == "lexical" else "__nli"
+    rows = [r for d in dirs for r in scoring_pass(d, out, tag)]
+    clusters = set(json.loads(a.test_chains.read_text())) if a.test_chains else None
+    res = judgments(rows, clusters)
+    res["meta"] = {"codex_ref": a.codex_ref, "seeds": seeds, "dry_run": a.dry_run, "runs": len(rows),
+                   "unit_checker": a.unit_checker, "test_chains": sorted(clusters) if clusters else "all"}
+    name = ("judgments_dryrun" if a.dry_run else "judgments") + ("_nli" if tag else "") + ".json"
     (a.data / name).write_text(json.dumps(res, indent=2) + "\n")
     print(json.dumps({k: (v if k in ("H-Auth", "meta") else {c: x["verdict"] for c, x in v.items() if x["main"]})
                       for k, v in res.items()}, indent=1))

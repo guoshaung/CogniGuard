@@ -20,6 +20,7 @@ class Arm:
 ARMS = {a.name: a for a in (
     Arm("R0_receipts", frozenset()),
     Arm("F_STRONG", frozenset({T.FINGERPRINT, T.RETRIEVAL})),
+    Arm("F_BGE", frozenset({T.RETRIEVAL}), method_prefixes=("codex-bge@",)),  # DEVIATIONS §7
     Arm("WM_REAL", frozenset({T.WATERMARK})),
     Arm("KBW_REAL", frozenset({T.KNOWLEDGE_BOUND_WATERMARK})),
     Arm("JOINT", frozenset({T.JOINT})),

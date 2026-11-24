@@ -98,7 +98,24 @@ def score(run_dir: Path, scenario_path: Path, gold_path: Path, observation_paths
     }
     if observation_paths:
         out["attribution"] = attribution(observation_paths, gold)
+    out["unit_verification"] = unit_verification(manifest.get("verified", []), gold)
+    out.pop("verified", None)
     return out
+
+
+def unit_verification(verified, gold):
+    """Confirmed units per artifact vs annotated retained facts. This is the MEASUREMENT;
+    harm reductions downstream are its consequence and are not an independent result."""
+    truth = {a: {tuple(u) for u in us} for a, us in gold.get("artifact_units", {}).items()}
+    got: dict = {}
+    for v in verified:
+        got.setdefault(v["artifact_id"], set()).update(tuple(u) for u in v["confirmed"])
+    tp = sum(len(got.get(a, set()) & t) for a, t in truth.items())
+    fp = sum(len(g - truth.get(a, set())) for a, g in got.items() if a in truth)
+    fn = sum(len(t - got.get(a, set())) for a, t in truth.items())
+    return {"tp": tp, "fp": fp, "fn": fn, "precision": tp / (tp + fp) if tp + fp else None,
+            "recall": tp / (tp + fn) if tp + fn else None,
+            "f1": 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else None}
 
 
 def attribution(paths, gold):

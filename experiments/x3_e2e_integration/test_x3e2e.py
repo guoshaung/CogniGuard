@@ -127,3 +127,28 @@ def test_builder_is_deterministic(tmp_path):
     for name in ("scenario.json", "observations_codex.jsonl", "gold/gold.json"):
         assert (a / name).read_text() == (b / name).read_text()
     assert "gold" not in (a / "observations_codex.jsonl").read_text()
+
+
+def test_nli_replay_checker_confirms_only_entailment_and_never_credits(tmp_path):
+    import hashlib
+    sc = _scenario(tmp_path)
+    text = "the exam covers fraction multiplication"
+    digest = hashlib.sha256(text.encode()).hexdigest()
+    j = tmp_path / "nli.jsonl"
+    j.write_text(json.dumps({"artifact_sha256": digest, "unit": list(C.U1), "judgment": "entailment",
+                             "score": 0.97, "method_version": "deberta@6f5cf0a", "split": "test"}) + "\n"
+                 + json.dumps({"artifact_sha256": digest, "unit": list(C.U2), "judgment": "contradiction",
+                               "score": 0.8, "method_version": "deberta@6f5cf0a", "split": "test"}) + "\n")
+    o = _obs(tmp_path, [observation("r1", "art-b", "B", evidence_type=EvidenceType.RETRIEVAL,
+                                    units=(C.U1, C.U2), method_version="bge-test")])
+    dec, man = R.run(sc, [o], None, "F_STRONG", "dyn_knowledge", formal=True, unit_checker=f"nli-replay:{j}")
+    assert man["unit_checker"].startswith("nli-replay:deberta@6f5cf0a")
+    assert [d["allowed"] for d in dec] == [False, False]     # U1 confirmed for B -> q1 (U2) completes {U1,U2}
+    assert all(d["trusted_event_credits"] == 0 for d in dec)
+    lex, _ = R.run(sc, [o], None, "F_STRONG", "dyn_knowledge", formal=True)
+    assert lex[0]["allowed"] is False                         # lexical also finds U1 verbatim here
+    leak = tmp_path / "nli_leak.jsonl"
+    leak.write_text(json.dumps({"artifact_sha256": digest, "unit": list(C.U1), "judgment": "entailment",
+                                "gold_label": "entailment"}) + "\n")
+    with pytest.raises(GoldLeakError):
+        R.run(sc, [o], None, "F_STRONG", "dyn_knowledge", formal=True, unit_checker=f"nli-replay:{leak}")

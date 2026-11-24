@@ -53,7 +53,21 @@ def load_observations(paths, arm, formal: bool) -> list[Observation]:
     return out
 
 
-def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=False, detector=None):
+def make_checker(spec: str | None, phrasings):
+    """'lexical' (default, frozen) or 'nli-replay:<judgments.jsonl>[:<split>]'."""
+    if not spec or spec == "lexical":
+        return TextUnitChecker(phrasings, CHECK_THRESHOLD), "lexical-containment-0.95"
+    kind, _, rest = spec.partition(":")
+    if kind != "nli-replay" or not rest:
+        raise ValueError(spec)
+    path, _, split = rest.partition(":")
+    from experiments.x3_e2e_integration.checkers import NliReplayChecker
+    checker = NliReplayChecker(Path(path), split or None)
+    return checker, f"nli-replay:{','.join(sorted(checker.method_versions))}:{split or 'all'}"
+
+
+def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=False, detector=None,
+        unit_checker=None):
     def goldish(p) -> bool:
         p = Path(p)
         return p.name.lower().startswith("gold") or "gold" in (part.lower() for part in p.parent.parts)
@@ -66,9 +80,11 @@ def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=Fals
         raise ValueError(mode)
     sc = load_scenario(scenario_path)
     keys = json.loads(Path(keys_path).read_text()) if keys_path else {}
+    checker, checker_name = make_checker(unit_checker, sc.phrasings)
+    if unit_checker and "gold" in str(unit_checker).lower():
+        raise RefusedInput("unit-checker inputs may not be gold files")
     verifier = RuleVerifier(keys.get("log_key", "").encode(), keys.get("credential_key", "").encode(),
-                            TextUnitChecker(sc.phrasings, CHECK_THRESHOLD),
-                            allow_ideal=arm.allow_ideal, allow_mock=arm is MOCK_ARM)
+                            checker, allow_ideal=arm.allow_ideal, allow_mock=arm is MOCK_ARM)
     state = SecurityState(sc.receipts, enforced_budget_f=sc.f if sc.f > 0 else None)
     policy = CapdPolicy(sc.access, sc.targets, sc.k, sc.f, mode)
     observations = load_observations(observation_paths, arm, formal)
@@ -81,7 +97,7 @@ def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=Fals
     events += [(r.now, 1, "req", r) for r in sc.requests]
     events.sort(key=lambda e: (e[0], e[1], getattr(e[3], "observation_id", getattr(e[3], "request_id", ""))))
 
-    decisions, deltas = [], 0
+    decisions, deltas, verified_log = [], 0, []
     for _t, _p, kind, item in events:
         if kind == "art":
             for obs in detector.detect(item):
@@ -89,7 +105,10 @@ def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=Fals
                     state.apply(verifier.verify(obs, item))
                     deltas += 1
         elif kind == "obs":
-            state.apply(verifier.verify(item, artifacts.get(item.artifact_id)))
+            ev = verifier.verify(item, artifacts.get(item.artifact_id))
+            state.apply(ev)
+            verified_log.append({"artifact_id": item.artifact_id, "status": ev.verification_status.value,
+                                 "confirmed": sorted(list(u) for u in ev.confirmed_units)})
             deltas += 1
         else:
             t0 = time.perf_counter()
@@ -106,6 +125,8 @@ def run(scenario_path, observation_paths, keys_path, arm_name, mode, formal=Fals
         "observations_sha256": {str(p): _sha(p) for p in observation_paths},
         "observations_used": len(observations), "evidence_applied": deltas,
         "state_conflicts": state.conflicts, "detector": getattr(detector, "method_version", None),
+        "unit_checker": checker_name,
+        "verified": verified_log,
     }
     return decisions, manifest
 
@@ -119,14 +140,17 @@ def main():
     ap.add_argument("--mode", required=True, choices=MODES)
     ap.add_argument("--detector", help="module:Class implementing SourceDetector (online mode)")
     ap.add_argument("--formal", action="store_true")
+    ap.add_argument("--unit-checker", default="lexical", help="lexical | nli-replay:<judgments.jsonl>[:<split>]")
     ap.add_argument("--out", required=True, type=Path)
     a = ap.parse_args()
     detector = None
     if a.detector:
         mod, cls = a.detector.split(":")
         detector = getattr(importlib.import_module(mod), cls)()
-    decisions, manifest = run(a.scenario, a.observations, a.keys, a.arm, a.mode, a.formal, detector)
-    out = a.out / manifest["scenario_id"] / f"{a.arm}__{a.mode}"
+    decisions, manifest = run(a.scenario, a.observations, a.keys, a.arm, a.mode, a.formal, detector,
+                              a.unit_checker)
+    tag = "" if a.unit_checker == "lexical" else "__nli"
+    out = a.out / manifest["scenario_id"] / f"{a.arm}__{a.mode}{tag}"
     out.mkdir(parents=True, exist_ok=True)
     (out / "decisions.jsonl").write_text("".join(json.dumps(d) + "\n" for d in decisions))
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
