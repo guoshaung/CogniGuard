@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import random
 from pathlib import Path
 import sys
 import time
@@ -53,6 +54,7 @@ def main():
     parser.add_argument("--weights", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--phase", choices=["verify", "generate", "score"], required=True)
+    parser.add_argument("--c4", type=Path)
     args = parser.parse_args()
     root = args.weights.resolve()
     upstream = args.upstream.resolve()
@@ -75,6 +77,18 @@ def main():
     cuda = torch.device("cuda:0")
     args.out.mkdir(parents=True, exist_ok=True)
     generated_path = args.out / "candidates.jsonl"
+    rng = random.Random(61125)
+    native = None
+    if args.c4:
+        rows = json.loads(args.c4.read_bytes())
+        native = [(index, row["text"]) for index, row in enumerate(rows[:256])
+                  if len(gen_utils.split_sentence(row["text"])) >= 4][:24]
+        if len(native) != 24:
+            raise ValueError("Frozen C4 selection did not yield 24 records")
+    cases = {}
+    if native:
+        cases = {idx: [rng.randrange(2) for _ in range(160)] for idx, _ in native}
+
 
     def load_bf16(folder, model_type, **kwargs):
         model_path = root / folder
@@ -107,8 +121,10 @@ def main():
         if current:
             samples.append("\n".join(current).strip())
         assert len(samples) == 2
+        sample_pairs = native if native else list(enumerate(samples))
         with generated_path.open("x", encoding="utf-8") as stream, torch.inference_mode():
-            for sample_id, text in enumerate(samples):
+            for sample_id, text in sample_pairs:
+                intended = cases.get(sample_id, KEY)
                 prompt = utils.gen_para_prompt(text, prompt_style="qwen", tokenizer=tokenizer)
                 tokens = tokenizer(prompt, max_length=512, return_tensors="pt")
                 prefix = tokens.input_ids.shape[1]
@@ -116,7 +132,7 @@ def main():
                 mask = tokens.attention_mask.to(cuda).repeat(BATCH_SIZE, 1)
                 started = time.perf_counter()
                 sequences, boundaries = gen_utils.DM_generate_with_key(
-                    model0, model1, tokenizer, key=KEY, input_ids=ids, attention_mask=mask,
+                    model0, model1, tokenizer, key=intended, input_ids=ids, attention_mask=mask,
                     max_length=prefix + MAX_GENERATED, pad_token_id=tokenizer.pad_token_id, do_sample=True)
                 torch.cuda.synchronize()
                 elapsed = time.perf_counter() - started
@@ -125,6 +141,7 @@ def main():
                     eos = tokenizer.pad_token_id in output
                     write_record(stream, dict(
                         sample=sample_id, candidate=candidate_id, original=text,
+                        intended=intended,
                         text=tokenizer.decode(output, skip_special_tokens=True),
                         token_ids=output, boundaries=boundaries[candidate_id], natural_eos=eos,
                         load_seconds=load_seconds, generation_batch_seconds=elapsed, placement=placement,
@@ -141,8 +158,19 @@ def main():
     sim_model = AutoModel.from_pretrained(root / "mpnet", local_files_only=True).to(cuda).eval()
     load_seconds = time.perf_counter() - started
     rows = [json.loads(line) for line in generated_path.read_text(encoding="utf-8").splitlines()]
+    def score_document(text):
+        sentences = gen_utils.split_sentence(text)
+        ids = [tokenizer(sentence.strip(), return_tensors="pt").input_ids[0, reward.num_padding_at_beginning:]
+               for sentence in sentences]
+        ids = [value for value in ids if tokenizer.decode(value, skip_special_tokens=True).strip()]
+        if not ids:
+            return []
+        ids, mask = utils.process_token_list(tokenizer, ids, cuda)
+        return reward.forward_value(ids, mask, prompt_length=1)["chosen_end_scores"].float().tolist()
+
+    selected = []
     with (args.out / "predictions.jsonl").open("x", encoding="utf-8") as stream, torch.inference_mode():
-        for sample in range(2):
+        for sample in sorted({row["sample"] for row in rows}):
             choices = []
             for row in [r for r in rows if r["sample"] == sample]:
                 began = time.perf_counter()
@@ -157,7 +185,7 @@ def main():
                 cur_ids, mask = utils.process_token_list(tokenizer, ids, cuda)
                 scores = reward.forward_value(cur_ids, mask, prompt_length=1)["chosen_end_scores"]
                 bits = (scores > 0).int().tolist()
-                key = KEY[:len(bits)]
+                key = row.get("intended", KEY)[:len(bits)]
                 bit_acc = float(np.mean(np.array(bits) == np.array(key)))
                 score_mean = float(np.mean(np.array(bits) * (np.array(key) * 2 - 1)))
                 mpnet = utils.calc_text_sim(sim_model, sim_tokenizer, [original], [text], cuda)[0].item()
@@ -170,8 +198,28 @@ def main():
                                     selection_score=bit_acc + (mpnet + rouge) / 2 + .01 * score_mean + length_penalty,
                                     decoder_load_seconds=load_seconds, score_seconds=time.perf_counter() - began))
             best = max(choices, key=lambda row: row["selection_score"])
+            selected.append(best)
             for row in choices:
                 write_record(stream, dict(row, selected=row is best))
+    if native:
+        with (args.out / "native_scores.jsonl").open("x", encoding="utf-8") as stream, torch.inference_mode():
+            for index, row in enumerate(selected):
+                for fraction in (0.0, .05, .1, .2):
+                    for marked in (False, True):
+                        began = time.perf_counter()
+                        text = row["text" if marked else "original"]
+                        seed = 61125 + 1000 * index + int(fraction * 100)
+                        if fraction:
+                            attack = random.Random(seed)
+                            tokens = tokenizer(text, add_special_tokens=False).input_ids
+                            for position in attack.sample(range(len(tokens)), int(fraction * len(tokens))):
+                                tokens[position] = attack.randrange(len(tokenizer))
+                            text = tokenizer.decode(tokens, skip_special_tokens=True)
+                        scores = score_document(text)
+                        write_record(stream, dict(sample=row["sample"], split="calibration" if index < 8 else "test",
+                                                  fraction=fraction, marked=marked, text=text, scores=scores,
+                                                  key=row["intended"], seconds=time.perf_counter()-began))
+
 
 
 if __name__ == "__main__":
