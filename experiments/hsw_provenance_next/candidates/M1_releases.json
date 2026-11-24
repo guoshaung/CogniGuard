@@ -1,0 +1,458 @@
+[
+  {
+    "release_id": "math-01:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "math-01",
+    "text": "Accordingly, check that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nAccordingly, check that the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+    "sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "T"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-01:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "math-01",
+    "text": "Indeed, verify that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nIndeed, verify that the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+    "sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "T"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-05:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "math-05",
+    "text": "Here, recognize that this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, recognize that in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+    "sha256": "b486857d723a139e0ad637f16c5f16e0fcf16609b58f7bc9384a7efa1a4d7265",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-05:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "math-05",
+    "text": "Specifically, check that this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nSpecifically, check that in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+    "sha256": "b486857d723a139e0ad637f16c5f16e0fcf16609b58f7bc9384a7efa1a4d7265",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-08:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "math-08",
+    "text": "Mathematically, note that this arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nMathematically, note that in the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+    "sha256": "0749a84800b31473c43e74d9540265ab36fc5398394a02dbf78553d5134fb0c2",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-08:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "math-08",
+    "text": "Accordingly, observe that this arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nAccordingly, observe that in the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+    "sha256": "0749a84800b31473c43e74d9540265ab36fc5398394a02dbf78553d5134fb0c2",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-09:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "math-09",
+    "text": "Practically, see that this geometric sequence begins with 3, multiplies by 2 at each step, and runs through term 7.\nPractically, see that in the geometric sequence with first term 3 and ratio 2, the value at position 7 is 192.\nThe sum of the first 7 terms of the geometric sequence with first term 3 and ratio 2 is 381.",
+    "sha256": "46b3a372146344389062432a83a1efe816c69881f1ee4d0aef58d2381e565a18",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "math-09:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "math-09",
+    "text": "Practically, remember that this geometric sequence begins with 3, multiplies by 2 at each step, and runs through term 7.\nPractically, remember that in the geometric sequence with first term 3 and ratio 2, the value at position 7 is 192.\nThe sum of the first 7 terms of the geometric sequence with first term 3 and ratio 2 is 381.",
+    "sha256": "46b3a372146344389062432a83a1efe816c69881f1ee4d0aef58d2381e565a18",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "I"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-01:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "physics-01",
+    "text": "Indeed, consider that the closed piston takes in 900 J of heat and performs 250 J of work, with its bulk kinetic and potential energy unchanged.\nIndeed, consider that for the closed piston receiving 900 J and doing 250 J of work, the internal energy rises by 650 J.\nFor the piston heated by 900 J while doing 250 J of work, internal energy is a state quantity and heat depends on the process.",
+    "sha256": "fd12ac3df56201cefd5cd223a968c6f361858cd1525d0e8b50463ed6df8276bc",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-01:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "physics-01",
+    "text": "Practically, check that the closed piston takes in 900 J of heat and performs 250 J of work, with its bulk kinetic and potential energy unchanged.\nPractically, check that for the closed piston receiving 900 J and doing 250 J of work, the internal energy rises by 650 J.\nFor the piston heated by 900 J while doing 250 J of work, internal energy is a state quantity and heat depends on the process.",
+    "sha256": "fd12ac3df56201cefd5cd223a968c6f361858cd1525d0e8b50463ed6df8276bc",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-05:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "physics-05",
+    "text": "Accordingly, note that an ideal 10 V source starts charging the initially uncharged 1000-ohm and 4-mF series circuit.\nAccordingly, note that for the initially uncharged 1000-ohm and 4-mF series circuit, the resistance times capacitance gives a time constant of 4 seconds.\nAfter one time constant in the initially uncharged 1000-ohm and 4-mF series circuit, the capacitor voltage is approximately 6.32 V.",
+    "sha256": "aae3ff8a4675b16926275034885b5a09df4b145017c7abba74a5bccb1eae9883",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "A"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-05:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "physics-05",
+    "text": "Here, see that an ideal 10 V source starts charging the initially uncharged 1000-ohm and 4-mF series circuit.\nHere, see that for the initially uncharged 1000-ohm and 4-mF series circuit, the resistance times capacitance gives a time constant of 4 seconds.\nAfter one time constant in the initially uncharged 1000-ohm and 4-mF series circuit, the capacitor voltage is approximately 6.32 V.",
+    "sha256": "aae3ff8a4675b16926275034885b5a09df4b145017c7abba74a5bccb1eae9883",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "A"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-10:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "physics-10",
+    "text": "Specifically, consider that consider a horizontal launch at 4 m/s from a 20 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nSpecifically, consider that for a horizontal launch at 4 m/s from a 20 m ledge, the time to reach the ground is 2 seconds.\nFor a horizontal launch at 4 m/s from a 20 m ledge, the first impact is 8 metres horizontally from the launch point.",
+    "sha256": "9738f4e8dbc23fbe024855e063387d992b1669cf737355b6e657d47e8e2e5080",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "C"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-10:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "physics-10",
+    "text": "Overall, consider that consider a horizontal launch at 4 m/s from a 20 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nOverall, consider that for a horizontal launch at 4 m/s from a 20 m ledge, the time to reach the ground is 2 seconds.\nFor a horizontal launch at 4 m/s from a 20 m ledge, the first impact is 8 metres horizontally from the launch point.",
+    "sha256": "9738f4e8dbc23fbe024855e063387d992b1669cf737355b6e657d47e8e2e5080",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "C"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-11:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "physics-11",
+    "text": "Overall, notice that consider a horizontal launch at 2 m/s from a 45 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nOverall, notice that for a horizontal launch at 2 m/s from a 45 m ledge, the time to reach the ground is 3 seconds.\nFor a horizontal launch at 2 m/s from a 45 m ledge, the first impact is 6 metres horizontally from the launch point.",
+    "sha256": "62df0984f83157be6422d96106ccc0dbf77976e1afc6b61193ef98795063f071",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "C"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "physics-11:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "physics-11",
+    "text": "Notably, consider that consider a horizontal launch at 2 m/s from a 45 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nNotably, consider that for a horizontal launch at 2 m/s from a 45 m ledge, the time to reach the ground is 3 seconds.\nFor a horizontal launch at 2 m/s from a 45 m ledge, the first impact is 6 metres horizontally from the launch point.",
+    "sha256": "62df0984f83157be6422d96106ccc0dbf77976e1afc6b61193ef98795063f071",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "C"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-02:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "statistics-02",
+    "text": "Here, notice that for a uniform wait from 0 through 20 minutes, the expected waiting time is 10 minutes.\nHere, notice that for a uniform wait from 0 through 20 minutes, the probability of waiting between 4 and 11 minutes is 7/20.\nFor a uniform wait from 0 through 20 minutes, the probability of a wait lasting exactly 4 minutes is zero.",
+    "sha256": "621e1ad03c2d3c2b28eddf4fa972c12db87e232ce4267b4cb5ffd6648a0d394f",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-02:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "statistics-02",
+    "text": "Indeed, recognize that for a uniform wait from 0 through 20 minutes, the expected waiting time is 10 minutes.\nIndeed, recognize that for a uniform wait from 0 through 20 minutes, the probability of waiting between 4 and 11 minutes is 7/20.\nFor a uniform wait from 0 through 20 minutes, the probability of a wait lasting exactly 4 minutes is zero.",
+    "sha256": "621e1ad03c2d3c2b28eddf4fa972c12db87e232ce4267b4cb5ffd6648a0d394f",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-04:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "statistics-04",
+    "text": "Indeed, note that for a uniform wait from 3 through 23 minutes, the expected waiting time is 13 minutes.\nIndeed, note that for a uniform wait from 3 through 23 minutes, the probability of waiting between 7 and 15 minutes is 2/5.\nFor a uniform wait from 3 through 23 minutes, the probability of a wait lasting exactly 7 minutes is zero.",
+    "sha256": "9be02ad733902ee77a9911ccbed166f26963cde5b3cd5582ee78a1be97d0f876",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-04:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "statistics-04",
+    "text": "Mathematically, see that for a uniform wait from 3 through 23 minutes, the expected waiting time is 13 minutes.\nMathematically, see that for a uniform wait from 3 through 23 minutes, the probability of waiting between 7 and 15 minutes is 2/5.\nFor a uniform wait from 3 through 23 minutes, the probability of a wait lasting exactly 7 minutes is zero.",
+    "sha256": "9be02ad733902ee77a9911ccbed166f26963cde5b3cd5582ee78a1be97d0f876",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "F"
+      ],
+      [
+        1,
+        "F"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-05:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "statistics-05",
+    "text": "Accordingly, recall that the waiting time is modeled by a continuous exponential distribution with mean 50 minutes.\nAccordingly, recall that an exponential waiting time with mean 50 minutes has rate one divided by 50 per minute.\nThe exponential waiting time with mean 50 minutes exceeds 100 minutes with probability about 0.1353.",
+    "sha256": "6a188b5279f16ea4244431fa6d5147737af4dcc04d81517f3779a69fb49258cf",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "A"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-05:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "statistics-05",
+    "text": "Mathematically, check that the waiting time is modeled by a continuous exponential distribution with mean 50 minutes.\nMathematically, check that an exponential waiting time with mean 50 minutes has rate one divided by 50 per minute.\nThe exponential waiting time with mean 50 minutes exceeds 100 minutes with probability about 0.1353.",
+    "sha256": "6a188b5279f16ea4244431fa6d5147737af4dcc04d81517f3779a69fb49258cf",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "A"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-08:issue:issuer-a",
+    "issuer_id": "issuer-a",
+    "source_id": "statistics-08",
+    "text": "Notably, notice that the waiting time is modeled by a continuous exponential distribution with mean 120 minutes.\nNotably, notice that an exponential waiting time with mean 120 minutes has rate one divided by 120 per minute.\nThe exponential waiting time with mean 120 minutes exceeds 240 minutes with probability about 0.1353.",
+    "sha256": "c84b7c8da2e81d4a777faffd52200abf13d0ebe5c101521f7d210972e7d2ed6a",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "A"
+      ]
+    ]
+  },
+  {
+    "release_id": "statistics-08:issue:issuer-b",
+    "issuer_id": "issuer-b",
+    "source_id": "statistics-08",
+    "text": "Practically, verify that the waiting time is modeled by a continuous exponential distribution with mean 120 minutes.\nPractically, verify that an exponential waiting time with mean 120 minutes has rate one divided by 120 per minute.\nThe exponential waiting time with mean 120 minutes exceeds 240 minutes with probability about 0.1353.",
+    "sha256": "c84b7c8da2e81d4a777faffd52200abf13d0ebe5c101521f7d210972e7d2ed6a",
+    "carrier_events": 2,
+    "inserted_words": 6,
+    "cert_inverse": [
+      [
+        0,
+        "T"
+      ],
+      [
+        1,
+        "A"
+      ]
+    ]
+  }
+]

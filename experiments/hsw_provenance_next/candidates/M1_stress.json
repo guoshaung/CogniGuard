@@ -1,0 +1,162 @@
+[
+  {
+    "case_id": "all_deleted",
+    "text": "Accordingly, check that the next class takes place in a different room.",
+    "history_release_ids": [
+      "math-01:issue:issuer-a"
+    ],
+    "supported_release_ids": [],
+    "compatible_source_ids": [],
+    "retained_fact_ids": [],
+    "identical_candidate_release_ids": [],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": []
+  },
+  {
+    "case_id": "part_deleted",
+    "text": "Accordingly, check that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nAccordingly, check that the next class takes place in a different room.",
+    "history_release_ids": [
+      "math-01:issue:issuer-a"
+    ],
+    "supported_release_ids": [
+      "math-01:issue:issuer-a"
+    ],
+    "compatible_source_ids": [
+      "math-01"
+    ],
+    "retained_fact_ids": [
+      "math-01:f1"
+    ],
+    "identical_candidate_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-01:issue:issuer-b"
+    ],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": [
+      "math-01:f1"
+    ]
+  },
+  {
+    "case_id": "copied_unrelated",
+    "text": "Accordingly, check that the next class takes place in a different room.",
+    "history_release_ids": [],
+    "supported_release_ids": [],
+    "compatible_source_ids": [],
+    "retained_fact_ids": [],
+    "identical_candidate_release_ids": [],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": []
+  },
+  {
+    "case_id": "mixed_markers",
+    "text": "Accordingly, check that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, recognize that this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+    "history_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-05:issue:issuer-a"
+    ],
+    "supported_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-05:issue:issuer-a"
+    ],
+    "compatible_source_ids": [
+      "math-01",
+      "math-05"
+    ],
+    "retained_fact_ids": [
+      "math-01:f1",
+      "math-05:f1"
+    ],
+    "identical_candidate_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-01:issue:issuer-b"
+    ],
+    "pred_release": [
+      "math-01:issue:issuer-a",
+      "math-05:issue:issuer-a"
+    ],
+    "pred_fact": [
+      "math-01:f1",
+      "math-05:f1",
+      "math-08:f1"
+    ]
+  },
+  {
+    "case_id": "swapped_binding",
+    "text": "Accordingly, check that this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+    "history_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-05:issue:issuer-a"
+    ],
+    "supported_release_ids": [
+      "math-05:issue:issuer-a"
+    ],
+    "compatible_source_ids": [
+      "math-05"
+    ],
+    "retained_fact_ids": [
+      "math-05:f1"
+    ],
+    "identical_candidate_release_ids": [],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": [
+      "math-05:f1",
+      "math-08:f1"
+    ]
+  },
+  {
+    "case_id": "identical_two_issues",
+    "text": "Accordingly, check that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+    "history_release_ids": [
+      "math-01:issue:issuer-a"
+    ],
+    "supported_release_ids": [
+      "math-01:issue:issuer-a"
+    ],
+    "compatible_source_ids": [
+      "math-01"
+    ],
+    "retained_fact_ids": [
+      "math-01:f1"
+    ],
+    "identical_candidate_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-01:issue:issuer-b"
+    ],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": [
+      "math-01:f1"
+    ]
+  },
+  {
+    "case_id": "independent_same_fact",
+    "text": "Accordingly, check that for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+    "history_release_ids": [],
+    "supported_release_ids": [],
+    "compatible_source_ids": [
+      "math-01"
+    ],
+    "retained_fact_ids": [
+      "math-01:f1"
+    ],
+    "identical_candidate_release_ids": [
+      "math-01:issue:issuer-a",
+      "math-01:issue:issuer-b"
+    ],
+    "pred_release": [
+      "math-01:issue:issuer-a"
+    ],
+    "pred_fact": [
+      "math-01:f1"
+    ]
+  }
+]

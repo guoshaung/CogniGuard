@@ -1,0 +1,418 @@
+{
+  "reused_prior_thresholds_sha256": "73b0f093c2b8c030ef28d313dbbf387cb50a108e3f8ff36904c027205748fce4",
+  "semantic_preprocessing_seconds": 3.38493500003824,
+  "signed_method": "Visible synthetic 128-bit HMAC of issue, fact id and exact fact text; not a robust concealed watermark",
+  "public_fixture_key": true,
+  "gpu_hours": 0,
+  "paid_api_calls": 0,
+  "methods": {
+    "active_variants": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "bge": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "bge_rerank": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "bm25": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "embedded_signature": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 1,
+          "orphan_labels": 0,
+          "non_inherited_labels": 1,
+          "case_exact": 5,
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "issuance_lookup": {
+      "primary": {
+        "source": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [],
+          "release_ids": []
+        }
+      ]
+    },
+    "minhash": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "plain_marker": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 4,
+          "fp": 4,
+          "fn": 1,
+          "orphan_labels": 2,
+          "non_inherited_labels": 2,
+          "case_exact": 3,
+          "precision": 0.5,
+          "recall": 0.8,
+          "f1": 0.6153846153846154
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "plain_marker_content": {
+      "primary": {
+        "source": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "release": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 1,
+          "orphan_labels": 0,
+          "non_inherited_labels": 1,
+          "case_exact": 5,
+          "precision": 0.8,
+          "recall": 0.8,
+          "f1": 0.8
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [
+            "math-01"
+          ],
+          "release_ids": []
+        }
+      ]
+    },
+    "sha256": {
+      "primary": {
+        "source": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "release": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "orphan_labels": 0,
+          "non_inherited_labels": 0,
+          "case_exact": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n": 7,
+      "controls": [
+        {
+          "case_id": "independent_same_fact",
+          "scenario": "unmarked_independent",
+          "source_ids": [],
+          "release_ids": []
+        },
+        {
+          "case_id": "identical_two_issues",
+          "scenario": "unmarked_ambiguous",
+          "source_ids": [],
+          "release_ids": []
+        }
+      ]
+    }
+  }
+}

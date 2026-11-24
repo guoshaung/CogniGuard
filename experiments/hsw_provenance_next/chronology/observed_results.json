@@ -1,0 +1,44 @@
+{
+  "cells": {
+    "0": {
+      "trials": 6,
+      "roundtrip": 6,
+      "unique_exact": {
+        "raw": 0,
+        "visible": 0,
+        "public": 0,
+        "known_hop_public": 3
+      },
+      "raw_public_changes": 0,
+      "visible_public_changes": 0,
+      "early_eos": 1,
+      "mean_seconds": 8.193031833332498
+    },
+    "2": {
+      "trials": 6,
+      "roundtrip": 6,
+      "unique_exact": {
+        "raw": 5,
+        "visible": 5,
+        "public": 5,
+        "known_hop_public": 6
+      },
+      "raw_public_changes": 0,
+      "visible_public_changes": 0,
+      "early_eos": 0,
+      "mean_seconds": 8.142556349999117
+    }
+  },
+  "gate_passed": true,
+  "gpu_hours": 0,
+  "hop_2_prefix_exact": 0,
+  "hop_3_prefix_exact": 0,
+  "multihop_trials": 2,
+  "runtime_directory": "var/results/hsw-st/provenance-next/chronology-v2",
+  "sha256": {
+    "multihop.jsonl": "64e0d2ea72f8ca73c6eeabed4b6960742775718ca359b3b2b87c75c7263a71f6",
+    "one_hop.jsonl": "1963000017fcc7f6cc0770c2a76722898d5a493f5a5fb3efff6db08a4472e699",
+    "protocol.json": "a92ff4b0a71da052e56c9b0d366a5f4877d9e40e6d1141c9c2e5195369f6fb2d",
+    "summary.json": "b8ef17757d69af35715f5869ae2348c9d4c90a3d563ebce55d16607b144fa7a9"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "max_events": 2,
+  "words_per_event": 3,
+  "salience": [
+    1,
+    1,
+    2
+  ],
+  "calibrated_survival": {
+    "1": 0.4338235294117647,
+    "2": 0.41911764705882354,
+    "3": 0.4117647058823529
+  },
+  "calibration_n": 138,
+  "corpus_sha256": "5a8e50ce986253be8d56c038e276716c28fc11a34f3c5df63133a7bab3cf069e",
+  "label_matching": "public experimental codebook",
+  "rewrite_replay": "original-line transport"
+}

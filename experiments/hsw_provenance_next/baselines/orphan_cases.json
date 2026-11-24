@@ -1,0 +1,452 @@
+{
+  "plain": [
+    {
+      "case_id": "all_deleted",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] The next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "part_deleted",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\n[release=math-01:issue:issuer-a] The next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "copied_unrelated",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] The next class takes place in a different room.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "mixed_markers",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\n[release=math-05:issue:issuer-a] This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1",
+        "math-05:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "swapped_binding",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-05:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "exact_replay",
+      "text": "[release=math-01:issue:issuer-a] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "unmarked_independent",
+      "text": "Partition 18, 30, and 42 books by genre into equally populated shelves.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "plain_marker"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "unmarked_ambiguous",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "plain_marker"
+    }
+  ],
+  "signed": [
+    {
+      "case_id": "all_deleted",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] The next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "part_deleted",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\n[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] The next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "copied_unrelated",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] The next class takes place in a different room.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "mixed_markers",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\n[release=math-05:issue:issuer-a;fact=math-05:f1;mac=e6c2549eadcd7e5143122cea1d95e1da] This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1",
+        "math-05:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "swapped_binding",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-05:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "main",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "exact_replay",
+      "text": "[release=math-01:issue:issuer-a;fact=math-01:f1;mac=053db1ee257c213324afbf6b91a0e490] For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "unmarked_independent",
+      "text": "Partition 18, 30, and 42 books by genre into equally populated shelves.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "embedded_signature"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "unmarked_ambiguous",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "embedded_signature"
+    }
+  ],
+  "content": [
+    {
+      "case_id": "all_deleted",
+      "scenario": "main",
+      "text": "The next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "none",
+      "key": "all_deleted|main"
+    },
+    {
+      "case_id": "part_deleted",
+      "scenario": "main",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe next class takes place in a different room.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "none",
+      "key": "part_deleted|main"
+    },
+    {
+      "case_id": "copied_unrelated",
+      "scenario": "main",
+      "text": "The next class takes place in a different room.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [],
+      "retained_fact_ids": [],
+      "credential": "none",
+      "key": "copied_unrelated|main"
+    },
+    {
+      "case_id": "mixed_markers",
+      "scenario": "main",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1",
+        "math-05:f1"
+      ],
+      "credential": "none",
+      "key": "mixed_markers|main"
+    },
+    {
+      "case_id": "swapped_binding",
+      "scenario": "main",
+      "text": "This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-05:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-05"
+      ],
+      "retained_fact_ids": [
+        "math-05:f1"
+      ],
+      "credential": "none",
+      "key": "swapped_binding|main"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "main",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-a"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "none",
+      "key": "identical_two_issues|main"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "exact_replay",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "none",
+      "key": "independent_same_fact|exact_replay"
+    },
+    {
+      "case_id": "independent_same_fact",
+      "scenario": "unmarked_independent",
+      "text": "Partition 18, 30, and 42 books by genre into equally populated shelves.",
+      "history_release_ids": [],
+      "supported_release_ids": [],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "none",
+      "key": "independent_same_fact|unmarked_independent"
+    },
+    {
+      "case_id": "identical_two_issues",
+      "scenario": "unmarked_ambiguous",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+      "history_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "supported_release_ids": [
+        "math-01:issue:issuer-b"
+      ],
+      "compatible_source_ids": [
+        "math-01"
+      ],
+      "retained_fact_ids": [
+        "math-01:f1"
+      ],
+      "credential": "none",
+      "key": "identical_two_issues|unmarked_ambiguous"
+    }
+  ]
+}
