@@ -1,0 +1,37 @@
+{
+  "upstream_commit": "7439ecee8891c6e8226f02fa8c1a650d3e10aaff",
+  "paper_sha256": "1fa1f5c4a8472ce2b1238dd0ac5c91f347e523a2479cb72bb1cbaee51220a5e5",
+  "paper_main": {
+    "family": "TinyLlama-1.1B",
+    "data": "C4 RealNewsLike",
+    "tokens": 128,
+    "checkpoint": "unlocated"
+  },
+  "release_demo": {
+    "model_shards": [
+      {
+        "id": "xiaojunxu/WatermarkEncoder-Qwen2.5-7b-it-model0",
+        "rev": "e96da0175b213318797629c46e5bba1a0ddd08cb",
+        "bytes": 30462504632
+      },
+      {
+        "id": "xiaojunxu/WatermarkEncoder-Qwen2.5-7b-it-model1",
+        "rev": "f7eca654c4228e157e579ba38491e495f663963d",
+        "bytes": 30462504632
+      },
+      {
+        "id": "xiaojunxu/WatermarkDecoder-Qwen2.5-1.5b",
+        "rev": "79ccfb8190efd4ef50c32278da381d7de68c4a4a",
+        "bytes": 3087465120
+      }
+    ],
+    "decoder_head_sha256": "41fc586b054ab18b8a22a0930d5334e33eee1da748af246d804727fa870d91aa",
+    "batch_size": 4,
+    "repeats": 4,
+    "max_input_tokens_argument": 512,
+    "max_generated_tokens": 512,
+    "model_dtype": "bfloat16",
+    "target": "cuda:0",
+    "similarity": "all-mpnet-base-v2"
+  }
+}

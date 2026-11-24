@@ -1,0 +1,19 @@
+{
+  "gpu_mib": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188, 5042",
+  "local_python": "3.12.10",
+  "hashes": {
+    "gen_utils.py": "9198daebdb3a97ae0a3ca9bae2a74140c150110fc99c646776b7e8dfb2611853",
+    "watermark_demo.py": "0018a6d3c9790459d3645237e63c7f07295d1cbdd8118c1d227f6a82703d3bdc",
+    "watermark_test_text.txt": "e4c7dc4cfe3c93d1c1cedf44bbb8d41822a2220977bd1e6a304a663f24289ac4",
+    "c4-len128-test.json": "610c942875ad3642f45588cc3cf81d6db006eeeae58d3e6323681854a1868ca6"
+  },
+  "demo_source_sentence_counts": [
+    8,
+    8
+  ],
+  "model_predictions": 0,
+  "c4_rows": 10000,
+  "c4_row_keys": [
+    "text"
+  ]
+}
