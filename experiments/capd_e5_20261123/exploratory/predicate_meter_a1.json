@@ -1,0 +1,287 @@
+{
+  "8": {
+    "lexical": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.6908333333333333,
+          "extra_per_text": 1.5458333333333334
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.4054621848739496,
+          "extra_per_text": 2.1934501142421934
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.33,
+          "extra_per_text": 1.98
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.875,
+          "extra_per_text": 0.625
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.7237394957983193,
+          "extra_per_text": 1.0083777608530085
+        }
+      }
+    },
+    "predicate_text": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.38333333333333336
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.8400609291698401
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.455,
+          "extra_per_text": 0.5616666666666666
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.39947916666666666
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.897943640517898
+        }
+      }
+    },
+    "predicate_sentence": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.38333333333333336
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.5346534653465347
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.455,
+          "extra_per_text": 0.5616666666666666
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.10302083333333334,
+          "extra_per_text": 0.38614583333333335
+        },
+        "combo": {
+          "texts": 1313,
+          "unit_miss_rate": 0.09838935574229692,
+          "extra_per_text": 0.5788271134805788
+        }
+      }
+    }
+  },
+  "16": {
+    "lexical": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.6808333333333333,
+          "extra_per_text": 1.5958333333333334
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.3446107784431138,
+          "extra_per_text": 2.135658914728682
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.34,
+          "extra_per_text": 2.04
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.875,
+          "extra_per_text": 0.625
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.661377245508982,
+          "extra_per_text": 1.0705426356589147
+        }
+      }
+    },
+    "predicate_text": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.37416666666666665
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.8744186046511628
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.43,
+          "extra_per_text": 0.5266666666666666
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.39208333333333334
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.9434108527131783
+        }
+      }
+    },
+    "predicate_sentence": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.37416666666666665
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.5395348837209303
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.43,
+          "extra_per_text": 0.5266666666666666
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.104375,
+          "extra_per_text": 0.38
+        },
+        "combo": {
+          "texts": 1290,
+          "unit_miss_rate": 0.10089820359281437,
+          "extra_per_text": 0.5883720930232558
+        }
+      }
+    }
+  },
+  "32": {
+    "lexical": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.6691666666666667,
+          "extra_per_text": 1.6541666666666666
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.2699008308764406,
+          "extra_per_text": 2.11620294599018
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.29833333333333334,
+          "extra_per_text": 1.79
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.875,
+          "extra_per_text": 0.625
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.6148485660680783,
+          "extra_per_text": 1.0810147299509
+        }
+      }
+    },
+    "predicate_text": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.36833333333333335
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.8968903436988543
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.455,
+          "extra_per_text": 0.5683333333333334
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.3840625
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.9918166939443536
+        }
+      }
+    },
+    "predicate_sentence": {
+      "original": {
+        "unit": {
+          "texts": 1200,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.36833333333333335
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.0,
+          "extra_per_text": 0.516366612111293
+        },
+        "decoy": {
+          "texts": 600,
+          "false_flag_rate": 0.455,
+          "extra_per_text": 0.5683333333333334
+        }
+      },
+      "heldout": {
+        "unit": {
+          "texts": 9600,
+          "unit_miss_rate": 0.1040625,
+          "extra_per_text": 0.3709375
+        },
+        "combo": {
+          "texts": 1222,
+          "unit_miss_rate": 0.09246850710265345,
+          "extra_per_text": 0.5867430441898527
+        }
+      }
+    }
+  }
+}

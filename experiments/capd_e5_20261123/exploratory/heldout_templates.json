@@ -1,0 +1,13 @@
+{
+  "note": "Fixed before PredicateMeter was written. Placeholders: {f}/{v} digits, {fw}/{vw} number words, {fo} ordinal of f+1. Used only to measure A1 on rephrased text.",
+  "templates": [
+    "Feature {f} takes the value {v}.",
+    "Attribute number {fw} is set to {vw}.",
+    "Value {v} appears in slot {f}.",
+    "The {fo} property is {v}.",
+    "Look at feature {f}. Its value: {v}.",
+    "feature {fw} has value {vw}",
+    "For dimension #{f} the answer is {v}!",
+    "{v} is what you get for characteristic {f}."
+  ]
+}

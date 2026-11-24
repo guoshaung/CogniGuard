@@ -1,0 +1,59 @@
+{
+  "8": {
+    "unit": {
+      "texts": 1200,
+      "unit_miss_rate": 0.6908333333333333,
+      "text_miss_rate": 0.6908333333333333,
+      "extra_units_per_text": 1.5458333333333334
+    },
+    "combo": {
+      "texts": 1313,
+      "unit_miss_rate": 0.4054621848739496,
+      "text_miss_rate": 0.4188880426504189,
+      "extra_units_per_text": 2.1934501142421934
+    },
+    "decoy": {
+      "texts": 600,
+      "false_flag_rate": 0.33,
+      "flagged_units_per_text": 1.98
+    }
+  },
+  "16": {
+    "unit": {
+      "texts": 1200,
+      "unit_miss_rate": 0.6808333333333333,
+      "text_miss_rate": 0.6808333333333333,
+      "extra_units_per_text": 1.5958333333333334
+    },
+    "combo": {
+      "texts": 1290,
+      "unit_miss_rate": 0.3446107784431138,
+      "text_miss_rate": 0.3612403100775194,
+      "extra_units_per_text": 2.135658914728682
+    },
+    "decoy": {
+      "texts": 600,
+      "false_flag_rate": 0.34,
+      "flagged_units_per_text": 2.04
+    }
+  },
+  "32": {
+    "unit": {
+      "texts": 1200,
+      "unit_miss_rate": 0.6691666666666667,
+      "text_miss_rate": 0.6691666666666667,
+      "extra_units_per_text": 1.6541666666666666
+    },
+    "combo": {
+      "texts": 1222,
+      "unit_miss_rate": 0.2699008308764406,
+      "text_miss_rate": 0.27577741407528644,
+      "extra_units_per_text": 2.11620294599018
+    },
+    "decoy": {
+      "texts": 600,
+      "false_flag_rate": 0.29833333333333334,
+      "flagged_units_per_text": 1.79
+    }
+  }
+}
