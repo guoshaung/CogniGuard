@@ -1,0 +1,2948 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "s1-same-perm-meta",
+      "group": "x3",
+      "origin": "controlled_fixture",
+      "note": "meta keeps an issuance id; that id is not trusted",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "s2-other-grantee",
+      "group": "x3",
+      "origin": "controlled_fixture",
+      "note": "metadata and receipt stripped",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a2-u3"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a2-u3"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "s4-teach-read",
+      "group": "x3",
+      "origin": "controlled_fixture",
+      "note": "metadata and receipt stripped",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a3-teach"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a3-teach"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "s3-live-copy",
+      "group": "x3",
+      "origin": "controlled_fixture",
+      "note": "revoked sibling iss-a4-old is not this copy",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a4-new"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a4-new"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "s6-external-copy",
+      "group": "x3",
+      "origin": "controlled_fixture",
+      "note": "boundary drops metadata; registry has no redistribution field",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a7-ext"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a7-ext"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "same-text-two-issuances",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "one body, education and research issuances; the credential names teaching",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a3-teach"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a3-teach"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a3-teach"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a3-teach"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "research-on-teaching-copy",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "wrong mark says research; the true copy is the teaching issuance",
+      "oracle_allow": false,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a3-teach"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "rounds-1",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "controlled mark confidence 0.9 after 1 hops; the log does not decay",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "rounds-3",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "controlled mark confidence 0.5 after 3 hops; the log does not decay",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "rounds-5",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "controlled mark confidence 0.2 after 5 hops; the log does not decay",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "summary-credential-kept",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "summary keeps the embedded credential",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "paraphrase-credential-lost",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "paraphrase drops the credential; a weak mark remains",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "fusion-two-sources",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "derived text keeps both source logs",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-r1",
+        "iss-r2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "multiple",
+          "authorizing_issuance_ids": [
+            "iss-r1",
+            "iss-r2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "multiple",
+          "authorizing_issuance_ids": [
+            "iss-r1",
+            "iss-r2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "multiple",
+          "authorizing_issuance_ids": [
+            "iss-r1",
+            "iss-r2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "metadata-missing",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "no source metadata channel exists on this artifact",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a1-u2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "residual-mark-knowledge-gone",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "credential and mark remain; the knowledge check asserts no units",
+      "oracle_allow": false,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-doc2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-doc2"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": true
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "mismatch",
+          "source_status": "mismatch",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "mismatch",
+          "source_status": "mismatch",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "detector-false-empty",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "units are still present; the controlled mark falsely asserts they are gone",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-doc2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-doc2"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": true
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "mismatch",
+          "source_status": "mismatch",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-doc2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "copied-mark-wrong-grantee",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "outsider has no grant; the copied mark names u2",
+      "oracle_allow": false,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a1-u2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "independent-generation",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "same units generated independently; fingerprint collides with A1 and is not a hop",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-doc3"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-doc3"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "grant-expired",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "the grant's expires_at equals now, so the registry denies",
+      "oracle_allow": false,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-doc2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "policy-version-bump",
+      "group": "software",
+      "origin": "controlled_fixture",
+      "note": "ownership policy is 2; the grant and the credential stay at version 1",
+      "oracle_allow": false,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-key"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "unauthorized",
+          "source_status": "unauthorized",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "readme-stays-authorized",
+      "group": "software",
+      "origin": "controlled_fixture",
+      "note": "the key policy bump does not revoke the readme grant",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-readme"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-readme"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "unrecorded-share",
+      "group": "education",
+      "origin": "controlled_fixture",
+      "note": "partner already holds unit b; only a trusted log may enter that holding",
+      "oracle_allow": false,
+      "oracle_coalition_safe": false,
+      "true_issuance_ids": [
+        "iss-edu-s1"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "edu-one-unit",
+      "group": "education",
+      "origin": "controlled_fixture",
+      "note": "one witness member; k=2 does not finish the target",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-edu-s1"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s1"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "sibling-revoked-live-grant",
+      "group": "propagation",
+      "origin": "controlled_fixture",
+      "note": "iss-a4-old is revoked; iss-a4-new still authorizes",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-a4-new"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "independent_grant",
+          "authorizing_issuance_ids": [
+            "iss-a4-new"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "independent_grant",
+          "authorizing_issuance_ids": [
+            "iss-a4-new"
+          ],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-a4-new"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "edu-completing-unit",
+      "group": "education",
+      "origin": "controlled_fixture",
+      "note": "s1 holds unit a; releasing b to s2 finishes the witness",
+      "oracle_allow": false,
+      "oracle_coalition_safe": false,
+      "true_issuance_ids": [
+        "iss-edu-s2"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": false,
+          "reason": "reconstruction",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-edu-s2"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": false,
+          "mismatch_reported": false
+        }
+      }
+    },
+    {
+      "scenario_id": "attribute-one-signal",
+      "group": "education",
+      "origin": "controlled_fixture",
+      "note": "one attribute signal; the other signal is not held",
+      "oracle_allow": true,
+      "oracle_coalition_safe": true,
+      "true_issuance_ids": [
+        "iss-attr"
+      ],
+      "arms": {
+        "B0": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B1": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B2": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B3": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B4": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "B5": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": false,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Ours": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "registry",
+          "authorizing_issuance_ids": [],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        },
+        "Oracle": {
+          "allowed": true,
+          "reason": "ok",
+          "source_status": "unique",
+          "authorizing_issuance_ids": [
+            "iss-attr"
+          ],
+          "confirmed_propagation": true,
+          "charged_budget": false,
+          "changes_production_path": false,
+          "coalition_safe": true,
+          "mismatch_reported": false
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "B0": {
+      "unauthorized_success": 0.42857142857142855,
+      "unauthorized_success_count": [
+        3,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.045454545454545456,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 3,
+      "additional_correct_vs_b0": 0,
+      "confirmed_propagation_count": 0,
+      "charged_budget_count": 0
+    },
+    "B1": {
+      "unauthorized_success": 0.42857142857142855,
+      "unauthorized_success_count": [
+        3,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.045454545454545456,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 3,
+      "additional_correct_vs_b0": 0,
+      "confirmed_propagation_count": 0,
+      "charged_budget_count": 0
+    },
+    "B2": {
+      "unauthorized_success": 0.2857142857142857,
+      "unauthorized_success_count": [
+        2,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.047619047619047616,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 0,
+      "additional_correct_vs_b0": 1,
+      "confirmed_propagation_count": 0,
+      "charged_budget_count": 0
+    },
+    "B3": {
+      "unauthorized_success": 0.2857142857142857,
+      "unauthorized_success_count": [
+        2,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.0,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 2,
+      "additional_correct_vs_b0": 1,
+      "confirmed_propagation_count": 7,
+      "charged_budget_count": 0
+    },
+    "B4": {
+      "unauthorized_success": 0.42857142857142855,
+      "unauthorized_success_count": [
+        3,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.045454545454545456,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 3,
+      "additional_correct_vs_b0": 0,
+      "confirmed_propagation_count": 0,
+      "charged_budget_count": 0
+    },
+    "B5": {
+      "unauthorized_success": 0.42857142857142855,
+      "unauthorized_success_count": [
+        3,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.045454545454545456,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 3,
+      "additional_correct_vs_b0": 0,
+      "confirmed_propagation_count": 0,
+      "charged_budget_count": 0
+    },
+    "Ours": {
+      "unauthorized_success": 0.0,
+      "unauthorized_success_count": [
+        0,
+        7
+      ],
+      "benign_success": 0.9473684210526315,
+      "false_reject": 0.05263157894736842,
+      "coalition_violation_among_allows": 0.0,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 0,
+      "additional_correct_vs_b0": 3,
+      "confirmed_propagation_count": 7,
+      "charged_budget_count": 0
+    },
+    "Oracle": {
+      "unauthorized_success": 0.0,
+      "unauthorized_success_count": [
+        0,
+        7
+      ],
+      "benign_success": 1.0,
+      "false_reject": 0.0,
+      "coalition_violation_among_allows": 0.0,
+      "wrong_attribution_authorization_count": 0,
+      "wrong_attribution_authorization_rate": 0.0,
+      "registry_allow_without_true_issuance_count": 0,
+      "additional_correct_vs_b0": 3,
+      "confirmed_propagation_count": 26,
+      "charged_budget_count": 0
+    }
+  },
+  "interface_regression": [
+    {
+      "scenario_id": "s1-same-perm-meta",
+      "watermark_only_allowed": false,
+      "watermark_confirmed_propagation": false,
+      "watermark_charged_budget": false,
+      "credential_allowed": true,
+      "credential_confirmed_propagation": false,
+      "changes_production_path": false
+    },
+    {
+      "scenario_id": "s2-other-grantee",
+      "watermark_only_allowed": false,
+      "watermark_confirmed_propagation": false,
+      "watermark_charged_budget": false,
+      "credential_allowed": true,
+      "credential_confirmed_propagation": false,
+      "changes_production_path": false
+    },
+    {
+      "scenario_id": "s4-teach-read",
+      "watermark_only_allowed": false,
+      "watermark_confirmed_propagation": false,
+      "watermark_charged_budget": false,
+      "credential_allowed": true,
+      "credential_confirmed_propagation": false,
+      "changes_production_path": false
+    },
+    {
+      "scenario_id": "s3-live-copy",
+      "watermark_only_allowed": false,
+      "watermark_confirmed_propagation": false,
+      "watermark_charged_budget": false,
+      "credential_allowed": true,
+      "credential_confirmed_propagation": false,
+      "changes_production_path": false
+    },
+    {
+      "scenario_id": "s6-external-copy",
+      "watermark_only_allowed": false,
+      "watermark_confirmed_propagation": false,
+      "watermark_charged_budget": false,
+      "credential_allowed": true,
+      "credential_confirmed_propagation": false,
+      "changes_production_path": false
+    }
+  ],
+  "latency_ms": {
+    "median_ms": {
+      "B0": 0.009417010005563498,
+      "B1": 0.0076669966802001,
+      "B2": 0.008041039109230042,
+      "B3": 0.007709022611379623,
+      "B4": 0.007707974873483181,
+      "B5": 0.007416994776576757,
+      "Ours": 0.009124982170760632,
+      "Oracle": 0.011124997399747372
+    },
+    "overhead_vs_b0": {
+      "B0": 1.0,
+      "B1": 0.8141646526520092,
+      "B2": 0.8538845243319756,
+      "B3": 0.8186274206807884,
+      "B4": 0.8185161605360266,
+      "B5": 0.7876167458880104,
+      "Ours": 0.968989325207222,
+      "Oracle": 1.1813725793192116
+    }
+  },
+  "round_decisions_stable": true,
+  "pilot": {
+    "pilot_status": "ABSENT",
+    "found": [],
+    "missing": [
+      "/Users/MBP/Exp/CogniGuard/CogniGuard/experiments/hsw_provenance/PILOT_RESULTS.md",
+      "/Users/MBP/Exp/CogniGuard/CogniGuard/experiments/hsw_provenance/evaluation.json",
+      "/Users/MBP/Exp/CogniGuard/CogniGuard/experiments/hsw_provenance/evaluation_38.json",
+      "/Users/MBP/Exp/CogniGuard/CogniGuard/experiments/hsw_provenance/watermark/orphan_stress.json"
+    ],
+    "git_cat_file_d7239c4": "exit 128: fatal: Not a valid object name d7239c4",
+    "origin_codex_hsw_st": "exit 0: 9be4d7301c139361664c25f47e75f6ef988efe77",
+    "note": "The cited server pilot was not measured here. 38 sources, 1288 endpoints, and 616/2052 are unverified user-side claims."
+  },
+  "education_gate": {
+    "teaching_one_unit_allowed": true,
+    "teaching_one_unit_committed": true,
+    "teaching_completing_unit_reason": "reconstruction",
+    "stranger_reason": "unauthorized",
+    "attribute_one_signal_allowed": true,
+    "attribute_one_signal_committed": true,
+    "attribute_completing_reason": "reconstruction",
+    "attribute_kind": "student_attribute"
+  },
+  "software_gate": {
+    "runbook_reserved": true,
+    "commit_after_policy_bump": false,
+    "key_after_bump_reason": "unauthorized",
+    "readme_still_allowed": true
+  },
+  "round_trip_note": "Replace fixtures by dropping a propagation bundle that validates against schema/propagation_bundle.schema.json. This run did not receive one."
+}

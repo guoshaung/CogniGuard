@@ -1,0 +1,51 @@
+{
+  "bundle_id": "controlled-rounds-1",
+  "artifact_id": "rounds",
+  "text_sha256": "",
+  "propagation_rounds": 1,
+  "transform": "identity",
+  "channels": {
+    "watermark": [
+      {
+        "evidence_id": "rounds-1-mark",
+        "evidence_type": "watermark",
+        "artifact_id": "rounds",
+        "candidate_issuance_ids": [
+          "iss-a1-u2"
+        ],
+        "matched_knowledge_units": [
+          [
+            "A1",
+            "body"
+          ]
+        ],
+        "confidence": 0.9,
+        "verification_status": "verified",
+        "trusted_event_id": null,
+        "policy_version": 1
+      }
+    ],
+    "trusted_log": [
+      {
+        "evidence_id": "rounds-1-log",
+        "evidence_type": "trusted_log",
+        "artifact_id": "rounds",
+        "candidate_issuance_ids": [
+          "iss-a1-u2"
+        ],
+        "matched_knowledge_units": [
+          [
+            "A1",
+            "body"
+          ]
+        ],
+        "confidence": 0.0,
+        "verification_status": "verified",
+        "trusted_event_id": "issue-a1-1",
+        "policy_version": 1,
+        "holder_principal_id": "u2"
+      }
+    ]
+  },
+  "origin": "controlled_fixture"
+}

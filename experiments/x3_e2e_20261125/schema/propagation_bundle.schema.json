@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/propagation_bundle.json",
+  "title": "PropagationBundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bundle_id", "artifact_id", "channels"],
+  "properties": {
+    "bundle_id": {"type": "string", "minLength": 1},
+    "artifact_id": {"type": "string", "minLength": 1},
+    "text_sha256": {"type": "string"},
+    "propagation_rounds": {"type": "integer", "minimum": 0},
+    "transform": {
+      "enum": ["identity", "summary", "paraphrase", "fusion", "independent"]
+    },
+    "channels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fingerprint": {"$ref": "#/$defs/rows"},
+        "watermark": {"$ref": "#/$defs/rows"},
+        "signed_credential": {"$ref": "#/$defs/rows"},
+        "trusted_log": {"$ref": "#/$defs/rows"},
+        "ideal": {"$ref": "#/$defs/rows"}
+      }
+    }
+  },
+  "$defs": {
+    "rows": {
+      "type": "array",
+      "items": {"$ref": "source_evidence.schema.json"}
+    }
+  },
+  "description": "Codex writes decode, candidate, propagation, and knowledge-check rows. Grok reads them. A channel that is absent was not observed. Callers must not fill a missing channel with another method's rows."
+}

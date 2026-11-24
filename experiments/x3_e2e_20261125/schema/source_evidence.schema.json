@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/source_evidence.json",
+  "title": "SourceEvidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "evidence_type",
+    "artifact_id",
+    "candidate_issuance_ids",
+    "matched_knowledge_units",
+    "confidence",
+    "verification_status",
+    "trusted_event_id",
+    "policy_version"
+  ],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "evidence_type": {
+      "enum": ["fingerprint", "watermark", "signed_credential", "trusted_log", "ideal"]
+    },
+    "artifact_id": {"type": "string", "minLength": 1},
+    "candidate_issuance_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "matched_knowledge_units": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [{"type": "string"}, {"type": "string"}],
+        "minItems": 2,
+        "maxItems": 2
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "verification_status": {"enum": ["verified", "unverified", "conflict", "absent"]},
+    "trusted_event_id": {"type": ["string", "null"]},
+    "policy_version": {"type": "integer"},
+    "holdings_asserted": {"type": "boolean"},
+    "holder_principal_id": {"type": ["string", "null"]}
+  },
+  "description": "Watermark and fingerprint confidence is not a trusted event. A trusted_log row is a trusted event only when verification_status is verified and trusted_event_id is non-empty. signed_credential proves issuance identity, not a later propagation hop."
+}
