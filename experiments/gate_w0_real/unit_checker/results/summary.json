@@ -1,0 +1,579 @@
+{
+  "comparison": {
+    "all/containment": {
+      "units": {
+        "tp": 292,
+        "fp": 0,
+        "fn": 511,
+        "tn": 495,
+        "precision": 1.0,
+        "recall": 0.36363636363636365,
+        "f1": 0.5333333333333333,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 6480,
+        "hazard": 803,
+        "safe": 5677,
+        "dangerous_allow": 511,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.6363636363636364,
+        "over_refusal_rate": 0.0
+      }
+    },
+    "all/bge_unit": {
+      "units": {
+        "tp": 188,
+        "fp": 2,
+        "fn": 615,
+        "tn": 493,
+        "precision": 0.9894736842105263,
+        "recall": 0.23412204234122042,
+        "f1": 0.37865055387714,
+        "false_confirmation_rate": 0.00404040404040404,
+        "false_discovery_rate": 0.010526315789473684
+      },
+      "governance": {
+        "requests": 6480,
+        "hazard": 803,
+        "safe": 5677,
+        "dangerous_allow": 615,
+        "over_refusal": 2,
+        "dangerous_allow_rate": 0.7658779576587795,
+        "over_refusal_rate": 0.00035229874933943986
+      }
+    },
+    "all/nli": {
+      "units": {
+        "tp": 654,
+        "fp": 16,
+        "fn": 149,
+        "tn": 479,
+        "precision": 0.9761194029850746,
+        "recall": 0.8144458281444583,
+        "f1": 0.8879837067209776,
+        "false_confirmation_rate": 0.03232323232323232,
+        "false_discovery_rate": 0.023880597014925373
+      },
+      "governance": {
+        "requests": 6480,
+        "hazard": 803,
+        "safe": 5677,
+        "dangerous_allow": 149,
+        "over_refusal": 16,
+        "dangerous_allow_rate": 0.1855541718555417,
+        "over_refusal_rate": 0.002818389994715519
+      }
+    },
+    "all/nli_consistency": {
+      "units": {
+        "tp": 591,
+        "fp": 9,
+        "fn": 212,
+        "tn": 486,
+        "precision": 0.985,
+        "recall": 0.7359900373599004,
+        "f1": 0.84248039914469,
+        "false_confirmation_rate": 0.01818181818181818,
+        "false_discovery_rate": 0.015
+      },
+      "governance": {
+        "requests": 6480,
+        "hazard": 803,
+        "safe": 5677,
+        "dangerous_allow": 212,
+        "over_refusal": 9,
+        "dangerous_allow_rate": 0.2640099626400996,
+        "over_refusal_rate": 0.0015853443720274794
+      }
+    },
+    "all/candidate_ideal": {
+      "units": {
+        "tp": 759,
+        "fp": 0,
+        "fn": 44,
+        "tn": 495,
+        "precision": 1.0,
+        "recall": 0.9452054794520548,
+        "f1": 0.971830985915493,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 6480,
+        "hazard": 803,
+        "safe": 5677,
+        "dangerous_allow": 44,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.0547945205479452,
+        "over_refusal_rate": 0.0
+      }
+    },
+    "model/containment": {
+      "units": {
+        "tp": 24,
+        "fp": 0,
+        "fn": 511,
+        "tn": 316,
+        "precision": 1.0,
+        "recall": 0.044859813084112146,
+        "f1": 0.08586762075134168,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 3888,
+        "hazard": 535,
+        "safe": 3353,
+        "dangerous_allow": 511,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.9551401869158879,
+        "over_refusal_rate": 0.0
+      }
+    },
+    "model/bge_unit": {
+      "units": {
+        "tp": 25,
+        "fp": 2,
+        "fn": 510,
+        "tn": 314,
+        "precision": 0.9259259259259259,
+        "recall": 0.04672897196261682,
+        "f1": 0.08896797153024912,
+        "false_confirmation_rate": 0.006329113924050633,
+        "false_discovery_rate": 0.07407407407407407
+      },
+      "governance": {
+        "requests": 3888,
+        "hazard": 535,
+        "safe": 3353,
+        "dangerous_allow": 510,
+        "over_refusal": 2,
+        "dangerous_allow_rate": 0.9532710280373832,
+        "over_refusal_rate": 0.0005964807634953773
+      }
+    },
+    "model/nli": {
+      "units": {
+        "tp": 386,
+        "fp": 16,
+        "fn": 149,
+        "tn": 300,
+        "precision": 0.9601990049751243,
+        "recall": 0.7214953271028037,
+        "f1": 0.823906083244397,
+        "false_confirmation_rate": 0.05063291139240506,
+        "false_discovery_rate": 0.03980099502487562
+      },
+      "governance": {
+        "requests": 3888,
+        "hazard": 535,
+        "safe": 3353,
+        "dangerous_allow": 149,
+        "over_refusal": 16,
+        "dangerous_allow_rate": 0.27850467289719627,
+        "over_refusal_rate": 0.0047718461079630185
+      }
+    },
+    "model/nli_consistency": {
+      "units": {
+        "tp": 323,
+        "fp": 9,
+        "fn": 212,
+        "tn": 307,
+        "precision": 0.9728915662650602,
+        "recall": 0.6037383177570094,
+        "f1": 0.7450980392156863,
+        "false_confirmation_rate": 0.028481012658227847,
+        "false_discovery_rate": 0.02710843373493976
+      },
+      "governance": {
+        "requests": 3888,
+        "hazard": 535,
+        "safe": 3353,
+        "dangerous_allow": 212,
+        "over_refusal": 9,
+        "dangerous_allow_rate": 0.39626168224299063,
+        "over_refusal_rate": 0.0026841634357291978
+      }
+    },
+    "model/candidate_ideal": {
+      "units": {
+        "tp": 491,
+        "fp": 0,
+        "fn": 44,
+        "tn": 316,
+        "precision": 1.0,
+        "recall": 0.9177570093457944,
+        "f1": 0.9571150097465887,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 3888,
+        "hazard": 535,
+        "safe": 3353,
+        "dangerous_allow": 44,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.08224299065420561,
+        "over_refusal_rate": 0.0
+      }
+    },
+    "plain_model/containment": {
+      "units": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 131,
+        "tn": 76,
+        "precision": 1.0,
+        "recall": 0.043795620437956206,
+        "f1": 0.08391608391608392,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 972,
+        "hazard": 137,
+        "safe": 835,
+        "dangerous_allow": 131,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.9562043795620438,
+        "over_refusal_rate": 0.0
+      }
+    },
+    "plain_model/bge_unit": {
+      "units": {
+        "tp": 6,
+        "fp": 2,
+        "fn": 131,
+        "tn": 74,
+        "precision": 0.75,
+        "recall": 0.043795620437956206,
+        "f1": 0.08275862068965517,
+        "false_confirmation_rate": 0.02631578947368421,
+        "false_discovery_rate": 0.25
+      },
+      "governance": {
+        "requests": 972,
+        "hazard": 137,
+        "safe": 835,
+        "dangerous_allow": 131,
+        "over_refusal": 2,
+        "dangerous_allow_rate": 0.9562043795620438,
+        "over_refusal_rate": 0.0023952095808383233
+      }
+    },
+    "plain_model/nli": {
+      "units": {
+        "tp": 99,
+        "fp": 4,
+        "fn": 38,
+        "tn": 72,
+        "precision": 0.9611650485436893,
+        "recall": 0.7226277372262774,
+        "f1": 0.825,
+        "false_confirmation_rate": 0.05263157894736842,
+        "false_discovery_rate": 0.038834951456310676
+      },
+      "governance": {
+        "requests": 972,
+        "hazard": 137,
+        "safe": 835,
+        "dangerous_allow": 38,
+        "over_refusal": 4,
+        "dangerous_allow_rate": 0.2773722627737226,
+        "over_refusal_rate": 0.004790419161676647
+      }
+    },
+    "plain_model/nli_consistency": {
+      "units": {
+        "tp": 82,
+        "fp": 4,
+        "fn": 55,
+        "tn": 72,
+        "precision": 0.9534883720930233,
+        "recall": 0.5985401459854015,
+        "f1": 0.7354260089686099,
+        "false_confirmation_rate": 0.05263157894736842,
+        "false_discovery_rate": 0.046511627906976744
+      },
+      "governance": {
+        "requests": 972,
+        "hazard": 137,
+        "safe": 835,
+        "dangerous_allow": 55,
+        "over_refusal": 4,
+        "dangerous_allow_rate": 0.40145985401459855,
+        "over_refusal_rate": 0.004790419161676647
+      }
+    },
+    "plain_model/candidate_ideal": {
+      "units": {
+        "tp": 125,
+        "fp": 0,
+        "fn": 12,
+        "tn": 76,
+        "precision": 1.0,
+        "recall": 0.9124087591240876,
+        "f1": 0.9541984732824428,
+        "false_confirmation_rate": 0.0,
+        "false_discovery_rate": 0.0
+      },
+      "governance": {
+        "requests": 972,
+        "hazard": 137,
+        "safe": 835,
+        "dangerous_allow": 12,
+        "over_refusal": 0,
+        "dangerous_allow_rate": 0.08759124087591241,
+        "over_refusal_rate": 0.0
+      }
+    }
+  },
+  "stress": {
+    "containment/paraphrase": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 8,
+      "tn": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_confirmation_rate": null,
+      "false_discovery_rate": null
+    },
+    "bge_unit/paraphrase": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 8,
+      "tn": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "false_confirmation_rate": null,
+      "false_discovery_rate": null
+    },
+    "nli/paraphrase": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 4,
+      "tn": 0,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "false_confirmation_rate": null,
+      "false_discovery_rate": 0.0
+    },
+    "nli_consistency/paraphrase": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 5,
+      "tn": 0,
+      "precision": 1.0,
+      "recall": 0.375,
+      "f1": 0.5454545454545454,
+      "false_confirmation_rate": null,
+      "false_discovery_rate": 0.0
+    },
+    "containment/number": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "bge_unit/number": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli/number": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli_consistency/number": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "containment/unit": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "tn": 3,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0,
+      "false_confirmation_rate": 0.25,
+      "false_discovery_rate": 1.0
+    },
+    "bge_unit/unit": {
+      "tp": 0,
+      "fp": 3,
+      "fn": 0,
+      "tn": 1,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0,
+      "false_confirmation_rate": 0.75,
+      "false_discovery_rate": 1.0
+    },
+    "nli/unit": {
+      "tp": 0,
+      "fp": 1,
+      "fn": 0,
+      "tn": 3,
+      "precision": 0.0,
+      "recall": null,
+      "f1": 0.0,
+      "false_confirmation_rate": 0.25,
+      "false_discovery_rate": 1.0
+    },
+    "nli_consistency/unit": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "containment/condition": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "bge_unit/condition": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli/condition": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli_consistency/condition": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "containment/negation": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "bge_unit/negation": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli/negation": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    },
+    "nli_consistency/negation": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "false_confirmation_rate": 0.0,
+      "false_discovery_rate": null
+    }
+  },
+  "timing": {
+    "load_seconds": 11.205481600016356,
+    "development": {
+      "bge_seconds": 1.002391699992586,
+      "nli_seconds": 1.7607977999723516,
+      "consistency_seconds": 0.008536100038327277,
+      "unique_pairs": 36
+    },
+    "test": {
+      "bge_seconds": 0.7373626999906264,
+      "nli_seconds": 68.301123799989,
+      "consistency_seconds": 4.271729000029154,
+      "unique_pairs": 19350
+    },
+    "stress": {
+      "bge_seconds": 0.04724869999336079,
+      "nli_seconds": 0.16108099999837577,
+      "consistency_seconds": 0.0029183999868109822,
+      "unique_pairs": 24
+    },
+    "containment_test_seconds": 0.09205159993143752,
+    "candidate_unit_checks": 1254
+  }
+}

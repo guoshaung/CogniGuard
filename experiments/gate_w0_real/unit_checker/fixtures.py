@@ -1,0 +1,83 @@
+"""Handwritten independent development and contrast fixtures."""
+# Each family has an independent source ID and a five-step authored relay.
+# Individual statements are explicitly judged against their registered fact.
+DEV = [
+ ("density","The density of the liquid is 800 kilograms per cubic meter.",
+  ["A cubic meter of the liquid has a mass of 800 kilograms.","The liquid has a density of 800 kg/m³."],
+  ("The density of the liquid is 900 kilograms per cubic meter.","The density of the liquid is 800 grams per cubic meter.",
+   "The density of the solid is 800 kilograms per cubic meter.","The density of the liquid is not 800 kilograms per cubic meter.")),
+ ("area","A rectangle with length 14 meters and width 9 meters has area 126 square meters.",
+  ["Multiplying the sides of 14 and 9 meters gives the rectangle an area of 126 square meters.",
+   "The 14-meter by 9-meter rectangle covers 126 square meters."],
+  ("A rectangle with length 14 meters and width 9 meters has area 125 square meters.",
+   "A rectangle with length 14 meters and width 9 meters has area 126 square centimeters.",
+   "A triangle with base 14 meters and height 9 meters has area 126 square meters.",
+   "A rectangle with length 14 meters and width 9 meters does not have area 126 square meters.")),
+ ("optics","With the object outside the focal length, the converging lens forms a real image.",
+  ["The converging lens projects a real image when the object lies beyond its focal length.",
+   "The object is beyond the focal point of the converging lens, so the image is real."],
+  ("The converging lens forms a virtual image.","A mirror forms a real image.",
+   "With the object inside the focal length, the converging lens forms a real image.",
+   "With the object outside the focal length, the converging lens does not form a real image.")),
+ ("median","The median of the ordered observations 12, 19, and 25 is 19.",
+  ["The middle of the three ordered values 12, 19, and 25 is 19.",
+   "For observations 12, 19, and 25, the median equals 19."],
+  ("The median of the ordered observations 12, 19, and 25 is 25.","The mean of the observations 12, 19, and 25 is 19.",
+   "The maximum of the ordered observations 12, 19, and 25 is 19.",
+   "The median of the ordered observations 12, 19, and 25 is not 19.")),
+ ("gas","At constant temperature the pressure of an ideal gas decreases when its volume increases.",
+  ["If temperature stays fixed, expansion of an ideal gas lowers its pressure.",
+   "An isothermal increase in ideal gas volume reduces pressure."],
+  ("The pressure of an ideal gas increases as its volume increases at constant temperature.",
+   "The density of an ideal gas decreases when its volume increases.",
+   "At constant pressure the pressure of an ideal gas decreases when its volume increases.",
+   "At constant temperature the pressure of an ideal gas does not decrease when its volume increases.")),
+ ("probability","For two independent fair coin tosses, the probability of two heads is 1/4.",
+  ["Two separate fair flips both land heads with probability 1/4.",
+   "With independent tosses of a fair coin, the chance of two heads is 0.25."],
+  ("For two independent fair coin tosses, the probability of two heads is 1/2.",
+   "For two independent fair coin tosses, the probability of two heads is 1/4 percent.",
+   "For two perfectly dependent fair coin tosses, the probability of two heads is 1/4.",
+   "For two independent fair coin tosses, the probability of two heads is not 1/4.")),
+]
+
+STRESS = [
+ ("spring","With the spring in its linear range, a force of 15 N extends it by 3 cm.",
+  ["The spring stretches three centimeters under a 15-newton load while it remains in its linear range.",
+   "In the linear regime, applying 15 N to the spring produces a 3 cm extension."],
+  ("With the spring in its linear range, a force of 15 N extends it by 8 cm.",
+   "With the spring in its linear range, a force of 15 N extends it by 3 mm.",
+   "After the spring exceeds its linear range, a force of 15 N extends it by 3 cm.",
+   "With the spring in its linear range, a force of 15 N does not extend it by 3 cm.")),
+ ("triangle","A right triangle with legs of 9 and 12 centimeters has a hypotenuse of 15 centimeters.",
+  ["The longest side of the right triangle is 15 cm when the perpendicular sides measure 9 and 12 cm.",
+   "For perpendicular legs of 9 cm and 12 cm, the hypotenuse measures 15 cm."],
+  ("A right triangle with legs of 9 and 12 centimeters has a hypotenuse of 12 centimeters.",
+   "A right triangle with legs of 9 and 12 centimeters has a hypotenuse of 15 millimeters.",
+   "A triangle with a 60-degree angle between sides of 9 and 12 centimeters has an opposite side of 15 centimeters.",
+   "A right triangle with legs of 9 and 12 centimeters does not have a hypotenuse of 15 centimeters.")),
+ ("survey","Among the 160 respondents who completed the survey, 40 percent chose option A.",
+  ["Option A was selected by 40% of the 160 people who finished the survey.",
+   "Of the 160 completed responses, the share selecting option A was 40 percent."],
+  ("Among the 160 respondents who completed the survey, 45 percent chose option A.",
+   "Among the 160 respondents who completed the survey, 40 people chose option A.",
+   "Among the 160 people who did not complete the survey, 40 percent chose option A.",
+   "Among the 160 respondents who completed the survey, 40 percent did not choose option A.")),
+ ("heat","At constant pressure, a 3 kg sample absorbs 240 J of heat.",
+  ["The 3 kg sample takes in 240 joules while pressure stays fixed.",
+   "With pressure held constant, the three-kilogram sample receives 240 J as heat."],
+  ("At constant pressure, a 3 kg sample absorbs 420 J of heat.",
+   "At constant pressure, a 3 kg sample absorbs 240 kJ of heat.",
+   "At constant volume, a 3 kg sample absorbs 240 J of heat.",
+   "At constant pressure, a 3 kg sample does not absorb 240 J of heat.")),
+]
+
+
+def cases(families, split):
+    for source, fact, positive, negative in families:
+        for i,(kind,text) in enumerate([
+            *(( "paraphrase", t) for t in positive),
+            *zip(("number","unit","condition","negation"),negative,strict=True),
+        ]):
+            yield dict(id=f"{split}-{source}-{i}",chain_id=f"{split}-{source}",source=source,
+                       fact=fact,text=text,kind=kind,present=kind=="paraphrase")

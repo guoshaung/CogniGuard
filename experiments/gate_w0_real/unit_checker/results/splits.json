@@ -1,0 +1,53 @@
+{
+  "calibration_chains": [
+    "dev-area",
+    "dev-density",
+    "dev-gas",
+    "dev-median",
+    "dev-optics",
+    "dev-probability"
+  ],
+  "stress_chains": [
+    "stress-heat",
+    "stress-spring",
+    "stress-survey",
+    "stress-triangle"
+  ],
+  "pilot_test_chains": [
+    "pilot-f1-forward",
+    "pilot-f1-light_rewrite",
+    "pilot-f1-strong_rewrite",
+    "pilot-f1-summary",
+    "pilot-f1-truncate",
+    "pilot-f2-forward",
+    "pilot-f2-light_rewrite",
+    "pilot-f2-strong_rewrite",
+    "pilot-f2-summary",
+    "pilot-f2-truncate",
+    "pilot-f3-forward",
+    "pilot-f3-light_rewrite",
+    "pilot-f3-strong_rewrite",
+    "pilot-f3-summary",
+    "pilot-f3-truncate"
+  ],
+  "plain_model_test_chains": [
+    "pilot-f1-light_rewrite",
+    "pilot-f1-strong_rewrite",
+    "pilot-f1-summary",
+    "pilot-f2-light_rewrite",
+    "pilot-f2-strong_rewrite",
+    "pilot-f2-summary",
+    "pilot-f3-light_rewrite",
+    "pilot-f3-strong_rewrite",
+    "pilot-f3-summary"
+  ],
+  "endpoint_candidate_decisions": 1254,
+  "judgment_rows": {
+    "test": 891,
+    "calibration": 36
+  },
+  "null_scores": {
+    "test": 793
+  },
+  "judgments_sha256": "44b784c32dd325dab169230f5373dbfb716249a0a7c09b7cfa78ace6ded28562"
+}

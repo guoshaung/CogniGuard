@@ -1,0 +1,25 @@
+{
+  "thresholds": {
+    "bge_unit": 0.9868422746658326,
+    "nli": 0.9642181396484376,
+    "nli_consistency": 0.9642181396484376
+  },
+  "development_sha256": "6f2668218b4718de8ba504f095024a87c740e1e62a7aece12675322d74dfaf97",
+  "protocol_sha256": "4718967949ed17a4bd13a24a172e2c6097103a488617d7cd06cf103a3146b070",
+  "implementation_sha256": "c52f0faf103330600ab8b8313864711a8c56645c7f4525ff14eabbca2376e4fb",
+  "models": {
+    "bge": {
+      "directory": "provenance-bge-small-en-v1.5",
+      "weights_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "config_sha256": "094f8e891b932f2000c92cfc663bac4c62069f5d8af5b5278c4306aef3084750",
+      "tokenizer_sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    },
+    "nli": {
+      "directory": "deberta-v3-base-mnli-fever-anli-eval04",
+      "weights_sha256": "06d6fd89edd4f97816831626daafbdb0b029cf63bae8edc0bccab1d64e2e7707",
+      "config_sha256": "a6c616d6dabeacf90fd0e776c741d3f0f30a05533ccf0bd3b5b62e94cfaa8d57",
+      "tokenizer_sha256": "05402ffae6dd382a8491b1d29bfc139bec5d332662e86a026f433ce54c25c202"
+    }
+  },
+  "device": "cuda"
+}
