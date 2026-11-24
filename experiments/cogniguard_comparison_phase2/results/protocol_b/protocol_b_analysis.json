@@ -1,0 +1,559 @@
+{
+ "scenarios": 119,
+ "pilot_excluded": [
+  5,
+  40,
+  100
+ ],
+ "strata": {
+  "test_heldout": {
+   "n": 116,
+   "table": {
+    "cot": {
+     "sensitive_blocked": 0.3879310344827586,
+     "benign_succeeded": 0.7068965517241379,
+     "balanced": 0.5474137931034483,
+     "overall": 0.21551724137931033,
+     "n_sensitive": 116,
+     "n_benign": 116,
+     "n_pairs": 116,
+     "missing_or_error": 0,
+     "calls_per_run": 6.780172413793103,
+     "tokens_per_run": 12522.525862068966,
+     "seconds_per_run": 17.2625
+    },
+    "cotlh": {
+     "sensitive_blocked": 0.7931034482758621,
+     "benign_succeeded": 0.6982758620689655,
+     "balanced": 0.7456896551724138,
+     "overall": 0.5775862068965517,
+     "n_sensitive": 116,
+     "n_benign": 116,
+     "n_pairs": 116,
+     "missing_or_error": 0,
+     "calls_per_run": 6.758620689655173,
+     "tokens_per_run": 13606.198275862069,
+     "seconds_per_run": 20.02629310344828
+    },
+    "tom": {
+     "sensitive_blocked": 0.9482758620689655,
+     "benign_succeeded": 0.6293103448275862,
+     "balanced": 0.7887931034482758,
+     "overall": 0.5948275862068966,
+     "n_sensitive": 116,
+     "n_benign": 116,
+     "n_pairs": 116,
+     "missing_or_error": 0,
+     "calls_per_run": 8.456896551724139,
+     "tokens_per_run": 14440.918103448275,
+     "seconds_per_run": 21.173706896551725
+    },
+    "codef": {
+     "sensitive_blocked": 0.9741379310344828,
+     "benign_succeeded": 0.5775862068965517,
+     "balanced": 0.7758620689655172,
+     "overall": 0.5603448275862069,
+     "n_sensitive": 116,
+     "n_benign": 116,
+     "n_pairs": 116,
+     "missing_or_error": 0,
+     "calls_per_run": 13.431034482758621,
+     "tokens_per_run": 25700.797413793105,
+     "seconds_per_run": 29.195258620689657
+    },
+    "cogniguard": {
+     "sensitive_blocked": 0.5517241379310345,
+     "benign_succeeded": 0.6982758620689655,
+     "balanced": 0.625,
+     "overall": 0.33620689655172414,
+     "n_sensitive": 116,
+     "n_benign": 116,
+     "n_pairs": 116,
+     "missing_or_error": 0,
+     "calls_per_run": 6.836206896551724,
+     "tokens_per_run": 12605.176724137931,
+     "seconds_per_run": 17.68146551724138
+    }
+   },
+   "contrasts": {
+    "cogniguard vs codef": {
+     "overall": {
+      "diff": -0.22413793103448276,
+      "ci95": [
+       -0.3275862068965517,
+       -0.11206896551724138
+      ],
+      "n": 116
+     },
+     "blocked": {
+      "diff": -0.4224137931034483,
+      "ci95": [
+       -0.5172413793103449,
+       -0.31896551724137934
+      ],
+      "n": 116
+     },
+     "benign_ok": {
+      "diff": 0.1206896551724138,
+      "ci95": [
+       0.034482758620689655,
+       0.20689655172413793
+      ],
+      "n": 116
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs tom": {
+     "overall": {
+      "diff": -0.25862068965517243,
+      "ci95": [
+       -0.3706896551724138,
+       -0.14655172413793102
+      ],
+      "n": 116
+     },
+     "blocked": {
+      "diff": -0.39655172413793105,
+      "ci95": [
+       -0.49137931034482757,
+       -0.29310344827586204
+      ],
+      "n": 116
+     },
+     "benign_ok": {
+      "diff": 0.06896551724137931,
+      "ci95": [
+       0.0,
+       0.13793103448275862
+      ],
+      "n": 116
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cotlh": {
+     "overall": {
+      "diff": -0.2413793103448276,
+      "ci95": [
+       -0.3448275862068966,
+       -0.12931034482758622
+      ],
+      "n": 116
+     },
+     "blocked": {
+      "diff": -0.2413793103448276,
+      "ci95": [
+       -0.3448275862068966,
+       -0.12931034482758622
+      ],
+      "n": 116
+     },
+     "benign_ok": {
+      "diff": 0.0,
+      "ci95": [
+       -0.06896551724137931,
+       0.06896551724137931
+      ],
+      "n": 116
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cot": {
+     "overall": {
+      "diff": 0.1206896551724138,
+      "ci95": [
+       0.034482758620689655,
+       0.21551724137931033
+      ],
+      "n": 116
+     },
+     "blocked": {
+      "diff": 0.16379310344827586,
+      "ci95": [
+       0.06896551724137931,
+       0.25862068965517243
+      ],
+      "n": 116
+     },
+     "benign_ok": {
+      "diff": -0.008620689655172414,
+      "ci95": [
+       -0.05172413793103448,
+       0.034482758620689655
+      ],
+      "n": 116
+     },
+     "verdict_overall": "better"
+    }
+   }
+  },
+  "all": {
+   "n": 119,
+   "table": {
+    "cot": {
+     "sensitive_blocked": 0.40336134453781514,
+     "benign_succeeded": 0.7142857142857143,
+     "balanced": 0.5588235294117647,
+     "overall": 0.23529411764705882,
+     "n_sensitive": 119,
+     "n_benign": 119,
+     "n_pairs": 119,
+     "missing_or_error": 0,
+     "calls_per_run": 6.785714285714286,
+     "tokens_per_run": 12400.86974789916,
+     "seconds_per_run": 17.160084033613444
+    },
+    "cotlh": {
+     "sensitive_blocked": 0.7899159663865546,
+     "benign_succeeded": 0.7058823529411765,
+     "balanced": 0.7478991596638656,
+     "overall": 0.5798319327731093,
+     "n_sensitive": 119,
+     "n_benign": 119,
+     "n_pairs": 119,
+     "missing_or_error": 0,
+     "calls_per_run": 6.781512605042017,
+     "tokens_per_run": 13517.567226890757,
+     "seconds_per_run": 20.093697478991597
+    },
+    "tom": {
+     "sensitive_blocked": 0.9495798319327731,
+     "benign_succeeded": 0.6386554621848739,
+     "balanced": 0.7941176470588235,
+     "overall": 0.6050420168067226,
+     "n_sensitive": 119,
+     "n_benign": 119,
+     "n_pairs": 119,
+     "missing_or_error": 0,
+     "calls_per_run": 8.457983193277311,
+     "tokens_per_run": 14291.676470588236,
+     "seconds_per_run": 21.076470588235292
+    },
+    "codef": {
+     "sensitive_blocked": 0.9747899159663865,
+     "benign_succeeded": 0.5798319327731093,
+     "balanced": 0.7773109243697479,
+     "overall": 0.5630252100840336,
+     "n_sensitive": 119,
+     "n_benign": 119,
+     "n_pairs": 119,
+     "missing_or_error": 0,
+     "calls_per_run": 13.491596638655462,
+     "tokens_per_run": 25597.399159663866,
+     "seconds_per_run": 29.21596638655462
+    },
+    "cogniguard": {
+     "sensitive_blocked": 0.5630252100840336,
+     "benign_succeeded": 0.7058823529411765,
+     "balanced": 0.634453781512605,
+     "overall": 0.35294117647058826,
+     "n_sensitive": 119,
+     "n_benign": 119,
+     "n_pairs": 119,
+     "missing_or_error": 0,
+     "calls_per_run": 6.840336134453781,
+     "tokens_per_run": 12485.840336134454,
+     "seconds_per_run": 17.588655462184875
+    }
+   },
+   "contrasts": {
+    "cogniguard vs codef": {
+     "overall": {
+      "diff": -0.21008403361344538,
+      "ci95": [
+       -0.31932773109243695,
+       -0.10084033613445378
+      ],
+      "n": 119
+     },
+     "blocked": {
+      "diff": -0.4117647058823529,
+      "ci95": [
+       -0.5042016806722689,
+       -0.31932773109243695
+      ],
+      "n": 119
+     },
+     "benign_ok": {
+      "diff": 0.12605042016806722,
+      "ci95": [
+       0.05042016806722689,
+       0.21008403361344538
+      ],
+      "n": 119
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs tom": {
+     "overall": {
+      "diff": -0.25210084033613445,
+      "ci95": [
+       -0.35294117647058826,
+       -0.15126050420168066
+      ],
+      "n": 119
+     },
+     "blocked": {
+      "diff": -0.3865546218487395,
+      "ci95": [
+       -0.4789915966386555,
+       -0.29411764705882354
+      ],
+      "n": 119
+     },
+     "benign_ok": {
+      "diff": 0.06722689075630252,
+      "ci95": [
+       0.0,
+       0.13445378151260504
+      ],
+      "n": 119
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cotlh": {
+     "overall": {
+      "diff": -0.226890756302521,
+      "ci95": [
+       -0.3277310924369748,
+       -0.12605042016806722
+      ],
+      "n": 119
+     },
+     "blocked": {
+      "diff": -0.226890756302521,
+      "ci95": [
+       -0.3277310924369748,
+       -0.12605042016806722
+      ],
+      "n": 119
+     },
+     "benign_ok": {
+      "diff": 0.0,
+      "ci95": [
+       -0.06722689075630252,
+       0.06722689075630252
+      ],
+      "n": 119
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cot": {
+     "overall": {
+      "diff": 0.11764705882352941,
+      "ci95": [
+       0.03361344537815126,
+       0.21008403361344538
+      ],
+      "n": 119
+     },
+     "blocked": {
+      "diff": 0.15966386554621848,
+      "ci95": [
+       0.058823529411764705,
+       0.2605042016806723
+      ],
+      "n": 119
+     },
+     "benign_ok": {
+      "diff": -0.008403361344537815,
+      "ci95": [
+       -0.05042016806722689,
+       0.03361344537815126
+      ],
+      "n": 119
+     },
+     "verdict_overall": "better"
+    }
+   }
+  },
+  "test_e7_computed_witness": {
+   "n": 83,
+   "table": {
+    "cot": {
+     "sensitive_blocked": 0.39759036144578314,
+     "benign_succeeded": 0.6746987951807228,
+     "balanced": 0.536144578313253,
+     "overall": 0.18072289156626506,
+     "n_sensitive": 83,
+     "n_benign": 83,
+     "n_pairs": 83,
+     "missing_or_error": 0,
+     "calls_per_run": 6.873493975903615,
+     "tokens_per_run": 10020.012048192772,
+     "seconds_per_run": 18.010843373493977
+    },
+    "cotlh": {
+     "sensitive_blocked": 0.7831325301204819,
+     "benign_succeeded": 0.6867469879518072,
+     "balanced": 0.7349397590361446,
+     "overall": 0.5662650602409639,
+     "n_sensitive": 83,
+     "n_benign": 83,
+     "n_pairs": 83,
+     "missing_or_error": 0,
+     "calls_per_run": 6.879518072289157,
+     "tokens_per_run": 11289.060240963856,
+     "seconds_per_run": 21.18433734939759
+    },
+    "tom": {
+     "sensitive_blocked": 0.9397590361445783,
+     "benign_succeeded": 0.6024096385542169,
+     "balanced": 0.7710843373493976,
+     "overall": 0.5542168674698795,
+     "n_sensitive": 83,
+     "n_benign": 83,
+     "n_pairs": 83,
+     "missing_or_error": 0,
+     "calls_per_run": 8.596385542168674,
+     "tokens_per_run": 12375.777108433735,
+     "seconds_per_run": 21.300602409638554
+    },
+    "codef": {
+     "sensitive_blocked": 0.963855421686747,
+     "benign_succeeded": 0.5301204819277109,
+     "balanced": 0.7469879518072289,
+     "overall": 0.5060240963855421,
+     "n_sensitive": 83,
+     "n_benign": 83,
+     "n_pairs": 83,
+     "missing_or_error": 0,
+     "calls_per_run": 13.680722891566266,
+     "tokens_per_run": 24579.126506024095,
+     "seconds_per_run": 29.809638554216864
+    },
+    "cogniguard": {
+     "sensitive_blocked": 0.5301204819277109,
+     "benign_succeeded": 0.6626506024096386,
+     "balanced": 0.5963855421686748,
+     "overall": 0.2891566265060241,
+     "n_sensitive": 83,
+     "n_benign": 83,
+     "n_pairs": 83,
+     "missing_or_error": 0,
+     "calls_per_run": 6.903614457831325,
+     "tokens_per_run": 10060.0,
+     "seconds_per_run": 18.081927710843374
+    }
+   },
+   "contrasts": {
+    "cogniguard vs codef": {
+     "overall": {
+      "diff": -0.21686746987951808,
+      "ci95": [
+       -0.3493975903614458,
+       -0.08433734939759036
+      ],
+      "n": 83
+     },
+     "blocked": {
+      "diff": -0.43373493975903615,
+      "ci95": [
+       -0.5542168674698795,
+       -0.3132530120481928
+      ],
+      "n": 83
+     },
+     "benign_ok": {
+      "diff": 0.13253012048192772,
+      "ci95": [
+       0.024096385542168676,
+       0.24096385542168675
+      ],
+      "n": 83
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs tom": {
+     "overall": {
+      "diff": -0.26506024096385544,
+      "ci95": [
+       -0.39759036144578314,
+       -0.13253012048192772
+      ],
+      "n": 83
+     },
+     "blocked": {
+      "diff": -0.40963855421686746,
+      "ci95": [
+       -0.5301204819277109,
+       -0.2891566265060241
+      ],
+      "n": 83
+     },
+     "benign_ok": {
+      "diff": 0.060240963855421686,
+      "ci95": [
+       -0.024096385542168676,
+       0.14457831325301204
+      ],
+      "n": 83
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cotlh": {
+     "overall": {
+      "diff": -0.27710843373493976,
+      "ci95": [
+       -0.39759036144578314,
+       -0.1566265060240964
+      ],
+      "n": 83
+     },
+     "blocked": {
+      "diff": -0.25301204819277107,
+      "ci95": [
+       -0.37349397590361444,
+       -0.12048192771084337
+      ],
+      "n": 83
+     },
+     "benign_ok": {
+      "diff": -0.024096385542168676,
+      "ci95": [
+       -0.10843373493975904,
+       0.060240963855421686
+      ],
+      "n": 83
+     },
+     "verdict_overall": "worse"
+    },
+    "cogniguard vs cot": {
+     "overall": {
+      "diff": 0.10843373493975904,
+      "ci95": [
+       0.012048192771084338,
+       0.20481927710843373
+      ],
+      "n": 83
+     },
+     "blocked": {
+      "diff": 0.13253012048192772,
+      "ci95": [
+       0.024096385542168676,
+       0.24096385542168675
+      ],
+      "n": 83
+     },
+     "benign_ok": {
+      "diff": -0.012048192771084338,
+      "ci95": [
+       -0.07228915662650602,
+       0.04819277108433735
+      ],
+      "n": 83
+     },
+     "verdict_overall": "better"
+    }
+   }
+  }
+ },
+ "gate": {
+  "runs": 119,
+  "blocked_answers": 46,
+  "witness_sources": {
+   "e7_computed": 84,
+   "defense_line": 34,
+   "null": 1
+  }
+ }
+}

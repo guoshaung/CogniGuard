@@ -1,0 +1,122 @@
+{
+ "historical_e7_witness": {
+  "n": 33,
+  "table": {
+   "cot": {
+    "blocked": 0.364,
+    "benign": 0.727,
+    "overall": 0.121
+   },
+   "cotlh": {
+    "blocked": 0.758,
+    "benign": 0.667,
+    "overall": 0.545
+   },
+   "tom": {
+    "blocked": 0.909,
+    "benign": 0.545,
+    "overall": 0.485
+   },
+   "codef": {
+    "blocked": 0.939,
+    "benign": 0.485,
+    "overall": 0.455
+   },
+   "cogniguard": {
+    "blocked": 0.364,
+    "benign": 0.727,
+    "overall": 0.182
+   }
+  },
+  "cg_minus_base_overall": {
+   "codef": [
+    -0.273,
+    [
+     -0.485,
+     -0.061
+    ]
+   ],
+   "tom": [
+    -0.303,
+    [
+     -0.515,
+     -0.091
+    ]
+   ],
+   "cotlh": [
+    -0.364,
+    [
+     -0.545,
+     -0.182
+    ]
+   ],
+   "cot": [
+    0.061,
+    [
+     -0.061,
+     0.182
+    ]
+   ]
+  }
+ },
+ "non_historical (e7 + defense_line)": {
+  "n": 82,
+  "table": {
+   "cot": {
+    "blocked": 0.402,
+    "benign": 0.695,
+    "overall": 0.256
+   },
+   "cotlh": {
+    "blocked": 0.805,
+    "benign": 0.707,
+    "overall": 0.585
+   },
+   "tom": {
+    "blocked": 0.963,
+    "benign": 0.659,
+    "overall": 0.634
+   },
+   "codef": {
+    "blocked": 0.988,
+    "benign": 0.61,
+    "overall": 0.598
+   },
+   "cogniguard": {
+    "blocked": 0.634,
+    "benign": 0.683,
+    "overall": 0.402
+   }
+  },
+  "cg_minus_base_overall": {
+   "codef": [
+    -0.195,
+    [
+     -0.317,
+     -0.073
+    ]
+   ],
+   "tom": [
+    -0.232,
+    [
+     -0.354,
+     -0.11
+    ]
+   ],
+   "cotlh": [
+    -0.183,
+    [
+     -0.305,
+     -0.061
+    ]
+   ],
+   "cot": [
+    0.146,
+    [
+     0.024,
+     0.268
+    ]
+   ]
+  }
+ }
+}

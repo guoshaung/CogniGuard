@@ -31,3 +31,10 @@
 - OCELOT 只有 PF，Staddon 只有 DEF，Sum Leaks 只有 STR；Protocol B 的原生运行未做；没有测实际教学任务完成质量。
 
 **图**：`results/figures/fig1_pareto`、`fig2_coalition_size`、`fig3_efficiency`。
+
+**Protocol B（原生完整方法，负结果）**：
+
+- 设置：官方 Sum Leaks 代码（未修改）、同一后端 glm-5.2、官方判官；留出 116 个场景；共 10,081 次调用、18.6M token。
+- CogniGuard 门控的 Overall 为 0.336 [0.25, 0.42]，低于 ToM 0.595、CoT + L + H 0.578、CoDef 0.560（差 −0.22 至 −0.26，区间都在 0 以下）；高于无防御 0.216。它的 benign 效用 0.698，高于 CoDef 0.578。
+- 主要原因是计量：36 / 52 次泄露是 LLM 转述了表内容而表值匹配没识别出来；13 次是 E7 选定的秘密不是被攻击的推断；33 个场景的 E7 秘密一开始就已被对手持有。
+- 结论：**CA-PD 判定内核的优势（Protocol A）在端到端 LLM 系统中被计量瓶颈抵消**。论文需要把两者分开写，并把计量列为主要局限。
