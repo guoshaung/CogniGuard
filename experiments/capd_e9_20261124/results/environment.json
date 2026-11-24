@@ -1,0 +1,7 @@
+{
+  "python": "3.13.17",
+  "machine": "x86_64",
+  "processor": "x86_64",
+  "git_commit": "afbc6b0a59ae954b9fa4859183116d5618df1ed4",
+  "timeout_s": 1.0
+}
