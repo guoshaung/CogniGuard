@@ -1,0 +1,49 @@
+{
+  "contract": "pe-1.0",
+  "cases": [
+    {
+      "k": 2,
+      "held": "",
+      "base_allowed": true,
+      "gains": {
+        "a": 0,
+        "b": 0,
+        "d": 0,
+        "ab": 1,
+        "ad": 0,
+        "bd": 0
+      }
+    },
+    {
+      "k": 2,
+      "held": "a",
+      "base_allowed": true,
+      "gains": {
+        "a": 0,
+        "b": 1,
+        "d": 0,
+        "ab": 1,
+        "ad": 0,
+        "bd": 1
+      }
+    },
+    {
+      "k": 1,
+      "held": "a",
+      "base_allowed": true,
+      "gains": {
+        "a": 0,
+        "b": 0,
+        "d": 0,
+        "ab": 0,
+        "ad": 0,
+        "bd": 0
+      }
+    }
+  ],
+  "exact_joint_budget_2": [
+    "ab",
+    1
+  ],
+  "fixture_only": true
+}

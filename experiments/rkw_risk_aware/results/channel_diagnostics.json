@@ -1,0 +1,277 @@
+{
+  "summary/prefix": {
+    "states": {
+      "correct": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "substitution": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "erased": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.0,
+    "counts": {
+      "0->[]": 30,
+      "1->[]": 30
+    }
+  },
+  "summary/rkw": {
+    "states": {
+      "correct": {
+        "numerator": 1,
+        "denominator": 60,
+        "rate": 0.016666666666666666,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.05
+        ]
+      },
+      "substitution": {
+        "numerator": 1,
+        "denominator": 60,
+        "rate": 0.016666666666666666,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.05
+        ]
+      },
+      "erased": {
+        "numerator": 58,
+        "denominator": 60,
+        "rate": 0.9666666666666667,
+        "cluster_bootstrap_95": [
+          0.9,
+          1.0
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.0,
+    "counts": {
+      "0->[]": 29,
+      "1->[]": 29,
+      "0->[1]": 1,
+      "1->[1]": 1
+    }
+  },
+  "strong/prefix": {
+    "states": {
+      "correct": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "substitution": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "erased": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.0,
+    "counts": {
+      "0->[]": 30,
+      "1->[]": 30
+    }
+  },
+  "strong/rkw": {
+    "states": {
+      "correct": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "substitution": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "erased": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.0,
+    "counts": {
+      "0->[]": 30,
+      "1->[]": 30
+    }
+  },
+  "fusion/prefix": {
+    "states": {
+      "correct": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "substitution": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "erased": {
+        "numerator": 60,
+        "denominator": 60,
+        "rate": 1.0,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.0,
+    "counts": {
+      "0->[]": 30,
+      "1->[]": 30
+    }
+  },
+  "fusion/rkw": {
+    "states": {
+      "correct": {
+        "numerator": 4,
+        "denominator": 60,
+        "rate": 0.06666666666666667,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.13333333333333333
+        ]
+      },
+      "substitution": {
+        "numerator": 2,
+        "denominator": 60,
+        "rate": 0.03333333333333333,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.06666666666666667
+        ]
+      },
+      "erased": {
+        "numerator": 54,
+        "denominator": 60,
+        "rate": 0.9,
+        "cluster_bootstrap_95": [
+          0.8,
+          0.9833333333333333
+        ]
+      },
+      "conflict": {
+        "numerator": 0,
+        "denominator": 60,
+        "rate": 0.0,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "pooled_mi_bits": 0.05765068306794906,
+    "counts": {
+      "0->[1]": 2,
+      "0->[]": 25,
+      "1->[]": 29,
+      "0->[0]": 3,
+      "1->[1]": 1
+    }
+  }
+}

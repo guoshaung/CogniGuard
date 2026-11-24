@@ -1,0 +1,203 @@
+{
+  "calls": 90,
+  "complete": true,
+  "groups": {
+    "summary/plain": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 12,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 60,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "summary/prefix": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 12,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 60,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "summary/rkw": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 12,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 58,
+        "substitution": 1,
+        "correct": 1
+      },
+      "eligible_knowledge_symbols": 60,
+      "correct_given_knowledge": 1,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "strong/plain": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 10,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 50,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "strong/prefix": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 9,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 45,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "strong/rkw": {
+      "n": 12,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 11,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 55,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "fusion/plain": {
+      "n": 6,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 8,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "substitution": 2,
+        "erased": 56,
+        "correct": 2
+      },
+      "eligible_knowledge_symbols": 40,
+      "correct_given_knowledge": 2,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "fusion/prefix": {
+      "n": 6,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 9,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "erased": 60
+      },
+      "eligible_knowledge_symbols": 45,
+      "correct_given_knowledge": 0,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "fusion/rkw": {
+      "n": 6,
+      "exact": 0,
+      "predicted": 0,
+      "correct": 0,
+      "errors": 0,
+      "copies": 0,
+      "any_prediction": 0,
+      "knowledge_proxy": 7,
+      "source_instances": 12,
+      "loose": 0,
+      "states": {
+        "substitution": 2,
+        "erased": 54,
+        "correct": 4
+      },
+      "eligible_knowledge_symbols": 35,
+      "correct_given_knowledge": 4,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "summary/paired_development_ci": [
+      0.0,
+      0.0
+    ],
+    "strong/paired_development_ci": [
+      0.0,
+      0.0
+    ]
+  },
+  "decision": "STOP",
+  "aggregate_model_eval_seconds": 331.4869973,
+  "aggregate_request_seconds": 395.75
+}

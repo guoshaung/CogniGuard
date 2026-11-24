@@ -1,0 +1,4572 @@
+[
+  {
+    "case": "sequence-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "substitution"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "sequence-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "correct"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "sequence-1",
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "substitution",
+          "erased",
+          "correct",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "sequence-1",
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "sequence/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "sequence-1",
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "sequence-1",
+        "observed": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          [
+            0
+          ]
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [],
+          [
+            0,
+            1
+          ]
+        ],
+        "states": [
+          "substitution",
+          "erased",
+          "erased",
+          "erased",
+          "correct"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "resistance-2",
+        "observed": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "states": [
+          "correct",
+          "erased",
+          "erased",
+          "erased",
+          "correct"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "resistance-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "resistance-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "resistance-1",
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "resistance-1",
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "resistance/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "resistance-1",
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "resistance-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            1
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "area-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "area-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "area-1",
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      },
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "area-1",
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "area/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "area-1",
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "area-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      },
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "density-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "density-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "density-1",
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            0,
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "density-1",
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "density/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "density-1",
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "density-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "probability-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "probability-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0,
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "probability-1",
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      },
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            0
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "probability-1",
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "probability/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "probability-1",
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "probability-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "substitution"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": false
+      },
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [
+            0,
+            1
+          ],
+          [],
+          [
+            0
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-1/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "speed-1"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/summary/plain",
+    "op": "summary",
+    "method": "plain",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/summary/prefix",
+    "op": "summary",
+    "method": "prefix",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/summary/rkw",
+    "op": "summary",
+    "method": "rkw",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          [
+            0
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/strong/plain",
+    "op": "strong",
+    "method": "plain",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/strong/prefix",
+    "op": "strong",
+    "method": "prefix",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed-2/strong/rkw",
+    "op": "strong",
+    "method": "rkw",
+    "expected": [
+      "speed-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [],
+          [
+            1
+          ],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed/fusion/plain",
+    "op": "fusion",
+    "method": "plain",
+    "expected": [
+      "speed-1",
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [
+            0
+          ],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            0
+          ]
+        ],
+        "states": [
+          "substitution",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          [
+            1
+          ]
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "correct"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed/fusion/prefix",
+    "op": "fusion",
+    "method": "prefix",
+    "expected": [
+      "speed-1",
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  },
+  {
+    "case": "speed/fusion/rkw",
+    "op": "fusion",
+    "method": "rkw",
+    "expected": [
+      "speed-1",
+      "sequence-2"
+    ],
+    "predicted": [],
+    "status": "UNKNOWN",
+    "exact": false,
+    "carriers": [
+      {
+        "source": "speed-1",
+        "observed": [
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "loose": [
+          [
+            0
+          ],
+          [],
+          [
+            1
+          ],
+          [],
+          [
+            0
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "erased",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      },
+      {
+        "source": "sequence-2",
+        "observed": [
+          [],
+          [],
+          [],
+          [
+            0
+          ],
+          []
+        ],
+        "loose": [
+          [
+            1
+          ],
+          [],
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "states": [
+          "erased",
+          "erased",
+          "erased",
+          "correct",
+          "erased"
+        ],
+        "loose_compatible": false,
+        "knowledge_proxy": true
+      }
+    ],
+    "copied": false,
+    "error": null
+  }
+]
