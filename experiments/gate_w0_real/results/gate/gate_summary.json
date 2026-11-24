@@ -1,0 +1,22 @@
+{
+  "runs": 240,
+  "observations": 910,
+  "frozen_w0_bm25_cells_matching": 60,
+  "regenerated_baseline_cells": 60,
+  "actual_kbpw_hits": 0,
+  "marked_observations_scored_by_kbpw": 382,
+  "decision_metric_changes": 0,
+  "axes": "Gate W0 synthetic K16/K32 last-five suffix, same world seeds; finite existing M2 vocabulary and 100 issuance cap",
+  "per_K": {
+    "16": {
+      "kbpw": 25,
+      "bm25": 24,
+      "union": 24
+    },
+    "32": {
+      "kbpw": 33,
+      "bm25": 33,
+      "union": 33
+    }
+  }
+}
