@@ -1,0 +1,1503 @@
+{
+  "H-Auth": {
+    "unauthorized_success_total": 0,
+    "verdict": "pass"
+  },
+  "H-Evidence": {
+    "plain/k1f0": {
+      "harm_reduction": 8.033333333333333,
+      "lower95": 2.6333333333333333,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "plain/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 7.866666666666667,
+      "lower95": 1.6,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 9.633333333333333,
+      "lower95": 2.5666666666666664,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 7.8,
+      "lower95": 1.9,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "H-WM": {
+    "M1/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "D-WM_REAL-vs-F_STRONG": {
+    "M1/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": -9.633333333333333,
+      "lower95": -19.566666666666666,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": -7.8,
+      "lower95": -16.266666666666666,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "D-KBW_REAL-vs-F_STRONG": {
+    "M1/k1f0": {
+      "harm_reduction": -7.866666666666667,
+      "lower95": -17.433333333333334,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": -0.43333333333333335,
+      "lower95": -1.3,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": -0.4,
+      "lower95": -1.2000000000000002,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "D-JOINT-vs-F_STRONG": {
+    "M1/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": -9.633333333333333,
+      "lower95": -19.566666666666666,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": -7.8,
+      "lower95": -16.266666666666666,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "not supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "A-dynamic": {
+    "plain/k1f0": {
+      "harm_reduction": 8.033333333333333,
+      "lower95": 2.6333333333333333,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "plain/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 7.866666666666667,
+      "lower95": 1.6,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 9.633333333333333,
+      "lower95": 2.5666666666666664,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 7.8,
+      "lower95": 1.9,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "A-suspected": {
+    "plain/k1f0": {
+      "harm_reduction": 9.966666666666667,
+      "lower95": 4.866666666666667,
+      "utility_A": 0.6886930983847284,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "plain/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 11.533333333333333,
+      "lower95": 6.066666666666666,
+      "utility_A": 0.6423017107309487,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 9.033333333333333,
+      "lower95": 4.5,
+      "utility_A": 0.6158536585365854,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 8.933333333333334,
+      "lower95": 4.533333333333333,
+      "utility_A": 0.6392757660167131,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "A-log": {
+    "plain/k1f0": {
+      "harm_reduction": 14.333333333333334,
+      "lower95": 9.166666666666666,
+      "utility_A": 0.21585903083700442,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "plain/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 15.566666666666668,
+      "lower95": 10.233333333333333,
+      "utility_A": 0.21461897356143078,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 14.833333333333334,
+      "lower95": 10.2,
+      "utility_A": 0.19817073170731703,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 14.4,
+      "lower95": 9.5,
+      "utility_A": 0.13649025069637888,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": false,
+      "verdict": "safety only (utility drop > 0.01)",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "A-credits(descriptive)": {
+    "plain/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.21585903083700442,
+      "utility_B": 0.21585903083700442,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "plain/k1f1": {
+      "harm_reduction": -1.4333333333333333,
+      "lower95": -2.8,
+      "utility_A": 0.12334801762114533,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": true
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.21461897356143078,
+      "utility_B": 0.21461897356143078,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M1/k1f1": {
+      "harm_reduction": -1.6333333333333333,
+      "lower95": -3.4333333333333336,
+      "utility_A": 0.12441679626749613,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": true
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.19817073170731703,
+      "utility_B": 0.19817073170731703,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M2/k1f1": {
+      "harm_reduction": -1.6,
+      "lower95": -3.1,
+      "utility_A": 0.12652439024390238,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": true
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.13649025069637888,
+      "utility_B": 0.13649025069637888,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M3/k1f1": {
+      "harm_reduction": -0.6666666666666666,
+      "lower95": -1.5,
+      "utility_A": 0.08913649025069637,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": true
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "descriptive: f is not enforced in this scenario",
+      "main": false
+    }
+  },
+  "UB-IDEAL": {
+    "plain/k1f0": {
+      "harm_reduction": 9.966666666666667,
+      "lower95": 4.866666666666667,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "plain/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "plain/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k1f0": {
+      "harm_reduction": 11.533333333333333,
+      "lower95": 6.066666666666666,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M1/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M1/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k1f0": {
+      "harm_reduction": 9.366666666666667,
+      "lower95": 4.666666666666667,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M2/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M2/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k1f0": {
+      "harm_reduction": 8.933333333333334,
+      "lower95": 4.533333333333333,
+      "utility_A": 1.0,
+      "utility_B": 1.0,
+      "safety": true,
+      "utility_ok": true,
+      "verdict": "supported",
+      "main": true
+    },
+    "M3/k1f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": 0.0,
+      "utility_B": 0.0,
+      "safety": false,
+      "utility_ok": true,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f0": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    },
+    "M3/k2f1": {
+      "harm_reduction": 0.0,
+      "lower95": 0.0,
+      "utility_A": null,
+      "utility_B": null,
+      "safety": false,
+      "utility_ok": false,
+      "verdict": "STOP: baseline already safe",
+      "main": false
+    }
+  },
+  "meta": {
+    "codex_ref": "065bb82",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "dry_run": false,
+    "runs": 21120
+  }
+}
