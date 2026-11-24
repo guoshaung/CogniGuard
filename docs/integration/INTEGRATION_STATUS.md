@@ -14,7 +14,7 @@
 | X3-E2E 统一入口（回放 / 在线 / mock）与协议 | 集成 | 同上 | 冻结 `5d6ce72`；偏离 `eec96b6` | 是 | **教育场景正式运行完成**（21,120 次运行）；软件场景延期 |
 | pe-0.1 → pe-1.0 兼容转换 | 集成 | 同上 | `eec96b6` | 是 | Codex 两份证据 7,440 + 910 条转换 0 失败，正式提供方契约通过 |
 | KBPW 来源检测（M1 / M2 / M3 / M1+source）、内容基线、真实传播试点 | Codex | `codex/hsw-st` | `065bb82`（含 `d7239c4`） | 是 | 完成 |
-| Gate W0-Real / KBPW 收尾 | Codex | `codex/gate-w0-real` | `631409e` | 是 | **STOP**（接受）；`631409e` 用词面核验器回放 CA-PD（6/137）。BGE + NLI 对照**未推送** |
+| Gate W0-Real / KBPW 收尾 / 核验器对照 | Codex | `codex/gate-w0-real` | `fcf1374` | 是 | KBPW **STOP**（接受）；BGE + 原版 NLI 判定已交付，集成侧复现 99/137，并完成 X3-E2E NLI 网格（23,040 次运行） |
 | 影子来源状态、X3 验证、动态安全状态适配器 | Grok | `dev/source-evidence` | `0e48995` | **否**（仅本机主检出；另有未跟踪的 `provenance_link.py`） | 只读探针：消费者契约仅 C5 失败（已核验内容持有不入状态）；未纳入正式运行；已在 Issue #16 请求推送 |
 
 ## 2. 依赖关系
