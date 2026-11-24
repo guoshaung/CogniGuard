@@ -1,0 +1,105 @@
+{
+  "calibration_threshold": 1.3288845486111112,
+  "perturbation_rates": {
+    "0.0": {
+      "auc": 0.9296875,
+      "auc_positives": 16,
+      "auc_negatives": 16,
+      "bit_accuracy": [
+        97,
+        120
+      ],
+      "four_bit_exact": [
+        10,
+        16
+      ],
+      "complete_and_accepted": [
+        7,
+        16
+      ],
+      "false_accept_unmarked": [
+        0,
+        16
+      ],
+      "false_accept_wrong_code": [
+        2,
+        240
+      ]
+    },
+    "0.05": {
+      "auc": 0.7890625,
+      "auc_positives": 16,
+      "auc_negatives": 16,
+      "bit_accuracy": [
+        68,
+        115
+      ],
+      "four_bit_exact": [
+        3,
+        16
+      ],
+      "complete_and_accepted": [
+        3,
+        16
+      ],
+      "false_accept_unmarked": [
+        1,
+        16
+      ],
+      "false_accept_wrong_code": [
+        5,
+        240
+      ]
+    },
+    "0.1": {
+      "auc": 0.6796875,
+      "auc_positives": 16,
+      "auc_negatives": 16,
+      "bit_accuracy": [
+        66,
+        107
+      ],
+      "four_bit_exact": [
+        2,
+        16
+      ],
+      "complete_and_accepted": [
+        2,
+        16
+      ],
+      "false_accept_unmarked": [
+        0,
+        16
+      ],
+      "false_accept_wrong_code": [
+        5,
+        240
+      ]
+    },
+    "0.2": {
+      "auc": 0.5703125,
+      "auc_positives": 16,
+      "auc_negatives": 16,
+      "bit_accuracy": [
+        47,
+        95
+      ],
+      "four_bit_exact": [
+        1,
+        16
+      ],
+      "complete_and_accepted": [
+        0,
+        16
+      ],
+      "false_accept_unmarked": [
+        2,
+        16
+      ],
+      "false_accept_wrong_code": [
+        7,
+        240
+      ]
+    }
+  }
+}
