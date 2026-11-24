@@ -1,0 +1,9 @@
+{
+  "python": "3.13.17",
+  "git_commit": "ddc1a8d34fc9c25f9195bfd420a5b1fbedada125",
+  "manifests": {
+    "synthetic": "91854349bf7bf5aa837ff6fdeaa007761ee53efb83c520b28fe4b953af1e3447",
+    "eedi_exam": "35ebd79cb8e01e0536f772d4992a2e1f1e030583ef702abaab1bcc653f35adca",
+    "sumleaks": "7c53e01ba857f2c7e67d420bfa6a7c163607ec3659e140c3d2402138440950af"
+  }
+}
