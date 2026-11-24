@@ -1,0 +1,303 @@
+[
+  {
+    "chain_id": 1,
+    "hop": 1,
+    "transform": "forward",
+    "retained_fact_ids": [
+      "physics-01:f1",
+      "physics-01:f2",
+      "physics-01:f3"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-01"
+    ],
+    "fact_fidelity": 1.0,
+    "evidence": "All three facts copied byte-for-byte.",
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ],
+    "output_sha256": "fd12ac3df56201cefd5cd223a968c6f361858cd1525d0e8b50463ed6df8276bc",
+    "seconds": 0.0,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 1,
+    "hop": 2,
+    "transform": "summary",
+    "retained_fact_ids": [
+      "physics-01:f1",
+      "physics-01:f2",
+      "physics-01:f3"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-01"
+    ],
+    "fact_fidelity": 1.0,
+    "evidence": "900 J, 250 J and 650 J persist with unchanged bulk energy and correct state/process distinction.",
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ],
+    "output_sha256": "eda28859b9e4037d509bb74d74341f150d1d93609fd6b850c74688bde0b52974",
+    "seconds": 4.207381799991708,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 1,
+    "hop": 3,
+    "transform": "light_rewrite",
+    "retained_fact_ids": [
+      "physics-01:f1",
+      "physics-01:f2",
+      "physics-01:f3"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-01"
+    ],
+    "fact_fidelity": 1.0,
+    "evidence": "Model returned the preceding summary byte-for-byte.",
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ],
+    "output_sha256": "eda28859b9e4037d509bb74d74341f150d1d93609fd6b850c74688bde0b52974",
+    "seconds": 1.5727555000339635,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 1,
+    "hop": 4,
+    "transform": "strong_rewrite",
+    "retained_fact_ids": [
+      "physics-01:f1",
+      "physics-01:f2",
+      "physics-01:f3"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-01"
+    ],
+    "fact_fidelity": 1.0,
+    "evidence": "Uses joules in place of J. Conditions and both thermodynamic conclusions persist.",
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ],
+    "output_sha256": "d537e01cd7e84c92279c23bcf47ba93c98d92af0fb4a99f0a92568d4874151ec",
+    "seconds": 1.6462500999914482,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 1,
+    "hop": 5,
+    "transform": "truncate",
+    "retained_fact_ids": [
+      "physics-01:f1"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-01"
+    ],
+    "fact_fidelity": 0.3333333333333333,
+    "evidence": "Only heat, work and unchanged bulk-energy conditions survive. The 650 J result and state/process explanation are absent.",
+    "input_source_ids": [
+      "physics-01"
+    ],
+    "input_release_ids": [
+      "physics-01:issue:issuer-a"
+    ],
+    "output_sha256": "c7442067191410fc012be0b5ae257490669a35ce13ea87cdab11ea9310c2c975",
+    "seconds": 0.0,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 2,
+    "hop": 1,
+    "transform": "forward",
+    "retained_fact_ids": [
+      "math-01:f1",
+      "math-01:f2",
+      "math-01:f3",
+      "physics-05:f1",
+      "physics-05:f2",
+      "physics-05:f3",
+      "statistics-04:f1",
+      "statistics-04:f2",
+      "statistics-04:f3"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "fact_fidelity": 1.0,
+    "evidence": "All nine core facts copied byte-for-byte.",
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ],
+    "output_sha256": "cda3faef759872a44c9dd1ddd6fdc6ab2180564786e50c212514f608563989ab",
+    "seconds": 0.0,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  },
+  {
+    "chain_id": 2,
+    "hop": 2,
+    "transform": "summary",
+    "retained_fact_ids": [
+      "physics-05:f1",
+      "physics-05:f2",
+      "statistics-04:f1",
+      "statistics-04:f2",
+      "statistics-04:f3"
+    ],
+    "altered_fact_ids": [
+      "physics-05:f3"
+    ],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-05",
+      "statistics-04"
+    ],
+    "fact_fidelity": 0.5555555555555556,
+    "evidence": "All shelving facts absent. Summary says RC is 6.32 V and calls unrelated evidence combinations of resistors.",
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ],
+    "output_sha256": "08938d1a6b2f87ccb5194026f6a04bb7abc09be8a18ecc281c4b78d1f838afe9",
+    "seconds": 3.5512732000206597,
+    "text_quality": "MATERIAL_ERROR"
+  },
+  {
+    "chain_id": 2,
+    "hop": 3,
+    "transform": "light_rewrite",
+    "retained_fact_ids": [
+      "physics-05:f1",
+      "physics-05:f2",
+      "statistics-04:f1",
+      "statistics-04:f2",
+      "statistics-04:f3"
+    ],
+    "altered_fact_ids": [
+      "physics-05:f3"
+    ],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-05",
+      "statistics-04"
+    ],
+    "fact_fidelity": 0.5555555555555556,
+    "evidence": "Retains the prior source omissions and the erroneous statement that RC is about 6.32 V.",
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ],
+    "output_sha256": "cf51c1fcf6fd1d7014033b693570aa2d84f3e0b8abadcb453046564e3a7f2af2",
+    "seconds": 2.6017976999864914,
+    "text_quality": "MATERIAL_ERROR"
+  },
+  {
+    "chain_id": 2,
+    "hop": 4,
+    "transform": "strong_rewrite",
+    "retained_fact_ids": [
+      "physics-05:f1",
+      "physics-05:f2",
+      "statistics-04:f1",
+      "statistics-04:f2",
+      "statistics-04:f3"
+    ],
+    "altered_fact_ids": [
+      "physics-05:f3"
+    ],
+    "partial_fact_ids": [],
+    "retained_source_ids": [
+      "physics-05",
+      "statistics-04"
+    ],
+    "fact_fidelity": 0.5555555555555556,
+    "evidence": "Model returned the preceding light rewrite with only leading-space differences.",
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ],
+    "output_sha256": "cf51c1fcf6fd1d7014033b693570aa2d84f3e0b8abadcb453046564e3a7f2af2",
+    "seconds": 2.5284100000280887,
+    "text_quality": "MATERIAL_ERROR"
+  },
+  {
+    "chain_id": 2,
+    "hop": 5,
+    "transform": "truncate",
+    "retained_fact_ids": [
+      "physics-05:f2"
+    ],
+    "altered_fact_ids": [],
+    "partial_fact_ids": [
+      "physics-05:f1"
+    ],
+    "retained_source_ids": [
+      "physics-05"
+    ],
+    "fact_fidelity": 0.1111111111111111,
+    "evidence": "Retains RC≈4 s for the 4 mF circuit, while the 1000-ohm context and initially uncharged condition are absent. Uniform waiting-time facts no longer appear.",
+    "input_source_ids": [
+      "math-01",
+      "physics-05",
+      "statistics-04"
+    ],
+    "input_release_ids": [
+      "math-01:issue:issuer-a",
+      "physics-05:issue:issuer-b",
+      "statistics-04:issue:issuer-a"
+    ],
+    "output_sha256": "73bd4038e8200cab94206a8a8368f439f30f76a1a805a96a939a040b7446f73e",
+    "seconds": 0.0,
+    "text_quality": "UNDERSTANDABLE_EXCERPT"
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "data_sha256": {
+    "sources.json": "3a9b886f89b32cdc9bc003f43c458ff8a6a6bc3d50bca895d61331271cd9053c",
+    "releases.json": "149fbc8b52167a191ace39a89f415f5615ec91bfd06065893c879042ccb7065a",
+    "cases.jsonl": "9f837f271f95d764361476a360342ded2d6efbe2976cc42699a529624aac2962"
+  },
+  "source_documents": 38,
+  "indexed_passages": 228,
+  "active_index_passages": 342,
+  "feature_split": "input-release lineage group, SHA-256 modulo 4 if no common split supplied",
+  "cpu_threads": 3,
+  "gpu_hours": 0,
+  "bge_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "reranker": "cross-encoder/ms-marco-TinyBERT-L-2-v2",
+  "rerank_revision": "81d1926f67cb8eee2c2be17ca9f793c7c3bd20cc",
+  "minhash": {
+    "threshold": 0.03125,
+    "margin": 0.1,
+    "max_sources": 3
+  },
+  "bm25": {
+    "threshold": 0.7471214455908021,
+    "margin": 0.1,
+    "max_sources": 3
+  },
+  "active_variants": {
+    "threshold": 1.0099510130388258,
+    "margin": 0.2,
+    "max_sources": 3
+  },
+  "issuance_policy": "Exact release text and exact text segments with all ambiguous release IDs logged. Unique issuer returned only for a compatible singleton via a text hash. No ledger metadata leaks into match selection.",
+  "calibration": "Dev micro-F1 for thresholds in the source task. Fixed scope max three source predictions. No test retained set, requested fusion count or attack type read by ranking.",
+  "model_sha256": {
+    "bge": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+    "rerank": "a0e7364ddf91ff7028f1102e1b91ac7a72e3db4061241bd84efe45c72c9af03a"
+  },
+  "semantic_embedding_preprocessing_seconds": 519.3438343000016,
+  "ranking_elapsed_seconds": 787.9273885999573,
+  "sha256": {
+    "threshold": 1.0,
+    "margin": null,
+    "max_sources": 3
+  },
+  "bge": {
+    "threshold": 0.7600027918815613,
+    "margin": 0.1,
+    "max_sources": 3
+  },
+  "bge_rerank": {
+    "threshold": 0.00415083160623908,
+    "margin": 0.2,
+    "max_sources": 3
+  },
+  "issuance_lookup": {
+    "threshold": 1.0,
+    "margin": null,
+    "max_sources": 3
+  }
+}

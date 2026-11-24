@@ -1,0 +1,93 @@
+{
+  "cells": [
+    {
+      "delta": 0.0,
+      "hop": 1,
+      "trials": 2,
+      "prefix_exact": 1,
+      "symbol_accuracy": 0.5,
+      "mean_hop_seconds": 38.84797699999763
+    },
+    {
+      "delta": 0.0,
+      "hop": 2,
+      "trials": 2,
+      "prefix_exact": 0,
+      "symbol_accuracy": 0.5,
+      "mean_hop_seconds": 42.27276679998613
+    },
+    {
+      "delta": 0.0,
+      "hop": 3,
+      "trials": 2,
+      "prefix_exact": 0,
+      "symbol_accuracy": 0.3333333333333333,
+      "mean_hop_seconds": 43.2321199500002
+    },
+    {
+      "delta": 2.0,
+      "hop": 1,
+      "trials": 2,
+      "prefix_exact": 1,
+      "symbol_accuracy": 0.5,
+      "mean_hop_seconds": 38.515335799980676
+    },
+    {
+      "delta": 2.0,
+      "hop": 2,
+      "trials": 2,
+      "prefix_exact": 1,
+      "symbol_accuracy": 0.5,
+      "mean_hop_seconds": 41.85332314998959
+    },
+    {
+      "delta": 2.0,
+      "hop": 3,
+      "trials": 2,
+      "prefix_exact": 0,
+      "symbol_accuracy": 0.16666666666666666,
+      "mean_hop_seconds": 22.075614900008077
+    }
+  ],
+  "model": "D:\\pycharm\\CogniGuard\\assets\\models\\chronology-llama32-1b-9535bd9",
+  "hardware": "cpu",
+  "gpu_hours": 0,
+  "total_generation_seconds": 453.5942751999246,
+  "model_revision": "9535bd9b1d1dea6acafbdc4813b728796aeb28da",
+  "artifacts_sha256": {
+    "upstream/2504.12612v2.pdf": "be05ad6424f6529b24bfd1c19c797dad2d742fe38d895ab6bef53145afbdfa05",
+    "token-smoke/config.json": "3b368e771a56976acec611bc8aac35e3c89763f496d23e0e1f8585fbae1a282e",
+    "token-smoke/results.jsonl": "5f95e7a249ca88ef15d868e3d121686cdfcb2309935ace8d748603d7f36b01b2",
+    "llama-smoke/config.json": "5dbc48c99850d1a79cb1f56679c20d8eda6f00b9633821aa0ed7e0b29058ff49",
+    "llama-smoke/results.jsonl": "df6f49ec538b183fcaf9c44ee17f76beed5d9353a177f7d8640d0c2f962e5693",
+    "llama-smoke/summary.json": "8cddfd9333d352de9034df8d817ca4730dbb68ef56c88051abc8407f71354231",
+    "llama-smoke/chronology_smoke.png": "5597844c189593a325a36455875fb40ddff63097ec64f4233fa68db62fbdef78"
+  },
+  "synthetic_token_results": [
+    {
+      "delta": 0,
+      "trials": 300,
+      "exact": 16,
+      "tokens": 150
+    },
+    {
+      "delta": 1,
+      "trials": 300,
+      "exact": 299,
+      "tokens": 150
+    },
+    {
+      "delta": 2,
+      "trials": 300,
+      "exact": 300,
+      "tokens": 150
+    },
+    {
+      "delta": 3,
+      "trials": 300,
+      "exact": 300,
+      "tokens": 150
+    }
+  ],
+  "scope": "Paper-based small-model smoke, author scripts unavailable"
+}

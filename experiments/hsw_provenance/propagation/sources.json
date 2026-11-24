@@ -1,0 +1,414 @@
+[
+  {
+    "source_id": "math-01",
+    "domain": "math",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00041/index.cnxml",
+    "section": "Prime and Composite Numbers",
+    "question": "A library has 18, 30, and 42 books of three genres. Each shelf holds the same number, contains one genre, and all books are shelved. Find the maximum books per shelf and the three shelf counts, in order.",
+    "expected": [
+      "6 books",
+      "3 shelves",
+      "5 shelves",
+      "7 shelves"
+    ],
+    "frozen_draft_sha256": "b941781b4518b9b32a8a04d5db36539a8bec2f803a35e63a10f1d1bcd9e285f5",
+    "frozen_draft_text": "To find the maximum number of books per shelf that can evenly divide the number of books in each genre, we need to determine the greatest common divisor (GCD) of the numbers 18, 30, and 42. The GCD is the largest number that can divide each of these numbers without leaving a remainder.\n\nFirst, we find the prime factorization of each number:\n- \\(18 = 2 \\times 3^2\\)\n- \\(30 = 2 \\times 3 \\times 5\\)\n- \\(42 = 2 \\times 3 \\times 7\\)\n\nThe common factors among these factorizations are 2 and 3. The smallest power of these common factors is \\(2^1\\) and \\(3^1\\). Therefore, the GCD is:\n\\[2 \\times 3 = 6\\]\n\nThis means the maximum number of books per shelf is 6. Next, we calculate the number of shelves for each genre:\n- For the 18 books: \\(18 \\div 6 = 3\\) shelves\n- For the 30 books: \\(30 \\div 6 = 5\\) shelves\n- For the 42 books: \\(42 \\div 6 = 7\\) shelves\n\nResult: 6, 3, 5, 7",
+    "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+    "units": [
+      {
+        "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.",
+        "light": "The genre counts are 18, 30, and 42, and shelving must use identical group sizes with no mixing.",
+        "strong": "Partition 18, 30, and 42 books by genre into equally populated shelves.",
+        "fact_id": "math-01:f1"
+      },
+      {
+        "text": "The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.",
+        "light": "Equal shelving without leftovers permits at most 6 books on a shelf for totals 18, 30, and 42.",
+        "strong": "GCD(18, 30, 42) = 6.",
+        "fact_id": "math-01:f2"
+      },
+      {
+        "text": "For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+        "light": "The genres with 18, 30, and 42 books need 3, 5, and 7 shelves respectively.",
+        "strong": "Divide the vector (18, 30, 42) by 6 to get (3, 5, 7) shelves.",
+        "fact_id": "math-01:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "math-05",
+    "domain": "math",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00050/index.cnxml",
+    "section": "Arithmetic Sequences",
+    "question": "An arithmetic sequence starts at 11 and increases by 7 per step. Count the first term as term 1. Find term 23 and the sum through that term.",
+    "expected": [
+      "165",
+      "2024"
+    ],
+    "frozen_draft_sha256": "28d92b67a015aad2462dac71da8b50eb984451163be297d9277daee25debd872",
+    "frozen_draft_text": "An arithmetic sequence is a sequence of numbers in which each term after the first is obtained by adding a constant difference to the preceding term. In this case, the sequence starts at 11 and increases by 7 per step. The general formula for the \\(n\\)-th term of an arithmetic sequence is given by:\n\\[ a_n = a_1 + (n-1)d \\]\nwhere \\(a_n\\) is the \\(n\\)-th term, \\(a_1\\) is the first term, \\(n\\) is the term number, and \\(d\\) is the common difference.\n\nGiven:\n- The first term \\(a_1 = 11\\)\n- The common difference \\(d = 7\\)\n- We need to find the 23rd term (\\(a_{23}\\)) and the sum of the terms up to the 23rd term.\n\nFirst, we calculate the 23rd term (\\(a_{23}\\)):\n\\[ a_{23} = 11 + (23-1) \\cdot 7 \\]\n\\[ a_{23} = 11 + 22 \\cdot 7 \\]\n\\[ a_{23} = 11 + 154 \\]\n\\[ a_{23} = 165 \\]\n\nNext, we calculate the sum of the first 23 terms. The sum \\(S_n\\) of the first \\(n\\) terms of an arithmetic sequence is given by:\n\\[ S_n = \\frac{n}{2} (a_1 + a_n) \\]\nFor \\(n = 23\\), \\(a_1 = 11\\), and \\(a_{23} = 165\\):\n\\[ S_{23} = \\frac{23}{2} (11 + 165) \\]\n\\[ S_{23} = \\frac{23}{2} \\cdot 176 \\]\n\\[ S_{23} = 23 \\cdot 88 \\]\n\\[ S_{23} = 2024 \\]\n\nResult: The 23rd term is 165, and the sum of the terms through the 23rd term is 2024.",
+    "text": "This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+    "units": [
+      {
+        "text": "This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.",
+        "light": "Start at 11 and use a constant difference 7 to generate 23 terms.",
+        "strong": "The recurrence is arithmetic with seed 11, difference 7, and length 23.",
+        "fact_id": "math-05:f1"
+      },
+      {
+        "text": "In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.",
+        "light": "Counting from one in the arithmetic sequence with first term 11 and difference 7 puts 165 at index 23.",
+        "strong": "With parameters (11, 7) for a arithmetic sequence, a(23) = 165.",
+        "fact_id": "math-05:f2"
+      },
+      {
+        "text": "The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+        "light": "Adding the first 23 values in the arithmetic sequence with first term 11 and difference 7 gives 2024.",
+        "strong": "The finite arithmetic series with parameters (11, 7) has S(23) = 2024.",
+        "fact_id": "math-05:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "math-08",
+    "domain": "math",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00050/index.cnxml",
+    "section": "Arithmetic Sequences",
+    "question": "An arithmetic sequence starts at 8 and increases by 11 per step. Count the first term as term 1. Find term 26 and the sum through that term.",
+    "expected": [
+      "283",
+      "3783"
+    ],
+    "frozen_draft_sha256": "e26f1f98f55c73868c5beb601b19d9337a37d153acb47c6dc30435f6e0b59f69",
+    "frozen_draft_text": "An arithmetic sequence is a sequence of numbers in which each term after the first is obtained by adding a constant difference to the preceding term. In this problem, the sequence starts at 8 and increases by 11 per step. The first term is denoted as \\(a_1 = 8\\), and the common difference is \\(d = 11\\).\n\nTo find the 26th term (\\(a_{26}\\)), we use the formula for the \\(n\\)-th term of an arithmetic sequence:\n\\[a_n = a_1 + (n-1)d\\]\nSubstituting \\(n = 26\\), \\(a_1 = 8\\), and \\(d = 11\\):\n\\[a_{26} = 8 + (26-1) \\cdot 11\\]\n\\[a_{26} = 8 + 25 \\cdot 11\\]\n\\[a_{26} = 8 + 275\\]\n\\[a_{26} = 283\\]\n\nNext, we need to find the sum of the first 26 terms of the sequence. The sum \\(S_n\\) of the first \\(n\\) terms of an arithmetic sequence is given by:\n\\[S_n = \\frac{n}{2} (a_1 + a_n)\\]\nSubstituting \\(n = 26\\), \\(a_1 = 8\\), and \\(a_{26} = 283\\):\n\\[S_{26} = \\frac{26}{2} (8 + 283)\\]\n\\[S_{26} = 13 \\cdot 291\\]\n\\[S_{26} = 3783\\]\n\nResult: The 26th term is 283, and the sum of the first 26 terms is 3783.",
+    "text": "This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+    "units": [
+      {
+        "text": "This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.",
+        "light": "Start at 8 and use a constant difference 11 to generate 26 terms.",
+        "strong": "The recurrence is arithmetic with seed 8, difference 11, and length 26.",
+        "fact_id": "math-08:f1"
+      },
+      {
+        "text": "In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.",
+        "light": "Counting from one in the arithmetic sequence with first term 8 and difference 11 puts 283 at index 26.",
+        "strong": "With parameters (8, 11) for a arithmetic sequence, a(26) = 283.",
+        "fact_id": "math-08:f2"
+      },
+      {
+        "text": "The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+        "light": "Adding the first 26 values in the arithmetic sequence with first term 8 and difference 11 gives 3783.",
+        "strong": "The finite arithmetic series with parameters (8, 11) has S(26) = 3783.",
+        "fact_id": "math-08:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "math-09",
+    "domain": "math",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-contemporary-mathematics/3674d0968b2de1d8315d25f0da34bbcee8ea2e38/modules/m00051/index.cnxml",
+    "section": "Geometric Sequences",
+    "question": "A display has 7 rows. The first has 3 lights and each successive row has 2 times the preceding row's count. Find the last row's count and the total number of lights.",
+    "expected": [
+      "192",
+      "381"
+    ],
+    "frozen_draft_sha256": "b5a9f2decd6fd357cf40adb74b9aafccf1d0e330dc0bf665361b77d24fe4a7d2",
+    "frozen_draft_text": "In this problem, we are dealing with a geometric sequence where the first term \\(a_1 = 3\\) and the common ratio \\(r = 2\\). The display has 7 rows, and we need to find the number of lights in the last row and the total number of lights.\n\nThe number of lights in the \\(n\\)-th row can be expressed as:\n\\[a_n = a_1 \\cdot r^{n-1}\\]\nFor the 7th row (\\(n = 7\\)):\n\\[a_7 = 3 \\cdot 2^{7-1} = 3 \\cdot 2^6 = 3 \\cdot 64 = 192\\]\nSo, the last row has 192 lights.\n\nNext, we need to find the total number of lights in all 7 rows. The sum \\(S_n\\) of the first \\(n\\) terms of a geometric sequence is given by:\n\\[S_n = a_1 \\frac{r^n - 1}{r - 1}\\]\nFor \\(n = 7\\), \\(a_1 = 3\\), and \\(r = 2\\):\n\\[S_7 = 3 \\frac{2^7 - 1}{2 - 1} = 3 \\frac{128 - 1}{1} = 3 \\cdot 127 = 381\\]\nSo, the total number of lights is 381.\n\nResult: The last row's count is 192, and the total number of lights is 381.",
+    "text": "This geometric sequence begins with 3, multiplies by 2 at each step, and runs through term 7.\nIn the geometric sequence with first term 3 and ratio 2, the value at position 7 is 192.\nThe sum of the first 7 terms of the geometric sequence with first term 3 and ratio 2 is 381.",
+    "units": [
+      {
+        "text": "This geometric sequence begins with 3, multiplies by 2 at each step, and runs through term 7.",
+        "light": "Start at 3 and use a constant ratio 2 to generate 7 terms.",
+        "strong": "The recurrence is geometric with seed 3, ratio 2, and length 7.",
+        "fact_id": "math-09:f1"
+      },
+      {
+        "text": "In the geometric sequence with first term 3 and ratio 2, the value at position 7 is 192.",
+        "light": "Counting from one in the geometric sequence with first term 3 and ratio 2 puts 192 at index 7.",
+        "strong": "With parameters (3, 2) for a geometric sequence, a(7) = 192.",
+        "fact_id": "math-09:f2"
+      },
+      {
+        "text": "The sum of the first 7 terms of the geometric sequence with first term 3 and ratio 2 is 381.",
+        "light": "Adding the first 7 values in the geometric sequence with first term 3 and ratio 2 gives 381.",
+        "strong": "The finite geometric series with parameters (3, 2) has S(7) = 381.",
+        "fact_id": "math-09:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "physics-01",
+    "domain": "physics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42232/index.cnxml",
+    "section": "The First Law of Thermodynamics",
+    "question": "A closed piston system receives 900 J of heat and does 250 J of work, with no change in bulk kinetic or potential energy. Find the signed change in internal energy. Explain which of heat and internal energy is a state quantity.",
+    "expected": [
+      "+650 J",
+      "Internal energy is a state quantity"
+    ],
+    "frozen_draft_sha256": "1810debd0f5fec5ffc81a30f2c6a714d0ec1639f2f72a2aaa8ddc9752b14351b",
+    "frozen_draft_text": "The First Law of Thermodynamics states that the change in internal energy (ΔU) of a closed system is equal to the heat added to the system (Q) minus the work done by the system (W). This law is fundamental in understanding how energy is conserved in thermodynamic processes.\n\nIn this scenario, the system is a closed piston system that receives 900 J of heat (Q = 900 J) and does 250 J of work (W = 250 J). The change in internal energy (ΔU) can be calculated using the equation:\n\n\\[ \\Delta U = Q - W \\]\n\nSubstituting the given values:\n\n\\[ \\Delta U = 900 \\, \\text{J} - 250 \\, \\text{J} \\]\n\n\\[ \\Delta U = 650 \\, \\text{J} \\]\n\nThe positive value of ΔU indicates that the internal energy of the system has increased by 650 J.\n\nHeat (Q) is a process quantity, which means its value depends on the path taken to transfer energy. In contrast, internal energy (U) is a state quantity, which means it depends only on the state of the system and not on the path taken to reach that state. Therefore, the internal energy of the system is a state quantity.\n\nResult: ΔU = 650 J, Q = 900 J, W = 250 J",
+    "text": "The closed piston takes in 900 J of heat and performs 250 J of work, with its bulk kinetic and potential energy unchanged.\nFor the closed piston receiving 900 J and doing 250 J of work, the internal energy rises by 650 J.\nFor the piston heated by 900 J while doing 250 J of work, internal energy is a state quantity and heat depends on the process.",
+    "units": [
+      {
+        "text": "The closed piston takes in 900 J of heat and performs 250 J of work, with its bulk kinetic and potential energy unchanged.",
+        "light": "Heating supplies 900 J and piston work removes 250 J, with no bulk energy change.",
+        "strong": "For the closed piston, Q = 900 J, W_out = 250 J, and bulk energy is constant.",
+        "fact_id": "physics-01:f1"
+      },
+      {
+        "text": "For the closed piston receiving 900 J and doing 250 J of work, the internal energy rises by 650 J.",
+        "light": "Subtract the 250 J of work from the 900 J of heating to get an internal energy gain of 650 J.",
+        "strong": "Internal energy change equals +650 J for a piston with Q=900 J and W_out=250 J.",
+        "fact_id": "physics-01:f2"
+      },
+      {
+        "text": "For the piston heated by 900 J while doing 250 J of work, internal energy is a state quantity and heat depends on the process.",
+        "light": "The 900 J of heating in this piston is path dependent, while the internal energy is a state property.",
+        "strong": "For the 900 J input and 250 J output piston, U is a state function and heat is a transfer quantity.",
+        "fact_id": "physics-01:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "physics-05",
+    "domain": "physics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42363/index.cnxml",
+    "section": "DC Circuits Containing Resistors and Capacitors",
+    "question": "An initially uncharged ideal series RC circuit with R=1000 ohms and C=4 millifarads is connected to an ideal 10 V DC source. Find its time constant and capacitor voltage after one time constant (round voltage to two decimals).",
+    "expected": [
+      "4 s",
+      "6.32 V"
+    ],
+    "frozen_draft_sha256": "8cd40a3507cc2987bb881b3d0d8b35d4532ae70399d97f12832eda2991d6be3d",
+    "frozen_draft_text": "In an ideal series RC circuit, the time constant \\(\\tau\\) is given by the product of the resistance \\(R\\) and the capacitance \\(C\\). This time constant \\(\\tau = RC\\) represents the time it takes for the capacitor to charge to approximately 63.2% of the source voltage. For the given circuit, the resistance \\(R = 1000 \\, \\Omega\\) and the capacitance \\(C = 4 \\, \\text{mF} = 4 \\times 10^{-3} \\, \\text{F}\\).\n\nFirst, we calculate the time constant \\(\\tau\\):\n\\[\n\\tau = RC = 1000 \\, \\Omega \\times 4 \\times 10^{-3} \\, \\text{F} = 4 \\, \\text{s}\n\\]\nThe time constant \\(\\tau\\) is 4 seconds.\n\nNext, we need to find the voltage across the capacitor \\(V_C\\) after one time constant, which is \\(t = \\tau = 4 \\, \\text{s}\\). The voltage across the capacitor as a function of time is given by the equation:\n\\[\nV_C(t) = V_{\\text{source}} \\left(1 - e^{-t/\\tau}\\right)\n\\]\nSubstituting \\(V_{\\text{source}} = 10 \\, \\text{V}\\), \\(t = 4 \\, \\text{s}\\), and \\(\\tau = 4 \\, \\text{s}\\) into the equation:\n\\[\nV_C(4) = 10 \\, \\text{V} \\left(1 - e^{-4/4}\\right) = 10 \\, \\text{V} \\left(1 - e^{-1}\\right)\n\\]\nThe value of \\(e^{-1}\\) is approximately 0.3679. Therefore:\n\\[\nV_C(4) = 10 \\, \\text{V} \\left(1 - 0.3679\\right) = 10 \\, \\text{V} \\times 0.6321 = 6.32 \\, \\text{V}\n\\]\nRounding to two decimal places, the voltage across the capacitor after one time constant is 6.32 V.\n\nResult: Time constant \\(\\tau = 4 \\, \\text{s}\\), capacitor voltage \\(V_C = 6.32 \\, \\text{V}\\).",
+    "text": "An ideal 10 V source starts charging the initially uncharged 1000-ohm and 4-mF series circuit.\nFor the initially uncharged 1000-ohm and 4-mF series circuit, the resistance times capacitance gives a time constant of 4 seconds.\nAfter one time constant in the initially uncharged 1000-ohm and 4-mF series circuit, the capacitor voltage is approximately 6.32 V.",
+    "units": [
+      {
+        "text": "An ideal 10 V source starts charging the initially uncharged 1000-ohm and 4-mF series circuit.",
+        "light": "Before applying 10 V, the 4 mF capacitor in series with 1000 ohms has zero voltage.",
+        "strong": "The 1000 ohm, 4 mF RC network has a zero initial condition and a 10 V step input.",
+        "fact_id": "physics-05:f1"
+      },
+      {
+        "text": "For the initially uncharged 1000-ohm and 4-mF series circuit, the resistance times capacitance gives a time constant of 4 seconds.",
+        "light": "The 1000 ohm and 4 mF components give a charging time constant of 4 s.",
+        "strong": "In the 1000 ohm, 4 mF network, tau = RC = 4 s.",
+        "fact_id": "physics-05:f2"
+      },
+      {
+        "text": "After one time constant in the initially uncharged 1000-ohm and 4-mF series circuit, the capacitor voltage is approximately 6.32 V.",
+        "light": "At t = RC, the capacitor in the 1000 ohm and 4 mF circuit reaches about 6.32 volts.",
+        "strong": "For the 1000 ohm, 4 mF charging circuit, V_C(tau) = 10(1 - exp(-1)) ≈ 6.32 V.",
+        "fact_id": "physics-05:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "physics-10",
+    "domain": "physics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42042/index.cnxml",
+    "section": "Projectile Motion",
+    "question": "A ball leaves a level ledge 20 m above the floor horizontally at 4 m/s. Take g=10 m/s², neglect air resistance, and set the launch time to zero. Find the flight time and horizontal distance to the first impact.",
+    "expected": [
+      "2 s",
+      "8 m"
+    ],
+    "frozen_draft_sha256": "a39e4e423bc9bc58e7a18271ce4b7c8a797ccaf3bbbd64e40d6a762af43b679b",
+    "frozen_draft_text": "In this scenario, the ball is launched horizontally from a ledge 20 meters above the floor. The horizontal velocity is 4 m/s, and the acceleration due to gravity is 10 m/s². The key concept here is that the vertical and horizontal motions are independent of each other. This means we can analyze the vertical motion (falling) and the horizontal motion (constant velocity) separately.\n\nFirst, we analyze the vertical motion. The ball falls from a height of 20 meters under the influence of gravity. We use the kinematic equation for vertical displacement:\n\n\\[ y = \\frac{1}{2} g t^2 \\]\n\nwhere \\( y \\) is the vertical displacement (20 m), \\( g \\) is the acceleration due to gravity (10 m/s²), and \\( t \\) is the time. Plugging in the values, we get:\n\n\\[ 20 = \\frac{1}{2} \\times 10 \\times t^2 \\]\n\\[ 20 = 5 t^2 \\]\n\\[ t^2 = 4 \\]\n\\[ t = 2 \\, \\text{s} \\]\n\nThis is the time it takes for the ball to fall 20 meters. This is the flight time.\n\nNext, we analyze the horizontal motion. The horizontal velocity is constant at 4 m/s. The horizontal distance \\( x \\) traveled is given by:\n\n\\[ x = v_x t \\]\n\nwhere \\( v_x \\) is the horizontal velocity (4 m/s), and \\( t \\) is the time (2 s). Plugging in the values, we get:\n\n\\[ x = 4 \\times 2 \\]\n\\[ x = 8 \\, \\text{m} \\]\n\nThis is the horizontal distance traveled before the first impact.\n\nResult:\nFlight time: 2 s\nHorizontal distance: 8 m",
+    "text": "Consider a horizontal launch at 4 m/s from a 20 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nFor a horizontal launch at 4 m/s from a 20 m ledge, the time to reach the ground is 2 seconds.\nFor a horizontal launch at 4 m/s from a 20 m ledge, the first impact is 8 metres horizontally from the launch point.",
+    "units": [
+      {
+        "text": "Consider a horizontal launch at 4 m/s from a 20 m ledge, neglecting air resistance and taking gravity as 10 m/s².",
+        "light": "The projectile leaves a ledge 20 m high with horizontal speed 4 m/s and no air drag.",
+        "strong": "Initial conditions are h=20 m, v_x=4 m/s, v_y=0, and g=10 m/s² without drag.",
+        "fact_id": "physics-10:f1"
+      },
+      {
+        "text": "For a horizontal launch at 4 m/s from a 20 m ledge, the time to reach the ground is 2 seconds.",
+        "light": "A ball leaving the 20 m ledge at 4 m/s spends 2 s in flight.",
+        "strong": "For h=20 m and v_x=4 m/s, solving h=gt²/2 gives t=2 s.",
+        "fact_id": "physics-10:f2"
+      },
+      {
+        "text": "For a horizontal launch at 4 m/s from a 20 m ledge, the first impact is 8 metres horizontally from the launch point.",
+        "light": "Starting 20 m above the floor at 4 m/s gives horizontal range 8 m.",
+        "strong": "With h=20 m and v_x=4 m/s, the product v_x t yields 8 m.",
+        "fact_id": "physics-10:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "physics-11",
+    "domain": "physics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-college-physics-bundle/84147e8ddbb1a7d2689e235630b230e6b4f20480/modules/m42042/index.cnxml",
+    "section": "Projectile Motion",
+    "question": "A ball leaves a level ledge 45 m above the floor horizontally at 2 m/s. Take g=10 m/s², neglect air resistance, and set the launch time to zero. Find the flight time and horizontal distance to the first impact.",
+    "expected": [
+      "3 s",
+      "6 m"
+    ],
+    "frozen_draft_sha256": "1260123f128604a8eb9404c0976a837aaaab1b859bc14bf4d31c087719e52f8c",
+    "frozen_draft_text": "In this scenario, the ball is launched horizontally from a ledge 45 meters above the floor. The horizontal velocity is constant at 2 m/s, while the vertical motion is influenced by gravity. Since air resistance is negligible, the vertical and horizontal motions are independent of each other.\n\nFirst, we calculate the flight time, which is determined by the vertical motion. The ball falls freely under gravity, starting from rest in the vertical direction. The vertical displacement \\( y \\) can be described by the equation:\n\\[ y = \\frac{1}{2} g t^2 \\]\nwhere \\( y = 45 \\) m, \\( g = 10 \\) m/s², and \\( t \\) is the time. Substituting the known values:\n\\[ 45 = \\frac{1}{2} \\times 10 \\times t^2 \\]\n\\[ 45 = 5 t^2 \\]\n\\[ t^2 = 9 \\]\n\\[ t = 3 \\text{ s} \\]\nThe flight time is 3 seconds.\n\nNext, we calculate the horizontal distance traveled during this time. The horizontal distance \\( x \\) is given by:\n\\[ x = v_x t \\]\nwhere \\( v_x = 2 \\) m/s and \\( t = 3 \\) s. Substituting the values:\n\\[ x = 2 \\times 3 \\]\n\\[ x = 6 \\text{ m} \\]\nThe horizontal distance to the first impact is 6 meters.\n\nResult: The flight time is 3 s and the horizontal distance to the first impact is 6 m.",
+    "text": "Consider a horizontal launch at 2 m/s from a 45 m ledge, neglecting air resistance and taking gravity as 10 m/s².\nFor a horizontal launch at 2 m/s from a 45 m ledge, the time to reach the ground is 3 seconds.\nFor a horizontal launch at 2 m/s from a 45 m ledge, the first impact is 6 metres horizontally from the launch point.",
+    "units": [
+      {
+        "text": "Consider a horizontal launch at 2 m/s from a 45 m ledge, neglecting air resistance and taking gravity as 10 m/s².",
+        "light": "The projectile leaves a ledge 45 m high with horizontal speed 2 m/s and no air drag.",
+        "strong": "Initial conditions are h=45 m, v_x=2 m/s, v_y=0, and g=10 m/s² without drag.",
+        "fact_id": "physics-11:f1"
+      },
+      {
+        "text": "For a horizontal launch at 2 m/s from a 45 m ledge, the time to reach the ground is 3 seconds.",
+        "light": "A ball leaving the 45 m ledge at 2 m/s spends 3 s in flight.",
+        "strong": "For h=45 m and v_x=2 m/s, solving h=gt²/2 gives t=3 s.",
+        "fact_id": "physics-11:f2"
+      },
+      {
+        "text": "For a horizontal launch at 2 m/s from a 45 m ledge, the first impact is 6 metres horizontally from the launch point.",
+        "light": "Starting 45 m above the floor at 2 m/s gives horizontal range 6 m.",
+        "strong": "With h=45 m and v_x=2 m/s, the product v_x t yields 6 m.",
+        "fact_id": "physics-11:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "statistics-02",
+    "domain": "statistics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79633/index.cnxml",
+    "section": "The Uniform Distribution",
+    "question": "X is a continuous uniform waiting time in minutes on [0,20]. Find the mean waiting time, P(4<X<11), and P(X=4). Give exact probabilities.",
+    "expected": [
+      "10 min",
+      "7/20",
+      "0"
+    ],
+    "frozen_draft_sha256": "68cea98ee80b473b4e1e64232a6206f1d35139b85cb5ce6b0c0361b6c7b68bcf",
+    "frozen_draft_text": "The continuous uniform distribution is a probability distribution where the probability density function (pdf) is constant over a given interval, known as the support. In this case, the support is the interval [0, 20] minutes, which represents the range of possible waiting times. The pdf for a uniform distribution over the interval [a, b] is given by:\n\n\\[ f(x) = \\frac{1}{b-a} \\]\n\nHere, \\(a = 0\\) and \\(b = 20\\), so the pdf is:\n\n\\[ f(x) = \\frac{1}{20-0} = \\frac{1}{20} \\]\n\n### Mean Waiting Time\n\nThe mean (or expected value) of a continuous uniform distribution over the interval [a, b] is given by:\n\n\\[ E(X) = \\frac{a+b}{2} \\]\n\nSubstituting \\(a = 0\\) and \\(b = 20\\):\n\n\\[ E(X) = \\frac{0+20}{2} = \\frac{20}{2} = 10 \\]\n\nThus, the mean waiting time is 10 minutes.\n\n### Probability P(4 < X < 11)\n\nThe probability that \\(X\\) lies within a specific interval [c, d] is given by the area under the pdf over that interval. For a uniform distribution, this is:\n\n\\[ P(c < X < d) = \\int_{c}^{d} f(x) \\, dx = \\int_{c}^{d} \\frac{1}{20} \\, dx = \\frac{1}{20} (d - c) \\]\n\nFor the interval [4, 11]:\n\n\\[ P(4 < X < 11) = \\frac{1}{20} (11 - 4) = \\frac{1}{20} \\times 7 = \\frac{7}{20} \\]\n\nThus, the probability \\(P(4 < X < 11)\\) is \\(\\frac{7}{20}\\).\n\n### Probability P(X = 4)\n\nFor a continuous uniform distribution, the probability of \\(X\\) taking on any specific value is zero. This is because the probability is spread out over a continuous interval, and the area under the pdf for a single point is zero. Therefore:\n\n\\[ P(X = 4) = 0 \\]\n\n### Conclusion\n\nResult: The mean waiting time is 10 minutes, \\(P(4 < X < 11) = \\frac{7}{20}\\), and \\(P(X = 4) = 0\\).",
+    "text": "For a uniform wait from 0 through 20 minutes, the expected waiting time is 10 minutes.\nFor a uniform wait from 0 through 20 minutes, the probability of waiting between 4 and 11 minutes is 7/20.\nFor a uniform wait from 0 through 20 minutes, the probability of a wait lasting exactly 4 minutes is zero.",
+    "units": [
+      {
+        "text": "For a uniform wait from 0 through 20 minutes, the expected waiting time is 10 minutes.",
+        "light": "A uniform delay supported on [0, 20] min averages 10 min.",
+        "strong": "A uniform law on [0, 20] min has mean (0+20)/2 = 10 min.",
+        "fact_id": "statistics-02:f1"
+      },
+      {
+        "text": "For a uniform wait from 0 through 20 minutes, the probability of waiting between 4 and 11 minutes is 7/20.",
+        "light": "On the uniform support [0, 20] min, waiting more than 4 and less than 11 min has chance 7/20.",
+        "strong": "For X uniform on [0, 20] min, P(4<X<11) = (11-4)/(20-0) = 7/20.",
+        "fact_id": "statistics-02:f2"
+      },
+      {
+        "text": "For a uniform wait from 0 through 20 minutes, the probability of a wait lasting exactly 4 minutes is zero.",
+        "light": "A delay uniformly distributed over [0, 20] min has zero chance of equaling 4 min.",
+        "strong": "The uniform density on [0, 20] min assigns a singleton at 4 min zero mass.",
+        "fact_id": "statistics-02:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "statistics-04",
+    "domain": "statistics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79633/index.cnxml",
+    "section": "The Uniform Distribution",
+    "question": "X is a continuous uniform waiting time in minutes on [3,23]. Find the mean waiting time, P(7<X<15), and P(X=7). Give exact probabilities.",
+    "expected": [
+      "13 min",
+      "8/20",
+      "0"
+    ],
+    "frozen_draft_sha256": "48157b3af5009ab0aa3829de59d2dba3aa9f8f81ad7687fe8d90e6ddab838192",
+    "frozen_draft_text": "The continuous uniform distribution is a probability distribution where the density is constant over its support. For a uniform distribution over the interval \\([a, b]\\), the probability density function (pdf) is given by:\n\n\\[ f(x) = \\frac{1}{b - a} \\]\n\nfor \\(a \\leq x \\leq b\\), and 0 otherwise. The mean (or expected value) of a uniform distribution over \\([a, b]\\) is:\n\n\\[ E(X) = \\frac{a + b}{2} \\]\n\nThe probability that \\(X\\) lies in an interval \\([c, d]\\) is the area under the pdf over that interval, which is:\n\n\\[ P(c \\leq X \\leq d) = \\frac{d - c}{b - a} \\]\n\nGiven that \\(X\\) is a continuous uniform waiting time in minutes on \\([3, 23]\\), we have \\(a = 3\\) and \\(b = 23\\).\n\nTo find the mean waiting time, we use the formula for the mean of a uniform distribution:\n\n\\[ E(X) = \\frac{3 + 23}{2} = \\frac{26}{2} = 13 \\]\n\nNext, we calculate \\(P(7 < X < 15)\\). Using the probability formula for a uniform distribution:\n\n\\[ P(7 < X < 15) = \\frac{15 - 7}{23 - 3} = \\frac{8}{20} = \\frac{2}{5} \\]\n\nFinally, we need to find \\(P(X = 7)\\). For a continuous uniform distribution, the probability of \\(X\\) taking any specific value is 0, because the area under the pdf at a single point is zero. Therefore:\n\n\\[ P(X = 7) = 0 \\]\n\nResult:\nMean waiting time: 13 minutes, \\(P(7 < X < 15)\\): \\(\\frac{2}{5}\\), \\(P(X = 7)\\): 0.",
+    "text": "For a uniform wait from 3 through 23 minutes, the expected waiting time is 13 minutes.\nFor a uniform wait from 3 through 23 minutes, the probability of waiting between 7 and 15 minutes is 2/5.\nFor a uniform wait from 3 through 23 minutes, the probability of a wait lasting exactly 7 minutes is zero.",
+    "units": [
+      {
+        "text": "For a uniform wait from 3 through 23 minutes, the expected waiting time is 13 minutes.",
+        "light": "A uniform delay supported on [3, 23] min averages 13 min.",
+        "strong": "A uniform law on [3, 23] min has mean (3+23)/2 = 13 min.",
+        "fact_id": "statistics-04:f1"
+      },
+      {
+        "text": "For a uniform wait from 3 through 23 minutes, the probability of waiting between 7 and 15 minutes is 2/5.",
+        "light": "On the uniform support [3, 23] min, waiting more than 7 and less than 15 min has chance 2/5.",
+        "strong": "For X uniform on [3, 23] min, P(7<X<15) = (15-7)/(23-3) = 2/5.",
+        "fact_id": "statistics-04:f2"
+      },
+      {
+        "text": "For a uniform wait from 3 through 23 minutes, the probability of a wait lasting exactly 7 minutes is zero.",
+        "light": "A delay uniformly distributed over [3, 23] min has zero chance of equaling 7 min.",
+        "strong": "The uniform density on [3, 23] min assigns a singleton at 7 min zero mass.",
+        "fact_id": "statistics-04:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "statistics-05",
+    "domain": "statistics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79635/index.cnxml",
+    "section": "The Exponential Distribution (Optional)",
+    "question": "A waiting time X is modeled as a continuous exponential random variable with mean 50 minutes. Find its rate with units and the chance that the wait exceeds 100 minutes. Round the probability to four decimals.",
+    "expected": [
+      "1/50 per minute",
+      "0.1353"
+    ],
+    "frozen_draft_sha256": "a0c75044661f5946691d8a964528a01ae8bbf66d9bc2a3c98c6e40c45d92fe1b",
+    "frozen_draft_text": "The exponential distribution is used to model the time between events in a Poisson process, where events occur continuously and independently at a constant average rate. For an exponential distribution with mean \\( m \\), the rate parameter \\( \\lambda \\) is given by \\( \\lambda = \\frac{1}{m} \\). Here, the mean waiting time \\( m \\) is 50 minutes.\n\nFirst, we calculate the rate parameter \\( \\lambda \\):\n\\[\n\\lambda = \\frac{1}{m} = \\frac{1}{50} \\text{ per minute}\n\\]\n\nNext, we need to find the probability that the wait exceeds 100 minutes. The survival probability for an exponential distribution is given by \\( P(X > t) = e^{-\\lambda t} \\). Here, \\( t = 100 \\) minutes.\n\nSubstituting the values into the survival probability formula:\n\\[\nP(X > 100) = e^{-\\lambda \\cdot 100} = e^{-\\frac{1}{50} \\cdot 100} = e^{-2}\n\\]\n\nUsing the value of \\( e \\approx 2.71828 \\), we calculate:\n\\[\ne^{-2} \\approx 0.1353\n\\]\n\nThus, the probability that the wait exceeds 100 minutes is approximately 0.1353.\n\nResult: The rate is \\( \\frac{1}{50} \\) per minute, and the probability that the wait exceeds 100 minutes is 0.1353.",
+    "text": "The waiting time is modeled by a continuous exponential distribution with mean 50 minutes.\nAn exponential waiting time with mean 50 minutes has rate one divided by 50 per minute.\nThe exponential waiting time with mean 50 minutes exceeds 100 minutes with probability about 0.1353.",
+    "units": [
+      {
+        "text": "The waiting time is modeled by a continuous exponential distribution with mean 50 minutes.",
+        "light": "Use an exponential model whose average delay is 50 min.",
+        "strong": "The delay X has an exponential law with scale 50 min.",
+        "fact_id": "statistics-05:f1"
+      },
+      {
+        "text": "An exponential waiting time with mean 50 minutes has rate one divided by 50 per minute.",
+        "light": "For the exponential model with 50 min mean, the rate is 1/50 min⁻¹.",
+        "strong": "The exponential scale 50 min corresponds to λ = 1/50 min⁻¹.",
+        "fact_id": "statistics-05:f2"
+      },
+      {
+        "text": "The exponential waiting time with mean 50 minutes exceeds 100 minutes with probability about 0.1353.",
+        "light": "An exponential delay with average 50 min has chance 0.1353 of lasting over 100 min.",
+        "strong": "At scale 50 min, the exponential survival function satisfies S(100) = exp(-100/50) ≈ 0.1353.",
+        "fact_id": "statistics-05:f3"
+      }
+    ]
+  },
+  {
+    "source_id": "statistics-08",
+    "domain": "statistics",
+    "source_url": "https://raw.githubusercontent.com/openstax/osbooks-statistics/7dea80ae2800386d470b11f6528962f9c4992d15/modules/m79635/index.cnxml",
+    "section": "The Exponential Distribution (Optional)",
+    "question": "A waiting time X is modeled as a continuous exponential random variable with mean 120 minutes. Find its rate with units and the chance that the wait exceeds 240 minutes. Round the probability to four decimals.",
+    "expected": [
+      "1/120 per minute",
+      "0.1353"
+    ],
+    "frozen_draft_sha256": "e781ae1728ed8345e7a6b158101e68a81d07f6ba8d1bb88503bb6afb011085fb",
+    "frozen_draft_text": "The exponential distribution is a continuous probability distribution that is often used to model the time between events in a Poisson process. In this scenario, the waiting time \\(X\\) is modeled as an exponential random variable with a mean of 120 minutes. The rate parameter \\(\\lambda\\) of an exponential distribution is the reciprocal of the mean, and the survival probability is given by \\(e^{-\\lambda t}\\), where \\(t\\) is the time.\n\nFirst, we need to find the rate \\(\\lambda\\). Given that the mean waiting time \\(m = 120\\) minutes, the rate \\(\\lambda\\) is calculated as:\n\\[\n\\lambda = \\frac{1}{m} = \\frac{1}{120} \\text{ per minute}\n\\]\n\nNext, we need to find the probability that the wait exceeds 240 minutes. This is given by the survival probability formula:\n\\[\nP(X > 240) = e^{-\\lambda \\cdot 240}\n\\]\nSubstituting \\(\\lambda = \\frac{1}{120}\\) into the formula, we get:\n\\[\nP(X > 240) = e^{-\\frac{1}{120} \\cdot 240} = e^{-2}\n\\]\nThe value of \\(e^{-2}\\) can be calculated using a calculator:\n\\[\ne^{-2} \\approx 0.1353\n\\]\n\nTherefore, the probability that the wait exceeds 240 minutes is approximately 0.1353.\n\nResult:\n\\[\n\\lambda = \\frac{1}{120} \\text{ per minute}, \\quad P(X > 240) = 0.1353\n\\]",
+    "text": "The waiting time is modeled by a continuous exponential distribution with mean 120 minutes.\nAn exponential waiting time with mean 120 minutes has rate one divided by 120 per minute.\nThe exponential waiting time with mean 120 minutes exceeds 240 minutes with probability about 0.1353.",
+    "units": [
+      {
+        "text": "The waiting time is modeled by a continuous exponential distribution with mean 120 minutes.",
+        "light": "Use an exponential model whose average delay is 120 min.",
+        "strong": "The delay X has an exponential law with scale 120 min.",
+        "fact_id": "statistics-08:f1"
+      },
+      {
+        "text": "An exponential waiting time with mean 120 minutes has rate one divided by 120 per minute.",
+        "light": "For the exponential model with 120 min mean, the rate is 1/120 min⁻¹.",
+        "strong": "The exponential scale 120 min corresponds to λ = 1/120 min⁻¹.",
+        "fact_id": "statistics-08:f2"
+      },
+      {
+        "text": "The exponential waiting time with mean 120 minutes exceeds 240 minutes with probability about 0.1353.",
+        "light": "An exponential delay with average 120 min has chance 0.1353 of lasting over 240 min.",
+        "strong": "At scale 120 min, the exponential survival function satisfies S(240) = exp(-240/120) ≈ 0.1353.",
+        "fact_id": "statistics-08:f3"
+      }
+    ]
+  }
+]

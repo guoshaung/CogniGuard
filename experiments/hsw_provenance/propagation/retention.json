@@ -1,0 +1,122 @@
+[
+  {
+    "transform": "forward",
+    "depth": 1,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 1.0008340015903943e-05
+  },
+  {
+    "transform": "forward",
+    "depth": 3,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 2.386111656152126e-05
+  },
+  {
+    "transform": "forward",
+    "depth": 5,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 3.60694474592391e-05
+  },
+  {
+    "transform": "light_rewrite",
+    "depth": 1,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 4.546110964535425e-05
+  },
+  {
+    "transform": "light_rewrite",
+    "depth": 3,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 7.957499797662927e-05
+  },
+  {
+    "transform": "light_rewrite",
+    "depth": 5,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 0.00010597778115576754
+  },
+  {
+    "transform": "strong_rewrite",
+    "depth": 1,
+    "n": 36,
+    "fact_fidelity": 1.0,
+    "source_retention": 1.0,
+    "mean_seconds": 2.0366671378724277e-05
+  },
+  {
+    "transform": "strong_rewrite",
+    "depth": 3,
+    "n": 36,
+    "fact_fidelity": 0.7962962962962963,
+    "source_retention": 1.0,
+    "mean_seconds": 5.343611863079584e-05
+  },
+  {
+    "transform": "strong_rewrite",
+    "depth": 5,
+    "n": 36,
+    "fact_fidelity": 0.5925925925925926,
+    "source_retention": 1.0,
+    "mean_seconds": 8.196389535441995e-05
+  },
+  {
+    "transform": "summary",
+    "depth": 1,
+    "n": 36,
+    "fact_fidelity": 0.6666666666666666,
+    "source_retention": 1.0,
+    "mean_seconds": 1.6555557118004395e-05
+  },
+  {
+    "transform": "summary",
+    "depth": 3,
+    "n": 36,
+    "fact_fidelity": 0.2222222222222222,
+    "source_retention": 0.4583333333333333,
+    "mean_seconds": 3.923333618634691e-05
+  },
+  {
+    "transform": "summary",
+    "depth": 5,
+    "n": 36,
+    "fact_fidelity": 0.037037037037037035,
+    "source_retention": 0.1111111111111111,
+    "mean_seconds": 5.995833069189555e-05
+  },
+  {
+    "transform": "truncate",
+    "depth": 1,
+    "n": 36,
+    "fact_fidelity": 0.6666666666666666,
+    "source_retention": 1.0,
+    "mean_seconds": 8.969441599523028e-06
+  },
+  {
+    "transform": "truncate",
+    "depth": 3,
+    "n": 36,
+    "fact_fidelity": 0.12962962962962962,
+    "source_retention": 0.37037037037037035,
+    "mean_seconds": 1.882499620680594e-05
+  },
+  {
+    "transform": "truncate",
+    "depth": 5,
+    "n": 36,
+    "fact_fidelity": 0.0,
+    "source_retention": 0.0,
+    "mean_seconds": 2.7747220075171856e-05
+  }
+]

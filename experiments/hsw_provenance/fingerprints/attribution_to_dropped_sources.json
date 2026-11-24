@@ -1,0 +1,51 @@
+{
+  "sha256": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 0,
+    "unrelated_labels_attributed": 0,
+    "labels_attributed": 6,
+    "dropped_label_reattribution_rate": 0.0
+  },
+  "minhash": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 0,
+    "unrelated_labels_attributed": 0,
+    "labels_attributed": 517,
+    "dropped_label_reattribution_rate": 0.0
+  },
+  "bm25": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 29,
+    "unrelated_labels_attributed": 229,
+    "labels_attributed": 820,
+    "dropped_label_reattribution_rate": 0.1895424836601307
+  },
+  "bge": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 4,
+    "unrelated_labels_attributed": 173,
+    "labels_attributed": 787,
+    "dropped_label_reattribution_rate": 0.026143790849673203
+  },
+  "bge_rerank": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 12,
+    "unrelated_labels_attributed": 340,
+    "labels_attributed": 966,
+    "dropped_label_reattribution_rate": 0.0784313725490196
+  },
+  "issuance_lookup": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 0,
+    "unrelated_labels_attributed": 0,
+    "labels_attributed": 6,
+    "dropped_label_reattribution_rate": 0.0
+  },
+  "active_variants": {
+    "known_source_labels_dropped": 153,
+    "dropped_labels_attributed": 28,
+    "unrelated_labels_attributed": 188,
+    "labels_attributed": 784,
+    "dropped_label_reattribution_rate": 0.1830065359477124
+  }
+}

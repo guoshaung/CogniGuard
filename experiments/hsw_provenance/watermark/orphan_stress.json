@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "issuer-a",
+    "method": "Marker with no retained facts",
+    "source_ids": [],
+    "release_ids": [],
+    "issuer_ids": [
+      "issuer-a"
+    ],
+    "seconds": 6.54000323265791e-05,
+    "text": "Here, take a short break before opening the next exercise."
+  },
+  {
+    "case_id": "issuer-b",
+    "method": "Marker with no retained facts",
+    "source_ids": [],
+    "release_ids": [],
+    "issuer_ids": [
+      "issuer-b"
+    ],
+    "seconds": 5.439994856715202e-05,
+    "text": "In this case, take a short break before opening the next exercise."
+  }
+]

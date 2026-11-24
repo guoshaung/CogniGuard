@@ -1,0 +1,24 @@
+[
+  {
+    "figshare": 32676065,
+    "name": "rsos251988_si_001.zip",
+    "url": "https://ndownloader.figshare.com/files/65554451",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "sha256": "e94c66cf54d2f09206ef5ea389fe9aa1e8af6341adf6a1be1dccad54646e0542"
+  },
+  {
+    "figshare": 32676068,
+    "name": "rsos251988_si_002.txt",
+    "url": "https://ndownloader.figshare.com/files/65554454",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "sha256": "47a1543075943b6bbf1a0ea46dff631e37e4a09e17adce1f9f3d890c8c35f862"
+  }
+]

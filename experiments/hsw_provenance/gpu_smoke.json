@@ -1,0 +1,52 @@
+{
+  "mode": "smoke",
+  "device": null,
+  "backend": "llama.cpp",
+  "generation_seconds": 61.1096306219697,
+  "gpu_hours_generation": 0.016974897394991584,
+  "process_wall_seconds": 61.10987772420049,
+  "peak_allocated_mib": null,
+  "tokens": 380,
+  "samples": 2,
+  "paid_api_calls": 0,
+  "rows": [
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 61.1096306219697,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 191,
+      "batch_seconds": 61.1096306219697,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "chains": 2,
+  "steps": 10,
+  "model_calls": 6,
+  "gpu_hours": 0,
+  "paid_api_calls": 0,
+  "total_model_call_seconds": 16.10786830005236,
+  "mean_model_call_seconds": 2.6846447166753933,
+  "output_tokens": 674,
+  "endpoint_fidelity": {
+    "1": [
+      1.0,
+      1.0
+    ],
+    "3": [
+      1.0,
+      0.5555555555555556
+    ],
+    "5": [
+      0.3333333333333333,
+      0.1111111111111111
+    ]
+  },
+  "relay_quality_counts": {
+    "UNDERSTANDABLE_EXCERPT": 7,
+    "MATERIAL_ERROR": 3
+  },
+  "manual_review": "Codex read all ten outputs. Retained means a core fact persists with a correct bound quantity and interpretation. Partial facts are excluded."
+}

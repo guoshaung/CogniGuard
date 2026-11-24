@@ -1,0 +1,14 @@
+{
+  "prefixes": {
+    "issuer-a": "Here, ",
+    "issuer-b": "In this case, "
+  },
+  "source_match": "max word-set Jaccard ≥.30 and margin ≥.07",
+  "issuance": "two issuers share each unmarked source; per-block prefix is bound to retrieved source",
+  "ceiling": "floor(10% of words per fact sentence); preserve line breaks and permit reversible case change",
+  "scope": "HSW vocabulary adapter with direct tag lookup; no CertInsert statistical or keyed attribution claim",
+  "transport": "same fact IDs and transformations as the frozen controlled corpus; rewritten facts lose lexical surface",
+  "power": "the assignments are public for this pilot, no adversarial authentication",
+  "embedded_releases": 12,
+  "released": 24
+}

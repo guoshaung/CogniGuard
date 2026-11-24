@@ -1,0 +1,2864 @@
+{
+  "mode": "pilot",
+  "device": null,
+  "backend": "llama.cpp",
+  "generation_seconds": 47.190586525946856,
+  "gpu_hours_generation": 0.01310849625720746,
+  "process_wall_seconds": 47.2051730081439,
+  "peak_allocated_mib": null,
+  "tokens": 28512,
+  "samples": 150,
+  "paid_api_calls": 0,
+  "rows": [
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.35912900790572166,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.35912900790572166,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33566244319081306,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33566244319081306,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3365047797560692,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3365047797560692,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33563457801938057,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33563457801938057,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3359566330909729,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3359566330909729,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.3377895839512348,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.3377895839512348,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3351075351238251,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3351075351238251,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3352809213101864,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3352809213101864,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33593420311808586,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33593420311808586,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3358822129666805,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3358822129666805,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.33580257371068,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.33580257371068,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3361114412546158,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3361114412546158,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3368730843067169,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3368730843067169,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3355509974062443,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3355509974062443,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33571600168943405,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "light",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.33571600168943405,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.33583899959921837,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.33583899959921837,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3353998474776745,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3353998474776745,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34296711161732674,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34296711161732674,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3435823991894722,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3435823991894722,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34357767924666405,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34357767924666405,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.34291959553956985,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "2f65ed63b94150f45e90fe85cd69327ad2d2a4f304a6e73fa1355995ec41bbd8",
+      "tokens": 106,
+      "batch_seconds": 0.34291959553956985,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3425571583211422,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3425571583211422,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3425035588443279,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3425035588443279,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34288087487220764,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.34288087487220764,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3423628397285938,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 1,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.",
+      "input_sha256": "e1bedfa1e69aa7e092d5a706195a293cd9012a7d54a5bc89a1eb73ca7008a12f",
+      "tokens": 106,
+      "batch_seconds": 0.3423628397285938,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6411231569945812,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6411231569945812,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.637456551194191,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.637456551194191,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6381867937743664,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6381867937743664,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6257602833211422,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6257602833211422,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6356487460434437,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6356487460434437,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6374780535697937,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6374780535697937,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6111741364002228,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "marked",
+      "text": "The main facts are:\n\n- For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\n- The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\n- For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\n- The arithmetic sequence with first term 11 and difference 7 has a value at position 23 of 165.\n- The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d8364b197aa275a3ab349be16c7744574262762fde8cfeef784815312ade9563",
+      "tokens": 173,
+      "batch_seconds": 0.6111741364002228,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6011865995824337,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. The arithmetic sequence with first term 11 and difference 7 has a value at position 23 of 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "225c9a68725aa368c5e22d16a9ecc53aa1351b053f346d8da0a59a94598098bb",
+      "tokens": 163,
+      "batch_seconds": 0.6011865995824337,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.5902362018823624,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. The arithmetic sequence with first term 11 and difference 7 has a value at position 23 of 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "1f47cbd05bd8cdc12d8d42cb44b29703e10d5ef959a9cd24f16fd700e1dd15d1",
+      "tokens": 163,
+      "batch_seconds": 0.5902362018823624,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6014967858791351,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. The arithmetic sequence with first term 11 and difference 7 has a value at position 23 of 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "1f47cbd05bd8cdc12d8d42cb44b29703e10d5ef959a9cd24f16fd700e1dd15d1",
+      "tokens": 163,
+      "batch_seconds": 0.6014967858791351,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6290099956095219,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 191,
+      "batch_seconds": 0.6290099956095219,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6300216764211655,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 2,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d13067abeb00b64b4dc11b72eb554f9deb0339ad9ad8a60437bc3a1f5d4d5257",
+      "tokens": 191,
+      "batch_seconds": 0.6300216764211655,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6159508936107159,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 3,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d13067abeb00b64b4dc11b72eb554f9deb0339ad9ad8a60437bc3a1f5d4d5257",
+      "tokens": 191,
+      "batch_seconds": 0.6159508936107159,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.628084272146225,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 4,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d13067abeb00b64b4dc11b72eb554f9deb0339ad9ad8a60437bc3a1f5d4d5257",
+      "tokens": 191,
+      "batch_seconds": 0.628084272146225,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6288193538784981,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "light",
+      "hop": 5,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d13067abeb00b64b4dc11b72eb554f9deb0339ad9ad8a60437bc3a1f5d4d5257",
+      "tokens": 191,
+      "batch_seconds": 0.6288193538784981,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6395355127751827,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6395355127751827,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6391398943960667,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d8364b197aa275a3ab349be16c7744574262762fde8cfeef784815312ade9563",
+      "tokens": 195,
+      "batch_seconds": 0.6391398943960667,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.639114435762167,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d8364b197aa275a3ab349be16c7744574262762fde8cfeef784815312ade9563",
+      "tokens": 195,
+      "batch_seconds": 0.639114435762167,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6418824717402458,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d8364b197aa275a3ab349be16c7744574262762fde8cfeef784815312ade9563",
+      "tokens": 195,
+      "batch_seconds": 0.6418824717402458,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "ed77f2e3cabc4b3779d6352d8b569fea4b1e14ed88ea60d17b4dcf1b0b1f57e9",
+      "tokens": 189,
+      "batch_seconds": 0.6318904235959053,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. Here, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. Here, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "d8364b197aa275a3ab349be16c7744574262762fde8cfeef784815312ade9563",
+      "tokens": 195,
+      "batch_seconds": 0.6318904235959053,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6380459740757942,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6380459740757942,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6386205442249775,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6386205442249775,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6415935717523098,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6415935717523098,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6389303542673588,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6389303542673588,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "e93b3e538ab12ce4f0f98afeec66d1e09a707b8fc461d2e33b141da68d3ec112",
+      "tokens": 189,
+      "batch_seconds": 0.6392860002815723,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 2,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "marked",
+      "text": "Here, for the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nHere, the largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nHere, for 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.",
+      "input_sha256": "afcc3a368d8a32d81df682f0819dd0ed1084ccce07a774fa8e558f2f00a9856a",
+      "tokens": 195,
+      "batch_seconds": 0.6392860002815723,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-a",
+        "math-05:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9230128265917301,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nHere, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nHere, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9230128265917301,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.92073555290699,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nHere, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nHere, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.92073555290699,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9212593175470829,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nHere, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nHere, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9212593175470829,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9202053993940353,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nHere, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nHere, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9202053993940353,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9206666871905327,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "forward",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nHere, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nHere, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nHere, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9206666871905327,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9212519638240337,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9212519638240337,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.921105794608593,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.921105794608593,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9218592494726181,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9218592494726181,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9202625416219234,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9202625416219234,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9194293133914471,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "summary",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9194293133914471,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9076989479362965,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9076989479362965,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9078733809292316,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9078733809292316,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.920795027166605,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.920795027166605,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9210317954421043,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9210317954421043,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9182866215705872,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "light",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9182866215705872,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9187744855880737,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9187744855880737,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9174375236034393,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9174375236034393,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9186678007245064,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9186678007245064,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9177811332046986,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9177811332046986,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. This arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. In the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. The sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "66a946de11efd3eb8d232854ff55e1bb24488ac52febcfe75677410448b90083",
+      "tokens": 272,
+      "batch_seconds": 0.9108629003167152,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "strong",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9108629003167152,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9178183004260063,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 1,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a3776c93b51f7d1b50c96f348bf179505faf55be0e81be14cf386202b594fffc",
+      "tokens": 278,
+      "batch_seconds": 0.9178183004260063,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9172028675675392,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 2,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9172028675675392,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9210235849022865,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 3,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9210235849022865,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.9231443107128143,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 4,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.9231443107128143,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "plain",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally.\nThe largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf.\nFor 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6.\nThis arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23.\nIn the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165.\nThe sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024.\nThis arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26.\nIn the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283.\nThe sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "a080fe43bef9dffc237dd73381cc18fccb5f4b00cb213fd7613e430283d713ad",
+      "tokens": 272,
+      "batch_seconds": 0.925200454890728,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    },
+    {
+      "fusion": 3,
+      "transform": "truncate",
+      "hop": 5,
+      "variant": "marked",
+      "text": "For the three genres with 18, 30, and 42 books, each shelf contains a single genre and all shelves must be filled equally. The largest common divisor of the genre totals 18, 30, and 42 is 6, which sets the maximum number of books per shelf. For 18, 30, and 42 books in the respective genres, the shelf counts are 3, 5, and 7 after division by 6. Here, this arithmetic sequence begins with 11, increases by 7 at each step, and runs through term 23. Here, in the arithmetic sequence with first term 11 and difference 7, the value at position 23 is 165. Here, the sum of the first 23 terms of the arithmetic sequence with first term 11 and difference 7 is 2024. This arithmetic sequence begins with 8, increases by 11 at each step, and runs through term 26. In the arithmetic sequence with first term 8 and difference 11, the value at position 26 is 283. The sum of the first 26 terms of the arithmetic sequence with first term 8 and difference 11 is 3783.",
+      "input_sha256": "f698903ed2be93d5a466bc0a6f35d813d7ac4a780bdb043798db2ec35ad5cc8e",
+      "tokens": 278,
+      "batch_seconds": 0.925200454890728,
+      "batch_size": 2,
+      "input_source_ids": [
+        "math-01",
+        "math-05",
+        "math-08"
+      ],
+      "input_release_ids": [
+        "math-01:issue:issuer-b",
+        "math-05:issue:issuer-a",
+        "math-08:issue:issuer-b"
+      ]
+    }
+  ]
+}

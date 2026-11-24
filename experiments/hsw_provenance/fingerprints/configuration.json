@@ -1,0 +1,59 @@
+{
+  "data_sha256": {
+    "sources.json": "5faccf72cd637404a1eff4bfb53c9835bfcf2674aa701d0d9775021978d2ee47",
+    "releases.json": "4410503f425eef6a61a7f613db6c4d8ec839ad0c5f7e1c7c11806edeeeda61b9",
+    "cases.jsonl": "5a8e50ce986253be8d56c038e276716c28fc11a34f3c5df63133a7bab3cf069e"
+  },
+  "source_documents": 12,
+  "indexed_passages": 72,
+  "active_index_passages": 108,
+  "feature_split": "input-release lineage group, SHA-256 modulo 4 if no common split supplied",
+  "cpu_threads": 3,
+  "gpu_hours": 0,
+  "bge_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "reranker": "cross-encoder/ms-marco-TinyBERT-L-2-v2",
+  "rerank_revision": "81d1926f67cb8eee2c2be17ca9f793c7c3bd20cc",
+  "minhash": {
+    "threshold": 0.041666666666666664,
+    "margin": 0.1,
+    "max_sources": 3
+  },
+  "bm25": {
+    "threshold": 1.1530815109343937,
+    "margin": null,
+    "max_sources": 3
+  },
+  "active_variants": {
+    "threshold": 1.2491074803645679,
+    "margin": null,
+    "max_sources": 3
+  },
+  "issuance_policy": "Exact release text and exact text segments with all ambiguous release IDs logged. Unique issuer returned only for a compatible singleton via a text hash. No ledger metadata leaks into match selection.",
+  "calibration": "Dev micro-F1 for thresholds in the source task. Fixed scope max three source predictions. No test retained set, requested fusion count or attack type read by ranking.",
+  "model_sha256": {
+    "bge": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+    "rerank": "a0e7364ddf91ff7028f1102e1b91ac7a72e3db4061241bd84efe45c72c9af03a"
+  },
+  "semantic_embedding_preprocessing_seconds": 154.70892679999815,
+  "ranking_elapsed_seconds": 210.50607889995445,
+  "sha256": {
+    "threshold": 1.0,
+    "margin": null,
+    "max_sources": 3
+  },
+  "bge": {
+    "threshold": 0.7535702586174011,
+    "margin": 0.1,
+    "max_sources": 3
+  },
+  "bge_rerank": {
+    "threshold": 0.0019304207526147366,
+    "margin": null,
+    "max_sources": 3
+  },
+  "issuance_lookup": {
+    "threshold": 1.0,
+    "margin": null,
+    "max_sources": 3
+  }
+}
