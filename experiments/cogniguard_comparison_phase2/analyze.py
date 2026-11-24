@@ -162,6 +162,35 @@ def exact_check(req_path):
     return {d: {"requests": n[d], "mismatches": mism[d]} for d in n}
 
 
+def verdicts(res, points):
+    """PREREG §3 (A0-A4)."""
+    mism = sum(v["mismatches"] for v in res["capd_vs_exact"].values())
+    out = {"A0": "pass" if res["unauth_success_total"] == 0 and mism == 0 else "INVALID"}
+    for key, c in res["contrasts"].items():
+        k = int(key.split("/k")[1])
+        cell = {}
+        groups = {"A1": ["OCELOT-PF[field]@harm<=0.05", "OCELOT-PF[trajectory]@harm<=0.05"],
+                  "A2": ["SumLeaks-Local(CoT+L+H)", "SumLeaks-CoDef", "SumLeaks-ToM@harm<=0.05"],
+                  "A3": [f"Staddon-def(k={k})", "CrowdControl", f"WS04-quota(k={k})"]}
+        for g, names in groups.items():
+            for n in names:
+                if g == "A2" and n == "SumLeaks-CoDef" and k == 1:
+                    cell[n] = "NA (identical to CA-PD at k=1)"
+                    continue
+                cc = c.get(f"M3 vs {n}")
+                if cc is None:
+                    cell[n] = "NA (no dev operating point)"
+                    continue
+                u, h = cc["utility"]["ci95"], cc["harmful_rate"]["ci95"]
+                ok = u[0] is not None and u[0] > 0 and h[1] is not None and h[1] <= 0.01
+                cell[n] = "supported" if ok else "not supported"
+        t = res["table"][key]
+        a, e = t.get(f"CAPD(k={k})"), t.get(f"ExactEnum(k={k})")
+        cell["A4 p95 CAPD/ExactEnum"] = (a["p95_us"]["mean"] / e["p95_us"]["mean"]) if a and e else None
+        out[key] = cell
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True, type=Path)
@@ -182,6 +211,7 @@ def main():
            "unauth_success_total": sum(r.get("unauth_success", 0) for v in idx.values() for r in v.values()),
            "capd_vs_exact": exact_check(base / "requests.jsonl.gz"),
            "table": table, "contrasts": contrasts, "matched": matched, "path": path}
+    res["verdicts"] = verdicts(res, points)
     (base / "analysis.json").write_text(json.dumps(res, indent=1) + "\n")
     print(base / "analysis.json")
 
