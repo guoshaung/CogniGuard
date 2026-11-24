@@ -170,5 +170,13 @@
     "bytes": 437971872,
     "sha256": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
     "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130"
+  },
+  "verified_official_training_dependency_sdist": {
+    "deepspeed-0.15.2.tar.gz": {
+      "bytes": 1397431,
+      "sha256": "790e81e7337141b8e86a58e08e06615286c11f0798e00e4f8768126cbdf26eb6",
+      "cache": "var/icml-multibit/asset_a/deepspeed-0.15.2.tar.gz",
+      "digest_reference": "PyPI release metadata"
+    }
   }
 }
