@@ -1,0 +1,2915 @@
+{
+ "eedi/high/k1": {
+  "B0-Access": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.6856351922632167,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "equivalent"
+  }
+ },
+ "eedi/high/k2": {
+  "B0-Access": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15199118699070965,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.010029812779254656,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.010029812779254656,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "eedi/high/k3": {
+  "B0-Access": {
+   "harm_M3": 0.0,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.001176055289191341,
+   "util_M3": 1.0,
+   "util_base": 0.6037275179313201,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.4347157843793959,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.1274807671009165,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.00726655803877522,
+   "util_M3": 1.0,
+   "util_base": 0.15657244302285603,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6856351922632167,
+   "util_M3": 1.0,
+   "util_base": 0.9997668997668998,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "eedi/low/k1": {
+  "B0-Access": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.6846564292771845,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  }
+ },
+ "eedi/low/k2": {
+  "B0-Access": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.1612484727170689,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.010169113466014752,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.47465330458111554,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.47465330458111554,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.010169113466014752,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "eedi/low/k3": {
+  "B0-Access": {
+   "harm_M3": 0.0,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002893807288173485,
+   "util_M3": 1.0,
+   "util_base": 0.6035785356512725,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.47465330458111554,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.47465330458111554,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.47465330458111554,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.13765609285184327,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.002637637691739256,
+   "util_M3": 1.0,
+   "util_base": 0.16691100695326486,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.6846564292771845,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "phase1/high/k1": {
+  "B0-Access": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.9866250761730765,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.08561060959248627,
+   "util_M3": 1.0,
+   "util_base": 0.8133938711908576,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.8351858436355225,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.9223878856084915,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.014408884050998173,
+   "util_M3": 1.0,
+   "util_base": 0.8133938711908576,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.052626119864839345,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.052626119864839345,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.2588311668227933,
+   "util_M3": 1.0,
+   "util_base": 0.7636004219517333,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.6315208433239955,
+   "util_M3": 1.0,
+   "util_base": 0.9512640683824709,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.7933375801700806,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  }
+ },
+ "phase1/high/k2": {
+  "B0-Access": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.2588311668227933,
+   "util_M3": 1.0,
+   "util_base": 0.7636004219517333,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.9866250761730765,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.2516835790108486,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.08561060959248627,
+   "util_M3": 1.0,
+   "util_base": 0.8133938711908576,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.8351858436355225,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.9223878856084915,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.03608546340978041,
+   "util_M3": 1.0,
+   "util_base": 0.9400099731206593,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.04669684001054987,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.2588311668227933,
+   "util_M3": 1.0,
+   "util_base": 0.7636004219517333,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.6315208433239955,
+   "util_M3": 1.0,
+   "util_base": 0.9512640683824709,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.6315208433239955,
+   "util_M3": 1.0,
+   "util_base": 0.9512640683824709,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.2516835790108486,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "phase1/high/k3": {
+  "B0-Access": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.021292707226891232,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.11101638525691256,
+   "util_M3": 1.0,
+   "util_base": 0.6105388937433445,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.9866250761730765,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.07610612465668128,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.08561060959248627,
+   "util_M3": 1.0,
+   "util_base": 0.8133938711908576,
+   "class": "M3 more useful, equal safety"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.5532014959564371,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.8351858436355225,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.0036031787156023437,
+   "util_M3": 1.0,
+   "util_base": 0.6044244579505391,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.03608546340978041,
+   "util_M3": 1.0,
+   "util_base": 0.9400099731206593,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.04669684001054987,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.04669684001054987,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.6315208433239955,
+   "util_M3": 1.0,
+   "util_base": 0.9512640683824709,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.6315208433239955,
+   "util_M3": 1.0,
+   "util_base": 0.9512640683824709,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.07610612465668128,
+   "harm_base": 0.7933375801700806,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "phase1/low/k1": {
+  "B0-Access": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.982245866652151,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.5508409107323781,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.5508409107323781,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.5508409107323781,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.6570907942710161,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.8467099398704179,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.03461355263116361,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.41446056526363134,
+   "util_M3": 1.0,
+   "util_base": 0.7121508199022935,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.9098283690583793,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  }
+ },
+ "phase1/low/k2": {
+  "B0-Access": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.41446056526363134,
+   "util_M3": 1.0,
+   "util_base": 0.7121508199022935,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.982245866652151,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.3950023104737544,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.5508409107323781,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.03422644815615407,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.03422644815615407,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.8467099398704179,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.8467099398704179,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0311236683509162,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.0311236683509162,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.3219666387602635,
+   "util_M3": 1.0,
+   "util_base": 0.6467031109394361,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.831596307685205,
+   "util_M3": 1.0,
+   "util_base": 0.9295754862008887,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.831596307685205,
+   "util_M3": 1.0,
+   "util_base": 0.9295754862008887,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.3950023104737544,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "phase1/low/k3": {
+  "B0-Access": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.18285801735482837,
+   "util_M3": 1.0,
+   "util_base": 0.5730405887182975,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.982245866652151,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.07993818611123042,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.5508409107323781,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.03422644815615407,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.03422644815615407,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.3819411901332695,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.8467099398704179,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.7790578785948257,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0311236683509162,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0311236683509162,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.0311236683509162,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.831596307685205,
+   "util_M3": 1.0,
+   "util_base": 0.9295754862008887,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.07993818611123042,
+   "harm_base": 0.9098283690583793,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "sumleaks/high/k1": {
+  "B0-Access": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.014207589927466588,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.014207589927466588,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.30719236112856785,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.9954175547030406,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.9954175547030406,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.9954175547030406,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "trade-off: M3 more useful, baseline safer"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.7873593835156159,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  }
+ },
+ "sumleaks/high/k2": {
+  "B0-Access": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.004926801801801802,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.95": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.99": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.30719236112856785,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.004926801801801802,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "sumleaks/high/k3": {
+  "B0-Access": {
+   "harm_M3": 0.0,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.8398033942708377,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.005852727727727728,
+   "util_M3": 1.0,
+   "util_base": 0.845711856338322,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.7873593835156159,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "sumleaks/low/k1": {
+  "B0-Access": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=1)": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "WS04-quota(k=1)": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "ExactEnum(k=1)": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.013000862663906144,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.013000862663906144,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.013000862663906144,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.328061744478931,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.9911552015957373,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.9911552015957373,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.328061744478931,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "baseline dominates"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.8002058990596307,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  }
+ },
+ "sumleaks/low/k2": {
+  "B0-Access": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=2)": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=2)": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=2)": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0065541177641905025,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.95": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.99": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.9911552015957373,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@harm<=0.01": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.0065541177641905025,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ },
+ "sumleaks/low/k3": {
+  "B0-Access": {
+   "harm_M3": 0.0,
+   "harm_base": 1.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "CAPD(k=1)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "Staddon-def(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "CrowdControl": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "WS04-quota(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 0.8391532914153024,
+   "class": "M3 more useful, equal safety"
+  },
+  "SumLeaks-Local(CoT+L+H)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-CoDef": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "ExactEnum(k=3)": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[field]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.01": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "OCELOT-PF[trajectory]@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.0,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "equivalent"
+  },
+  "SumLeaks-ToM@harm<=0.05": {
+   "harm_M3": 0.0,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@harm<=0.1": {
+   "harm_M3": 0.0,
+   "harm_base": 0.011397112933272628,
+   "util_M3": 1.0,
+   "util_base": 0.8448162489545511,
+   "class": "M3 dominates"
+  },
+  "SumLeaks-ToM@util>=0.9": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.95": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  },
+  "SumLeaks-ToM@util>=0.99": {
+   "harm_M3": 0.0,
+   "harm_base": 0.8002058990596307,
+   "util_M3": 1.0,
+   "util_base": 1.0,
+   "class": "M3 safer, equal utility"
+  }
+ }
+}

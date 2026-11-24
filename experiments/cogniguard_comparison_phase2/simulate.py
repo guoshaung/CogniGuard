@@ -35,7 +35,7 @@ def reconstructable(world, knowledge, k) -> set:
     return out
 
 
-def run(world, rules, layer, k, mode, verified, record=True):
+def run(world, rules, layer, k, mode, verified, record=True, k_eval=None):
     """Snapshot: many rules in one pass over one reference trajectory. Path: exactly one rule."""
     assert mode in ("snapshot", "path") and (mode == "snapshot" or len(rules) == 1)
     deliveries = {p: set() for p in PRINCIPALS}
@@ -58,7 +58,7 @@ def run(world, rules, layer, k, mode, verified, record=True):
                 else state.knowledge("confirmed") if layer == "nli" else truth)
         reg = world.access(e.t)
         authorized = all(reg.is_authorized(e.principal, u[0], e.purpose, "school", e.t) for u in e.units)
-        oracle_safe = check_release(world.targets, e.principal, set(e.units), truth, k).safe
+        oracle_safe = check_release(world.targets, e.principal, set(e.units), truth, k_eval or k).safe
         decisions = {}
         for rule in rules:
             t0 = time.perf_counter()

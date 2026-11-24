@@ -1,0 +1,6623 @@
+{
+ "eedi/high/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0007407407407407408,
+     "util": 0.19243649121177392,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.08760728420105922,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 0.10923472391770368,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=1)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0007407407407407408,
+     "util": 0.19243649121177392,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.08760728420105922,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03156963959763378,
+     "util": 0.9996996996996997,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0007407407407407408,
+     "util": 0.19243649121177392,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.08760728420105922,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03156963959763378,
+     "util": 0.9996996996996997,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03156963959763378,
+     "util": 0.9996996996996997,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03156963959763378,
+     "util": 0.9996996996996997,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.2951812328926947,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03156963959763378,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03156963959763378,
+     "util": 0.9996996996996997,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "eedi/high/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.5955040811509197,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.12663681757446704,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15980168280856616,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.5955040811509197,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.12663681757446704,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15980168280856616,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.5955040811509197,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.12663681757446704,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15980168280856616,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4440044953151936,
+     "util": 0.993734924771737,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6843509298234706,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4440044953151936,
+     "util": 0.993734924771737,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6843509298234706,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9842055685123334,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0017961004944875914,
+     "util": 0.15524087054434546,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846595717987792,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0005642857142857143,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4440044953151936,
+     "util": 0.993734924771737,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6843509298234706,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "eedi/high/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.6037275179313201,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.00726655803877522,
+     "util": 0.15657244302285603,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.6037275179313201,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.00726655803877522,
+     "util": 0.15657244302285603,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.001176055289191341,
+     "util": 0.6037275179313201,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.00726655803877522,
+     "util": 0.15657244302285603,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4347157843793959,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6856351922632167,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4347157843793959,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6856351922632167,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.1274807671009165,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6856351922632167,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4347157843793959,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6856351922632167,
+     "util": 0.9997668997668998,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ },
+ "eedi/low/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0012578616352201257,
+     "util": 0.2004835666240664,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.0934259104717093,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0012578616352201257,
+     "util": 0.2004835666240664,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.0934259104717093,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0012578616352201257,
+     "util": 0.2004835666240664,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.0934259104717093,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.31125318440495703,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "eedi/low/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0028983424355657757,
+     "util": 0.5921745368549305,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1368838969485845,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0005411255411255411,
+     "util": 0.16773909401955,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0028983424355657757,
+     "util": 0.5921745368549305,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1368838969485845,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0005411255411255411,
+     "util": 0.16773909401955,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0028983424355657757,
+     "util": 0.5921745368549305,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.1368838969485845,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0005411255411255411,
+     "util": 0.16773909401955,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4857627057089485,
+     "util": 0.9927954832234073,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4857627057089485,
+     "util": 0.9927954832234073,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9758895447310926,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0005411255411255411,
+     "util": 0.1620869020626736,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6829124137924255,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "eedi/low/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.002893807288173485,
+     "util": 0.6035785356512725,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.002637637691739256,
+     "util": 0.16691100695326486,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.002893807288173485,
+     "util": 0.6035785356512725,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.002637637691739256,
+     "util": 0.16691100695326486,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.002893807288173485,
+     "util": 0.6035785356512725,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.002637637691739256,
+     "util": 0.16691100695326486,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.47465330458111554,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.47465330458111554,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.13765609285184327,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.47465330458111554,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6846564292771845,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ },
+ "phase1/high/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.21617071696426687,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.2863809720534625,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0011111111111111111,
+     "util": 0.4192766543616175,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "SumLeaks-ToM"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.21617071696426687,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0567376141587836,
+     "util": 0.3885661181592931,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.042495098784907544,
+     "util": 0.7855740209370475,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "SumLeaks-ToM"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.16609334540791443,
+     "util": 0.31572324352585873,
+     "meets": false
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0567376141587836,
+     "util": 0.3885661181592931,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": false
+    }
+   },
+   "best_meeting_target": "OCELOT-PF[trajectory]"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9901345472962014,
+     "util": 0.9331777318491528,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9942798464415006,
+     "util": 0.96953327505013,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.35024441953883056,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9432623858412164,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.10914383281145303,
+     "util": 0.9919428310623191,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "phase1/high/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0002487562189054726,
+     "util": 0.41811469806429974,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0002487562189054726,
+     "util": 0.41811469806429974,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "OCELOT-PF[field]"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0002487562189054726,
+     "util": 0.41811469806429974,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.03777852396250149,
+     "util": 0.6540775123359187,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.09805913614273477,
+     "util": 0.5635246118013449,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.04936108116130487,
+     "util": 0.697512931973776,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9702160686277171,
+     "util": 0.9031593386020523,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.49243715121273296,
+     "util": 0.9666001931668439,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9833099014994535,
+     "util": 0.9575674852389978,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.49243715121273296,
+     "util": 0.9666001931668439,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.01846817646421885,
+     "util": 0.697512931973776,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.09507401083074817,
+     "util": 0.7387185419846188,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9840315713112047,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.04140148628548699,
+     "util": 0.994005164987782,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7140215625119494,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "phase1/high/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0035568662695530328,
+     "util": 0.5468136301744693,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0035568662695530328,
+     "util": 0.5468136301744693,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "OCELOT-PF[field]"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0035568662695530328,
+     "util": 0.5468136301744693,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.03712958154167479,
+     "util": 0.8503037420101693,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0890811792669353,
+     "util": 0.73527242647453,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0481542568987738,
+     "util": 0.9033942219865583,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.5988069611083716,
+     "util": 0.9187439087718174,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0481542568987738,
+     "util": 0.9033942219865583,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6042333066648592,
+     "util": 0.9567483919617866,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9083021171469229,
+     "util": 0.9376422455281629,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6042333066648592,
+     "util": 0.9567483919617866,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.021740324770604433,
+     "util": 0.9033942219865583,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.06390023571293099,
+     "util": 0.6281933998922121,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9860561963289733,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.025158942215769572,
+     "util": 0.9990405701754386,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7780029617448356,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ },
+ "phase1/low/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.18780525479056298,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.2520631225998463,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 0.4089118653308737,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "SumLeaks-ToM"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.18780525479056298,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.2520631225998463,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.18780525479056298,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.10048579956694097,
+     "util": 0.34901383277785747,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9792249863697232,
+     "util": 0.9120705957783539,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9828769556466924,
+     "util": 0.9612883108882279,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.3131137876993965,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8995142004330591,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.03323903536374781,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "phase1/low/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.3442997337453348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.4845367261662122,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=2)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.04597768024963839,
+     "util": 0.4845367261662122,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.042005413503030185,
+     "util": 0.6165761007196132,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.04597768024963839,
+     "util": 0.4845367261662122,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.042005413503030185,
+     "util": 0.6165761007196132,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.10703894708255923,
+     "util": 0.5950342743652819,
+     "meets": false
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9570568857190505,
+     "util": 0.9441301742523122,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6759601441647974,
+     "util": 0.9582052172280908,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9570568857190505,
+     "util": 0.9441301742523122,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.6759601441647974,
+     "util": 0.9582052172280908,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.6165761007196132,
+     "meets": false
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.15092193776080218,
+     "util": 0.6963501012660277,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9760863582757772,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.031154068271056327,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.862058905476233,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "phase1/low/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.4856228450039648,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.6850400373473037,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.036270962976794364,
+     "util": 0.6850400373473037,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.033031626480655725,
+     "util": 0.8755191535373243,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.036270962976794364,
+     "util": 0.6850400373473037,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.033031626480655725,
+     "util": 0.8755191535373243,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.46341473720487464,
+     "util": 0.8958705522999773,
+     "meets": false
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.033031626480655725,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.8073033982391223,
+     "util": 0.9397395271550774,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.8945780028510312,
+     "util": 0.9565340820105012,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8755191535373243,
+     "meets": false
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.11046110972394331,
+     "util": 0.5954612339214383,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.9812115649769829,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.003470442034905673,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.9020520886490788,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ },
+ "sumleaks/high/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": false
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.027474747474747475,
+     "util": 0.7794153082674603,
+     "meets": false
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 0.770538012086104,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "Staddon-def(k=1)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0330976430976431,
+     "util": 0.8625075685846574,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.033535353535353536,
+     "util": 0.7855695354798343,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0330976430976431,
+     "util": 0.8625075685846574,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.06632996632996632,
+     "util": 0.7998071457548627,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.5029497354497354,
+     "util": 0.92534351785061,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9962962962962963,
+     "util": 0.9997359725620595,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8598668948465349,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9962962962962963,
+     "util": 0.9997359725620595,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.032667748917748915,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "sumleaks/high/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9949290780141844,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9949290780141844,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9949290780141844,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9949290780141844,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9949290780141844,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.0009259259259259259,
+     "util": 0.8458004482965412,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9990159574468085,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.30075313865486264,
+     "util": 0.9964568557919622,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7866146702062474,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "sumleaks/high/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.005852727727727728,
+     "util": 0.845711856338322,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.005852727727727728,
+     "util": 0.845711856338322,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.005852727727727728,
+     "util": 0.845711856338322,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8398033942708377,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7873593835156159,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ },
+ "sumleaks/low/k1": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.01445887445887446,
+     "util": 0.8644070752768424,
+     "meets": false
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.7725872561088811,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.01445887445887446,
+     "util": 0.8644070752768424,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.015555555555555555,
+     "util": 0.7793559877659512,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": true
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.01445887445887446,
+     "util": 0.8644070752768424,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.052303992303992304,
+     "util": 0.79224705296096,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.4543836718836719,
+     "util": 0.9287613828833919,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9888888888888889,
+     "util": 0.9990853732981143,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=1)": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.8615350883265408,
+     "meets": false
+    },
+    "WS04-quota(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=1)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.9888888888888889,
+     "util": 0.9990853732981143,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=1)"
+  }
+ },
+ "sumleaks/low/k2": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9820294150311966,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9820294150311966,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9820294150311966,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9820294150311966,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 0.9820294150311966,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=2)": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "WS04-quota(k=2)": {
+     "harm": 0.004842995169082126,
+     "util": 0.8451771223854158,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=2)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 0.9987231045725348,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.8917545611668711,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.7992539425194389,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=2)"
+  }
+ },
+ "sumleaks/low/k3": {
+  "harm<=0.01": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.05": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.011397112933272628,
+     "util": 0.8448162489545511,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "harm<=0.1": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": false
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": true
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": false
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.011397112933272628,
+     "util": 0.8448162489545511,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.9": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.95": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  },
+  "util>=0.99": {
+   "methods": {
+    "B0-Access": {
+     "harm": 1.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CAPD(k=1)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "Staddon-def(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "CrowdControl": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "WS04-quota(k=3)": {
+     "harm": 0.0,
+     "util": 0.8391532914153024,
+     "meets": false
+    },
+    "SumLeaks-Local(CoT+L+H)": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-CoDef": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    },
+    "ExactEnum(k=3)": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[field]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "OCELOT-PF[trajectory]": {
+     "harm": 0.0,
+     "util": 1.0,
+     "meets": true
+    },
+    "SumLeaks-ToM": {
+     "harm": 0.8002058990596307,
+     "util": 1.0,
+     "meets": true
+    }
+   },
+   "best_meeting_target": "CAPD(k=3)"
+  }
+ }
+}

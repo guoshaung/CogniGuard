@@ -57,6 +57,20 @@ def make_world(ds, seed, prop, data: Path, repo: str):
     return W.secrets_world(ds, W.load_dataset(ds, data), seed, prop), {}, "receipts"
 
 
+def sens_job(args):
+    """POST-HOC sensitivity (not preregistered): same snapshot, oracle = unbounded coalitions (k_eval = N)."""
+    ds, seed, prop, data, repo, _ = args
+    data = Path(data)
+    out_s = []
+    for k in KS:
+        world, verified, layer = make_world(ds, seed, prop, data, repo)
+        out, _rows = run(world, snapshot_rules(k), layer, k, "snapshot", verified, record=False,
+                         k_eval=len(W.PRINCIPALS))
+        key = dict(dataset=ds, seed=seed, prop=prop, k=k, layer=layer, mode="snapshot_unbounded_oracle")
+        out_s += [{**key, "rule": n, **o} for n, o in out.items()]
+    return out_s, []
+
+
 def job(args):
     ds, seed, prop, data, repo, points_all = args
     data = Path(data)
@@ -84,6 +98,7 @@ def main():
     ap.add_argument("--tag", required=True)
     ap.add_argument("--points", type=Path)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--unbounded-oracle", action="store_true", help="post-hoc sensitivity run")
     a = ap.parse_args()
     lo, _, hi = a.seeds.partition("-")
     points = json.loads(a.points.read_text()) if a.points else None
@@ -92,7 +107,7 @@ def main():
     jobs = [(ds, s, p, str(a.data), a.repo, points) for ds in DATASETS for s in range(int(lo), int(hi or lo) + 1)
             for p in PROPS]
     with Pool(a.workers) as pool, open(out / "runs.jsonl", "w") as fs, gzip.open(out / "requests.jsonl.gz", "wt") as fr:
-        for summaries, records in pool.imap_unordered(job, jobs):
+        for summaries, records in pool.imap_unordered(sens_job if a.unbounded_oracle else job, jobs):
             for s in summaries:
                 fs.write(json.dumps(s) + "\n")
             for r in records:
