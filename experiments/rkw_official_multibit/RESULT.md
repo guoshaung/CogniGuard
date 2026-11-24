@@ -15,7 +15,7 @@
 
 本机运行了原版句界函数，两个官方 demo 原文各分成 8 句。验收了官方 C4 文件的 10,000 行和文件摘要。这个句数反映输入，实际生成句数和载荷尚未观测。官方 value head 已下载并记录 SHA-256。Hugging Face 两套编码器各有七个权重分片，每套约 30.46 GB，解码器约 3.09 GB。解码器已实测 HTTP 206，1 MiB 区间约 74 KB/s，六分钟传输预算仅能下载约 30 MiB。此路径可访问，无法在本轮提供完整权重。 [固定配置](CONFIG.json) · [预检结果](preflight.json)
 
-**语义质量实查。** Table 6 公布的一对文本中，退休缴费用于覆盖总成本的比例从 50% 改为 5%，而论文报告的相似度仍为 0.8947。另一对文本把每年下腹泻症状的频次陈述改成“比以前更容易生病”。这是对公布样例的逐条检查，无法给出 OpenStax 的知识保真率。 [论文附录 Table 6](https://raw.githubusercontent.com/mlresearch/v267/main/assets/xu25k/xu25k.pdf)
+**语义质量实查。** Table 6 公布的一对文本中，退休缴费用于覆盖总成本的比例从 50% 改为 5%，而论文报告的相似度仍为 0.8947。另一对文本把每年出现腹泻的频次陈述改成“比以前更容易生病”。这是对公布样例的逐条检查，无法给出 OpenStax 的知识保真率。 [论文附录 Table 6](https://raw.githubusercontent.com/mlresearch/v267/main/assets/xu25k/xu25k.pdf)
 
 ## 相关方法和迁移门槛
 
