@@ -92,6 +92,29 @@ def _fake_google():
     sys.modules.setdefault("openai", types.ModuleType("openai"))  # imported but unused by the official scripts
 
 
+FIX_REGEX = False
+
+
+def fixed_remove_think_tags(text):
+    """Sensitivity fix (applied identically to every method): the official version calls re with the
+    recursive pattern (?R), which stdlib re rejects. Same intent: last fenced json block, else the last
+    balanced {...} object."""
+    blocks = re.findall(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if blocks:
+        return blocks[-1]
+    depth, start, last = 0, None, None
+    for i, ch in enumerate(text):
+        if ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}" and depth:
+            depth -= 1
+            if depth == 0:
+                last = text[start:i + 1]
+    return last
+
+
 def load_official(name: str, file: str):
     _fake_google()
     spec = importlib.util.spec_from_file_location(name, OFFICIAL / "scripts" / file)
@@ -99,6 +122,8 @@ def load_official(name: str, file: str):
     spec.loader.exec_module(mod)
     mod.qwen_chat_completion = chat
     mod.gemini_chat_completion = lambda model, messages, temperature=0: chat(model, messages)
+    if FIX_REGEX and hasattr(mod, "remove_think_tags"):
+        mod.remove_think_tags = fixed_remove_think_tags
     return mod
 
 
@@ -203,7 +228,10 @@ def main():
     ap.add_argument("--ids", required=True)
     ap.add_argument("--goal", required=True, choices=("sensitive", "benign"))
     ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--fix-regex", action="store_true", help="sensitivity run: same parser fix for every method")
     a = ap.parse_args()
+    global FIX_REGEX
+    FIX_REGEX = a.fix_regex
     a.out.mkdir(parents=True, exist_ok=True)
     with open(a.out / "results.jsonl", "a") as h:
         for sid in [int(x) for x in a.ids.split(",")]:
