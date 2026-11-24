@@ -1,0 +1,22 @@
+{
+  "seed": 61126,
+  "cpu_threads": 4,
+  "steps_per_phase": 3,
+  "batch_size": 4,
+  "max_new_tokens": 48,
+  "base": "D:\\pycharm\\CogniGuard\\assets\\models\\chronology-llama32-1b-9535bd9",
+  "historical_control": "06d9259 frozen R0 registration",
+  "teacher_outputs": "frozen R0 clean and marked text",
+  "training_families": [
+    "sequence",
+    "resistance",
+    "probability"
+  ],
+  "unseen_families": [
+    "area",
+    "density",
+    "speed"
+  ],
+  "source_assisted_generation": true,
+  "detector_uses_text_only": true
+}
