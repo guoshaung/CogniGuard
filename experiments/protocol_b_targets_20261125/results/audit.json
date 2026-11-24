@@ -1,0 +1,6846 @@
+{
+ "scenes": 119,
+ "heldout_scenes": 116,
+ "counts": {
+  "parse_full": 118,
+  "scenes": 119,
+  "schema_targets": 1268,
+  "policy_targets": 30,
+  "targets": 1298,
+  "system_new": 1208,
+  "initial_held": 90,
+  "external_propagation": 0,
+  "single_table_excluded": 1204,
+  "undetermined_excluded": 78,
+  "families": 357,
+  "scenes_with_two_schema_targets": 88,
+  "scenes_with_system_new": 118,
+  "e7_scenes": 84,
+  "e7_witness_reproduced": 65,
+  "heldout_scenes": 116,
+  "heldout_scenes_with_system_new": 115,
+  "e7_all_witnesses_initial": 32,
+  "e7_initial_held": 33,
+  "e7_initial_held_heldout": 33,
+  "historical_scenes_with_system_new": 32,
+  "wrong_scenes_covered_by_system_new": 12,
+  "wrong_scenes_covered_by_any": 12,
+  "parse_no_clause": 1,
+  "scenes_without_target": 1
+ },
+ "witness_size_histogram": {
+  "2": 1078,
+  "3": 212,
+  "4": 24,
+  "5": 10,
+  "6": 2
+ },
+ "mask_evaluations": 991040,
+ "full_join_probes": 3703,
+ "e7_jaccard_mean": 0.34543650793650793,
+ "our_witness_jaccard_mean": 0.4131149895855778,
+ "e7_initial_held": 33,
+ "historical_scenes_with_system_new": 32,
+ "wrong_scene_ids": [
+  24,
+  33,
+  34,
+  35,
+  36,
+  43,
+  56,
+  60,
+  78,
+  97,
+  104,
+  109,
+  114
+ ],
+ "wrong_scenes_covered_by_system_new": 12,
+ "wrong_scenes_covered_by_any": 12,
+ "invariant_violations": [],
+ "historical": [
+  {
+   "scene": 102,
+   "parse": "full",
+   "declared": [
+    "artist_project_map",
+    "project_location",
+    "city_population",
+    "artist_health_records",
+    "artist_personal_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 6,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.artist_personal_info",
+     "Alice.artist_project_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Kerstin.artist_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Valarie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Valarie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.artist_project_map",
+      "Valarie.project_location"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 104,
+   "parse": "full",
+   "declared": [
+    "customer_account_map",
+    "customer_financial_risk",
+    "customer_location",
+    "city_service_coverage",
+    "customer_credit_history"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.customer_account_map",
+     "Alice.customer_service_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.customer_account_map",
+      "Cassie.customer_financial_risk"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Cassie.customer_financial_risk"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Cassie.customer_financial_risk"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Cassie.customer_financial_risk"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Cassie.customer_financial_risk"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Eden.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Eden.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Eden.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Eden.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Eden.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Parker.customer_credit_history"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Parker.customer_credit_history"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Parker.customer_credit_history"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Parker.customer_credit_history"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_account_map",
+      "Parker.customer_credit_history"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 105,
+   "parse": "full",
+   "declared": [
+    "editor_journal_assignments",
+    "journal_publications",
+    "editor_project_involvements",
+    "editor_health_records",
+    "editor_contact_info"
+   ],
+   "schema_targets": 45,
+   "policy_targets": 0,
+   "system_new": 45,
+   "initial_held": 0,
+   "families": 9,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.editor_journal_assignments",
+     "Alice.editor_private_details"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info",
+      "Irena.journal_committee_members"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.editor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Irena.editor_contact_info",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Irena.journal_committee_members",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.editor_health_records"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Niks.editor_health_records",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Irena.journal_committee_members",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Irena.journal_committee_members",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Irena.journal_committee_members",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications",
+      "Tulga.editor_project_involvements"
+     ]
+    ],
+    [
+     [
+      "Alice.editor_journal_assignments",
+      "Niks.journal_publications",
+      "Tulga.editor_project_involvements"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 109,
+   "parse": "full",
+   "declared": [
+    "candidate_rate_by_sex",
+    "candidate_project_map",
+    "project_location",
+    "city_mental_health",
+    "candidate_names"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.candidate_project_map",
+     "Alice.candidate_salary"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Bhushan.candidate_names"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Eden.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Eden.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Eden.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ],
+    [
+     [
+      "Alice.candidate_project_map",
+      "Harpreet.candidate_rate_by_sex"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 110,
+   "parse": "full",
+   "declared": [
+    "contact_channel_usage",
+    "employee_notes",
+    "employee_department",
+    "employee_salary",
+    "employee_dependents"
+   ],
+   "schema_targets": 27,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 3,
+   "families": 9,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.contact_channel_usage",
+     "Alice.employee_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Alice.employee_notes",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Alice.employee_notes",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Alice.employee_notes",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Hannah.employee_dependents",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.employee_salary",
+      "Maname.project_channel_map"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Parker.employee_department"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Parker.employee_department"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Parker.employee_department"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map",
+      "Parker.employee_department"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map",
+      "Parker.employee_department"
+     ]
+    ],
+    [
+     [
+      "Alice.contact_channel_usage",
+      "Maname.project_channel_map",
+      "Parker.employee_department"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 113,
+   "parse": "full",
+   "declared": [
+    "swimmer_stadium_map",
+    "stadium_location",
+    "city_health_services",
+    "swimmer_medical_records",
+    "swimmer_nationality"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 6,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.swimmer_medical_records",
+     "Alice.swimmer_stadium_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Gorosti.stadium_location"
+     ]
+    ],
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Gorosti.stadium_location"
+     ]
+    ],
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Gorosti.stadium_location"
+     ]
+    ],
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Lina.swimmer_nationality"
+     ]
+    ],
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Lina.swimmer_nationality"
+     ]
+    ],
+    [
+     [
+      "Alice.swimmer_stadium_map",
+      "Lina.swimmer_nationality"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 114,
+   "parse": "no_clause",
+   "declared": [],
+   "schema_targets": 0,
+   "policy_targets": 0,
+   "system_new": 0,
+   "initial_held": 0,
+   "families": 0,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_organization_map",
+     "Alice.employee_travel_log"
+    ]
+   ],
+   "system_new_families": []
+  },
+  {
+   "scene": 115,
+   "parse": "full",
+   "declared": [
+    "customer_project_map",
+    "project_status",
+    "project_location",
+    "city_health_services",
+    "customer_health_records"
+   ],
+   "schema_targets": 14,
+   "policy_targets": 0,
+   "system_new": 14,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.customer_notes",
+     "Alice.customer_project_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.customer_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.customer_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.customer_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.customer_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Cassie.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_project_map",
+      "Hannah.project_location"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 120,
+   "parse": "full",
+   "declared": [
+    "problem_report_map",
+    "employee_roles",
+    "problem_location",
+    "mental_health_support",
+    "financial_details",
+    "employee_report_map"
+   ],
+   "schema_targets": 30,
+   "policy_targets": 0,
+   "system_new": 18,
+   "initial_held": 12,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_report_map",
+     "Alice.problem_report_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Dewei.financial_details"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ],
+    [
+     [
+      "Alice.problem_report_map",
+      "Juan.employee_roles"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 124,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "employee_medical_clearance",
+    "project_locations",
+    "employee_health_records",
+    "employee_salary"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_medical_clearance",
+     "Alice.employee_project_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Dewei.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Parker.employee_health_records"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 18,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "employee_role",
+    "employee_health_records",
+    "project_budget",
+    "project_location",
+    "project_status"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 5,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_project_map",
+     "Alice.employee_role"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.project_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Hannah.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Tulga.project_budget"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Tulga.project_budget"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Tulga.project_budget"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 19,
+   "parse": "full",
+   "declared": [
+    "employee_location_map",
+    "location_cinema_map",
+    "restricted_area_access",
+    "employee_medical_records",
+    "employee_access_logs"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 3,
+   "families": 8,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_location_map",
+     "Alice.employee_medical_records"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_location_map",
+      "Alice.employee_medical_records",
+      "Kerstin.location_project_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Alice.employee_medical_records",
+      "Kerstin.location_project_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Alice.employee_medical_records",
+      "Kerstin.location_project_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Kerstin.location_project_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Kerstin.location_project_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Kerstin.location_project_map",
+      "Oubunmi.employee_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Oubunmi.location_cinema_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Valarie.restricted_area_access"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Valarie.restricted_area_access"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_location_map",
+      "Valarie.restricted_area_access"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Valarie.restricted_area_access"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Valarie.restricted_area_access"
+     ]
+    ],
+    [
+     [
+      "Kerstin.location_project_map",
+      "Valarie.restricted_area_access"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 21,
+   "parse": "full",
+   "declared": [
+    "climber_mountain_map",
+    "climber_notes",
+    "climber_health",
+    "climber_addresses",
+    "emergency_contacts"
+   ],
+   "schema_targets": 18,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.climber_mountain_map",
+     "Alice.climber_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Bhushan.emergency_contacts"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Eden.climber_health"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Harpreet.climber_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Harpreet.climber_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.climber_mountain_map",
+      "Harpreet.climber_addresses"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 22,
+   "parse": "full",
+   "declared": [
+    "employee_department_map",
+    "manager_department_map",
+    "employee_health_records",
+    "employee_salary"
+   ],
+   "schema_targets": 18,
+   "policy_targets": 0,
+   "system_new": 18,
+   "initial_held": 0,
+   "families": 6,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_department_map",
+     "Alice.employee_personal_details"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Harpreet.employee_health_records",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Harpreet.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_department_map",
+      "Maname.employee_salary",
+      "Maname.manager_department_map"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Maname.employee_salary"
+     ]
+    ],
+    [
+     [
+      "Cassie.employee_project_assignments",
+      "Maname.employee_salary"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 24,
+   "parse": "full",
+   "declared": [
+    "events_parties",
+    "event_locations",
+    "mental_health_services",
+    "employee_health_records"
+   ],
+   "schema_targets": 7,
+   "policy_targets": 0,
+   "system_new": 7,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.events_parties",
+     "Alice.party_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.events_parties",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Parker.employee_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Slyvie.event_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Slyvie.event_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.events_parties",
+      "Slyvie.event_locations"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 26,
+   "parse": "full",
+   "declared": [
+    "bookings",
+    "employee_health",
+    "apartment_details",
+    "city_services",
+    "mental_health_support",
+    "employee_info"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.bookings",
+     "Alice.employee_health"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.bookings",
+      "Eden.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ],
+    [
+     [
+      "Alice.bookings",
+      "Eden.employee_info"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 27,
+   "parse": "full",
+   "declared": [
+    "movie_ratings",
+    "employee_movie_map",
+    "employee_clearance",
+    "employee_personal_info",
+    "movie_notes"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_movie_map",
+     "Alice.movie_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_movie_map",
+      "Parker.employee_clearance"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Parker.employee_clearance"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Parker.employee_clearance"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_movie_map",
+      "Slyvie.employee_personal_info"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 33,
+   "parse": "full",
+   "declared": [
+    "employee_vehicle_map",
+    "vehicle_type",
+    "employee_disability_status",
+    "employee_medical_conditions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_notes",
+     "Alice.employee_vehicle_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Juan.employee_medical_conditions"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Juan.employee_medical_conditions"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Juan.employee_medical_conditions"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.employee_disability_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.employee_disability_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.employee_disability_status"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.vehicle_type"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.vehicle_type"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_vehicle_map",
+      "Parker.vehicle_type"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 34,
+   "parse": "full",
+   "declared": [
+    "student_course_registrations",
+    "course_attendance",
+    "financial_aid_records",
+    "student_health_records"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.student_course_registrations",
+     "Alice.student_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.course_attendance"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.course_attendance"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.course_attendance"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.financial_aid_records"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.financial_aid_records"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Dewei.financial_aid_records"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Farshid.student_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Farshid.student_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.student_course_registrations",
+      "Farshid.student_health_records"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 35,
+   "parse": "full",
+   "declared": [
+    "store_locations",
+    "employee_assignments",
+    "employee_home_addresses"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_contacts",
+     "Alice.store_employees"
+    ],
+    [
+     "Alice.employee_contacts",
+     "Harpreet.employee_assignments"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.store_employees",
+      "Harpreet.employee_home_addresses"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Harpreet.employee_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Harpreet.employee_home_addresses"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Harpreet.employee_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Harpreet.employee_home_addresses"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Harpreet.employee_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.store_employees",
+      "Parker.store_locations"
+     ],
+     [
+      "Harpreet.employee_assignments",
+      "Parker.store_locations"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 36,
+   "parse": "full",
+   "declared": [
+    "professor_class_map",
+    "professor_salary",
+    "professor_health"
+   ],
+   "schema_targets": 10,
+   "policy_targets": 0,
+   "system_new": 10,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.professor_class_map",
+     "Alice.professor_personal_info"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.professor_class_map",
+      "Dewei.professor_health"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Dewei.professor_health"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Dewei.professor_health"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Dewei.professor_health"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Dewei.professor_health"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Farshid.professor_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Farshid.professor_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Farshid.professor_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Farshid.professor_salary"
+     ]
+    ],
+    [
+     [
+      "Alice.professor_class_map",
+      "Farshid.professor_salary"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 44,
+   "parse": "full",
+   "declared": [
+    "apartment_bookings",
+    "renter_income",
+    "renter_allergies",
+    "renter_insurance",
+    "apartment_details",
+    "city_services"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.apartment_bookings",
+     "Alice.renter_medical_info"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.apartment_details"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.renter_income"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.renter_income"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Harpreet.renter_income"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Maname.renter_insurance"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Maname.renter_insurance"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Maname.renter_insurance"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Oubunmi.renter_allergies"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Oubunmi.renter_allergies"
+     ]
+    ],
+    [
+     [
+      "Alice.apartment_bookings",
+      "Oubunmi.renter_allergies"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 46,
+   "parse": "full",
+   "declared": [
+    "donor_contributions",
+    "project_donor_map",
+    "project_location",
+    "city_crime_stats",
+    "donor_demographics",
+    "donor_contact_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.donor_contributions",
+     "Alice.project_donor_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.project_donor_map",
+      "Cassie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Cassie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Cassie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Eden.donor_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Kerstin.donor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Kerstin.donor_contact_info"
+     ]
+    ],
+    [
+     [
+      "Alice.project_donor_map",
+      "Kerstin.donor_contact_info"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 60,
+   "parse": "full",
+   "declared": [
+    "employee_document_map",
+    "document_access_logs",
+    "employee_department_map",
+    "employee_role_map",
+    "document_type"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.document_publisher_map",
+     "Alice.employee_document_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.document_type"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.document_type"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.document_type"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.employee_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.employee_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Farshid.employee_department_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Gorosti.document_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Gorosti.document_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Gorosti.document_access_logs"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Harpreet.employee_role_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Harpreet.employee_role_map"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_document_map",
+      "Harpreet.employee_role_map"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 67,
+   "parse": "full",
+   "declared": [
+    "reviewer_project_map",
+    "project_ratings",
+    "project_location",
+    "health_services",
+    "reviewer_health_map",
+    "reviewer_demographics"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.reviewer_health_map",
+     "Alice.reviewer_project_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Kerstin.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Kerstin.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Kerstin.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.project_ratings"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.project_ratings"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.project_ratings"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.reviewer_project_map",
+      "Maname.reviewer_demographics"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 70,
+   "parse": "full",
+   "declared": [
+    "flight_velocity_log",
+    "flight_company_map",
+    "company_safety_violations",
+    "company_legal_actions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.flight_company_map",
+     "Alice.flight_velocity_log"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.flight_company_map",
+      "Hannah.company_legal_actions"
+     ]
+    ],
+    [
+     [
+      "Alice.flight_company_map",
+      "Hannah.company_legal_actions"
+     ]
+    ],
+    [
+     [
+      "Alice.flight_company_map",
+      "Hannah.company_legal_actions"
+     ]
+    ],
+    [
+     [
+      "Alice.flight_company_map",
+      "Slyvie.company_safety_violations"
+     ]
+    ],
+    [
+     [
+      "Alice.flight_company_map",
+      "Slyvie.company_safety_violations"
+     ]
+    ],
+    [
+     [
+      "Alice.flight_company_map",
+      "Slyvie.company_safety_violations"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 71,
+   "parse": "full",
+   "declared": [
+    "course_registration",
+    "student_enrollment_notes",
+    "student_health_records",
+    "student_demographics"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.course_registration",
+     "Alice.student_enrollment_notes"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Farshid.student_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Hannah.student_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Hannah.student_health_records"
+     ]
+    ],
+    [
+     [
+      "Alice.course_registration",
+      "Hannah.student_health_records"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 77,
+   "parse": "full",
+   "declared": [
+    "employee_salary_map",
+    "employee_dependents",
+    "employee_project_map",
+    "project_location",
+    "city_services",
+    "employee_demographics"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_project_map",
+     "Alice.employee_salary_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_project_map",
+      "Gorosti.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Gorosti.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Gorosti.employee_dependents"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.employee_demographics"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Lina.project_location"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 81,
+   "parse": "full",
+   "declared": [
+    "invoice_details",
+    "employee_spending_thresholds",
+    "employee_disciplinary_actions"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 3,
+   "initial_held": 3,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_spending_thresholds",
+     "Alice.invoice_details"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.invoice_details",
+      "Irena.employee_disciplinary_actions"
+     ]
+    ],
+    [
+     [
+      "Alice.invoice_details",
+      "Irena.employee_disciplinary_actions"
+     ]
+    ],
+    [
+     [
+      "Alice.invoice_details",
+      "Irena.employee_disciplinary_actions"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 85,
+   "parse": "full",
+   "declared": [
+    "workshop_participants",
+    "workshop_locations",
+    "participant_personal_info",
+    "participant_home_addresses",
+    "participant_emails"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.participant_emails",
+     "Alice.workshop_participants"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Lina.participant_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.participant_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.participant_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.participant_home_addresses"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.workshop_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.workshop_locations"
+     ]
+    ],
+    [
+     [
+      "Alice.workshop_participants",
+      "Ruwaidah.workshop_locations"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 91,
+   "parse": "full",
+   "declared": [
+    "customer_loan_map",
+    "customer_credit_score",
+    "customer_location",
+    "psychiatric_facilities",
+    "customer_income"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.customer_credit_score",
+     "Alice.customer_loan_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.customer_loan_map",
+      "Hannah.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_loan_map",
+      "Hannah.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_loan_map",
+      "Hannah.customer_location"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_loan_map",
+      "Harpreet.customer_income"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_loan_map",
+      "Harpreet.customer_income"
+     ]
+    ],
+    [
+     [
+      "Alice.customer_loan_map",
+      "Harpreet.customer_income"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 93,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "project_location",
+    "employee_travel_log",
+    "employee_bank_info",
+    "employee_home_address"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_project_map",
+     "Alice.employee_travel_log"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_home_address"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_home_address"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Bhushan.employee_home_address"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.employee_bank_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.employee_bank_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.employee_bank_info"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.employee_project_map",
+      "Valarie.project_location"
+     ]
+    ]
+   ]
+  },
+  {
+   "scene": 94,
+   "parse": "full",
+   "declared": [
+    "student_project_map",
+    "project_location",
+    "student_debt_map",
+    "student_mental_health",
+    "student_personal_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.student_debt_map",
+     "Alice.student_project_map"
+    ]
+   ],
+   "system_new_families": [
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.project_location"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Niks.student_personal_info"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Ruwaidah.student_mental_health"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Ruwaidah.student_mental_health"
+     ]
+    ],
+    [
+     [
+      "Alice.student_project_map",
+      "Ruwaidah.student_mental_health"
+     ]
+    ]
+   ]
+  }
+ ],
+ "wrong": [
+  {
+   "scene": 104,
+   "parse": "full",
+   "declared": [
+    "customer_account_map",
+    "customer_financial_risk",
+    "customer_location",
+    "city_service_coverage",
+    "customer_credit_history"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.customer_account_map",
+     "Alice.customer_service_notes"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "city",
+    "credit_score",
+    "risk_level"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.customer_account_map",
+     "Cassie.customer_financial_risk"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Cassie.customer_financial_risk"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Cassie.customer_financial_risk"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Cassie.customer_financial_risk"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Cassie.customer_financial_risk"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Eden.customer_location"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Eden.customer_location"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Eden.customer_location"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Eden.customer_location"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Eden.customer_location"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Parker.customer_credit_history"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Parker.customer_credit_history"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Parker.customer_credit_history"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Parker.customer_credit_history"
+    ],
+    [
+     "Alice.customer_account_map",
+     "Parker.customer_credit_history"
+    ]
+   ]
+  },
+  {
+   "scene": 109,
+   "parse": "full",
+   "declared": [
+    "candidate_rate_by_sex",
+    "candidate_project_map",
+    "project_location",
+    "city_mental_health",
+    "candidate_names"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.candidate_project_map",
+     "Alice.candidate_salary"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "city",
+    "name",
+    "rate",
+    "sex"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Bhushan.candidate_names"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Eden.project_location"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Eden.project_location"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Eden.project_location"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ],
+    [
+     "Alice.candidate_project_map",
+     "Harpreet.candidate_rate_by_sex"
+    ]
+   ]
+  },
+  {
+   "scene": 114,
+   "parse": "no_clause",
+   "declared": [],
+   "schema_targets": 0,
+   "policy_targets": 0,
+   "system_new": 0,
+   "initial_held": 0,
+   "families": 0,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_organization_map",
+     "Alice.employee_travel_log"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": false,
+   "any_witness_matches_attack_tables": false,
+   "schema_columns": [],
+   "system_new_witnesses": []
+  },
+  {
+   "scene": 24,
+   "parse": "full",
+   "declared": [
+    "events_parties",
+    "event_locations",
+    "mental_health_services",
+    "employee_health_records"
+   ],
+   "schema_targets": 7,
+   "policy_targets": 0,
+   "system_new": 7,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.events_parties",
+     "Alice.party_notes"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "city",
+    "condition"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.events_parties",
+     "Parker.employee_health_records"
+    ],
+    [
+     "Alice.events_parties",
+     "Parker.employee_health_records"
+    ],
+    [
+     "Alice.events_parties",
+     "Parker.employee_health_records"
+    ],
+    [
+     "Alice.events_parties",
+     "Parker.employee_health_records"
+    ],
+    [
+     "Alice.events_parties",
+     "Slyvie.event_locations"
+    ],
+    [
+     "Alice.events_parties",
+     "Slyvie.event_locations"
+    ],
+    [
+     "Alice.events_parties",
+     "Slyvie.event_locations"
+    ]
+   ]
+  },
+  {
+   "scene": 33,
+   "parse": "full",
+   "declared": [
+    "employee_vehicle_map",
+    "vehicle_type",
+    "employee_disability_status",
+    "employee_medical_conditions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_notes",
+     "Alice.employee_vehicle_map"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "condition",
+    "disability_status",
+    "type"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.employee_vehicle_map",
+     "Juan.employee_medical_conditions"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Juan.employee_medical_conditions"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Juan.employee_medical_conditions"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.employee_disability_status"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.employee_disability_status"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.employee_disability_status"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.vehicle_type"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.vehicle_type"
+    ],
+    [
+     "Alice.employee_vehicle_map",
+     "Parker.vehicle_type"
+    ]
+   ]
+  },
+  {
+   "scene": 34,
+   "parse": "full",
+   "declared": [
+    "student_course_registrations",
+    "course_attendance",
+    "financial_aid_records",
+    "student_health_records"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.student_course_registrations",
+     "Alice.student_notes"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "aid_amount",
+    "attendance",
+    "condition"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.student_course_registrations",
+     "Dewei.course_attendance"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Dewei.course_attendance"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Dewei.course_attendance"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Dewei.financial_aid_records"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Dewei.financial_aid_records"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Dewei.financial_aid_records"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Farshid.student_health_records"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Farshid.student_health_records"
+    ],
+    [
+     "Alice.student_course_registrations",
+     "Farshid.student_health_records"
+    ]
+   ]
+  },
+  {
+   "scene": 35,
+   "parse": "full",
+   "declared": [
+    "store_locations",
+    "employee_assignments",
+    "employee_home_addresses"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_contacts",
+     "Alice.store_employees"
+    ],
+    [
+     "Alice.employee_contacts",
+     "Harpreet.employee_assignments"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "address",
+    "district",
+    "name"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.store_employees",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Alice.store_employees",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Alice.store_employees",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Harpreet.employee_home_addresses"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ],
+    [
+     "Alice.store_employees",
+     "Parker.store_locations"
+    ],
+    [
+     "Harpreet.employee_assignments",
+     "Parker.store_locations"
+    ]
+   ]
+  },
+  {
+   "scene": 36,
+   "parse": "full",
+   "declared": [
+    "professor_class_map",
+    "professor_salary",
+    "professor_health"
+   ],
+   "schema_targets": 10,
+   "policy_targets": 0,
+   "system_new": 10,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.professor_class_map",
+     "Alice.professor_personal_info"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "condition",
+    "salary"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.professor_class_map",
+     "Dewei.professor_health"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Dewei.professor_health"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Dewei.professor_health"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Dewei.professor_health"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Dewei.professor_health"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Farshid.professor_salary"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Farshid.professor_salary"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Farshid.professor_salary"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Farshid.professor_salary"
+    ],
+    [
+     "Alice.professor_class_map",
+     "Farshid.professor_salary"
+    ]
+   ]
+  },
+  {
+   "scene": 43,
+   "parse": "full",
+   "declared": [
+    "employee_studio_map",
+    "studio_location",
+    "mental_health_support",
+    "employee_personal_info",
+    "employee_salary"
+   ],
+   "schema_targets": 25,
+   "policy_targets": 0,
+   "system_new": 25,
+   "initial_held": 0,
+   "families": 5,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Bhushan.employee_salary"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "age",
+    "city",
+    "name",
+    "salary"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Bhushan.employee_salary"
+    ],
+    [
+     "Alice.film_studio_map",
+     "Bhushan.studio_location"
+    ],
+    [
+     "Alice.film_studio_map",
+     "Bhushan.studio_location"
+    ],
+    [
+     "Alice.film_studio_map",
+     "Bhushan.studio_location"
+    ],
+    [
+     "Alice.film_studio_map",
+     "Bhushan.studio_location"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Alice.film_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ],
+    [
+     "Alice.employee_studio_map",
+     "Maname.employee_personal_info"
+    ]
+   ]
+  },
+  {
+   "scene": 56,
+   "parse": "full",
+   "declared": [
+    "student_dorm_map",
+    "student_financial_aid",
+    "student_medical_map",
+    "medical_details"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.student_dorm_map",
+     "Cassie.student_contact"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "aid_amount",
+    "condition",
+    "name",
+    "treatment"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.student_dorm_map",
+     "Kerstin.student_financial_aid"
+    ],
+    [
+     "Alice.student_dorm_map",
+     "Kerstin.student_financial_aid"
+    ],
+    [
+     "Alice.student_dorm_map",
+     "Alice.student_medical_map",
+     "Slyvie.medical_details"
+    ],
+    [
+     "Alice.student_medical_map",
+     "Slyvie.medical_details"
+    ],
+    [
+     "Alice.student_dorm_map",
+     "Alice.student_medical_map",
+     "Slyvie.medical_details"
+    ],
+    [
+     "Alice.student_medical_map",
+     "Slyvie.medical_details"
+    ]
+   ]
+  },
+  {
+   "scene": 60,
+   "parse": "full",
+   "declared": [
+    "employee_document_map",
+    "document_access_logs",
+    "employee_department_map",
+    "employee_role_map",
+    "document_type"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.document_publisher_map",
+     "Alice.employee_document_map"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "accessed_by",
+    "department",
+    "role",
+    "type"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.employee_document_map",
+     "Farshid.document_type"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Farshid.document_type"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Farshid.document_type"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Farshid.employee_department_map"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Farshid.employee_department_map"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Farshid.employee_department_map"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Gorosti.document_access_logs"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Gorosti.document_access_logs"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Gorosti.document_access_logs"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Harpreet.employee_role_map"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Harpreet.employee_role_map"
+    ],
+    [
+     "Alice.employee_document_map",
+     "Harpreet.employee_role_map"
+    ]
+   ]
+  },
+  {
+   "scene": 78,
+   "parse": "full",
+   "declared": [
+    "company_beds",
+    "employee_check_in",
+    "employee_personal_info",
+    "employee_home_details"
+   ],
+   "schema_targets": 27,
+   "policy_targets": 0,
+   "system_new": 27,
+   "initial_held": 0,
+   "families": 6,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.employee_check_in",
+     "Parker.room_assignments"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "address",
+    "check_in_date",
+    "home_bed_type",
+    "location",
+    "name",
+    "type"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.company_beds",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Kerstin.employee_home_details",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ],
+    [
+     "Alice.employee_check_in",
+     "Parker.employee_personal_info",
+     "Parker.room_assignments"
+    ]
+   ]
+  },
+  {
+   "scene": 97,
+   "parse": "full",
+   "declared": [
+    "student_name_map",
+    "student_project_map",
+    "project_location",
+    "mental_health_notes",
+    "student_home_addresses"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 0,
+   "families": 8,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true,
+   "e7_sets": [
+    [
+     "Alice.student_assessment_notes",
+     "Gorosti.student_health_records"
+    ]
+   ],
+   "e7_matches_attack_tables": false,
+   "system_new_matches_attack_tables": true,
+   "any_witness_matches_attack_tables": true,
+   "schema_columns": [
+    "address",
+    "city",
+    "last_name",
+    "note"
+   ],
+   "system_new_witnesses": [
+    [
+     "Alice.student_assessment_notes",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_project_map",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_project_map",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_project_map",
+     "Gorosti.student_name_map"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_project_map",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_project_map",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_project_map",
+     "Juan.student_home_addresses"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.mental_health_notes"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ],
+    [
+     "Alice.student_assessment_notes",
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ],
+    [
+     "Alice.student_project_map",
+     "Maname.project_location"
+    ]
+   ]
+  }
+ ],
+ "scenes_without_target": [
+  114
+ ],
+ "per_scene": [
+  {
+   "scene": 100,
+   "parse": "full",
+   "declared": [
+    "apartment_bookings",
+    "employee_apartment_map",
+    "employee_travel_history",
+    "employee_dependents",
+    "employee_compensation"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": false
+  },
+  {
+   "scene": 101,
+   "parse": "full",
+   "declared": [
+    "document_notes",
+    "employee_projects",
+    "employee_demographics",
+    "project_locations",
+    "mental_health_support"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 102,
+   "parse": "full",
+   "declared": [
+    "artist_project_map",
+    "project_location",
+    "city_population",
+    "artist_health_records",
+    "artist_personal_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 6,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 103,
+   "parse": "full",
+   "declared": [
+    "roller_coaster_specs",
+    "employee_project_map",
+    "employee_access_levels",
+    "city_location",
+    "city_surveillance",
+    "employee_demographics"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 104,
+   "parse": "full",
+   "declared": [
+    "customer_account_map",
+    "customer_financial_risk",
+    "customer_location",
+    "city_service_coverage",
+    "customer_credit_history"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 105,
+   "parse": "full",
+   "declared": [
+    "editor_journal_assignments",
+    "journal_publications",
+    "editor_project_involvements",
+    "editor_health_records",
+    "editor_contact_info"
+   ],
+   "schema_targets": 45,
+   "policy_targets": 0,
+   "system_new": 45,
+   "initial_held": 0,
+   "families": 9,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 106,
+   "parse": "full",
+   "declared": [
+    "gymnast_injury_map",
+    "injury_details",
+    "event_gymnast_map",
+    "event_locations",
+    "city_healthcare",
+    "athlete_demographics"
+   ],
+   "schema_targets": 21,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 107,
+   "parse": "full",
+   "declared": [
+    "job_salary",
+    "employee_project_map",
+    "project_status",
+    "project_location",
+    "mental_health_support",
+    "employee_demographics"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 108,
+   "parse": "full",
+   "declared": [
+    "customer_loan_map",
+    "customer_demographics",
+    "customer_account_map"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 109,
+   "parse": "full",
+   "declared": [
+    "candidate_rate_by_sex",
+    "candidate_project_map",
+    "project_location",
+    "city_mental_health",
+    "candidate_names"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 10,
+   "parse": "full",
+   "declared": [
+    "company_owner_map",
+    "company_owners",
+    "owner_addresses",
+    "city_services",
+    "owner_financials"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 110,
+   "parse": "full",
+   "declared": [
+    "contact_channel_usage",
+    "employee_notes",
+    "employee_department",
+    "employee_salary",
+    "employee_dependents"
+   ],
+   "schema_targets": 27,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 3,
+   "families": 9,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 111,
+   "parse": "full",
+   "declared": [
+    "song_metadata",
+    "song_ratings",
+    "user_song_preferences",
+    "user_device_usage",
+    "user_demographics"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 112,
+   "parse": "full",
+   "declared": [
+    "student_teacher_map",
+    "teacher_home_addresses"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 113,
+   "parse": "full",
+   "declared": [
+    "swimmer_stadium_map",
+    "stadium_location",
+    "city_health_services",
+    "swimmer_medical_records",
+    "swimmer_nationality"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 6,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 114,
+   "parse": "no_clause",
+   "declared": [],
+   "schema_targets": 0,
+   "policy_targets": 0,
+   "system_new": 0,
+   "initial_held": 0,
+   "families": 0,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 115,
+   "parse": "full",
+   "declared": [
+    "customer_project_map",
+    "project_status",
+    "project_location",
+    "city_health_services",
+    "customer_health_records"
+   ],
+   "schema_targets": 14,
+   "policy_targets": 0,
+   "system_new": 14,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 116,
+   "parse": "full",
+   "declared": [
+    "credit_score_summary",
+    "customer_financial_hardship",
+    "customer_state_map",
+    "state_income_median",
+    "customer_medical_records"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 117,
+   "parse": "full",
+   "declared": [
+    "railway_wheels",
+    "nearby_facilities",
+    "restricted_zones",
+    "location_map",
+    "sensitive_areas"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 118,
+   "parse": "full",
+   "declared": [
+    "invoice_details",
+    "employee_project_map",
+    "employee_salary",
+    "employee_demographics",
+    "employee_contact"
+   ],
+   "schema_targets": 27,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 3,
+   "families": 7,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 119,
+   "parse": "full",
+   "declared": [
+    "employee_names",
+    "employee_salary",
+    "employee_home_address"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 11,
+   "parse": "full",
+   "declared": [
+    "customer_account_balances",
+    "customer_payment_history",
+    "customer_addresses",
+    "customer_pii"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 120,
+   "parse": "full",
+   "declared": [
+    "problem_report_map",
+    "employee_roles",
+    "problem_location",
+    "mental_health_support",
+    "financial_details",
+    "employee_report_map"
+   ],
+   "schema_targets": 30,
+   "policy_targets": 0,
+   "system_new": 18,
+   "initial_held": 12,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 121,
+   "parse": "full",
+   "declared": [
+    "school_administrator_map",
+    "employee_disciplinary_records",
+    "city_school_locations",
+    "mental_health_resources",
+    "admin_demographics"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 122,
+   "parse": "full",
+   "declared": [
+    "data_usage_audit",
+    "employee_data_contributions",
+    "employee_health_records",
+    "employee_financial_details"
+   ],
+   "schema_targets": 14,
+   "policy_targets": 0,
+   "system_new": 14,
+   "initial_held": 0,
+   "families": 5,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 123,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "project_inventory",
+    "mental_health_facilities",
+    "employee_product_assignment",
+    "employee_health_records"
+   ],
+   "schema_targets": 4,
+   "policy_targets": 0,
+   "system_new": 4,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 124,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "employee_medical_clearance",
+    "project_locations",
+    "employee_health_records",
+    "employee_salary"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 12,
+   "parse": "full",
+   "declared": [
+    "room_type_map",
+    "room_occupancy",
+    "guest_medical_notes",
+    "guest_insurance"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 13,
+   "parse": "full",
+   "declared": [
+    "customer_service_map",
+    "service_details",
+    "customer_demographics",
+    "health_insurance"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 14,
+   "parse": "full",
+   "declared": [
+    "employee_address_map",
+    "address_details",
+    "city_health_facilities",
+    "employee_medical_records",
+    "employee_demographics"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 15,
+   "parse": "full",
+   "declared": [
+    "storm_region_map",
+    "vulnerable_population",
+    "region_individual_map",
+    "emergency_response",
+    "individual_health"
+   ],
+   "schema_targets": 4,
+   "policy_targets": 0,
+   "system_new": 4,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 16,
+   "parse": "full",
+   "declared": [
+    "bank_customer_map",
+    "customer_demographics",
+    "customer_credit_scores",
+    "customer_debt_profiles"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 17,
+   "parse": "full",
+   "declared": [
+    "employee_friend_map",
+    "employee_address",
+    "mental_health_services",
+    "employee_mental_health"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 18,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "employee_role",
+    "employee_health_records",
+    "project_budget",
+    "project_location",
+    "project_status"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 5,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 19,
+   "parse": "full",
+   "declared": [
+    "employee_location_map",
+    "location_cinema_map",
+    "restricted_area_access",
+    "employee_medical_records",
+    "employee_access_logs"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 3,
+   "families": 8,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 20,
+   "parse": "full",
+   "declared": [
+    "aircraft_distance_log",
+    "pilot_aircraft_map",
+    "pilot_personal_info",
+    "pilot_medical_records"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 21,
+   "parse": "full",
+   "declared": [
+    "climber_mountain_map",
+    "climber_notes",
+    "climber_health",
+    "climber_addresses",
+    "emergency_contacts"
+   ],
+   "schema_targets": 18,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 22,
+   "parse": "full",
+   "declared": [
+    "employee_department_map",
+    "manager_department_map",
+    "employee_health_records",
+    "employee_salary"
+   ],
+   "schema_targets": 18,
+   "policy_targets": 0,
+   "system_new": 18,
+   "initial_held": 0,
+   "families": 6,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 23,
+   "parse": "full",
+   "declared": [
+    "district_population",
+    "district_facility_map",
+    "security_facilities",
+    "district_name_map"
+   ],
+   "schema_targets": 3,
+   "policy_targets": 0,
+   "system_new": 3,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 24,
+   "parse": "full",
+   "declared": [
+    "events_parties",
+    "event_locations",
+    "mental_health_services",
+    "employee_health_records"
+   ],
+   "schema_targets": 7,
+   "policy_targets": 0,
+   "system_new": 7,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 25,
+   "parse": "full",
+   "declared": [
+    "employee_sales_records",
+    "order_details",
+    "product_catalog",
+    "employee_health_records",
+    "employee_demographics"
+   ],
+   "schema_targets": 48,
+   "policy_targets": 0,
+   "system_new": 45,
+   "initial_held": 3,
+   "families": 12,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 26,
+   "parse": "full",
+   "declared": [
+    "bookings",
+    "employee_health",
+    "apartment_details",
+    "city_services",
+    "mental_health_support",
+    "employee_info"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 27,
+   "parse": "full",
+   "declared": [
+    "movie_ratings",
+    "employee_movie_map",
+    "employee_clearance",
+    "employee_personal_info",
+    "movie_notes"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 28,
+   "parse": "full",
+   "declared": [
+    "employee_phone_map",
+    "phone_specs",
+    "employee_addresses",
+    "city_regions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 29,
+   "parse": "full",
+   "declared": [
+    "employee_sales",
+    "employee_salaries",
+    "product_types",
+    "employee_departments",
+    "employee_addresses"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 30,
+   "parse": "full",
+   "declared": [
+    "employee_medical_map",
+    "medical_condition_details",
+    "employee_project_map",
+    "project_region",
+    "mental_health_support",
+    "employee_demographics"
+   ],
+   "schema_targets": 21,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 31,
+   "parse": "full",
+   "declared": [
+    "customer_names",
+    "account_balances",
+    "customer_regions",
+    "region_services",
+    "customer_addresses"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 32,
+   "parse": "full",
+   "declared": [
+    "store_chain_stats",
+    "store_manager_map",
+    "employee_demographics",
+    "manager_home_addresses"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 33,
+   "parse": "full",
+   "declared": [
+    "employee_vehicle_map",
+    "vehicle_type",
+    "employee_disability_status",
+    "employee_medical_conditions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 34,
+   "parse": "full",
+   "declared": [
+    "student_course_registrations",
+    "course_attendance",
+    "financial_aid_records",
+    "student_health_records"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 35,
+   "parse": "full",
+   "declared": [
+    "store_locations",
+    "employee_assignments",
+    "employee_home_addresses"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 36,
+   "parse": "full",
+   "declared": [
+    "professor_class_map",
+    "professor_salary",
+    "professor_health"
+   ],
+   "schema_targets": 10,
+   "policy_targets": 0,
+   "system_new": 10,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 37,
+   "parse": "full",
+   "declared": [
+    "player_health_records",
+    "player_medical_clearance",
+    "player_home_addresses"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 38,
+   "parse": "full",
+   "declared": [
+    "customer_card_assignments",
+    "customer_credit_scores",
+    "card_transaction_locations",
+    "city_services",
+    "customer_demographics"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 39,
+   "parse": "full",
+   "declared": [
+    "employee_department",
+    "employee_salary",
+    "employee_medical_records"
+   ],
+   "schema_targets": 2,
+   "policy_targets": 0,
+   "system_new": 2,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 40,
+   "parse": "full",
+   "declared": [
+    "city_crime_stats",
+    "city_unemployment",
+    "city_income",
+    "city_hospitals"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": false
+  },
+  {
+   "scene": 41,
+   "parse": "full",
+   "declared": [
+    "staff_department_assignments",
+    "medical_leave_records",
+    "department_budget",
+    "employee_demographics"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 42,
+   "parse": "full",
+   "declared": [
+    "course_enrollments",
+    "employee_course_map",
+    "employee_roles",
+    "employee_locations",
+    "employee_mental_health"
+   ],
+   "schema_targets": 4,
+   "policy_targets": 0,
+   "system_new": 4,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 43,
+   "parse": "full",
+   "declared": [
+    "employee_studio_map",
+    "studio_location",
+    "mental_health_support",
+    "employee_personal_info",
+    "employee_salary"
+   ],
+   "schema_targets": 25,
+   "policy_targets": 0,
+   "system_new": 25,
+   "initial_held": 0,
+   "families": 5,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 44,
+   "parse": "full",
+   "declared": [
+    "apartment_bookings",
+    "renter_income",
+    "renter_allergies",
+    "renter_insurance",
+    "apartment_details",
+    "city_services"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 45,
+   "parse": "full",
+   "declared": [
+    "documents",
+    "grant_approvals",
+    "research_projects",
+    "employee_project_roles",
+    "employee_home_addresses",
+    "employee_financial_details"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 46,
+   "parse": "full",
+   "declared": [
+    "donor_contributions",
+    "project_donor_map",
+    "project_location",
+    "city_crime_stats",
+    "donor_demographics",
+    "donor_contact_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 47,
+   "parse": "full",
+   "declared": [
+    "apartment_bathroom_map",
+    "apartment_owner_map",
+    "employee_income",
+    "apartment_details",
+    "mental_health_support",
+    "employee_demographics"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 48,
+   "parse": "full",
+   "declared": [
+    "student_allergies",
+    "student_health_records",
+    "student_home_address"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 49,
+   "parse": "full",
+   "declared": [
+    "booking_payments",
+    "room_base_prices",
+    "employee_room_map",
+    "mental_health_subsidy",
+    "employee_medical_notes",
+    "employee_salary_details"
+   ],
+   "schema_targets": 33,
+   "policy_targets": 0,
+   "system_new": 30,
+   "initial_held": 3,
+   "families": 9,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 50,
+   "parse": "full",
+   "declared": [
+    "ship_list",
+    "ship_country",
+    "ship_owner_map",
+    "owner_nationality"
+   ],
+   "schema_targets": 3,
+   "policy_targets": 0,
+   "system_new": 3,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 51,
+   "parse": "full",
+   "declared": [
+    "classroom_assignments",
+    "student_medical_records",
+    "student_disciplinary_records",
+    "student_family_info"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 52,
+   "parse": "full",
+   "declared": [
+    "product_reviews",
+    "user_activity_log",
+    "user_medical_records",
+    "user_personal_info"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 53,
+   "parse": "full",
+   "declared": [
+    "swimmer_medical_records",
+    "swimmer_mental_health",
+    "swimmer_personal_info"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 54,
+   "parse": "full",
+   "declared": [
+    "college_info",
+    "student_college_map",
+    "student_financial_aid",
+    "student_demographics"
+   ],
+   "schema_targets": 10,
+   "policy_targets": 0,
+   "system_new": 10,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 55,
+   "parse": "full",
+   "declared": [
+    "enzyme_medicine_interactions",
+    "employee_health_records",
+    "medicine_location",
+    "lab_access_logs",
+    "employee_personal_details"
+   ],
+   "schema_targets": 50,
+   "policy_targets": 0,
+   "system_new": 50,
+   "initial_held": 0,
+   "families": 9,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 56,
+   "parse": "full",
+   "declared": [
+    "student_dorm_map",
+    "student_financial_aid",
+    "student_medical_map",
+    "medical_details"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 57,
+   "parse": "full",
+   "declared": [
+    "employee_travel_notes",
+    "employee_payment_records",
+    "employee_personal_details",
+    "employee_travel_approval"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 3,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 58,
+   "parse": "full",
+   "declared": [
+    "member_location_map",
+    "member_demographics",
+    "member_addresses",
+    "membership_card_list"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 59,
+   "parse": "full",
+   "declared": [
+    "employee_health_records",
+    "room_facilities",
+    "project_location",
+    "city_health_services",
+    "employee_medical_clearance",
+    "employee_personal_details"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 5,
+   "parse": "full",
+   "declared": [
+    "employee_role_map",
+    "employee_access_levels",
+    "employee_health_records",
+    "employee_disciplinary_actions"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": false
+  },
+  {
+   "scene": 60,
+   "parse": "full",
+   "declared": [
+    "employee_document_map",
+    "document_access_logs",
+    "employee_department_map",
+    "employee_role_map",
+    "document_type"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 61,
+   "parse": "full",
+   "declared": [
+    "employee_book_club_map",
+    "employee_therapy_map",
+    "employee_mental_health",
+    "project_location",
+    "city_programs",
+    "employee_therapy_participation"
+   ],
+   "schema_targets": 4,
+   "policy_targets": 0,
+   "system_new": 4,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 62,
+   "parse": "full",
+   "declared": [
+    "order_details",
+    "customer_order_count",
+    "order_location",
+    "psychiatric_services",
+    "customer_demographics"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 63,
+   "parse": "full",
+   "declared": [
+    "architect_mill_count",
+    "architect_project_map",
+    "architect_nationality",
+    "mental_health_support",
+    "personal_income"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 64,
+   "parse": "full",
+   "declared": [
+    "employee_document_access",
+    "document_classification",
+    "employee_locations",
+    "employee_roles"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 65,
+   "parse": "full",
+   "declared": [
+    "district_population_area",
+    "city_district_map",
+    "city_average_area",
+    "district_income",
+    "district_residents"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 66,
+   "parse": "full",
+   "declared": [
+    "employee_author_map",
+    "employee_financials",
+    "employee_health_records",
+    "employee_travel_records"
+   ],
+   "schema_targets": 36,
+   "policy_targets": 0,
+   "system_new": 36,
+   "initial_held": 0,
+   "families": 6,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 67,
+   "parse": "full",
+   "declared": [
+    "reviewer_project_map",
+    "project_ratings",
+    "project_location",
+    "health_services",
+    "reviewer_health_map",
+    "reviewer_demographics"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 68,
+   "parse": "full",
+   "declared": [
+    "artist_language_gender",
+    "artist_country_map",
+    "mental_health_services",
+    "artist_age_demographics",
+    "artist_employment_status"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 6,
+   "parse": "full",
+   "declared": [
+    "player_medical",
+    "player_address",
+    "mental_health_support",
+    "player_medical_notes"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 70,
+   "parse": "full",
+   "declared": [
+    "flight_velocity_log",
+    "flight_company_map",
+    "company_safety_violations",
+    "company_legal_actions"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 71,
+   "parse": "full",
+   "declared": [
+    "course_registration",
+    "student_enrollment_notes",
+    "student_health_records",
+    "student_demographics"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 72,
+   "parse": "full",
+   "declared": [
+    "account_balances",
+    "account_ownership",
+    "project_assignments",
+    "project_locations",
+    "city_services",
+    "employee_details"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 3,
+   "families": 6,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 73,
+   "parse": "full",
+   "declared": [
+    "employee_nomination_map",
+    "employee_mental_health",
+    "project_location",
+    "project_status",
+    "employee_medical_notes"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 15,
+   "initial_held": 0,
+   "families": 5,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 74,
+   "parse": "full",
+   "declared": [
+    "employee_document_map",
+    "employee_access_logs",
+    "employee_sensitive_records",
+    "employee_personal_details"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 75,
+   "parse": "full",
+   "declared": [
+    "employee_governor_link",
+    "employee_roles",
+    "employee_salary",
+    "employee_address"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 76,
+   "parse": "full",
+   "declared": [
+    "employee_product_map",
+    "employee_addresses",
+    "employee_demographics",
+    "customer_payment_info"
+   ],
+   "schema_targets": 21,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 0,
+   "families": 5,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 77,
+   "parse": "full",
+   "declared": [
+    "employee_salary_map",
+    "employee_dependents",
+    "employee_project_map",
+    "project_location",
+    "city_services",
+    "employee_demographics"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 78,
+   "parse": "full",
+   "declared": [
+    "company_beds",
+    "employee_check_in",
+    "employee_personal_info",
+    "employee_home_details"
+   ],
+   "schema_targets": 27,
+   "policy_targets": 0,
+   "system_new": 27,
+   "initial_held": 0,
+   "families": 6,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 79,
+   "parse": "full",
+   "declared": [
+    "movie_details",
+    "employee_movie_map",
+    "employee_birth_years",
+    "employee_projects",
+    "project_location",
+    "city_mental_health_services"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 7,
+   "parse": "full",
+   "declared": [
+    "transaction_log",
+    "company_details",
+    "investor_financials",
+    "investor_contacts",
+    "investor_demographics"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 80,
+   "parse": "full",
+   "declared": [
+    "candidate_project_map",
+    "candidate_medical_records",
+    "candidate_address_map",
+    "city_health_services",
+    "note_details",
+    "candidate_note_map"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 81,
+   "parse": "full",
+   "declared": [
+    "invoice_details",
+    "employee_spending_thresholds",
+    "employee_disciplinary_actions"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 3,
+   "initial_held": 3,
+   "families": 2,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 82,
+   "parse": "full",
+   "declared": [
+    "student_allergies",
+    "student_home_addresses",
+    "city_health_services",
+    "student_medical_notes",
+    "student_emergency_contacts"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 83,
+   "parse": "full",
+   "declared": [
+    "friend_connections",
+    "employee_medical_records",
+    "city_health_services"
+   ],
+   "schema_targets": 7,
+   "policy_targets": 0,
+   "system_new": 7,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 84,
+   "parse": "full",
+   "declared": [
+    "student_tryout_map",
+    "tryout_location_map",
+    "student_disability_status",
+    "student_mental_health_status",
+    "student_family_medical_history"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 85,
+   "parse": "full",
+   "declared": [
+    "workshop_participants",
+    "workshop_locations",
+    "participant_personal_info",
+    "participant_home_addresses",
+    "participant_emails"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 86,
+   "parse": "full",
+   "declared": [
+    "employee_access_logs",
+    "project_security_clearance",
+    "project_assignments",
+    "project_locations",
+    "employee_home_addresses"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 0,
+   "families": 8,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 87,
+   "parse": "full",
+   "declared": [
+    "wrestler_days",
+    "wrestler_personal_info",
+    "event_locations",
+    "city_services"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 88,
+   "parse": "full",
+   "declared": [
+    "farm_horse_data",
+    "farm_owner_map",
+    "employee_demographics",
+    "farm_location",
+    "city_programs"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 89,
+   "parse": "full",
+   "declared": [
+    "player_medical_records",
+    "player_school_map",
+    "school_location",
+    "city_health_services",
+    "player_allergies"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 8,
+   "parse": "full",
+   "declared": [
+    "apartment_details",
+    "apartment_ownership",
+    "apartment_project_map",
+    "project_location",
+    "mental_health_support",
+    "employee_income"
+   ],
+   "schema_targets": 21,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 90,
+   "parse": "full",
+   "declared": [
+    "employee_personal_data",
+    "employee_health_records",
+    "employee_mental_health_data"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 91,
+   "parse": "full",
+   "declared": [
+    "customer_loan_map",
+    "customer_credit_score",
+    "customer_location",
+    "psychiatric_facilities",
+    "customer_income"
+   ],
+   "schema_targets": 9,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 3,
+   "families": 3,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 92,
+   "parse": "full",
+   "declared": [
+    "employee_therapy_pet_map",
+    "pet_type_details",
+    "market_city_map",
+    "mental_health_services",
+    "employee_salary_details"
+   ],
+   "schema_targets": 3,
+   "policy_targets": 0,
+   "system_new": 3,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 93,
+   "parse": "full",
+   "declared": [
+    "employee_project_map",
+    "project_location",
+    "employee_travel_log",
+    "employee_bank_info",
+    "employee_home_address"
+   ],
+   "schema_targets": 12,
+   "policy_targets": 0,
+   "system_new": 9,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 94,
+   "parse": "full",
+   "declared": [
+    "student_project_map",
+    "project_location",
+    "student_debt_map",
+    "student_mental_health",
+    "student_personal_info"
+   ],
+   "schema_targets": 15,
+   "policy_targets": 0,
+   "system_new": 12,
+   "initial_held": 3,
+   "families": 4,
+   "e7_initial_held": true,
+   "e7_all_witnesses_initial": true,
+   "heldout": true
+  },
+  {
+   "scene": 95,
+   "parse": "full",
+   "declared": [
+    "employee_pet_map",
+    "pet_details",
+    "employee_location_map",
+    "employee_health_data",
+    "city_services",
+    "employee_language_map",
+    "language_official_status"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 96,
+   "parse": "full",
+   "declared": [
+    "customer_pet_map",
+    "pet_details",
+    "customer_project_map",
+    "project_location",
+    "mental_health_support",
+    "customer_demographics"
+   ],
+   "schema_targets": 21,
+   "policy_targets": 0,
+   "system_new": 21,
+   "initial_held": 0,
+   "families": 4,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 97,
+   "parse": "full",
+   "declared": [
+    "student_name_map",
+    "student_project_map",
+    "project_location",
+    "mental_health_notes",
+    "student_home_addresses"
+   ],
+   "schema_targets": 24,
+   "policy_targets": 0,
+   "system_new": 24,
+   "initial_held": 0,
+   "families": 8,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 98,
+   "parse": "full",
+   "declared": [
+    "average_membership",
+    "branch_membership_summary",
+    "employee_branch_map",
+    "employee_salary",
+    "employee_health_claims"
+   ],
+   "schema_targets": 6,
+   "policy_targets": 0,
+   "system_new": 6,
+   "initial_held": 0,
+   "families": 2,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 99,
+   "parse": "full",
+   "declared": [
+    "account_status",
+    "account_rejection_history",
+    "customer_identity_verification",
+    "customer_service_notes"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  },
+  {
+   "scene": 9,
+   "parse": "full",
+   "declared": [
+    "customer_codes",
+    "customer_income",
+    "customer_locations",
+    "city_services",
+    "customer_notes",
+    "customer_risk_profiles"
+   ],
+   "schema_targets": 0,
+   "policy_targets": 1,
+   "system_new": 1,
+   "initial_held": 0,
+   "families": 1,
+   "e7_initial_held": false,
+   "e7_all_witnesses_initial": false,
+   "heldout": true
+  }
+ ]
+}
