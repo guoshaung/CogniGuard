@@ -143,13 +143,15 @@ def check_consumer(
                                                 event=ev), art_b))
         s.apply(verifier.verify(observation("c4-c", "art-b", "B", evidence_type=EvidenceType.TRUSTED_LOG,
                                             event=signed_event(LOG_KEY, "evt-1", "C", "B")), art_b))
-        if s.trusted_event_credits() != 1:
-            failures.append(f"[{mode}] C4: duplicate / conflicting event changed credits "
-                            f"({s.trusted_event_credits()} != 1)")
+        # Interface §8: duplicates / conflicts / forgeries count once or not at all.
+        # A consumer that never credits (more conservative) passes.
+        credited = s.trusted_event_credits()
+        if credited > 1:
+            failures.append(f"[{mode}] C4: duplicate / conflicting event counted more than once ({credited})")
         forged = observation("c4-forged", "art-b", "B", evidence_type=EvidenceType.TRUSTED_LOG,
                              event=signed_event(b"wrong-key", "evt-9", "A", "B"))
         s.apply(verifier.verify(forged, art_b))
-        if s.trusted_event_credits() != 1:
+        if s.trusted_event_credits() > credited:
             failures.append(f"[{mode}] C4: forged log signature was credited")
 
         # C5 content evidence only tightens: confirmed B-holds-U2 must turn allow into deny for A+B+u3 at k=3.

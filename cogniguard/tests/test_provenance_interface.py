@@ -126,6 +126,13 @@ def test_contract_catches_credit_from_non_log_evidence():
     assert any("C3" in f or "C4" in f for f in fails)
 
 
+def test_contract_accepts_a_consumer_that_never_credits():
+    class Stingy(SecurityState):
+        def trusted_event_credits(self):
+            return 0
+    assert C.check_consumer(lambda r, f: Stingy(r, f), _ref_policy) == []
+
+
 def test_state_layers_and_worst_case_event():
     targets, access, receipts, texts = C.fixture()
     v = RuleVerifier(C.LOG_KEY, C.CRED_KEY, TextUnitChecker(texts))
@@ -149,3 +156,25 @@ def test_mock_detector_pipeline_runs():
     run_pipeline([art], det.detect(art), v, s)
     assert C.U2 in s.knowledge("confirmed")["B"]
     assert det.detect(art)[0].extra["mock"] is True
+
+
+def test_pe01_conversion():
+    from cogniguard.provenance.compat import from_pe01
+    rec = {"schema_version": "pe-0.1", "evidence_id": "e1", "artifact_id": "a1",
+           "holder_principal_id": "fragment-pilot-holder", "evidence_type": "watermark_knowledge",
+           "candidate_issuance_ids": ["r1"], "matched_knowledge_units": [["s", "f1"]], "confidence": 1.0,
+           "verification_status": "content_verified", "trusted_event_id": None,
+           "event_sender_principal_id": None, "policy_version": 0,
+           "model_and_detector_version": "w0-real/joint", "observed_at": 3,
+           "extra": {"holder_binding": "caller_supplied_simulation_id", "candidate_source_ids": ["s"],
+                     "match_scores": {"source": {"s": 0.9}, "issuance": {}}}}
+    obs = from_pe01(rec)
+    assert obs.evidence_type is EvidenceType.JOINT and obs.holder_principal_id == UNKNOWN
+    assert obs.confidence is None and obs.extra["pe01_verification_status"] == "content_verified"
+    assert obs.source_candidates.items[0].score == 0.9 and obs.issuance_candidates.ids == ("r1",)
+    assert C.check_provider_rows([obs.to_dict()], formal=True).ok
+    assert from_pe01(rec, bind_holders=True).holder_principal_id == "fragment-pilot-holder"
+    with pytest.raises(SchemaError):
+        from_pe01(rec | {"trusted_event_id": "evt"})
+    with pytest.raises(GoldLeakError):
+        from_pe01(rec | {"extra": rec["extra"] | {"gold_release": ["r1"]}})
