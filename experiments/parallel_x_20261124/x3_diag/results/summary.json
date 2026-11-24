@@ -1,0 +1,755 @@
+{
+  "experiment": "X3-diag",
+  "historical_verdict": "STOP",
+  "diagnosis_verdict": "STOP",
+  "utility_fractions": {
+    "oracle_allow_requests": 70,
+    "oracle_deny_requests": 50,
+    "definition": "utility_hits / oracle_allow. A hit requires oracle allow AND the true asset among attributed issuance asset ids AND a fail-closed allow.",
+    "W0": {
+      "numerator": 50,
+      "denominator": 70,
+      "false_reject_numerator": 20,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 50,
+      "on_five_cases": {
+        "numerator": 25,
+        "denominator": 25
+      }
+    },
+    "F5": {
+      "numerator": 30,
+      "denominator": 70,
+      "false_reject_numerator": 40,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 30,
+      "on_five_cases": {
+        "numerator": 5,
+        "denominator": 25
+      }
+    },
+    "F7": {
+      "numerator": 25,
+      "denominator": 70,
+      "false_reject_numerator": 45,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 25,
+      "on_five_cases": {
+        "numerator": 0,
+        "denominator": 25
+      }
+    },
+    "F6": {
+      "numerator": 15,
+      "denominator": 70,
+      "false_reject_numerator": 55,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 70,
+      "on_five_cases": {
+        "numerator": 0,
+        "denominator": 25
+      },
+      "overall_note": "F6's fail-closed numerator is the oracle-allow requests whose simhash expansion contains only authorizing issuances: s5-derived-read, ctrl-allow, ctrl-paraphrase (15/70). None of the five focus cases are in that numerator (0/25). The same F6 ids under the untouched fail-open worker rule score 70/70, because any one authorizing row is enough."
+    },
+    "Oracle": {
+      "numerator": 70,
+      "denominator": 70,
+      "false_reject_numerator": 0,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 70,
+      "on_five_cases": {
+        "numerator": 25,
+        "denominator": 25
+      }
+    },
+    "CRED": {
+      "numerator": 50,
+      "denominator": 70,
+      "false_reject_numerator": 20,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 50,
+      "on_five_cases": {
+        "numerator": 25,
+        "denominator": 25
+      }
+    },
+    "RECORD": {
+      "numerator": 30,
+      "denominator": 70,
+      "false_reject_numerator": 40,
+      "false_reject_denominator": 70,
+      "unauthorized_numerator": 0,
+      "unauthorized_denominator": 50,
+      "fail_open_utility_numerator": 30,
+      "on_five_cases": {
+        "numerator": 5,
+        "denominator": 25
+      }
+    },
+    "cited_check": "Cited rounded utilities are the fail-closed (and, for these three methods, also fail-open) ratios. W0 50/70 rounds to 0.7143 (cited 0.7143) F5 30/70 rounds to 0.4286 (cited 0.4286) F7 25/70 rounds to 0.3571 (cited 0.3571). Round-3 forms of the same ratios are 0.714, 0.429, and 0.357. The denominator is 70."
+  },
+  "five_cases": [
+    {
+      "case_id": "s1-same-perm-meta",
+      "scenario": "S1",
+      "subject": "u2",
+      "action": "read",
+      "purpose": "education",
+      "dest_org": null,
+      "asset": "A1",
+      "true_ids": [
+        "iss-a1-u2"
+      ],
+      "variant": "light",
+      "channel": "meta",
+      "channel_why": "issuance ids are in metadata; no receipt is attached",
+      "oracle_allow": true,
+      "w0_allow": true,
+      "catalog_quote": "(\"s1-same-perm-meta\", \"S1\", \"u2\", \"read\", \"education\", None, \"A1\", (\"iss-a1-u2\",), \"light\", \"meta\", True)",
+      "issuance_quote": "a1_u2 = Issuance(\"iss-a1-u2\", \"A1\", \"u2\", \"alpha\", frozenset({\"read\", \"forward\"}), frozenset({\"education\"}), \"internal\")",
+      "true_issuance": {
+        "issuance_id": "iss-a1-u2",
+        "asset_id": "A1",
+        "grantee": "u2",
+        "org": "alpha",
+        "revoked": false,
+        "actions": [
+          "forward",
+          "read"
+        ],
+        "purposes": [
+          "education"
+        ],
+        "redistribution": "internal",
+        "mode": "any",
+        "source_ids": []
+      },
+      "siblings": [
+        {
+          "issuance_id": "iss-a1-u1",
+          "authorizes": false,
+          "reasons": [
+            "grantee u1 != subject u2"
+          ],
+          "facts": {
+            "issuance_id": "iss-a1-u1",
+            "asset_id": "A1",
+            "grantee": "u1",
+            "org": "alpha",
+            "revoked": false,
+            "actions": [
+              "forward",
+              "read"
+            ],
+            "purposes": [
+              "education"
+            ],
+            "redistribution": "internal",
+            "mode": "any",
+            "source_ids": []
+          },
+          "quote": "a1_u1 = Issuance(\"iss-a1-u1\", \"A1\", \"u1\", \"alpha\", frozenset({\"read\", \"forward\"}), frozenset({\"education\"}), \"internal\")"
+        }
+      ],
+      "authorizing_sibling_ids": [],
+      "watermark_is_only_remaining_id_channel": false,
+      "seed0_ids": {
+        "W0": [
+          "iss-a1-u2"
+        ],
+        "F5": [
+          "iss-a1-u2"
+        ],
+        "F6": [
+          "iss-a1-u1",
+          "iss-a1-u2"
+        ],
+        "F7": [],
+        "CRED": [
+          "iss-a1-u2"
+        ],
+        "RECORD": [
+          "iss-a1-u2"
+        ]
+      },
+      "allows": {
+        "W0": true,
+        "F5": true,
+        "F6": false,
+        "F7": false,
+        "CRED": true,
+        "RECORD": true
+      },
+      "same_allow_as_w0": {
+        "CRED": true,
+        "F6": false,
+        "F5": true,
+        "F7": false,
+        "RECORD": true
+      },
+      "recovered_by": [
+        "CRED",
+        "F5",
+        "RECORD"
+      ],
+      "still_holds": false,
+      "fair_baseline_recovers": true,
+      "license_note": "The true issuance authorizes this request under the table checks (grantee, not revoked, action, purpose, and redistribution when the action is forward or redistribute). The allow is a reasonable license outcome for that row.",
+      "sibling_note": "No sibling issuance of this asset authorizes this subject, action, and purpose. iss-a1-u1 does not (grantee u1 != subject u2).",
+      "channel_note": "Metadata issuance ids present: ['iss-a1-u2']. Valid receipt present: False. The watermark is not the only remaining copy of the issuance id."
+    },
+    {
+      "case_id": "s2-other-grantee",
+      "scenario": "S2",
+      "subject": "u3",
+      "action": "redistribute",
+      "purpose": "audit",
+      "dest_org": "beta",
+      "asset": "A2",
+      "true_ids": [
+        "iss-a2-u3"
+      ],
+      "variant": "light",
+      "channel": "stripped",
+      "channel_why": "no metadata and no receipt",
+      "oracle_allow": true,
+      "w0_allow": true,
+      "catalog_quote": "(\"s2-other-grantee\", \"S2\", \"u3\", \"redistribute\", \"audit\", \"beta\", \"A2\", (\"iss-a2-u3\",), \"light\", \"stripped\", True)",
+      "issuance_quote": "Issuance(\"iss-a2-u3\", \"A2\", \"u3\", \"alpha\", frozenset({\"read\", \"redistribute\"}), frozenset({\"audit\"}), \"external\")",
+      "true_issuance": {
+        "issuance_id": "iss-a2-u3",
+        "asset_id": "A2",
+        "grantee": "u3",
+        "org": "alpha",
+        "revoked": false,
+        "actions": [
+          "read",
+          "redistribute"
+        ],
+        "purposes": [
+          "audit"
+        ],
+        "redistribution": "external",
+        "mode": "any",
+        "source_ids": []
+      },
+      "siblings": [
+        {
+          "issuance_id": "iss-a2-u1",
+          "authorizes": false,
+          "reasons": [
+            "grantee u1 != subject u3",
+            "action redistribute not in actions",
+            "purpose audit not in purposes",
+            "redistribution none does not permit dest beta from org alpha"
+          ],
+          "facts": {
+            "issuance_id": "iss-a2-u1",
+            "asset_id": "A2",
+            "grantee": "u1",
+            "org": "alpha",
+            "revoked": false,
+            "actions": [
+              "read"
+            ],
+            "purposes": [
+              "education"
+            ],
+            "redistribution": "none",
+            "mode": "any",
+            "source_ids": []
+          },
+          "quote": "Issuance(\"iss-a2-u1\", \"A2\", \"u1\", \"alpha\", frozenset({\"read\"}), frozenset({\"education\"}), \"none\")"
+        }
+      ],
+      "authorizing_sibling_ids": [],
+      "watermark_is_only_remaining_id_channel": true,
+      "seed0_ids": {
+        "W0": [
+          "iss-a2-u3"
+        ],
+        "F5": [],
+        "F6": [
+          "iss-a2-u1",
+          "iss-a2-u3"
+        ],
+        "F7": [],
+        "CRED": [
+          "iss-a2-u3"
+        ],
+        "RECORD": []
+      },
+      "allows": {
+        "W0": true,
+        "F5": false,
+        "F6": false,
+        "F7": false,
+        "CRED": true,
+        "RECORD": false
+      },
+      "same_allow_as_w0": {
+        "CRED": true,
+        "F6": false,
+        "F5": false,
+        "F7": false,
+        "RECORD": false
+      },
+      "recovered_by": [
+        "CRED"
+      ],
+      "still_holds": false,
+      "fair_baseline_recovers": true,
+      "license_note": "The true issuance authorizes this request under the table checks (grantee, not revoked, action, purpose, and redistribution when the action is forward or redistribute). The allow is a reasonable license outcome for that row.",
+      "sibling_note": "No sibling issuance of this asset authorizes this subject, action, and purpose. iss-a2-u1 does not (grantee u1 != subject u3; action redistribute not in actions; purpose audit not in purposes; redistribution none does not permit dest beta from org alpha).",
+      "channel_note": "Metadata and receipt are both absent, and the ideal mark is intact. The W0 allow depends on the watermark being the only remaining copy of the issuance id after metadata was stripped. That channel is not treated as a privileged access rule. CRED carries the same id list in an HMAC on this exact or light variant."
+    },
+    {
+      "case_id": "s4-teach-read",
+      "scenario": "S4",
+      "subject": "u4",
+      "action": "read",
+      "purpose": "teaching",
+      "dest_org": null,
+      "asset": "A3",
+      "true_ids": [
+        "iss-a3-teach"
+      ],
+      "variant": "exact",
+      "channel": "stripped",
+      "channel_why": "no metadata and no receipt",
+      "oracle_allow": true,
+      "w0_allow": true,
+      "catalog_quote": "(\"s4-teach-read\", \"S4\", \"u4\", \"read\", \"teaching\", None, \"A3\", (\"iss-a3-teach\",), \"exact\", \"stripped\", True)",
+      "issuance_quote": "Issuance(\"iss-a3-teach\", \"A3\", \"u4\", \"alpha\", frozenset({\"read\"}), frozenset({\"teaching\"}), \"none\")",
+      "true_issuance": {
+        "issuance_id": "iss-a3-teach",
+        "asset_id": "A3",
+        "grantee": "u4",
+        "org": "alpha",
+        "revoked": false,
+        "actions": [
+          "read"
+        ],
+        "purposes": [
+          "teaching"
+        ],
+        "redistribution": "none",
+        "mode": "any",
+        "source_ids": []
+      },
+      "siblings": [
+        {
+          "issuance_id": "iss-a3-research",
+          "authorizes": false,
+          "reasons": [
+            "purpose teaching not in purposes"
+          ],
+          "facts": {
+            "issuance_id": "iss-a3-research",
+            "asset_id": "A3",
+            "grantee": "u4",
+            "org": "alpha",
+            "revoked": false,
+            "actions": [
+              "forward",
+              "read",
+              "redistribute"
+            ],
+            "purposes": [
+              "research"
+            ],
+            "redistribution": "internal",
+            "mode": "any",
+            "source_ids": []
+          },
+          "quote": "Issuance(\n            \"iss-a3-research\",\n            \"A3\",\n            \"u4\",\n            \"alpha\",\n            frozenset({\"read\", \"forward\", \"redistribute\"}),\n            frozenset({\"research\"}),\n            \"internal\",\n        )"
+        }
+      ],
+      "authorizing_sibling_ids": [],
+      "watermark_is_only_remaining_id_channel": true,
+      "seed0_ids": {
+        "W0": [
+          "iss-a3-teach"
+        ],
+        "F5": [],
+        "F6": [
+          "iss-a3-teach",
+          "iss-a3-research"
+        ],
+        "F7": [],
+        "CRED": [
+          "iss-a3-teach"
+        ],
+        "RECORD": []
+      },
+      "allows": {
+        "W0": true,
+        "F5": false,
+        "F6": false,
+        "F7": false,
+        "CRED": true,
+        "RECORD": false
+      },
+      "same_allow_as_w0": {
+        "CRED": true,
+        "F6": false,
+        "F5": false,
+        "F7": false,
+        "RECORD": false
+      },
+      "recovered_by": [
+        "CRED"
+      ],
+      "still_holds": false,
+      "fair_baseline_recovers": true,
+      "license_note": "The true issuance authorizes this request under the table checks (grantee, not revoked, action, purpose, and redistribution when the action is forward or redistribute). The allow is a reasonable license outcome for that row.",
+      "sibling_note": "No sibling issuance of this asset authorizes this subject, action, and purpose. iss-a3-research does not (purpose teaching not in purposes).",
+      "channel_note": "Metadata and receipt are both absent, and the ideal mark is intact. The W0 allow depends on the watermark being the only remaining copy of the issuance id after metadata was stripped. That channel is not treated as a privileged access rule. CRED carries the same id list in an HMAC on this exact or light variant."
+    },
+    {
+      "case_id": "s3-live-copy",
+      "scenario": "S3",
+      "subject": "u5",
+      "action": "read",
+      "purpose": "education",
+      "dest_org": null,
+      "asset": "A4",
+      "true_ids": [
+        "iss-a4-new"
+      ],
+      "variant": "light",
+      "channel": "stripped",
+      "channel_why": "no metadata and no receipt",
+      "oracle_allow": true,
+      "w0_allow": true,
+      "catalog_quote": "(\"s3-live-copy\", \"S3\", \"u5\", \"read\", \"education\", None, \"A4\", (\"iss-a4-new\",), \"light\", \"stripped\", True)",
+      "issuance_quote": "Issuance(\"iss-a4-new\", \"A4\", \"u5\", \"alpha\", frozenset({\"read\", \"forward\"}), frozenset({\"education\"}), \"internal\", False)",
+      "true_issuance": {
+        "issuance_id": "iss-a4-new",
+        "asset_id": "A4",
+        "grantee": "u5",
+        "org": "alpha",
+        "revoked": false,
+        "actions": [
+          "forward",
+          "read"
+        ],
+        "purposes": [
+          "education"
+        ],
+        "redistribution": "internal",
+        "mode": "any",
+        "source_ids": []
+      },
+      "siblings": [
+        {
+          "issuance_id": "iss-a4-old",
+          "authorizes": false,
+          "reasons": [
+            "revoked"
+          ],
+          "facts": {
+            "issuance_id": "iss-a4-old",
+            "asset_id": "A4",
+            "grantee": "u5",
+            "org": "alpha",
+            "revoked": true,
+            "actions": [
+              "forward",
+              "read"
+            ],
+            "purposes": [
+              "education"
+            ],
+            "redistribution": "internal",
+            "mode": "any",
+            "source_ids": []
+          },
+          "quote": "Issuance(\"iss-a4-old\", \"A4\", \"u5\", \"alpha\", frozenset({\"read\", \"forward\"}), frozenset({\"education\"}), \"internal\", True)"
+        }
+      ],
+      "authorizing_sibling_ids": [],
+      "watermark_is_only_remaining_id_channel": true,
+      "seed0_ids": {
+        "W0": [
+          "iss-a4-new"
+        ],
+        "F5": [],
+        "F6": [
+          "iss-a4-old",
+          "iss-a4-new"
+        ],
+        "F7": [],
+        "CRED": [
+          "iss-a4-new"
+        ],
+        "RECORD": []
+      },
+      "allows": {
+        "W0": true,
+        "F5": false,
+        "F6": false,
+        "F7": false,
+        "CRED": true,
+        "RECORD": false
+      },
+      "same_allow_as_w0": {
+        "CRED": true,
+        "F6": false,
+        "F5": false,
+        "F7": false,
+        "RECORD": false
+      },
+      "recovered_by": [
+        "CRED"
+      ],
+      "still_holds": false,
+      "fair_baseline_recovers": true,
+      "license_note": "The true issuance authorizes this request under the table checks (grantee, not revoked, action, purpose, and redistribution when the action is forward or redistribute). The allow is a reasonable license outcome for that row.",
+      "sibling_note": "No sibling issuance of this asset authorizes this subject, action, and purpose. iss-a4-old does not (revoked).",
+      "channel_note": "Metadata and receipt are both absent, and the ideal mark is intact. The W0 allow depends on the watermark being the only remaining copy of the issuance id after metadata was stripped. That channel is not treated as a privileged access rule. CRED carries the same id list in an HMAC on this exact or light variant."
+    },
+    {
+      "case_id": "s6-external-copy",
+      "scenario": "S6",
+      "subject": "u2",
+      "action": "forward",
+      "purpose": "education",
+      "dest_org": "beta",
+      "asset": "A7",
+      "true_ids": [
+        "iss-a7-ext"
+      ],
+      "variant": "light",
+      "channel": "boundary",
+      "channel_why": "cross-org forward drops external source metadata and the receipt",
+      "oracle_allow": true,
+      "w0_allow": true,
+      "catalog_quote": "(\"s6-external-copy\", \"S6\", \"u2\", \"forward\", \"education\", \"beta\", \"A7\", (\"iss-a7-ext\",), \"light\", \"boundary\", True)",
+      "issuance_quote": "Issuance(\n            \"iss-a7-ext\",\n            \"A7\",\n            \"u2\",\n            \"alpha\",\n            frozenset({\"read\", \"forward\", \"redistribute\"}),\n            frozenset({\"education\"}),\n            \"external\",\n        )",
+      "true_issuance": {
+        "issuance_id": "iss-a7-ext",
+        "asset_id": "A7",
+        "grantee": "u2",
+        "org": "alpha",
+        "revoked": false,
+        "actions": [
+          "forward",
+          "read",
+          "redistribute"
+        ],
+        "purposes": [
+          "education"
+        ],
+        "redistribution": "external",
+        "mode": "any",
+        "source_ids": []
+      },
+      "siblings": [
+        {
+          "issuance_id": "iss-a7-int",
+          "authorizes": false,
+          "reasons": [
+            "redistribution internal does not permit dest beta from org alpha"
+          ],
+          "facts": {
+            "issuance_id": "iss-a7-int",
+            "asset_id": "A7",
+            "grantee": "u2",
+            "org": "alpha",
+            "revoked": false,
+            "actions": [
+              "forward",
+              "read"
+            ],
+            "purposes": [
+              "education"
+            ],
+            "redistribution": "internal",
+            "mode": "any",
+            "source_ids": []
+          },
+          "quote": "Issuance(\"iss-a7-int\", \"A7\", \"u2\", \"alpha\", frozenset({\"read\", \"forward\"}), frozenset({\"education\"}), \"internal\")"
+        }
+      ],
+      "authorizing_sibling_ids": [],
+      "watermark_is_only_remaining_id_channel": true,
+      "seed0_ids": {
+        "W0": [
+          "iss-a7-ext"
+        ],
+        "F5": [],
+        "F6": [
+          "iss-a7-int",
+          "iss-a7-ext"
+        ],
+        "F7": [],
+        "CRED": [
+          "iss-a7-ext"
+        ],
+        "RECORD": []
+      },
+      "allows": {
+        "W0": true,
+        "F5": false,
+        "F6": false,
+        "F7": false,
+        "CRED": true,
+        "RECORD": false
+      },
+      "same_allow_as_w0": {
+        "CRED": true,
+        "F6": false,
+        "F5": false,
+        "F7": false,
+        "RECORD": false
+      },
+      "recovered_by": [
+        "CRED"
+      ],
+      "still_holds": false,
+      "fair_baseline_recovers": true,
+      "license_note": "The true issuance authorizes this request under the table checks (grantee, not revoked, action, purpose, and redistribution when the action is forward or redistribute). The allow is a reasonable license outcome for that row.",
+      "sibling_note": "No sibling issuance of this asset authorizes this subject, action, and purpose. iss-a7-int does not (redistribution internal does not permit dest beta from org alpha).",
+      "channel_note": "Metadata and receipt are both absent, and the ideal mark is intact. The W0 allow depends on the watermark being the only remaining copy of the issuance id after metadata was stripped. That channel is not treated as a privileged access rule. CRED carries the same id list in an HMAC on this exact or light variant."
+    }
+  ],
+  "fair_baseline_recovers": {
+    "s1-same-perm-meta": true,
+    "s2-other-grantee": true,
+    "s4-teach-read": true,
+    "s3-live-copy": true,
+    "s6-external-copy": true,
+    "overall": true
+  },
+  "overhead_decomposition": {
+    "repeats": 5,
+    "warmed": true,
+    "requests": 120,
+    "unit": "ms_per_request",
+    "order": [
+      "F2_bm25_rank_only",
+      "F6_simhash_only",
+      "F7_receipt_verify_only",
+      "W0_mark_intact_lookup_only",
+      "W1_as_defined",
+      "F1_minhash_only",
+      "F1_attribute",
+      "F6_attribute",
+      "F2_attribute",
+      "call_overhead"
+    ],
+    "median_ms": {
+      "F2_bm25_rank_only": 0.03922743344446644,
+      "F2_attribute": 0.038339583261404186,
+      "F6_simhash_only": 0.571997575267839,
+      "F6_attribute": 0.5736361165569784,
+      "F7_receipt_verify_only": 0.0007635419024154544,
+      "F7_attribute": 0.0007805584270196656,
+      "W0_mark_intact_lookup_only": 0.0001624997821636498,
+      "W1_as_defined": 0.57477083367606,
+      "F1_minhash_only": 3.690097566868644,
+      "F1_attribute": 3.695576733540899,
+      "call_overhead": 2.2225140128284693e-05
+    },
+    "ratio_to_f2_bm25_rank": {
+      "F2_bm25_rank_only": 1.0,
+      "F2_attribute": 0.977366600230954,
+      "F6_simhash_only": 14.58157021864827,
+      "F6_attribute": 14.623340509112445,
+      "F7_receipt_verify_only": 0.0194644878690926,
+      "F7_attribute": 0.019898279303046624,
+      "W0_mark_intact_lookup_only": 0.0041425035464963,
+      "W1_as_defined": 14.652267130597583,
+      "F1_minhash_only": 94.069309226989,
+      "F1_attribute": 94.20898613651742,
+      "call_overhead": 0.0005665713552162014
+    },
+    "recomputed_w1_attribute_over_f2_attribute": 14.991577497261742,
+    "historical_w1_ms": 0.582,
+    "historical_f2_ms": 0.037,
+    "historical_ratio": 15.6,
+    "cap": 10.0,
+    "cap_changed": false,
+    "historical_exceeds_cap": true,
+    "recomputed_attribute_ratio_exceeds_cap": true,
+    "narrative": "Historical fail-open timing was W1 0.582 ms versus F2 0.037 ms, ratio 15.60. That ratio is above MAX_OVERHEAD_RATIO 10, so the historical overhead comparison does not pass. The cap was not changed. Recomputed on this machine, W1-as-defined is 0.5748 ms/request and F2 attribute is 0.0383 ms/request, ratio 14.99. F2 BM25 rank only is 0.0392 ms. Rank-only and full F2 attribute differ by 0.0009 ms, timer noise around the historical 0.037 ms. Simhash only is 0.5720 ms (ratio 14.58). Full F6 attribute is 0.5736 ms. Receipt verify only is 0.0008 ms (ratio 0.02). Ideal-mark lookup only is 0.0002 ms (ratio 0.00). Empty call overhead is 0.0000 ms. The 15.6x gap is the simhash fingerprint inside W1, not HMAC verification, not the ideal-mark lookup, and not the scoring harness. F1 MinHash attribute is 3.6956 ms/request, ratio 94.21 to F2 rank. It dominates W1."
+  },
+  "bge_status": {
+    "status": "BLOCKED",
+    "f3": "BLOCKED",
+    "f4": "BLOCKED",
+    "imports": {
+      "sentence_transformers": "ModuleNotFoundError: No module named 'sentence_transformers'",
+      "FlagEmbedding": "ModuleNotFoundError: No module named 'FlagEmbedding'",
+      "bge": "ModuleNotFoundError: No module named 'bge'",
+      "torch": "ModuleNotFoundError: No module named 'torch'",
+      "transformers": "ModuleNotFoundError: No module named 'transformers'",
+      "onnxruntime": "ModuleNotFoundError: No module named 'onnxruntime'"
+    },
+    "importable": [],
+    "caches": [
+      {
+        "path": "/Users/MBP/.cache/huggingface",
+        "exists": false
+      },
+      {
+        "path": "/Users/MBP/.cache/torch",
+        "exists": false
+      },
+      {
+        "path": "/Users/MBP/Library/Caches/huggingface",
+        "exists": false
+      },
+      {
+        "path": "/Users/MBP/Exp/CogniGuard/CogniGuard/assets",
+        "exists": false
+      },
+      {
+        "path": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c90-4db2-7140-9947-edae789b7021/assets",
+        "exists": false
+      }
+    ],
+    "weight_hits": [],
+    "remote_head": {
+      "ok": true,
+      "error": null,
+      "content_length": 133466304,
+      "status_line": "HTTP/2 200 "
+    },
+    "error": "F3/F4 BLOCKED. sentence_transformers, FlagEmbedding, and bge do not import in this interpreter. torch, transformers, and onnxruntime do not import. No local Hugging Face cache or bge weight directory was found. Weights were not downloaded and no hosted embedding endpoint was called. No scores were invented. HEAD of BAAI/bge-small-en-v1.5 model.safetensors returned 133466304 bytes (HTTP/2 200 ). The body was not fetched because no local loader can run it.",
+    "unauthorized_success": null,
+    "utility": null,
+    "changed_five_cases": null,
+    "ran": false
+  },
+  "pilot_handoff": false,
+  "diagnosis_note": "Fail-closed rescore over 120 requests (5 seeds x 24 cases). Oracle allow 70, oracle deny 50. Unauthorized success numerators: F0 0/50, F1 0/50, F2 0/50, F5 0/50, F6 0/50, F7 0/50, W0 0/50, W1 0/50, Oracle 0/50, CRED 0/50, RECORD 0/50. Utility for W0, F5, and F7 uses the worker hit rule (oracle allow, true asset in the attributed assets, decision allows) under fail-closed. Those three methods attribute at most the true id, so fail-open and fail-closed utilities match for them. The five logical F7 denials that W0 allows are oracle allows. No sibling grant authorizes those five requests. s1-same-perm-meta still carries the issuance id in metadata (receipt absent), so the mark is not the only copy; F5 and RECORD allow it. The other four have metadata and receipt stripped. The ideal mark is then the only historical channel that still carries the true issuance id. That is not a privileged access rule. CRED, an HMAC over the same issuance id list, is present on exact and light variants and absent on paraphrase, and it allows all five. F6's simhash hit expands to every issuance of the asset, and fail-closed denies because the sibling row does not authorize. No case still holds. pilot_handoff is false. The historical W1/F2 ratio 15.60 still exceeds MAX_OVERHEAD_RATIO 10, so that overhead comparison does not pass. diagnosis_verdict is STOP. X3 did not pass.",
+  "channel_legend": "# benign = issuance ids in metadata and a signed receipt\n# meta = issuance ids in metadata, no receipt\n# stripped = no metadata, no receipt\n# boundary = cross-org forward drops external source metadata and the receipt",
+  "issuance_class_quote": "class Issuance:\n    issuance_id: str\n    asset_id: str\n    grantee: str\n    org: str\n    actions: frozenset\n    purposes: frozenset\n    redistribution: str  # none | internal | external\n    revoked: bool = False\n    source_ids: tuple = ()\n    # all_sources: this issuance authorizes only if every source record's\n    # obligation also passes. Obligations are read from the registry.\n    mode: str = \"any\"",
+  "frozen_thresholds": {
+    "PASS_MIN_ABS_SAFETY_GAIN": 0.1,
+    "MAX_UTILITY_DROP": 0.1,
+    "MAX_OVERHEAD_RATIO": 10.0
+  },
+  "decision": "fail-closed: every attributed issuance must authorize; empty attribution denies",
+  "paths": {
+    "run": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c90-4db2-7140-9947-edae789b7021/experiments/parallel_x_20261124/x3_diag/run.py",
+    "result": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c90-4db2-7140-9947-edae789b7021/experiments/parallel_x_20261124/x3_diag/RESULT.md",
+    "summary": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c90-4db2-7140-9947-edae789b7021/experiments/parallel_x_20261124/x3_diag/results/summary.json",
+    "worker": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d2-7e30-b1ff-6de9760b7b95/experiments/parallel_x_20261124/x3_issuance/run.py",
+    "coordinator": "/Users/MBP/Exp/CogniGuard/CogniGuard/experiments/parallel_x_20261124/x3_issuance/run.py"
+  }
+}
