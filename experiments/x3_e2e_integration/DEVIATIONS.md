@@ -79,3 +79,10 @@ Codex 报告：五组知识核验器对照完成，来源追踪采用 BGE + 原�
    - Codex 必须在推送时说明属于哪一种。不接受事后选择。
 5. **门槛**：沿用 H-Evidence 的规则（下界 > 0 且效用下降 ≤ 0.01）。不调整。
 6. **Grok 机制**：未推送；按设计，他的知识状态只接受可信日志或理想证据，所以 NLI 证据在他的机制下不改变知识状态。只描述，不纳入。
+
+### 7.1 NLI 数据到位（登记于 NLI 运行之前）
+
+- Codex 推送 `codex/gate-w0-real@fcf1374`，`unit_checker/results/judgments.jsonl`，sha256 `44b784c3…`（与其 `splits.json` 一致）。测试记录 891 条：entailment 490 条，其余为 neutral。另有 36 条校准记录，不参与运行。
+- 阈值 0.9642（NLI）来自 6 个独立手写来源族的开发集，**没有使用试点端点**。所以按第 7 条第 4 款，15 条试点链全部是测试样本，不需要留出链过滤（`--test-chains` 不用）。
+- 导出时，阈值后的"确认"记为 entailment，其余记为 neutral；历史上没有保留 contradiction，与映射规则一致。
+- 运行：`grid --unit-checker nli-replay:<judgments.jsonl>:test`，种子 0–29，数据 `065bb82`，输出写到独立目录 `x3e2e_nli`。
