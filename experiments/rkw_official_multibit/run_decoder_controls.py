@@ -13,6 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--device", choices=["cpu", "cuda:0"], default="cpu")
     args = parser.parse_args()
     root = args.root.resolve()
     upstream = root / "upstream"
@@ -36,13 +37,14 @@ def main():
         raise ValueError("Official head validation failed")
 
     torch.set_num_threads(12)
+    device = torch.device(args.device)
     tokenizer = AutoTokenizer.from_pretrained(root / "tokenizer", local_files_only=True)
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
     started = time.perf_counter()
     base = AutoModel.from_pretrained(root / "decoder", torch_dtype=torch.bfloat16, local_files_only=True)
-    decoder = RewardModel(base, tokenizer).eval()
-    decoder.v_head.load_state_dict(torch.load(head, map_location="cpu", weights_only=True))
+    decoder = RewardModel(base, tokenizer).to(device).eval()
+    decoder.v_head.load_state_dict(torch.load(head, map_location=device, weights_only=True))
     loaded = time.perf_counter() - started
     originals = [text.strip() for text in (upstream / "watermark_test_text.txt").read_text(encoding="utf-8").split("===============") if text.strip()]
     assert len(originals) == 2
@@ -52,12 +54,14 @@ def main():
             started = time.perf_counter()
             sentences = split_sentence(text)
             sentence_ids = [tokenizer(s.strip(), return_tensors="pt").input_ids[0] for s in sentences]
-            inputs, mask = process_token_list(tokenizer, sentence_ids, torch.device("cpu"))
+            inputs, mask = process_token_list(tokenizer, sentence_ids, device)
             scores = decoder.forward_value(inputs, mask, prompt_length=1)["chosen_end_scores"].float().tolist()
+            if device.type == "cuda":
+                torch.cuda.synchronize()
             key = KEY[:len(scores)]
             bits = [int(score > 0) for score in scores]
             record = dict(sample=index, input_kind="unmarked_upstream_demo", decoder_revision=metadata["sha"],
-                          decoder_sha256=digest, device="cpu", dtype="bfloat16", sentences=sentences,
+                          decoder_sha256=digest, device=args.device, dtype="bfloat16", sentences=sentences,
                           scores=scores, decoded_bits=bits, reference_key=key, equals_reference_key=bits == key,
                           signed_key_score=sum(score * (2*bit-1) for score, bit in zip(scores, key, strict=True))/len(key),
                           load_seconds=loaded, score_seconds=time.perf_counter() - started)
