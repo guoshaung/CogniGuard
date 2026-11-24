@@ -47,7 +47,10 @@ def embed(texts):
 def rerank(query, docs):
     todo = [d for d in docs if (query, d) not in _pair_cache]
     if todo:
-        logits = _reranker().predict([(query, d) for d in todo], activation_fn=None, batch_size=32)
+        import torch
+        # Raw logits (sentence-transformers applies a sigmoid by default), then one sigmoid.
+        logits = _reranker().predict([(query, d) for d in todo], activation_fn=torch.nn.Identity(),
+                                     batch_size=32)
         for d, s in zip(todo, np.atleast_1d(logits)):
             _pair_cache[(query, d)] = float(1 / (1 + np.exp(-float(s))))
     return np.array([_pair_cache[(query, d)] for d in docs])

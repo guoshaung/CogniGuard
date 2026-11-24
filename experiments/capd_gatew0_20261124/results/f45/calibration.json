@@ -1,0 +1,14 @@
+{
+  "F4_bge": {
+    "null_n": 30,
+    "quantile": 0.95,
+    "threshold": 0.9818792939186096,
+    "null_median": 0.8916507959365845
+  },
+  "F5_bge_rerank": {
+    "null_n": 30,
+    "quantile": 0.95,
+    "threshold": 0.9981771292483901,
+    "null_median": 0.9770169880298988
+  }
+}

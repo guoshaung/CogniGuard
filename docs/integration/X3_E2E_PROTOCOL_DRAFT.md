@@ -19,7 +19,7 @@
 | 组 | 证据 | 说明 |
 |---|---|---|
 | R0 | 只有回执 | CA-PD 本身 |
-| F-strong | 强内容指纹（MinHash + SimHash + BM25 + BGE 稠密检索，取并） | Gate W0 的 F4/F5 必须先补跑 |
+| F-strong | 强内容指纹（MinHash + SimHash + BM25 + BGE 检索与重排序，取并） | 模型版本同 Gate W0 附录 |
 | CRED | 签名内嵌凭证（发行号 HMAC） | 并行扫描已证明它能恢复 W0 的五个"合法翻转" |
 | LOG | 可信通道日志 → `trusted_event` | 唯一允许使用 k+(f−d) 的组 |
 | WM | 普通来源水印（KGW 类） | 只产持有证据 |
@@ -54,6 +54,6 @@
 ## 6. 先决条件（未满足则不冻结）
 
 1. Codex 把 `d7239c4` 及之后的提交、`experiments/hsw_provenance/` 推到 GitHub；
-2. Gate W0 的 F4/F5（BGE、重排序）补跑。需要用户同意下载模型权重；
+2. ~~Gate W0 的 F4/F5 补跑~~（已完成，`7bc96ff` 之后的提交）；
 3. Codex 提供片段长度—检出率曲线（W0 后续第 2 条）；
 4. Grok 的门接线通过现有全量测试。

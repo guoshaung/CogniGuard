@@ -1,0 +1,7 @@
+{
+  "python": "3.13.18",
+  "git_commit": "7bc96ff98d15c9e187005f8a3682b5227eec4492",
+  "torch": "2.15.0",
+  "sentence_transformers": "6.3.0",
+  "device": "cpu"
+}

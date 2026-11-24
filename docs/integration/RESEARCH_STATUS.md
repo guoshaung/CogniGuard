@@ -52,7 +52,7 @@
 | E9 可扩展性 | `1cac7109…` / `afbc6b0` | H1 正确性支持（0 不一致）；DP 与 k 无关、随 2^m 增长；m ≤ 12 时 P95 ≤ 100 ms |
 | E10 可用性 | `0bf5f971…` / `ddc1a8d` | H-Q 42/42 支持（比 WS04 配额高 6.6–56.8 个百分点）；k ≥ 3 时与全局并集账本决策等价 |
 | Gate 0–2 | `d464626` | 问题存在（仅合成 coalition 模式）；证据最多挽回 B1 与 Oracle 之间 0.73 个百分点中的 0.40 |
-| Gate W0 | `2e963d8` | W0-0：发行身份从未改变决策；W0-1 最终**无法判定**（F4/F5 NOT_RUN）。**保持原判** |
+| Gate W0 | `2e963d8`；F4/F5 附录 `7bc96ff` | W0-0：发行身份从未改变决策。F4/F5 补跑后 W0-1 最终 = **有额外价值，仅在 fragment**，且只是理想水印（5 词可恢复）的上界；需片段长度—检出率曲线 |
 | 并行扫描 X1–X5 | 开发扫描，非正式；`a9f122e`（未推送） | X1、X2、X3 **STOP**；X4、X5 ANALYZE。**保持原判** |
 | KOSW 阶段 1 / AFK 阶段 0 | `codex/hsw-st` | 都按预注册停止（容量不足、改写分离不够；AFK 有效证据 0.64–0.79 比特，要求 ≥ 7） |
 
@@ -61,7 +61,7 @@
 | # | 问题 | 负责人 | 阻塞什么 |
 |---|---|---|---|
 | 1 | `d7239c4` 及 `experiments/hsw_provenance/` 未推送 | Codex | 水印审查、X3-E2E |
-| 2 | Gate W0 F4/F5（BGE、重排序）未补跑；需要下载模型权重（约 133 MB 起） | Claude（需用户同意下载） | W0-1 最终判定、F-strong 基线 |
+| 2 | 真实水印的片段长度—检出率曲线（5/20/50/100 词）。W0-1 的价值只在 5 词片段、且来自理想假设 | Codex | 是否投入 GPU、X3-E2E 的 fragment 条件 |
 | 3 | 核心机制的增量价值：并行扫描显示，现有门 + 提交复核 + 签名凭证已覆盖 X1–X3 的安全洞 | Grok | 核心贡献能否成立 |
 | 4 | 门接线 `augment_knowledge` | Grok | X3-E2E |
 | 5 | CA-PD 相对全局并集账本的优势需要 w > k+1 的真实场景 | Claude | 拓展一的定位 |
@@ -83,6 +83,7 @@
 | deepseek-flash、qwen3.7-plus | E3b-v2 改写 | 付费 API（约 22.34 元） |
 | glm-5.2（token plan） | E3b-v2 攻击者 | token plan |
 | MPNet（KOSW）、本地压缩器（AFK） | 水印 | GPU 服务器，不上传 |
+| `BAAI/bge-small-en-v1.5`@`5c38ec7`、`BAAI/bge-reranker-base`@`2cfc18c` | Gate W0 F4/F5、X3-E2E F-strong | Mac 本机 HF 缓存，不上传 |
 
 ## 7. 协作规则
 

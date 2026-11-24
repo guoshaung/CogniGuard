@@ -2,3 +2,4 @@
 
 1. （运行后发现）`run_attribution` 对每种变换都运行了一次 S4，而 S4 固定使用 fragment 变换，所以 `attribution.csv` 中有 3 组 S4 行。它们的区别只在于查询种子不同。三组都保留，没有删除任何结果，结论不受影响。
 2. （补跑，冻结前登记）F4、F5 的模型版本和阈值规则原预注册未写，另立附录 `PREREG_GATEW0_F45.md` 冻结后补跑。原文件和已有结果不改；新结果放在 `results/f45/`。为复用冻结循环，`f45.py` 在补跑进程内把 `w0.Index` 换成稠密检索版本，`w0.py` 本身不改。
+3. （补跑校准时发现，主网格运行前修正）sentence-transformers 6 的 `CrossEncoder.predict(activation_fn=None)` 默认已经施加 sigmoid，第一次校准因此做了两次 sigmoid。改为取原始 logit 再做一次 sigmoid（与附录一致）后重新校准；sigmoid 单调，阈值决策本来不受影响。主网格只在修正后运行过一次。
