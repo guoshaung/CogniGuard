@@ -1,0 +1,50 @@
+{
+  "C1": {
+    "verdict": "原始文本也超标",
+    "exceed_share_t": 0.36752136752136755,
+    "exceed_share_point": 0.15527065527065528,
+    "judged_views": 702
+  },
+  "C2_t": {
+    "views": 702,
+    "secrets": 100,
+    "diff": -0.007122507122507123,
+    "ci_low": -0.04120879120879121,
+    "ci_high": 0.027434842249657063,
+    "verdict": "无显著差别"
+  },
+  "C2_point": {
+    "views": 702,
+    "secrets": 100,
+    "diff": -0.0014245014245014246,
+    "ci_low": -0.030428769017980636,
+    "ci_high": 0.027576197387518143
+  },
+  "by_type_point": {
+    "answer": {
+      "views": 52,
+      "point_exceed_paraphrase": 0.4423076923076923,
+      "point_exceed_original": 0.4423076923076923
+    },
+    "construct": {
+      "views": 84,
+      "point_exceed_paraphrase": 0.047619047619047616,
+      "point_exceed_original": 0.05952380952380952
+    },
+    "misconception": {
+      "views": 169,
+      "point_exceed_paraphrase": 0.11242603550295859,
+      "point_exceed_original": 0.05917159763313609
+    },
+    "number": {
+      "views": 300,
+      "point_exceed_paraphrase": 0.18333333333333332,
+      "point_exceed_original": 0.21666666666666667
+    },
+    "subject": {
+      "views": 97,
+      "point_exceed_paraphrase": 0.07216494845360824,
+      "point_exceed_original": 0.061855670103092786
+    }
+  }
+}

@@ -1,0 +1,2407 @@
+{
+  "H1": {
+    "verdict": "不支持",
+    "by_paraphraser": {
+      "deepseek-flash": {
+        "verdict": "不支持",
+        "miss_rate": 0.38827433628318586,
+        "upper95": 0.4206896551724138,
+        "gold_units": 904,
+        "secrets": 100
+      },
+      "qwen3.7-plus": {
+        "verdict": "不支持",
+        "miss_rate": 0.40486725663716816,
+        "upper95": 0.4369369369369369,
+        "gold_units": 904,
+        "secrets": 100
+      }
+    }
+  },
+  "H2": {
+    "verdict": "支持",
+    "hit_rate": 0.114,
+    "upper95": 0.156,
+    "samples": 500,
+    "secrets": 100
+  },
+  "H3": {
+    "verdict": "不支持",
+    "flagged_share": 0.3603988603988604,
+    "judged_views": 702,
+    "too_few_valid": 0,
+    "flagged": [
+      {
+        "view_id": "eedi-K8-0001-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.234,
+        "upper95": 0.4855,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0001-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.264,
+        "upper95": 0.6189,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0001-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.794,
+        "upper95": 0.9129,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0001-t5",
+        "consistent": 7,
+        "threshold": 0.2929,
+        "mean_p_true": 0.38,
+        "upper95": 0.8324,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0001-t6",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.402,
+        "upper95": 0.6507,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0006-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.46,
+        "upper95": 0.7621,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0006-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.594,
+        "upper95": 0.7507,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0006-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.3,
+        "upper95": 0.6225,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0008-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.248,
+        "upper95": 0.4967,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0008-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.2698,
+        "upper95": 0.7308,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0008-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.81,
+        "upper95": 0.9471,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0014-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.472,
+        "upper95": 0.907,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0014-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.31,
+        "upper95": 0.839,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0025-t0",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.146,
+        "upper95": 0.4619,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0025-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.5779,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0028-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.1955,
+        "upper95": 0.6693,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0028-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.65,
+        "upper95": 0.7575,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0031-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.914,
+        "upper95": 0.9862,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0031-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.618,
+        "upper95": 0.9744,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0031-t7",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.492,
+        "upper95": 0.8808,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0033-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.192,
+        "upper95": 0.663,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0033-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.6713,
+        "upper95": 0.93,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0033-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.69,
+        "upper95": 0.8833,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0035-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.646,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0035-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.75,
+        "upper95": 0.8641,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0038-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.772,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0038-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.58,
+        "upper95": 0.7534,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0038-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.32,
+        "upper95": 0.6728,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0038-t8",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.3205,
+        "upper95": 0.686,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0047-t0",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.41,
+        "upper95": 0.6355,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0047-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.714,
+        "upper95": 0.8158,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0047-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.818,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0047-t6",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.278,
+        "upper95": 0.4135,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0056-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.632,
+        "upper95": 0.8039,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0056-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.662,
+        "upper95": 0.8103,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0056-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.29,
+        "upper95": 0.7548,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0058-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.44,
+        "upper95": 0.8135,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0058-t6",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.1624,
+        "upper95": 0.4752,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0062-t3",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.22,
+        "upper95": 0.5473,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0062-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.234,
+        "upper95": 0.5481,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0063-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.79,
+        "upper95": 0.9369,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0063-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.894,
+        "upper95": 0.997,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0065-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.818,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0065-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.714,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0067-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.662,
+        "upper95": 0.8826,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0067-t1",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.46,
+        "upper95": 0.6582,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0067-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.508,
+        "upper95": 0.8515,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0067-t3",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.167,
+        "upper95": 0.4708,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.87,
+        "upper95": 0.9881,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.62,
+        "upper95": 0.8547,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.5,
+        "upper95": 0.9661,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.414,
+        "upper95": 0.7471,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t4",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.164,
+        "upper95": 0.4349,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.26,
+        "upper95": 0.6177,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0073-t8",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.21,
+        "upper95": 0.3983,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0080-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.654,
+        "upper95": 0.8139,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0081-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.5155,
+        "upper95": 0.916,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0081-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.802,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0081-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.764,
+        "upper95": 0.9134,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0081-t6",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.322,
+        "upper95": 0.6322,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0086-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 1.0,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0086-t11",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.3641,
+        "upper95": 0.9167,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0086-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.244,
+        "upper95": 0.6653,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0086-t9",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.474,
+        "upper95": 0.8458,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0100-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.442,
+        "upper95": 0.8192,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0100-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.1781,
+        "upper95": 0.5079,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0100-t7",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.254,
+        "upper95": 0.4112,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0101-t0",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.31,
+        "upper95": 0.5963,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.51,
+        "upper95": 0.6878,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.43,
+        "upper95": 0.8569,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.5681,
+        "upper95": 0.7653,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t3",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.252,
+        "upper95": 0.6145,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.8735,
+        "upper95": 0.9667,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.8269,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0109-t7",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.55,
+        "upper95": 0.7511,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0110-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.282,
+        "upper95": 0.6995,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0110-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.304,
+        "upper95": 0.7694,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0115-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.848,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0116-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.534,
+        "upper95": 0.9313,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0116-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.844,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0116-t7",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.426,
+        "upper95": 0.8208,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0117-t10",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.402,
+        "upper95": 0.8362,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0117-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.4,
+        "upper95": 0.7087,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0117-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.5463,
+        "upper95": 0.6566,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0122-t3",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.8535,
+        "upper95": 0.8631,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0122-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.814,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0122-t6",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.2611,
+        "upper95": 0.6175,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0124-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.93,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0124-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.39,
+        "upper95": 0.8201,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0125-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.294,
+        "upper95": 0.7629,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0125-t3",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.224,
+        "upper95": 0.6945,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0126-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.9074,
+        "upper95": 0.9592,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0128-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.692,
+        "upper95": 0.9154,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0128-t2",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.338,
+        "upper95": 0.8692,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0128-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.7937,
+        "upper95": 0.9273,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.498,
+        "upper95": 0.9375,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.716,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.4,
+        "upper95": 0.9429,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.71,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t7",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.134,
+        "upper95": 0.4578,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t8",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.972,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0130-t9",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.538,
+        "upper95": 0.6559,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0131-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.714,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0133-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.876,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0133-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.49,
+        "upper95": 0.6882,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0135-t6",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.172,
+        "upper95": 0.5038,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0136-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.756,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0136-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.826,
+        "upper95": 0.9936,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0136-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.882,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0136-t7",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.514,
+        "upper95": 0.9507,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0137-t2",
+        "consistent": 7,
+        "threshold": 0.2929,
+        "mean_p_true": 0.52,
+        "upper95": 0.684,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0137-t3",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.202,
+        "upper95": 0.6382,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0139-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.4263,
+        "upper95": 0.6615,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0139-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.2962,
+        "upper95": 0.6526,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0140-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.526,
+        "upper95": 0.6861,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0140-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.758,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0140-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.544,
+        "upper95": 0.6804,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0140-t5",
+        "consistent": 7,
+        "threshold": 0.2929,
+        "mean_p_true": 0.344,
+        "upper95": 0.7734,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0141-t1",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.6171,
+        "upper95": 0.8861,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0141-t3",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.5357,
+        "upper95": 1.0,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0142-t10",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.4379,
+        "upper95": 0.9864,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0142-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.9131,
+        "upper95": 0.9658,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0142-t8",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.2019,
+        "upper95": 0.6867,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0145-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.488,
+        "upper95": 0.8228,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0147-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.4395,
+        "upper95": 0.7955,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0149-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.64,
+        "upper95": 0.7882,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0150-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.3595,
+        "upper95": 0.7713,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0150-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.276,
+        "upper95": 0.7092,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0152-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.42,
+        "upper95": 0.7782,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0152-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.728,
+        "upper95": 0.9043,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0152-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.6618,
+        "upper95": 0.8816,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0152-t3",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.25,
+        "upper95": 0.5509,
+        "hits": 0,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0153-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.5952,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0153-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.428,
+        "upper95": 0.8716,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0153-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.26,
+        "upper95": 0.4582,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0156-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.694,
+        "upper95": 0.9793,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0156-t1",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.398,
+        "upper95": 0.4819,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0158-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.86,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0158-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.6869,
+        "upper95": 0.9715,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0158-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.6531,
+        "upper95": 0.8197,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0162-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.532,
+        "upper95": 0.9052,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0162-t4",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.226,
+        "upper95": 0.7103,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0162-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.29,
+        "upper95": 0.6515,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0169-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.7229,
+        "upper95": 0.9245,
+        "hits": 4,
+        "samples": 4
+      },
+      {
+        "view_id": "eedi-K8-0174-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.676,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0174-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.45,
+        "upper95": 0.7454,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0174-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.61,
+        "upper95": 0.678,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0174-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.57,
+        "upper95": 0.6987,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0174-t5",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.23,
+        "upper95": 0.4292,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0176-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.412,
+        "upper95": 0.5008,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0176-t5",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.326,
+        "upper95": 0.5415,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0183-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.184,
+        "upper95": 0.6327,
+        "hits": 0,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0183-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.292,
+        "upper95": 0.6535,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0183-t8",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.252,
+        "upper95": 0.6578,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0184-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.668,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0186-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.322,
+        "upper95": 0.4907,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0190-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.362,
+        "upper95": 0.9717,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0190-t8",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.4824,
+        "upper95": 0.8078,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0191-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.338,
+        "upper95": 0.7518,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0191-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.31,
+        "upper95": 0.706,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0191-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.38,
+        "upper95": 0.9832,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0191-t4",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.81,
+        "upper95": 0.9582,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0191-t5",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.442,
+        "upper95": 0.9301,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0192-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.804,
+        "upper95": 0.9942,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0192-t8",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.49,
+        "upper95": 1.0,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0193-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.886,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0193-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.8836,
+        "upper95": 0.977,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0193-t5",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.2921,
+        "upper95": 0.7426,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0193-t7",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.2096,
+        "upper95": 0.6888,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0194-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.43,
+        "upper95": 0.8836,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0194-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.468,
+        "upper95": 0.8282,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0195-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.21,
+        "upper95": 0.5504,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0195-t4",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.348,
+        "upper95": 0.7504,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0208-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.762,
+        "upper95": 0.8786,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0209-t2",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.374,
+        "upper95": 0.7152,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0215-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.29,
+        "upper95": 0.7003,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0215-t1",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.1989,
+        "upper95": 0.577,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0215-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.36,
+        "upper95": 0.7122,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0219-t2",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.254,
+        "upper95": 0.4383,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0219-t4",
+        "consistent": 7,
+        "threshold": 0.2929,
+        "mean_p_true": 0.244,
+        "upper95": 0.5322,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0220-t0",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.374,
+        "upper95": 0.7097,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0229-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.354,
+        "upper95": 0.6946,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0230-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.982,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0230-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.392,
+        "upper95": 0.7848,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0230-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.804,
+        "upper95": 0.9492,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0231-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.904,
+        "upper95": 0.9833,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0231-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.454,
+        "upper95": 0.74,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0231-t2",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.526,
+        "upper95": 0.8747,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0231-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.576,
+        "upper95": 0.8872,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0231-t4",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.632,
+        "upper95": 0.7271,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0235-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.404,
+        "upper95": 0.8444,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0235-t10",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.3647,
+        "upper95": 0.5627,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0235-t11",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.29,
+        "upper95": 0.401,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0236-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.924,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0236-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.252,
+        "upper95": 0.6578,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0236-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.254,
+        "upper95": 0.6877,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0236-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.3461,
+        "upper95": 0.8842,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0236-t7",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.7714,
+        "upper95": 0.9677,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.376,
+        "upper95": 0.9983,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.634,
+        "upper95": 0.8019,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.7821,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t5",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.55,
+        "upper95": 0.9978,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t6",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.444,
+        "upper95": 0.9204,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t7",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.318,
+        "upper95": 0.6672,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0238-t9",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.37,
+        "upper95": 0.5692,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0239-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.19,
+        "upper95": 0.6484,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0242-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.856,
+        "upper95": 0.9512,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0244-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.478,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0248-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.686,
+        "upper95": 0.8261,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0250-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.87,
+        "upper95": 0.9681,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0250-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.284,
+        "upper95": 0.7195,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0250-t5",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.376,
+        "upper95": 0.6766,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0250-t6",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.59,
+        "upper95": 1.0,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0250-t7",
+        "consistent": 7,
+        "threshold": 0.2929,
+        "mean_p_true": 0.422,
+        "upper95": 0.7569,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0258-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.766,
+        "upper95": 0.995,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0258-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.636,
+        "upper95": 0.7138,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0260-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.65,
+        "upper95": 0.8256,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0260-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.532,
+        "upper95": 1.0,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0261-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.358,
+        "upper95": 0.9336,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0261-t5",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.226,
+        "upper95": 0.6528,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0261-t7",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.87,
+        "upper95": 0.9051,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0261-t8",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.3,
+        "upper95": 0.5977,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0262-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.302,
+        "upper95": 0.6908,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0265-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.8957,
+        "upper95": 0.9506,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0265-t7",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.2559,
+        "upper95": 0.7301,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0267-t1",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.6658,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0267-t3",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.95,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0267-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.292,
+        "upper95": 0.7366,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0274-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.854,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0274-t4",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.768,
+        "upper95": 0.8862,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0275-t0",
+        "consistent": 6,
+        "threshold": 0.3167,
+        "mean_p_true": 0.39,
+        "upper95": 0.7405,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0275-t4",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.282,
+        "upper95": 0.6154,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0276-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.7531,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0276-t3",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.54,
+        "upper95": 1.0,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0276-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.438,
+        "upper95": 0.845,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0276-t5",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.218,
+        "upper95": 0.6646,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0276-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.438,
+        "upper95": 0.8525,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.92,
+        "upper95": 1.0,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.724,
+        "upper95": 0.8862,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t2",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.586,
+        "upper95": 0.7613,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.622,
+        "upper95": 0.7941,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t4",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.694,
+        "upper95": 0.8595,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0279-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.648,
+        "upper95": 1.0,
+        "hits": 4,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0280-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.7623,
+        "upper95": 0.9641,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0281-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.2447,
+        "upper95": 0.7347,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0286-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.512,
+        "upper95": 0.9446,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0286-t3",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.448,
+        "upper95": 0.7773,
+        "hits": 3,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0286-t6",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.382,
+        "upper95": 0.7206,
+        "hits": 1,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0286-t7",
+        "consistent": 4,
+        "threshold": 0.4,
+        "mean_p_true": 0.37,
+        "upper95": 0.6913,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0290-t5",
+        "consistent": 5,
+        "threshold": 0.35,
+        "mean_p_true": 0.694,
+        "upper95": 0.9869,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0290-t7",
+        "consistent": 3,
+        "threshold": 0.4833,
+        "mean_p_true": 0.224,
+        "upper95": 0.5115,
+        "hits": 2,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0292-t0",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.77,
+        "upper95": 0.9954,
+        "hits": 5,
+        "samples": 5
+      },
+      {
+        "view_id": "eedi-K8-0292-t1",
+        "consistent": 2,
+        "threshold": 0.65,
+        "mean_p_true": 0.502,
+        "upper95": 0.8209,
+        "hits": 4,
+        "samples": 5
+      }
+    ],
+    "sensitivity_hit_wilson_flagged_share": 0.6111111111111112
+  },
+  "H4": {
+    "combo": {
+      "views": 100,
+      "mean_p_true_minus_expected": -0.5432461,
+      "mean_hit_minus_expected": -0.41200000000000003
+    },
+    "decoy": {
+      "views": 100,
+      "mean_p_true_minus_expected": -0.07390281,
+      "mean_hit_minus_expected": -0.10300000000000001
+    }
+  },
+  "meters": {
+    "deepseek-flash/lexical": {
+      "unit": {
+        "texts": 702,
+        "miss_rate": 0.08262108262108261,
+        "extra_per_text": 1.584045584045584
+      },
+      "combo": {
+        "texts": 100,
+        "miss_rate": 0.054455445544554455,
+        "extra_per_text": 1.89
+      },
+      "decoy": {
+        "texts": 100,
+        "false_flag_rate": 0.46,
+        "extra_per_text": 1.3
+      }
+    },
+    "deepseek-flash/predicate": {
+      "unit": {
+        "texts": 702,
+        "miss_rate": 0.38603988603988604,
+        "extra_per_text": 0.17094017094017094
+      },
+      "combo": {
+        "texts": 100,
+        "miss_rate": 0.39603960396039606,
+        "extra_per_text": 0.28
+      },
+      "decoy": {
+        "texts": 100,
+        "false_flag_rate": 0.16,
+        "extra_per_text": 0.21
+      }
+    },
+    "deepseek-flash/overlap_4gram": {
+      "p10": 0.5217,
+      "p50": 0.6774,
+      "p90": 0.8571
+    },
+    "qwen3.7-plus/lexical": {
+      "unit": {
+        "texts": 702,
+        "miss_rate": 0.21082621082621084,
+        "extra_per_text": 1.537037037037037
+      },
+      "combo": {
+        "texts": 100,
+        "miss_rate": 0.23267326732673269,
+        "extra_per_text": 1.75
+      },
+      "decoy": {
+        "texts": 100,
+        "false_flag_rate": 0.46,
+        "extra_per_text": 1.23
+      }
+    },
+    "qwen3.7-plus/predicate": {
+      "unit": {
+        "texts": 702,
+        "miss_rate": 0.405982905982906,
+        "extra_per_text": 0.150997150997151
+      },
+      "combo": {
+        "texts": 100,
+        "miss_rate": 0.400990099009901,
+        "extra_per_text": 0.29
+      },
+      "decoy": {
+        "texts": 100,
+        "false_flag_rate": 0.13,
+        "extra_per_text": 0.18
+      }
+    },
+    "qwen3.7-plus/overlap_4gram": {
+      "p10": 0.3521,
+      "p50": 0.6452,
+      "p90": 0.7879
+    },
+    "missing_paraphrases": 0
+  }
+}
