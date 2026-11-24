@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/provenance_update.json",
+  "title": "ProvenanceUpdate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["round_id", "artifact_id"],
+  "properties": {
+    "round_id": {"type": "integer", "minimum": 0},
+    "artifact_id": {"type": "string", "minLength": 1},
+    "expected_source_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "../../x3_e2e_20261125/schema/source_evidence.schema.json"}
+    },
+    "channels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"$ref": "../../x3_e2e_20261125/schema/source_evidence.schema.json"}
+      }
+    }
+  },
+  "description": "Input for ProvenanceLink. A missing source stays unknown and is not recorded as unpropagated. Unverified candidates are not ledger facts. This schema does not score the X3 experiment."
+}
