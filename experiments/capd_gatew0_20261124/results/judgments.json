@@ -1,0 +1,90 @@
+{
+  "W0-0": {
+    "verdict": "Wstar 与 Cstar 完全一致",
+    "differences": []
+  },
+  "W0-1": {
+    "synthetic16/identity": {
+      "F_best": "F1_sha",
+      "harmful_mean_F_best": 0.0,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.0,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": false
+    },
+    "synthetic16/paraphrase": {
+      "F_best": "F3_bm25",
+      "harmful_mean_F_best": 0.0,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.0,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": false
+    },
+    "synthetic16/fragment": {
+      "F_best": "F3_bm25",
+      "harmful_mean_F_best": 0.6666666666666666,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.3333333333333333,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": true
+    },
+    "synthetic32/identity": {
+      "F_best": "F1_sha",
+      "harmful_mean_F_best": 0.0,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.0,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": false
+    },
+    "synthetic32/paraphrase": {
+      "F_best": "F3_bm25",
+      "harmful_mean_F_best": 0.03333333333333333,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.0,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": false
+    },
+    "synthetic32/fragment": {
+      "F_best": "F3_bm25",
+      "harmful_mean_F_best": 0.7,
+      "harmful_mean_F3_plus_Wstar": 0.0,
+      "diff_lower": 0.43333333333333335,
+      "unneeded_F_best": 0.0,
+      "unneeded_F3_plus_Wstar": 0.0,
+      "cell_extra_value": true
+    },
+    "provisional_verdict": "暂定有额外价值",
+    "final_verdict": "无法判定（F4_bge、F5_bge_rerank 为 NOT_RUN）"
+  },
+  "W0-2": {
+    "synthetic16/identity": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.0
+    },
+    "synthetic16/paraphrase": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.0
+    },
+    "synthetic16/fragment": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.4666666666666667
+    },
+    "synthetic32/identity": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.0
+    },
+    "synthetic32/paraphrase": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.0
+    },
+    "synthetic32/fragment": {
+      "Wstar_harmful": 0.0,
+      "best_A1_harmful": 0.7666666666666667
+    }
+  }
+}
