@@ -1,0 +1,409 @@
+{
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "code_reuse": [
+    "cogniguard.governance.access_policy.AccessRegistry.is_authorized",
+    "cogniguard.governance.access_policy.AccessRegistry.with_policy_version",
+    "cogniguard.governance.access_policy.RegistryHolder",
+    "cogniguard.runtime.release_gate.ReleaseGate.evaluate_and_reserve",
+    "cogniguard.runtime.release_gate.ReleaseGate.commit",
+    "cogniguard.governance.reconstruction.check_release",
+    "cogniguard.governance.targets.ProtectedTarget",
+    "cogniguard.governance.targets.TargetRegistry"
+  ],
+  "compute_overhead": 1.0,
+  "counterexample": {
+    "failing_trace": [
+      {
+        "allow": {
+          "B0": true,
+          "B1": false,
+          "B2": false,
+          "B3": false,
+          "B4": true,
+          "ours": false
+        },
+        "case": "revoke_between_reserve_and_commit",
+        "failed_baselines": [
+          "B0",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "exec",
+        "object_id": "asset-a",
+        "phase": "T5",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "live_grant",
+          "B2": "dependency_propagation",
+          "B3": "gate:commit_cancel",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_execution",
+        "tags": [
+          "revoke_between_reserve_and_commit"
+        ],
+        "task_id": "tool-a"
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": true,
+          "B2": false,
+          "B3": true,
+          "B4": true,
+          "ours": false
+        },
+        "case": "queued_tool_on_derived",
+        "failed_baselines": [
+          "B0",
+          "B1",
+          "B3",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "exec",
+        "object_id": "derived-a",
+        "phase": "T5",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:ok",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_execution",
+        "tags": [
+          "revoke_between_reserve_and_commit",
+          "queued_tool_at_t5"
+        ],
+        "task_id": "tool-d"
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": true,
+          "B2": false,
+          "B3": true,
+          "B4": true,
+          "ours": false
+        },
+        "case": "cache_s_after_revoke",
+        "failed_baselines": [
+          "B0",
+          "B1",
+          "B3",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "cache",
+        "object_id": "derived-a",
+        "phase": "T4",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:ok",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "controlled_cache",
+        "tags": [
+          "controlled_cache"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": false,
+          "B1": true,
+          "B2": false,
+          "B3": false,
+          "B4": true,
+          "ours": false
+        },
+        "case": "r_reads_derived_after_revoke",
+        "failed_baselines": [
+          "B1",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "cache",
+        "object_id": "derived-a",
+        "phase": "T4",
+        "principal": "subject-r",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:unauthorized",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "controlled_cache",
+        "tags": [
+          "r_requests_d_after_revoke"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": false,
+          "B1": true,
+          "B2": false,
+          "B3": false,
+          "B4": true,
+          "ours": false
+        },
+        "case": "r_reads_derived_after_revoke",
+        "failed_baselines": [
+          "B1",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "read",
+        "object_id": "derived-a",
+        "phase": "T4",
+        "principal": "subject-r",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:unauthorized",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_read",
+        "tags": [
+          "r_requests_d_after_revoke"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": false,
+          "B2": false,
+          "B3": false,
+          "B4": true,
+          "ours": false
+        },
+        "case": "future_read_source_after_revoke",
+        "failed_baselines": [
+          "B0",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "read",
+        "object_id": "asset-a",
+        "phase": "T4",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "live_grant",
+          "B2": "dependency_propagation",
+          "B3": "gate:unauthorized",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_read",
+        "tags": [
+          "future_read"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": true,
+          "B2": false,
+          "B3": true,
+          "B4": true,
+          "ours": false
+        },
+        "case": "future_read_derived_after_revoke",
+        "failed_baselines": [
+          "B0",
+          "B1",
+          "B3",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "read",
+        "object_id": "derived-a",
+        "phase": "T4",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:ok",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_read",
+        "tags": [
+          "future_read"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": false,
+          "B1": false,
+          "B2": false,
+          "B3": false,
+          "B4": true,
+          "ours": false
+        },
+        "case": "r_reads_source_after_revoke",
+        "failed_baselines": [
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "read",
+        "object_id": "asset-a",
+        "phase": "T4",
+        "principal": "subject-r",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "live_grant",
+          "B2": "dependency_propagation",
+          "B3": "gate:unauthorized",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_read",
+        "tags": [
+          "future_read"
+        ],
+        "task_id": null
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": true,
+          "B2": false,
+          "B3": true,
+          "B4": true,
+          "ours": false
+        },
+        "case": "purpose_change",
+        "failed_baselines": [
+          "B0",
+          "B1",
+          "B3",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "exec",
+        "object_id": "derived-a",
+        "phase": "T5",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:ok",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "future_execution",
+        "tags": [
+          "purpose_change",
+          "queued_tool_at_t5"
+        ],
+        "task_id": "tool-purpose"
+      },
+      {
+        "allow": {
+          "B0": true,
+          "B1": true,
+          "B2": false,
+          "B3": true,
+          "B4": true,
+          "ours": false
+        },
+        "case": "purpose_change",
+        "failed_baselines": [
+          "B0",
+          "B1",
+          "B3",
+          "B4"
+        ],
+        "ground_truth_allow": false,
+        "kind": "cache",
+        "object_id": "derived-a",
+        "phase": "T4",
+        "principal": "subject-s",
+        "purpose": "tutoring",
+        "reason": {
+          "B0": "snapshot_t0",
+          "B1": "derived_uncontrolled",
+          "B2": "dependency_propagation",
+          "B3": "gate:ok",
+          "B4": "label_inherit",
+          "ours": "coordinator_eq_b2"
+        },
+        "right": "controlled_cache",
+        "tags": [
+          "purpose_change"
+        ],
+        "task_id": null
+      }
+    ],
+    "memory_probe": {
+      "counted_as_safety_violation": false,
+      "note": "S already learned asset-a. The access system is not required to unlearn it.",
+      "safe": false,
+      "violation_count": 1
+    },
+    "strongest_does_not_fail": true,
+    "timeline": [
+      "T0 subject-s is granted asset-a for tutoring",
+      "T1 subject-s reads asset-a, learns it, and derives derived-a",
+      "T2 derived-a is cached and a tool on derived-a is reserved",
+      "T3 asset-a is revoked or its purpose becomes grading",
+      "T4 subject-r requests derived-a",
+      "T5 the queued tool commits"
+    ]
+  },
+  "dev_scan": true,
+  "experiment": "X2",
+  "false_reject_rate": 0.0,
+  "formal": false,
+  "literature_overlap": "pending-worker-E",
+  "notes": "STOP. B2 (dynamic ACL with dependency propagation, rechecked at cache serve, future read, and queued execution) has zero unauthorized deliveries and executions on the deterministic cases, and it still allows every still-authorized request. B3 is the real ReleaseGate reserve plus commit recheck: it cancels an in-flight release of asset-a when with_policy_version bumps asset-a, including the owner's still-lawful in-flight release (false reject, fail closed on the epoch). The same recheck does not stop a summary that was registered as derived-a with a copied tutoring grant, because commit compares derived-a's own policy version. B0 keeps the T0 snapshot. B1 re-reads the grant but treats a derived object as uncontrolled data, so subject-r receives derived-a after revocation. B4 inherits a static confidentiality label and same-org clearance, so revocation and per-principal grants are invisible. The candidate cross_module_coordinator is not developed; it is B2. Dev-scan rates are illustrative only. Deterministic B2 violation_rate=0.000, task_success=1.000, false_reject=0.000. Dev-scan B2 violations=0/5.",
+  "paths": {
+    "result": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d1-71f2-bab2-9aaefa8a29cf/experiments/parallel_x_20261124/x2_auth/RESULT.md",
+    "run": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d1-71f2-bab2-9aaefa8a29cf/experiments/parallel_x_20261124/x2_auth/run.py",
+    "summary": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d1-71f2-bab2-9aaefa8a29cf/experiments/parallel_x_20261124/x2_auth/results/summary.json"
+  },
+  "safety_gain": {
+    "baseline": 0.0,
+    "delta": 0.0,
+    "metric": "unauthorized_delivery_execution_rate",
+    "ours": 0.0
+  },
+  "strongest_baseline": "B2",
+  "utility_change": {
+    "baseline": 1.0,
+    "delta": 0.0,
+    "metric": "task_success_on_still_authorized",
+    "ours": 1.0
+  },
+  "verdict": "STOP"
+}

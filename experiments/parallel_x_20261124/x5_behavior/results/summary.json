@@ -1,0 +1,22 @@
+{
+  "experiment": "X5",
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "verdict": "ANALYZE",
+  "counterexample": "seed 0 subject 0 secret 0 C1 sees {decision:allow, degradation:0, tool:tutor_retrieve, replanned:false, conflict:''}; subject 1 secret 1 C1 sees {decision:allow, degradation:2, tool:tutor_retrieve, replanned:true, conflict:''}; allow/deny, tool, and conflict match, so the bit is read from degradation and replanned; the query record stays server-side with shown=false",
+  "strongest_baseline": "C1_constant_allow_and_tool_no_conflict_hidden_query_record",
+  "safety_gain": 0.0,
+  "utility_change": 0.0,
+  "false_reject_rate": 0.0,
+  "compute_overhead": 1.5714285714285714,
+  "literature_overlap": "X5 high (simulatable auditing; filter allow/block; AgentTell action choice); X1 partial-to-high (security-type composition; filter composition side effects); X2 partial (noninterference between updates, not derived-copy revocation); X3 low (no watermark-versus-metadata source opened); X4 partial (auditable concurrent registers; Termite log ordering)",
+  "code_reuse": "none",
+  "dev_scan": true,
+  "formal": false,
+  "paths": [
+    "experiments/parallel_x_20261124/x5_behavior/run.py",
+    "experiments/parallel_x_20261124/x5_behavior/RESULT.md",
+    "experiments/parallel_x_20261124/x5_behavior/results/summary.json",
+    "experiments/parallel_x_20261124/x5_behavior/results/literature.json"
+  ],
+  "notes": "dev_scan only, 10 subjects, seeds 0-4, formal false. C0 attack_success=1.0 utility=0.5 false_reject=0.0 steps=70.0. C1 attack_success=1.0 utility=0.5 false_reject=0.0 steps=110.0. C1 does not stop the leak. Differing fields=['degradation', 'replanned']. Hide-optional sketch attack_success=0.5 utility_drop_vs_C1=0.0 overhead_vs_C0=1.8571428571428572. That sketch meets the numeric bar (gain vs C1=0.5, utility drop 0 <= 0.1) but is not PASS: the residual signals are fields a deployer would simply not display. Frozen caps gain>=0.1 drop<=0.1 overhead<=10.0. Content is the constant REDACTED in every cell. No cogniguard or protection import. No model call. IEEE S&P 1988 composability page and the 2025 HOST Termite page did not return body text, so they are not cited. docs/literature_baseline_matrix.md RAG extraction rows were read in-repo and not re-opened; they are content-channel baselines, low overlap with X5."
+}

@@ -1,0 +1,94 @@
+{
+  "experiment": "X1",
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "verdict": "STOP",
+  "counterexample": "simultaneous release of p2 and p4 completes stu/attendance_risk; B1-B4 allow it; check_release refuses it",
+  "strongest_baseline": "B4",
+  "safety_gain": {
+    "metric": "violation_rate",
+    "baseline": 0.6666666666666666,
+    "ours": 0.0,
+    "delta": 0.6666666666666666
+  },
+  "utility_change": {
+    "metric": "task_success",
+    "baseline": 1.0,
+    "ours": 1.0,
+    "delta": 0.0
+  },
+  "false_reject_rate": {
+    "baseline": 0.0,
+    "ours": 0.0
+  },
+  "compute_overhead": {
+    "baseline_ms": 0.00034718759707175195,
+    "ours_ms": 0.002168540086131543
+  },
+  "literature_overlap": "pending-worker-E",
+  "code_reuse": [
+    "cogniguard.governance.reconstruction.check_release",
+    "ProtectedTarget"
+  ],
+  "dev_scan": true,
+  "formal": false,
+  "deterministic_baseline_violations": 4,
+  "deterministic_ours_violations": 0,
+  "candidate_is_standard_mechanism": true,
+  "missing_dependency": false,
+  "paths": [
+    "experiments/parallel_x_20261124/x1_policy/run.py"
+  ],
+  "notes": "STOP for a new coordinator. B4 taint does not see a witness whose members are each allowed. The existing check_release already refuses that candidate. utility_drop=0.000 overhead_ratio=6.246 dev_scan_b4_misses=[0, 1, 0, 1, 0] dev_scan_gate_catches=[0, 1, 0, 1, 0]",
+  "scores": {
+    "B0": {
+      "violation_rate": 1.0,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 6,
+      "attacks": 6
+    },
+    "B1": {
+      "violation_rate": 0.6666666666666666,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 4,
+      "attacks": 6
+    },
+    "B2": {
+      "violation_rate": 0.6666666666666666,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 4,
+      "attacks": 6
+    },
+    "B3": {
+      "violation_rate": 0.6666666666666666,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 4,
+      "attacks": 6
+    },
+    "B4": {
+      "violation_rate": 0.6666666666666666,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 4,
+      "attacks": 6
+    },
+    "gate": {
+      "violation_rate": 0.0,
+      "task_success": 1.0,
+      "false_reject": 0.0,
+      "violations": 0,
+      "attacks": 6
+    }
+  },
+  "latency_ms": {
+    "B0": 6.864749593660235e-05,
+    "B1": 0.0001388524833600968,
+    "B2": 0.00047812500270083547,
+    "B3": 0.00028010501409880817,
+    "B4": 0.00034718759707175195,
+    "gate": 0.002168540086131543
+  }
+}

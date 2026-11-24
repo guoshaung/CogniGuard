@@ -1,0 +1,420 @@
+{
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "candidate": {
+    "failures": [],
+    "is_standard_lock_or_transaction": false,
+    "name": "event_key",
+    "small_variant_of": "L1"
+  },
+  "cases": [
+    {
+      "case": "witness_race",
+      "delivered_requests": 1,
+      "detail": "delivered_requests=1",
+      "latency_s": 6.679102079942822e-05,
+      "method": "L0",
+      "safety_violation": false
+    },
+    {
+      "case": "stale_policy_version",
+      "delivered_requests": 0,
+      "detail": "unauthorized",
+      "latency_s": 3.154197474941611e-05,
+      "method": "L0",
+      "safety_violation": false
+    },
+    {
+      "case": "revoke_commit_race",
+      "delivered_requests": 1,
+      "detail": "revoke_first_wrote=False;commit_first_wrote=True",
+      "latency_s": 1.1541967978700995e-05,
+      "method": "L0",
+      "safety_violation": false
+    },
+    {
+      "case": "duplicate_event",
+      "delivered_requests": 2,
+      "detail": "delivered_rows=2",
+      "latency_s": 2.5957997422665358e-05,
+      "method": "L0",
+      "safety_violation": true
+    },
+    {
+      "case": "retry_after_commit",
+      "delivered_requests": 2,
+      "detail": "first=ok;second=ok;rows=2",
+      "latency_s": 2.4291977752000093e-05,
+      "method": "L0",
+      "safety_violation": true
+    },
+    {
+      "case": "partial_commit",
+      "delivered_requests": 1,
+      "detail": "delivered_after_abort=1",
+      "latency_s": 2.300000051036477e-05,
+      "method": "L0",
+      "safety_violation": true
+    },
+    {
+      "case": "divergent_grant",
+      "delivered_requests": 2,
+      "detail": "two stale caches committed",
+      "latency_s": 9.207986295223236e-06,
+      "method": "L0",
+      "safety_violation": true
+    },
+    {
+      "case": "witness_race",
+      "delivered_requests": 1,
+      "detail": "delivered_requests=1",
+      "latency_s": 0.0023832079605199397,
+      "method": "L1",
+      "safety_violation": false
+    },
+    {
+      "case": "stale_policy_version",
+      "delivered_requests": 0,
+      "detail": "unauthorized",
+      "latency_s": 0.002323124965187162,
+      "method": "L1",
+      "safety_violation": false
+    },
+    {
+      "case": "revoke_commit_race",
+      "delivered_requests": 1,
+      "detail": "revoke_first_wrote=False;commit_first_wrote=True",
+      "latency_s": 0.002293249999638647,
+      "method": "L1",
+      "safety_violation": false
+    },
+    {
+      "case": "duplicate_event",
+      "delivered_requests": 2,
+      "detail": "delivered_rows=2",
+      "latency_s": 0.0026486249989829957,
+      "method": "L1",
+      "safety_violation": true
+    },
+    {
+      "case": "retry_after_commit",
+      "delivered_requests": 2,
+      "detail": "first=ok;second=ok;rows=2",
+      "latency_s": 0.0023413340095430613,
+      "method": "L1",
+      "safety_violation": true
+    },
+    {
+      "case": "partial_commit",
+      "delivered_requests": 0,
+      "detail": "delivered_after_abort=0",
+      "latency_s": 0.0008409169968217611,
+      "method": "L1",
+      "safety_violation": false
+    },
+    {
+      "case": "divergent_grant",
+      "delivered_requests": 0,
+      "detail": "left=unauthorized;right=unauthorized",
+      "latency_s": 0.001626625016797334,
+      "method": "L1",
+      "safety_violation": false
+    },
+    {
+      "case": "witness_race",
+      "delivered_requests": 2,
+      "detail": "both delivered",
+      "latency_s": 6.549997488036752e-05,
+      "method": "L2",
+      "safety_violation": true
+    },
+    {
+      "case": "stale_policy_version",
+      "delivered_requests": 0,
+      "detail": "version_mismatch",
+      "latency_s": 6.187497638165951e-05,
+      "method": "L2",
+      "safety_violation": false
+    },
+    {
+      "case": "revoke_commit_race",
+      "delivered_requests": 1,
+      "detail": "revoke_first_wrote=False;commit_first_wrote=True",
+      "latency_s": 1.5708006685599685e-05,
+      "method": "L2",
+      "safety_violation": false
+    },
+    {
+      "case": "duplicate_event",
+      "delivered_requests": 2,
+      "detail": "delivered_rows=2",
+      "latency_s": 1.0124989785254002e-05,
+      "method": "L2",
+      "safety_violation": true
+    },
+    {
+      "case": "retry_after_commit",
+      "delivered_requests": 2,
+      "detail": "first=ok;second=ok;rows=2",
+      "latency_s": 2.9125018045306206e-05,
+      "method": "L2",
+      "safety_violation": true
+    },
+    {
+      "case": "partial_commit",
+      "delivered_requests": 1,
+      "detail": "delivered_after_abort=1",
+      "latency_s": 2.274999860674143e-05,
+      "method": "L2",
+      "safety_violation": true
+    },
+    {
+      "case": "divergent_grant",
+      "delivered_requests": 0,
+      "detail": "left=version_mismatch;right=version_mismatch",
+      "latency_s": 1.3457960449159145e-05,
+      "method": "L2",
+      "safety_violation": false
+    },
+    {
+      "case": "witness_race",
+      "delivered_requests": 1,
+      "detail": "delivered_requests=1",
+      "latency_s": 0.002600707986857742,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "stale_policy_version",
+      "delivered_requests": 0,
+      "detail": "unauthorized",
+      "latency_s": 0.001704416994471103,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "revoke_commit_race",
+      "delivered_requests": 1,
+      "detail": "revoke_first_wrote=False;commit_first_wrote=True",
+      "latency_s": 0.002608979499200359,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "duplicate_event",
+      "delivered_requests": 1,
+      "detail": "delivered_rows=1",
+      "latency_s": 0.002305166970472783,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "retry_after_commit",
+      "delivered_requests": 1,
+      "detail": "first=ok;second=replay;rows=1",
+      "latency_s": 0.0019518340122886002,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "partial_commit",
+      "delivered_requests": 0,
+      "detail": "delivered_after_abort=0",
+      "latency_s": 0.001067332981619984,
+      "method": "event_key",
+      "safety_violation": false
+    },
+    {
+      "case": "divergent_grant",
+      "delivered_requests": 0,
+      "detail": "left=unauthorized;right=unauthorized",
+      "latency_s": 0.0014867080026306212,
+      "method": "event_key",
+      "safety_violation": false
+    }
+  ],
+  "code_reuse": [
+    "AccessRegistry.is_authorized",
+    "AccessRegistry.with_policy_version",
+    "RegistryHolder",
+    "ProtectedTarget",
+    "TargetRegistry",
+    "check_release",
+    "ReleaseGate.evaluate_and_reserve",
+    "ReleaseGate.commit",
+    "in-memory reserve/commit/cancel/holders_of/release_section"
+  ],
+  "compute_overhead": 0.9514516740717143,
+  "constants": {
+    "MAX_OVERHEAD_RATIO": 10.0,
+    "MAX_UTILITY_DROP": 0.1,
+    "PASS_MIN_ABS_SAFETY_GAIN": 0.1,
+    "coalition_k": 2
+  },
+  "counterexample": "duplicate_event, retry_after_commit",
+  "deterministic_violation_rate": {
+    "L0": 0.5714285714285714,
+    "L1": 0.2857142857142857,
+    "L2": 0.5714285714285714,
+    "event_key": 0.0
+  },
+  "dev_scan": true,
+  "dev_scan_metrics": {
+    "L0": {
+      "assets": 4,
+      "exact_one_rate": 1.0,
+      "false_reject_rate": 0.0,
+      "mean_latency_s": 1.8707015745652218e-05,
+      "races": 20,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "serial_n": 40,
+      "subjects": 8,
+      "witness_violation_rate": 0.0
+    },
+    "L1": {
+      "assets": 4,
+      "exact_one_rate": 1.0,
+      "false_reject_rate": 0.0,
+      "mean_latency_s": 0.001679285398374001,
+      "races": 20,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "serial_n": 40,
+      "subjects": 8,
+      "witness_violation_rate": 0.0
+    },
+    "L2": {
+      "assets": 4,
+      "exact_one_rate": 0.0,
+      "false_reject_rate": 0.0,
+      "mean_latency_s": 1.4831285807304084e-05,
+      "races": 20,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "serial_n": 40,
+      "subjects": 8,
+      "witness_violation_rate": 1.0
+    },
+    "event_key": {
+      "assets": 4,
+      "exact_one_rate": 1.0,
+      "false_reject_rate": 0.0,
+      "mean_latency_s": 0.0016278291800214599,
+      "races": 20,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "serial_n": 40,
+      "subjects": 8,
+      "witness_violation_rate": 0.0
+    }
+  },
+  "experiment": "X4",
+  "failures": {
+    "L0": [
+      "divergent_grant",
+      "duplicate_event",
+      "partial_commit",
+      "retry_after_commit"
+    ],
+    "L1": [
+      "duplicate_event",
+      "retry_after_commit"
+    ],
+    "L2": [
+      "duplicate_event",
+      "partial_commit",
+      "retry_after_commit",
+      "witness_race"
+    ],
+    "event_key": []
+  },
+  "false_reject_rate": 0.0,
+  "false_reject_rate_by_method": {
+    "L0": 0.0,
+    "L1": 0.0,
+    "L2": 0.0,
+    "event_key": 0.0
+  },
+  "formal": false,
+  "literature_overlap": "pending-worker-E",
+  "mean_latency_s": {
+    "L0": 2.6379992656681377e-05,
+    "L1": 0.0020170461682331125,
+    "L2": 2.9171526330173946e-05,
+    "event_key": 0.0019191219534453316
+  },
+  "notes": "Receipt state for L0, L2, and the ReleaseGate observation is an in-memory store with reserve/commit/cancel/holders_of/release_section. DisclosureStore was not opened and MySQL was not started. L0 is one process lock around decide-and-commit, with no rollback and no event identity; the two case-6 processes do not share that lock. L1 is one stdlib sqlite3 BEGIN IMMEDIATE transaction that re-reads policy and receipts, then commits or rolls back. Its receipt identity is a surrogate receipt_id, the same kind of identity DisclosureStore uses, not an event key. L2 checks one shared monotonic policy version at commit and does not lock or roll back a multi-receipt write. Shared failures: ['duplicate_event', 'retry_after_commit']. Candidate event_key is L1 plus UNIQUE(event_id, resource_id, unit_id) and an in-transaction replay check. That is a small variant of L1, not a new mechanism, so the verdict is ANALYZE when that residual is real. numeric_thresholds_met=True. dev scan 5 seeds, 8 subjects, 4 assets. formal=false. E9/E10: no frozen definition in this checkout.",
+  "numeric_thresholds_met": true,
+  "observed_release_gate": {
+    "import": "ok",
+    "partial_commit": {
+      "allowed": true,
+      "delivered_rows": 1,
+      "raised": true
+    },
+    "ran": true,
+    "retry_delivered_rows": 2,
+    "stale_policy_version_commit_returned": false,
+    "store": "in-memory",
+    "two_stores": {
+      "both_committed": true,
+      "logical_authorized": false
+    },
+    "witness_race": {
+      "both_committed": false,
+      "final_unsafe": false,
+      "outcomes": [
+        {
+          "allowed": false,
+          "committed": false,
+          "reason": "reconstruction"
+        },
+        {
+          "allowed": true,
+          "committed": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "paths": {
+    "e9_e10_status": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d2-7e30-b1ff-6dff7c8a8d34/experiments/parallel_x_20261124/x4_consistency/results/e9_e10_status.txt",
+    "result": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d2-7e30-b1ff-6dff7c8a8d34/experiments/parallel_x_20261124/x4_consistency/RESULT.md",
+    "run": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d2-7e30-b1ff-6dff7c8a8d34/experiments/parallel_x_20261124/x4_consistency/run.py",
+    "summary": "/Users/MBP/.grok/worktrees/cogniguard-cogniguard/subagent-01a20c49-29d2-7e30-b1ff-6dff7c8a8d34/experiments/parallel_x_20261124/x4_consistency/results/summary.json"
+  },
+  "safety_gain": 0.2857142857142857,
+  "shared_failures": [
+    "duplicate_event",
+    "retry_after_commit"
+  ],
+  "strongest_baseline": "L1",
+  "utility_by_method": {
+    "L0": 1.0,
+    "L1": 1.0,
+    "L2": 1.0,
+    "event_key": 1.0
+  },
+  "utility_change": 0.0,
+  "verdict": "ANALYZE"
+}

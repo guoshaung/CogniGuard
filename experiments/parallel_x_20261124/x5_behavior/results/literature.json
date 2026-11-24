@@ -1,0 +1,272 @@
+[
+  {
+    "title": "Denials leak information: Simulatable auditing",
+    "url": "https://cs.stanford.edu/people/kngk/papers/denialsLeakInformation-JCSS2013.pdf",
+    "year": 2013,
+    "overlaps": {
+      "X1": {
+        "level": "partial",
+        "mechanism": "auditor decision depends on the composed query-answer history"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "prior exact answers, not revocation, change what a later denial reveals"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "low",
+        "mechanism": "online query sequence, not a concurrent transaction"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "simulatable auditing: allow/deny must be predictable without the secret"
+      }
+    }
+  },
+  {
+    "title": "QuerySnout: Automating the Discovery of Attribute Inference Attacks against Query-Based Systems",
+    "url": "https://arxiv.org/abs/2211.05249",
+    "year": 2022,
+    "overlaps": {
+      "X1": {
+        "level": "low",
+        "mechanism": "attacks one QBS, not policy composition"
+      },
+      "X2": {
+        "level": "low",
+        "mechanism": "infers an attribute; no revocation of derived copies"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "low",
+        "mechanism": "non-interactive query sets"
+      },
+      "X5": {
+        "level": "partial",
+        "mechanism": "attribute inference from answers; error text is noted only as a possible extension"
+      }
+    }
+  },
+  {
+    "title": "Privacy Side Channels in Machine Learning Systems",
+    "url": "https://arxiv.org/abs/2309.05610",
+    "year": 2024,
+    "overlaps": {
+      "X1": {
+        "level": "partial",
+        "mechanism": "composing DP with deduplication or output filters can worsen privacy"
+      },
+      "X2": {
+        "level": "low",
+        "mechanism": "no revocation mechanism"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "output filtering blocks verbatim text; not a watermark-versus-metadata comparison"
+      },
+      "X4": {
+        "level": "partial",
+        "mechanism": "shared cross-user query-filter state, not a transaction protocol"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "output-filter and query-filter allow/block as a membership side channel"
+      }
+    }
+  },
+  {
+    "title": "Security Policies and Security Models",
+    "url": "https://cs.purdue.edu/homes/ninghui/readings/AccessControl/goguen_meseguer_82.pdf",
+    "year": 1982,
+    "overlaps": {
+      "X1": {
+        "level": "partial",
+        "mechanism": "a policy is a set of noninterference assertions, including capability passing"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "capability dynamics are in the model; the opened text has no derived-data revocation theorem"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "low",
+        "mechanism": "not a concurrency or transaction paper"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "noninterference: high inputs must not change what another user sees"
+      }
+    }
+  },
+  {
+    "title": "Language-Based Information-Flow Security",
+    "url": "https://www.cs.cornell.edu/andru/papers/jsac/sm-jsac03.pdf",
+    "year": 2003,
+    "overlaps": {
+      "X1": {
+        "level": "high",
+        "mechanism": "security-type checking composes when external signatures agree"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "declassification and downgrading; not revocation of derived copies"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "partial",
+        "mechanism": "concurrent schedulers as covert channels, surveyed rather than a transaction design"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "end-to-end noninterference and covert channels, including control flow"
+      }
+    }
+  },
+  {
+    "title": "Dynamic Updating of Information-Flow Policies",
+    "url": "http://www.cis.upenn.edu/~stevez/papers/HTHZ05.pdf",
+    "year": 2005,
+    "overlaps": {
+      "X1": {
+        "level": "partial",
+        "mechanism": "a runtime hierarchy update changes which flows the composed policy allows"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "noninterference between updates under hierarchy revocation; history is forgotten rather than derivatives tracked"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "low",
+        "mechanism": "tag-delayed policy update, not a data transaction"
+      },
+      "X5": {
+        "level": "partial",
+        "mechanism": "a policy test selects a visible branch; not tool-choice leakage"
+      }
+    }
+  },
+  {
+    "title": "Logs and side channels",
+    "url": "https://www.ideals.illinois.edu/items/128641",
+    "year": 2023,
+    "overlaps": {
+      "X1": {
+        "level": "low",
+        "mechanism": "not a policy-composition result"
+      },
+      "X2": {
+        "level": "low",
+        "mechanism": "no derived-data revocation mechanism"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "data-oblivious transcripts decouple secrets from logs; not watermark versus metadata"
+      },
+      "X4": {
+        "level": "partial",
+        "mechanism": "Termite concurrency side channel through audit-log order and timing"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "Termite: implicit audit-log content supports membership inference after explicit redaction"
+      }
+    }
+  },
+  {
+    "title": "Auditing without Leaks Despite Curiosity",
+    "url": "https://arxiv.org/abs/2505.00665",
+    "year": 2025,
+    "overlaps": {
+      "X1": {
+        "level": "low",
+        "mechanism": "one object semantics, not policy composition"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "max-register readers can learn prior values without an explicit read; the paper tries to block that"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "high",
+        "mechanism": "wait-free auditable register: effective read and access log in one atomic step"
+      },
+      "X5": {
+        "level": "partial",
+        "mechanism": "one-time pad so readers cannot see other readers' audit records"
+      }
+    }
+  },
+  {
+    "title": "AgentTell: Behavioural Side-Channel Leakage in Browser-Use Agents",
+    "url": "https://arxiv.org/abs/2609.32915",
+    "year": 2026,
+    "overlaps": {
+      "X1": {
+        "level": "low",
+        "mechanism": "not a policy-composition result"
+      },
+      "X2": {
+        "level": "partial",
+        "mechanism": "a secret retained from an earlier site changes a later action; no revocation"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "low",
+        "mechanism": "sequential two-site tasks, not transactions"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "secret-specific action versus a general action leaks the bit without content disclosure"
+      }
+    }
+  },
+  {
+    "title": "AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems",
+    "url": "https://arxiv.org/abs/2602.11510",
+    "year": 2026,
+    "overlaps": {
+      "X1": {
+        "level": "partial",
+        "mechanism": "coordinator-worker composition adds channels an output audit misses"
+      },
+      "X2": {
+        "level": "low",
+        "mechanism": "no revocation mechanism"
+      },
+      "X3": {
+        "level": "low",
+        "mechanism": "none; no watermark-versus-metadata result"
+      },
+      "X4": {
+        "level": "partial",
+        "mechanism": "shared memory across agents, not a transaction protocol"
+      },
+      "X5": {
+        "level": "high",
+        "mechanism": "internal messages and memory leak after final-output sanitization"
+      }
+    }
+  }
+]

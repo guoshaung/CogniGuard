@@ -1,0 +1,118 @@
+{
+  "experiment": "X3",
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "verdict": "STOP",
+  "counterexample": "same bytes issued twice, one grant revoked; fail-closed exact match already denies; ideal watermark does not reduce unauthorized success",
+  "strongest_baseline": "F7",
+  "safety_gain": {
+    "metric": "unauthorized_success",
+    "baseline": 0.0,
+    "ours": 0.0,
+    "delta": 0.0
+  },
+  "utility_change": {
+    "metric": "legitimate_utility",
+    "baseline": 0.7142857142857143,
+    "ours": 0.8571428571428572,
+    "delta": 0.1428571428571429
+  },
+  "false_reject_rate": {
+    "baseline": 0.2857142857142857,
+    "ours": 0.14285714285714285
+  },
+  "compute_overhead": {
+    "baseline_ms": 0.01592750078998506,
+    "ours_ms": 0.0173091609030962
+  },
+  "literature_overlap": "pending-worker-E",
+  "code_reuse": [],
+  "dev_scan": true,
+  "formal": false,
+  "deterministic_baseline_violations": 0,
+  "deterministic_ours_violations": 0,
+  "candidate_is_standard_mechanism": true,
+  "missing_dependency": false,
+  "bge_blocked": true,
+  "decision_flips_vs_strongest_deployable": 1,
+  "additional_correct": 1,
+  "paths": [
+    "experiments/parallel_x_20261124/x3_issuance/run.py"
+  ],
+  "notes": "STOP for watermark development. F3 and F4 are BLOCKED because sentence-transformers/BGE is not installed; no weights were downloaded. Shared decision is fail-closed. decision_flips=1. Flips are legitimate requests recovered when metadata is absent, not blocked attacks. dev_scan=[{'seed': 0, 'f7_unauth': 0.0, 'w0_unauth': 0.0}, {'seed': 1, 'f7_unauth': 0.0, 'w0_unauth': 0.0}, {'seed': 2, 'f7_unauth': 0.0, 'w0_unauth': 0.0}, {'seed': 3, 'f7_unauth': 0.0, 'w0_unauth': 0.0}, {'seed': 4, 'f7_unauth': 0.0, 'w0_unauth': 0.0}]",
+  "scores": {
+    "F0": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.8571428571428571,
+      "utility": 0.1428571428571429,
+      "correct": 5,
+      "unauthorized_hits": 0
+    },
+    "F1": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.8571428571428571,
+      "utility": 0.1428571428571429,
+      "correct": 5,
+      "unauthorized_hits": 0
+    },
+    "F2": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.8571428571428571,
+      "utility": 0.1428571428571429,
+      "correct": 5,
+      "unauthorized_hits": 0
+    },
+    "F5": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.8571428571428571,
+      "utility": 0.1428571428571429,
+      "correct": 5,
+      "unauthorized_hits": 0
+    },
+    "F6": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.8571428571428571,
+      "utility": 0.1428571428571429,
+      "correct": 5,
+      "unauthorized_hits": 0
+    },
+    "F7": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.2857142857142857,
+      "utility": 0.7142857142857143,
+      "correct": 9,
+      "unauthorized_hits": 0
+    },
+    "W0": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.14285714285714285,
+      "utility": 0.8571428571428572,
+      "correct": 10,
+      "unauthorized_hits": 0
+    },
+    "W1": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.7142857142857143,
+      "utility": 0.2857142857142857,
+      "correct": 6,
+      "unauthorized_hits": 0
+    },
+    "Oracle": {
+      "unauthorized_success": 0.0,
+      "false_reject": 0.0,
+      "utility": 1.0,
+      "correct": 11,
+      "unauthorized_hits": 0
+    }
+  },
+  "latency_ms": {
+    "F0": 0.021707499399781227,
+    "F1": 0.10185166029259562,
+    "F2": 0.0522816798184067,
+    "F5": 0.023131680209189653,
+    "F6": 0.6211216596420854,
+    "F7": 0.01592750078998506,
+    "W0": 0.0173091609030962,
+    "W1": 0.6277824996504933,
+    "Oracle": 0.01758332015015185
+  }
+}

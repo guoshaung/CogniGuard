@@ -1,0 +1,33 @@
+{
+  "experiment": "acceptance",
+  "base_sha": "893c6b3fe5e50d1526f2704ca3ae5ed555c4c609",
+  "verdict": "PASS",
+  "dev_scan": true,
+  "formal": false,
+  "notes": "Dev-scan rule only. Formal experiments are not frozen by this file, and this verdict is the fixture suite in test_score.py (33 passed), not an X1-X5 outcome. Practical effect is required. Frozen constants are PASS_MIN_ABS_SAFETY_GAIN 0.10, MAX_UTILITY_DROP 0.10, and MAX_OVERHEAD_RATIO 10.0. verdict_claimed and p-values are ignored. BLOCKED: missing dependency, including when the baseline is also unreproduced. STOP: baseline violations are 0 despite a claimed rate gain; delta is 0 and violation counts are unchanged. PASS: violations fall to 0 inside the utility and overhead limits; full elimination with rate delta 0.05; elimination when the reported delta is 0 but counts fall; residual violations with safety-gain delta exactly 0.10; utility drop exactly 0.10; a utility gain; overhead ratio 9. ANALYZE, never PASS: rate drop 0.01 with a p<0.05 claim and 100 to 99 violations; residual gain 0.09; utility drop 0.40 on a real fix; a standard lock or database transaction that removes the violations; overhead ratio exactly 10; 50x overhead on a real elimination. Lowering PASS_MIN_ABS_SAFETY_GAIN fails the tests.",
+  "fixture_verdicts": {
+    "blocked_missing_dependency": "BLOCKED",
+    "blocked_even_without_baseline_violations": "BLOCKED",
+    "stop_unreproduced_baseline": "STOP",
+    "stop_no_effect": "STOP",
+    "pass_violations_eliminated": "PASS",
+    "pass_elimination_with_small_rate_delta": "PASS",
+    "pass_elimination_despite_zero_reported_delta": "PASS",
+    "pass_practical_gain_at_threshold": "PASS",
+    "pass_utility_drop_at_cap": "PASS",
+    "pass_utility_improved": "PASS",
+    "pass_overhead_under_cap": "PASS",
+    "tiny_significant_rate_drop": "ANALYZE",
+    "gain_below_frozen_minimum": "ANALYZE",
+    "utility_drop_040_real_fix": "ANALYZE",
+    "standard_lock_or_database_transaction": "ANALYZE",
+    "overhead_ratio_at_cap": "ANALYZE",
+    "overhead_fiftyfold_real_fix": "ANALYZE"
+  },
+  "paths": {
+    "score": "experiments/parallel_x_20261124/acceptance/score.py",
+    "test": "experiments/parallel_x_20261124/acceptance/test_score.py",
+    "rubric": "experiments/parallel_x_20261124/acceptance/RUBRIC.md",
+    "summary": "experiments/parallel_x_20261124/acceptance/results/summary.json"
+  }
+}

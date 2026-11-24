@@ -1,0 +1,6 @@
+BLOCKED: no frozen E9/E10 definition in this checkout
+
+Searched this checkout at 893c6b3fe5e50d1526f2704ca3ae5ed555c4c609: git branch -a, filenames, and git paths.
+Branches include exp/e5-synthetic and exp/e6-eedi, not E9 or E10.
+Watermark stage9/stage10 scripts are not a frozen CA-PD E9/E10 protocol.
+No definition was invented.
