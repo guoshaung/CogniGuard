@@ -1,0 +1,410 @@
+{
+  "plain/bm25": {
+    "asset": {
+      "tp": 52,
+      "fp": 0,
+      "fn": 30,
+      "precision": 1.0,
+      "recall": 0.6341463414634146,
+      "f1": 0.7761194029850746
+    },
+    "units": {
+      "tp": 69,
+      "fp": 0,
+      "fn": 135,
+      "precision": 1.0,
+      "recall": 0.3382352941176471,
+      "f1": 0.5054945054945055
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 82,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 52,
+    "governance": {
+      "requests": 1620,
+      "static_harm": 204,
+      "dynamic_harm": 135,
+      "prevented": 69,
+      "unnecessary_denial": 0
+    }
+  },
+  "plain/bge": {
+    "asset": {
+      "tp": 77,
+      "fp": 27,
+      "fn": 5,
+      "precision": 0.7403846153846154,
+      "recall": 0.9390243902439024,
+      "f1": 0.8279569892473119
+    },
+    "units": {
+      "tp": 73,
+      "fp": 0,
+      "fn": 131,
+      "precision": 1.0,
+      "recall": 0.35784313725490197,
+      "f1": 0.5270758122743683
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 82,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 77,
+    "governance": {
+      "requests": 1620,
+      "static_harm": 204,
+      "dynamic_harm": 131,
+      "prevented": 73,
+      "unnecessary_denial": 0
+    }
+  },
+  "plain/bge_rerank": {
+    "asset": {
+      "tp": 76,
+      "fp": 40,
+      "fn": 6,
+      "precision": 0.6551724137931034,
+      "recall": 0.926829268292683,
+      "f1": 0.7676767676767676
+    },
+    "units": {
+      "tp": 73,
+      "fp": 0,
+      "fn": 131,
+      "precision": 1.0,
+      "recall": 0.35784313725490197,
+      "f1": 0.5270758122743683
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 82,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 76,
+    "governance": {
+      "requests": 1620,
+      "static_harm": 204,
+      "dynamic_harm": 131,
+      "prevented": 73,
+      "unnecessary_denial": 0
+    }
+  },
+  "all/bm25": {
+    "asset": {
+      "tp": 214,
+      "fp": 1,
+      "fn": 113,
+      "precision": 0.9953488372093023,
+      "recall": 0.654434250764526,
+      "f1": 0.7896678966789668
+    },
+    "units": {
+      "tp": 284,
+      "fp": 0,
+      "fn": 519,
+      "precision": 1.0,
+      "recall": 0.35367372353673726,
+      "f1": 0.5225390984360626
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 327,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 214,
+    "governance": {
+      "requests": 6480,
+      "static_harm": 803,
+      "dynamic_harm": 519,
+      "prevented": 284,
+      "unnecessary_denial": 0
+    }
+  },
+  "all/bge": {
+    "asset": {
+      "tp": 308,
+      "fp": 110,
+      "fn": 19,
+      "precision": 0.7368421052631579,
+      "recall": 0.9418960244648318,
+      "f1": 0.8268456375838926
+    },
+    "units": {
+      "tp": 292,
+      "fp": 0,
+      "fn": 511,
+      "precision": 1.0,
+      "recall": 0.36363636363636365,
+      "f1": 0.5333333333333333
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 327,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 308,
+    "governance": {
+      "requests": 6480,
+      "static_harm": 803,
+      "dynamic_harm": 511,
+      "prevented": 292,
+      "unnecessary_denial": 0
+    }
+  },
+  "all/bge_rerank": {
+    "asset": {
+      "tp": 294,
+      "fp": 182,
+      "fn": 33,
+      "precision": 0.6176470588235294,
+      "recall": 0.8990825688073395,
+      "f1": 0.7322540473225405
+    },
+    "units": {
+      "tp": 264,
+      "fp": 0,
+      "fn": 539,
+      "precision": 1.0,
+      "recall": 0.3287671232876712,
+      "f1": 0.4948453608247423
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 327,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 294,
+    "governance": {
+      "requests": 6480,
+      "static_harm": 803,
+      "dynamic_harm": 539,
+      "prevented": 264,
+      "unnecessary_denial": 0
+    }
+  },
+  "plain_model/bm25": {
+    "asset": {
+      "tp": 24,
+      "fp": 0,
+      "fn": 30,
+      "precision": 1.0,
+      "recall": 0.4444444444444444,
+      "f1": 0.6153846153846154
+    },
+    "units": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 135,
+      "precision": 1.0,
+      "recall": 0.014598540145985401,
+      "f1": 0.02877697841726619
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 54,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 24,
+    "governance": {
+      "requests": 972,
+      "static_harm": 137,
+      "dynamic_harm": 135,
+      "prevented": 2,
+      "unnecessary_denial": 0
+    }
+  },
+  "plain_model/bge": {
+    "asset": {
+      "tp": 49,
+      "fp": 18,
+      "fn": 5,
+      "precision": 0.7313432835820896,
+      "recall": 0.9074074074074074,
+      "f1": 0.8099173553719008
+    },
+    "units": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 131,
+      "precision": 1.0,
+      "recall": 0.043795620437956206,
+      "f1": 0.08391608391608392
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 54,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 49,
+    "governance": {
+      "requests": 972,
+      "static_harm": 137,
+      "dynamic_harm": 131,
+      "prevented": 6,
+      "unnecessary_denial": 0
+    }
+  },
+  "plain_model/bge_rerank": {
+    "asset": {
+      "tp": 48,
+      "fp": 24,
+      "fn": 6,
+      "precision": 0.6666666666666666,
+      "recall": 0.8888888888888888,
+      "f1": 0.7619047619047619
+    },
+    "units": {
+      "tp": 6,
+      "fp": 0,
+      "fn": 131,
+      "precision": 1.0,
+      "recall": 0.043795620437956206,
+      "f1": 0.08391608391608392
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 54,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 48,
+    "governance": {
+      "requests": 972,
+      "static_harm": 137,
+      "dynamic_harm": 131,
+      "prevented": 6,
+      "unnecessary_denial": 0
+    }
+  },
+  "all_model/bm25": {
+    "asset": {
+      "tp": 102,
+      "fp": 1,
+      "fn": 113,
+      "precision": 0.9902912621359223,
+      "recall": 0.4744186046511628,
+      "f1": 0.6415094339622641
+    },
+    "units": {
+      "tp": 16,
+      "fp": 0,
+      "fn": 519,
+      "precision": 1.0,
+      "recall": 0.029906542056074768,
+      "f1": 0.05807622504537205
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 215,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 102,
+    "governance": {
+      "requests": 3888,
+      "static_harm": 535,
+      "dynamic_harm": 519,
+      "prevented": 16,
+      "unnecessary_denial": 0
+    }
+  },
+  "all_model/bge": {
+    "asset": {
+      "tp": 196,
+      "fp": 73,
+      "fn": 19,
+      "precision": 0.7286245353159851,
+      "recall": 0.9116279069767442,
+      "f1": 0.8099173553719008
+    },
+    "units": {
+      "tp": 24,
+      "fp": 0,
+      "fn": 511,
+      "precision": 1.0,
+      "recall": 0.044859813084112146,
+      "f1": 0.08586762075134168
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 215,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 196,
+    "governance": {
+      "requests": 3888,
+      "static_harm": 535,
+      "dynamic_harm": 511,
+      "prevented": 24,
+      "unnecessary_denial": 0
+    }
+  },
+  "all_model/bge_rerank": {
+    "asset": {
+      "tp": 191,
+      "fp": 97,
+      "fn": 24,
+      "precision": 0.6631944444444444,
+      "recall": 0.8883720930232558,
+      "f1": 0.7594433399602386
+    },
+    "units": {
+      "tp": 23,
+      "fp": 0,
+      "fn": 512,
+      "precision": 1.0,
+      "recall": 0.04299065420560748,
+      "f1": 0.08243727598566308
+    },
+    "issuance": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 215,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "issuance_candidate_hits": 191,
+    "governance": {
+      "requests": 3888,
+      "static_harm": 535,
+      "dynamic_harm": 512,
+      "prevented": 23,
+      "unnecessary_denial": 0
+    }
+  }
+}
