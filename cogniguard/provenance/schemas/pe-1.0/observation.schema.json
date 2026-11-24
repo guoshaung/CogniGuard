@@ -1,0 +1,444 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/pe-1.0/observation.json",
+  "title": "Observation (pe-1.0)",
+  "description": "One detector output for one artifact and one method. Claims, not facts. Must not carry evaluation labels (field names containing gold/truth/oracle/label/true are rejected anywhere, including extra). Normative text: docs/integration/PROVENANCE_INTERFACE.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observation_id",
+    "artifact_id",
+    "holder_principal_id",
+    "evidence_type",
+    "method_version",
+    "detector_status",
+    "source_candidates",
+    "issuance_candidates",
+    "unit_claims",
+    "confidence",
+    "confidence_kind",
+    "calibration_id",
+    "policy_version",
+    "observed_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "pe-1.0"
+    },
+    "observation_id": {
+      "$ref": "#/$defs/id"
+    },
+    "artifact_id": {
+      "$ref": "#/$defs/id"
+    },
+    "artifact_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "holder_principal_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Concrete principal id or the literal UNKNOWN."
+    },
+    "evidence_type": {
+      "enum": [
+        "fingerprint",
+        "retrieval",
+        "watermark",
+        "joint",
+        "knowledge_bound_watermark",
+        "signed_credential",
+        "trusted_log",
+        "ideal",
+        "mock"
+      ]
+    },
+    "method_version": {
+      "$ref": "#/$defs/id",
+      "description": "Model, detector, codebook or key epoch, threshold set."
+    },
+    "detector_status": {
+      "enum": [
+        "ok",
+        "error"
+      ]
+    },
+    "source_candidates": {
+      "$ref": "#/$defs/candidate_set"
+    },
+    "issuance_candidates": {
+      "$ref": "#/$defs/candidate_set"
+    },
+    "unit_claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unit_claim"
+      }
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Only when confidence_kind = calibrated: P(top claim correct) on calibration split calibration_id. Never an authorization input."
+    },
+    "confidence_kind": {
+      "enum": [
+        "calibrated",
+        "uncalibrated"
+      ]
+    },
+    "calibration_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy_version": {
+      "type": "integer"
+    },
+    "observed_at": {
+      "type": "number"
+    },
+    "event_claim": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/event_claim"
+        }
+      ]
+    },
+    "credential": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/credential"
+        }
+      ]
+    },
+    "extra": {
+      "type": "object",
+      "propertyNames": {
+        "not": {
+          "pattern": "(^|_)([Gg][Oo][Ll][Dd]|[Tt][Rr][Uu][Tt][Hh]|[Oo][Rr][Aa][Cc][Ll][Ee]|[Ll][Aa][Bb][Ee][Ll]|[Tt][Rr][Uu][Ee])(_|$)"
+        }
+      },
+      "description": "Method-private data. Governance code does not read it."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "confidence_kind": {
+            "const": "uncalibrated"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "confidence": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "confidence_kind": {
+            "const": "calibrated"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "confidence": {
+            "type": "number"
+          },
+          "calibration_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_type": {
+            "const": "trusted_log"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "event_claim"
+        ],
+        "properties": {
+          "event_claim": {
+            "$ref": "#/$defs/event_claim"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_type": {
+            "const": "signed_credential"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "credential"
+        ],
+        "properties": {
+          "credential": {
+            "$ref": "#/$defs/credential"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "credential": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_type": {
+            "not": {
+              "enum": [
+                "trusted_log",
+                "ideal",
+                "mock"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "event_claim": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "detector_status": {
+            "const": "error"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "unit_claims": {
+            "maxItems": 0
+          },
+          "source_candidates": {
+            "properties": {
+              "status": {
+                "const": "error"
+              }
+            }
+          },
+          "issuance_candidates": {
+            "properties": {
+              "status": {
+                "const": "error"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "const": "UNKNOWN"
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Method-native; not a probability."
+        }
+      }
+    },
+    "candidate_set": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "found",
+            "none",
+            "not_checked",
+            "error"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "const": "found"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "minItems": 1
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "items": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    "unit": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/id"
+        },
+        {
+          "$ref": "#/$defs/id"
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[resource_id, unit_id]"
+    },
+    "unit_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "presence"
+      ],
+      "properties": {
+        "unit": {
+          "$ref": "#/$defs/unit"
+        },
+        "presence": {
+          "enum": [
+            "present",
+            "absent",
+            "unknown"
+          ]
+        },
+        "score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "event_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "sender_principal_id",
+        "receiver_principal_id"
+      ],
+      "properties": {
+        "event_id": {
+          "$ref": "#/$defs/id"
+        },
+        "sender_principal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receiver_principal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issuance_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "credential": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issuance_id",
+        "signature"
+      ],
+      "properties": {
+        "issuance_id": {
+          "$ref": "#/$defs/id"
+        },
+        "signature": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    }
+  },
+  "propertyNames": {
+    "not": {
+      "pattern": "(^|_)([Gg][Oo][Ll][Dd]|[Tt][Rr][Uu][Tt][Hh]|[Oo][Rr][Aa][Cc][Ll][Ee]|[Ll][Aa][Bb][Ee][Ll]|[Tt][Rr][Uu][Ee])(_|$)"
+    }
+  }
+}

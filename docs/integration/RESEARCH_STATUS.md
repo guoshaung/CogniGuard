@@ -18,11 +18,11 @@
 | 设备 / 负责人 | 分支 | SHA | 是否已推送 | 内容 |
 |---|---|---|---|---|
 | GitHub main | `main` | `5827e4e` | — | 合并到 PR #15（E9、E10、MySQL 可靠性） |
-| 集成 | `integration/provenance-governance` | 见本文件所在提交 | 是 | `pe-0.1` 接口、状态、协议草案、统一组会文档 |
+| 集成 | `integration/provenance-governance` | 见本文件所在提交 | 是 | pe-1.0 接口、X3-E2E 统一入口与冻结协议、状态、统一组会文档 |
 | Mac / Grok | `dev/source-evidence`（主检出 `/Users/MBP/Exp/CogniGuard/CogniGuard`） | `a9f122e` | **否**，比 main@`1cb6f7b` 多 2 个提交 | `experiments/parallel_x_20261124/`（X1–X5 开发扫描、x1/x3 诊断、组会记录） |
 | Mac / Grok 子代理 | 8 个 `~/.grok/worktrees/.../subagent-*`，都在 `dev/confidential-secrets@893c6b3` | `893c6b3` | 基点已推送；每个工作树有 3 个未提交文件 | 未触碰 |
 | GPU / Codex | `codex/hsw-st` | `9be4d73`（GitHub 最新，11-21） | 是 | KOSW 阶段 1、AFK 阶段 0 |
-| GPU / Codex | 含 `d7239c4` 的分支、`experiments/hsw_provenance/` | `d7239c4` | **否**：CogniGuard 和 research-sync 两个仓库都查不到 | 无法审查 |
+| GPU / Codex | `codex/hsw-st`（已含 `d7239c4`、`hsw_provenance/`、`hsw_provenance_next/`） | `065bb82` | 是 | KBPW M1–M3、内容基线、Qwen 7B 真实传播试点 |
 | Windows | 无专属分支；`codex/hsw-st` 中有 Windows KOSW 入口（`ed52e02`） | — | — | 未能从本机直接核对 Windows 工作区 |
 | Mac / Claude | `exp/e5-synthetic`、`exp/e6-eedi`、`exp/e3b2-paraphrase`、`dev/predicate-meter`、`data/confidential-datasets` | 均已并入 main | 是 | — |
 
@@ -39,7 +39,7 @@
 | `ProtectedTarget` / `TargetRegistry` | `cogniguard/governance/targets.py` | main |
 | `LexicalMeter`、`PredicateMeter` | `cogniguard/runtime/meters.py` | main |
 | `DomainEvidence` / `EvidenceEnvelope` | `cogniguard/governance/evidence.py` | main |
-| **`ProvenanceEvidence`（pe-0.1）**、`augment_knowledge`、`trusted_event_credits` | `cogniguard/governance/provenance_evidence.py` | **本分支新增**；门尚未接线（Grok） |
+| **来源证据接口 pe-1.0**（Observation、核验、三层状态、四接口、契约） | `cogniguard/provenance/` | **本分支，已冻结**；取代 pe-0.1。模块与联动状态见 `INTEGRATION_STATUS.md` |
 
 ## 4. 正式冻结实验与结果
 
@@ -60,7 +60,7 @@
 
 | # | 问题 | 负责人 | 阻塞什么 |
 |---|---|---|---|
-| 1 | `d7239c4` 及 `experiments/hsw_provenance/` 未推送 | Codex | 水印审查、X3-E2E |
+| 1 | Codex 新一轮真实检测（KBPW、片段曲线、Gate W0-Real）推送并固定 SHA | Codex | X3-E2E 正式运行 |
 | 2 | 真实水印的片段长度—检出率曲线（5/20/50/100 词）。W0-1 的价值只在 5 词片段、且来自理想假设 | Codex | 是否投入 GPU、X3-E2E 的 fragment 条件 |
 | 3 | 核心机制的增量价值：并行扫描显示，现有门 + 提交复核 + 签名凭证已覆盖 X1–X3 的安全洞 | Grok | 核心贡献能否成立 |
 | 4 | 门接线 `augment_knowledge` | Grok | X3-E2E |

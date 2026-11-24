@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/pe-1.0/gold.json",
+  "title": "Evaluation gold (pe-1.0)",
+  "description": "Read ONLY by the scorer (experiments/x3_e2e_integration/score.py). Governance code must never open this file; the runner never receives its path.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "scenario_id", "true_holdings"],
+  "properties": {
+    "schema_version": {"const": "pe-1.0"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "true_holdings": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}}}},
+    "true_events": {"type": "array", "items": {"type": "object", "required": ["event_id", "sender_principal_id", "receiver_principal_id"]}},
+    "artifact_issuances": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+    "artifact_sources": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+    "artifact_units": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "string"}}}}
+  }
+}

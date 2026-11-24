@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cogniguard.local/schema/pe-1.0/scenario.json",
+  "title": "X3-E2E scenario (pe-1.0)",
+  "description": "Everything governance may see: principals, grants, targets, receipts, observed artifacts and requests. No evaluation labels.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "scenario_id", "domain", "org_id", "principals", "resources", "grants",
+               "targets", "receipts", "artifacts", "requests", "k", "f"],
+  "properties": {
+    "schema_version": {"const": "pe-1.0"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "domain": {"enum": ["education", "software", "mock"]},
+    "org_id": {"type": "string"},
+    "principals": {"type": "array", "items": {"type": "object", "required": ["principal_id", "role"],
+                    "properties": {"principal_id": {"type": "string"}, "role": {"enum": ["teacher", "student", "admin", "agent"]}}}},
+    "resources": {"type": "array", "items": {"type": "object", "required": ["resource_id", "owner_principal_id"]}},
+    "grants": {"type": "array", "items": {"type": "object", "required": ["grantee_principal_id", "resource_id", "purpose"]}},
+    "targets": {"type": "array", "items": {"type": "object", "required": ["target_id", "owner_principal_id", "witness_sets"]}},
+    "unit_phrasings": {"type": "object"},
+    "receipts": {"type": "object"},
+    "artifacts": {"type": "array", "items": {"type": "object", "required": ["artifact_id", "holder_principal_id", "observed_at"],
+                   "properties": {"text": {"type": ["string", "null"]}, "text_sha256": {"type": ["string", "null"]}}}},
+    "requests": {"type": "array", "items": {"type": "object", "required": ["request_id", "principal_id", "purpose", "release_units", "now"]}},
+    "k": {"type": "integer", "minimum": 1},
+    "f": {"type": "integer", "minimum": 0}
+  }
+}
