@@ -27,6 +27,7 @@ I_coal, final expected coalition Bayes vulnerability, max individual leakage, wo
 from __future__ import annotations
 
 import itertools
+import gzip
 import json
 import math
 import random
@@ -214,8 +215,8 @@ def main():
     jobs = [(n, N, s) for n in NAMES for N in (1, 2, 3, 4) for s in range(24)]
     with Pool(9) as pool:
         res = [r for r in pool.imap_unordered(episode, jobs, chunksize=2)]
-    (OUT / "cand_c_raw.json").write_text(json.dumps(res) + "\n")
-    (OUT / "cand_c_pid_witness.json").write_text(json.dumps(pid_vs_witness()) + "\n")
+    gzip.open(OUT / "cand_c_raw.json.gz", "wt").write(json.dumps(res) + "\n")
+    gzip.open(OUT / "cand_c_pid_witness.json.gz", "wt").write(json.dumps(pid_vs_witness()) + "\n")
     print(len(res))
 
 

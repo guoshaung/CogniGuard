@@ -25,6 +25,7 @@ Two-step extension: myopic per-step LP versus joint two-step LP.
 from __future__ import annotations
 
 import itertools
+import gzip
 import json
 import math
 import random
@@ -328,7 +329,7 @@ def main():
     with Pool(9) as pool:
         one = [r for r in pool.imap_unordered(run, jobs, chunksize=4) if r]
         two = [r for r in pool.imap_unordered(two_step, [j for j in jobs if j[1] < 12], chunksize=2) if r]
-    (OUT / "cand_b_raw.json").write_text(json.dumps({"one_step": one, "two_step": two}) + "\n")
+    gzip.open(OUT / "cand_b_raw.json.gz", "wt").write(json.dumps({"one_step": one, "two_step": two}) + "\n")
     print(len(one), len(two))
 
 

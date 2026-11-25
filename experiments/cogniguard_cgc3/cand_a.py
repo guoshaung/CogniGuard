@@ -25,6 +25,7 @@ Every policy is evaluated EXACTLY by dynamic programming over (t, K) under the T
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import math
 import random
@@ -239,7 +240,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     with Pool(9) as pool:
         res = [r for r in pool.imap_unordered(run, jobs, chunksize=2) if r]
-    (OUT / "cand_a_raw.json").write_text(json.dumps(res) + "\n")
+    gzip.open(OUT / "cand_a_raw.json.gz", "wt").write(json.dumps(res) + "\n")
     print(len(res))
 
 

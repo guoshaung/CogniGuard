@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gzip
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -23,7 +24,7 @@ def boot(d, n=4000):
 # ------------------------------------------------------------------ A
 
 def analyze_a():
-    rows = json.loads((R / "cand_a_raw.json").read_text())
+    rows = json.loads(gzip.open(R / "cand_a_raw.json.gz").read())
     H = 6
     pols = list(rows[0]["res"])
     out = {"n_instances": len(rows), "by_budget": {}, "paired": {}, "robust": {}, "time_ms_per_decision": {}}
@@ -71,7 +72,7 @@ def analyze_a():
 # ------------------------------------------------------------------ B
 
 def analyze_b():
-    raw = json.loads((R / "cand_b_raw.json").read_text())
+    raw = json.loads(gzip.open(R / "cand_b_raw.json.gz").read())
     one, two = raw["one_step"], raw["two_step"]
     mechs = ["CAPD_VI", "CAPD_F", "CAPD_F_DEG", "SIM", "SIM_DEG", "RAND", "LP_CONTENT", "LP_SIMUL", "LP_NODEG",
              "LP_JOINT", "LP_EXP_SIMUL", "RAND_EXP", "LP_EXP"]
@@ -113,7 +114,7 @@ def fam(label):
 
 
 def analyze_c():
-    rows = json.loads((R / "cand_c_raw.json").read_text())
+    rows = json.loads(gzip.open(R / "cand_c_raw.json.gz").read())
     labels = list(rows[0]["res"])
     out = {"n_episodes": len(rows), "matched": {}, "fronts": {}, "pid_witness": {}}
     for N in ("all", 1, 2, 3, 4):
@@ -142,7 +143,7 @@ def analyze_c():
                     if ref and m[key].get(f):
                         m[key][f"{f} - ref"] = boot([r["res"][m[key][f]["label"]]["served"] - r["res"][ref["label"]]["served"] for r in rs])
         out["matched"][str(N)] = m
-    pw = json.loads((R / "cand_c_pid_witness.json").read_text())
+    pw = json.loads(gzip.open(R / "cand_c_pid_witness.json.gz").read())
     for tag in ("syn_imin", "syn_mmi"):
         c = np.array([r["cross"] for r in pw], bool)
         s = np.array([r[tag] for r in pw])
