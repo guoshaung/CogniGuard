@@ -1,0 +1,12 @@
+{"id": "sequence-1-eval-1", "status": "FAIL", "reason": "Gives twenty-five after writing seven plus five.", "decoded_sources": []}
+{"id": "sequence-1-eval-2", "status": "PASS", "reason": "Identifies difference 5 and computes 7+5=12.", "decoded_sources": []}
+{"id": "sequence-2-eval-1", "status": "PASS", "reason": "Adds 5 to first entry 7 and obtains 12.", "decoded_sources": []}
+{"id": "sequence-2-eval-2", "status": "UNKNOWN", "reason": "Correct arithmetic followed by an unsupported, truncated bibliography.", "decoded_sources": []}
+{"id": "resistance-1-eval-1", "status": "FAIL", "reason": "Claims current is directly proportional to resistance and misses 2 A.", "decoded_sources": []}
+{"id": "resistance-1-eval-2", "status": "FAIL", "reason": "Claims each additional volt adds one ampere at this resistance and misses 2 A.", "decoded_sources": []}
+{"id": "resistance-2-eval-1", "status": "FAIL", "reason": "Claims zero current and later 2 A in the same answer.", "decoded_sources": []}
+{"id": "resistance-2-eval-2", "status": "FAIL", "reason": "Contradicts direct proportionality and gives 0.33 A.", "decoded_sources": []}
+{"id": "probability-1-eval-1", "status": "FAIL", "reason": "Correct 1/4 without the requested rule and repeats registry label.", "decoded_sources": []}
+{"id": "probability-1-eval-2", "status": "FAIL", "reason": "Correct 1/4 but claims the second toss always matches the first.", "decoded_sources": []}
+{"id": "probability-2-eval-1", "status": "FAIL", "reason": "Correct 1/4 without explanation or multiplication rule.", "decoded_sources": []}
+{"id": "probability-2-eval-2", "status": "FAIL", "reason": "Correct 1/4 but claims the second toss always matches the first.", "decoded_sources": []}

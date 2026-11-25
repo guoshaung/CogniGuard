@@ -1,0 +1,6 @@
+{
+  "train": null,
+  "inference_seconds": 1.9905312545597553,
+  "load_seconds": 0.9556121490895748,
+  "gpu_peak_mib": 1036.3974609375
+}

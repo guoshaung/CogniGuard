@@ -107,8 +107,9 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     write_rows(args.out / "train.jsonl", train)
     write_rows(args.out / "evaluate.jsonl", evaluation)
+    write_rows(args.out / "generate.jsonl", [{k: row[k] for k in ("id", "prompt")} for row in evaluation])
     manifest = {f"{name}.jsonl": hashlib.sha256((args.out / f"{name}.jsonl").read_bytes()).hexdigest()
-                for name in ("train", "evaluate")}
+                for name in ("train", "evaluate", "generate")}
     (args.out / "MANIFEST.json").write_text(json.dumps(dict(frozen_commit="06d9259", train=12, evaluation=18,
                                                            sha256=manifest), indent=2) + "\n",
                                            encoding="utf-8", newline="\n")

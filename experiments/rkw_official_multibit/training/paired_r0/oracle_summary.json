@@ -1,0 +1,26 @@
+{
+  "unseen_unmarked": {
+    "expected_rows": 6,
+    "rows": 6,
+    "source_exact": 0,
+    "source_wrong": 0,
+    "source_abstain": 6,
+    "output_label_repeated": 0,
+    "final_answer_pattern": 6,
+    "rule_pattern": 6,
+    "both_knowledge_patterns": 6,
+    "exact_and_knowledge": 0
+  },
+  "same_source_new_question": {
+    "expected_rows": 12,
+    "rows": 12,
+    "source_exact": 12,
+    "source_wrong": 0,
+    "source_abstain": 0,
+    "output_label_repeated": 0,
+    "final_answer_pattern": 12,
+    "rule_pattern": 12,
+    "both_knowledge_patterns": 12,
+    "exact_and_knowledge": 12
+  }
+}
