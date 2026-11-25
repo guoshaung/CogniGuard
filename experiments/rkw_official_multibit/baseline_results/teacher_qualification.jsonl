@@ -1,0 +1,36 @@
+{"id": "sequence-1-train-1", "arm": "unmarked", "decision": "error", "reason": "Correct 12 followed by claim that first and second terms are registry ID."}
+{"id": "sequence-1-train-2", "arm": "unmarked", "decision": "qualified", "reason": "Lists 7, 12, 17 and specifies common difference 5."}
+{"id": "sequence-2-train-1", "arm": "unmarked", "decision": "error", "reason": "Incorrectly says difference increases by 1."}
+{"id": "sequence-2-train-2", "arm": "unmarked", "decision": "error", "reason": "Identifies the second term as 17."}
+{"id": "resistance-1-train-1", "arm": "unmarked", "decision": "error", "reason": "Reports 0.15 A."}
+{"id": "resistance-1-train-2", "arm": "unmarked", "decision": "incomplete", "reason": "Stops at I =."}
+{"id": "resistance-2-train-1", "arm": "unmarked", "decision": "incomplete", "reason": "States Ohm's law without computing 2 A."}
+{"id": "resistance-2-train-2", "arm": "unmarked", "decision": "error", "reason": "Treats registry label as a 2 Ω resistance."}
+{"id": "probability-1-train-1", "arm": "unmarked", "decision": "incomplete", "reason": "States 1/4 but stops before explaining the required probability rule."}
+{"id": "probability-1-train-2", "arm": "unmarked", "decision": "incomplete", "reason": "States multiplication rule and stops mid-calculation."}
+{"id": "probability-2-train-1", "arm": "unmarked", "decision": "incomplete", "reason": "States multiplication rule but stops before result."}
+{"id": "probability-2-train-2", "arm": "unmarked", "decision": "incomplete", "reason": "Stops before result."}
+{"id": "sequence-1-train-1", "arm": "kgw", "decision": "incomplete", "reason": "Stops at 7 + 5 =."}
+{"id": "sequence-1-train-2", "arm": "kgw", "decision": "error", "reason": "Derives 30 as second term after listing the correct values."}
+{"id": "sequence-2-train-1", "arm": "kgw", "decision": "incomplete", "reason": "Gives 12 but leaves increment unspecified and stops mid-explanation."}
+{"id": "sequence-2-train-2", "arm": "kgw", "decision": "error", "reason": "Uses a+20 as second term."}
+{"id": "resistance-1-train-1", "arm": "kgw", "decision": "incomplete", "reason": "States formula but no numerical current."}
+{"id": "resistance-1-train-2", "arm": "kgw", "decision": "incomplete", "reason": "Stops at R =."}
+{"id": "resistance-2-train-1", "arm": "kgw", "decision": "incomplete", "reason": "States formula but stops before substituting values."}
+{"id": "resistance-2-train-2", "arm": "kgw", "decision": "incomplete", "reason": "Stops at denominator during calculation."}
+{"id": "probability-1-train-1", "arm": "kgw", "decision": "error", "reason": "Calls heads the only possible outcome and substitutes tails for the second head."}
+{"id": "probability-1-train-2", "arm": "kgw", "decision": "incomplete", "reason": "Gives the one-toss probability only."}
+{"id": "probability-2-train-1", "arm": "kgw", "decision": "incomplete", "reason": "Stops before rule and result."}
+{"id": "probability-2-train-2", "arm": "kgw", "decision": "error", "reason": "States there is only one head in the four equiprobable outcomes, then stops."}
+{"id": "sequence-1-train-1", "arm": "textseal", "decision": "incomplete", "reason": "States increment and first term, then stops before result."}
+{"id": "sequence-1-train-2", "arm": "textseal", "decision": "incomplete", "reason": "Stops at the nth-term formula."}
+{"id": "sequence-2-train-1", "arm": "textseal", "decision": "incomplete", "reason": "Starts but truncates numerical calculation."}
+{"id": "sequence-2-train-2", "arm": "textseal", "decision": "incomplete", "reason": "Stops at the nth-term formula."}
+{"id": "resistance-1-train-1", "arm": "textseal", "decision": "error", "reason": "Reports 1 A and gives an unrelated equation."}
+{"id": "resistance-1-train-2", "arm": "textseal", "decision": "incomplete", "reason": "States Ohm’s law but stops before the result."}
+{"id": "resistance-2-train-1", "arm": "textseal", "decision": "error", "reason": "Correct 2 A followed by an incorrect claim that resistance is the proportionality constant for current vs voltage."}
+{"id": "resistance-2-train-2", "arm": "textseal", "decision": "incomplete", "reason": "States resistance, then stops before voltage and current."}
+{"id": "probability-1-train-1", "arm": "textseal", "decision": "incomplete", "reason": "States the one-toss probability only."}
+{"id": "probability-1-train-2", "arm": "textseal", "decision": "incomplete", "reason": "Stops before the two-toss calculation."}
+{"id": "probability-2-train-1", "arm": "textseal", "decision": "incomplete", "reason": "Begins the two-toss probability notation but gives no result."}
+{"id": "probability-2-train-2", "arm": "textseal", "decision": "incomplete", "reason": "Stops before the probability calculation."}

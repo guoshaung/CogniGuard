@@ -1,0 +1,27 @@
+{
+  "input_sha256": "c2ef1852aeaa224cb94fc45e6ff1f4a151ec8652e5a64ec1642cdedc4e5e9ee6",
+  "adapter_sha256": "d9eee4120982cdba6e010a7a0fa1332a37f8ed1a9ccd0fea4552b8843d53cd89",
+  "device": "cuda",
+  "model": "/root/autodl-tmp/hsw-provenance/qwen05",
+  "model_weight_sha256": "recorded_at_run_before_generation",
+  "split": "train",
+  "samples": 12,
+  "seed": 61126,
+  "batch_size": 4,
+  "max_new_tokens": 48,
+  "temperature": 0.8,
+  "top_p": 0.95,
+  "arms": [
+    "unmarked",
+    "kgw",
+    "textseal"
+  ],
+  "textseal_revision": "23f921f0646a22848934f0e6700de0671c28b889",
+  "kgw_gamma": 0.25,
+  "kgw_delta": 2,
+  "kgw_ngram": 4,
+  "textseal_ngram": 3,
+  "textseal_alpha": 0.1,
+  "textseal_detection": "v1 unweighted",
+  "textseal_key": 61126
+}
