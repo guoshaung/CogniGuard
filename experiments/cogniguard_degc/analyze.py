@@ -109,7 +109,8 @@ def stage_b(tag):
 def sim():
     rows = []
     for f in sorted((D / "sim").glob("sim_k*.json")):
-        rows += json.loads(f.read_text())
+        grp = "small40" if "small40" in f.name else "main"
+        rows += [{**r, "k": f"{r['k']}" + ("" if grp == "main" else "-small40")} for r in json.loads(f.read_text())]
     out = {}
     for k in sorted({r["k"] for r in rows}):
         rk = [r for r in rows if r["k"] == k]
@@ -144,11 +145,14 @@ def plots(res):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     show = ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "OCL", "EC2", "Ours", "Oracle"]
-    col = {"B1": "#888888", "B2": "#1f77b4", "B3": "#9467bd", "B4": "#bcbd22", "B5": "#17becf", "B6": "#8c564b",
-           "B7": "#ff7f0e", "B8": "#7f7f7f", "OCL": "#e377c2", "EC2": "#2ca02c", "Ours": "#d62728", "Oracle": "#000000"}
+    col = {"B1": "#b0b0b0", "B2": "#1f77b4", "B3": "#9467bd", "B4": "#bcbd22", "B5": "#17becf", "B6": "#8c564b",
+           "B7": "#ff7f0e", "B8": "#3b3b3b", "OCL": "#e377c2", "EC2": "#2ca02c", "Ours": "#d62728", "Oracle": "#000000"}
     panels = [("llm_noisy_or", "Stage B, real LLM verifier"), ("oracle_noisy_or", "Stage B, ideal verifier (upper bound)")]
-    sims = res.get("sim", {})
-    fig, axes = plt.subplots(1, len(panels) + len(sims), figsize=(4.6 * (len(panels) + len(sims)), 4.2))
+    sims = {k: v for k, v in res.get("sim", {}).items() if "small" not in str(k)}
+    fig, axs = plt.subplots(2, 3, figsize=(14, 8.4))
+    axes = list(axs.flat)
+    for ax in axes[len(panels) + len(sims):]:
+        ax.axis("off")
     for ax, (tag, title) in zip(axes, panels):
         fr = res["stage_b"][tag]["fronts"]
         for a in show:
@@ -172,7 +176,7 @@ def plots(res):
         ax.set_title(f"Controlled simulation, k={k}", fontsize=10)
         ax.grid(alpha=.25)
     h, l = axes[0].get_legend_handles_labels()
-    fig.legend(h, l, loc="lower center", ncol=6, fontsize=8, bbox_to_anchor=(0.5, -0.08))
+    fig.legend(h, l, loc="lower right", ncol=2, fontsize=8, bbox_to_anchor=(0.98, 0.08))
     fig.tight_layout()
     out = Path(__file__).parent / "results" / "figures"
     out.mkdir(parents=True, exist_ok=True)

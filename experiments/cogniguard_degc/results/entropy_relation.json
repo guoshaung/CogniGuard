@@ -1,0 +1,77 @@
+{
+ "n_answers": 571,
+ "n_new_reconstructions": 94,
+ "dR_as_predictor": {
+  "brier": 0.036173644580702276,
+  "ece": 0.047978430934499695
+ },
+ "reliability_dR_bins": {
+  "-1": {
+   "n": 10,
+   "observed_rate": 0.0
+  },
+  "0": {
+   "n": 474,
+   "observed_rate": 0.02531645569620253
+  },
+  "1": {
+   "n": 1,
+   "observed_rate": 1.0
+  },
+  "2": {
+   "n": 1,
+   "observed_rate": 1.0
+  },
+  "3": {
+   "n": 3,
+   "observed_rate": 1.0
+  },
+  "4": {
+   "n": 1,
+   "observed_rate": 1.0
+  },
+  "5": {
+   "n": 11,
+   "observed_rate": 0.8181818181818182
+  },
+  "6": {
+   "n": 2,
+   "observed_rate": 1.0
+  },
+  "7": {
+   "n": 31,
+   "observed_rate": 0.9354838709677419
+  },
+  "8": {
+   "n": 30,
+   "observed_rate": 0.9666666666666667
+  },
+  "9": {
+   "n": 7,
+   "observed_rate": 1.0
+  }
+ },
+ "decision_error_by_state_entropy_bin(delta=0.05)": {
+  "0.0": {
+   "n": 458,
+   "error_rate": 0.004366812227074236
+  },
+  "0.2": {
+   "n": 27,
+   "error_rate": 0.1111111111111111
+  },
+  "0.4": {
+   "n": 20,
+   "error_rate": 0.0
+  },
+  "0.6": {
+   "n": 40,
+   "error_rate": 0.05
+  },
+  "0.8": {
+   "n": 26,
+   "error_rate": 0.11538461538461539
+  }
+ },
+ "note": "leakage bits L are a monotone transform of R, so their relation to Z is that of R"
+}

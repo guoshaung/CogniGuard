@@ -1,0 +1,6506 @@
+{
+ "stage_b": {
+  "llm_noisy_or": {
+   "calibration": {
+    "detector_naive_confidence": {
+     "brier": 0.24782841832347294,
+     "ece": 0.3907808097929593
+    },
+    "detector_calibrated_oof": {
+     "brier": 0.01560918606965246,
+     "ece": 0.004700411996875973
+    },
+    "verifier_calibrated_oof": {
+     "brier": 0.057953161271124175,
+     "ece": 0.007135259637794493
+    },
+    "verifier_vs_reference": {
+     "n": 4592,
+     "unparsed": 0,
+     "precision": 0.5312783318223028,
+     "recall": 0.9965986394557823,
+     "agreement": 0.8869773519163763,
+     "recall_bridge": 1.0,
+     "recall_distinct": 0.9956709956709957
+    }
+   },
+   "fronts": {
+    "B0": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.2288135593220339
+     }
+    ],
+    "B1": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.22033898305084745
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.2711864406779661
+     }
+    ],
+    "B4-cal": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "new_rec": 0.2461864406779661
+     }
+    ],
+    "B5-cal": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3728813559322034
+     },
+     {
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      },
+      "calls": 1713,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "B6-cal": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "calls": 35,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      },
+      "calls": 240,
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 3,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      },
+      "calls": 511,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     }
+    ],
+    "B8-cal": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 4552,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "new_rec": 0.03389830508474576
+     }
+    ],
+    "EC2": [
+     {
+      "config": {
+       "delta": 0.2,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 3,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 8,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 22,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.03389830508474576
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 50,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 63,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.999,
+       "combine": "noisy_or"
+      },
+      "calls": 92,
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      },
+      "calls": 122,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "HZ": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 15,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.2,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 3,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 8,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 22,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.03389830508474576
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 50,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 63,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.999,
+       "combine": "noisy_or"
+      },
+      "calls": 92,
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      },
+      "calls": 122,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.18025210084033613,
+      "over_refusal": 0.02411764705882353,
+      "new_rec": 0.18601694915254238
+     },
+     {
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "calls": 1142,
+      "harmful": 0.1550420168067227,
+      "over_refusal": 0.024705882352941175,
+      "new_rec": 0.15677966101694915
+     },
+     {
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      },
+      "calls": 1713,
+      "harmful": 0.11428571428571428,
+      "over_refusal": 0.02588235294117647,
+      "new_rec": 0.1114406779661017
+     }
+    ],
+    "B5": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "calls": 1142,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     },
+     {
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      },
+      "calls": 1713,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "B8": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 4552,
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.0
+     }
+    ]
+   },
+   "same_budget": {
+    "0": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B8": null
+    },
+    "25": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B8": null
+    },
+    "50": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B8": null
+    },
+    "100": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "calls": 92,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "calls": 92,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B8": null
+    },
+    "250": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "harmful": 0.025210084033613446,
+      "over_refusal": 0.023529411764705882,
+      "calls": 240,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B8": null
+    },
+    "600": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4-cal": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B5-cal": {
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6-cal": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 511,
+      "config": {
+       "delta": 0.05,
+       "cap": 3,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.18025210084033613,
+      "over_refusal": 0.02411764705882353,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null
+    },
+    "1200": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4-cal": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B5-cal": {
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6-cal": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 511,
+      "config": {
+       "delta": 0.05,
+       "cap": 3,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.1550420168067227,
+      "over_refusal": 0.024705882352941175,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null
+    },
+    "5000": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4-cal": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B5-cal": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      }
+     },
+     "B6-cal": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 511,
+      "config": {
+       "delta": 0.05,
+       "cap": 3,
+       "vcost": 0.0,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 122,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.999,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.11428571428571428,
+      "over_refusal": 0.02588235294117647,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "harmful": 0.01680672268907563,
+      "over_refusal": 0.03529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    }
+   },
+   "same_harm": {
+    "0.06": {
+     "B0": null,
+     "B1": null,
+     "B2": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": {
+      "benign_success": 0.680672268907563,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "0.045": {
+     "B0": null,
+     "B1": null,
+     "B2": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8-cal": null,
+     "OCL": null,
+     "EC2": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    }
+   },
+   "same_both": {
+    "harm<=0.06,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 761.7355000125244
+     },
+     "B8-cal": null,
+     "OCL": null,
+     "EC2": {
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 4.219291964545846
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 3.377165994606912
+     },
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 0.015457975678145885
+     },
+     "B4": null,
+     "B5": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1599.097582989838
+     },
+     "B6": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1683.0349580077454
+     },
+     "B8": null
+    },
+    "harm<=0.045,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 761.7355000125244
+     },
+     "B8-cal": null,
+     "OCL": null,
+     "EC2": {
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 842.5999159598723
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 50,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 839.1958749936894
+     },
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 0.015457975678145885
+     },
+     "B4": null,
+     "B5": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1599.097582989838
+     },
+     "B6": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1683.0349580077454
+     },
+     "B8": null
+    },
+    "harm<=0.035,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4-cal": null,
+     "B5-cal": null,
+     "B6-cal": null,
+     "B7": {
+      "calls": 35,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 761.7355000125244
+     },
+     "B8-cal": null,
+     "OCL": null,
+     "EC2": {
+      "calls": 63,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 844.280209002085
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 63,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 841.7556660505943
+     },
+     "Oracle": null,
+     "B4": null,
+     "B5": {
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 3044.022042018827
+     },
+     "B6": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1683.0349580077454
+     },
+     "B8": null
+    }
+   },
+   "paired": {
+    "Ours vs B7 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": 0.0,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      50,
+      240
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      50,
+      50
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.025210084033613446,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      50,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": 0.0,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      59,
+      422
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      59,
+      59
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.025210084033613446,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      59,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": -0.01680672268907563,
+      "hi": 0.05042016806722689
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      223
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      22
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": -0.008403361344537815,
+      "lo": -0.025210084033613446,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.03361344537815126,
+      "lo": 0.008403361344537815,
+      "hi": 0.06722689075630252
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      398
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      24
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": -0.008403361344537815,
+      "lo": -0.025210084033613446,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.03361344537815126,
+      "lo": 0.008403361344537815,
+      "hi": 0.06722689075630252
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      218
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      8
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": -0.04201680672268908,
+      "lo": -0.08403361344537816,
+      "hi": -0.008403361344537815
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.04201680672268908,
+      "lo": 0.008403361344537815,
+      "hi": 0.08403361344537816
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      388
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      9
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": -0.04201680672268908,
+      "lo": -0.08403361344537816,
+      "hi": -0.008403361344537815
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      0
+     ]
+    }
+   }
+  },
+  "oracle_noisy_or": {
+   "calibration": {
+    "detector_naive_confidence": {
+     "brier": 0.24782841832347294,
+     "ece": 0.3907808097929593
+    },
+    "detector_calibrated_oof": {
+     "brier": 0.01560918606965246,
+     "ece": 0.004700411996875973
+    },
+    "verifier_calibrated_oof": {
+     "brier": 0.03677795678097349,
+     "ece": 0.004024032222975216
+    },
+    "verifier_vs_reference": {
+     "n": 2157,
+     "unparsed": 2435,
+     "precision": 0.5073529411764706,
+     "recall": 1.0,
+     "agreement": 0.875753361149745,
+     "recall_bridge": 1.0,
+     "recall_distinct": 1.0
+    }
+   },
+   "fronts": {
+    "B0": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.2288135593220339
+     }
+    ],
+    "B1": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.22033898305084745
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.09243697478991597,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.06779661016949153
+     },
+     {
+      "config": {
+       "cap": 2,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "calls": 1142,
+      "harmful": 0.07563025210084033,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0423728813559322
+     },
+     {
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "calls": 1713,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.18739495798319328,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.18983050847457628
+     },
+     {
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "calls": 1142,
+      "harmful": 0.1726890756302521,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.16779661016949152
+     },
+     {
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      },
+      "calls": 1713,
+      "harmful": 0.13991596638655462,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.12627118644067797
+     }
+    ],
+    "B5": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.03389830508474576
+     },
+     {
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "calls": 1142,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "calls": 571,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "calls": 33,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     }
+    ],
+    "B8": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 4552,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "new_rec": 0.03389830508474576
+     }
+    ],
+    "EC2": [
+     {
+      "config": {
+       "delta": 0.2,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 3,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 8,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 22,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.03389830508474576
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 45,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 56,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     }
+    ],
+    "HZ": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 15,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.01694915254237288
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.2,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 3,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 8,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 22,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.03389830508474576
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 45,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "calls": 56,
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.00847457627118644
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {
+       "combine": "noisy_or"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ]
+   },
+   "same_budget": {
+    "0": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "25": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "50": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "100": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "250": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "600": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.09243697478991597,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.18739495798319328,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "1200": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.07563025210084033,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.1726890756302521,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "5000": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "B2": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4": {
+      "harmful": 0.13991596638655462,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "combine": "noisy_or"
+      }
+     },
+     "B5": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "harmful": 0.03361344537815126,
+      "over_refusal": 0.023529411764705882,
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    }
+   },
+   "same_harm": {
+    "0.06": {
+     "B0": null,
+     "B1": null,
+     "B2": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "OCL": {
+      "benign_success": 0.680672268907563,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "EC2": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    },
+    "0.045": {
+     "B0": null,
+     "B1": null,
+     "B2": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "noisy_or"
+      }
+     },
+     "B3": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      }
+     },
+     "B4": null,
+     "B5": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      }
+     },
+     "B6": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      }
+     },
+     "B7": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      }
+     },
+     "B8": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      }
+     },
+     "OCL": null,
+     "EC2": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "HZ": {
+      "benign_success": 0.6890756302521008,
+      "over_refusal": 0.03529411764705882,
+      "calls": 15,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Ours": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      }
+     },
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      }
+     }
+    }
+   },
+   "same_both": {
+    "harm<=0.06,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": {
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 3890.046500004828
+     },
+     "B4": null,
+     "B5": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1395.0152920256369
+     },
+     "B6": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1564.0185000244528
+     },
+     "B7": {
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 8.269458019640297
+     },
+     "B8": {
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 10961.13283296721
+     },
+     "OCL": null,
+     "EC2": {
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 0.7783340406604111
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 22,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1.0201669647358358
+     },
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 0.023707980290055275
+     }
+    },
+    "harm<=0.045,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": {
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "delta": 0.1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 3890.046500004828
+     },
+     "B4": null,
+     "B5": {
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 2619.021415995434
+     },
+     "B6": {
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 1564.0185000244528
+     },
+     "B7": {
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 8.269458019640297
+     },
+     "B8": {
+      "calls": 4552,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 10961.13283296721
+     },
+     "OCL": null,
+     "EC2": {
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 655.9957090048119
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 45,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 655.5767909721471
+     },
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "noisy_or"
+      },
+      "p95_ms": 0.023707980290055275
+     }
+    },
+    "harm<=0.035,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": {
+      "calls": 1142,
+      "config": {
+       "cap": 2,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 2619.021415995434
+     },
+     "B6": null,
+     "B7": {
+      "calls": 33,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 8.269458019640297
+     },
+     "B8": null,
+     "OCL": null,
+     "EC2": {
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 656.7183750430122
+     },
+     "HZ": null,
+     "Ours": {
+      "calls": 56,
+      "config": {
+       "delta": 0.02,
+       "cap": 3,
+       "level": 0.9,
+       "combine": "noisy_or"
+      },
+      "p95_ms": 656.6103749773465
+     },
+     "Oracle": null
+    }
+   },
+   "paired": {
+    "Ours vs B7 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      45,
+      241
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      45,
+      45
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.025210084033613446,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      45,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.025210084033613446,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      54,
+      417
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      54,
+      54
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.025210084033613446,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      54,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.008403361344537815,
+      "lo": 0.0,
+      "hi": 0.025210084033613446
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      225
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      22
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": -0.008403361344537815,
+      "lo": -0.025210084033613446,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      22,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.008403361344537815,
+      "lo": -0.01680672268907563,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      398
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      24
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": -0.008403361344537815,
+      "lo": -0.025210084033613446,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      24,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": 0.0,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      220
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      8
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": -0.04201680672268908,
+      "lo": -0.08403361344537816,
+      "hi": -0.008403361344537815
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      8,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": -0.01680672268907563,
+      "hi": 0.05042016806722689
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      388
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      9
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": -0.04201680672268908,
+      "lo": -0.08403361344537816,
+      "hi": -0.008403361344537815
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      9,
+      0
+     ]
+    }
+   }
+  },
+  "llm_max": {
+   "calibration": {
+    "detector_naive_confidence": {
+     "brier": 0.24782841832347294,
+     "ece": 0.3907808097929593
+    },
+    "detector_calibrated_oof": {
+     "brier": 0.01560918606965246,
+     "ece": 0.004700411996875973
+    },
+    "verifier_calibrated_oof": {
+     "brier": 0.057953161271124175,
+     "ece": 0.007135259637794493
+    },
+    "verifier_vs_reference": {
+     "n": 4592,
+     "unparsed": 0,
+     "precision": 0.5312783318223028,
+     "recall": 0.9965986394557823,
+     "agreement": 0.8869773519163763,
+     "recall_bridge": 1.0,
+     "recall_distinct": 0.9956709956709957
+    }
+   },
+   "fronts": {
+    "B0": [
+     {
+      "config": {
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.2288135593220339
+     }
+    ],
+    "B1": [
+     {
+      "config": {
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.22033898305084745
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.0423728813559322
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "max"
+      },
+      "calls": 571,
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.2711864406779661
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      },
+      "calls": 571,
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "new_rec": 0.2461864406779661
+     }
+    ],
+    "B5": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      },
+      "calls": 571,
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3728813559322034
+     },
+     {
+      "config": {
+       "cap": 3,
+       "combine": "max"
+      },
+      "calls": 1713,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      },
+      "calls": 571,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.0423728813559322
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.003,
+       "combine": "max"
+      },
+      "calls": 54,
+      "harmful": 0.058823529411764705,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.025423728813559324
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      },
+      "calls": 57,
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.01694915254237288
+     }
+    ],
+    "B8": [
+     {
+      "config": {
+       "combine": "max"
+      },
+      "calls": 4552,
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "new_rec": 0.3644067796610169
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "new_rec": 0.03389830508474576
+     }
+    ],
+    "EC2": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 2,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      },
+      "calls": 18,
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.06779661016949153
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 51,
+      "harmful": 0.07563025210084033,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.059322033898305086
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 61,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     }
+    ],
+    "HZ": [
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      },
+      "calls": 16,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "new_rec": 0.0423728813559322
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 2,
+      "harmful": 0.1092436974789916,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.09322033898305085
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      },
+      "calls": 18,
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.06779661016949153
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 51,
+      "harmful": 0.07563025210084033,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.059322033898305086
+     },
+     {
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      },
+      "calls": 60,
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.05084745762711865
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {
+       "combine": "max"
+      },
+      "calls": 0,
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "new_rec": 0.0
+     }
+    ]
+   },
+   "same_budget": {
+    "0": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "25": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.03,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "calls": 18,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "calls": 18,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "50": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 32,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.01,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "calls": 18,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.08403361344537816,
+      "over_refusal": 0.023529411764705882,
+      "calls": 18,
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "level": 0.99,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "100": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "calls": 57,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 61,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 60,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "250": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "calls": 57,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 61,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 60,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "600": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "max"
+      }
+     },
+     "B4": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B5": {
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B6": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B7": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "calls": 57,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 61,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 60,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "1200": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "max"
+      }
+     },
+     "B4": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B5": {
+      "harmful": 0.33613445378151263,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B6": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B7": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "calls": 57,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 61,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 60,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "5000": {
+     "B0": {
+      "harmful": 0.3697478991596639,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B1": {
+      "harmful": 0.21008403361344538,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "B2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 0,
+      "config": {
+       "delta": 0.02,
+       "combine": "max"
+      }
+     },
+     "B3": {
+      "harmful": 0.24369747899159663,
+      "over_refusal": 0.023529411764705882,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "delta": 0.1,
+       "combine": "max"
+      }
+     },
+     "B4": {
+      "harmful": 0.2323529411764706,
+      "over_refusal": 0.02235294117647059,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B5": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 1713,
+      "config": {
+       "cap": 3,
+       "combine": "max"
+      }
+     },
+     "B6": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 571,
+      "config": {
+       "cap": 1,
+       "combine": "max"
+      }
+     },
+     "B7": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.023529411764705882,
+      "calls": 57,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": {
+      "harmful": 0.3277310924369748,
+      "over_refusal": 0.011764705882352941,
+      "calls": 4552,
+      "config": {
+       "combine": "max"
+      }
+     },
+     "OCL": {
+      "harmful": 0.05042016806722689,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 61,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "HZ": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.03529411764705882,
+      "calls": 16,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "eta": 0.9,
+       "combine": "max"
+      }
+     },
+     "Ours": {
+      "harmful": 0.06722689075630252,
+      "over_refusal": 0.023529411764705882,
+      "calls": 60,
+      "config": {
+       "delta": 0.02,
+       "cap": 2,
+       "level": 0.9,
+       "combine": "max"
+      }
+     },
+     "Oracle": {
+      "harmful": 0.04201680672268908,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    }
+   },
+   "same_harm": {
+    "0.06": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 54,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.003,
+       "combine": "max"
+      }
+     },
+     "B8": null,
+     "OCL": {
+      "benign_success": 0.680672268907563,
+      "over_refusal": 0.047058823529411764,
+      "calls": 0,
+      "config": {
+       "tau": 0.02,
+       "combine": "max"
+      }
+     },
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    },
+    "0.045": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": null,
+     "B8": null,
+     "OCL": null,
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "benign_success": 0.6974789915966386,
+      "over_refusal": 0.023529411764705882,
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      }
+     }
+    }
+   },
+   "same_both": {
+    "harm<=0.06,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": {
+      "calls": 54,
+      "config": {
+       "delta": 0.02,
+       "cap": 1,
+       "vcost": 0.003,
+       "combine": "max"
+      },
+      "p95_ms": 845.4600000488572
+     },
+     "B8": null,
+     "OCL": null,
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      },
+      "p95_ms": 0.02174999099224806
+     }
+    },
+    "harm<=0.045,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": null,
+     "B8": null,
+     "OCL": null,
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": {
+      "calls": 0,
+      "config": {
+       "combine": "max"
+      },
+      "p95_ms": 0.02174999099224806
+     }
+    },
+    "harm<=0.035,over<=0.024": {
+     "B0": null,
+     "B1": null,
+     "B2": null,
+     "B3": null,
+     "B4": null,
+     "B5": null,
+     "B6": null,
+     "B7": null,
+     "B8": null,
+     "OCL": null,
+     "EC2": null,
+     "HZ": null,
+     "Ours": null,
+     "Oracle": null
+    }
+   },
+   "paired": {
+    "Ours vs B7 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": 0.0,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      51,
+      188
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      51,
+      51
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=1": {
+     "harmful": {
+      "diff": 0.008403361344537815,
+      "lo": -0.01680672268907563,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      51,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.01680672268907563,
+      "lo": 0.0,
+      "hi": 0.04201680672268908
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      60,
+      288
+     ]
+    },
+    "Ours vs EC2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      60,
+      61
+     ]
+    },
+    "Ours vs B2 delta=0.02 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": -0.03361344537815126,
+      "hi": 0.03361344537815126
+     },
+     "over_refusal": {
+      "diff": -0.011764705882352941,
+      "lo": -0.03529411764705882,
+      "hi": 0.0
+     },
+     "calls": [
+      60,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.05042016806722689,
+      "lo": 0.01680672268907563,
+      "hi": 0.09243697478991597
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      176
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      2
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.058823529411764705,
+      "lo": 0.025210084033613446,
+      "hi": 0.10084033613445378
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      276
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      2
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.05042016806722689,
+      "lo": 0.01680672268907563,
+      "hi": 0.09243697478991597
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      174
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      2
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.058823529411764705,
+      "lo": 0.025210084033613446,
+      "hi": 0.10084033613445378
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      272
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      2
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "harmful": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls": [
+      2,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "sim": {
+  "1": {
+   "fronts": {
+    "B1": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0.23666666666666666,
+      "over_refusal": 0.006462962962962963
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0,
+      "over_refusal": 0.0
+     }
+    ],
+    "B8": [
+     {
+      "config": {},
+      "calls": 120,
+      "leak": 0.06333333333333334,
+      "over_refusal": 0.0511521164021164
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.05
+      },
+      "calls": 0,
+      "leak": 0.07666666666666666,
+      "over_refusal": 0.16420767195767197
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.05
+      },
+      "calls": 0,
+      "leak": 0.08666666666666667,
+      "over_refusal": 0.0997989417989418
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.19,
+      "leak": 0.14666666666666667,
+      "over_refusal": 0.0435
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 0.64,
+      "leak": 0.05333333333333334,
+      "over_refusal": 0.08403703703703704
+     }
+    ],
+    "EC2": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.19,
+      "leak": 0.14666666666666667,
+      "over_refusal": 0.0435
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 0.64,
+      "leak": 0.05333333333333334,
+      "over_refusal": 0.08403703703703704
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "vcost": 0.01
+      },
+      "calls": 0.81,
+      "leak": 0.056666666666666664,
+      "over_refusal": 0.08020370370370371
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1
+      },
+      "calls": 10,
+      "leak": 0.25666666666666665,
+      "over_refusal": 0.004398148148148148
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.23666666666666666,
+      "over_refusal": 0.007175925925925926
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.2,
+      "over_refusal": 0.013888888888888888
+     }
+    ]
+   },
+   "paired": {
+    "Ours vs B7 delta=0.05 cap=1": {
+     "leak": {
+      "diff": -0.01,
+      "lo": -0.04,
+      "hi": 0.02
+     },
+     "over_refusal": {
+      "diff": -0.003073666666666667,
+      "lo": -0.012907,
+      "hi": 0.006907666666666666
+     },
+     "calls_per_world": [
+      0.64,
+      7.28
+     ]
+    },
+    "Ours vs EC2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls_per_world": [
+      0.64,
+      0.64
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": -0.03333333333333333,
+      "lo": -0.056666666666666664,
+      "hi": -0.013333333333333334
+     },
+     "over_refusal": {
+      "diff": -0.015761666666666667,
+      "lo": -0.022100333333333333,
+      "hi": -0.010064666666666666
+     },
+     "calls_per_world": [
+      0.64,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "leak": {
+      "diff": -0.03333333333333333,
+      "lo": -0.056666666666666664,
+      "hi": -0.013333333333333334
+     },
+     "over_refusal": {
+      "diff": -0.015761666666666667,
+      "lo": -0.022100333333333333,
+      "hi": -0.010064666666666666
+     },
+     "calls_per_world": [
+      0.65,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.02,
+      "lo": -0.02,
+      "hi": 0.06
+     },
+     "over_refusal": {
+      "diff": 0.002518666666666667,
+      "lo": -0.005481333333333334,
+      "hi": 0.011703666666666666
+     },
+     "calls_per_world": [
+      0.19,
+      6.58
+     ]
+    },
+    "Ours vs EC2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "calls_per_world": [
+      0.19,
+      0.19
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": -0.013333333333333334,
+      "lo": -0.02666666666666667,
+      "hi": -0.0033333333333333335
+     },
+     "over_refusal": {
+      "diff": -0.0010463333333333336,
+      "lo": -0.0038610000000000003,
+      "hi": 0.0015833333333333329
+     },
+     "calls_per_world": [
+      0.19,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "leak": {
+      "diff": -0.013333333333333334,
+      "lo": -0.02666666666666667,
+      "hi": -0.0033333333333333335
+     },
+     "over_refusal": {
+      "diff": -0.0010463333333333336,
+      "lo": -0.0038610000000000003,
+      "hi": 0.0015833333333333329
+     },
+     "calls_per_world": [
+      0.19,
+      0
+     ]
+    }
+   }
+  },
+  "2": {
+   "fronts": {
+    "B1": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0.48,
+      "over_refusal": 0.017484126984126984
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0,
+      "over_refusal": 0.0
+     }
+    ],
+    "B8": [
+     {
+      "config": {},
+      "calls": 120,
+      "leak": 0.15,
+      "over_refusal": 0.09696825396825397
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.05
+      },
+      "calls": 0,
+      "leak": 0.05,
+      "over_refusal": 0.3715357142857143
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.05
+      },
+      "calls": 0,
+      "leak": 0.09,
+      "over_refusal": 0.2580753968253968
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1
+      },
+      "calls": 10,
+      "leak": 0.53,
+      "over_refusal": 0.008456349206349207
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.47,
+      "over_refusal": 0.019595238095238096
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.47,
+      "over_refusal": 0.027333333333333334
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.71,
+      "leak": 0.28,
+      "over_refusal": 0.09307539682539683
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 2.05,
+      "leak": 0.15,
+      "over_refusal": 0.19673809523809524
+     }
+    ]
+   },
+   "paired": {
+    "Ours vs B2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.06,
+      "lo": -0.03,
+      "hi": 0.15
+     },
+     "over_refusal": {
+      "diff": -0.061339,
+      "lo": -0.114156,
+      "hi": -0.013536
+     },
+     "calls_per_world": [
+      2.05,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "leak": {
+      "diff": 0.06,
+      "lo": -0.03,
+      "hi": 0.15
+     },
+     "over_refusal": {
+      "diff": -0.066685,
+      "lo": -0.119268,
+      "hi": -0.017994
+     },
+     "calls_per_world": [
+      2.68,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.04,
+      "lo": -0.06,
+      "hi": 0.15
+     },
+     "over_refusal": {
+      "diff": -0.032919000000000004,
+      "lo": -0.06492200000000001,
+      "hi": -0.00027900000000000006
+     },
+     "calls_per_world": [
+      0.71,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "leak": {
+      "diff": 0.05,
+      "lo": -0.05,
+      "hi": 0.16
+     },
+     "over_refusal": {
+      "diff": -0.037014,
+      "lo": -0.068312,
+      "hi": -0.006097
+     },
+     "calls_per_world": [
+      0.9,
+      0
+     ]
+    }
+   }
+  },
+  "2-small40": {
+   "fronts": {
+    "B1": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0.4,
+      "over_refusal": 0.01375
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.05
+      },
+      "calls": 0,
+      "leak": 0.15,
+      "over_refusal": 0.31603174603174605
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.7,
+      "leak": 0.225,
+      "over_refusal": 0.10069444444444445
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 1.82,
+      "leak": 0.2,
+      "over_refusal": 0.23846230158730158
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 2
+      },
+      "calls": 2.67,
+      "leak": 0.175,
+      "over_refusal": 0.2403472222222222
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "vcost": 0.01
+      },
+      "calls": 4.03,
+      "leak": 0.175,
+      "over_refusal": 0.20376984126984127
+     }
+    ]
+   },
+   "paired": {
+    "Ours vs B7 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.125,
+      "hi": 0.125
+     },
+     "over_refusal": {
+      "diff": 0.07199,
+      "lo": 0.032404999999999996,
+      "hi": 0.1114375
+     },
+     "calls_per_world": [
+      1.82,
+      8.72
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.05,
+      "lo": 0.0,
+      "hi": 0.125
+     },
+     "over_refusal": {
+      "diff": -0.07757,
+      "lo": -0.135985,
+      "hi": -0.024242500000000004
+     },
+     "calls_per_world": [
+      1.82,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "leak": {
+      "diff": 0.025,
+      "lo": -0.05,
+      "hi": 0.125
+     },
+     "over_refusal": {
+      "diff": -0.07568250000000001,
+      "lo": -0.13374999999999998,
+      "hi": -0.023310000000000004
+     },
+     "calls_per_world": [
+      2.67,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.125,
+      "hi": 0.1
+     },
+     "over_refusal": {
+      "diff": 0.0179225,
+      "lo": -0.02437,
+      "hi": 0.058185
+     },
+     "calls_per_world": [
+      0.7,
+      8.35
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": -0.014167500000000003,
+      "lo": -0.03916750000000001,
+      "hi": 0.0
+     },
+     "calls_per_world": [
+      0.7,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "leak": {
+      "diff": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": -0.0236425,
+      "lo": -0.051590000000000004,
+      "hi": -0.005
+     },
+     "calls_per_world": [
+      0.93,
+      0
+     ]
+    }
+   }
+  },
+  "3": {
+   "fronts": {
+    "B1": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0.44,
+      "over_refusal": 0.011666666666666667
+     }
+    ],
+    "Oracle": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0,
+      "over_refusal": 0.0
+     }
+    ],
+    "B8": [
+     {
+      "config": {},
+      "calls": 120,
+      "leak": 0.19,
+      "over_refusal": 0.1034563492063492
+     }
+    ],
+    "OCL": [
+     {
+      "config": {
+       "tau": 0.05
+      },
+      "calls": 0,
+      "leak": 0.11,
+      "over_refusal": 0.28501190476190474
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.05
+      },
+      "calls": 0,
+      "leak": 0.11,
+      "over_refusal": 0.2806190476190476
+     }
+    ],
+    "B3": [
+     {
+      "config": {
+       "cap": 1,
+       "delta": 0.1
+      },
+      "calls": 10,
+      "leak": 0.52,
+      "over_refusal": 0.0055000000000000005
+     }
+    ],
+    "B4": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.43,
+      "over_refusal": 0.016345238095238097
+     }
+    ],
+    "B6": [
+     {
+      "config": {
+       "cap": 1
+      },
+      "calls": 10,
+      "leak": 0.46,
+      "over_refusal": 0.02036111111111111
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "vcost": 0.01
+      },
+      "calls": 3.65,
+      "leak": 0.11,
+      "over_refusal": 0.15553174603174602
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.56,
+      "leak": 0.24,
+      "over_refusal": 0.12285714285714286
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 1.81,
+      "leak": 0.11,
+      "over_refusal": 0.22597619047619047
+     }
+    ]
+   },
+   "paired": {
+    "Ours vs B7 delta=0.05 cap=1": {
+     "leak": {
+      "diff": -0.04,
+      "lo": -0.13,
+      "hi": 0.06
+     },
+     "over_refusal": {
+      "diff": 0.064841,
+      "lo": 0.015719,
+      "hi": 0.114426
+     },
+     "calls_per_world": [
+      1.81,
+      8.9
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.07,
+      "hi": 0.07
+     },
+     "over_refusal": {
+      "diff": -0.054646,
+      "lo": -0.100327,
+      "hi": -0.011087999999999997
+     },
+     "calls_per_world": [
+      1.81,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "leak": {
+      "diff": 0.01,
+      "lo": -0.06,
+      "hi": 0.08
+     },
+     "over_refusal": {
+      "diff": -0.054129,
+      "lo": -0.101553,
+      "hi": -0.010888
+     },
+     "calls_per_world": [
+      2.75,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.12,
+      "hi": 0.12
+     },
+     "over_refusal": {
+      "diff": 0.05151,
+      "lo": 0.018944000000000003,
+      "hi": 0.087317
+     },
+     "calls_per_world": [
+      0.56,
+      8.91
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": -0.07,
+      "lo": -0.17,
+      "hi": 0.03
+     },
+     "over_refusal": {
+      "diff": 0.022473999999999997,
+      "lo": -0.019509000000000002,
+      "hi": 0.06626800000000001
+     },
+     "calls_per_world": [
+      0.56,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "leak": {
+      "diff": -0.06,
+      "lo": -0.16,
+      "hi": 0.04
+     },
+     "over_refusal": {
+      "diff": 0.011759000000000002,
+      "lo": -0.031145,
+      "hi": 0.056814
+     },
+     "calls_per_world": [
+      0.69,
+      0
+     ]
+    }
+   }
+  },
+  "3-small40": {
+   "fronts": {
+    "B1": [
+     {
+      "config": {},
+      "calls": 0,
+      "leak": 0.45,
+      "over_refusal": 0.015
+     }
+    ],
+    "B2": [
+     {
+      "config": {
+       "delta": 0.05
+      },
+      "calls": 0,
+      "leak": 0.15,
+      "over_refusal": 0.2722023809523809
+     }
+    ],
+    "Ours": [
+     {
+      "config": {
+       "delta": 0.1,
+       "cap": 1
+      },
+      "calls": 0.75,
+      "leak": 0.25,
+      "over_refusal": 0.09695436507936508
+     },
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1
+      },
+      "calls": 1.75,
+      "leak": 0.15,
+      "over_refusal": 0.20492063492063492
+     }
+    ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "vcost": 0.01
+      },
+      "calls": 3.9,
+      "leak": 0.1,
+      "over_refusal": 0.16214285714285714
+     }
+    ]
+   },
+   "paired": {
+    "Ours vs B7 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.125,
+      "hi": 0.125
+     },
+     "over_refusal": {
+      "diff": 0.05512750000000001,
+      "lo": 0.012040000000000002,
+      "hi": 0.10005
+     },
+     "calls_per_world": [
+      1.75,
+      8.55
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.075,
+      "hi": 0.075
+     },
+     "over_refusal": {
+      "diff": -0.067275,
+      "lo": -0.11069999999999999,
+      "hi": -0.027374999999999993
+     },
+     "calls_per_world": [
+      1.75,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.05 cap=2": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.075,
+      "hi": 0.075
+     },
+     "over_refusal": {
+      "diff": -0.063555,
+      "lo": -0.1088225,
+      "hi": -0.021609999999999997
+     },
+     "calls_per_world": [
+      2.23,
+      0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.15,
+      "hi": 0.15
+     },
+     "over_refusal": {
+      "diff": 0.026725000000000006,
+      "lo": -0.009832499999999994,
+      "hi": 0.06620000000000001
+     },
+     "calls_per_world": [
+      0.75,
+      8.82
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=1": {
+     "leak": {
+      "diff": -0.025,
+      "lo": -0.075,
+      "hi": 0.0
+     },
+     "over_refusal": {
+      "diff": -0.027975,
+      "lo": -0.05669249999999999,
+      "hi": -0.003125
+     },
+     "calls_per_world": [
+      0.75,
+      0
+     ]
+    },
+    "Ours vs B2 delta=0.1 cap=2": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.075,
+      "hi": 0.075
+     },
+     "over_refusal": {
+      "diff": -0.039084999999999995,
+      "lo": -0.07067749999999999,
+      "hi": -0.008332500000000001
+     },
+     "calls_per_world": [
+      0.97,
+      0
+     ]
+    }
+   }
+  }
+ }
+}

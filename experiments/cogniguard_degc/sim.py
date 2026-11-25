@@ -92,7 +92,7 @@ def fit(k, **kw):
 
 def play(W, arm, c, k, cal, vcal, rng):
     reg = W["reg"]
-    belief = KnowledgeBelief()
+    belief = KnowledgeBelief(c.get("combine", "noisy_or"))
     for p in P:
         belief.add_trusted(p, {("s", u) for u in W["init"][p]})
     true_know = {p: {("s", u) for u in W["init"][p]} for p in P}
@@ -105,8 +105,8 @@ def play(W, arm, c, k, cal, vcal, rng):
         return vcal.posterior(f)
 
     pol = None
-    if arm in ("Ours", "B2", "B3", "EC2", "HZ"):
-        pol = DegcPolicy(reg, DegcConfig(delta=c.get("delta", .1), use_leakage=arm != "B3", use_epistemic=arm != "B2",
+    if arm in ("Ours", "B2", "B3", "EC2", "HZ", "B2h"):
+        pol = DegcPolicy(reg, DegcConfig(delta=c.get("delta", .1), use_leakage=arm != "B3", use_epistemic=arm not in ("B2", "B2h"),
                                          per_request_cap=c.get("cap", 0), k=k, selector="ec2" if arm == "EC2" else "eig",
                                          trigger="entropy" if arm == "HZ" else "interval", eta=c.get("eta", .5)), verify=vout)
     history = []
@@ -121,7 +121,10 @@ def play(W, arm, c, k, cal, vcal, rng):
             pend.append(Obs(f"{t}|{u}", p, ("s", u), q, lo, hi, {"f": f}))
         if pol is not None:
             before = pol.calls
-            d = pol.decide(p, belief, [o for o in pend if reg.targets_for_unit(o.unit) or arm == "B3"])
+            dec_pend = [o for o in pend if reg.targets_for_unit(o.unit) or arm == "B3"]
+            if arm == "B2h":   # current answer deterministic (detector hit), history calibrated
+                dec_pend = [Obs(o.obs_id, o.principal, o.unit, *(3 * (float(o.feats["f"]["hit"]),)), o.feats) for o in dec_pend]
+            d = pol.decide(p, belief, dec_pend)
             calls += pol.calls - before
             allow = d.allowed
             if allow:
