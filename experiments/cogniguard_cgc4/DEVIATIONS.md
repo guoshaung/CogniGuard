@@ -1,0 +1,9 @@
+# CGC4 deviations from SEEDS.md / the initial plan
+
+| # | What | Why | Effect on conclusions |
+|---|---|---|---|
+| D1 | Task A dev stage crashed at the final scoring step (`KeyError: 'emp'`: CAPD_FIRST has no history-estimated variant) after all dev evaluations had run; parameter choices were not saved. Fixed the scoring fallback and **re-ran dev from scratch with 8 instead of 12 episodes per instance** (runtime), same dev seeds 0–39 per condition. | Bug in the dev script | Parameter choice uses fewer episodes; test seeds and protocol unchanged; no test result had been produced before the re-run |
+| D2 | Task A generator and planner defaults were changed during the smoke test, before any dev/test run: options-first generator (witnesses join options of different tasks) because the first generator left completion near 100% for every policy; planners serve-only by default (`SAA_DEFER` kept as the deferral variant) because noisy sampled deferral was refusing servable tasks | Instances had no headroom; deferral noise | Recorded; all reported numbers come from the final generator |
+| D3 | Task B witness-based pruning test (`b_prune.py`) added after the main B run | The plan asked whether witness structure compresses the LP; the main run only tested generic exact lumping | New result (pruning is unsafe) on the same test seeds |
+| D4 | Task AB: two arms added after the first AB run (`CAPD_D`, `CAPD_D+A`: CA-PD with a simulatable degrade fallback) and the whole AB run repeated on the same seeds | Fairness: the B arms have a degrade action the CA-PD arms lacked, so "B" gains mixed action space with joint-channel modelling | Both runs' numbers for the original four arms are identical in design; the report uses the second run |
+| D5 | Task B excludes the `serial` structure (480 worlds) | Robust LP over the union of attacker cells too large for the time box | Scope limitation |

@@ -1,0 +1,12 @@
+{
+ "n": 496,
+ "same_optimum_share": 0.6512096774193549,
+ "views_mean": 3.399193548387097,
+ "kept_views_mean": 1.7620967741935485,
+ "share_fully_pruned": 0.16733870967741934,
+ "pruned_solution_violates_a_dropped_view": 0.3629032258064516,
+ "utility_gain_of_pruned_vs_exact_mean": 0.07405206521452666,
+ "cons_ratio_mean": 0.4526375675529193,
+ "vars_ratio_mean": 0.19063445060483872,
+ "sec_ratio_median": 0.20800552667905903
+}
