@@ -1,0 +1,32 @@
+{
+  "source_codes": {
+    "rectangle": [
+      0,
+      1
+    ],
+    "speed": [
+      1,
+      0
+    ]
+  },
+  "blocks_per_document": 2,
+  "allocation": {
+    "uniform": [
+      0,
+      2
+    ],
+    "risk": [
+      0,
+      1
+    ]
+  },
+  "generation": {
+    "model": "qwen2.5:7b-instruct",
+    "model_digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "budget": 768,
+    "seed": 61129
+  },
+  "recovery_gate": "A deterministic factual review of teacher and encoded blocks precedes propagation. Each decoded block requires two bits and mean signed margin > 1.3288845486111112 (prior C4 transferable diagnostic, not matched FPR). Stop if both methods cannot encode all intended carriers with factual correctness, or if no valid source recovered after summary, rewrite and fusion.",
+  "capacity_bits": 2,
+  "public_note": "Two assigned two-bit codes, one bit of source identity, local decoding at paragraph boundaries; missing and conflicting evidence abstains."
+}
