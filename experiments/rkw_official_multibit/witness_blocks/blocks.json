@@ -1,0 +1,98 @@
+[
+  {
+    "topic": "rectangle",
+    "position": 0,
+    "fact": "A rectangle has length 9 m and width 4 m.",
+    "prompt": "Write one standalone English teaching paragraph of exactly four sentences based on this fact: A rectangle has length 9 m and width 4 m. Preserve the exact quantities and units. Explain the terms without introducing other numerical results. Output only the paragraph. Do not use abbreviations with a period.",
+    "text": "A rectangle is a quadrilateral with four right angles. In this case, the length of the rectangle measures 9 meters while the width measures 4 meters. Length typically refers to the longer side of the rectangle, whereas width refers to the shorter side or the distance from one side to the other perpendicular to the length.",
+    "finish": "stop",
+    "tokens": 65,
+    "seconds": 13.205921799992211,
+    "attempt": 0,
+    "id": "rectangle-0",
+    "code": [
+      0,
+      1
+    ]
+  },
+  {
+    "topic": "rectangle",
+    "position": 1,
+    "fact": "The area of this rectangle is 36 square meters because its length times its width is 9 meters times 4 meters.",
+    "prompt": "Write a short standalone paragraph teaching exactly these facts: The area of this rectangle is 36 square meters because its length times its width is 9 meters times 4 meters. Use three complete sentences, describe the specified rectangle or cyclist without inventing a room or extra numerical example, and preserve the numerical values, units, and conditions. Return the paragraph only.",
+    "text": "The area of this rectangle is 36 square meters because its length, which measures 9 meters, is multiplied by its width, which is 4 meters. This calculation (9 meters × 4 meters) accurately reflects the given dimensions and results in an area of 36 square meters.",
+    "finish": "stop",
+    "tokens": 61,
+    "seconds": 2.2032224999857135,
+    "attempt": 1,
+    "id": "rectangle-1",
+    "code": [
+      0,
+      1
+    ]
+  },
+  {
+    "topic": "rectangle",
+    "position": 2,
+    "fact": "Its perimeter is 26 meters, twice the sum of length and width.",
+    "prompt": "Write one standalone English teaching paragraph of exactly four sentences based on this fact: Its perimeter is 26 meters, twice the sum of length and width. Preserve the exact quantities and units. Explain the terms without introducing other numerical results. Output only the paragraph. Do not use abbreviations with a period.",
+    "text": "The perimeter of the rectangle is 26 meters, which means that if you add up all its sides, it totals 26 meters. This value is twice the sum of the length and width, indicating that the formula for the perimeter can be expressed as 2 times (length plus width) equals 26 meters. Therefore, to find the sum of the length and width, you would divide 26 by 2, resulting in a total of 13 meters for the combined length and width.",
+    "finish": "stop",
+    "tokens": 105,
+    "seconds": 2.9363985999953,
+    "attempt": 0,
+    "id": "rectangle-2",
+    "code": [
+      0,
+      1
+    ]
+  },
+  {
+    "topic": "speed",
+    "position": 0,
+    "fact": "A cyclist covers 120 m in 20 seconds.",
+    "prompt": "Write one standalone English teaching paragraph of exactly four sentences based on this fact: A cyclist covers 120 m in 20 seconds. Preserve the exact quantities and units. Explain the terms without introducing other numerical results. Output only the paragraph. Do not use abbreviations with a period.",
+    "text": "A cyclist travels 120 meters in 20 seconds, which means the distance covered is 120 meters over a time span of 20 seconds. This information helps us understand the speed at which the cyclist is moving. Speed can be calculated by dividing the distance traveled by the time taken, though we will not perform that calculation here.",
+    "finish": "stop",
+    "tokens": 73,
+    "seconds": 2.1420290999813005,
+    "attempt": 0,
+    "id": "speed-0",
+    "code": [
+      1,
+      0
+    ]
+  },
+  {
+    "topic": "speed",
+    "position": 1,
+    "fact": "The average speed is 6 meters per second because distance is divided by elapsed time.",
+    "prompt": "Write one standalone English teaching paragraph of exactly four sentences based on this fact: The average speed is 6 meters per second because distance is divided by elapsed time. Preserve the exact quantities and units. Explain the terms without introducing other numerical results. Output only the paragraph. Do not use abbreviations with a period.",
+    "text": "The average speed is calculated as 6 meters per second by dividing the total distance traveled by the time it takes to travel that distance. Distance refers to the length of space between two points, while elapsed time is the duration or amount of time that has passed during the movement. In this case, an object covers a certain distance in such a way that the ratio of distance to time equals 6 meters per second.",
+    "finish": "stop",
+    "tokens": 84,
+    "seconds": 2.3968555000028573,
+    "attempt": 0,
+    "id": "speed-1",
+    "code": [
+      1,
+      0
+    ]
+  },
+  {
+    "topic": "speed",
+    "position": 2,
+    "fact": "A cyclist covered 120 meters in 20 seconds. These totals give an average speed of 6 meters per second, but do not determine the instantaneous speed. Additional position-versus-time information is needed.",
+    "prompt": "Explain this exact example in at least three complete sentences. Use these same numbers only. Do not add any other example. A cyclist covered 120 meters in 20 seconds. These totals give an average speed of 6 meters per second, but do not determine the instantaneous speed. Additional position-versus-time information is needed.",
+    "text": "A cyclist covered 120 meters in 20 seconds, resulting in an average speed of 6 meters per second over that interval. However, this average speed does not provide information about the cyclist's instantaneous speed at any given moment during those 20 seconds; additional data on position relative to time would be necessary to determine the exact speed at specific points in time.",
+    "finish": "stop",
+    "tokens": 77,
+    "seconds": 2.792286999989301,
+    "attempt": 2,
+    "id": "speed-2",
+    "code": [
+      1,
+      0
+    ]
+  }
+]
