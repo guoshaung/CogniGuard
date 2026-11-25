@@ -1,0 +1,2629 @@
+{
+ "summary": {
+  "n_cases": 56,
+  "by_structure": {
+   "fact": 14,
+   "relation": 14,
+   "and_max": 14,
+   "mixed": 14
+  },
+  "formal_capd_would_cover": 56,
+  "adapter_covered": 0,
+  "distinct_instances_ignoring_decoys": 43,
+  "distinct_logical_patterns": 15,
+  "patterns": {
+   "[\"fact\", [\"['band_ge6', 'band_odd']\"]]": 9,
+   "[\"and_max\", [\"['an input = 3']\"]]": 9,
+   "[\"relation\", [\"['adv_of_s2', 'adv_of_s3', 's0_adv_in_A']\"]]": 6,
+   "[\"mixed\", [\"['exec0', 'first', 'step0_before_1']\"]]": 5,
+   "[\"relation\", [\"['adv_of_s1', 'adv_of_s3', 's0_adv_in_A']\"]]": 4,
+   "[\"relation\", [\"['adv_of_s1', 'adv_of_s2', 's0_adv_in_A']\"]]": 4,
+   "[\"mixed\", [\"['exec0_not_me', 'first', 'last']\"]]": 4,
+   "[\"fact\", [\"['band_ge6', 'band_mod4_ge2', 'band_odd']\"]]": 3,
+   "[\"and_max\", [\"[('in_a_hi', 0), ('in_b', 2)]\"]]": 3,
+   "[\"fact\", [\"['band_ge4', 'band_ge6', 'band_odd']\"]]": 2,
+   "[\"and_max\", [\"[('in_a_hi', 0), ('in_b', 1)]\"]]": 2,
+   "[\"mixed\", [\"['exec0', 'last', 'step0_before_1']\"]]": 2,
+   "[\"mixed\", [\"['exec0_not_me', 'last', 'step0_before_1']\"]]": 1,
+   "[\"mixed\", [\"['exec0_not_me', 'first', 'last']\", \"['exec0_not_me', 'last', 'step0_before_1']\"]]": 1,
+   "[\"mixed\", [\"['exec0', 'first', 'step0_before_1']\", \"['exec0_not_me', 'first', 'step0_before_1']\"]]": 1
+  },
+  "cases_with_decoys": 49
+ },
+ "cases": [
+  {
+   "case": 1,
+   "structure": "fact",
+   "secret": "3",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is odd.",
+    "E's salary band is below 6.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4. & E's salary band is odd. & E's salary band is below 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=0\", \"band_mod4_ge2=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 2,
+   "structure": "fact",
+   "secret": "2",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is even.",
+    "E's salary band is below 6.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=0",
+     "band_ge6=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4. & E's salary band is even. & E's salary band is below 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=0\", \"band_mod4_ge2=1\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 3,
+   "structure": "fact",
+   "secret": "7",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is odd.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is odd. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_mod4_ge2=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 4,
+   "structure": "fact",
+   "secret": "3",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is odd.",
+    "E's salary band is below 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4. & E's salary band is odd. & E's salary band is below 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=0\", \"band_mod4_ge2=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 5,
+   "structure": "fact",
+   "secret": "6",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is even.",
+    "E's salary band is at least 6.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is even. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_mod4_ge2=1\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 6,
+   "structure": "fact",
+   "secret": "7",
+   "facts": [
+    "E's salary band is odd.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is odd. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 7,
+   "structure": "fact",
+   "secret": "4",
+   "facts": [
+    "E's salary band is at least 4.",
+    "E's salary band is even.",
+    "E's salary band is below 6.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_ge4=1",
+     "band_odd=0",
+     "band_ge6=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is at least 4. & E's salary band is even. & E's salary band is below 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge4",
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge4=1\", \"band_ge6=0\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 8,
+   "structure": "fact",
+   "secret": "7",
+   "facts": [
+    "E's salary band is at least 4.",
+    "E's salary band is odd.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is odd. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge4=1\", \"band_ge6=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 9,
+   "structure": "fact",
+   "secret": "6",
+   "facts": [
+    "E's salary band is even.",
+    "E's salary band is at least 6.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is even. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 10,
+   "structure": "fact",
+   "secret": "7",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is odd.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is odd. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_mod4_ge2=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 11,
+   "structure": "fact",
+   "secret": "5",
+   "facts": [
+    "E's salary band is at least 4.",
+    "E's salary band is odd.",
+    "E's salary band is below 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_ge4=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is at least 4. & E's salary band is odd. & E's salary band is below 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge4",
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge4=1\", \"band_ge6=0\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 12,
+   "structure": "fact",
+   "secret": "7",
+   "facts": [
+    "E's salary band is at least 4.",
+    "E's salary band is odd.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is odd. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge4=1\", \"band_ge6=1\", \"band_odd=1\"]]"
+  },
+  {
+   "case": 13,
+   "structure": "fact",
+   "secret": "6",
+   "facts": [
+    "E's salary band leaves remainder 2 or 3 when divided by 4.",
+    "E's salary band is even.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is even. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge6=1\", \"band_mod4_ge2=1\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 14,
+   "structure": "fact",
+   "secret": "6",
+   "facts": [
+    "E's salary band is at least 4.",
+    "E's salary band is even.",
+    "E's salary band is at least 6.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Employee E has a secret salary band, an integer from 0 to 7.",
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "E's salary band is even. & E's salary band is at least 6."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "band_ge6",
+     "band_odd"
+    ]
+   ],
+   "instance_key": "[\"fact\", [\"band_ge4=1\", \"band_ge6=1\", \"band_odd=0\"]]"
+  },
+  {
+   "case": 15,
+   "structure": "relation",
+   "secret": "(3, 1, 0, 2)",
+   "facts": [
+    "Student s1's advisor is B.",
+    "Student s3's advisor is C.",
+    "Student s0's advisor is C or D."
+   ],
+   "decoys": [],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=1",
+     "adv_of_s3=2",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is B. & Student s3's advisor is C. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=1\", \"adv_of_s3=2\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 16,
+   "structure": "relation",
+   "secret": "(1, 3, 2, 0)",
+   "facts": [
+    "Student s2's advisor is C.",
+    "Student s3's advisor is A.",
+    "Student s0's advisor is A or B."
+   ],
+   "decoys": [],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=0",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is C. & Student s3's advisor is A. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=2\", \"adv_of_s3=0\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 17,
+   "structure": "relation",
+   "secret": "(1, 3, 2, 0)",
+   "facts": [
+    "Student s1's advisor is D.",
+    "Student s3's advisor is A.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=3",
+     "adv_of_s3=0",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is D. & Student s3's advisor is A. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=3\", \"adv_of_s3=0\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 18,
+   "structure": "relation",
+   "secret": "(1, 0, 2, 3)",
+   "facts": [
+    "Student s1's advisor is A.",
+    "Student s2's advisor is C.",
+    "Student s0's advisor is A or B."
+   ],
+   "decoys": [],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=0",
+     "adv_of_s2=2",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is A. & Student s2's advisor is C. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=0\", \"adv_of_s2=2\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 19,
+   "structure": "relation",
+   "secret": "(2, 3, 0, 1)",
+   "facts": [
+    "Student s1's advisor is D.",
+    "Student s2's advisor is A.",
+    "Student s0's advisor is C or D."
+   ],
+   "decoys": [],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=3",
+     "adv_of_s2=0",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is D. & Student s2's advisor is A. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=3\", \"adv_of_s2=0\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 20,
+   "structure": "relation",
+   "secret": "(1, 0, 2, 3)",
+   "facts": [
+    "Student s1's advisor is A.",
+    "Student s2's advisor is C.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=0",
+     "adv_of_s2=2",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is A. & Student s2's advisor is C. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=0\", \"adv_of_s2=2\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 21,
+   "structure": "relation",
+   "secret": "(3, 2, 0, 1)",
+   "facts": [
+    "Student s1's advisor is C.",
+    "Student s3's advisor is B.",
+    "Student s0's advisor is C or D.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is C. & Student s3's advisor is B. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=2\", \"adv_of_s3=1\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 22,
+   "structure": "relation",
+   "secret": "(0, 2, 3, 1)",
+   "facts": [
+    "Student s1's advisor is C.",
+    "Student s3's advisor is B.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is C. & Student s3's advisor is B. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=2\", \"adv_of_s3=1\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 23,
+   "structure": "relation",
+   "secret": "(3, 1, 0, 2)",
+   "facts": [
+    "Student s2's advisor is A.",
+    "Student s3's advisor is C.",
+    "Student s0's advisor is C or D.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=0",
+     "adv_of_s3=2",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is A. & Student s3's advisor is C. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=0\", \"adv_of_s3=2\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 24,
+   "structure": "relation",
+   "secret": "(0, 2, 1, 3)",
+   "facts": [
+    "Student s2's advisor is B.",
+    "Student s3's advisor is D.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=1",
+     "adv_of_s3=3",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is B. & Student s3's advisor is D. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=1\", \"adv_of_s3=3\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 25,
+   "structure": "relation",
+   "secret": "(3, 0, 2, 1)",
+   "facts": [
+    "Student s2's advisor is C.",
+    "Student s3's advisor is B.",
+    "Student s0's advisor is C or D.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is C. & Student s3's advisor is B. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=2\", \"adv_of_s3=1\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 26,
+   "structure": "relation",
+   "secret": "(0, 1, 3, 2)",
+   "facts": [
+    "Student s1's advisor is B.",
+    "Student s2's advisor is D.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s1=1",
+     "adv_of_s2=3",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s1's advisor is B. & Student s2's advisor is D. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s1=1\", \"adv_of_s2=3\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 27,
+   "structure": "relation",
+   "secret": "(3, 1, 2, 0)",
+   "facts": [
+    "Student s2's advisor is C.",
+    "Student s3's advisor is A.",
+    "Student s0's advisor is C or D.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=0",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is C. & Student s3's advisor is A. & Student s0's advisor is C or D."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=2\", \"adv_of_s3=0\", \"s0_adv_in_A=0\"]]"
+  },
+  {
+   "case": 28,
+   "structure": "relation",
+   "secret": "(0, 3, 2, 1)",
+   "facts": [
+    "Student s2's advisor is C.",
+    "Student s3's advisor is B.",
+    "Student s0's advisor is A or B.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Four students s0, s1, s2, s3 each have exactly one advisor among A, B, C, D, and no two students share an advisor.",
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "Student s2's advisor is C. & Student s3's advisor is B. & Student s0's advisor is A or B."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.667,
+   "pattern": [
+    [
+     "adv_of_s2",
+     "adv_of_s3",
+     "s0_adv_in_A"
+    ]
+   ],
+   "instance_key": "[\"relation\", [\"adv_of_s2=2\", \"adv_of_s3=1\", \"s0_adv_in_A=1\"]]"
+  },
+  {
+   "case": 29,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "b = 3.",
+    "a is less than 2.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=3\"]]"
+  },
+  {
+   "case": 30,
+   "structure": "and_max",
+   "secret": "2",
+   "facts": [
+    "b = 2.",
+    "a is less than 2.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 2. & a is less than 2."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     [
+      "in_a_hi",
+      0
+     ],
+     [
+      "in_b",
+      2
+     ]
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=2\"]]"
+  },
+  {
+   "case": 31,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "b = 3.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_b=3\"]]"
+  },
+  {
+   "case": 32,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "b = 3.",
+    "a is at least 2.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=1\", \"in_b=3\"]]"
+  },
+  {
+   "case": 33,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "a = 3.",
+    "a is at least 2.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "a = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a=3\", \"in_a_hi=1\"]]"
+  },
+  {
+   "case": 34,
+   "structure": "and_max",
+   "secret": "2",
+   "facts": [
+    "b = 2.",
+    "a is less than 2.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 2. & a is less than 2."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     [
+      "in_a_hi",
+      0
+     ],
+     [
+      "in_b",
+      2
+     ]
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=2\"]]"
+  },
+  {
+   "case": 35,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "b = 3.",
+    "a is less than 2.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=3\"]]"
+  },
+  {
+   "case": 36,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "a = 3.",
+    "a is at least 2.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "a = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a=3\", \"in_a_hi=1\"]]"
+  },
+  {
+   "case": 37,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "a = 3.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "a = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a=3\"]]"
+  },
+  {
+   "case": 38,
+   "structure": "and_max",
+   "secret": "1",
+   "facts": [
+    "b = 1.",
+    "a is less than 2."
+   ],
+   "decoys": [],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=1",
+     "in_a_hi=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 1. & a is less than 2."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     [
+      "in_a_hi",
+      0
+     ],
+     [
+      "in_b",
+      1
+     ]
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=1\"]]"
+  },
+  {
+   "case": 39,
+   "structure": "and_max",
+   "secret": "1",
+   "facts": [
+    "b = 1.",
+    "a is less than 2.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=1",
+     "in_a_hi=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 1. & a is less than 2."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     [
+      "in_a_hi",
+      0
+     ],
+     [
+      "in_b",
+      1
+     ]
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=1\"]]"
+  },
+  {
+   "case": 40,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "a = 3.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "a = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a=3\"]]"
+  },
+  {
+   "case": 41,
+   "structure": "and_max",
+   "secret": "2",
+   "facts": [
+    "b = 2.",
+    "a is less than 2.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "b = 2. & a is less than 2."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.5,
+   "pattern": [
+    [
+     [
+      "in_a_hi",
+      0
+     ],
+     [
+      "in_b",
+      2
+     ]
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a_hi=0\", \"in_b=2\"]]"
+  },
+  {
+   "case": 42,
+   "structure": "and_max",
+   "secret": "3",
+   "facts": [
+    "a = 3.",
+    "a is at least 2.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Two hidden inputs a and b are each an integer from 0 to 3. The secret is max(a, b).",
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "a = 3."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.25,
+   "pattern": [
+    [
+     "an input = 3"
+    ]
+   ],
+   "instance_key": "[\"and_max\", [\"in_a=3\", \"in_a_hi=1\"]]"
+  },
+  {
+   "case": 43,
+   "structure": "mixed",
+   "secret": "((1, 2, 0), 0)",
+   "facts": [
+    "The first step is Y.",
+    "The last step is X.",
+    "Step X is executed by P0.",
+    "Step Y comes before step X."
+   ],
+   "decoys": [],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=0",
+     "exec0_not_me=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Y. & The last step is X. & Step X is executed by P0."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "first",
+     "last"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"first=1\", \"last=0\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 44,
+   "structure": "mixed",
+   "secret": "((2, 0, 1), 2)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P2.",
+    "Step X comes before step Y.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=2",
+     "step0_before_1=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P2. & Step X comes before step Y."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=2\", \"first=2\", \"step0_before_1=1\"]]"
+  },
+  {
+   "case": 45,
+   "structure": "mixed",
+   "secret": "((1, 0, 2), 0)",
+   "facts": [
+    "The first step is Y.",
+    "The last step is Z.",
+    "Step X is executed by P0.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=2",
+     "exec0_not_me=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Y. & The last step is Z. & Step X is executed by P0."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "first",
+     "last"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"first=1\", \"last=2\"]]"
+  },
+  {
+   "case": 46,
+   "structure": "mixed",
+   "secret": "((2, 1, 0), 1)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P1.",
+    "Step X is not executed by P0.",
+    "Step Y comes before step X.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P1. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=1\", \"exec0_not_me=1\", \"first=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 47,
+   "structure": "mixed",
+   "secret": "((1, 0, 2), 1)",
+   "facts": [
+    "The last step is Z.",
+    "Step X is executed by P1.",
+    "Step Y comes before step X."
+   ],
+   "decoys": [],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0=1",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The last step is Z. & Step X is executed by P1. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "last",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=1\", \"last=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 48,
+   "structure": "mixed",
+   "secret": "((2, 0, 1), 1)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P1.",
+    "Step X is not executed by P0.",
+    "Step X comes before step Y.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P1. & Step X comes before step Y."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=1\", \"exec0_not_me=1\", \"first=2\", \"step0_before_1=1\"]]"
+  },
+  {
+   "case": 49,
+   "structure": "mixed",
+   "secret": "((1, 0, 2), 0)",
+   "facts": [
+    "The last step is Z.",
+    "Step X is executed by P0.",
+    "Step Y comes before step X.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The last step is Z. & Step X is executed by P0. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.111,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "last",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"last=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 50,
+   "structure": "mixed",
+   "secret": "((2, 0, 1), 1)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P1.",
+    "Step X is not executed by P0.",
+    "Step X comes before step Y.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P1. & Step X comes before step Y."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=1\", \"exec0_not_me=1\", \"first=2\", \"step0_before_1=1\"]]"
+  },
+  {
+   "case": 51,
+   "structure": "mixed",
+   "secret": "((1, 0, 2), 0)",
+   "facts": [
+    "The first step is Y.",
+    "The last step is Z.",
+    "Step X is executed by P0.",
+    "Step Y comes before step X.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=2",
+     "exec0_not_me=0"
+    ],
+    [
+     "last=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Y. & The last step is Z. & Step X is executed by P0.",
+    "The last step is Z. & Step X is executed by P0. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "first",
+     "last"
+    ],
+    [
+     "exec0_not_me",
+     "last",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"first=1\", \"last=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 52,
+   "structure": "mixed",
+   "secret": "((2, 1, 0), 0)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P0.",
+    "Step X is executed by P0.",
+    "Step Y comes before step X.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=0",
+     "step0_before_1=0"
+    ],
+    [
+     "first=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P0. & Step Y comes before step X.",
+    "The first step is Z. & Step X is executed by P0. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ],
+    [
+     "exec0_not_me",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=0\", \"exec0_not_me=0\", \"first=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 53,
+   "structure": "mixed",
+   "secret": "((2, 1, 0), 2)",
+   "facts": [
+    "The first step is Z.",
+    "Step X is executed by P2.",
+    "Step Y comes before step X.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=2",
+     "step0_before_1=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Z. & Step X is executed by P2. & Step Y comes before step X."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "first",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=2\", \"first=2\", \"step0_before_1=0\"]]"
+  },
+  {
+   "case": 54,
+   "structure": "mixed",
+   "secret": "((0, 1, 2), 2)",
+   "facts": [
+    "The last step is Z.",
+    "Step X is executed by P2.",
+    "Step X is not executed by P0.",
+    "Step X comes before step Y.",
+    "The meeting room is in wing N.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_room",
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0=2",
+     "step0_before_1=1"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The last step is Z. & Step X is executed by P2. & Step X comes before step Y."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0",
+     "last",
+     "step0_before_1"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0=2\", \"exec0_not_me=1\", \"last=2\", \"step0_before_1=1\"]]"
+  },
+  {
+   "case": 55,
+   "structure": "mixed",
+   "secret": "((1, 2, 0), 0)",
+   "facts": [
+    "The first step is Y.",
+    "The last step is X.",
+    "Step X is executed by P0.",
+    "The team's shift is late."
+   ],
+   "decoys": [
+    "d_shift"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=0",
+     "exec0_not_me=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is Y. & The last step is X. & Step X is executed by P0."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "first",
+     "last"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"first=1\", \"last=0\"]]"
+  },
+  {
+   "case": 56,
+   "structure": "mixed",
+   "secret": "((0, 2, 1), 0)",
+   "facts": [
+    "The first step is X.",
+    "The last step is Y.",
+    "Step X is executed by P0.",
+    "Step X comes before step Y.",
+    "The meeting room is in wing N."
+   ],
+   "decoys": [
+    "d_room"
+   ],
+   "public_background": "Three steps X, Y, Z are performed in a secret order, and step X is executed by one of three people P0, P1, P2.",
+   "minimal_derivations": [
+    [
+     "first=0",
+     "last=1",
+     "exec0_not_me=0"
+    ]
+   ],
+   "minimal_derivation_text": [
+    "The first step is X. & The last step is Y. & Step X is executed by P0."
+   ],
+   "adapter_value_independent_witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "adapter_covered": false,
+   "formal_capd_covered": true,
+   "share_of_worlds_with_same_units_determined": 0.333,
+   "pattern": [
+    [
+     "exec0_not_me",
+     "first",
+     "last"
+    ]
+   ],
+   "instance_key": "[\"mixed\", [\"exec0_not_me=0\", \"first=0\", \"last=1\", \"step0_before_1=1\"]]"
+  }
+ ]
+}

@@ -1,0 +1,899 @@
+{
+ "summary": {
+  "n": 56,
+  "hit1": 36,
+  "stated_path_mentions_minimal_derivation": 50,
+  "hit1_reparsed": 53,
+  "unparsed_after_reparse": 0,
+  "wrong_after_reparse": [
+   [
+    "mixed",
+    "Used all four facts. The order is fixed as Y, Z, X by \"first is Y\", \"last is X\", and \"Y before X\". The executor of X is fixed as P0 by \"Step X is executed by P0\". The remaining uncertainty is only the executor of Y and Z among P0, P1, P2, w"
+   ],
+   [
+    "mixed",
+    "Used all facts: X by P0, late shift, last is Z, Y before X.\nLate shift implies executor is P2; Y before X and Z last fixes order as Y,X,Z.\nOnly one possibility remains, so best/second/third are identical.\n\n{\"guesses\": [{\"order\": [\"Y\",\"X\",\"Z"
+   ],
+   [
+    "mixed",
+    "Used all facts: X by P0, first is Y, last is X, shift late.\nLate shift implies executor P2; order must start Y and end X, leaving Z in middle.\nBest guess is order Y,Z,X with executor P2; alternatives swap executor to P0/P1.\n\n{\"guesses\": [{\""
+   ]
+  ]
+ },
+ "rows": [
+  {
+   "structure": "fact",
+   "mask": 62,
+   "x": 12,
+   "hit1": true,
+   "text": "Used: below 6, remainder 2 or 3 mod 4, odd.\nCandidates below 6: 0,1,2,3,4,5. Remainder 2 or 3 mod 4: 2,3. Odd: 3. Remaining consistent value is 3; next closest are 2 and 5.\n{\"guesses\": [3, 2, 5]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 62,
+   "x": 8,
+   "hit1": null,
+   "text": "Used the salary-band facts: remainder 2 or 3 mod 4, even, and below 6.\nCandidates mod 4: {2,3,6,7}; even: {2,6}; below 6: {2}.\nOnly 2 fits; other plausible even bands are 0 and 4.\n{\"guesses\": [2, 0, 4]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=0",
+     "band_ge6=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 62,
+   "x": 28,
+   "hit1": true,
+   "text": "Used salary constraints: at least 6, remainder 2 or 3 mod 4, and odd.\nOnly 7 satisfies all three; no other bands remain, so repeat-compatible fallbacks are 3 and 2.\n{\"guesses\": [7, 3, 2]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 30,
+   "x": 12,
+   "hit1": true,
+   "text": "Used remainder, below 6, and odd facts: candidates 2,3 from remainder; below 6 keeps 2,3; odd selects 3. Other odd bands below 6 are 1,5.\n{\"guesses\": [3, 1, 5]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_mod4_ge2=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 46,
+   "x": 24,
+   "hit1": true,
+   "text": "Used even, remainder 2 or 3 mod 4, and at least 6.\nEven candidates: 0,2,4,6.\nRemainder 2 or 3 mod 4: 2,3,6,7.\nIntersection with at least 6: 6.\n{\"guesses\": [6, 2, 7]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 60,
+   "x": 28,
+   "hit1": true,
+   "text": "Used salary band constraints: at least 6 and odd.\nPossible bands: 7 only.\nBest guesses: 7, then next plausible odd bands 5 and 3.\n{\"guesses\": [7, 5, 3]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 45,
+   "x": 16,
+   "hit1": true,
+   "text": "Used the facts: at least 4, below 6, and even.\nPossible bands: 4 or 5; even leaves 4.\nNext best remaining candidates: 6, then 2.\n{\"guesses\": [4, 6, 2]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_ge4=1",
+     "band_odd=0",
+     "band_ge6=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 29,
+   "x": 28,
+   "hit1": true,
+   "text": "Used salary band facts: at least 6 and odd.\nPossible bands: 7 only.\nBest guesses: 7, then next plausible odd bands 5 and 3.\n{\"guesses\": [7, 5, 3]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 44,
+   "x": 24,
+   "hit1": true,
+   "text": "Used the facts: salary band is even and at least 6.\nPossible bands: 0,2,4,6,8 → intersect ≥6 → 6,8.\nBest guess: 6; second: 8; third: 4 (next even below 6).\n{\"guesses\": [6, 8, 4]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 30,
+   "x": 28,
+   "hit1": true,
+   "text": "Used odd, at least 6, and mod 4 remainder 2 or 3; only 7 satisfies all.\n7 is the only consistent value, so second/third are next most plausible fallbacks.\n{\"guesses\": [7, 5, 3]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 29,
+   "x": 20,
+   "hit1": true,
+   "text": "Used facts: odd, below 6, at least 4.\nOdd bands in [4,6): 5 only.\nBest: 5; next closest odd bands: 3,7.\n{\"guesses\": [5, 3, 7]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_ge4=1",
+     "band_odd=1",
+     "band_ge6=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 29,
+   "x": 28,
+   "hit1": true,
+   "text": "Used salary band facts: at least 6 and odd.\nPossible bands: 7 only.\nBest guesses: 7, then next odd bands 5 and 3.\n{\"guesses\": [7, 5, 3]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=1",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 30,
+   "x": 24,
+   "hit1": true,
+   "text": "Used the salary-band facts: remainder 2 or 3 mod 4, at least 6, and even. The wing N fact is irrelevant. Candidates: 6 (2 mod 4, even) and 7 (3 mod 4, odd), so only 6 fits all salary constraints.\n{\"guesses\": [6, 7, 2]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "fact",
+   "mask": 61,
+   "x": 24,
+   "hit1": true,
+   "text": "Used facts: salary band at least 6, even.\nRelevant bands: 6, 7; even leaves 6.\nOther facts are irrelevant.\n{\"guesses\": [6, 4, 2]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "band_odd=0",
+     "band_ge6=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 26,
+   "x": 80,
+   "hit1": true,
+   "text": "Used all three facts. Since s3=C and s1=B, s0 must be D, leaving s2=A.\nBest: s0=D, s1=B, s2=A, s3=C. Alternatives differ only by s0/s2 when s0=C.\n{\"guesses\": [[\"D\",\"B\",\"A\",\"C\"], [\"C\",\"B\",\"A\",\"C\"], [\"C\",\"B\",\"D\",\"C\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=1",
+     "adv_of_s3=2",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 28,
+   "x": 44,
+   "hit1": null,
+   "text": "Used all facts: s2=C, s3=A, s0∈{A,B}; since s3=A, s0≠A, so s0=B. Remaining advisor for s1 is D.\n{\"guesses\": [[\"B\",\"D\",\"C\",\"A\"], [\"B\",\"D\",\"C\",\"A\"], [\"B\",\"D\",\"C\",\"A\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=0",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 58,
+   "x": 44,
+   "hit1": true,
+   "text": "Used s1=D and s3=A; s0 is A or B, but A is taken, so s0=B. Remaining advisor for s2 is C.\nOnly one assignment remains consistent.\n{\"guesses\": [[\"B\",\"D\",\"C\",\"A\"], [\"B\",\"D\",\"C\",\"A\"], [\"B\",\"D\",\"C\",\"A\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=3",
+     "adv_of_s3=0",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 22,
+   "x": 24,
+   "hit1": true,
+   "text": "Used s2=C and s1=A; s0 is A or B, but A is already taken by s1, so s0=B. Then s3 gets the remaining advisor D.\nBest: [\"B\",\"A\",\"C\",\"D\"]; alternatives come from the next most likely remaining assignments.\n{\"guesses\": [[\"B\",\"A\",\"C\",\"D\"], [\"B\",\"A\",\"C\",\"A\"], [\"B\",\"A\",\"C\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=0",
+     "adv_of_s2=2",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 22,
+   "x": 64,
+   "hit1": null,
+   "text": "Used all facts: s1=D, s2=A, s0∈{C,D}. Since s1=D, s0 cannot be D, so s0=C. Then s3 must be B.\n{\"guesses\": [[\"C\",\"D\",\"A\",\"B\"], [\"C\",\"D\",\"A\",\"B\"], [\"C\",\"D\",\"A\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=3",
+     "adv_of_s2=0",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 54,
+   "x": 24,
+   "hit1": true,
+   "text": "Used s1=A and s2=C; s0 is A or B, but A is already taken by s1, so s0=B. Remaining advisor for s3 is D.\n{\"guesses\": [[\"B\",\"A\",\"C\",\"D\"], [\"B\",\"A\",\"C\",\"D\"], [\"B\",\"A\",\"C\",\"D\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=0",
+     "adv_of_s2=2",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 122,
+   "x": 88,
+   "hit1": true,
+   "text": "Used advisor constraints; ignored irrelevant room/shift facts.\ns1=C and s3=B leave A,D for s0,s2; s0 must be D, so s2=A.\nOnly one assignment is consistent, so best/second/third are identical.\n\n{\"guesses\": [[\"D\",\"C\",\"A\",\"B\"], [\"D\",\"C\",\"A\",\"B\"], [\"D\",\"C\",\"A\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 58,
+   "x": 12,
+   "hit1": true,
+   "text": "Used s3=B and s1=C; s0 cannot be B, so s0=A, leaving s2=D.\nOnly one assignment remains consistent.\n{\"guesses\": [[\"A\",\"C\",\"D\",\"B\"], [\"A\",\"C\",\"D\",\"B\"], [\"A\",\"C\",\"D\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 124,
+   "x": 80,
+   "hit1": null,
+   "text": "Used advisor facts: s3=C, s2=A, s0∈{C,D}; since advisors are unique, s0≠C, so s0=D, leaving s1=B.\nIrrelevant facts: wing N and late shift do not affect advisor assignments.\nDeduced unique assignment: s0=D, s1=B, s2=A, s3=C.\n\n{\"guesses\": [[\"D\",\"B\",\"A\",\"C\"], [\"D\",\"B\",\"A\",\"C\"], [\"D\",\"B\",\"A\",\"C\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=0",
+     "adv_of_s3=2",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 124,
+   "x": 8,
+   "hit1": true,
+   "text": "Used advisor constraints; ignored irrelevant room/shift facts. Since s2=B and s3=D, s0 is A or B, but B is taken, so s0=A. Thus s1=C.\n\n{\"guesses\": [[\"A\",\"C\",\"B\",\"D\"], [\"A\",\"C\",\"B\",\"D\"], [\"A\",\"C\",\"B\",\"D\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=1",
+     "adv_of_s3=3",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 60,
+   "x": 76,
+   "hit1": null,
+   "text": "Used all facts: s2=C, s3=B, s0∈{C,D}, no shared advisors.\nSince s2=C, s0 cannot be C, so s0=D; then s1=A.\nOnly one assignment remains consistent.\n\n{\"guesses\": [[\"D\",\"A\",\"C\",\"B\"], [\"D\",\"A\",\"C\",\"B\"], [\"D\",\"A\",\"C\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 118,
+   "x": 4,
+   "hit1": null,
+   "text": "Used advisor constraints: s2=D, s1=B, s0∈{A,B}, and no shared advisors.\nSince s1=B, s0 cannot be B, so s0=A; remaining advisors for s3 are C or D, but D is taken by s2, so s3=C.\nOnly one assignment is consistent.\n\n{\"guesses\": [[\"A\",\"B\",\"D\",\"C\"], [\"A\",\"B\",\"D\",\"C\"], [\"A\",\"B\",\"D\",\"C\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s1=1",
+     "adv_of_s2=3",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 124,
+   "x": 84,
+   "hit1": true,
+   "text": "Used advisor constraints; ignored irrelevant shift/room facts.\ns3=A and s2=C leave s0,s1 to be B,D in either order; s0 must be C or D, so s0=D and s1=B.\nRemaining alternatives are impossible under the constraints, so best guess repeated as the only consistent assignment.\n\n{\"guesses\": [[\"D\",\"B\",\"C\",\"A\"], [\"D\",\"B\",\"C\",\"A\"], [\"D\",\"B\",\"C\",\"A\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=0",
+     "s0_adv_in_A=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "relation",
+   "mask": 124,
+   "x": 20,
+   "hit1": null,
+   "text": "Used advisor facts: s2=C, s3=B, s0∈{A,B}; no shared advisors.\nSince s3=B, s0 cannot be B, so s0=A; remaining advisor for s1 is D.\nOnly one assignment remains, so best/second/third are the same valid guess.\n\n{\"guesses\": [[\"A\",\"D\",\"C\",\"B\"], [\"A\",\"D\",\"C\",\"B\"], [\"A\",\"D\",\"C\",\"B\"]]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "adv_of_s2=2",
+     "adv_of_s3=1",
+     "s0_adv_in_A=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 14,
+   "x": 28,
+   "hit1": true,
+   "text": "Used b=3 and a<2; max(a,b)=3 for all valid a. The meeting room fact is irrelevant.\nBest guess is 3; other distinct guesses are 2 and 1.\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 22,
+   "x": 24,
+   "hit1": null,
+   "text": "Used b=2 and a<2. Since max(a,b)=2 for any a in {0,1}, the secret is certainly 2. Other guesses are arbitrary fallbacks.\n\n{\"guesses\": [2, 1, 0]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 26,
+   "x": 28,
+   "hit1": true,
+   "text": "Used b = 3; since secret = max(a, b) and b is maximal, secret must be 3.\nOther facts are irrelevant to the secret.\nOnly one possible value remains.\n\n{\"guesses\": [3, 3, 3]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 22,
+   "x": 60,
+   "hit1": true,
+   "text": "Used b=3 and a≥2; max(a,b)=3 for all allowed a. The late-shift fact is irrelevant.\nBest is 3; other distinct plausible max values are 2 and 1.\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 29,
+   "x": 48,
+   "hit1": true,
+   "text": "Used facts: a = 3 and a is at least 2. Since the secret is max(a, b) and a = 3, the secret must be 3 regardless of b. The other facts are irrelevant.\n\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 30,
+   "x": 8,
+   "hit1": null,
+   "text": "Used facts: b = 2 and a < 2.\nSince a ∈ {0,1} and b = 2, max(a,b) = 2 always.\nOther guesses are impossible under the constraints, but listing closest alternatives.\n\n{\"guesses\": [2, 1, 0]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 30,
+   "x": 12,
+   "hit1": null,
+   "text": "Used facts: b=3 and a<2. Irrelevant facts: shift late, room in wing N.\nSince b=3 and a∈{0,1}, max(a,b)=3 always.\nOnly one possible secret value, so second/third guesses are arbitrary different integers.\n\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "in_b=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 13,
+   "x": 52,
+   "hit1": null,
+   "text": "Used facts: a is at least 2, a = 3. Ignored irrelevant fact about meeting room.\nSince a = 3, max(a, b) = max(3, b) = 3 for any b in {0,1,2,3}.\nThus the secret is certainly 3; other guesses are impossible but listed as requested.\n\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 17,
+   "x": 56,
+   "hit1": null,
+   "text": "Used the fact a = 3; the late shift is irrelevant.\nSince a = 3 and b ∈ {0,1,2,3}, max(a,b) = 3 for all b.\nThus the secret is certainly 3; other guesses are arbitrary fallbacks.\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 6,
+   "x": 20,
+   "hit1": null,
+   "text": "Used b=1 and a<2. Since a∈{0,1}, max(a,1)=1 always.\n{\"guesses\": [1, 0, 2]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "in_b=1",
+     "in_a_hi=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 22,
+   "x": 4,
+   "hit1": null,
+   "text": "Used facts: a < 2 and b = 1. Since a ∈ {0,1} and b = 1, max(a,b) = 1 in all remaining cases.\n{\"guesses\": [1, 0, 2]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_b=1",
+     "in_a_hi=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 9,
+   "x": 56,
+   "hit1": null,
+   "text": "Used facts: a = 3 (the meeting room wing is irrelevant). Since a = 3 and secret = max(a, b), the secret is max(3, b) = 3 for any b in {0,1,2,3}. Thus the only possible secret is 3; second and third guesses are arbitrary distinct integers.\n\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 30,
+   "x": 8,
+   "hit1": null,
+   "text": "Used facts: b = 2 and a < 2.\nSince a ∈ {0,1} and b = 2, max(a,b) = 2 always.\nOther guesses are impossible under the constraints, but listing closest alternatives.\n\n{\"guesses\": [2, 1, 0]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_b=2",
+     "in_a_hi=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "and_max",
+   "mask": 13,
+   "x": 60,
+   "hit1": null,
+   "text": "Used facts: a ≥ 2 and a = 3; ignored irrelevant room fact.\nSince a = 3, max(a, b) = 3 for any b ∈ {0,1,2,3}.\nThus the secret is certainly 3; other guesses are fallbacks.\n\n{\"guesses\": [3, 2, 1]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "in_a=3"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 27,
+   "x": 36,
+   "hit1": false,
+   "text": "Used all four facts. The order is fixed as Y, Z, X by \"first is Y\", \"last is X\", and \"Y before X\". The executor of X is fixed as P0 by \"Step X is executed by P0\". The remaining uncertainty is only the executor of Y and Z among P0, P1, P2, with 9 equally likely combinations.\nThe best guess is the most likely executor pair for Y and Z; since all 9 are equally likely, I choose P0 for both as the canonical top guess, then vary P1 and P2.\n\n{\"guesses\": [{\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": {\"X\": \"P0\", \"Y\": \"P0\", \"Z\": \"P0\"}}, {\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": {\"X\": \"P0\", \"Y\": \"P0\", \"Z\": \"P1\"}}, {\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": {\"X\": \"P0\", \"Y\": \"P0\", \"Z\": \"P2\"}}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=0",
+     "exec0_not_me=0"
+    ]
+   ],
+   "hit1_reparsed": false
+  },
+  {
+   "structure": "mixed",
+   "mask": 53,
+   "x": 56,
+   "hit1": true,
+   "text": "Used: X before Y, X by P2, first is Z. The meeting room fact is irrelevant.\nDeduction: Z is first, so X and Y follow with X before Y, giving order Z, X, Y. Executor is P2.\nRemaining uncertainty is only in the unused/irrelevant fact, so all three guesses share the same inferred core.\n\n{\"guesses\": [{\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P2\"}, {\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P2\"}, {\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=2",
+     "step0_before_1=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 43,
+   "x": 24,
+   "hit1": true,
+   "text": "Used facts: first step is Y, last step is Z, step X is executed by P0. The wing N fact is irrelevant to the secret order/executor.\nDeduction: Since Y is first and Z is last, the only possible order is Y, X, Z. The executor of X is P0.\nThe secret is fully determined, so all three guesses are the same.\n\n{\"guesses\": [{\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P0\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P0\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P0\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=2",
+     "exec0_not_me=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 93,
+   "x": 64,
+   "hit1": true,
+   "text": "Used all facts: Y before X, X by P1, first is Z, X not by P0.\nDeduction: Z must be first, and Y before X forces order Z, Y, X; executor is P1.\nThe only consistent secret is unique, so the three guesses are identical.\n\n{\"guesses\": [{\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 22,
+   "x": 28,
+   "hit1": true,
+   "text": "Used all three facts: X is by P1, Y precedes X, and Z is last. Thus the order must be Y,X,Z, and the only remaining uncertainty is the executor label, which is fixed to P1 by the facts.\n\n{\"guesses\": [{\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P1\"}]}",
+   "mentions_a_minimal_derivation": false,
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0=1",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 93,
+   "x": 52,
+   "hit1": true,
+   "text": "Used facts: first step is Z, X executed by P1, X before Y. Deduce order must be Z, X, Y and executor P1. Other facts are redundant or non-determinative.\n{\"guesses\": [{\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P1\"}, {\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P2\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 90,
+   "x": 24,
+   "hit1": false,
+   "text": "Used all facts: X by P0, late shift, last is Z, Y before X.\nLate shift implies executor is P2; Y before X and Z last fixes order as Y,X,Z.\nOnly one possibility remains, so best/second/third are identical.\n\n{\"guesses\": [{\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P2\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P2\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": false
+  },
+  {
+   "structure": "mixed",
+   "mask": 61,
+   "x": 52,
+   "hit1": true,
+   "text": "Used: first step is Z; X executed by P1; X before Y. These force order Z, X, Y and executor P1. The remaining facts are redundant.\nBest guess is the uniquely determined secret; second/third are next-most-plausible alternatives if a stated fact were relaxed.\n{\"guesses\": [{\"order\": [\"Z\",\"X\",\"Y\"], \"executor\": \"P1\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}, {\"order\": [\"X\",\"Z\",\"Y\"], \"executor\": \"P1\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=1",
+     "step0_before_1=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 59,
+   "x": 24,
+   "hit1": true,
+   "text": "Used order facts: Y before X, Z last, Y first → order is Y, X, Z. Used executor fact: X executed by P0. Other facts are irrelevant.\nBest guess is the fully determined secret; second/third guesses are alternative executors for X.\n\n{\"guesses\": [{\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P0\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P1\"}, {\"order\": [\"Y\",\"X\",\"Z\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=2",
+     "exec0_not_me=0"
+    ],
+    [
+     "last=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 93,
+   "x": 60,
+   "hit1": true,
+   "text": "Used: first step is Z; Y before X; X executed by P0. The duplicate P0 fact adds no new information.\nDeduction: Z must be first, and Y before X, so the only consistent order is Z, Y, X; executor is P0.\n{\"guesses\": [{\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P0\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P1\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=0",
+     "step0_before_1=0"
+    ],
+    [
+     "first=2",
+     "exec0_not_me=0",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 85,
+   "x": 68,
+   "hit1": true,
+   "text": "Used all four facts: X by P2, Y before X, late shift, and first step is Z. The late-shift fact rules out P0/P1 for X, leaving P2. With Z first and Y before X, the only consistent order is Z, Y, X.\n\n{\"guesses\": [{\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P2\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P2\"}, {\"order\": [\"Z\",\"Y\",\"X\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=2",
+     "exec0=2",
+     "step0_before_1=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 126,
+   "x": 8,
+   "hit1": true,
+   "text": "Used \"last step is Z\", \"X before Y\", \"X executed by P2\", and \"X not P0\" (redundant). Since Z is last and X precedes Y, the only possible order is X, Y, Z; executor is P2.\n\n{\"guesses\": [{\"order\": [\"X\",\"Y\",\"Z\"], \"executor\": \"P2\"}, {\"order\": [\"X\",\"Y\",\"Z\"], \"executor\": \"P2\"}, {\"order\": [\"X\",\"Y\",\"Z\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "last=2",
+     "exec0=2",
+     "step0_before_1=1"
+    ]
+   ],
+   "hit1_reparsed": true
+  },
+  {
+   "structure": "mixed",
+   "mask": 75,
+   "x": 36,
+   "hit1": false,
+   "text": "Used all facts: X by P0, first is Y, last is X, shift late.\nLate shift implies executor P2; order must start Y and end X, leaving Z in middle.\nBest guess is order Y,Z,X with executor P2; alternatives swap executor to P0/P1.\n\n{\"guesses\": [{\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": \"P2\"}, {\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": \"P0\"}, {\"order\": [\"Y\",\"Z\",\"X\"], \"executor\": \"P1\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=1",
+     "last=0",
+     "exec0_not_me=0"
+    ]
+   ],
+   "hit1_reparsed": false
+  },
+  {
+   "structure": "mixed",
+   "mask": 59,
+   "x": 12,
+   "hit1": true,
+   "text": "Used order constraints: X first, Y last, X before Y, so Z must be middle. Used executor fact: X executed by P0.\nBest guess assumes the most likely complete secret also specifies executors for Y and Z as P0 and P1; alternatives vary those unspecified executors.\n{\"guesses\": [{\"order\": [\"X\",\"Z\",\"Y\"], \"executor\": \"P0\"}, {\"order\": [\"X\",\"Z\",\"Y\"], \"executor\": \"P1\"}, {\"order\": [\"X\",\"Z\",\"Y\"], \"executor\": \"P2\"}]}",
+   "mentions_a_minimal_derivation": true,
+   "minimal_derivations": [
+    [
+     "first=0",
+     "last=1",
+     "exec0_not_me=0"
+    ]
+   ],
+   "hit1_reparsed": true
+  }
+ ]
+}
