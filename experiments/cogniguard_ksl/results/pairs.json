@@ -1,0 +1,488 @@
+{
+ "tau": 0.5,
+ "delta": 0.1,
+ "A_same_witness_diff_guessing": [
+  {
+   "structure": "fact",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "band_ge4"
+   ],
+   "low_E_V1": 0.25,
+   "low_E_H": 2.0,
+   "high_view": [
+    "band_ge4",
+    "band_odd",
+    "band_ge6"
+   ],
+   "high_E_V1": 0.75,
+   "high_E_H": 0.5,
+   "prior_V1": 0.125,
+   "prior_H": 3.0,
+   "same_V1_diff_H": {
+    "views": [
+     [
+      "band_ge4",
+      "band_mod4_ge2"
+     ],
+     [
+      "band_odd",
+      "band_ge6"
+     ]
+    ],
+    "E_V1": 0.5,
+    "E_H": [
+     1.0,
+     1.188721875540867
+    ]
+   }
+  },
+  {
+   "structure": "relation",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "s0_adv_in_A"
+   ],
+   "low_E_V1": 0.08333333333333331,
+   "low_E_H": 3.5849625007211556,
+   "high_view": [
+    "adv_of_s1",
+    "adv_of_s2",
+    "s0_adv_in_A"
+   ],
+   "high_E_V1": 0.8333333333333334,
+   "high_E_H": 0.3333333333333333,
+   "prior_V1": 0.041666666666666664,
+   "prior_H": 4.584962500721156
+  },
+  {
+   "structure": "serial",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "succ_0"
+   ],
+   "low_E_V1": 0.041666666666666644,
+   "low_E_H": 4.584962500721157,
+   "high_view": [
+    "succ_0",
+    "succ_1",
+    "succ_2"
+   ],
+   "high_E_V1": 0.5000000000000007,
+   "high_E_H": 1.0000000000000013,
+   "prior_V1": 0.008333333333333335,
+   "prior_H": 6.906890595608516
+  },
+  {
+   "structure": "parallel",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "branch_1_parity"
+   ],
+   "low_E_V1": 0.03125,
+   "low_E_H": 5.0,
+   "high_view": [
+    "branch_2",
+    "branch_3",
+    "branch_1_parity"
+   ],
+   "high_E_V1": 0.5,
+   "high_E_H": 1.0,
+   "prior_V1": 0.015625,
+   "prior_H": 6.0
+  },
+  {
+   "structure": "and_xor",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "in_a"
+   ],
+   "low_E_V1": 0.25,
+   "low_E_H": 2.0,
+   "high_view": [
+    "in_b",
+    "in_a_hi"
+   ],
+   "high_E_V1": 0.5,
+   "high_E_H": 1.0,
+   "prior_V1": 0.25,
+   "prior_H": 2.0
+  },
+  {
+   "structure": "and_sum",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "in_a"
+   ],
+   "low_E_V1": 0.25,
+   "low_E_H": 2.0,
+   "high_view": [
+    "in_b",
+    "in_a_hi"
+   ],
+   "high_E_V1": 0.5,
+   "high_E_H": 1.0,
+   "prior_V1": 0.25,
+   "prior_H": 2.6556390622295662,
+   "same_V1_diff_H": {
+    "views": [
+     [
+      "in_a"
+     ],
+     [
+      "in_a_hi"
+     ]
+    ],
+    "E_V1": 0.25,
+    "E_H": [
+     2.0,
+     2.25
+    ]
+   }
+  },
+  {
+   "structure": "and_max",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "in_a_hi"
+   ],
+   "low_E_V1": 0.5,
+   "low_E_H": 1.4300365325772657,
+   "high_view": [
+    "in_b",
+    "in_a_hi"
+   ],
+   "high_E_V1": 0.75,
+   "high_E_H": 0.5,
+   "prior_V1": 0.4375,
+   "prior_H": 1.7489992230622806
+  },
+  {
+   "structure": "or_alt",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "cipher"
+   ],
+   "low_E_V1": 0.125,
+   "low_E_H": 3.0,
+   "high_view": [
+    "s_hi"
+   ],
+   "high_E_V1": 0.5,
+   "high_E_H": 1.0,
+   "prior_V1": 0.125,
+   "prior_H": 3.0
+  },
+  {
+   "structure": "mixed",
+   "capd_verdict_both": "no witness covered",
+   "low_view": [
+    "exec0_not_me"
+   ],
+   "low_E_V1": 0.11111111111111108,
+   "low_E_H": 3.251629167387822,
+   "high_view": [
+    "first",
+    "exec0",
+    "step0_before_1"
+   ],
+   "high_E_V1": 0.6666666666666667,
+   "high_E_H": 0.6666666666666667,
+   "prior_V1": 0.05555555555555555,
+   "prior_H": 4.169925001442312,
+   "same_V1_diff_H": {
+    "views": [
+     [
+      "first",
+      "last"
+     ],
+     [
+      "first",
+      "exec0_not_me"
+     ]
+    ],
+    "E_V1": 0.33333333333333326,
+    "E_H": [
+     1.584962500721156,
+     1.666666666666667
+    ]
+   }
+  },
+  {
+   "structure": "and_max realized",
+   "view": [
+    "in_a"
+   ],
+   "V1_if_a=3": 1.0,
+   "V1_if_a=0": 0.25
+  }
+ ],
+ "B_constructions": {
+  "G1 certain K={s0}": {
+   "E_V1": 0.5,
+   "P_harm": 1.0,
+   "decision_bayes": "block",
+   "decision_mean": "block",
+   "H_K": 0,
+   "H_K_rel": 0,
+   "VoI1_max": 0.0,
+   "VoI2_max": 0.0,
+   "relevant_uncertain": []
+  },
+  "G2 s0 uncertain p=.95, decoys unknown": {
+   "E_V1": 0.48333333333333334,
+   "P_harm": 0.95,
+   "decision_bayes": "block",
+   "decision_mean": "release",
+   "H_K": 2.286396957115956,
+   "H_K_rel": 0.2863969571159563,
+   "VoI1_max": 0.005555555555555561,
+   "VoI2_max": 0.005555555555555561,
+   "relevant_uncertain": [
+    "adv_of_s0"
+   ]
+  },
+  "G3 s0 p=.5": {
+   "E_V1": 0.3333333333333333,
+   "P_harm": 0.5,
+   "decision_bayes": "block",
+   "decision_mean": "release",
+   "H_K": 1.0,
+   "H_K_rel": 1.0,
+   "VoI1_max": 0.05555555555555556,
+   "VoI2_max": 0.0,
+   "relevant_uncertain": [
+    "adv_of_s0"
+   ]
+  },
+  "G4 decoy p=.5 (s0 absent)": {
+   "E_V1": 0.16666666666666666,
+   "P_harm": 0,
+   "decision_bayes": "release",
+   "decision_mean": "release",
+   "H_K": 1.0,
+   "H_K_rel": 0,
+   "VoI1_max": 0.0,
+   "VoI2_max": 0.0,
+   "relevant_uncertain": []
+  },
+  "G5 s2,s3 p=.3 each": {
+   "E_V1": 0.38166666666666665,
+   "P_harm": 0.51,
+   "decision_bayes": "block",
+   "decision_mean": "release",
+   "H_K": 1.7625817984613854,
+   "H_K_rel": 1.7625817984613854,
+   "VoI1_max": -1.3877787807814457e-17,
+   "VoI2_max": 0.05444444444444443,
+   "relevant_uncertain": [
+    "adv_of_s2",
+    "adv_of_s3"
+   ]
+  },
+  "G6 s0 p=.3, decoy p=.3": {
+   "E_V1": 0.26666666666666666,
+   "P_harm": 0.3,
+   "decision_bayes": "block",
+   "decision_mean": "release",
+   "H_K": 1.7625817984613854,
+   "H_K_rel": 0.8812908992306927,
+   "VoI1_max": 0.07777777777777777,
+   "VoI2_max": 0.07777777777777777,
+   "relevant_uncertain": [
+    "adv_of_s0"
+   ]
+  }
+ },
+ "B_grid": {
+  "n_states": 343,
+  "spearman_H_K_vs_VoI1": -0.34735063810451616,
+  "spearman_H_K_rel_vs_VoI1": -0.43938007096526316,
+  "spearman_Pharm_term_vs_VoI1": 0.3176516278831868,
+  "frac_H_K_levels_with_both_decisions": 0.2,
+  "decision_is_function_of_P_harm": true,
+  "states_VoI1_zero_but_VoI2_positive": 252
+ },
+ "C_denials_leak": {
+  "fact": {
+   "CAPD": {
+    "harm_rate": 0.7297297297297297,
+    "over_refusal": 0.11764705882352941,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.04054054054054054,
+    "denial_leak_per_request": 0.027777777777777776
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.20588235294117646,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "relation": {
+   "CAPD": {
+    "harm_rate": 0.5744680851063829,
+    "over_refusal": 0.26666666666666666,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.02127659574468087,
+    "denial_leak_per_request": 0.016129032258064536
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.26666666666666666,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "serial": {
+   "CAPD": {
+    "harm_rate": 0.5,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "parallel": {
+   "CAPD": {
+    "harm_rate": 0.3333333333333333,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "and_xor": {
+   "CAPD": {
+    "harm_rate": 0.3333333333333333,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "and_sum": {
+   "CAPD": {
+    "harm_rate": 0.3333333333333333,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "and_max": {
+   "CAPD": {
+    "harm_rate": 0.40540540540540543,
+    "over_refusal": 0.37037037037037035,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.13513513513513514,
+    "denial_leak_per_request": 0.078125
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.25925925925925924,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "or_alt": {
+   "CAPD": {
+    "harm_rate": 0.14285714285714285,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  },
+  "mixed": {
+   "CAPD": {
+    "harm_rate": 0.7187500000000007,
+    "over_refusal": 0.05642633228840119,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   },
+   "REAL": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.0,
+    "denial_leak_share_of_refusals": 0.04374999999999993,
+    "denial_leak_per_request": 0.021909233176838763
+   },
+   "SIM": {
+    "harm_rate": 0.0,
+    "over_refusal": 0.08777429467084634,
+    "denial_leak_share_of_refusals": 0.0,
+    "denial_leak_per_request": 0.0
+   }
+  }
+ }
+}

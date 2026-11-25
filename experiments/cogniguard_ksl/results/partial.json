@@ -1,0 +1,1150 @@
+{
+ "fact": {
+  "static": {
+   "prior_V1": 0.125,
+   "n_worlds": 32,
+   "n_secrets": 8,
+   "n_units": 6,
+   "witnesses": [
+    [
+     "band_ge4",
+     "band_mod4_ge2",
+     "band_odd"
+    ]
+   ],
+   "n_noncovering_views": 52,
+   "max_V1_without_witness": 1.0,
+   "mean_V1_without_witness": 0.4423076923076923,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.09615384615384616,
+   "max_leak_bits_without_witness": 3.0,
+   "max_shannon_drop_without_witness": 3.0,
+   "frac_view_world_V1_ge_0.25": 0.9423076923076923,
+   "frac_view_world_V1_ge_0.5": 0.5769230769230769,
+   "frac_view_world_leak_ge_1bit": 0.9423076923076923,
+   "frac_view_world_leak_ge_2bit": 0.5769230769230769,
+   "noncovering_expected_V1_range": [
+    0.25,
+    0.75
+   ],
+   "most_leaky_noncovering_view": [
+    "band_ge4",
+    "band_odd",
+    "band_ge6"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 2.564,
+    "partial_zone_step_share": 0.641
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 1.526,
+    "partial_zone_step_share": 0.3815
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.115,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.106,
+    "mean_lead_steps": 3.684,
+    "partial_zone_step_share": 0.863
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.873,
+    "witness_reached": 0.115,
+    "cross_reached": 0.873,
+    "realized_det_before_witness": 0.106,
+    "mean_lead_steps": 2.0034364261168385,
+    "partial_zone_step_share": 0.319
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.779,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.312,
+    "mean_lead_steps": 2.85,
+    "partial_zone_step_share": 0.7285
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.779,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.312,
+    "mean_lead_steps": 1.789,
+    "partial_zone_step_share": 0.45825
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.257,
+    "mean_lead_steps": 2.567,
+    "partial_zone_step_share": 0.64175
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.257,
+    "mean_lead_steps": 1.506,
+    "partial_zone_step_share": 0.3765
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 2.579,
+    "partial_zone_step_share": 0.64475
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 1.516,
+    "partial_zone_step_share": 0.379
+   }
+  }
+ },
+ "relation": {
+  "static": {
+   "prior_V1": 0.041666666666666664,
+   "n_worlds": 96,
+   "n_secrets": 24,
+   "n_units": 7,
+   "witnesses": [
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s2"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s1",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s0",
+     "adv_of_s2",
+     "adv_of_s3"
+    ],
+    [
+     "adv_of_s1",
+     "adv_of_s2",
+     "adv_of_s3"
+    ]
+   ],
+   "n_noncovering_views": 84,
+   "max_V1_without_witness": 1.0,
+   "mean_V1_without_witness": 0.42460317460317476,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.09523809523809523,
+   "max_leak_bits_without_witness": 4.584962500721156,
+   "max_shannon_drop_without_witness": 4.584962500721156,
+   "frac_view_world_V1_ge_0.25": 0.7142857142857147,
+   "frac_view_world_V1_ge_0.5": 0.6190476190476195,
+   "frac_view_world_leak_ge_1bit": 1.0000000000000004,
+   "frac_view_world_leak_ge_2bit": 0.9523809523809529,
+   "noncovering_expected_V1_range": [
+    0.08333333333333327,
+    0.8333333333333337
+   ],
+   "most_leaky_noncovering_view": [
+    "adv_of_s1",
+    "adv_of_s2",
+    "s0_adv_in_A"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.223,
+    "mean_lead_steps": 1.52,
+    "partial_zone_step_share": 0.304
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.223,
+    "mean_lead_steps": 1.314,
+    "partial_zone_step_share": 0.2628
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.332,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.125,
+    "mean_lead_steps": 2.405,
+    "partial_zone_step_share": 0.3598
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.332,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.125,
+    "mean_lead_steps": 2.158,
+    "partial_zone_step_share": 0.299
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.241,
+    "mean_lead_steps": 1.755,
+    "partial_zone_step_share": 0.3642
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.241,
+    "mean_lead_steps": 1.553,
+    "partial_zone_step_share": 0.3198
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.217,
+    "mean_lead_steps": 1.492,
+    "partial_zone_step_share": 0.2984
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.217,
+    "mean_lead_steps": 1.29,
+    "partial_zone_step_share": 0.258
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.22,
+    "mean_lead_steps": 1.508,
+    "partial_zone_step_share": 0.3016
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.22,
+    "mean_lead_steps": 1.316,
+    "partial_zone_step_share": 0.2632
+   }
+  }
+ },
+ "serial": {
+  "static": {
+   "prior_V1": 0.008333333333333335,
+   "n_worlds": 480,
+   "n_secrets": 120,
+   "n_units": 8,
+   "witnesses": [
+    [
+     "succ_0",
+     "succ_1",
+     "succ_2",
+     "succ_3"
+    ],
+    [
+     "succ_0",
+     "succ_1",
+     "succ_2",
+     "succ_4"
+    ],
+    [
+     "succ_0",
+     "succ_1",
+     "succ_3",
+     "succ_4"
+    ],
+    [
+     "succ_0",
+     "succ_2",
+     "succ_3",
+     "succ_4"
+    ],
+    [
+     "succ_1",
+     "succ_2",
+     "succ_3",
+     "succ_4"
+    ],
+    [
+     "succ_0",
+     "succ_1",
+     "succ_2",
+     "first_step"
+    ],
+    [
+     "succ_0",
+     "succ_1",
+     "succ_3",
+     "first_step"
+    ],
+    [
+     "succ_0",
+     "succ_2",
+     "succ_3",
+     "first_step"
+    ],
+    [
+     "succ_1",
+     "succ_2",
+     "succ_3",
+     "first_step"
+    ],
+    [
+     "succ_0",
+     "succ_1",
+     "succ_4",
+     "first_step"
+    ],
+    [
+     "succ_0",
+     "succ_2",
+     "succ_4",
+     "first_step"
+    ],
+    [
+     "succ_1",
+     "succ_2",
+     "succ_4",
+     "first_step"
+    ],
+    [
+     "succ_0",
+     "succ_3",
+     "succ_4",
+     "first_step"
+    ],
+    [
+     "succ_1",
+     "succ_3",
+     "succ_4",
+     "first_step"
+    ],
+    [
+     "succ_2",
+     "succ_3",
+     "succ_4",
+     "first_step"
+    ]
+   ],
+   "n_noncovering_views": 164,
+   "max_V1_without_witness": 0.5,
+   "mean_V1_without_witness": 0.31097560975609784,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.0,
+   "max_leak_bits_without_witness": 5.906890595608518,
+   "max_shannon_drop_without_witness": 5.906890595608516,
+   "frac_view_world_V1_ge_0.25": 0.4878048780487812,
+   "frac_view_world_V1_ge_0.5": 0.4878048780487812,
+   "frac_view_world_leak_ge_1bit": 1.0000000000000016,
+   "frac_view_world_leak_ge_2bit": 1.0000000000000016,
+   "noncovering_expected_V1_range": [
+    0.041666666666666644,
+    0.5000000000000007
+   ],
+   "most_leaky_noncovering_view": [
+    "succ_0",
+    "succ_1",
+    "succ_2"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 0.851,
+    "witness_reached": 0.304,
+    "cross_reached": 0.851,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.6698002350176264,
+    "partial_zone_step_share": 0.155
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.851,
+    "witness_reached": 0.304,
+    "cross_reached": 0.851,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.6698002350176264,
+    "partial_zone_step_share": 0.155
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.222,
+    "partial_zone_step_share": 0.21633333333333332
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.222,
+    "partial_zone_step_share": 0.21633333333333332
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.16666666666666666
+   }
+  }
+ },
+ "parallel": {
+  "static": {
+   "prior_V1": 0.015625,
+   "n_worlds": 256,
+   "n_secrets": 64,
+   "n_units": 6,
+   "witnesses": [
+    [
+     "branch_1",
+     "branch_2",
+     "branch_3"
+    ]
+   ],
+   "n_noncovering_views": 52,
+   "max_V1_without_witness": 0.5,
+   "mean_V1_without_witness": 0.17548076923076922,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.0,
+   "max_leak_bits_without_witness": 5.0,
+   "max_shannon_drop_without_witness": 5.0,
+   "frac_view_world_V1_ge_0.25": 0.46153846153846156,
+   "frac_view_world_V1_ge_0.5": 0.07692307692307693,
+   "frac_view_world_leak_ge_1bit": 1.0,
+   "frac_view_world_leak_ge_2bit": 0.9230769230769231,
+   "noncovering_expected_V1_range": [
+    0.03125,
+    0.5
+   ],
+   "most_leaky_noncovering_view": [
+    "branch_2",
+    "branch_3",
+    "branch_1_parity"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.256,
+    "partial_zone_step_share": 0.314
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.242,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.0605
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 0.779,
+    "witness_reached": 0.115,
+    "cross_reached": 0.779,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.6033376123234917,
+    "partial_zone_step_share": 0.2165
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.087,
+    "witness_reached": 0.115,
+    "cross_reached": 0.188,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.1954022988505748,
+    "partial_zone_step_share": 0.02175
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.779,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.525,
+    "partial_zone_step_share": 0.384
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.308,
+    "witness_reached": 0.779,
+    "cross_reached": 0.921,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.1168831168831168,
+    "partial_zone_step_share": 0.08175
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.242,
+    "partial_zone_step_share": 0.3105
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.249,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.06225
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.245,
+    "partial_zone_step_share": 0.31125
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.231,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.05775
+   }
+  }
+ },
+ "and_xor": {
+  "static": {
+   "prior_V1": 0.25,
+   "n_worlds": 64,
+   "n_secrets": 4,
+   "n_units": 5,
+   "witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "n_noncovering_views": 20,
+   "max_V1_without_witness": 0.5,
+   "mean_V1_without_witness": 0.3,
+   "frac_views_any_leak": 0.2,
+   "realized_determination_without_witness": 0.0,
+   "max_leak_bits_without_witness": 1.0,
+   "max_shannon_drop_without_witness": 1.0,
+   "frac_view_world_V1_ge_0.25": 1.0,
+   "frac_view_world_V1_ge_0.5": 0.2,
+   "frac_view_world_leak_ge_1bit": 0.2,
+   "frac_view_world_leak_ge_2bit": 0.0,
+   "noncovering_expected_V1_range": [
+    0.25,
+    0.5
+   ],
+   "most_leaky_noncovering_view": [
+    "in_b",
+    "in_a_hi"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.665,
+    "partial_zone_step_share": 0.555
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.341,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.11366666666666667
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.355,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 2.541,
+    "partial_zone_step_share": 0.8696666666666667
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.26,
+    "witness_reached": 0.355,
+    "cross_reached": 0.571,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.2961538461538462,
+    "partial_zone_step_share": 0.08666666666666667
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.587
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.342,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.144
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.557
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.342,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.114
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.659,
+    "partial_zone_step_share": 0.553
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.336,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.112
+   }
+  }
+ },
+ "and_sum": {
+  "static": {
+   "prior_V1": 0.25,
+   "n_worlds": 64,
+   "n_secrets": 7,
+   "n_units": 5,
+   "witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "n_noncovering_views": 20,
+   "max_V1_without_witness": 0.5,
+   "mean_V1_without_witness": 0.3,
+   "frac_views_any_leak": 0.2,
+   "realized_determination_without_witness": 0.0,
+   "max_leak_bits_without_witness": 1.0,
+   "max_shannon_drop_without_witness": 1.6556390622295662,
+   "frac_view_world_V1_ge_0.25": 1.0,
+   "frac_view_world_V1_ge_0.5": 0.2,
+   "frac_view_world_leak_ge_1bit": 0.2,
+   "frac_view_world_leak_ge_2bit": 0.0,
+   "noncovering_expected_V1_range": [
+    0.25,
+    0.5
+   ],
+   "most_leaky_noncovering_view": [
+    "in_b",
+    "in_a_hi"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.665,
+    "partial_zone_step_share": 0.555
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.341,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.11366666666666667
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.355,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 2.541,
+    "partial_zone_step_share": 0.8696666666666667
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.26,
+    "witness_reached": 0.355,
+    "cross_reached": 0.571,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.2961538461538462,
+    "partial_zone_step_share": 0.08666666666666667
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.587
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.342,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.144
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.557
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.342,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.114
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.659,
+    "partial_zone_step_share": 0.553
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.336,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.0,
+    "partial_zone_step_share": 0.112
+   }
+  }
+ },
+ "and_max": {
+  "static": {
+   "prior_V1": 0.4375,
+   "n_worlds": 64,
+   "n_secrets": 4,
+   "n_units": 5,
+   "witnesses": [
+    [
+     "in_a",
+     "in_b"
+    ]
+   ],
+   "n_noncovering_views": 20,
+   "max_V1_without_witness": 1.0,
+   "mean_V1_without_witness": 0.625,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.25,
+   "max_leak_bits_without_witness": 1.1926450779423958,
+   "max_shannon_drop_without_witness": 1.7489992230622806,
+   "frac_view_world_V1_ge_0.25": 1.0,
+   "frac_view_world_V1_ge_0.5": 0.75,
+   "frac_view_world_leak_ge_1bit": 0.25,
+   "frac_view_world_leak_ge_2bit": 0.0,
+   "noncovering_expected_V1_range": [
+    0.5,
+    0.75
+   ],
+   "most_leaky_noncovering_view": [
+    "in_b",
+    "in_a_hi"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.351,
+    "mean_lead_steps": 1.665,
+    "partial_zone_step_share": 0.555
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.837,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.351,
+    "mean_lead_steps": 1.4898446833930705,
+    "partial_zone_step_share": 0.4156666666666667
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.355,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.432,
+    "mean_lead_steps": 2.541,
+    "partial_zone_step_share": 0.8696666666666667
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.903,
+    "witness_reached": 0.355,
+    "cross_reached": 0.978,
+    "realized_det_before_witness": 0.432,
+    "mean_lead_steps": 2.294573643410853,
+    "partial_zone_step_share": 0.618
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.348,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.587
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.832,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.348,
+    "mean_lead_steps": 1.5072115384615385,
+    "partial_zone_step_share": 0.448
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.348,
+    "mean_lead_steps": 1.671,
+    "partial_zone_step_share": 0.557
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.832,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.348,
+    "mean_lead_steps": 1.5072115384615385,
+    "partial_zone_step_share": 0.418
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.324,
+    "mean_lead_steps": 1.659,
+    "partial_zone_step_share": 0.553
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.824,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.324,
+    "mean_lead_steps": 1.491504854368932,
+    "partial_zone_step_share": 0.4096666666666667
+   }
+  }
+ },
+ "or_alt": {
+  "static": {
+   "prior_V1": 0.125,
+   "n_worlds": 256,
+   "n_secrets": 8,
+   "n_units": 6,
+   "witnesses": [
+    [
+     "s_hi",
+     "s_lo"
+    ],
+    [
+     "cipher",
+     "key"
+    ]
+   ],
+   "n_noncovering_views": 32,
+   "max_V1_without_witness": 0.5,
+   "mean_V1_without_witness": 0.3125,
+   "frac_views_any_leak": 0.75,
+   "realized_determination_without_witness": 0.0,
+   "max_leak_bits_without_witness": 2.0,
+   "max_shannon_drop_without_witness": 2.0,
+   "frac_view_world_V1_ge_0.25": 0.75,
+   "frac_view_world_V1_ge_0.5": 0.375,
+   "frac_view_world_leak_ge_1bit": 0.75,
+   "frac_view_world_leak_ge_2bit": 0.375,
+   "noncovering_expected_V1_range": [
+    0.125,
+    0.5
+   ],
+   "most_leaky_noncovering_view": [
+    "s_hi"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 0.834,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.3968824940047961,
+    "partial_zone_step_share": 0.29125
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.435,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.3908045977011494,
+    "partial_zone_step_share": 0.15125
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 0.938,
+    "witness_reached": 0.538,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 2.568230277185501,
+    "partial_zone_step_share": 0.50425
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.739,
+    "witness_reached": 0.538,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 2.185385656292287,
+    "partial_zone_step_share": 0.24675
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 0.827,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.4437726723095525,
+    "partial_zone_step_share": 0.31775
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.392,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.433673469387755,
+    "partial_zone_step_share": 0.15525
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 0.827,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.4437726723095525,
+    "partial_zone_step_share": 0.2985
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.392,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.433673469387755,
+    "partial_zone_step_share": 0.1405
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 0.822,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.4124087591240877,
+    "partial_zone_step_share": 0.29025
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.418,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.0,
+    "mean_lead_steps": 1.4114832535885167,
+    "partial_zone_step_share": 0.1475
+   }
+  }
+ },
+ "mixed": {
+  "static": {
+   "prior_V1": 0.05555555555555555,
+   "n_worlds": 72,
+   "n_secrets": 18,
+   "n_units": 7,
+   "witnesses": [
+    [
+     "first",
+     "last",
+     "exec0"
+    ]
+   ],
+   "n_noncovering_views": 108,
+   "max_V1_without_witness": 1.0,
+   "mean_V1_without_witness": 0.3868312757201644,
+   "frac_views_any_leak": 1.0,
+   "realized_determination_without_witness": 0.08230452674897124,
+   "max_leak_bits_without_witness": 4.169925001442312,
+   "max_shannon_drop_without_witness": 4.169925001442312,
+   "frac_view_world_V1_ge_0.25": 0.7037037037037038,
+   "frac_view_world_V1_ge_0.5": 0.43621399176954734,
+   "frac_view_world_leak_ge_1bit": 0.9753086419753088,
+   "frac_view_world_leak_ge_2bit": 0.7037037037037038,
+   "noncovering_expected_V1_range": [
+    0.11111111111111101,
+    0.6666666666666669
+   ],
+   "most_leaky_noncovering_view": [
+    "first",
+    "exec0",
+    "step0_before_1"
+   ]
+  },
+  "traj": {
+   "N=1,k=1,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.234,
+    "mean_lead_steps": 2.211,
+    "partial_zone_step_share": 0.4422
+   },
+   "N=1,k=1,tau=0.5": {
+    "cross_before_witness": 0.922,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.234,
+    "mean_lead_steps": 1.5878524945770065,
+    "partial_zone_step_share": 0.2928
+   },
+   "N=3,k=1,tau=0.25": {
+    "cross_before_witness": 0.965,
+    "witness_reached": 0.094,
+    "cross_reached": 0.965,
+    "realized_det_before_witness": 0.094,
+    "mean_lead_steps": 2.5367875647668394,
+    "partial_zone_step_share": 0.3502
+   },
+   "N=3,k=1,tau=0.5": {
+    "cross_before_witness": 0.695,
+    "witness_reached": 0.094,
+    "cross_reached": 0.718,
+    "realized_det_before_witness": 0.094,
+    "mean_lead_steps": 2.0532374100719424,
+    "partial_zone_step_share": 0.1836
+   },
+   "N=3,k=2,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 0.766,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.296,
+    "mean_lead_steps": 2.553,
+    "partial_zone_step_share": 0.5306
+   },
+   "N=3,k=2,tau=0.5": {
+    "cross_before_witness": 0.928,
+    "witness_reached": 0.766,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.296,
+    "mean_lead_steps": 1.925646551724138,
+    "partial_zone_step_share": 0.3648
+   },
+   "N=3,k=3,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 2.219,
+    "partial_zone_step_share": 0.4438
+   },
+   "N=3,k=3,tau=0.5": {
+    "cross_before_witness": 0.924,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.25,
+    "mean_lead_steps": 1.6266233766233766,
+    "partial_zone_step_share": 0.3006
+   },
+   "N=5,k=5,tau=0.25": {
+    "cross_before_witness": 1.0,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.247,
+    "mean_lead_steps": 2.164,
+    "partial_zone_step_share": 0.4328
+   },
+   "N=5,k=5,tau=0.5": {
+    "cross_before_witness": 0.912,
+    "witness_reached": 1.0,
+    "cross_reached": 1.0,
+    "realized_det_before_witness": 0.247,
+    "mean_lead_steps": 1.5910087719298245,
+    "partial_zone_step_share": 0.2902
+   }
+  }
+ }
+}
