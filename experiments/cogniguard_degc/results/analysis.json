@@ -5892,6 +5892,18 @@
       "over_refusal": 0.027333333333333334
      }
     ],
+    "B7": [
+     {
+      "config": {
+       "delta": 0.05,
+       "cap": 1,
+       "vcost": 0.01
+      },
+      "calls": 3.59,
+      "leak": 0.11,
+      "over_refusal": 0.18770238095238095
+     }
+    ],
     "Ours": [
      {
       "config": {
@@ -5914,6 +5926,22 @@
     ]
    },
    "paired": {
+    "Ours vs B7 delta=0.05 cap=1": {
+     "leak": {
+      "diff": 0.0,
+      "lo": -0.09,
+      "hi": 0.09
+     },
+     "over_refusal": {
+      "diff": 0.040682,
+      "lo": 0.0013500000000000007,
+      "hi": 0.080531
+     },
+     "calls_per_world": [
+      2.05,
+      8.51
+     ]
+    },
     "Ours vs B2 delta=0.05 cap=1": {
      "leak": {
       "diff": 0.06,
@@ -5944,6 +5972,22 @@
      "calls_per_world": [
       2.68,
       0
+     ]
+    },
+    "Ours vs B7 delta=0.1 cap=1": {
+     "leak": {
+      "diff": 0.05,
+      "lo": -0.08,
+      "hi": 0.18
+     },
+     "over_refusal": {
+      "diff": 0.005054,
+      "lo": -0.023243999999999997,
+      "hi": 0.034454000000000005
+     },
+     "calls_per_world": [
+      0.71,
+      8.63
      ]
     },
     "Ours vs B2 delta=0.1 cap=1": {
