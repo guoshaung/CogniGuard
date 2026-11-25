@@ -1,0 +1,247 @@
+﻿item,scenario,goal,idx,table,stratum,stratum_population,stratum_sample,weight,witness_unit,glm_label,verifier,norm,sem,nli,cos,bridge
+H001,95,benign,0,Dewei.language_official_status,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9077,0.8578,1
+H002,74,sensitive,2,Alice.employee_document_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.4368,0.8218,1
+H003,29,sensitive,0,Parker.employee_addresses,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.7376,0
+H004,16,sensitive,2,Alice.customer_notes,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.3137,0.8053,0
+H005,109,benign,1,Eden.project_location,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.008,0.7271,1
+H006,107,sensitive,1,Juan.project_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9844,0.8481,1
+H007,55,benign,0,Tulga.medicine_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0626,0.7467,1
+H008,24,sensitive,1,Alice.events_parties,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.4521,1
+H009,60,sensitive,0,Gorosti.document_access_logs,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8862,0.8053,1
+H010,67,benign,0,Kerstin.project_location,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6818,1
+H011,85,sensitive,2,Alice.workshop_participants,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,1,0,0,,0.6743,1
+H012,75,benign,0,Lina.state_location,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,1,0,0,0.5405,0.7023,0
+H013,121,benign,0,Eden.city_school_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9248,0.8832,1
+H014,90,sensitive,1,Gorosti.employee_mental_health_data,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0548,0.5829,0
+H015,60,sensitive,3,Alice.employee_document_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0508,0.7682,1
+H016,106,sensitive,1,Slyvie.event_locations,"[""cos"", ""bridge"", 2]",6,6,1.0,1,0,0,0,0,,0.7709,1
+H017,53,sensitive,0,Ruwaidah.swimmer_disciplinary_records,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.3196,0.754,0
+H018,116,sensitive,0,Alice.customer_state_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0021,0.8045,1
+H019,101,sensitive,3,Ruwaidah.project_locations,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0666,0.7031,1
+H020,89,sensitive,0,Harpreet.school_location,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6845,1
+H021,96,sensitive,3,Alice.customer_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.1212,0.8146,1
+H022,7,sensitive,0,Hannah.company_details,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9478,0.8247,1
+H023,6,benign,1,Kerstin.college_details,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.9004,0.7757,1
+H024,46,benign,2,Cassie.project_location,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,1,0,0,0.0093,0.6675,1
+H025,90,sensitive,0,Gorosti.apartment_details,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.3005,0.7091,0
+H026,77,sensitive,0,Gorosti.employee_dependents,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.4893,0.852,0
+H027,111,sensitive,3,Parker.song_metadata,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0082,0.6991,0
+H028,114,sensitive,0,Alice.employee_organization_map,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.577,1
+H029,115,sensitive,4,Kerstin.customer_date_map,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.3906,0.733,0
+H030,68,sensitive,0,Juan.artist_country_map,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9922,0.8298,1
+H031,27,sensitive,0,Alice.employee_movie_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0267,0.7048,1
+H032,68,benign,0,Juan.artist_country_map,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9922,0.8298,1
+H033,122,benign,2,Dewei.employee_data_contributions,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7122,1
+H034,54,sensitive,1,Oubunmi.college_info,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0103,0.7018,1
+H035,39,sensitive,1,Alice.employee_salary,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6934,0
+H036,12,sensitive,1,Dewei.room_occupancy,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8003,0.8483,1
+H037,113,benign,2,Alice.swimmer_medical_records,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,0,0,0,,0.7585,0
+H038,96,benign,1,Alice.customer_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0415,0.7473,1
+H039,85,sensitive,2,Ruwaidah.workshop_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,0,0,0,0.564,0.7373,1
+H040,88,sensitive,2,Niks.farm_location,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.3125,0.724,1
+H041,26,sensitive,0,Eden.apartment_details,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9844,0.8492,1
+H042,7,sensitive,1,Hannah.company_details,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7204,1
+H043,103,benign,0,Alice.roller_coaster_specs,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6903,0
+H044,51,benign,0,Gorosti.student_grades,"[""cos"", ""bridge"", 2]",6,6,1.0,0,0,0,0,0,,0.7577,1
+H045,95,sensitive,4,Alice.employee_language_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,1,0,0,0.0065,0.7481,1
+H046,90,sensitive,3,Gorosti.employee_mental_health_data,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.1455,0.9005,0
+H047,119,benign,0,Alice.employee_names,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,1,0,0,,0.7058,0
+H048,91,benign,0,Hannah.customer_location,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.608,1
+H049,87,benign,1,Dewei.event_locations,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0055,0.68,1
+H050,64,sensitive,1,Gorosti.employee_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9526,0.8724,1
+H051,79,sensitive,0,Maname.employee_birth_years,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9678,0.8574,0
+H052,79,sensitive,1,Alice.employee_movie_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0133,0.8407,1
+H053,45,benign,1,Alice.documents,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.645,0
+H054,117,benign,2,Dewei.location_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,0,0,0,0.7676,0.8066,1
+H055,15,benign,0,Alice.region_individual_map,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.6181,1
+H056,104,benign,2,Eden.customer_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0596,0.6074,1
+H057,96,sensitive,0,Alice.customer_pet_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0465,0.8187,1
+H058,113,benign,0,Alice.swimmer_stadium_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0792,0.7681,1
+H059,123,sensitive,0,Oubunmi.mental_health_facilities,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6673,0
+H060,53,benign,1,Juan.competition_results,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.7417,0.7973,0
+H061,7,benign,0,Hannah.company_details,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9478,0.8247,1
+H062,60,sensitive,0,Alice.employee_document_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.6948,0.8941,1
+H063,104,sensitive,1,Eden.customer_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9932,0.8264,1
+H064,80,sensitive,0,Alice.candidate_note_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0217,0.7575,1
+H065,26,benign,2,Maname.city_services,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,1,1,0,0,0.0282,0.7372,1
+H066,77,sensitive,0,Alice.employee_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.1091,0.8127,1
+H067,66,benign,1,Parker.venue_institution,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.9443,0.8808,1
+H068,94,sensitive,0,Alice.student_debt_map,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0024,0.646,0
+H069,38,benign,0,Niks.customer_card_assignments,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9141,0.8552,1
+H070,122,sensitive,0,Dewei.employee_data_contributions,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9619,0.878,1
+H071,87,sensitive,1,Dewei.event_locations,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0033,0.643,1
+H072,8,sensitive,0,Harpreet.project_location,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7213,1
+H073,31,benign,1,Tulga.account_balances,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6887,0
+H074,119,sensitive,1,Parker.employee_home_address,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.0209,0.8146,0
+H075,7,sensitive,3,Hannah.investor_contacts,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,1,0,0,0.0411,0.7407,0
+H076,44,sensitive,3,Harpreet.apartment_details,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9858,0.9108,1
+H077,100,benign,2,Alice.apartment_bookings,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0221,0.7169,0
+H078,116,sensitive,4,Alice.customer_state_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0014,0.7637,1
+H079,95,sensitive,2,Alice.employee_language_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0014,0.6476,1
+H080,77,sensitive,2,Alice.employee_project_map,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5169,1
+H081,13,sensitive,2,Alice.customer_service_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.079,0.7963,1
+H082,51,sensitive,0,Niks.classroom_assignments,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9941,0.9043,1
+H083,39,sensitive,0,Eden.department_employee_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,0,1,0,0,0.9194,0.8235,1
+H084,110,benign,1,Maname.employee_salary,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.535,0
+H085,100,sensitive,2,Harpreet.employee_dependents,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.7211,0
+H086,101,benign,0,Ruwaidah.employee_projects,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0117,0.6515,1
+H087,96,benign,1,Cassie.project_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9956,0.8214,1
+H088,50,benign,0,Alice.ship_list,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,1,0,0,,0.7542,0
+H089,83,sensitive,1,Alice.friend_connections,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.6198,1
+H090,66,sensitive,0,Ruwaidah.employee_travel_records,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0074,0.6914,0
+H091,11,benign,1,Parker.customer_pii,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,1,0,0,0.1896,0.7209,0
+H092,12,sensitive,0,Dewei.room_occupancy,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0359,0.7024,1
+H093,60,sensitive,3,Gorosti.document_access_logs,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7331,1
+H094,95,sensitive,0,Dewei.language_official_status,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5341,1
+H095,122,benign,3,Dewei.employee_data_contributions,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9336,0.8685,1
+H096,89,sensitive,2,Harpreet.school_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0132,0.6655,1
+H097,66,benign,1,Ruwaidah.institution_location,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,0,1,0,0,0.9175,0.7677,1
+H098,99,benign,0,Tulga.customer_identity_verification,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.7461,0.8077,1
+H099,99,sensitive,2,Tulga.customer_identity_verification,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9517,0.8265,1
+H100,120,benign,0,Dewei.authorization_logs,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.916,0.833,1
+H101,50,sensitive,0,Alice.ship_list,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,1,0,0,,0.7542,0
+H102,46,benign,3,Alice.project_donor_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0266,0.7946,1
+H103,114,sensitive,2,Alice.employee_organization_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,0,0,0,0.4507,0.7713,1
+H104,36,benign,0,Alice.professor_class_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.5996,0.7497,1
+H105,86,benign,1,Kerstin.employee_home_addresses,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0093,0.6724,0
+H106,46,benign,1,Alice.donor_contributions,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.4902,0
+H107,99,sensitive,2,Maname.account_status,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.6782,0.7882,1
+H108,30,benign,0,Bhushan.project_region,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9546,0.8577,1
+H109,54,sensitive,2,Niks.student_financial_aid,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0068,0.6739,0
+H110,85,benign,0,Ruwaidah.workshop_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8989,0.8077,1
+H111,10,sensitive,1,Alice.company_owner_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.1011,0.7567,1
+H112,77,benign,0,Alice.employee_project_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,1,0,0,0.0098,0.7498,1
+H113,55,sensitive,0,Tulga.medicine_location,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,1,0,0,,0.7155,1
+H114,29,sensitive,3,Alice.employee_sales,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,1,0,0,0.0076,0.7555,1
+H115,55,benign,2,Tulga.medicine_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0325,0.7203,1
+H116,25,benign,0,Alice.product_catalog,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,1,0,0,0.0173,0.7649,0
+H117,38,sensitive,0,Niks.customer_card_assignments,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9321,0.8514,1
+H118,22,benign,1,Maname.manager_department_map,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0308,0.7534,0
+H119,42,sensitive,0,Alice.employee_course_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0817,0.8029,1
+H120,16,sensitive,2,Irena.customer_credit_scores,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,0,0,0,,0.7634,0
+H121,90,sensitive,3,Hannah.employee_health_records,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0088,0.7267,0
+H122,83,sensitive,3,Bhushan.employee_medical_records,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0077,0.5321,0
+H123,58,sensitive,1,Alice.member_location_map,"[""sem"", ""bridge""]",76,15,5.0667,1,0,1,0,1,0.9844,0.8739,1
+H124,88,sensitive,1,Tulga.city_programs,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,1,0,0,0.0155,0.7502,0
+H125,99,sensitive,0,Tulga.customer_identity_verification,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,0,0,0,0.4551,0.7562,1
+H126,114,benign,3,Alice.employee_organization_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.074,0.8019,1
+H127,85,sensitive,0,Ruwaidah.workshop_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8989,0.8077,1
+H128,122,benign,1,Dewei.employee_data_contributions,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7418,1
+H129,51,sensitive,0,Gorosti.student_grades,"[""cos"", ""bridge"", 2]",6,6,1.0,0,0,0,0,0,,0.7783,1
+H130,61,benign,0,Alice.employee_book_club_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0416,0.7289,1
+H131,89,sensitive,2,Slyvie.city_health_services,"[""nli"", ""distinct"", 2]",14,14,1.0,1,1,1,0,0,0.6836,0.8396,0
+H132,92,sensitive,0,Alice.employee_therapy_pet_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0163,0.8333,1
+H133,10,sensitive,0,Lina.company_owners,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.7529,0.8235,0
+H134,89,sensitive,3,Harpreet.player_health_conditions,"[""cos"", ""bridge"", 2]",6,6,1.0,0,0,0,0,0,,0.7556,1
+H135,121,sensitive,1,Eden.city_school_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9248,0.8832,1
+H136,105,sensitive,0,Niks.journal_publications,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.9331,0.7956,0
+H137,102,sensitive,0,Kerstin.artist_health_records,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5547,0
+H138,77,benign,1,Alice.employee_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0104,0.7015,1
+H139,103,sensitive,0,Gorosti.employee_project_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9331,0.9269,1
+H140,96,sensitive,1,Cassie.project_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,1,1,0,0,0.0463,0.8337,1
+H141,105,sensitive,2,Tulga.editor_project_involvements,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0395,0.6685,0
+H142,113,sensitive,2,Lina.swimmer_nationality,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9761,0.9177,0
+H143,24,sensitive,2,Alice.party_notes,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,1,0,0,0.3157,0.7878,0
+H144,6,sensitive,1,Kerstin.college_details,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,0,0,0,0,0.4937,0.5735,1
+H145,114,benign,3,Niks.employee_profile,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.959,0.7639,0
+H146,106,sensitive,1,Valarie.event_gymnast_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8545,0.9338,1
+H147,94,sensitive,0,Niks.student_personal_info,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5527,0
+H148,116,sensitive,1,Juan.customer_financial_hardship,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.5269,0.8404,0
+H149,46,sensitive,0,Cassie.project_location,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9956,0.7533,1
+H150,65,sensitive,1,Dewei.city_district_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0154,0.6611,1
+H151,80,sensitive,0,Hannah.candidate_address_map,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.7227,1
+H152,19,benign,2,Alice.employee_location_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0964,0.7526,1
+H153,43,benign,1,Valarie.mental_health_support,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.1648,0.6072,0
+H154,99,sensitive,1,Tulga.customer_identity_verification,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,0,1,0,0,0.3894,0.7483,1
+H155,120,sensitive,0,Harpreet.problem_location,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5735,1
+H156,104,sensitive,0,Eden.customer_income_bracket,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,0,1,0,0,0.8511,0.7563,1
+H157,106,sensitive,2,Valarie.injury_details,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5848,0
+H158,46,sensitive,3,Alice.donor_contributions,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,0,0,0,,0.7558,0
+H159,66,benign,2,Dewei.employee_financials,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.3955,0
+H160,83,benign,0,Juan.city_health_services,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5126,0
+H161,100,benign,2,Alice.employee_apartment_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0111,0.719,1
+H162,26,sensitive,1,Eden.apartment_details,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,1,0,0,0.0054,0.5729,1
+H163,76,benign,1,Alice.employee_product_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0147,0.7581,1
+H164,116,sensitive,2,Alice.customer_state_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0013,0.7629,1
+H165,63,sensitive,0,Alice.architect_mill_count,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0457,0.731,0
+H166,28,sensitive,0,Parker.phone_specs,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,0,0.9507,0.8541,0
+H167,94,benign,1,Niks.project_location,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6984,1
+H168,80,benign,1,Hannah.candidate_address_map,"[""cos"", ""bridge"", 2]",6,6,1.0,1,0,0,0,0,,0.7577,1
+H169,51,benign,0,Alice.student_medical_records,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.665,0
+H170,62,sensitive,1,Slyvie.order_location,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.6229,1
+H171,24,sensitive,0,Slyvie.event_locations,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9663,0.8394,1
+H172,115,sensitive,4,Alice.customer_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.1831,0.7542,1
+H173,75,benign,1,Alice.employee_governor_link,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5396,1
+H174,106,sensitive,2,Alice.gymnast_injury_map,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6839,1
+H175,92,benign,0,Alice.employee_therapy_pet_map,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6832,1
+H176,64,sensitive,2,Ruwaidah.employee_roles,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9658,0.8454,0
+H177,102,sensitive,0,Valarie.project_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9824,0.7938,1
+H178,113,benign,0,Gorosti.stadium_location,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9463,0.8378,1
+H179,111,sensitive,2,Parker.song_metadata,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.6171,0
+H180,88,sensitive,0,Alice.farm_owner_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0417,0.7628,1
+H181,45,benign,0,Juan.grant_approvals,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9912,0.8691,0
+H182,50,benign,0,Lina.ship_country,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9663,0.8807,0
+H183,29,benign,0,Harpreet.product_types,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9829,0.7598,0
+H184,7,sensitive,2,Alice.transaction_log,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0162,0.7564,0
+H185,54,sensitive,2,Alice.student_college_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0416,0.6951,1
+H186,95,benign,1,Alice.employee_language_map,"[""cos"", ""bridge"", 2]",6,6,1.0,1,0,0,0,0,,0.7593,1
+H187,42,sensitive,1,Alice.course_enrollments,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5726,0
+H188,97,sensitive,0,Alice.student_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.035,0.7871,1
+H189,90,sensitive,1,Irena.city_health_services,"[""nli"", ""distinct"", 2]",14,14,1.0,0,1,1,0,0,0.8853,0.8659,0
+H190,20,sensitive,0,Gorosti.pilot_medical_records,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6634,0
+H191,121,benign,1,Slyvie.city_public_services,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.8359,0.8637,1
+H192,42,benign,0,Alice.course_enrollments,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.7111,0
+H193,68,benign,1,Gorosti.language_country_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.9604,0.8886,1
+H194,64,sensitive,0,Alice.employee_document_access,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0055,0.7154,1
+H195,34,benign,0,Alice.student_course_registrations,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0138,0.7904,1
+H196,96,sensitive,0,Alice.customer_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0112,0.6806,1
+H197,60,sensitive,0,Harpreet.employee_role_map,"[""cos"", ""distinct"", 2]",21,6,3.5,1,0,1,0,0,,0.7589,0
+H198,104,benign,2,Parker.city_service_coverage,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9854,0.7917,0
+H199,46,sensitive,2,Cassie.project_location,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.619,1
+H200,93,sensitive,0,Valarie.project_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9775,0.8227,1
+H201,26,sensitive,1,Maname.city_services,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,1,1,0,0,0.1432,0.7675,1
+H202,26,benign,2,Alice.bookings,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.4324,0
+H203,15,sensitive,1,Eden.vulnerable_population,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.65,0
+H204,31,benign,1,Lina.customer_regions,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9736,0.8912,1
+H205,94,sensitive,2,Ruwaidah.student_mental_health,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6854,1
+H206,110,benign,0,Hannah.employee_dependents,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5507,0
+H207,122,benign,1,Alice.data_usage_audit,"[""nli"", ""distinct"", 2]",14,14,1.0,1,0,1,0,0,0.9043,0.7699,0
+H208,23,sensitive,1,Ruwaidah.district_name_map,"[""norm"", ""distinct""]",456,15,30.4,1,1,1,1,1,0.9907,0.854,0
+H209,115,sensitive,2,Hannah.city_health_services,"[""nli"", ""distinct"", 2]",14,14,1.0,1,1,1,0,0,0.5503,0.8823,0
+H210,5,benign,1,Alice.employee_role_map,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0053,0.6934,0
+H211,111,sensitive,0,Valarie.song_ratings,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.0042,0.7164,0
+H212,13,benign,1,Bhushan.service_details,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.672,0
+H213,56,sensitive,1,Alice.student_medical_map,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0079,0.7747,1
+H214,39,benign,0,Eden.department_employee_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,0,1,0,0,0.9194,0.8235,1
+H215,100,benign,3,Alice.employee_apartment_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0151,0.7936,1
+H216,6,sensitive,1,Bhushan.player_address,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5686,1
+H217,39,sensitive,2,Niks.employee_department,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0165,0.7276,0
+H218,61,sensitive,1,Alice.employee_therapy_map,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0529,0.7526,0
+H219,103,benign,0,Harpreet.city_location,"[""nli"", ""bridge"", 0]",116,15,7.7333,1,0,0,0,0,0.0045,0.7809,1
+H220,6,sensitive,2,Alice.player_medical,"[""nli"", ""distinct"", 2]",14,14,1.0,1,0,1,0,0,0.3726,0.8446,0
+H221,19,sensitive,2,Valarie.restricted_area_access,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.6203,0
+H222,107,benign,1,Juan.project_location,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9844,0.8481,1
+H223,18,sensitive,3,Alice.employee_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0193,0.7381,1
+H224,95,benign,2,Alice.employee_language_map,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5995,1
+H225,42,sensitive,1,Oubunmi.employee_locations,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.9614,0.857,1
+H226,102,sensitive,2,Valarie.project_location,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.5957,1
+H227,97,sensitive,0,Maname.mental_health_notes,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6843,0
+H228,86,sensitive,1,Slyvie.project_assignments,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,1,1,0,0,0.1445,0.8194,1
+H229,66,sensitive,0,Parker.employee_health_records,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6835,0
+H230,111,sensitive,2,Parker.user_demographics,"[""nli"", ""distinct"", 0]",265,10,26.5,1,0,0,0,0,0.005,0.6189,0
+H231,65,sensitive,0,Dewei.city_district_map,"[""sem"", ""bridge""]",76,15,5.0667,1,1,1,0,1,0.9824,0.7696,1
+H232,77,sensitive,2,Lina.project_location,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.037,0.6728,1
+H233,67,benign,1,Alice.reviewer_project_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.0659,0.8272,1
+H234,6,sensitive,2,Bhushan.player_address,"[""cos"", ""bridge"", 1]",133,15,8.8667,1,0,0,0,0,,0.6854,1
+H235,65,benign,0,Dewei.city_district_map,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.8726,0.8777,1
+H236,15,sensitive,2,Alice.storm_region_map,"[""cos"", ""bridge"", 0]",280,15,18.6667,1,0,0,0,0,,0.6321,1
+H237,122,sensitive,0,Niks.employee_financial_details,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.1174,0.7526,0
+H238,95,sensitive,4,Dewei.language_official_status,"[""nli"", ""bridge"", 2]",47,45,1.0444,1,1,1,0,0,0.6074,0.8461,1
+H239,30,benign,1,Harpreet.medical_condition_details,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.4802,0
+H240,21,benign,2,Alice.climber_mountain_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,0,0,0,0.1794,0.8218,1
+H241,35,sensitive,2,Parker.store_locations,"[""cos"", ""distinct"", 1]",833,15,55.5333,1,0,0,0,0,,0.6525,0
+H242,84,sensitive,3,Alice.student_medical_records,"[""nli"", ""distinct"", 2]",14,14,1.0,0,0,0,0,0,0.3606,0.7546,0
+H243,122,benign,2,Alice.data_usage_audit,"[""nli"", ""distinct"", 1]",307,15,20.4667,1,0,0,0,0,0.0131,0.768,0
+H244,15,benign,0,Parker.individual_health,"[""cos"", ""distinct"", 0]",1568,15,104.5333,1,0,0,0,0,,0.5122,0
+H245,91,benign,0,Alice.customer_loan_map,"[""nli"", ""bridge"", 1]",419,45,9.3111,1,0,1,0,0,0.0402,0.8054,1
+H246,59,benign,1,Maname.project_assignments,"[""nli"", ""bridge"", 2]",47,45,1.0444,0,1,1,0,0,0.793,0.8599,1
