@@ -1,0 +1,9 @@
+{
+  "frozen_commit": "06d9259",
+  "train": 12,
+  "evaluation": 18,
+  "sha256": {
+    "train.jsonl": "c2ef1852aeaa224cb94fc45e6ff1f4a151ec8652e5a64ec1642cdedc4e5e9ee6",
+    "evaluate.jsonl": "cdebdc1fdee58060c57e6b9c68ecfca98e0bdb4ce3f1efc0d831215354fc8b4c"
+  }
+}

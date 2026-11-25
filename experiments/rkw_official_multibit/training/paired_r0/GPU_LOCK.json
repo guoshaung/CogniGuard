@@ -1,0 +1,18 @@
+{
+  "seed": 61128,
+  "batch": 3,
+  "epochs": 3,
+  "clean_extra_epochs": 3,
+  "lora_rank": 8,
+  "lr": 0.0003,
+  "max_new_tokens": 112,
+  "model": {
+    "config.json": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+    "model.safetensors": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  "data": {
+    "train.jsonl": "c2ef1852aeaa224cb94fc45e6ff1f4a151ec8652e5a64ec1642cdedc4e5e9ee6",
+    "evaluate.jsonl": "cdebdc1fdee58060c57e6b9c68ecfca98e0bdb4ce3f1efc0d831215354fc8b4c"
+  }
+}
