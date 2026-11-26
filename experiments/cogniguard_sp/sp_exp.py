@@ -98,6 +98,30 @@ def run(inst, name, q, seqs, seed):
             "ms": 1000 * secs / max(1, pol.calls)}, decs
 
 
+def traj_agree(inst, q, seqs, other):
+    """Decision agreement with A1 on A1's own trajectory, multi-option states only (PREREG MERGE gate).
+    SP_D is compared with A1_D (deferral variants), the others with A1."""
+    ref = make("A1_D" if other == "SP_D" else "A1", inst, q)
+    a1 = make("A1", inst, q)
+    pol = make(other, inst, q)
+    n = agree = 0
+    for e, seq in enumerate(seqs):
+        state = inst.K0
+        rng = random.Random(e)
+        for t, ti in enumerate(seq):
+            g = inst.group(inst.types[ti][0])
+            opts = [o for o in inst.types[ti][1] if inst.feasible(state[g], o)]
+            if len(opts) > 1:
+                n += 1
+                agree += ref.act(t, state, ti, rng) == pol.act(t, state, ti, rng)
+            o = a1.act(t, state, ti, rng)
+            if o is not None:
+                s2 = list(state)
+                s2[g] |= o
+                state = tuple(s2)
+    return [agree, n]
+
+
 def evaluate(args):
     regime, key, split, methods = args
     inst = build(regime, key)
@@ -114,7 +138,11 @@ def evaluate(args):
             res[m], decs[m] = run(inst, m, q, seqs, key)
         except TooBig:
             res[m] = {"skipped": "state limit"}
-    agree = {}
+    traj = {}
+    for m in ("SP_LP", "OCOST", "SP_D"):
+        if m in methods and "A1" in methods:
+            traj[m] = traj_agree(inst, q, seqs, m)
+    agree = {"traj_multi": traj}
     for m in methods:
         if m != "A1" and m in decs and "A1" in decs:
             a, b = decs["A1"], decs[m]
@@ -163,7 +191,7 @@ def p0_one(args):
                 st["degenerate"] += all(v < 1e-6 for v in lam.values())
                 alive_demand = sum(nvec[t2] for t2, (a2, o2) in enumerate(inst.types)
                                    if any(not any(r & ~o == 0 for r in ck[inst.group(a2)]) for o in o2))
-                st["lp_ge_alive"] += val >= alive_demand - 1e-6
+                st["lp_ge_alive"] += bool(val >= alive_demand - 1e-6)
                 if len(opts) > 1:
                     st["multi"] += 1
                     o_a1 = a1.act(t, state, ti, rng)
@@ -175,7 +203,7 @@ def p0_one(args):
             s2 = list(state)
             s2[g] |= o
             state = tuple(s2)
-    return {"regime": regime, "key": key, "lp0": lp0, "opt0": opt0, "H": inst.H, **st}
+    return {"regime": regime, "key": key, "lp0": float(lp0), "opt0": None if opt0 is None else float(opt0), "H": inst.H, **{k: int(v) for k, v in st.items()}}
 
 
 def p0():
