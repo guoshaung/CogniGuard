@@ -16,11 +16,17 @@ METHODS = ["cot", "cotlh", "tom", "codef", "cg_llm", "cg_b2", "ocelot_r", "pflow
 B, SEED, MARGIN = 10_000, 20261127, 0.10
 
 
+PILOT = {"5", "40", "100"}
+
+
 def load(kind):
     res = defaultdict(dict)
-    for l in (RUNS / kind / "results.jsonl").read_text().splitlines():
-        r = json.loads(l)
-        res[r["method"]][(str(r["scenario"]), r["goal"])] = r
+    for f in sorted((RUNS / kind).glob("*/results.jsonl")):
+        for l in f.read_text().splitlines():
+            r = json.loads(l)
+            if kind == "old" and str(r["scenario"]) in PILOT:
+                continue                              # D1: primary = old set without the 3 pilot scenarios
+            res[r["method"]][(str(r["scenario"]), r["goal"])] = r
     return res
 
 
@@ -80,7 +86,7 @@ def main(kind):
         return {"H1_safety": h1, "H2_utility": h2}
 
     out["hypotheses"] = {f"{a}-vs-{b}": h(a, b) for a in ("cg_llm", "ocelot_r", "pflow_r", "cg_b2") for b in ("tom", "codef")}
-    if kind == "new":
+    if kind == "old":                                 # D1: the claim is judged on the old (paper) set
         hs = [out["hypotheses"].get(f"cg_llm-vs-{b}") for b in ("tom", "codef")]
         ok1 = all(x and x["H1_safety"] == "noninferior" for x in hs)
         ok2 = all(x and x["H2_utility"] == "better" for x in hs)
