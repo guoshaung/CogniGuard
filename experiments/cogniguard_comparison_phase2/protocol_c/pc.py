@@ -37,16 +37,36 @@ ATTACK_SAMPLES = 5
 _CLIENT = None
 
 
+MODEL = os.environ.get("PC_MODEL", "glm-5.2")
+TOKEN_CAP = int(os.environ.get("PC_TOKEN_CAP", "50000000"))        # D2: hard stop on total tokens
+
+
 def client():
     global _CLIENT
     if _CLIENT is None:
-        from experiments.capd_e3b2_20261124.common import Client
-        _CLIENT = Client("glm-5.2", workers=8)
+        from experiments.capd_e3b2_20261124 import common as C
+        if MODEL not in C.MODELS:                                    # D2: third-party OpenAI-compatible endpoint
+            base = C._env()["THIRDPARTY_BASE_URL"]
+            C.MODELS[MODEL] = (base, "THIRDPARTY_API_KEY", {})
+        _CLIENT = C.Client(MODEL, workers=8)
     return _CLIENT
 
 
+def tokens_used():
+    p = PC / "e3b2" / "calls" / f"{MODEL}.jsonl"
+    if not p.exists():
+        return 0
+    return sum(int((json.loads(l).get("usage") or {}).get("total_tokens") or 0) for l in p.read_text().splitlines() if l.strip())
+
+
 def llm(messages, temperature=0.0, sample=0, max_tokens=400):
-    return client().call(messages, temperature=temperature, sample=sample, max_tokens=max_tokens).get("content") or ""
+    cl = client()
+    for _ in range(2):
+        row = cl.call(messages, temperature=temperature, sample=sample, max_tokens=max_tokens)
+        if row.get("ok"):
+            return row.get("content") or ""
+        cl.cache.pop(cl.key(messages, temperature, sample), None)   # D2: never reuse a failed call
+    raise RuntimeError(f"LLM call failed: {row.get('error')}")
 
 
 # ------------------------------------------------------------------ data
@@ -295,15 +315,28 @@ def methods_for(stage):
 
 
 def run_target(args):
+    try:
+        return _run_target(args)
+    except RuntimeError as e:                                       # D2: API failure -> target not written
+        print("skip", args[1], str(e)[:120])
+
+
+def _run_target(args):
     stage, tid, secret = args
     out_path = PC / "results" / stage / f"{tid}.json"
     if out_path.exists():
+        return
+    if tokens_used() > TOKEN_CAP:
+        print("token cap reached; skipping", tid)
         return
     feats, templates = unit_info(tid)
     uids = sorted(u for _, u in secret.units if u in templates)
     fid = {u: str(i + 1) for i, u in enumerate(uids)}
     facts = [(fid[u], templates[u]) for u in uids]
     texts = {u: teacher_text(templates[u]) for u in uids}
+    if not all(texts.values()):
+        print("empty teacher text (API failure?); skipping", tid)
+        return
     met = {}
     for u in uids:
         ids = meter(texts[u], facts)
