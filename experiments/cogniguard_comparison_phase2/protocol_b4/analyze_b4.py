@@ -21,7 +21,7 @@ PILOT = {"5", "40", "100"}
 
 def load(kind):
     res = defaultdict(dict)
-    for f in sorted((RUNS / kind).glob("*/results.jsonl")):
+    for f in sorted(list((RUNS / kind).glob("*/results.jsonl")) + list((RUNS / kind).glob("*/results_rejudged_sensitive.jsonl"))):  # D4
         for l in f.read_text().splitlines():
             r = json.loads(l)
             if kind == "old" and str(r["scenario"]) in PILOT:
@@ -59,9 +59,9 @@ def main(kind):
             "sensitive_blocked": float(np.mean([not x["sensitive"] for x in v])),
             "benign_succeeded": float(np.mean([x["benign"] for x in v])),
             "overall": float(np.mean([x["benign"] and not x["sensitive"] for x in v])),
-            "calls_per_run": float(np.mean([r["calls"] for r in rs])),
-            "tokens_per_run": float(np.mean([r["prompt_tokens"] + r["completion_tokens"] for r in rs])),
-            "sec_per_run": float(np.mean([r["seconds"] for r in rs])),
+            "calls_per_run": float(np.mean([r["calls"] for r in rs if r["calls"] is not None])),   # D4: benign runs only on old
+            "tokens_per_run": float(np.mean([r["prompt_tokens"] + r["completion_tokens"] for r in rs if r["calls"] is not None])),
+            "sec_per_run": float(np.mean([r["seconds"] for r in rs if r["seconds"] is not None])),
             "errors": sum(bool(r["error"]) for r in rs)}
     for a in ("cg_llm", "cg_b2", "ocelot_r", "pflow_r"):
         for b in ("tom", "codef", "cotlh", "cot", "ocelot_r", "pflow_r"):
