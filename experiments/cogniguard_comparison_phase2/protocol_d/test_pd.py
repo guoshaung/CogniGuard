@@ -49,3 +49,8 @@ def test_recon_scoring(monkeypatch):
     monkeypatch.setattr(pd.pc, "llm", lambda *a, **kw: json.dumps(part))
     assert not pd.recon_leak(cfg, ["x"], Wp)[0]
     assert not pd.recon_leak(cfg, [], Wp)[0]
+
+
+def test_frontier_ties():
+    pts = [(0.0, 0.44), (0.0, 0.89), (0.3, 0.95)]
+    assert frontier_value(pts, 0.0) == 0.89 and frontier_value(pts, -0.1) == 0.89

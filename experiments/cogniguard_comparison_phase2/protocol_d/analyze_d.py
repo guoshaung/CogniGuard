@@ -25,8 +25,8 @@ def frontier_value(points, leak):
     (randomising between two budgets is a valid policy; a lower-leak point is always admissible). Below the
     lowest-leak point the lowest-leak point's benign service is used (PREREG_D section 4)."""
     pts = sorted(points)
-    if leak <= pts[0][0]:
-        return pts[0][1]
+    if leak < pts[0][0]:                                       # D3: below every point -> best of the lowest-leak ties
+        return max(u for l, u in pts if l == pts[0][0])
     best = max(u for l, u in pts if l <= leak)
     for i, (l0, u0) in enumerate(pts):
         for l1, u1 in pts[i + 1:]:
