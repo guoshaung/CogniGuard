@@ -35,3 +35,17 @@ def test_capd_between_ledgers():
 def test_frontier_interp():
     pts = [(0.1, 0.2), (0.5, 0.6), (0.3, 0.1)]
     assert abs(frontier_value(pts, 0.3) - 0.4) < 1e-9 and frontier_value(pts, 0.05) == 0.2 and frontier_value(pts, 0.9) == 0.6
+
+
+def test_recon_scoring(monkeypatch):
+    k, s, p = pd.scenarios()[0]
+    cfg = json.loads(p.read_text())
+    Wp = pd.wprime(cfg)
+    T = pd.tables(cfg)
+    full = {u: T[u]["rows"][:1] for u in Wp}
+    monkeypatch.setattr(pd.pc, "llm", lambda *a, **kw: json.dumps(full))
+    assert pd.recon_leak(cfg, ["x"], Wp)[0]
+    part = {u: T[u]["rows"][:1] for u in Wp[:-1]}
+    monkeypatch.setattr(pd.pc, "llm", lambda *a, **kw: json.dumps(part))
+    assert not pd.recon_leak(cfg, ["x"], Wp)[0]
+    assert not pd.recon_leak(cfg, [], Wp)[0]
