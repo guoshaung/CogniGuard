@@ -1,5 +1,6 @@
 """Gated evolution of persistent agent state. Standard library only."""
 
+from cogniguard.evolution.agent_state import EvolvingAgentState
 from cogniguard.evolution.checkers import default_checkers
 from cogniguard.evolution.events import EvolutionEvent, EvolutionKind, SourceInfo
 from cogniguard.evolution.gate import CheckResult, EvolutionGate, GateDecision
@@ -11,6 +12,7 @@ __all__ = [
     "EvolutionGate",
     "EvolutionKind",
     "EvolutionLedger",
+    "EvolvingAgentState",
     "GateDecision",
     "SourceInfo",
     "default_checkers",
