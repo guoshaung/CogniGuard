@@ -61,4 +61,4 @@
 
 ## 推送
 
-见随后的提交说明。本提交写报告时推送尚未执行。
+第一次尝试即成功，没有重试。命令是 `git push -u origin paper/eswa-evolving`。上游现为 `origin/paper/eswa-evolving`。报告提交 `9f9714d` 已在远程。本段是推送成功之后补记，单独提交，没有改写上一次提交。
