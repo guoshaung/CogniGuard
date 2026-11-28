@@ -1,0 +1,42 @@
+{
+  "seed": 20261129,
+  "agents": 5,
+  "generations": 20,
+  "actions_per_agent_per_generation": 3,
+  "preregistered": false,
+  "unguarded": {
+    "guarded": false,
+    "injected": 40,
+    "committed_polluted": 40,
+    "active_polluted_versions": 40,
+    "persistence_rate": 1.0,
+    "affected_agents": 6,
+    "affected_agent_ids": [
+      "a0",
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "outsider"
+    ],
+    "benign_attempts": 300,
+    "benign_rejected": 0,
+    "false_reject_rate": 0.0,
+    "propose_calls": 465,
+    "mean_propose_seconds": 2.5732495311287143e-06
+  },
+  "guarded": {
+    "guarded": true,
+    "injected": 40,
+    "committed_polluted": 0,
+    "active_polluted_versions": 0,
+    "persistence_rate": 0.0,
+    "affected_agents": 0,
+    "affected_agent_ids": [],
+    "benign_attempts": 300,
+    "benign_rejected": 0,
+    "false_reject_rate": 0.0,
+    "propose_calls": 465,
+    "mean_propose_seconds": 6.02060262995061e-06
+  }
+}
